@@ -1,0 +1,763 @@
+name,lon,lat,kind,elevation_m,rank,name_en,wikidata
+Mount Everest,86.8806,27.9805,peak,8848,1,,Q513
+K2,76.5132,35.8824,peak,8611,2,,Q43512
+Muztag Feng,87.4132,36.4165,peak,6973,2,Ulugh Muztagh,Q1560829
+Cerro Aconcagua,-70.0158,-32.6557,peak,6959,2,Aconcagua,Q39739
+Kailash,81.3125,31.0666,peak,6638,2,Mount Kailash,Q229107
+Denali,-151.0073,63.0694,peak,6194,2,,Q130018
+Mount Kilimanjaro,37.3533,-3.0757,peak,5895,2,,Q7296
+Gora Elbrus,42.4392,43.3552,peak,5642,2,Mount Elbrus,Q43105
+Vinson Massif,-85.6337,-78.5294,peak,4892,2,,Q163758
+Mount Whitney,-118.2922,36.5827,peak,4421,2,,Q235539
+Mount Kosciuszko,148.2632,-36.4559,peak,2228,2,,Q178167
+Cero Raya,-66.3756,5.4517,peak,2070,2,Cerro La Raya,
+Khyber Pass,71.0978,34.0984,pass,1070,2,,Q191333
+Niagara Falls,-79.0441,43.0877,waterfall,,2,,Q34221
+Salto Angel,-62.0618,5.6869,waterfall,,2,Angel Falls,Q80299
+Iguazu Falls,-54.583,-25.5683,waterfall,,2,Iguaçu Falls,Q36332
+Death Valley,-116.8282,36.2423,depression,-86,2,,Q118388
+Turpan Depression,89.3401,42.7687,depression,-154,2,,Q284780
+Dhaulagiri,83.4951,28.6965,peak,8172,3,,Q165440
+Gongga Shan,101.8791,29.5958,peak,7556,3,Mount Gongga,Q1537157
+Nganglong Kangri,80.9999,32.8166,peak,6720,3,Nganglong Mountains,Q4062402
+Geladandong,91.0834,33.4166,peak,6621,3,Geladaindong Peak,Q5530346
+Mont Blanc,6.865,45.8337,peak,4807,3,,Q583
+Belukha,86.6063,49.8071,peak,4506,3,Belukha Mountain,Q724367
+Mount Shasta,-122.195,41.4093,peak,4322,3,,Q748355
+Mount Sidley,-126.0665,-77.0316,peak,4285,3,,Q924312
+Grand Teton,-110.8018,43.7634,peak,4199,3,,Q2078034
+Mount Fridtjof Nansen,-167.5547,-85.3476,peak,4069,3,,Q3321842
+Mount Takahe,-112.0999,-76.2728,peak,3460,3,,Q358755
+Mount Hood,-121.6966,45.3845,peak,3426,3,,Q275662
+Mount Washington,-71.3074,44.2673,peak,1917,3,,Q572801
+Mount Katahdin,-68.9236,45.9034,peak,1606,3,,Q1858056
+Gees Gwardafuy,51.2583,11.822,cape,,3,Cape Guardafui,Q1145030
+Victoria Falls,25.8528,-17.928,waterfall,,3,,Q43278
+Cape Canaveral,-80.5363,28.4731,cape,,3,,Q193401
+Cape Mendocino,-124.392,40.4422,cape,,3,,Q780339
+Cabo San Lucas,-109.9698,22.8878,cape,,3,,Q1020776
+Cape Churchill,-93.1821,58.7521,cape,,3,,
+Cape Cod,-70.0369,41.9915,cape,,3,,Q49152
+Cape May,-74.9512,38.9297,cape,,3,,Q2065437
+Cabo de Hornos,-67.1694,-55.8628,cape,,3,Cape Horn,Q4078
+Cape of Good Hope,18.4413,-34.3072,cape,,3,,Q4092
+Cape Palmas,-7.4574,4.374,cape,,3,,Q1034489
+Cape Verde,-17.4717,14.7325,cape,,3,Cap-Vert,Q216889
+Cap Bon,11.0242,37.074,cape,,3,,Q849879
+Oceanic pole of inaccessibility,-123.402,-48.865,pole,,3,pole of inaccessibility,Q752003
+South Magnetic Pole 2005 (est),137.8543,-64.5182,pole,,3,South Magnetic Pole,Q1043682
+North Magnetic Pole 2005 (est),-114.4057,82.7101,pole,,3,North Magnetic Pole,Q842763
+Pik Imeni Ismail Samani,72.0217,38.9324,peak,7495,4,Ismoil Somoni Peak,Q41413
+Kangtö,92.532,27.8747,peak,7060,4,Kangto,Q6362901
+Chimborazo,-78.8175,-1.4693,peak,6267,4,Chimborazo volcano,Q14081
+Bogda Feng,88.3174,43.7951,peak,5445,4,Bogda Peak,Q1037396
+Mount Kenya,37.2999,-0.1501,peak,5199,4,,Q172070
+Shah Fuladi,67.6277,34.6421,peak,5048,4,Shāh Fōlādī,Q20191405
+Pico Bolívar,-71.0527,8.5529,peak,4980,4,,Q213704
+Mount Stanley,29.8721,0.3801,peak,4979,4,,Q221666
+Puncak Jaya,137.1663,-4.0777,peak,4884,4,,Q1045888
+Klyuchevskaya Sopka,160.6439,56.056,peak,4750,4,,Q210252
+Gora Manas,71.0542,42.29,peak,4482,4,,Q13171265
+Kuh-e Jang Qal'eh,64.1884,33.117,peak,4171,4,,Q20190966
+Gunung Kinabalu,116.55,6.0834,peak,4101,4,Mount Kinabalu,Q60967
+Gora Munku-Sardyk,100.6166,51.7164,peak,3491,4,Mönkh Saridag,
+Wutai Shan,113.5702,39.0876,peak,3058,4,Mount Wutai,Q120314
+Cerro Champaquí,-64.916,-31.9916,peak,2770,4,Mount Champaquí,Q1061148
+Mount Chamberlin,-144.9136,69.2811,peak,2749,4,,Q3321738
+Lands End,-5.6686,50.0697,cape,,4,Land's End,Q169532
+Cape York,-68.2186,76.2189,cape,,4,,Q1636266
+Nunap Isua,-43.9008,59.8627,cape,,4,Cape Farewell,Q128097
+Cape Vohimena,45.1587,-25.5463,cape,,4,Cape Saint Marie,Q1352197
+Cape Agulhas,19.9934,-34.8011,cape,,4,,Q4085
+Cabo Corrientes,-105.678,20.4204,cape,,4,,Q2932434
+Pt. Eugenia,-115.0462,27.8429,cape,,4,Punta Eugenia,
+Point Conception,-120.4636,34.4603,cape,,4,,Q3307973
+Cape Hatteras,-75.5403,35.2448,cape,,4,,Q978032
+Cape Sable,-81.0904,25.1248,cape,,4,,Q2937102
+Cape Hope,-166.8132,68.3538,cape,,4,Point Hope,Q7208042
+Point Barrow,-156.4719,71.4059,cape,,4,,Q1343019
+Punta Negra,-81.1083,-5.9487,cape,,4,,Q987098
+Punta Lavapié,-73.603,-37.1712,cape,,4,,
+Punta Galera,-80.0621,0.7312,cape,,4,,
+Cap Lopez,8.7273,-0.6151,cape,,4,Cape Lopez,
+Cape Bobaomby,49.2628,-11.9665,cape,,4,Cap d'Ambre,Q2937135
+Cap Blanc,-17.0529,20.8221,cape,,4,Ras Nouadhibou,
+Nanda Devi,79.971,30.5425,peak,7817,5,,Q26794321
+Magen Gangri,99.4666,34.8001,peak,6282,5,Amne Machin,
+Ras Dejen,38.3723,13.2367,peak,4533,5,Ras Dashen,Q275435
+Talo,37.8822,10.6567,peak,4413,5,,
+Mount Elbert,-106.4464,39.1251,peak,4402,5,,Q657225
+Uncompahgre Peak,-107.4771,38.073,peak,4361,5,,Q576184
+Mount Elgon,34.5342,1.1232,peak,4321,5,,Q732838
+Mount Batu,39.4168,6.6667,peak,4307,5,,Q247952
+Jebel Toubkal,-7.9161,31.0621,peak,4165,5,Jbel Toubkal,Q503433
+King's Peak,-110.3726,40.7821,peak,4123,5,,Q1642538
+Lesatima,36.6236,-0.3248,peak,4001,5,Mount Satima,Q6923490
+Otgon Tenger,97.5502,47.6,peak,4000,5,Otgontenger,Q1572208
+Wheeler Peak,-114.3134,38.9863,peak,3982,5,,Q2566649
+Borah Peak,-113.7822,44.1401,peak,3859,5,,Q893312
+Taibai Shan,107.7501,33.9501,peak,3767,5,Mount Taibai,
+Thabana Ntlenyana,29.2667,-29.4666,peak,3482,5,,Q733132
+Argun,36.7473,6.1098,peak,3418,5,,Q24032213
+Muleta,41.7336,9.2689,peak,3405,5,Gara Muleta,
+Mount Baker,-121.8233,48.7959,peak,3286,5,,Q594387
+Kinyeti,32.9013,3.9551,peak,3187,5,,Q948298
+Trapper Peak,-114.3138,45.9064,peak,3096,5,,Q7835655
+Sacajawea Peak,-117.2967,45.2537,peak,2999,5,,Q7396563
+Grandiozny Peak,96.0386,53.9257,peak,2891,5,,
+Daba Shan,109.0,32.2499,peak,2708,5,Daba Mountains,Q29613993
+Inyaptuk Golets,111.6315,56.3641,peak,2641,5,Golets Inyaptuk,
+Mazong Shan,97.1194,41.5238,peak,2584,5,Mazong Mountain,Q6798636
+Gora Burun-Shibertuy,109.9831,49.7001,peak,2519,5,,
+Skalistyy Golets,119.098,56.4015,peak,2467,5,,Q4421491
+Mount Mitchell,-82.2681,35.7647,peak,2037,5,,Q615337
+Clingmans Dome,-83.4974,35.5869,peak,2025,5,,Q685166
+Mount Rogers,-81.562,36.677,peak,1746,5,,Q688645
+Gora Korolenko,115.0071,58.2883,peak,1647,5,,
+Spruce Knob,-79.5352,38.715,peak,1482,5,,Q1815535
+Er Richat Depression,-11.373,21.2055,depression,485,5,Richat Structure,
+South West Cape,146.0338,-43.5404,cape,,5,,Q7568836
+Cape Howe,149.9584,-37.4889,cape,,5,,
+Cape Otway,143.537,-38.8547,cape,,5,,Q838457
+Cape Jaffa,139.6806,-36.9562,cape,,5,,
+Cape Carnot,135.6538,-34.9387,cape,,5,,
+Cape Byron,153.628,-28.662,cape,,5,,Q1034320
+Cape Manifold,150.8112,-22.7021,cape,,5,,
+Cape York,142.5217,-10.7107,cape,,5,,Q1728345
+Cape Melville,144.5066,-14.1635,cape,,5,,
+Cape Arnhem,136.9148,-12.2957,cape,,5,,
+West Cape Howe,117.5969,-35.1043,cape,,5,,
+Cape Leeuwin,115.128,-34.328,cape,,5,,Q1536418
+Cape Pasley,123.5172,-33.9289,cape,,5,,
+Cape Londonderry,126.9413,-13.7429,cape,,5,,
+Steep Point,113.1452,-26.1575,cape,,5,,Q1999953
+North West Cape,114.1601,-21.8015,cape,,5,,
+Cabo Gracias a Dios,-83.1587,14.9942,cape,,5,,
+Cape Brewster,-22.1227,70.1509,cape,,5,,Q3657109
+Cape Morris Jesup,-32.4915,83.6263,cape,,5,,Q917353
+Cap Est,50.4998,-15.275,cape,,5,Tanjona Angontsy,
+Cape Cretin,147.8524,-6.6373,cape,,5,,
+Cape Reinga,172.7056,-34.4204,cape,,5,Cape Reinga / Te Rerenga Wairua,Q1034494
+Ra’s Banäs,35.7781,23.9506,cape,,5,Ras Banas,
+Ponta das Salinas,12.9687,-12.8557,cape,,5,,
+Ponta das Palmeirinhas,13.0338,-9.0999,cape,,5,,
+Cabo Bojador,-14.4732,26.158,cape,,5,Cape Bojador,Q185222
+Cape Comorin,77.5121,8.0853,cape,,5,,Q946721
+Dondra Head,80.5918,5.9296,cape,,5,,Q2426307
+Cape Yelizavety,142.7206,54.4162,cape,,5,Cape Elizabeth,Q2469144
+Pt. Yuzhnyy,156.7966,57.7335,cape,,5,Mys Yuzhnyy,
+Cape Sata,130.6952,31.0269,cape,,5,,Q431595
+Cape Aniva,143.4348,46.0818,cape,,5,,Q1083875
+Cape Terpeniya,144.7125,48.6694,cape,,5,Terpeniya Peninsula,Q4309490
+Cape Lopatka,156.6516,50.9141,cape,,5,,Q1199044
+Cape Ozernoy,163.2468,57.7709,cape,,5,Ozernoy Peninsula,
+Cape Olyutorskiy,170.3129,59.9608,cape,,5,Cape Olyutorsky,Q3463471
+Cape Navarin,179.0742,62.3273,cape,,5,,Q3562501
+Cape Lopatka,150.0659,71.9078,cape,,5,,Q1199044
+Cape Ince,34.9833,42.0842,cape,,5,Cape İnce,
+Ra’s Fartak,52.239,15.658,cape,,5,,
+Ras Sharbatat,56.5582,18.167,cape,,5,Ras ash Sharbatat,
+Ra's al Had,59.7995,22.5187,cape,,5,Ras al Hadd,Q1329208
+Nordkapp,25.6607,71.1545,cape,,5,North Cape,Q4069
+Cabo de São Vicente,-8.9694,37.0383,cape,,5,Cape St. Vincent,Q4103
+Cabo Fisterra,-9.27,42.9287,cape,,5,Cape Finisterre,Q1136198
+Cape San Blas,-85.2709,29.714,cape,,5,,Q5035028
+Cape Sable,-65.6108,43.469,cape,,5,,
+Cape Bauld,-55.4303,51.5685,cape,,5,,
+Cape Fear,-77.9906,33.868,cape,,5,,Q1034413
+Cabo Orange,-51.2629,4.1356,cape,,5,Cape Orange,Q963259
+Cabo de Santa Marta Grande,-48.8034,-28.572,cape,,5,,
+Punta del Este,-54.9463,-34.9666,cape,,5,,
+Cabo San Antonio,-56.7168,-36.4096,cape,,5,Cape San Antonio,
+Cabo Corrientes,-57.5625,-38.0664,cape,,5,,
+Punta Rasa,-62.2591,-40.7263,cape,,5,,
+Cabo Dos Bahías,-65.5438,-44.8944,cape,,5,,
+Cabo Delgado,40.6244,-10.6701,cape,,5,Cape Delgado,Q1728307
+Ponta da Barra,35.5156,-23.83,cape,,5,,
+Ponta São Sebastio,35.4802,-22.1188,cape,,5,Ponta São Sebastião,
+Ras Cantin,-9.2739,32.5816,cape,,5,,Q18214270
+Ra’s Kasr,38.5803,18.0752,cape,,5,Ras Kasar,
+Ponta de Jericoacoara,-39.9916,-2.8518,cape,,5,Jericoacoara,
+Cabo de São Roque,-35.5099,-5.1569,cape,,5,Cape São Roque,Q2535130
+Ponta da Baleia,-39.1456,-17.6788,cape,,5,,
+Cabo de São Tomé,-40.9876,-21.9718,cape,,5,,Q8254538
+Cabo Frio,-41.8902,-22.7597,cape,,5,,
+Cabo San Diego,-65.2136,-54.6407,cape,,5,,Q5738394
+Cabo Tres Puntas,-65.7444,-47.3288,cape,,5,Cape Tres Puntas,
+Cap Saint André,44.4673,-16.1745,cape,,5,Tanjona Vilanandro,Q2937092
+Cape St. Lucia,32.3673,-28.5527,cape,,5,Cape Vidal,
+Cape St. Francis,24.8414,-34.1886,cape,,5,,
+Qattara Depression,27.4963,30.0436,depression,-133,5,,
+Nyainqentanglha Feng,90.5885,30.3902,peak,7162,6,Mount Nyenchen Tanglha,Q1109058
+Nevado Ojos del Salado,-68.5422,-27.1096,peak,6880,6,Ojos del Salado,Q233836
+Nevado Huascarán,-77.609,-9.1214,peak,6768,6,Huascarán,Q200935
+Volcán Llullaillaco,-68.5368,-24.7197,peak,6739,6,Llullaillaco,Q214916
+Cerro Tupungato,-69.7687,-33.3545,peak,6550,6,Tupungato Volcano,Q756244
+Nevado Sajama,-68.8942,-18.1019,peak,6542,6,,Q272593
+Nevado Coropuna,-72.65,-15.5166,peak,6425,6,Coropuna,Q946035
+Nevado Illimani,-67.7847,-16.6538,peak,6402,6,Illimani,Q148521
+Nevado Auzangate,-71.2333,-13.8001,peak,6372,6,Ausangate,Q777794
+Aucanquilcha,-68.472,-21.2284,peak,6176,6,,Q758574
+Mount Logan,-140.412,60.5798,peak,5959,6,,Q120306
+Pico de Orizaba,-97.2783,19.034,peak,5636,6,,Q238147
+Mount Damavand,52.109,35.9552,peak,5610,6,Damavand,Q40758
+Volcán Popocatépetl,-98.6226,19.0342,peak,5420,6,Popocatépetl,
+Nevado del Ruiz,-75.3223,4.9,peak,5311,6,,Q233351
+Mount Blackburn,-143.4426,61.7367,peak,4996,6,,Q1520855
+Volcán Domuyo,-70.42,-36.5799,peak,4709,6,Domuyo,Q312770
+Mount Fairweather,-137.5266,58.9071,peak,4671,6,,Q1544340
+Mount Kirkpatrick,166.4504,-84.3396,peak,4528,6,,Q1929197
+Mount Wilhelm,145.0332,-5.8001,peak,4509,6,,Q277441
+Matterhorn,7.7296,45.9382,peak,4478,6,,Q1374
+Kuh-e Hezar,57.2723,29.5116,peak,4465,6,Kūh-e Hezār,Q5687603
+Longs Peak,-105.62,40.2551,peak,4346,6,,Q1317383
+Volcán de Colima,-103.6339,19.5668,peak,4330,6,Colima,Q825347
+Volcán Galeras,-77.3666,1.2168,peak,4276,6,Galeras,Q235062
+Mauna Kea,-155.4681,19.8205,peak,4205,6,,Q131230
+Mount Minto,168.7574,-71.7698,peak,4166,6,,Q1950606
+Dome A (Argus),77.3477,-80.356,plateau,4093,6,Dome A (Dome Argus),
+Cape Colbeck,-158.2577,-77.1111,cape,4069,6,,Q1990087
+Cerro San Valentín,-73.346,-46.5949,peak,4058,6,Monte San Valentin,Q2092228
+Mount Waddington,-125.2622,51.3724,peak,4019,6,,Q1737059
+Truchas Peak,-105.6453,35.9629,peak,3993,6,,Q7847152
+Mount Robson,-119.155,53.1105,peak,3954,6,,Q1161258
+Yu Shan,120.9574,23.4699,peak,3952,6,Yushan Main Peak,Q500275
+Humphreys Peak,-111.6779,35.3463,peak,3851,6,,Q1239004
+Cerro Chirripó,-83.4887,9.4836,peak,3820,6,,Q252362
+Fuji Station (Japan),39.6977,-77.3228,plateau,3810,6,Dome Fuji Station,Q7474939
+Gunung Kerinci,101.2709,-1.698,peak,3805,6,Mount Kerinci,Q827728
+Grossglockner,12.6953,47.0747,peak,3798,6,,Q3388
+Mount Erebus,167.1829,-77.5145,peak,3795,6,,Q188982
+Fuji,138.7309,35.3579,peak,3776,6,Mount Fuji,Q39231
+Aoraki (Mount Cook),170.1411,-43.5957,peak,3754,6,Aoraki / Mount Cook,Q5059
+Cerro Nube Flan,-96.187,16.2138,peak,3750,6,Cerro Nube Flane,Q2946767
+Pico del Teide,-16.6391,28.2708,peak,3718,6,Teide,Q38954
+Gunnbjørn Fjeld,-29.8984,68.9195,peak,3694,6,,Q825709
+Loolmalasin,35.8395,-3.0427,peak,3682,6,Mount Loolmalasin,
+Gunung Semeru,112.9199,-8.1079,peak,3676,6,,Q24843788
+Jabal an-Nabi Shu’aib,43.9708,15.2751,peak,3666,6,Jabal an Nabi Shu'ayb,Q1261935
+Monte Tronador,-71.8846,-41.1571,peak,3554,6,Tronador,Q422835
+San Gorgonio Mountain,-116.8264,34.1077,peak,3505,6,,Q3364408
+Vostok Station (Rus.),106.84,-78.4272,plateau,3488,6,Vostok Station,Q211014
+Mount Baldy,-109.571,33.9205,peak,3476,6,,Q6919585
+Volcán Barú,-82.5466,8.8081,peak,3475,6,Barú Volcano,
+Koryakskaya Sopka,158.7195,53.3349,peak,3456,6,Koryaksky,
+Bulu Rantekombola,120.025,-3.3406,peak,3455,6,Buntu Rantekambola,Q1555073
+Emi Koussi,18.5518,19.7934,peak,3415,6,,
+Kegueur Terbi,18.6999,21.4167,peak,3376,6,,
+Monte Fitz Roy,-73.0432,-49.2713,peak,3375,6,Mount Fitz Roy,Q215138
+Mont Forel,-36.8148,66.935,peak,3360,6,,Q947447
+Monte Etna,14.9951,37.7551,peak,3322,6,Mount Etna,
+Concordia Station (Fr. and It.),123.3598,-75.0924,plateau,3233,6,Concordia Station,Q403127
+Mount Cleveland,-113.848,48.925,peak,3190,6,,Q3321762
+Mount Andrew Jackson,-63.3832,-71.3671,peak,3184,6,Mount Jackson,Q1616285
+Pico Duarte,-70.9981,19.0229,peak,3098,6,,Q783742
+Kyrkjeskipet Peak,6.8183,-71.8696,peak,3085,6,,Q6452541
+Gunung Ciremay,108.4093,-6.8878,peak,3077,6,Gunung Cereme,Q507179
+Piton des Neiges,55.4873,-21.1044,peak,3069,6,,Q1545452
+Haleakalā,-156.221,20.7197,peak,3055,6,,
+Jabal Marrah,24.2379,12.9497,peak,3042,6,Marrah Mountains,Q886772
+Jabal Shams,57.264,23.2369,peak,3035,6,Jebel Shams,Q1261915
+Gunung Binaiya,129.4675,-3.1595,peak,3027,6,,Q863497
+Pico da Neblina,-66.0333,0.8,peak,3014,6,,Q739484
+Mount Oku,10.5166,6.1835,peak,3011,6,,Q3322001
+Jabal Sawdā,42.3639,18.2558,peak,3000,6,Jabal Sawda,Q1261892
+Abongabong,96.7998,4.2501,peak,2985,6,Gunung Abong Abong,Q24821596
+Mount Roosevelt,-125.3344,58.4426,peak,2972,6,,
+Gunung Umsini,133.9827,-1.1499,peak,2970,6,,Q19744727
+Gunung Merapi,110.4449,-7.5409,peak,2968,6,,Q24872503
+Kuh-e Nay Band,57.3748,32.4501,peak,2960,6,Kūh-e Nāy Band,Q26975903
+Gora Mus-Khaya,140.8801,62.5913,peak,2959,6,Mus-Khaya Mountain,Q1953957
+Pulog,120.9053,16.5964,peak,2934,6,Mount Pulag,
+Musala,23.5868,42.1798,peak,2925,6,,Q209341
+Mount Olympus,22.3501,40.0833,peak,2917,6,,Q522586
+Mount Paget,-36.5508,-54.4223,peak,2915,6,,Q1573762
+Tahat,5.5263,23.2883,peak,2908,6,Mount Tahat,Q822326
+Pico da Bandeira,-41.7964,-20.4354,peak,2890,6,,Q589546
+Volcaán Villarrica,-71.9382,-39.4235,peak,2847,6,Villarrica Volcano,Q1048225
+Mount McMaster,51.9521,-66.7635,peak,2830,6,,
+Pico de Cano,-24.4025,14.9488,peak,2829,6,Pico do Fogo,
+Mount Ruapehu,175.5668,-39.2833,peak,2797,6,,Q207284
+Cerro Grande,-107.544,28.7887,peak,2780,6,,Q27785012
+Mount Roraima,-60.7626,5.1433,peak,2772,6,,Q4777
+Howson Peak,-127.7548,54.4218,peak,2759,6,,Q5922600
+Jabal Hamoyet,37.9998,17.5501,peak,2726,6,,
+Kabobo,29.0507,-5.14,peak,2725,6,Kabobo Massif,
+Gunung Tambora,118.0001,-8.25,peak,2722,6,Tambora,Q168714
+Guadalupe Peak,-104.868,31.9014,peak,2667,6,,Q32793
+Pic Boby,46.8833,-22.1999,peak,2658,6,,Q2224845
+Kimhandu,37.6182,-7.1005,peak,2653,6,,
+Moro de Môco,15.167,-12.4652,peak,2620,6,Mount Moco,
+Inyangani,32.8474,-18.2813,peak,2592,6,Mount Nyangani,Q152294
+Pik Aborigen,149.5084,61.974,peak,2586,6,,Q359338
+Brandberg,14.5752,-21.1602,peak,2579,6,,Q897834
+Moldoveanu,24.7477,45.6085,peak,2543,6,Moldoveanu Peak,Q746524
+Pidurutalagala,80.774,7.0007,peak,2524,6,,Q1146327
+Mount Igikpak,-154.9672,67.4408,peak,2523,6,,Q1950531
+Mount Taranaki,174.0648,-39.2963,peak,2518,6,,Q850051
+Kompasberg,24.5308,-31.7695,peak,2504,6,Compassberg,Q3643513
+Torres del Paine,-72.995,-50.959,peak,2500,6,Cordillera del Paine,Q930366
+Galdhpiggen,8.3127,61.6365,peak,2469,6,Galdhøpiggen,Q203942
+Jebel Tidirhine,-4.5118,34.8302,peak,2456,6,Jbel Tidirhine,Q2383371
+Gora Ledyanaya,171.1919,61.9018,peak,2453,6,,
+Monte Binga,33.0523,-19.7872,peak,2436,6,,Q1353678
+Canlaon Peak,123.1417,10.4565,peak,2430,6,Mount Kanlaon,
+Mount Olympus,-123.7176,47.8117,peak,2429,6,,Q522586
+Serra Namúli,37.072,-15.3334,peak,2419,6,Mount Namuli,Q1516857
+Shimbiris,47.2429,10.7388,peak,2414,6,,Q649162
+Die Berg,30.157,-25.2223,peak,2331,6,,
+Garet el Djenoun,5.4091,25.0458,peak,2327,6,,Q23814924
+Djebel Chelia,6.6665,35.3334,peak,2326,6,Djebel Chélia,Q4115846
+Seweweekspoort Peak,21.3658,-33.3958,peak,2325,6,Seweweekspoortpiek,Q3642884
+Lalla Khedidja,4.2291,36.4571,peak,2308,6,Lalla-Khadîdja,Q3216533
+Jebel Jar,38.2081,24.5658,peak,2300,6,,
+Asahi-dake,142.855,43.6578,peak,2290,6,,Q2271725
+Bukit Raya,112.6832,-0.6668,peak,2278,6,,Q24847854
+Perserajoq,-51.9874,71.3729,peak,2259,6,,
+Blue Mountain Peak,-76.593,18.0627,peak,2256,6,,Q885798
+Mount Ramlo,41.7278,13.3924,peak,2248,6,Ramlo,Q23939923
+Black Elk Peak,-103.5398,43.8863,peak,2207,6,,Q1585737
+Golden Hinde,-125.7586,49.6765,peak,2195,6,,Q1633809
+Gunung Tahan,102.2334,4.6335,peak,2190,6,Mount Tahan,Q187315
+England Peak,-52.8095,-82.6181,peak,2150,6,,Q5377995
+Mount Vsevidof,-168.7084,53.1482,peak,2149,6,,Q1950800
+Kebnekaise,18.5045,67.906,peak,2111,6,,Q214011
+Hvannadalshnkur,-16.6509,64.0389,peak,2110,6,Hvannadalshnúkur,Q140084
+Pico Mogotón,-86.3914,13.7638,peak,2106,6,Mogotón,Q2092378
+Mount Katmai,-154.9569,58.2788,peak,2047,6,,Q1053435
+Pico de São Tomé,6.5544,0.282,peak,2024,6,,Q1471391
+Mont Bagzane,8.6667,18.6666,peak,2022,6,Monts Bagzane,Q15120698
+Pummel Peak,-103.2443,29.2916,peak,2018,6,,
+Pico Turquino,-76.8358,19.9895,peak,1974,6,,Q1145743
+Oksskolten,14.3374,66.0245,peak,1916,6,,Q1769804
+Chiri-san,127.7305,35.3368,peak,1915,6,Jirisan,Q27288676
+Gora Narodnaya,60.1234,65.0271,peak,1895,6,Mount Narodnaya,Q1142817
+Yunwu Shan,116.7012,41.0964,peak,1867,6,Yunwu Mountain,
+Daiyun Shan,118.184,25.6809,peak,1856,6,,Q11075233
+Grand Ross,69.5124,-49.5785,peak,1850,6,Mont Ross,Q1945447
+Mount Buller,146.4398,-37.1564,peak,1805,6,,Q962462
+Junipero Serra Peak,-121.4221,36.1592,peak,1787,6,,Q8519545
+Khao Luang,99.734,8.4982,peak,1780,6,,Q1542964
+Newtontoppen,16.8121,79.1387,peak,1713,6,,Q1419222
+Sorak-san,128.4729,38.1419,peak,1708,6,Seoraksan,Q482644
+Volcán Wolf,-91.3461,0.0581,peak,1707,6,,Q1376373
+Jiuling Shan,114.95,28.8838,peak,1686,6,Jiuling Mountains,Q6203420
+Gora Yamantau,58.1172,54.2435,peak,1638,6,Mount Yamantau,Q1514176
+Gora Stokap,147.366,44.8436,peak,1634,6,,Q4442785
+Mount Ossa,146.0333,-41.871,peak,1617,6,,Q747182
+Gora Lopatina,143.1371,50.8559,peak,1609,6,,
+Round Mountain,152.2347,-30.4404,peak,1608,6,,Q7371097
+Gora Konzhakovskiy Kamen,59.1345,59.6328,peak,1569,6,Konzhakovskiy Kamen,Q4230794
+Barrington Tops,151.4704,-32.007,peak,1555,6,,Q21917251
+Serrania de Santiago,-60.0257,-18.1159,peak,1555,6,,Q21792454
+Vulkan Milna,151.7853,46.8181,peak,1539,6,Milna,Q2568708
+Buku Sulat,127.9724,0.7528,peak,1508,6,Buku Saolat,Q24841936
+Unzen-dake,130.2944,32.7566,peak,1500,6,Mount Unzen,Q620860
+Mount Pinatubo,120.3497,15.1418,peak,1486,6,Pinatubo,Q1451
+Mount Osborn,-165.346,65.0024,peak,1437,6,,Q8524981
+Aniakchak Peak,-158.1235,56.8728,peak,1356,6,Aniakchak,
+Ben Nevis,-5.005,56.797,peak,1343,6,,Q104674
+Vesuvio,14.4334,40.8167,peak,1281,6,Mount Vesuvius,
+Slide Mountain,-74.3797,42.0088,peak,1274,6,,Q7540328
+Mount Marcy,-73.9274,44.1338,peak,1269,6,,Q1858227
+Hongtu Zhang,115.9372,23.7691,peak,1265,6,,Q28946068
+Mount Meharry,118.5833,-22.9667,peak,1253,6,,Q1788401
+Cerro Tres Picos,-61.9677,-38.1333,peak,1243,6,,Q8344261
+Julianatop,-56.5419,3.683,peak,1230,6,,Q1549215
+Kiska Volcano,177.6067,52.0921,peak,1220,6,,
+Pico do Jabre,-37.3824,-7.2455,peak,1197,6,,Q2154955
+Mount Moresby,-132.0828,53.026,peak,1164,6,,Q6922253
+Mount Warning,153.2709,-28.3971,peak,1156,6,,
+Pico Serra Branca,-40.1409,-4.791,peak,1154,6,Serra Branca,Q22027674
+Mont Yapeitso,-70.4566,52.3149,peak,1128,6,,Q17635322
+Sakurajima,130.6502,31.5833,peak,1117,6,,Q128841
+Bluff Knoll,118.2499,-34.3667,peak,1096,6,,Q2496852
+Snowdon,-4.0948,53.0725,peak,1085,6,,Q217142
+Chilkoot Pass,-135.2951,59.7037,pass,1067,6,,Q1072958
+Pico El Yunque,-65.8001,18.3105,peak,1055,6,El Yunque,Q3721036
+Carrauntoohil,-9.7427,51.999,peak,1038,6,,Q503368
+Monts de la Lékéti,14.179,-2.5181,peak,1000,6,,
+Mont Tremblant,-74.5732,46.2587,peak,968,6,,Q3322162
+Serra dos Carajás-Pico,-50.3492,-6.3748,peak,898,6,Carajás Mountains,
+Uluru (Ayers Rock),131.036,-25.345,peak,863,6,Uluru,Q33910
+Baldy Mountain,-100.7119,51.4477,peak,831,6,,Q3321683
+Krakatau,105.4228,-6.1021,peak,813,6,Krakatoa,Q82613
+Gros Morne,-57.7805,49.5984,peak,806,6,,Q1547452
+Cold Mountain,173.1334,52.8853,peak,739,6,,
+Mount Usborne,-58.8419,-51.7021,peak,705,6,,Q1064229
+Yonaha-dake,128.2169,26.7161,peak,498,6,Mount Yonaha,Q4521100
+Taal Volcano,120.9928,14.0019,peak,400,6,,
+Minna Hook,167.2532,-78.6381,cape,,6,,
+Cape Adare,170.2673,-71.3303,cape,,6,,
+Cape Poinsett,113.205,-65.7861,cape,,6,,Q2606363
+Cape Norvegia,-12.3273,-71.3725,cape,,6,,Q827931
+Cape Framnes,-60.5934,-65.9717,cape,,6,,Q1099478
+Cape Agassiz,-62.8747,-68.4561,cape,,6,,Q1100951
+Cape Jeremy,-68.7905,-69.4333,cape,,6,,Q1100932
+Cape Colbeck,-158.2577,-77.1111,cape,,6,,Q1990087
+Cape Darnley,69.6111,-67.7735,cape,,6,,Q2228608
+Cape Ann,51.4081,-66.1611,cape,,6,,Q857241
+Batura Mustagh I,74.5604,36.5383,peak,7795,7,Batura Sar,Q811064
+Namcha Barwa,95.0657,29.643,peak,7782,7,,Q1050238
+Liushi Shan,80.9262,35.3225,peak,7167,7,,Q6654097
+Nun,76.0245,33.9844,peak,7135,7,Mount Nun,Q1537198
+Ak Tag,84.6024,36.7336,peak,6748,7,Aktag,Q28794266
+Kangju Kangri,78.4894,33.7514,peak,6725,7,,Q19459387
+Kangze'gyai,97.7159,38.5152,peak,5808,7,,
+Pico Cristóbal Colón,-73.6924,10.8425,peak,5775,7,,Q578862
+Pik Talghar,77.3312,43.1055,peak,4979,7,Pik Talgar,Q608494
+Sabalon Kuh,47.822,38.2551,peak,4814,7,Mount Sabalan,
+Laotzyunshan,99.6172,26.8733,peak,4500,7,,
+Munkh Khairkhan,91.4652,46.8901,peak,4231,7,Mönkh Khairkhan,Q6950349
+Volcán Tajumulco,-91.8955,15.0435,peak,4220,7,Volcán Tajumulco y Tacana,Q818467
+Mount Victoria,147.5428,-8.8961,peak,4038,7,,Q2666968
+Tergun Bogd,100.2383,45.0051,peak,3957,7,Ikh Bogd,
+Kuh-e Taftan,61.1318,28.6297,peak,3941,7,Mount Taftan,Q524954
+Kackar Dagi,41.1279,40.8415,peak,3931,7,Kaçkar Dağı,Q1641126
+Demirkazik,35.156,37.8357,peak,3756,7,Demirkazık Peak,Q3022142
+Kuh-e Haji Ebrahim,45.0062,36.5453,peak,3587,7,Kūh-e Ḩājjī Ebrāhīm,Q26907338
+Helan Shan,105.9451,38.8372,peak,3540,7,Helan Mountains,Q13770
+Sierra El Viejo,-99.7324,24.0007,peak,3500,7,,
+Mulhacén,-3.3114,37.0514,peak,3479,7,,Q209528
+Obasta Tsukai,69.9369,31.6944,peak,3452,7,,
+Pico de Aneto,0.6631,42.6322,peak,3404,7,Aneto,Q208081
+Cerro Mohinora,-107.0053,26.0343,peak,3348,7,,Q27783532
+Jabal Jihaf,44.5214,13.7409,peak,3277,7,,
+Summit Station,-38.4533,72.5821,plateau,3238,7,Summit Camp,Q1502578
+Fan Si Pan,103.7721,22.3133,peak,3142,7,Fansipan,Q123782
+Qurnat as Sawdā,36.1034,34.3145,peak,3088,7,Qurnat as Sawda',Q311330
+Kizlar Sivrisi,30.1501,36.6149,peak,3070,7,,
+Picacho del Diablo,-115.382,30.9879,peak,3069,7,,Q3817471
+Mount Victoria,93.9174,21.2432,peak,3053,7,,Q2666968
+Fuyul Sojol,120.2014,0.6152,peak,3030,7,,Q25018639
+Tate-yama,137.6289,36.595,peak,3015,7,Mount Tate,Q2977103
+Ras Koh,65.1825,28.834,peak,3003,7,Ras Koh Hills,Q7294662
+Gora Tastau,82.4929,47.1995,peak,2992,7,,
+Longnawan,115.1466,1.8143,peak,2988,7,,
+Mount Apo,125.2699,6.9971,peak,2954,7,,
+Kuh-e Ruzeh,58.1007,37.8041,peak,2941,7,,
+Corno Grande,13.5612,42.4873,peak,2912,7,,Q636540
+Dund Sayhni Nuru,103.7753,43.6468,peak,2825,7,,
+Mount Nirvana,-127.6873,61.8689,peak,2773,7,,Q1500146
+Korab,20.541,41.787,peak,2764,7,,Q211616
+Mount Macdonald,-132.8012,64.7508,peak,2760,7,,
+Monte Cinto,8.9514,42.386,peak,2706,7,,Q1415428
+Kennedy Peak,93.7726,23.3317,peak,2703,7,,Q6389671
+Anai Mudi,77.0666,10.1701,peak,2695,7,Anamudi,Q485550
+Gora Chen,141.8246,65.3042,peak,2690,7,,
+Loi Leng,98.0907,22.6599,peak,2673,7,,Q6668076
+Gerlach,20.1321,49.171,peak,2655,7,Gerlachovský štít,Q81213
+Torre de Cerredo,-4.845,43.1947,peak,2648,7,Torre Cerredo,Q1520376
+Gora Khuvkhoitun,160.7036,57.9329,peak,2616,7,Khuvkhoitun,Q4502055
+Barbeau Peak,-75.0258,81.9106,peak,2616,7,,Q807788
+Ngoc Linh,108.015,15.1616,peak,2598,7,,Q7022474
+Devils Paw,-133.8624,58.7414,peak,2593,7,,Q5267436
+Doi Inthanon,98.4912,18.5983,peak,2580,7,,Q1140075
+Fenghuang Shan,108.6783,27.8955,peak,2570,7,Phoenix Mountain,Q28794387
+Uludağ Tepe,29.2184,40.0925,peak,2543,7,Uludağ,Q925688
+Gora Golets-Oblachnyy,134.0171,57.621,peak,2482,7,,
+Chuo Yang Sin,108.4301,12.4043,peak,2420,7,Chu Yang Sin,
+Mount Frank Rae,-138.5388,64.4951,peak,2347,7,,Q6920797
+Mount Popomanaseu,160.0648,-9.7021,peak,2335,7,,Q760819
+Ulawun,151.3333,-5.0501,peak,2334,7,,
+Mount San Lorenzo,-2.9378,42.2463,peak,2271,7,,Q3322098
+Takuan,155.6052,-6.4792,peak,2243,7,Takuan Group,Q3117703
+Outlook Peak,-91.419,79.7555,peak,2210,7,,Q3887576
+Huanggang Shan,117.788,27.8533,peak,2170,7,Huanggangshan,Q29620880
+Mount Odin,-65.4381,66.5647,peak,2143,7,,Q1439530
+Hua Shan,110.1292,34.436,peak,2130,7,Mount Hua,Q112568
+Mount Mantalingajan,117.6765,8.8458,peak,2085,7,,Q1950593
+Myinmoletkat Taung,98.813,13.4806,peak,2072,7,,Q6947477
+Mount Dimlang,11.7894,8.3978,peak,2042,7,,Q8540195
+Iwate-san,140.9895,39.8599,peak,2038,7,Mount Iwate,Q713836
+Serra do Barbado,-41.9071,-13.3038,peak,2033,7,,Q22048129
+Huanggangliang,117.5814,43.5419,peak,2029,7,,Q29620877
+Cerro Picacho la Laguna,-109.9465,23.5578,peak,1980,7,Cerro Picacho La Laguna,Q27782811
+Qiajivik Mountain,-75.9367,72.1907,peak,1963,7,,Q3861886
+Jabal Teljo,25.9335,14.7002,peak,1954,7,,
+Olympus,32.8746,34.9658,peak,1951,7,Mount Olympus,Q819979
+Loma Mansa,-11.0885,9.2427,peak,1945,7,Mount Bintumani,Q769525
+Shengtang Shan,110.0998,23.9898,peak,1935,7,Shengtang Mountain,
+Jabal al Uwaynt,24.9834,21.9165,peak,1934,7,Jabal Arkanu,Q3647391
+Troglav,16.6076,43.9605,peak,1913,7,,Q1567872
+Paishidin,113.016,24.9298,peak,1895,7,Mount Shikengkong,
+Puy de Sancy,2.8115,45.5304,peak,1885,7,,Q778597
+Pico Paraná,-48.8261,-25.2558,peak,1877,7,,Q3044581
+Mount Tabwemasana,166.7512,-15.3523,peak,1877,7,,Q1542459
+Jabal Is,35.4666,22.0499,peak,1851,7,,
+Wuzhi Shan,109.7125,18.9133,peak,1840,7,Wuzhi Mountain,Q693429
+Punta la Marmora,9.3174,40.0311,peak,1834,7,Punta La Marmora,Q385753
+Morro da Boa Vista,-49.473,-28.1155,peak,1827,7,,Q6914192
+Phnom Aural,104.1756,12.0509,peak,1813,7,,Q539772
+Qingliang Feng,118.8578,30.1211,peak,1787,7,Qingliang Feng Mountain,
+Mount Richard-Molard,-8.4138,7.6197,peak,1752,7,,Q849129
+Guru Sikhar,72.7782,24.6567,peak,1722,7,Guru Shikhar,Q3533921
+Hunsberge,17.1665,-27.8333,peak,1655,7,,Q15056776
+Mount Caubvick,-63.7249,58.8969,peak,1652,7,,Q3321804
+Mont Humboldt,166.4368,-21.8878,peak,1618,7,Mount Humboldt,Q1547446
+Volna,154.9568,63.5361,peak,1585,7,Gora Volna,
+Salher,73.9299,20.7115,peak,1567,7,,Q7404420
+Roman-Kosh,34.2479,44.6287,peak,1545,7,,Q2092607
+Black Mountain,-160.3397,68.5626,peak,1530,7,,Q21894249
+Mahendra Giri,84.3568,18.9743,peak,1501,7,Mahendragiri,Q26783773
+Feldberg,8.0128,47.8772,peak,1493,7,,Q316401
+Puig Mayor,2.796,39.8085,peak,1445,7,Puig Major,Q587189
+Kodachadri,74.8617,13.8795,peak,1343,7,,Q3595688
+Tomanivi,178.0168,-17.6142,peak,1323,7,Mount Tomanivi,Q1513944
+Mont Jacques-Cartier,-65.9562,48.9967,peak,1268,7,,Q1628389
+Consuelo Peak,148.1199,-24.9532,peak,1174,7,,Q21916518
+Seraya,165.6069,63.6418,peak,1162,7,Mount Seraya,
+Brocken,10.6186,51.8245,peak,1141,7,,Q155721
+Mont Agou,0.7574,6.8783,peak,968,7,Mount Agou,Q1753509
+Bokkeveldberg,18.9806,-31.1254,peak,843,7,,
+Magazine Mountain,-93.6436,35.1883,peak,839,7,Mount Magazine,Q515059
+Hohe Acht,7.017,50.3929,peak,747,7,,Q315110
+Eagle Mountain,-90.5596,47.9046,peak,701,7,,Q252204
+Ishpatina Ridge,-80.7577,47.3363,peak,693,7,,Q1514665
+Black Mountain,139.7438,-21.4843,peak,568,7,,Q21894249
+White Hill,-60.6108,46.6977,peak,535,7,,
+Cone Peak,143.4968,-13.379,peak,506,7,,Q21916465
+Kanchenjunga,88.15,27.7001,peak,8586,9,,Q82019
+Nanga Parbat,74.59,35.24,peak,8125,9,,Q130736
+Tirich Mir,71.84,36.25,peak,7708,9,,Q207132
+Kongkoerh,75.3099,38.5901,peak,7649,9,Kongur Tagh,
+Gangkar Punsum,90.4599,28.05,peak,7570,9,Gangkhar Puensum,Q219986
+Nowshak,71.7811,36.4221,peak,7492,9,Noshaq,Q271700
+Pik Pobeda,80.13,42.04,peak,7439,9,Jengish Chokusu,Q332762
+Gyala Peri,94.97,29.81,peak,7294,9,,Q1322521
+Lunpo Gangri,84.61,29.8301,peak,7095,9,,Q8536063
+Shahi Kangri,77.83,35.17,peak,6934,9,Saser Kangri,Q2102394
+Purog Kangri,89.21,33.92,peak,6929,9,,Q2118899
+Bairiga,96.72,29.17,peak,6882,9,,Q4848635
+Hkakabo Razi,97.5399,28.3301,peak,5881,9,,Q870063
+Ritacuba Blanco,-72.3,6.49,peak,5410,9,,Q2648857
+Pik Karakol,78.4599,42.16,peak,5216,9,,Q21519918
+Gora Shkhara,43.1,43.0,peak,5200,9,Shkhara,Q217457
+Mount Ararat,44.3,39.7001,peak,5137,9,,Q72303
+Sikaram,69.9001,34.04,peak,4755,9,,Q21737779
+Monte Rosa,7.87,45.94,peak,4634,9,Monte Rosa Massif,Q14668
+Köketau,80.9398,45.17,peak,4622,9,,
+Zard Kuh,50.09,32.37,peak,4548,9,,Q147826
+Volcan Karisimbi,29.4499,-1.5,peak,4519,9,Mount Karisimbi,Q737859
+Gora Tebulosmta,45.2999,42.5901,peak,4494,9,Tebulosmta,Q768463
+Bazar Dyuzi,47.86,41.2101,peak,4466,9,Mount Bazardüzü,Q725591
+Kuh-e Dinar,51.4398,30.9501,peak,4409,9,Dena,Q3143042
+Mount Rainier,-121.76,46.85,peak,4392,9,,Q194057
+Tavan Bogd Uul,87.8199,49.1499,peak,4374,9,Tavan Bogd,Q143008
+White Mountain Peak,-118.26,37.6301,peak,4342,9,,Q4468440
+Finsteraarhorn,8.13,46.54,peak,4274,9,,Q15127
+Amba Farit,39.0999,10.9501,peak,4270,9,,Q24026551
+Mount Kaplan,175.36,-84.56,peak,4230,9,,Q3321901
+Gannett Peak,-109.65,43.18,peak,4207,9,,Q1493617
+Aragats Lerr,44.1999,40.53,peak,4090,9,Mount Aragats,Q203568
+Volcán Tacaná,-92.11,15.1301,peak,4067,9,,Q1752870
+Mont Cameroun,9.1699,4.22,peak,4040,9,Mount Cameroon,Q190562
+Dombai-Ulgen,41.74,43.23,peak,4038,9,,Q768409
+Mount Lister,162.6898,-78.06,peak,4023,9,,Q3861688
+Faure Peak,-128.63,-85.71,peak,3940,9,,Q21485532
+Erciyes Dagi,35.45,38.53,peak,3917,9,,
+Mount Peale,-109.23,38.44,peak,3877,9,,Q6922678
+Saramati,95.0399,25.73,peak,3826,9,Mount Saramati,Q8536271
+Kizilkaya,32.07,37.97,peak,3767,9,,
+Gunung Rinjani,116.46,-8.41,peak,3726,9,Rinjani,Q847323
+Cerro San Rafael,-100.56,25.36,peak,3710,9,,Q27822359
+Sierra Blanca Peak,-105.81,33.37,peak,3649,9,Sierra Blanca,Q1367141
+Kuh-e Garin,48.48,33.9601,peak,3630,9,Kūh-e Garīn,Q26914610
+Gugu,39.96,8.2101,peak,3626,9,,Q24028774
+Cheekha Dar,44.9199,36.78,peak,3611,9,,Q1068860
+Mount Sir Sandford,-117.8859,51.664,peak,3519,9,,Q3862020
+Daxue Shan,99.6401,24.11,peak,3500,9,Daxue shan,Q1179020
+Mont Mohi,28.7801,-2.95,peak,3480,9,,Q3321953
+Mafadi,29.36,-29.2,peak,3451,9,,Q1883683
+Cerro El Jabaln,-101.38,25.18,peak,3440,9,Cerro El Jabali,Q27784509
+Isachsen Mountain,26.08,-72.13,peak,3425,9,,Q3376469
+Crazy Peak,-110.28,46.02,peak,3417,9,,Q3382297
+Adrar Bou Nasser,-3.88,33.5901,peak,3340,9,,Q27519827
+Cerro Gordo,-104.95,23.24,peak,3340,9,,Q27855886
+Kuh-e Siah Khvani,59.0499,36.28,peak,3314,9,,
+Maotou Shan,100.6301,24.5201,peak,3306,9,,Q28818890
+Kuh-e Fareghan,56.35,27.8901,peak,3240,9,Kūh-e Fāreghān,Q26875277
+Ayrybaba,66.5699,37.8301,peak,3137,9,Aýrybaba,Q794684
+Redoubt Volcano,-152.7401,60.49,peak,3108,9,Mount Redoubt,Q840735
+Pik BAM,117.58,56.86,peak,3072,9,,Q4362531
+Ulysses Mountain,-124.09,57.35,peak,3024,9,Mount Ulysses,Q3548164
+Mount Seelig,-103.9,-82.47,peak,3022,9,,Q21472459
+Soira,39.53,14.75,peak,3018,9,Emba Soira,Q1753730
+Pico de Santa Isabel,8.7601,3.5901,peak,3008,9,Pico Basilé,Q1518286
+Sapitwa Peak,35.59,-15.95,peak,3003,9,Sapitwa,Q3044073
+Gora Pobeda,146.0399,65.19,peak,3003,9,Peak Pobeda,Q745231
+Tata Mailau,125.49,-8.91,peak,2986,9,Tatamailau,Q1539961
+Mtorwi,34.0201,-9.08,peak,2980,9,,Q1951561
+Zugspitze,10.98,47.42,peak,2963,9,,Q3375
+Cerro Viejo,-103.4301,20.37,peak,2960,9,,Q27779096
+Keele Peak,-130.32,63.43,peak,2952,9,,Q1737731
+Pic de Coma Pedrosa,1.4398,42.5901,peak,2943,9,Coma Pedrosa,Q62467
+Fishers Peak,-104.46,37.1,peak,2934,9,,Q14951222
+Mount Tapuaenuku,173.66,-42.0,peak,2885,9,Tapuae-o-Uenuku,Q6924042
+Maromokotro,48.97,-14.02,peak,2876,9,,Q1147144
+Triglav,13.83,46.3801,peak,2864,9,,Q1024
+Cerro Las Minas,-88.69,14.54,peak,2849,9,,Q1055875
+Cerro Marahuaca,-65.41,3.66,peak,2832,9,,Q286476
+Phou Bia,103.14,18.98,peak,2830,9,,Q239485
+Jabal ash Shaykh,35.86,33.41,peak,2814,9,Mount Hermon,Q21584061
+Anderson Summit,-90.85,-85.0398,peak,2810,9,,Q4754193
+Pico da Pedra da Mina,-44.84,-22.4298,peak,2798,9,Pedra da Mina,Q2328821
+Pico Naiguatá,-66.78,10.54,peak,2765,9,,Q7191016
+Mount Eddy,-122.48,41.3201,peak,2751,9,,Q4529821
+Thudaka Mountain,-126.85,57.93,peak,2748,9,Thudaka Peak,Q7798675
+Big Ben,73.52,-53.1,peak,2745,9,,
+Paektu-san,128.09,42.0,peak,2744,9,Baekdu Mountain,Q107635
+Cerro El Pital,-89.12,14.3801,peak,2730,9,,Q74214
+Mount Balbi,154.98,-5.91,peak,2715,9,,Q1298202
+Maja e Jezercë,19.8098,42.44,peak,2694,9,Maja Jezercë,Q1032440
+Pic la Selle,-71.98,18.36,peak,2680,9,,Q1971319
+Mont Heha,29.5,-3.6,peak,2670,9,Mount Heha,Q1649074
+Daravica,20.14,42.53,peak,2656,9,Đeravica,Q341983
+Doda Betta,76.73,11.4,peak,2636,9,Doddabetta,Q336749
+Gebel Katherna,33.9499,28.5101,peak,2629,9,Mount Catherine,Q1140642
+Grauspitze,9.58,47.05,peak,2599,9,Grauspitz,Q665000
+Pico de Almanzor,-5.3,40.2601,peak,2592,9,Pico Almanzor,Q203353
+Gora Cherskoga,108.7,55.04,peak,2588,9,,
+Mount Halcon,120.99,13.2601,peak,2585,9,,Q1570683
+Jabal al Lawz,35.2899,28.69,peak,2580,9,Jabal al-Lawz,Q4115817
+Cerro Darwin,-69.6,-54.6599,peak,2580,9,Mount Darwin,Q1815821
+Durmitor,19.03,43.1301,peak,2522,9,,Q212836
+Psiloritis,24.77,35.23,peak,2456,9,Mount Ida,Q83659
+Chappal Wadi,11.7199,7.06,peak,2419,9,Chappal Waddi,Q976055
+Fox Mountain,-133.37,61.92,peak,2404,9,,
+Maglic,18.74,43.28,peak,2387,9,Maglić,Q837723
+Botev,24.9199,42.72,peak,2376,9,Botev Peak,Q894703
+Kartala,43.37,-11.75,peak,2361,9,,
+Jebel Lekst,-9.08,29.79,peak,2359,9,Jebel Lkst,Q27515019
+Pico Alto,-28.4,38.47,peak,2351,9,Mount Pico,Q928681
+Vulkan Alaid,155.5699,50.86,peak,2339,9,Alaid Volcano,
+Moncayo,-1.84,41.78,peak,2313,9,Moncayo Massif,
+Cerro Cantillana,-70.97,-33.97,peak,2281,9,,Q23651555
+Beerenberg,-8.17,71.0801,peak,2277,9,,Q814113
+Pic Bette,19.21,22.03,peak,2266,9,Bikku Bitti,Q860146
+Jabal Oda,36.6699,20.3401,peak,2260,9,,Q29976941
+Mont Orohena,-149.4835,-17.6171,peak,2241,9,,Q512465
+El Teleno,-6.39,42.35,peak,2183,9,,Q24001512
+Midzor,22.68,43.3901,peak,2168,9,Midžor,Q962856
+Monte Viglio,13.37,41.8801,peak,2156,9,,Q3862123
+Nanfengmian,114.0399,26.31,peak,2140,9,,
+Phu Soai Dao,101.0101,17.73,peak,2120,9,Phu Soi Dao,Q7188265
+Gora Tardoki-Yani,138.0499,48.9,peak,2090,9,Tordoki Yani,Q1092160
+Sunzu,31.58,-9.1799,peak,2067,9,Mount Sunzu,
+Queen Mary's Peak,-12.2667,-37.0937,peak,2060,9,,Q2062890
+Gora Goverla,24.51,48.16,peak,2058,9,Hoverla,Q627508
+Moussa Ali,42.41,12.4501,peak,2021,9,Mousa Ali,Q1951029
+Mount Harper,-143.84,64.24,peak,1994,9,,
+Mount Bogong,147.2999,-36.7301,peak,1986,9,,Q130217
+Ishizuchi-san,133.11,33.7701,peak,1982,9,Mount Ishizuchi,Q2744214
+Halla-san,126.52,33.36,peak,1950,9,Hallasan,Q494645
+Gora Arlan,54.5399,39.67,peak,1880,9,Mount Arlan,Q777434
+Emlembe,31.13,-25.9198,peak,1862,9,,Q1337951
+Mauga Silisili,-172.49,-13.6101,peak,1858,9,Silisili,Q1147814
+Bukit Pagon,115.33,4.3,peak,1850,9,,Q1003282
+Dinara,16.38,44.06,peak,1831,9,,Q736047
+Alto de Buey,-77.24,6.0801,peak,1810,9,Alto del Buey,Q23696492
+Kuju-san,131.25,33.0801,peak,1788,9,Mount Kuju,Q8540007
+Tianzhu Shan,116.1899,31.06,peak,1760,9,Mount Tianzhu,Q837965
+Jabal Ramm,35.4001,29.5701,peak,1754,9,Jabal Ram,Q541800
+Crêt de la Neige,5.9398,46.2699,peak,1718,9,,Q1142554
+Gora Kamen,94.9398,69.1301,peak,1701,9,Mount Kamen,Q1259006
+Chapada dos Veadeiros,-47.4901,-13.9901,peak,1691,9,,
+Cerro de Los Inocentes,-80.7446,-33.7426,peak,1650,9,,Q23306705
+Mont Panié,164.77,-20.59,peak,1628,9,,Q1945432
+Mount Bartle Frere,145.82,-17.3999,peak,1622,9,,Q1330376
+Sněžka,15.71,50.74,peak,1603,9,,Q617511
+Gora Sedova,57.82,75.17,peak,1549,9,,
+Jebel Chambi,8.6799,35.2001,peak,1544,9,Jebel ech Chambi,Q1232136
+Mount Zeil,132.4,-23.3999,peak,1531,9,,Q1950830
+Jabal Yibir,56.13,25.66,peak,1527,9,,Q1261909
+Senlin Shan,130.63,43.18,peak,1498,9,,
+Monalanong Hill,25.6699,-24.84,peak,1494,9,,Q6897936
+La Soufrière,-61.66,16.04,peak,1467,9,,Q26544
+Morne Diablotins,-61.4,15.5,peak,1447,9,,Q1638549
+Balsam Beartown Mountain,-81.41,37.0801,peak,1436,9,Beartown Mountain,Q4876800
+Mont Ngaoui,14.9001,6.5901,peak,1410,9,,Q2422162
+Masif des Bongos,22.36,8.6,peak,1400,9,Bongo Massif,
+Pipa Dingzi,128.1699,43.99,peak,1397,9,,
+Montagne Pelée,-61.1734,14.8201,peak,1397,9,Mount Pelée,Q76309
+Mount Wuteve,-9.8601,8.1401,peak,1380,9,,Q1950836
+Cerro de Punta,-66.59,18.17,peak,1338,9,,Q2714342
+Haltiatunturi,21.26,69.3,peak,1328,9,Halti,Q216035
+Mount Dalrymple,148.63,-21.0299,peak,1259,9,,Q6920348
+La Soufrière,-61.1801,13.35,peak,1234,9,,Q26544
+Har Meron,35.4101,33.0,peak,1208,9,Meron,Q540520
+Monte Mitra,9.97,1.3901,peak,1200,9,Mount Mitra,
+Mont Ooumu,-140.12,-8.85,peak,1185,9,,
+Doyle's Delight,-89.04,16.5,peak,1174,9,,Q47490
+Saint Mary Peak,138.55,-31.5001,peak,1171,9,,Q21885237
+Mount Misery,-62.8068,17.3667,peak,1156,9,,
+Hombori Tondo,-1.68,15.2601,peak,1155,9,Mount Hombori,Q1454300
+Kao,-175.0758,-19.7456,peak,1109,9,,Q1520405
+Mont Bengoué,13.6898,0.9601,peak,1070,9,,Q3210770
+Mowdok Mual,92.62,21.8801,peak,1052,9,,Q2696459
+Selvili Tepe,33.17,35.3201,peak,1023,9,Kyparissovouno,Q6578056
+Mont Nabeba,13.99,1.8401,peak,1020,9,Mont Nabemba,Q3113296
+Kékes,20.01,47.8801,peak,1015,9,,Q747618
+Mount Anglem,167.9199,-46.7401,peak,980,9,Mount Anglem / Hananui,Q3070397
+Lata Mountain,-169.4857,-14.2446,peak,966,9,,Q1226878
+Tai Mo Shan,114.12,22.41,peak,957,9,,Q1481864
+Cerro El Copey,-63.91,11.0101,peak,957,9,,
+Mount Gimie,-61.01,13.86,peak,950,9,,Q1811114
+Aripo Peak,-61.25,10.72,peak,940,9,El Cerro del Aripo,Q1056103
+Mount Ord,125.55,-17.33,peak,937,9,,Q11786221
+Kabbal Durga,77.3,12.5,peak,921,9,Kabbaldurga,Q11929547
+Kdeyyat ej Joul,-14.33,19.72,peak,915,9,,
+Soufrière Hills Volcano,-62.1901,16.7234,peak,914,9,Soufrière Hills,Q845239
+Morne Seychellois,55.4397,-4.6322,peak,905,9,,Q1579060
+Mount Afadjoto,0.53,7.15,peak,885,9,Mount Afadja,Q635179
+Slaettaratindur,-6.9944,62.3003,peak,882,9,Slættaratindur,Q738746
+Mount Scenery,-63.24,17.6301,peak,870,9,,Q1301834
+Cerro Maine Hanari,-73.09,-0.73,peak,860,9,Cerro Maine Hanarí,Q23685928
+Bellevue de L'Inini,-53.52,3.5801,peak,851,9,Bellevue de l'Inini,Q2550799
+Cerro Tres Kandú,-56.16,-25.8801,peak,842,9,,Q1055965
+Mount Saint Catherine,-61.6768,12.1633,peak,840,9,,Q525281
+Cerro San Miguel,-60.64,-19.2999,peak,830,9,,Q5403409
+Petite Rivière Noire Peak,57.476,-20.4039,peak,828,9,Piton de la Petite Rivière Noire,Q1760978
+Ngihneni,158.2309,6.8747,peak,791,9,Mount Nanlaud,
+Olavtoppen,3.4,-54.4199,peak,780,9,,Q618361
+Mont Singave,-178.1552,-14.2694,peak,762,9,Mont Singavi,
+Téna Kourou,-5.41,10.7701,peak,747,9,Mount Tenakourou,Q116675
+Monte Titano,12.45,43.91,peak,739,9,,Q158526
+Durham Heights,-122.95,71.1401,peak,724,9,,
+Signal de Botrange,6.09,50.5,peak,694,9,,Q322824
+Benara,45.14,-12.96,peak,660,9,,Q210180
+Te Manga,-159.7891,-21.2122,peak,652,9,,Q498069
+Tanekas,1.53,10.35,peak,641,9,Atakora Mountains,
+Snaefell,-4.46,54.2601,peak,621,9,,Q147557
+Buurgplaatz,6.0201,50.16,peak,559,9,,Q993417
+Mount Sage,-64.6534,18.4167,peak,521,9,,Q6357023
+Cerro Catedral,-54.66,-34.34,peak,514,9,,Q1055837
+Crown Mountain,-64.97,18.36,peak,473,9,,Q3005470
+Bălănești,28.09,47.22,peak,429,9,Bălănești Hill,Q47940
+Rock of Gibraltar,-5.34,36.1301,peak,426,9,,
+Pic du Paradis,-63.05,18.0801,peak,420,9,Pic Paradis,Q5919800
+Mount Lamlam,144.6834,13.3513,peak,406,9,,Q4380977
+Mount Obama,-61.8367,17.0434,peak,402,9,,Q1718336
+Murray Hill,105.6168,-10.4856,peak,356,9,,Q524471
+Ukko Koli,29.8098,63.0901,peak,347,9,Koli,Q13360737
+Dzyarzhynskaya,27.08,53.86,peak,346,9,Dzyarzhynskaya Hara,
+Mount Hillaby,-59.58,13.2101,peak,340,9,,Q1854502
+Vaalserberg,6.0201,50.7601,peak,321,9,,Q159860
+Mount Bates,167.9597,-29.0353,peak,319,9,,Q1361458
+Suur Munamagi,27.0499,57.72,peak,318,9,Suur Munamägi,Q504991
+Morne du Vilet,-62.83,17.9067,peak,281,9,Morne du Vitet,Q3055081
+Dingli Cliffs,14.4,35.86,peak,253,9,,
+Mount Ngerchelchauus,134.59,7.5901,peak,242,9,Mount Ngerchelchuus,Q1191219
+Morne de la Grande Montagne,-56.31,47.04,peak,240,9,,Q3051597
+Jamanota,-69.94,12.49,peak,188,9,Mount Jamanota,Q594885
+Bukit Timah,103.79,1.35,peak,176,9,,
+Alto Coloane,113.57,22.12,peak,176,9,Coloane Alto,Q5147805
+Møllehøj,9.8299,55.98,peak,171,9,,Q689106
+Lenina,37.51,55.69,peak,150,9,Lenin Peak,
+Mont Agel,7.4042,43.7459,peak,140,9,,Q1517182
+Jabal ad Dukhan,50.55,26.04,peak,134,9,Mountain of Smoke,Q1032812
+Town Hill,-64.76,32.31,peak,79,9,,Q6421145
+Crocus Hill,-63.06,18.2234,peak,65,9,,Q3003173
+Mount Alvernia,-75.41,24.29,peak,63,9,,Q746274
+Blue Hills,-72.3,21.8,peak,49,9,,Q3492008
+The Bluff,-79.73,19.75,peak,43,9,,Q3491681

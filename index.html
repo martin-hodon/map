@@ -1,0 +1,1425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World layers</title>
+<style>
+  :root { --bg: #dfe8ee; --sea: #c9dbe6; --land: #f4f1e8; --ink: #2a3440; --dim: #6b7682; --panel: #ffffffee; --line: #9aa6b2;
+          --hi: #e0552b; --hi-fill: #e0552b55; --water-label: #3d6f96; --land-label: #7a5a3a; --field: #fff; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #11161b; --sea: #16222c; --land: #2a2d2a; --ink: #d9dee3; --dim: #8b949c; --panel: #1b2228ee; --line: #56616b;
+          --hi: #ffb347; --hi-fill: #ffb34755; --water-label: #7fb0d6; --land-label: #d0b48e; --field: #11161b; } }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 13px/1.4 system-ui, sans-serif; }
+  canvas#map { display: block; width: 100vw; height: 100vh; cursor: grab; }
+  canvas#map.dragging { cursor: grabbing; }
+  #panel { position: fixed; top: 12px; left: 12px; background: var(--panel); padding: 10px 12px; border-radius: 8px; width: 270px; max-width: calc(100vw - 48px); box-shadow: 0 1px 6px #0003; }
+  #panel h1 { font-size: 14px; margin: 0 0 6px; }
+  #roll { float: right; border: 0; background: none; color: var(--dim); cursor: pointer; font-size: 13px; line-height: 1; padding: 2px 4px; }
+  #roll:hover { color: var(--ink); }
+  /* rolled up: the title, the search, what you clicked and the year -- the layer settings out of the way */
+  #panel.rolled > :not(h1, #q, #results, #info, #histbox) { display: none; }
+  #panel.rolled h1 { margin-bottom: 2px; }
+  #panel label { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #panel select, #q { width: 100%; box-sizing: border-box; margin: 4px 0 8px; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 4px 6px; font: inherit; }
+  #results { list-style: none; margin: -6px 0 8px; padding: 0; max-height: 280px; overflow-y: auto; }
+  #results li, #info li { padding: 3px 6px; border-radius: 4px; cursor: pointer; display: flex; justify-content: space-between; gap: 8px; }
+  #results li span:last-child, #info li span:last-child { color: var(--dim); font-size: 12px; white-space: nowrap; }
+  #results li.on, #results li:hover, #info li:hover { background: var(--hi-fill); }
+  #info { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 6px; display: none; }
+  #info h2 { font-size: 14px; margin: 0; }
+  #info .kind { color: var(--dim); font-size: 12px; }
+  #info ul { list-style: none; margin: 4px 0 0; padding: 0; }
+  #info button { float: right; border: 0; background: none; color: var(--dim); cursor: pointer; font-size: 15px; line-height: 1; padding: 0 2px; }
+  #stats, #hint { color: var(--dim); font-size: 12px; margin-top: 6px; }
+  #histbox:not([hidden]) { display: flex; gap: 6px; align-items: center; margin: -4px 0 8px; }
+  #histbox input[type=range] { flex: 1; min-width: 0; }
+  #histbox input[type=text] { background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 2px 4px; font: inherit; }
+  #legend { display: none; font-size: 12px; margin: -4px 0 8px; line-height: 1.5; }
+  #legend span { display: inline-block; margin-right: 8px; white-space: nowrap; }
+  #legend i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; vertical-align: -1px; margin-right: 4px; border: 1px solid #0002; }
+  #groups-box { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 6px; }
+  #groups-box summary { cursor: pointer; font-weight: 600; }
+  #groups .row { display: flex; align-items: center; gap: 4px; margin: 3px 0; }
+  #groups .row input[type=text] { flex: 1; min-width: 0; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 4px; padding: 1px 4px; font: inherit; }
+  #groups .row input[type=color] { width: 22px; height: 20px; padding: 0; border: 1px solid var(--line); border-radius: 3px; background: none; }
+  #groups .row .n { color: var(--dim); font-size: 12px; min-width: 18px; text-align: right; }
+  #groups .row button, #groups-box .buttons button { border: 1px solid var(--line); background: var(--field); color: var(--ink); border-radius: 4px; cursor: pointer; font: inherit; padding: 0 6px; }
+  #groups-box .buttons { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+  #groups-box .note { color: var(--dim); font-size: 12px; }
+  #tip { position: fixed; pointer-events: none; background: var(--panel); padding: 4px 8px; border-radius: 5px; display: none; box-shadow: 0 1px 4px #0003; }
+  #game-btn { position: fixed; top: 12px; right: 12px; border: 0; background: var(--panel); color: var(--ink); padding: 7px 12px; border-radius: 8px; box-shadow: 0 1px 6px #0003; cursor: pointer; font: 600 13px system-ui, sans-serif; }
+  #game { position: fixed; top: 12px; right: 12px; background: var(--panel); padding: 10px 12px; border-radius: 8px; width: 280px; max-width: calc(100vw - 48px); max-height: calc(100vh - 48px); overflow-y: auto; box-shadow: 0 1px 6px #0003; }
+  #game h1 { font-size: 14px; margin: 0 0 6px; }
+  #game select, #game input { box-sizing: border-box; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 4px 6px; font: inherit; }
+  #game select, #g-name { width: 100%; margin: 4px 0 6px; }
+  #game input[type=number] { width: 72px; padding: 2px 4px; }
+  #game label { display: block; margin: 2px 0 6px; }
+  #game button { border: 1px solid var(--line); background: var(--field); color: var(--ink); border-radius: 5px; cursor: pointer; font: inherit; padding: 3px 10px; }
+  #game #game-close { float: right; border: 0; background: none; color: var(--dim); font-size: 15px; line-height: 1; padding: 0 2px; }
+  #g-ask { font-size: 15px; margin: 6px 0; }
+  #g-msg { min-height: 1.4em; }
+  #g-msg.no { color: var(--hi); }
+  #g-score { color: var(--dim); font-size: 12px; margin: 4px 0; }
+  #g-list { margin: 4px 0 0; padding-left: 22px; max-height: 40vh; overflow-y: auto; font-size: 12px; }
+  #g-list li span { color: var(--dim); }
+  body.gaming #q, body.gaming #results, body.gaming #info { display: none; }
+  @media (max-width: 700px) { body.gaming #panel { display: none; } }
+</style>
+</head>
+<body>
+<canvas id="map"></canvas>
+<div id="panel">
+  <h1>World layers <button id="roll" aria-expanded="true" aria-keyshortcuts="R" title="Roll the settings up (or down again) -- R">▴</button></h1>
+  <select id="proj" aria-label="Projection"></select>
+  <select id="mode" aria-label="Map mode"><option value="political">political map</option><option value="geographical">geographical map</option><option value="language">languages</option><option value="density">population density</option><option value="bio">biogeographical (realms, biomes, ecoregions)</option><option value="history">historical borders (3000 BC–2019)</option></select>
+  <select id="biolevel" aria-label="Biogeographic level" hidden><option value="realms">realms</option><option value="biomes">biomes</option><option value="ecoregions">ecoregions</option></select>
+  <div id="histbox" hidden><input type="range" id="year" min="-2999" max="2019" step="1" aria-label="Year"><input type="text" id="day" size="11" aria-label="Day (1914-06-28, 1914, 700 BC)" title="a day (1914-06-28), a year (1914) or a year BC (700 BC)"></div>
+  <div id="legend"></div>
+  <select id="palette" aria-label="Country colours"></select>
+  <input id="q" type="search" placeholder="Find a country, city, river, sea, mountains…" autocomplete="off" aria-label="Find by name">
+  <ul id="results"></ul>
+  <label><input type="checkbox" data-layer="land" checked> 1 land, coast, lakes</label>
+  <label><input type="checkbox" data-layer="countries" checked> 2 countries, borders</label>
+  <label><input type="checkbox" data-layer="regions" checked> 3 states, provinces</label>
+  <label><input type="checkbox" data-layer="rivers" checked> 4 rivers (50 m+ wide, 50 km+)</label>
+  <label><input type="checkbox" data-layer="monuments" checked> 5 monuments (100k+ visitors, or well known)</label>
+  <label><input type="checkbox" data-layer="cities" checked> 6 cities (100k+ people)</label>
+  <label><input type="checkbox" data-layer="areas" checked> 7 seas, mountains, peninsulas… (names)</label>
+  <label><input type="checkbox" data-layer="nature" checked> 8 peaks, capes, waterfalls</label>
+  <label><input type="checkbox" data-layer="airports" checked> 9 international airports</label>
+  <label><input type="checkbox" data-layer="motorways" checked> 10 motorways</label>
+  <label><input type="checkbox" data-layer="railways" checked> 11 main railways</label>
+  <label><input type="checkbox" data-layer="pipelines"> 12 oil and gas pipelines</label>
+  <label><input type="checkbox" data-layer="events" checked> 15 historical events (the historical map)</label>
+  <details id="groups-box"><summary>My groups</summary>
+    <label><input type="checkbox" id="grouping"> a click puts it into the chosen group</label>
+    <div class="note" id="groups-note"></div>
+    <div id="groups"></div>
+    <div class="buttons"><button id="add-group">+ group</button><button id="link-groups" title="A link to this map with these groups">copy link</button><button id="clear-groups">clear all</button></div>
+  </details>
+  <div id="info"></div>
+  <div id="stats">loading…</div>
+  <div id="hint">drag to turn the globe, wheel to zoom, click to see what is there</div>
+</div>
+<div id="tip"></div>
+<button id="game-btn" title="Name cities, or find them on the map">Game</button>
+<div id="game" hidden>
+  <button id="game-close" title="End the game: the map as it was">×</button>
+  <h1>Cities game</h1>
+  <select id="g-where" aria-label="Where"></select>
+  <select id="g-style" aria-label="The game">
+    <option value="people">Name cities: their people, as a share of all</option>
+    <option value="outside">Name cities, each outside every circle so far</option>
+    <option value="inside">Name cities, each inside a circle so far</option>
+    <option value="place">Find the city: click where it is</option>
+  </select>
+  <label id="g-kmbox">circles <input id="g-km" type="number" min="10" max="5000" step="10" value="500"> km across</label>
+  <label id="g-roundsbox"><input id="g-rounds" type="number" min="1" max="100" value="10"> cities to find</label>
+  <button id="g-start">Start</button>
+  <div id="g-ask"></div>
+  <input id="g-name" type="text" placeholder="a city, then Enter" autocomplete="off" aria-label="A city's name" hidden>
+  <div id="g-msg"></div>
+  <div id="g-score"></div>
+  <ol id="g-list"></ol>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4.0.0/dist/d3-geo-projection.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-simplify@3.0.3/dist/topojson-simplify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rbush@3.0.1/rbush.min.js"></script>
+<script>
+// A look at data/: every layer in any d3 projection. The layers are longitude/latitude with edges meant as the
+// shortest way over the globe, so each projection draws them as they are -- nothing here is pre-projected.
+// Speed: each layer's pieces sit in an R-tree by their bounding boxes and only the ones in view are drawn; the lines
+// come in levels of detail (topojson-simplify: a point is dropped when the triangle it makes is smaller than the
+// level's area) and each view uses the coarsest level still finer than a pixel; while the wheel turns, the last
+// picture is only scaled, and the map is drawn again once it stops.
+const $ = (id) => document.getElementById(id);
+const PROJ = {
+  "Equal Earth": () => d3.geoEqualEarth(), "Natural Earth": () => d3.geoNaturalEarth1(), "Robinson": () => d3.geoRobinson(),
+  "Orthographic (globe)": () => d3.geoOrthographic().clipAngle(90), "Mercator": () => d3.geoMercator(),
+  "Equirectangular": () => d3.geoEquirectangular(), "Azimuthal equal-area": () => d3.geoAzimuthalEqualArea().clipAngle(179.9),
+  "Winkel tripel": () => d3.geoWinkel3(), "Mollweide": () => d3.geoMollweide(),
+};
+for (const k of Object.keys(PROJ)) $("proj").add(new Option(k, k));
+// the countries' colours: each has a class (`color`, 0-6, no two neighbours the same -- build/write.py), and a
+// palette gives each class its colour. Light ones for the light scheme, dark ones for the dark; "none" is the plain land.
+const PALETTES = {
+  "pastel": ["#f3d9c4", "#d6e6c3", "#cfdcec", "#f4e3a8", "#e6d3e8", "#c9e5e0", "#f0cfd2", "#e2dcc8"],
+  "light": ["#f7e8dc", "#e8f0dd", "#e3ebf4", "#f8f0d0", "#f0e6f1", "#e0f0ed", "#f6e3e5", "#eeeae0"],
+  "muted": ["#d9b99b", "#b5c9a0", "#a9bfd3", "#ddca8a", "#c8b3cc", "#a4cdc5", "#d6afb3", "#c6bfa8"],
+  "vivid": ["#f5a66a", "#9bcf6e", "#7cb0e6", "#f2d75c", "#c99be0", "#6fcfc0", "#f08c9a", "#c2b56f"],
+  "dark muted": ["#5a4634", "#3e4d32", "#33424f", "#5a5230", "#4b3a4f", "#2f4a45", "#553a3e", "#45423a"],
+  "dark vivid": ["#7d4a1e", "#3f5f1f", "#1f4a73", "#736318", "#5b2f6e", "#1a5f58", "#742c39", "#5b5320"],
+  "earth": ["#c9a97a", "#a3ad7c", "#9fb3a8", "#d1b98c", "#b39b84", "#8fa98f", "#c5a08e", "#b7b08f"],
+  "greys": ["#e8e8e8", "#d4d4d4", "#dedad4", "#cfd3d6", "#e0dcd8", "#d8dcd2", "#e3e0e6", "#cdcdcd"],
+  "none": null,
+};
+for (const k of Object.keys(PALETTES)) $("palette").add(new Option(k === "none" ? "no country colours" : k + " colours", k));
+const palette = () => PALETTES[$("palette").value];
+// the states on the political map: each in its country's colour made a little lighter or darker (no two neighbouring
+// states of one country alike), so countries differ by hue and the states within one only by shade
+const SHADES = [0, -5, 5, -10, 10, -15];                        // (steps of Lab lightness; 0: the country's own colour)
+let regionShade = null, shadeCache = new Map();
+function regionShades() {                                       // each state's shade: greedy, the most neighbours first
+  if (regionShade) return regionShade;
+  const R = src.world.objects.regions.geometries, nb = topojson.neighbors(R), cc = (i) => R[i].properties.country;
+  regionShade = new Int8Array(R.length).fill(-1);
+  for (const i of R.map((_, i) => i).sort((a, b) => nb[b].length - nb[a].length)) {
+    const used = new Set(nb[i].filter((j) => cc(j) === cc(i)).map((j) => regionShade[j]));
+    let k = 0; while (used.has(k) && k < SHADES.length - 1) k++;
+    regionShade[i] = k;
+  }
+  return regionShade;
+}
+function shade(color, k) {                                      // (a colour near white or black: all the steps moved in)
+  const key = color + k;
+  if (!shadeCache.has(key)) {
+    const c = d3.lab(color), shift = Math.min(0, 97 - c.l - Math.max(...SHADES)) + Math.max(0, 12 - c.l - Math.min(...SHADES));
+    c.l += SHADES[k] + shift; shadeCache.set(key, c.formatHex());
+  }
+  return shadeCache.get(key);
+}
+// the two maps: POLITICAL -- countries coloured, their borders and their states' -- and GEOGRAPHICAL -- the seas,
+// gulfs, mountains, deserts, plateaus, plains... coloured by their kind (the bigger under the smaller). The natural
+// lines -- coast, islands, lakes -- and everything else are on both.
+const GEO = {
+  ocean: "#c4d9e9", sea: "#bcd3e5", gulf: "#b3cde1", bay: "#b3cde1", sound: "#b3cde1", channel: "#b3cde1", strait: "#b3cde1", fjord: "#b3cde1",
+  inlet: "#b3cde1", lagoon: "#aed0d8", estuary: "#b3cde1", reef: "#a9d3cf", lake: "#bcd3e5",
+  mountains: "#c9b199", foothills: "#d7c6b0", plateau: "#dbcaa5", desert: "#f0dba8", plain: "#dbe6c0", lowland: "#dbe6c0", basin: "#e0e4c6",
+  valley: "#cfdcb8", gorge: "#cfdcb8", delta: "#bfdac4", wetlands: "#bfdac4", tundra: "#e0e7dc", depression: "#e7d8be",
+};  // (not: a peninsula, an isthmus, an island, a continent, a coast, a region -- land of no one colour)
+const geographical = () => $("mode").value === "geographical";
+const mode = () => $("mode").value;
+// LANGUAGES: each country and state by its (first official) language -- the widest-spoken ones (by the people of
+// the places that have them) in distinct colours, the rest in one grey. DENSITY: people per km2, a sequential scale.
+const LANG_COLOURS = ["#e8a06a", "#8fc27a", "#7fb0e6", "#f2d264", "#c69be0", "#6fcfc0", "#f0919c", "#c9b96f", "#a4d47a", "#d9a8d0",
+                      "#8ed3e8", "#f5b98a", "#b4b4e8", "#e0c89a", "#9ad6a8", "#e6a5b8", "#c7d47a", "#a8c8e0"];
+const DENSITY = [[1, "#f5f1e6"], [5, "#f0e3c0"], [20, "#ecd19c"], [50, "#e6b87c"], [100, "#dd9a62"], [250, "#cf7a4e"], [500, "#b95a3f"], [1000, "#963f34"], [Infinity, "#6b2a2a"]];
+const densityColour = (d) => (DENSITY.find(([lim]) => d < lim) || DENSITY[DENSITY.length - 1])[1];
+// BIOGEOGRAPHICAL: the land by realm, biome or ecoregion (data/bio.topo.json, build/bio.py: RESOLVE Ecoregions 2017) --
+// a biome and an ecoregion in RESOLVE's own colours, a realm in one of these
+const REALM_COLOURS = { PA: "#e9c77b", NA: "#9cc5a1", NT: "#8fd18a", AT: "#f2a65e", IM: "#e58f8f", AA: "#d8a0d6", OC: "#7fc4e0", AN: "#d9e2ea" };
+const bioLayer = () => $("biolevel").value;
+let langColour = {};
+function rankLanguages() {                                         // (the language colours: by the people speaking them, from the data)
+  const people = {};
+  for (const f of level(0).countries) { const p = f.properties; if (p.language) people[p.language] = (people[p.language] || 0) + (p.population || 1e5); }
+  const order = Object.keys(people).sort((a, b) => people[b] - people[a]);
+  langColour = {};
+  order.forEach((l, i) => { langColour[l] = i < LANG_COLOURS.length ? LANG_COLOURS[i] : "#d8d8d8"; });
+  return order;
+}
+function legend() {
+  const el = $("legend"), m = mode();
+  el.style.display = (m === "language" || m === "density" || m === "history" || (m === "bio" && bioLayer() !== "ecoregions" && src && src.bio)) ? "block" : "none";
+  el.innerHTML = "";
+  if (m === "language") {
+    const order = rankLanguages();
+    for (const l of order.slice(0, LANG_COLOURS.length)) el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:${langColour[l]}"></i>${l}` }));
+    el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:#d8d8d8"></i>other` }));
+  } else if (m === "density") {
+    let lo = 0;
+    for (const [lim, c] of DENSITY) { el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:${c}"></i>${lim === Infinity ? lo + "+" : lo + "–" + lim}` })); lo = lim; }
+    el.append(Object.assign(document.createElement("span"), { textContent: "people per km²" }));
+  } else if (m === "bio" && src && src.bio) {
+    for (const f of bioLevel(0)[bioLayer()]) { const p = f.properties; el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:${bioColour(p)}"></i>${p.name}` })); }
+  } else if (m === "history") {
+    el.append(Object.assign(document.createElement("div"), { textContent: "a dependency: paler, in its ruler's colour · a people or culture (no state): pale, its name grey · a blurred border: approximate (all before 1650) · dashed: to land no state held · ◆ events within a few years (the further back, the more)" }));
+  }
+}
+const bioColour = (p) => REALM_COLOURS[p.id] || p.color || "#d8d8d8";
+// the panel rolled up or down (kept between visits)
+const roll = (up) => { $("panel").classList.toggle("rolled", up); $("roll").textContent = up ? "▾" : "▴"; $("roll").setAttribute("aria-expanded", String(!up)); try { localStorage["map:rolled"] = up ? "1" : ""; } catch (e) { } };
+$("roll").onclick = () => roll(!$("panel").classList.contains("rolled"));
+// R rolls it too -- anywhere but in a field you type or choose in
+document.addEventListener("keydown", (ev) => {
+  if (ev.key.toLowerCase() !== "r" || ev.ctrlKey || ev.metaKey || ev.altKey || ev.target.closest?.("input, select, textarea, [contenteditable]")) return;
+  roll(!$("panel").classList.contains("rolled")); ev.preventDefault();
+});
+try { if (localStorage["map:rolled"]) roll(true); } catch (e) { }
+try { if ($("mode").querySelector(`[value="${localStorage.mode}"]`)) $("mode").value = localStorage.mode; } catch (e) { }
+const canvas = $("map"), ctx = canvas.getContext("2d");
+const snap = document.createElement("canvas");                  // (the last picture, scaled while the wheel turns)
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const R_KM = 6371, WEIGHTS = [0, 3e-9, 3e-8, 3e-7, 3e-6, 3e-5]; // (level i drops points of triangles under WEIGHTS[i] sr: ~0.35, 1.1, 3.5, 11, 35 km)
+let W, H, dpr, proj, path, rotate = [-10, 0, 0], zoom = 1, src = null, lod = [], trees = {}, points = {}, index = [], sel = null;
+const on = (k) => document.querySelector(`[data-layer="${k}"]`).checked;
+const MAX_ZOOM = 300;   // (about 100 m a pixel on a 1400 px screen: the coast is kept to 100 m, lines to 0.5 km)
+const dark = () => matchMedia("(prefers-color-scheme: dark)").matches;
+try { if (PALETTES[localStorage.palette] !== undefined) $("palette").value = localStorage.palette; else if (dark()) $("palette").value = "dark muted"; } catch (e) { }
+const fmt = (n) => Math.round(n).toLocaleString("en");
+const fmtPop = (n) => n >= 1e9 ? `${(n / 1e9).toFixed(2).replace(/\.?0+$/, "")} billion` : n >= 1e6 ? `${(n / 1e6).toFixed(1).replace(/\.0$/, "")} million` : `${Math.round(n / 1e3)}k`;   // (the data holds 2 digits)
+
+function setup() {
+  dpr = window.devicePixelRatio || 1; W = innerWidth; H = innerHeight;
+  if (canvas.width !== W * dpr || canvas.height !== H * dpr) { canvas.width = W * dpr; canvas.height = H * dpr; }
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  proj = PROJ[$("proj").value]().rotate(rotate).precision(0.5);
+  proj.fitExtent([[10, 10], [W - 10, H - 10]], { type: "Sphere" });
+  proj.scale(proj.scale() * zoom).translate([W / 2, H / 2]);
+  path = d3.geoPath(proj, ctx).pointRadius(2);
+}
+
+// ---- levels of detail --------------------------------------------------------------------------------------------
+// a polygon whose ring the simplification collapsed, or turned inside out (d3 would paint the globe but it), is dropped
+function keepPolygons(f) {
+  const g = f.geometry;
+  if (!g || (g.type !== "Polygon" && g.type !== "MultiPolygon")) return f;
+  const parts = (g.type === "Polygon" ? [g.coordinates] : g.coordinates)
+    .map((p) => p.filter((r) => r.length >= 4)).filter((p) => p.length && p[0].length >= 4)
+    .filter((p) => d3.geoArea({ type: "Polygon", coordinates: p }) <= 2 * Math.PI);
+  return { ...f, geometry: parts.length ? { type: "MultiPolygon", coordinates: parts } : null };
+}
+function level(i) {
+  if (lod[i]) return lod[i];
+  const t = i ? topojson.simplify(src.worldPre, WEIGHTS[i]) : src.world, o = t.objects;
+  const r = src.rivers && (i ? topojson.simplify(src.riversPre, WEIGHTS[i]) : src.rivers);
+  const tr = src.transport && (i ? topojson.simplify(src.transportPre, WEIGHTS[i]) : src.transport);
+  const lines = (obj) => tr && tr.objects[obj] ? tr.objects[obj].geometries.map((g) => topojson.feature(tr, g)) : [];
+  const feats = (obj, poly) => obj ? obj.geometries.map((g) => { const f = topojson.feature(t, g); return poly ? keepPolygons(f) : f; }) : [];
+  return lod[i] = {
+    land: feats(o.land, true), countries: feats(o.countries, true), regions: i ? [] : feats(o.regions, true), lakes: feats(o.lakes, true),
+    areas: feats(o.areas, true),
+    coast: o.coastline.geometries[0].arcs.map((a) => topojson.feature(t, { type: "LineString", arcs: a })),
+    cb: feats(o.country_borders), rb: feats(o.region_borders),
+    rivers: r ? r.objects.rivers.geometries.map((g) => topojson.feature(r, g)) : [],
+    motorways: lines("motorways"), railways: lines("railways"), pipelines: lines("pipelines"),
+  };
+}
+// the biogeographic layer's levels (its own file, loaded after the rest: loadBio)
+let bioLod = [];
+function bioLevel(i) {
+  if (bioLod[i]) return bioLod[i];
+  const t = i ? topojson.simplify(src.bioPre, WEIGHTS[i]) : src.bio, o = t.objects;
+  const feats = (obj) => obj.geometries.map((g) => keepPolygons(topojson.feature(t, g)));
+  return bioLod[i] = { realms: feats(o.realms), biomes: feats(o.biomes), ecoregions: feats(o.ecoregions) };
+}
+// the historical map's levels (its own file, loaded after the rest: loadHistory) -- regions, each with its owners
+// through time; H0: what does not change with the day (each region's owners as numbers, the periods, the arcs between
+// regions), read once
+let histLod = [], histNow = null, H0 = null;
+const histLevel = (i) => histLod[i] ??= i ? topojson.simplify(src.histPre, WEIGHTS[i]) : src.hist;
+// a day as the data writes it: "1914-06-28", "-0699-01-01" (years astronomical: 0 is 1 BC, -699 700 BC); a number to
+// compare (strings will not: "-0699" < "-0700"); a date cut to its year or month ("-0479", "1415-06") is its first day
+const dayNum = (s) => { const m = /^(-?\d+)(?:-(\d\d))?(?:-(\d\d))?$/.exec(s || ""); return m ? +m[1] * 10000 + +(m[2] || 1) * 100 + +(m[3] || 1) : NaN; };
+const yearOf = (s) => parseInt(s, 10);
+const yearText = (y) => (y < 0 ? "-" : "") + String(Math.abs(y)).padStart(4, "0");
+const showYear = (y) => y <= 0 ? `${1 - y} BC` : String(y);
+const showDay = (s) => { const y = yearOf(s), md = s.replace(/^-?\d+/, ""); return y <= 0 ? showYear(y) + (md && md !== "-01-01" ? md : "") : s; };
+let curDay = "1914-06-28";
+const histDay = () => curDay;
+function setDay(t) {                                                // ("1914-06-28", "1914", "-699", "700 BC", "700 BC-08-10")
+  let m = /^\s*(\d+)\s*(?:BC|BCE|v\.?\s*Chr\.?)\s*(-\d\d-\d\d)?\s*$/i.exec(String(t)), d;
+  if (m) d = yearText(1 - +m[1]) + (m[2] || "-01-01");
+  else if ((m = /^\s*(-?\d{1,4})(-\d\d)?(-\d\d)?\s*$/.exec(String(t)))) d = yearText(+m[1]) + (m[2] || "-01") + (m[3] || "-01");
+  else return;
+  const lo = "-2999-01-01", hi = "2019-12-31", y = yearOf(d);
+  if (dayNum(d) < dayNum(lo)) d = lo; else if (dayNum(d) > dayNum(hi)) d = hi;
+  else if (d.endsWith("02-29") && !((y % 4 === 0 && y % 100 !== 0) || y % 400 === 0)) d = d.slice(0, -2) + "28";
+  curDay = d; $("day").value = showDay(d); $("year").value = yearOf(d); histNow = null;
+  try { localStorage.histday = d; } catch (e) { }
+}
+// what is on the day shown: its country-periods, its borders, and a colour class for each state -- no two neighbours
+// alike, a dependency in its ruler's where its neighbours let it (an empire in one colour); and its events
+const EVENTS = 40;                                                  // (the day's best-known this many shown, times the zoom squared)
+const eventYears = (y) => Math.max(1, Math.round((2020 - y) / 25));   // (the events shown: within this many years of the day -- 4 in 1914, 109 in 700 BC)
+function histOn() {
+  const d = histDay();
+  if (histNow && histNow.day === d) return histNow;
+  const n = dayNum(d), P = H0.periods, R = H0.held.length, of = new Int32Array(R).fill(-1), members = new Map();
+  for (let r = 0; r < R; r++) {                                     // (each region's country-period that day: its state's period spanning it)
+    const [from, state] = H0.held[r];
+    let k = -1; while (k + 1 < from.length && from[k + 1] <= n) k++;
+    if (k < 0 || state[k] < 0) continue;
+    const pi = (H0.byState.get(state[k]) || []).find((i) => P[i]._f <= n && n <= P[i]._t);
+    if (pi === undefined) continue;
+    of[r] = pi; if (!members.has(pi)) members.set(pi, []); members.get(pi).push(r);
+  }
+  const countries = [...members.keys()];
+  // (the arcs between two regions of different states that day, by how they are drawn: an approximate border blurred,
+  // one to land no state held dashed)
+  const lines = { rough: [], roughOpen: [], fixed: [], partly: [], open: [], inner: [] }, near = new Map(), owner = new Map(), colour = new Map(), N = 8;
+  for (const pi of countries) { const p = P[pi]; near.set(p.state, new Set()); if (p.owner != null) owner.set(p.state, p.owner); }
+  for (const [a, r1, r2] of H0.pairs) {
+    const p1 = of[r1], p2 = r2 < 0 ? -2 : of[r2];
+    if (p2 === -2 || p1 === p2 || (p1 < 0 && p2 < 0)) continue;
+    const s1 = p1 < 0 ? null : P[p1].state, s2 = p2 < 0 ? null : P[p2].state;
+    if (s1 === s2) continue;
+    const pr = Math.min(p1 < 0 ? 9 : P[p1].precision, p2 < 0 ? 9 : P[p2].precision), open = s1 == null || s2 == null;
+    const o1 = p1 < 0 ? null : P[p1].owner, o2 = p2 < 0 ? null : P[p2].owner;   // (within one state: a province and its ruler, two of one ruler's)
+    lines[!open && (o1 === s2 || o2 === s1 || (o1 != null && o1 === o2)) ? "inner" : pr === 1 ? (open ? "roughOpen" : "rough") : open ? "open" : pr === 2 ? "partly" : "fixed"].push(a);
+    if (!open) { near.get(s1).add(s2); near.get(s2).add(s1); }
+  }
+  const free = (g, c) => ![...near.get(g)].some((x) => colour.get(x) === c);
+  for (const g of [...near.keys()].sort((a, b) => owner.has(a) - owner.has(b) || near.get(b).size - near.get(a).size)) {   // (the states first, the most neighbours first)
+    const want = colour.get(owner.get(g));
+    let c = 0;
+    if (want !== undefined && free(g, want)) c = want; else while (!free(g, c) && c < N - 1) c++;
+    colour.set(g, c);
+  }
+  const y = yearOf(d), w = eventYears(y), events = [];
+  if (src.events) src.events.features.forEach((f, i) => { if (Math.abs((f.properties._y ??= yearOf(f.properties.date)) - y) <= w) events.push(i); });
+  return histNow = { day: d, of, members, countries, lines, colour, lv: [], events: new Map(events.map((i, r) => [i, r])) };   // (event -> its rank that day: the file is the best known first)
+}
+// at level i: the regions (the same every day; a state is filled as its regions, all of one colour in one path, so no
+// seam shows), and the day's borders, a line for each way of drawing one
+const histRegions = (i) => H0.lv[i] ??= histLevel(i).objects.regions.geometries.map((g) => keepPolygons(topojson.feature(histLevel(i), g)));
+function histFeatures(i) {
+  const now = histOn(); if (now.lv[i]) return now.lv[i];
+  const t = histLevel(i);
+  return now.lv[i] = { regions: histRegions(i), hborders: Object.fromEntries(Object.entries(now.lines).map(([k, arcs]) => [k, topojson.feature(t, { type: "MultiLineString", arcs: arcs.map((a) => [a]) })])) };
+}
+// a country-period's land on the day shown, merged of its regions (none if it has none then)
+function histFeature(pi) {
+  const rs = histOn().members.get(pi), G = src.hist.objects.regions.geometries;
+  return rs ? [keepPolygons({ type: "Feature", properties: H0.periods[pi], geometry: topojson.merge(src.hist, rs.map((r) => G[r])) })] : [];
+}
+// the coarsest level whose points are still under a pixel apart
+const pxKm = () => R_KM / proj.scale();
+function pick(coarser = 0) {
+  let i = 0;
+  while (i + 1 < WEIGHTS.length && Math.sqrt(WEIGHTS[i + 1]) * R_KM <= 0.8 * pxKm()) i++;
+  return Math.min(WEIGHTS.length - 1, i + coarser);
+}
+
+// ---- the R-trees: every piece by its box (a piece over the antimeridian by two) ---------------------------------
+function tree(feats) {
+  const items = [];
+  feats.forEach((f, i) => {
+    if (!f.geometry) return;
+    const [[w, s], [e, n]] = d3.geoBounds(f);
+    if (w <= e) items.push({ minX: w, minY: s, maxX: e, maxY: n, i });
+    else items.push({ minX: w, minY: s, maxX: 180, maxY: n, i }, { minX: -180, minY: s, maxX: e, maxY: n, i });
+  });
+  const t = new RBush(); t.load(items); return t;
+}
+function pointTree(set) {
+  const t = new RBush();
+  if (set) t.load(set.features.map((f, i) => { const [x, y] = f.geometry.coordinates; return { minX: x, minY: y, maxX: x, maxY: y, i }; }));
+  return t;
+}
+function query(t, boxes) {
+  const s = new Set();
+  for (const [w, so, e, n] of boxes) for (const it of t.search({ minX: w, minY: so, maxX: e, maxY: n })) s.add(it.i);
+  return [...s].sort((a, b) => a - b);
+}
+// what of the globe is in view, as longitude/latitude boxes (the screen sampled on a grid and turned back)
+function viewBoxes() {
+  const lon = [], lat = [], nx = 24, ny = 16;
+  for (let i = 0; i <= nx; i++) for (let j = 0; j <= ny; j++) {
+    const x = i * W / nx, y = j * H / ny, p = proj.invert([x, y]);
+    if (!p || !isFinite(p[0]) || !isFinite(p[1]) || !visible(p)) continue;
+    const q = proj(p);
+    if (!q || Math.hypot(q[0] - x, q[1] - y) > 2) continue;
+    lon.push(p[0]); lat.push(p[1]);
+  }
+  if (lon.length < 4) return [[-180, -90, 180, 90]];
+  const pad = Math.max(1, 30 * pxKm() / 111);
+  let s = Math.max(-90, Math.min(...lat) - pad), n = Math.min(90, Math.max(...lat) + pad);
+  let full = false;
+  for (const pole of [90, -90]) {                                   // (a pole in view: all longitudes)
+    const q = proj([0, pole]);
+    if (q && visible([0, pole]) && q[0] >= 0 && q[0] <= W && q[1] >= 0 && q[1] <= H) { full = true; if (pole > 0) n = 90; else s = -90; }
+  }
+  lon.sort((a, b) => a - b);
+  let gap = lon[0] + 360 - lon[lon.length - 1], at = lon.length - 1;           // (the widest stretch of longitude not seen)
+  for (let i = 1; i < lon.length; i++) if (lon[i] - lon[i - 1] > gap) { gap = lon[i] - lon[i - 1]; at = i - 1; }
+  if (full || gap < 3 * pad) return [[-180, s, 180, n]];
+  const w = lon[(at + 1) % lon.length] - pad, e = lon[at] + pad;
+  if (w <= e && w >= -180 && e <= 180) return [[w, s, e, n]];
+  const W0 = ((w + 540) % 360) - 180, E0 = ((e + 540) % 360) - 180;
+  return W0 <= E0 ? [[W0, s, E0, n]] : [[W0, s, 180, n], [-180, s, E0, n]];
+}
+
+// ---- drawing -------------------------------------------------------------------------------------------------------
+function draw(fast = false) {
+  const t0 = performance.now();
+  drawMap(fast);
+  if (!fast && src) $("hint").textContent = `drawn in ${Math.round(performance.now() - t0)} ms (level ${pick()}) · drag to turn, wheel to zoom, click to see what is there`;
+}
+function drawMap(fast) {
+  ctx.clearRect(0, 0, W, H);
+  const stroke = (feats, ids, color, width) => { ctx.beginPath(); for (const i of ids) if (feats[i].geometry) path(feats[i]); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke(); };
+  const fillAll = (feats, ids, color) => { ctx.beginPath(); for (const i of ids) if (feats[i].geometry) path(feats[i]); ctx.fillStyle = color; ctx.fill(); };
+  ctx.beginPath(); path({ type: "Sphere" }); ctx.fillStyle = css("--sea"); ctx.fill();
+  if (!src) return;
+  const L = level(pick(fast ? 1 : 0)), boxes = viewBoxes(), dk = dark();
+  const v = (k) => query(trees[k], boxes);
+  const m = mode(), geo = m === "geographical", political = m === "political", themed = m === "language" || m === "density";
+  const themeFill = (name) => {                                     // countries, then the states over them, by language or density
+    const F = name === "regions" ? level(0).regions : L[name], by = {};   // (the states are kept at full detail only)
+    if (m === "language" && !Object.keys(langColour).length) rankLanguages();
+    for (const i of v(name)) {
+      const p = F[i].properties; if (!F[i].geometry) continue;
+      const c = m === "language" ? (p.language ? (langColour[p.language] || "#d8d8d8") : null) : (p.density != null ? densityColour(p.density) : null);
+      if (c) (by[c] ??= []).push(i);
+    }
+    for (const c in by) fillAll(F, by[c], c);
+  };
+  const geoFill = (mask) => {                                      // the areas of one side of the coast, by kind, the bigger first
+    const by = {};
+    for (const i of v("areas")) { const p = L.areas[i].properties; if (p.mask === mask && GEO[p.kind] && L.areas[i].geometry) (by[p.kind] ??= []).push(i); }
+    const order = Object.keys(by).sort((a, b) => Math.min(...by[a].map((i) => L.areas[i].properties.rank ?? 9)) - Math.min(...by[b].map((i) => L.areas[i].properties.rank ?? 9)));
+    if (dk) ctx.globalAlpha = 0.45;
+    for (const k of order) fillAll(L.areas, by[k].sort((i, j) => (L.areas[i].properties.rank ?? 9) - (L.areas[j].properties.rank ?? 9)), GEO[k]);
+    ctx.globalAlpha = 1;
+  };
+  if (geo && on("areas")) geoFill("water");
+  if (on("land")) fillAll(L.land, v("land"), css("--land"));
+  const pal = groupsOn("countries") ? null : palette();          // (countries put into groups: only the groups coloured)
+  const B = m === "bio" && src.bio ? bioLevel(pick(fast ? 1 : 0)) : null, bl = bioLayer();
+  if (B) {                                                          // (the land by realm, biome or ecoregion; paler under groups)
+    const by = {}; for (const i of v(bl)) { const f = B[bl][i]; if (f.geometry) (by[bioColour(f.properties)] ??= []).push(i); }
+    ctx.globalAlpha = (dk ? 0.55 : 1) * (groupsOn(bl) ? 0.35 : 1); for (const c in by) fillAll(B[bl], by[c], c); ctx.globalAlpha = 1;
+  }
+  const Hl = m === "history" && src.hist ? histFeatures(pick(fast ? 1 : 0)) : null;
+  if (Hl) {                                                         // (the day's country-periods; a dependency paler, in its ruler's colour)
+    const now = histOn(), hp = palette() || PALETTES.pastel, by = {};
+    for (const i of v("hregions")) { const pi = now.of[i]; if (pi < 0 || !Hl.regions[i].geometry) continue; const p = H0.periods[pi];
+      (by[`${now.colour.get(p.state) % hp.length}|${p.status === "culture" ? 2 : p.owner != null ? 1 : 0}`] ??= []).push(i); }
+    for (const k in by) { const [c, dep] = k.split("|"); ctx.globalAlpha = (dk ? 0.8 : 1) * [1, 0.55, 0.3][dep]; fillAll(Hl.regions, by[k], hp[c]); }
+    ctx.globalAlpha = 1;
+  }
+  if (political && on("countries") && pal) { const by = {}; for (const i of v("countries")) { const f = L.countries[i]; if (f.geometry) (by[f.properties.color % pal.length] ??= []).push(i); }
+    for (const c in by) fillAll(L.countries, by[c], pal[c]);
+    if (on("regions")) {                                            // (the states over them, in shades of their country's colour)
+      const R = level(0).regions, sh = regionShades(), cls = new Map(level(0).countries.map((f) => [f.properties.iso, f.properties.color])), rby = {};
+      for (const i of v("regions")) { const f = R[i], c = cls.get(f.properties.country); if (c != null && f.geometry) (rby[shade(pal[c % pal.length], sh[i])] ??= []).push(i); }
+      for (const c in rby) fillAll(R, rby[c], c);
+    } }
+  if (themed) { if (dk) ctx.globalAlpha = 0.6; themeFill("countries"); if (on("regions")) themeFill("regions"); ctx.globalAlpha = 1; }
+  if (geo && on("areas")) geoFill("land");
+  drawGroups(L, B, v, fillAll);
+  if (sel && sel.mask === "land") highlight(sel);
+  if (on("land")) { fillAll(L.lakes, v("lakes"), css("--sea")); stroke(L.coast, v("coast"), css("--line"), 0.6); }
+  if (sel && sel.mask !== "land") highlight(sel);
+  if (B) {                                                          // (the outlines of the level shown, and the realms' over them)
+    if (bl !== "realms") stroke(B[bl], v(bl), dk ? "#00000088" : "#ffffffaa", bl === "ecoregions" ? 0.5 : 0.7);
+    stroke(B.realms, v("realms"), dk ? "#e8e8e8aa" : "#4a4a4aaa", 1.1);
+  }
+  if (Hl) {                                                         // (the day's land borders: an approximate one blurred -- wide and faint
+    const b = Hl.hborders, ink = dk ? "#b9c2cb" : "#55606b";   // under a thin line --, one to land no state held dashed)
+    ctx.globalAlpha = 0.18; stroke([b.rough, b.roughOpen], [0, 1], ink, 4); ctx.globalAlpha = 0.6; stroke([b.rough], [0], ink, 0.6); ctx.globalAlpha = 1;
+    stroke([b.fixed], [0], ink, 0.8);
+    ctx.globalAlpha = 0.7; stroke([b.partly], [0], ink, 0.7); ctx.globalAlpha = 1;
+    ctx.setLineDash([3, 3]); stroke([b.open], [0], ink, 0.6); ctx.setLineDash([]);
+    if (on("regions") && !fast) stroke([b.inner], [0], dk ? "#6a7580" : "#a8b0b8", 0.4);   // (a province's border within its state: as a modern state's)
+  }
+  if ((political || themed) && on("regions") && !fast) stroke(level(0).rb, v("rb"), dk ? "#6a7580" : "#a8b0b8", 0.4);
+  if ((political || themed) && on("countries")) stroke(L.cb, v("cb"), dk ? "#b9c2cb" : "#55606b", 0.8);
+  if (on("rivers") && L.rivers.length) {
+    const min = zoom < 1.5 ? 600 : zoom < 3 ? 250 : zoom < 6 ? 100 : 0;    // (the long rivers first, the rest closer in)
+    stroke(L.rivers, v("rivers").filter((i) => (L.rivers[i].properties.river_km || 0) >= min), dk ? "#4d86b3" : "#5b95c7", 0.7);
+  }
+  // the main lines: the long networks first, the rest closer in; a railway dashed, a pipeline dotted
+  const net = (feats, ids, km) => ids.filter((i) => (feats[i].properties.network_km || 0) >= km);
+  const minNet = zoom < 1.5 ? 1500 : zoom < 3 ? 500 : zoom < 6 ? 150 : 0;
+  const lw = Math.min(1, 0.35 + 0.2 * Math.log2(zoom + 1));      // (thinner the farther out: a continent's roads are many)
+  const G = game.open;                                            // (the game: no names but the cities named, nothing to go by but the map)
+  if (on("pipelines") && L.pipelines.length && !G) { ctx.setLineDash([1.5, 2.5]); stroke(L.pipelines, net(L.pipelines, v("pipelines"), minNet), dk ? "#b58b5a" : "#8a5a2b", lw); ctx.setLineDash([]); }
+  if (on("railways") && L.railways.length && !G) { ctx.setLineDash([4, 2]); stroke(L.railways, net(L.railways, v("railways"), minNet), dk ? "#c8ccd2" : "#4a4f57", 0.9 * lw); ctx.setLineDash([]); }
+  if (on("motorways") && L.motorways.length && !G) stroke(L.motorways, net(L.motorways, v("motorways"), minNet), dk ? "#e0914a" : "#d9731f", 1.1 * lw);
+  if (sel && (sel.cat === "river" || sel.cat === "line")) { ctx.beginPath(); path(sel.geom); ctx.strokeStyle = css("--hi"); ctx.lineWidth = 2.5; ctx.stroke(); }
+  if (G) drawGame(fast);
+  if (fast) return;
+  const placed = [];                                            // (labels placed so far: a label that would overlap one is left out)
+  if (G) return cityLabels(placed, game.shown(), true);
+  if (B) bioLabels(placed);
+  if (Hl) histLabels(placed);
+  if ((political || themed) && on("countries")) unitLabels(placed);
+  if (on("areas")) areaLabels(placed);
+  if (on("cities") && src.cities) {
+    const ids = query(points.cities, boxes);
+    cityDots(ids.filter((i) => src.cities.features[i].properties.population >= minPop()));
+    cityLabels(placed, ids);
+  }
+  if (on("monuments") && src.monuments) {
+    ctx.fillStyle = dk ? "#9be07a" : "#2e7d32";
+    for (const i of query(points.monuments, boxes)) {
+      const f = src.monuments.features[i];
+      if (i >= 60 * zoom * zoom || !visible(f.geometry.coordinates)) continue;     // (the file is sorted: the best known first)
+      const [x, y] = proj(f.geometry.coordinates);
+      ctx.beginPath(); ctx.moveTo(x, y - 3); ctx.lineTo(x + 2.6, y + 1.8); ctx.lineTo(x - 2.6, y + 1.8); ctx.fill();
+    }
+  }
+  if (on("nature") && src.nature) {
+    ctx.fillStyle = dk ? "#c9a27a" : "#7a4f2a";
+    for (const i of query(points.nature, boxes)) {
+      const f = src.nature.features[i];
+      if (!visible(f.geometry.coordinates) || (f.properties.rank ?? 9) > 3 + zoom) continue;
+      const [x, y] = proj(f.geometry.coordinates);
+      ctx.beginPath();
+      if (f.properties.kind === "peak") { ctx.moveTo(x, y - 3.5); ctx.lineTo(x + 3, y + 1.5); ctx.lineTo(x - 3, y + 1.5); }
+      else ctx.rect(x - 1.8, y - 1.8, 3.6, 3.6);
+      ctx.fill();
+    }
+  }
+  if (on("airports") && src.airports) {
+    ctx.font = "12px system-ui, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillStyle = dk ? "#8fb8ff" : "#1d4f9c";
+    for (const i of query(points.airports, boxes)) {
+      const f = src.airports.features[i];
+      if (!visible(f.geometry.coordinates) || (f.properties.destinations_abroad || 0) < 80 / (zoom * zoom)) continue;
+      const [x, y] = proj(f.geometry.coordinates);
+      ctx.fillText("✈", x, y);
+    }
+  }
+  if (Hl && on("events") && src.events) {                          // (the day's events: the best known first, more the closer in)
+    const now = histOn(), F = src.events.features;
+    ctx.fillStyle = dk ? "#ff7a8a" : "#b0124a"; ctx.strokeStyle = dk ? "#000" : "#fff"; ctx.lineWidth = 1;
+    for (const i of query(points.events, boxes)) {
+      if (!(now.events.get(i) < EVENTS * zoom * zoom) || !visible(F[i].geometry.coordinates)) continue;
+      const [x, y] = proj(F[i].geometry.coordinates);
+      ctx.beginPath(); ctx.moveTo(x, y - 4); ctx.lineTo(x + 3.5, y); ctx.lineTo(x, y + 4); ctx.lineTo(x - 3.5, y); ctx.closePath(); ctx.fill(); ctx.stroke();
+    }
+  }
+  if (sel) mark(sel);
+}
+
+// the selection: an area of the map's own lines (a sea is water only, a range land only), a country, a lake -- filled
+function highlight(s) {
+  if (s.cat === "river" || s.cat === "line" || s.cat === "point") return;
+  ctx.beginPath(); path(s.geom); ctx.fillStyle = css("--hi-fill"); ctx.fill();
+  ctx.strokeStyle = css("--hi"); ctx.lineWidth = 1.4; ctx.stroke();
+}
+
+// the selection's name (and a ring round a point)
+function mark(s) {
+  const p = s.at && visible(s.at) ? proj(s.at) : null;
+  if (!p) return;
+  const [x, y] = p;
+  if (s.cat === "point") { ctx.beginPath(); ctx.arc(x, y, 7, 0, 7); ctx.strokeStyle = css("--hi"); ctx.lineWidth = 2; ctx.stroke(); }
+  ctx.font = "600 13px system-ui, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  ctx.lineWidth = 3.5; ctx.strokeStyle = css("--bg"); ctx.fillStyle = css("--ink");
+  const ty = s.cat === "point" ? y - 16 : y;
+  ctx.strokeText(s.name, x, ty); ctx.fillText(s.name, x, ty);
+}
+
+function place(boxes, x, y, w, h) {
+  const b = [x - w / 2 - 2, y - h / 2 - 1, x + w / 2 + 2, y + h / 2 + 1];
+  if (b[0] < 0 || b[1] < 0 || b[2] > W || b[3] > H) return false;
+  for (const o of boxes) if (b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]) return false;
+  boxes.push(b); return true;
+}
+
+// a name centred on its place, with a halo -- unless it would overlap a name placed before. `spacing`: px between the
+// letters (a country's spaced capitals); `alpha`: how far it has faded in (fadeIn)
+function writeName(boxes, text, at, size, font, fill, { spacing = 0, alpha = 1 } = {}) {
+  if (alpha < 0.15) return;                                         // (too faint to read: it takes no room from another)
+  ctx.font = `${font} ${size}px system-ui, sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.letterSpacing = `${spacing}px`;
+  const [x, y] = proj(at), w = ctx.measureText(text).width;
+  if (place(boxes, x, y, w, size)) {
+    ctx.lineWidth = 3; ctx.strokeStyle = dark() ? "#000000aa" : "#ffffffcc"; ctx.fillStyle = fill; ctx.globalAlpha = alpha;
+    ctx.strokeText(text, x, y); ctx.fillText(text, x, y); ctx.globalAlpha = 1;
+  }
+  ctx.letterSpacing = "0px";
+}
+// THE NAMES' HIERARCHY: a country (or a state of its day) in SPACED CAPITALS, the states and provinces within one in
+// mixed case, smaller -- and these FADE IN as you come closer (from the zoom where they first fit, full a step on: area
+// over the shown minimum, 1 to 2), so they never crowd the countries' names
+const SPACED = (size) => size * 0.16, caps = (s) => s.toLocaleUpperCase();
+const fadeIn = (area, min) => Math.min(1, Math.max(0, area / min - 1));
+const STATE_KM2 = 4e6;                                              // (a state's or province's name shown from where its km² reach this over the zoom squared)
+
+// the realms' names, or the ecoregions' (the big ones first, more of them the closer in)
+function bioLabels(boxes) {
+  const bl = bioLayer(), F = bioLevel(0)[bl === "biomes" ? "realms" : bl];
+  if (bl === "biomes") return;                                      // (a biome is everywhere in pieces: its colour says it, the legend names it)
+  const min = bl === "realms" ? 0 : 4e6 / (zoom * zoom);
+  for (const f of [...F].sort((a, b) => (b.properties.area_km2 || 0) - (a.properties.area_km2 || 0))) {
+    const p = f.properties;
+    if (!p.label || (p.area_km2 || Infinity) < min || !visible(p.label) || (sel && sel.feats.includes(f))) continue;
+    if (bl === "realms") writeName(boxes, caps(p.name), p.label, 14, 600, css("--ink"), { spacing: SPACED(14) }); else writeName(boxes, p.name, p.label, 11, 400, css("--ink"));
+  }
+}
+
+// the day's states' names (the biggest first, more of them the closer in): a state's in spaced capitals; then a
+// culture's, grey; then -- with layer 3 -- the provinces' and dependencies' within a state (an owner's: the Duchy of
+// Swabia in the Empire, a colony), smaller, in italics, fading in from closer in
+function histLabels(boxes) {
+  const P = H0.periods, min = 3e6 / (zoom * zoom), area = (i) => P[i].area_km2 || 0;
+  const all = [...histOn().countries].sort((a, b) => area(b) - area(a)), ok = (i) => P[i].label && visible(P[i].label) && !(sel && sel.period === i);
+  for (const i of all) { const p = P[i];
+    if (p.owner == null && p.status !== "culture" && area(i) >= min && ok(i)) writeName(boxes, caps(p.name), p.label, 11, 600, css("--ink"), { spacing: SPACED(11) }); }
+  for (const i of all) { const p = P[i];
+    if (p.owner == null && p.status === "culture" && area(i) >= min && ok(i)) writeName(boxes, p.name, p.label, 10, "italic 400", css("--dim")); }
+  if (on("regions")) for (const i of all) { const p = P[i], m = STATE_KM2 / (zoom * zoom);
+    if (p.owner != null && area(i) >= m && ok(i)) writeName(boxes, p.name, p.label, 10, "italic 400", css("--ink"), { alpha: fadeIn(area(i), m) }); }
+}
+
+// the countries' names in spaced capitals, then their states' (with layer 3) in mixed case, fading in: the biggest
+// first, more of them the closer in
+function unitLabels(boxes) {
+  const L = level(0), by = (a, b) => (b.properties.area_km2 || 0) - (a.properties.area_km2 || 0);
+  const write = (F, min, size, font, fill, up) => { for (const f of F) { const p = f.properties;
+    if (p.label && (p.area_km2 || 0) >= min && visible(p.label) && !(sel && sel.feats.includes(f)))
+      writeName(boxes, up ? caps(p.name) : p.name, p.label, size, font, fill, up ? { spacing: SPACED(size) } : { alpha: fadeIn(p.area_km2 || 0, min) }); } };
+  write(unitsBySize.countries ??= [...L.countries].sort(by), 6e5 / (zoom * zoom), 11, 600, css("--ink"), true);
+  if (on("regions")) write(unitsBySize.regions ??= [...L.regions].sort(by), STATE_KM2 / (zoom * zoom), 11, 400, css("--ink"), false);   // (upright, full ink: a grey italic was lost on the fills)
+}
+const unitsBySize = {};
+
+// the areas' names: the biggest first, more of them the closer in
+function areaLabels(boxes) {
+  const dk = dark(), maxRank = Math.log2(zoom) * 1.6 + 1.2, A = level(0).areas;
+  ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  for (const f of A) {
+    const p = f.properties;
+    if ((p.rank ?? 9) > maxRank || !p.label || !visible(p.label) || (sel && sel.feats.includes(f))) continue;
+    const water = p.mask === "water", big = p.kind === "ocean" || p.kind === "continent";
+    const size = big ? 14 : p.rank <= 1 ? 12 : 11;
+    ctx.font = `italic ${big ? 600 : 400} ${size}px Georgia, serif`;
+    const text = big ? p.name.toUpperCase() : p.name;
+    const [x, y] = proj(p.label), w = ctx.measureText(text).width;
+    if (!place(boxes, x, y, w, size)) continue;
+    ctx.lineWidth = 3; ctx.strokeStyle = water ? css("--sea") : css("--land");
+    ctx.fillStyle = water ? css("--water-label") : css("--land-label");
+    ctx.globalAlpha = dk ? 0.9 : 0.85; ctx.strokeText(text, x, y); ctx.fillText(text, x, y); ctx.globalAlpha = 1;
+  }
+}
+
+// the cities' dots: the bigger, the larger
+function cityDots(ids) {
+  ctx.fillStyle = dark() ? "#e8c46a" : "#b03a2e";
+  for (const i of ids) {
+    const f = src.cities.features[i];
+    if (!visible(f.geometry.coordinates)) continue;
+    const [x, y] = proj(f.geometry.coordinates), r = 0.8 + Math.sqrt(f.properties.population / 1e6) * 1.6;
+    ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
+  }
+}
+
+// the cities' names: the big ones, more the closer in (all: every one given, where it does not overlap another)
+function cityLabels(boxes, ids, all = false) {
+  const min = all ? 0 : 8e6 / (zoom * zoom);
+  ctx.font = "11px system-ui, sans-serif"; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+  ctx.lineWidth = 3; ctx.strokeStyle = css("--land"); ctx.fillStyle = css("--ink");
+  for (const i of ids) {                                          // (the cities are sorted biggest first)
+    const f = src.cities.features[i], p = f.properties;
+    if (p.population < min && p.capital !== "country") continue;
+    if (p.capital === "country" && p.population < min / 8) continue;
+    if (!visible(f.geometry.coordinates)) continue;
+    const [x, y] = proj(f.geometry.coordinates), t = p.name, w = ctx.measureText(t).width;
+    if (!place(boxes, x + 5 + w / 2, y, w, 11)) continue;
+    ctx.strokeText(t, x + 5, y); ctx.fillText(t, x + 5, y);
+  }
+}
+
+// the points drawn at this zoom: fewer the farther out (all of them from zoom 8)
+const minPop = () => zoom >= 8 ? 0 : 5e6 / (zoom * zoom);
+
+// (a point on the far side of the globe is not drawn)
+const visible = (p) => { const c = proj.clipAngle && proj.clipAngle(); return !c || d3.geoDistance(p, [-rotate[0], -rotate[1]]) < c * Math.PI / 180; };
+
+// ---- loading, and the index of names -------------------------------------------------------------------------------
+async function load() {
+  const get = async (f) => { try { const r = await fetch(f); return !r.ok ? null : f.endsWith(".csv") ? pointsOf(d3.csvParse(await r.text())) : f.endsWith(".txt") ? parseLite(await r.text()) : r.json(); } catch { return null; } };
+  const files = ["world.topo.json", "rivers.topo.json", "cities.csv", "monuments.csv", "natural_points.csv", "airports.csv", "transport.topo.json", "events.csv"];
+  const [world, rivers, cities, monuments, nature, airports, transport, events] = await Promise.all(files.map((f) => get(dataFile(f))));
+  if (!world) { $("stats").textContent = "no data/world.topo.json yet (README.md)"; return; }
+  src = { world, rivers, cities, monuments, nature, airports, transport, events,
+          worldPre: topojson.presimplify(world, topojson.sphericalTriangleArea),
+          riversPre: rivers && topojson.presimplify(rivers, topojson.sphericalTriangleArea),
+          transportPre: transport && topojson.presimplify(transport, topojson.sphericalTriangleArea) };
+  const L = level(0);
+  for (const k of ["land", "countries", "lakes", "coast", "cb", "rb", "rivers", "areas", "regions", "motorways", "railways", "pipelines"]) trees[k] = tree(L[k]);
+  for (const k of ["cities", "monuments", "nature", "airports", "events"]) points[k] = pointTree(src[k]);
+  buildIndex();
+  idOf.countries = new Map(L.countries.map((f, i) => [f.properties.iso, i]));
+  legend();
+  const o = world.objects, pts = (t) => t.arcs.reduce((n, a) => n + a.length, 0);
+  $("stats").textContent = `${o.countries.geometries.length} countries · ${o.regions.geometries.length} states · ${o.lakes.geometries.length} lakes · ` +
+    (o.areas ? `${o.areas.geometries.length} areas · ` : "") + `${pts(world).toLocaleString("en")} points` +
+    (rivers ? ` · ${new Set(rivers.objects.rivers.geometries.map((g) => g.properties.river)).size} rivers` : "") +
+    (cities ? ` · ${cities.features.length} cities` : "") + (monuments ? ` · ${monuments.features.length} monuments` : "") +
+    (nature ? ` · ${nature.features.length} peaks, capes…` : "") + (airports ? ` · ${airports.features.length} airports` : "") + (events ? ` · ${events.features.length} historical events` : "");
+  const h = new URLSearchParams(location.hash.slice(1));      // (#find=Alps&proj=Mollweide: a link to one thing)
+  if (h.get("proj") && PROJ[h.get("proj")]) $("proj").value = h.get("proj");
+  // (#groups=[...]: a map of groups; #bio=PA,E345,B7 or #countries=SK,CZ: one list shown -- a range, say)
+  if (h.get("groups")) { try { groups = JSON.parse(h.get("groups")); linked = true; } catch (e) { } }
+  const list = (s, layerOf) => s.split(",").map((x) => x.trim()).filter(Boolean).map((x) => `${layerOf(x)}:${x}`);
+  if (h.get("bio")) { const items = list(h.get("bio"), bioLayerOf); groups.push({ name: "shown", color: GROUP_COLOURS[groups.length % GROUP_COLOURS.length], items }); linked = true;
+    if (!h.get("mode")) h.set("mode", "bio"); if (!h.get("level") && items.length) h.set("level", items[0].split(":")[0]); }
+  if (h.get("countries")) { groups.push({ name: "shown", color: GROUP_COLOURS[groups.length % GROUP_COLOURS.length], items: list(h.get("countries"), () => "countries") }); linked = true;
+    if (!h.get("mode")) h.set("mode", "political"); }
+  if (h.get("level") && $("biolevel").querySelector(`[value="${h.get("level")}"]`)) $("biolevel").value = h.get("level");
+  if (h.get("date")) setDay(h.get("date"));
+  if (h.get("mode") && $("mode").querySelector(`[value="${h.get("mode")}"]`)) { $("mode").value = h.get("mode"); modeChanged(false); }
+  renderGroups();
+  setup(); draw();
+  if (h.get("find")) { const e = search(h.get("find"))[0]; if (e) { $("q").value = e.name; select(e); } else pendingFind = h.get("find"); }
+  else if (h.get("at")) {                                      // (#at=lat,lon[,zoom]: what is at that spot)
+    const [lat, lon, z] = h.get("at").split(",").map(Number);
+    rotate = [-lon, -lat, 0]; zoom = Math.min(MAX_ZOOM, z || 4); setup(); draw(); identifyAt([lon, lat], proj([lon, lat]));
+  }
+  loadBio(); loadHistory();
+}
+
+// ?lite: the line layers from the light files (data/lite/*.txt, build/lite.py: fewer points, a readable table format)
+const LITE = new URLSearchParams(location.search).has("lite");
+const dataFile = (f) => LITE && f.endsWith(".topo.json") ? "data/lite/" + f.replace(".topo.json", ".txt") : "data/" + f;
+// a light file read back into the topology the page draws: @arcs (a line each: x y dx dy ...), then each object's CSV
+// (a header, a row a geometry -- or, grouped, a row a thing and @name.pieces a row a piece, with what differs)
+function parseLite(text) {
+  const topo = { type: "Topology", arcs: [], objects: {} }, sections = [];
+  let cur = null;
+  for (const line of text.split("\n")) {
+    if (!line || line[0] === "#") continue;
+    if (line.startsWith("grid ")) { const [s, x, y] = line.slice(5).split(" ").map(Number); topo.transform = { scale: [s, s], translate: [x, y] }; continue; }
+    if (line[0] === "@") { cur = { head: line.slice(1).split(" "), lines: [] }; sections.push(cur); continue; }
+    cur.lines.push(line);
+  }
+  const value = (v, t) => v === "" ? undefined : t === "#" ? +v : t === "[]" ? v.split("|") : t === "[]#" ? v.split("|").map(Number) : t === "?" ? v === "1" : t === "{}" ? JSON.parse(v) : v;
+  const rowsOf = (lines) => {
+    const [cols, ...rows] = d3.csvParseRows(lines.join("\n"));
+    const spec = cols.map((c) => { const m = c.match(/^(.*?)(\[\]#|\[\]|#|\?|\{\})?$/); return [m[1], m[2] || ""]; });
+    return rows.map((r) => { const o = {}; spec.forEach(([k, t], i) => { const v = k === "arcs" ? r[i] : value(r[i], t); if (v !== undefined) o[k] = v; }); return o; });
+  };
+  const ints = (s) => s.split(" ").filter(Boolean).map(Number);
+  const geometry = (kind, s, props) => {
+    const g = { properties: props };
+    if (!s) g.type = null;
+    else if (kind === "polygon") { const p = s.split("|").map((x) => x.split(";").map(ints)); Object.assign(g, p.length === 1 ? { type: "Polygon", arcs: p[0] } : { type: "MultiPolygon", arcs: p }); }
+    else { const l = s.split(";").map(ints); Object.assign(g, l.length === 1 ? { type: "LineString", arcs: l[0] } : { type: "MultiLineString", arcs: l }); }
+    if (props["~id"] !== undefined) { g.id = props["~id"]; delete props["~id"]; }
+    return g;
+  };
+  const kinds = {}, things = {};
+  for (const s of sections) {
+    const [name, kind] = s.head;
+    if (name === "arcs") { topo.arcs = s.lines.map((l) => { const n = ints(l), a = []; for (let i = 0; i < n.length; i += 2) a.push([n[i], n[i + 1]]); return a; }); continue; }
+    if (name.endsWith(".pieces")) {                                 // (each piece: its thing's values, then its own)
+      const base = name.slice(0, -7), key = Object.keys(things[base][0] || {})[0], by = new Map(things[base].map((t) => [t[key], t]));
+      topo.objects[base] = { type: "GeometryCollection", geometries: rowsOf(s.lines).map((p) => { const { arcs, ...own } = p; return geometry(kinds[base], arcs, { ...by.get(own[key]), ...own }); }) };
+      continue;
+    }
+    kinds[name] = kind;
+    const rows = rowsOf(s.lines);
+    if (!s.lines[0].split(",").includes("arcs")) { things[name] = rows; continue; }   // (a grouped object's things: the key first)
+    topo.objects[name] = { type: "GeometryCollection", geometries: rows.map(({ arcs, ...p }) => geometry(kind, arcs || "", p)) };
+  }
+  return topo;
+}
+
+// a table of points (data/cities.csv, monuments.csv, natural_points.csv, airports.csv, events.csv: a header line, one a line,
+// `lon` and `lat` its place) read into one shape, so all of them are drawn, found and named alike
+function pointsOf(rows) {
+  const NUM = new Set(["population", "visitors", "visitors_year", "wikipedias", "destinations_abroad", "elevation_m", "rank"]);
+  return { features: rows.map((r) => {
+    const p = {};
+    for (const k of rows.columns) if (k !== "lon" && k !== "lat" && r[k] !== "") p[k] = NUM.has(k) ? +r[k] : r[k];
+    return { geometry: { coordinates: [+r.lon, +r.lat] }, properties: p };
+  }) };
+}
+
+// the biogeographic layer (data/bio.topo.json): after the rest, as it is only for its own map, its names and the
+// ecoregion under a click
+let pendingFind = null;
+const bioLayerOf = (id) => /^E\d+$/.test(id) ? "ecoregions" : /^B\d+$/.test(id) ? "biomes" : "realms";
+async function loadBio() {
+  let bio = null;
+  try { const f = dataFile("bio.topo.json"), r = await fetch(f); bio = !r.ok ? null : f.endsWith(".txt") ? parseLite(await r.text()) : await r.json(); } catch (e) { }
+  if (!bio) { $("mode").querySelector('[value="bio"]').disabled = true; return; }
+  src.bio = bio; src.bioPre = topojson.presimplify(bio, topojson.sphericalTriangleArea); bioLod = [];
+  const B = bioLevel(0);
+  for (const k of ["realms", "biomes", "ecoregions"]) { trees[k] = tree(B[k]); idOf[k] = new Map(B[k].map((f, i) => [f.properties.id, i])); }
+  const realm = Object.fromEntries(B.realms.map((f) => [f.properties.id, f.properties.name])), biome = Object.fromEntries(B.biomes.map((f) => [f.properties.id, f.properties.name]));
+  const count = (k, v) => B.ecoregions.filter((f) => f.properties[k] === v).length;
+  B.realms.forEach((f, i) => addToIndex({ cat: "bio", name: f.properties.name, alt: f.properties.id, kind: "biogeographic realm", feats: [f], ids: [i], layer: "realms", mask: "land", at: f.properties.label, weight: 5e9, info: [`${count("realm", f.properties.id)} ecoregions`] }));
+  B.biomes.forEach((f, i) => addToIndex({ cat: "bio", name: f.properties.name, alt: f.properties.id, kind: "biome", feats: [f], ids: [i], layer: "biomes", mask: "land", weight: 4e9, info: [`${count("biome", f.properties.id)} ecoregions`] }));
+  B.ecoregions.forEach((f, i) => { const p = f.properties;
+    addToIndex({ cat: "bio", name: p.name, alt: p.id, kind: `ecoregion · ${realm[p.realm] || "no realm"}`, feats: [f], ids: [i], layer: "ecoregions", mask: "land", at: p.label, weight: 1e6 + (p.area_km2 || 0),
+                 info: [biome[p.biome], p.area_km2 ? `${fmt(p.area_km2)} km²` : null, p.id] }); });
+  $("stats").textContent += ` · ${B.ecoregions.length} ecoregions in ${B.biomes.length} biomes, ${B.realms.length} realms`;
+  legend(); renderGroups();
+  if (mode() === "bio" || groups.length) draw();
+  if (pendingFind) { const e = search(pendingFind)[0]; if (e) { pendingFind = null; $("q").value = e.name; select(e); } }
+}
+
+// the historical map (data/history.topo.json): after the rest, as it is only for its own map; each country-period
+// is found by name (chosen, the map shows a day in its span), a region under a click
+async function loadHistory() {
+  let hist = null;
+  try { const f = dataFile("history.topo.json"), r = await fetch(f); hist = !r.ok ? null : f.endsWith(".txt") ? parseLite(await r.text()) : await r.json(); } catch (e) { }
+  if (!hist || !hist.objects.regions) { $("mode").querySelector('[value="history"]').disabled = true; return; }
+  src.hist = hist; src.histPre = topojson.presimplify(hist, topojson.sphericalTriangleArea); histLod = []; histNow = null;
+  const G = hist.objects.regions.geometries, P = hist.objects.periods.geometries.map((g) => g.properties), byState = new Map(), sides = new Map();
+  P.forEach((p, i) => { p._f = dayNum(p.from); p._t = dayNum(p.to); if (!byState.has(p.state)) byState.set(p.state, []); byState.get(p.state).push(i); });
+  const held = G.map((g) => { const h = g.properties.held || []; return [h.map((x) => dayNum(x.slice(0, x.lastIndexOf(":")))), h.map((x) => { const s = x.slice(x.lastIndexOf(":") + 1); return s === "" ? -1 : +s; })]; });
+  G.forEach((g, r) => { const walk = (x) => { for (const y of x) if (Array.isArray(y)) walk(y); else { const a = y < 0 ? ~y : y; if (!sides.has(a)) sides.set(a, []); sides.get(a).push(r); } }; walk(g.arcs || []); });
+  const pairs = [...sides].map(([a, rs]) => [a, rs[0], rs.length > 1 ? rs[1] : -1]);   // (an arc and the regions on its two sides; one: the coast)
+  const regions = G.map((g) => topojson.feature(hist, g));
+  H0 = { periods: P, byState, held, pairs, regions, lv: [regions.map(keepPolygons)] };
+  trees.hregions = tree(regions);
+  const name = new Map(P.map((p) => [p.state, p.name]));
+  const years = (p) => `${showYear(yearOf(p.from))}–${showYear(yearOf(p.to))}`;
+  P.forEach((p, i) => {
+    addToIndex({ cat: "history", name: p.name, kind: `${p.status === "independent" || !p.status ? "state" : p.status} ${years(p)}`, feats: [], ids: [], layer: "hperiods", period: i,
+                 mask: "land", at: p.label, weight: 1e5 + (p.area_km2 || 0) / 1e3, span: [p.from, p.to],
+                 info: [p.owner != null ? `of ${name.get(p.owner) || p.owner}` : null, p.capital ? `capital ${p.capital}` : null, p.area_km2 ? `${fmt(p.area_km2)} km²` : null,
+                        p.source === "basemaps" ? `as mapped for ${showYear(yearOf(p.from))}, until the next map` : `${p.from} to ${p.to}`, p.precision === 1 ? "borders approximate" : null] }); });
+  $("stats").textContent += ` · ${P.length} country-periods ${showYear(Math.min(...P.map((p) => yearOf(p.from))))}–2019 in ${G.length} regions`;
+  if (mode() === "history") draw();
+  if (pendingFind) { const r = search(pendingFind), e = r.find(inSpan) || r[0]; if (e) { pendingFind = null; $("q").value = e.name; select(e); } }
+}
+const inSpan = (e) => e.span && dayNum(e.span[0]) <= dayNum(histDay()) && dayNum(histDay()) <= dayNum(e.span[1]);
+
+// (a name as typed without its marks: "lodz" finds Łódź, "kobenhavn" København -- the accents come off by decomposing, and
+//  the letters that do not decompose, Polish ł, Nordic ø and æ, ß, Croatian đ, Turkish ı, are folded by hand)
+const FOLD = { "ł": "l", "ø": "o", "đ": "d", "ð": "d", "þ": "th", "æ": "ae", "œ": "oe", "ß": "ss", "ı": "i", "ħ": "h", "ŧ": "t", "ŋ": "n" };
+const norm = (s) => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[łøđðþæœßıħŧŋ]/g, (c) => FOLD[c]);
+const collect = (feats) => feats.length === 1 ? feats[0] : { type: "FeatureCollection", features: feats };
+
+const addToIndex = (e) => { e.keys = [...new Set([e.name, ...String(e.alt || "").split(" / ")].filter(Boolean).map(norm))]; index.push(e); };
+function buildIndex() {
+  const L = level(0), add = addToIndex;
+  const countryName = Object.fromEntries(L.countries.map((f) => [f.properties.iso, f.properties.name]));
+  L.countries.forEach((f, i) => {
+    const p = f.properties;
+    if (!f.geometry) return;
+    add({ cat: "country", name: p.name, alt: p.name_local, kind: p.subtype === "dependency" ? "dependency" : p.subtype === "continent" ? "continent" : "country",
+          feats: [f], ids: [i], layer: "countries", mask: "land", weight: 1e10, info: [p.iso, p.population ? `${fmtPop(p.population)} people` : null, p.density != null ? `${Math.round(p.density)}/km²` : null, p.language, p.sovereign && p.sovereign !== p.iso ? `of ${countryName[p.sovereign] || p.sovereign}` : null] });
+  });
+  L.regions.forEach((f, i) => {
+    const p = f.properties;
+    if (!f.geometry) return;
+    add({ cat: "region", name: p.name, alt: p.name_local, kind: `state · ${countryName[p.country] || p.country}`, feats: [f], ids: [i], layer: "regions", mask: "land", weight: 1e5, info: [p.iso, p.population ? `${fmtPop(p.population)} people` : null, p.density != null ? `${Math.round(p.density)}/km²` : null, p.language] });   // (below a city of the same name: Istanbul)
+  });
+  // a lake: its pieces (OSM's separate features) together, by Wikidata item or name
+  const lakes = new Map();
+  L.lakes.forEach((f, i) => { const p = f.properties; if (!p.name || !f.geometry) return; const k = p.wikidata || p.name; if (!lakes.has(k)) lakes.set(k, []); lakes.get(k).push(i); });
+  for (const ids of lakes.values()) {
+    const fs = ids.map((i) => L.lakes[i]), p = fs[0].properties, area = Math.max(...fs.map((f) => f.properties.area_km2 || 0));
+    add({ cat: "lake", name: p.name, alt: p.name_local, kind: p.type || "lake", feats: fs, ids, layer: "lakes", mask: "water", weight: area * 1e3, info: [`${fmt(area)} km²`] });
+  }
+  // a river: every line of one river (from where it is first wide to its end), together
+  const rv = new Map();
+  L.rivers.forEach((f, i) => { const p = f.properties; if (!p.name) return; const k = p.river || p.wikidata || p.name; if (!rv.has(k)) rv.set(k, []); rv.get(k).push(i); });
+  for (const ids of rv.values()) {
+    const fs = ids.map((i) => L.rivers[i]), p = fs[0].properties, wmax = Math.max(...fs.map((f) => f.properties.width_max_m || 0));
+    const km = p.river_km || fs.reduce((n, f) => n + (f.properties.length_km || 0), 0);
+    add({ cat: "river", name: p.name, alt: (p.names_local || []).join(" / ") || null, kind: "river", feats: fs, ids, layer: "rivers", weight: km * 1e3, info: [`${fmt(km)} km drawn`, `up to ${fmt(wmax)} m wide`] });
+  }
+  // the areas: each by its name; the parts of one (North and South Pacific) also together, by their common name
+  const byWd = new Map();
+  L.areas.forEach((f, i) => {
+    const p = f.properties;
+    if (!f.geometry) return;
+    add({ cat: "area", name: p.name, alt: p.name_en || p.name_local, kind: p.kind, feats: [f], ids: [i], layer: "areas", mask: p.mask, at: p.label, weight: 1e9 / (1 + (p.rank ?? 9)) });
+    if (p.wikidata) { if (!byWd.has(p.wikidata)) byWd.set(p.wikidata, []); byWd.get(p.wikidata).push(i); }
+  });
+  for (const ids of byWd.values()) {
+    const fs = ids.map((i) => L.areas[i]), names = new Set(fs.map((f) => f.properties.name));
+    if (fs.length < 2 || names.size < 2 || !fs[0].properties.name_en) continue;
+    const p = fs[0].properties;
+    add({ cat: "area", name: p.name_en, kind: p.kind, feats: fs, ids, layer: "areas", mask: p.mask, weight: 2e9 / (1 + (p.rank ?? 9)) });
+  }
+  // the main lines: a network by its name or number (a motorway's "A1" is found with its kind)
+  for (const layer of ["motorways", "railways", "pipelines"]) {
+    const nets = new Map();
+    L[layer].forEach((f, i) => { const p = f.properties; if (!p.name && !p.ref) return; if (!nets.has(p.network)) nets.set(p.network, []); nets.get(p.network).push(i); });
+    for (const ids of nets.values()) {
+      const fs = ids.map((i) => L[layer][i]), p = fs[0].properties;
+      const kind = layer === "motorways" ? p.class : layer === "railways" ? (p.highspeed ? "high-speed railway" : "railway") : `${p.substance} pipeline`;
+      add({ cat: "line", name: p.name || p.ref, alt: p.ref, kind, feats: fs, ids, layer, weight: (p.network_km || 0) * 10, info: [`${fmt(p.network_km || 0)} km`, p.operator] });
+    }
+  }
+  // (a monument weighs less than a city of its name -- Rabat the city before Rabat the World Heritage Site)
+  for (const [set, kindOf, weight, info] of [
+    [src.cities, (p) => `${p.capital === "country" ? "capital" : "city"} · ${p.country || "?"}`, (p) => p.population, (p) => [`${fmtPop(p.population)} people`, countryName[p.country]]],
+    [src.monuments, (p) => `${p.kind} · ${p.country || "?"}`, (p) => (p.visitors || 0) / 100 + (p.wikipedias || 0) * 1e3, (p) => [p.visitors ? `${fmt(p.visitors)} visitors/yr` : null, p.wikipedias ? `${p.wikipedias} Wikipedias` : null, countryName[p.country]]],
+    [src.airports, (p) => `airport · ${p.country || "?"}`, (p) => (p.destinations_abroad || 0) * 1e5, (p) => [[p.iata, p.icao].filter(Boolean).join(" / "), p.city, `${p.destinations_abroad} destinations abroad (2014)`]],
+    [src.nature, (p) => p.kind, (p) => (p.elevation_m || 0) * 100, (p) => [p.elevation_m != null && `${fmt(p.elevation_m)} m`]],
+    [src.events, (p) => `${p.kind} · ${showDay(p.date)}`, (p) => (p.wikipedias || 0) * 100, (p) => [p.part_of, p.calendar === "julian" ? "Julian calendar" : null, p.place === "location" ? "at the place it happened in" : null, `${p.wikipedias} Wikipedias`]],
+  ]) {
+    if (!set) continue;
+    for (const f of set.features) {
+      const p = f.properties;
+      add({ cat: "point", name: p.name, alt: p.name_local || p.name_en, kind: kindOf(p), feats: [f], at: f.geometry.coordinates, weight: weight(p), info: info(p),   // (name_en: a peak's or cape's -- Cabo de Hornos, Cape Horn)
+            ...(set === src.events ? { span: [p.date, p.date] } : {}) });   // (an event: chosen, the historical map on its day)
+    }
+  }
+}
+
+function search(q) {
+  const n = norm(q).trim();
+  if (!n) return [];
+  const out = [];
+  for (const e of index) {
+    let s = 9;
+    for (const k of e.keys) {
+      const i = k.indexOf(n);
+      if (i < 0) continue;
+      s = Math.min(s, k === n ? 0 : i === 0 ? 1 : /[\s\-'(]/.test(k[i - 1]) ? 2 : 3);
+    }
+    if (s < 9) out.push([s, -e.weight, e]);
+  }
+  out.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  return out.slice(0, 30).map((r) => r[2]);
+}
+
+// ---- selecting: highlight, fly there, say what it is ---------------------------------------------------------------
+// the selection goes with the panel's x, with the search box emptied (its own x, or Escape in it), or the link cleared
+function clearSel() {
+  sel = null; $("info").style.display = "none"; $("q").value = ""; found = []; showResults();
+  history.replaceState(null, "", location.pathname + location.search); draw();
+}
+function select(e) {
+  if (e.span) {                                                     // (a country-period: on the historical map, on a day of its span)
+    if (mode() !== "history") { $("mode").value = "history"; modeChanged(false); }
+    if (!inSpan(e)) setDay(e.span[0]);
+    if (e.period != null) { e.feats = histFeature(e.period); if (!e.feats.length) e.feats = [{ type: "Feature", geometry: { type: "Point", coordinates: e.at } }]; }
+  }
+  sel = { ...e, geom: collect(e.feats), at: e.at || d3.geoCentroid(collect(e.feats)) };
+  const info = $("info");
+  info.style.display = "block";
+  info.innerHTML = "";
+  const close = Object.assign(document.createElement("button"), { textContent: "×", title: "Clear the selection" });
+  close.onclick = clearSel;
+  const h = Object.assign(document.createElement("h2"), { textContent: e.name });
+  const k = Object.assign(document.createElement("div"), { className: "kind", textContent: [e.kind, ...(e.info || [])].filter(Boolean).join(" · ") });
+  info.append(close, h, k);
+  if (e.alt && norm(e.alt) !== norm(e.name)) info.append(Object.assign(document.createElement("div"), { className: "kind", textContent: e.alt }));
+  history.replaceState(null, "", "#find=" + encodeURIComponent(e.name) + ($("proj").selectedIndex ? "&proj=" + encodeURIComponent($("proj").value) : "") + (e.span ? "&date=" + encodeURIComponent(histDay()) : ""));
+  fly(sel);
+}
+
+function fly(s) {
+  let span = 0;
+  if (s.cat !== "point") {
+    const [[w, so], [ea, n]] = d3.geoBounds(s.geom);
+    const dlon = ((ea - w) + 360) % 360 || 360;
+    span = Math.max(n - so, dlon * Math.cos(((n + so) / 2) * Math.PI / 180));
+  }
+  const toZoom = s.cat === "point" ? Math.max(zoom, 6) : Math.max(1, Math.min(MAX_ZOOM, 110 / Math.max(span, 0.5)));
+  const toRot = [-s.at[0], Math.max(-80, Math.min(80, -s.at[1])), 0];
+  const r0 = rotate.slice(), z0 = zoom, t0 = performance.now(), T = 700;
+  const d = ((toRot[0] - r0[0] + 540) % 360) - 180;                  // (the short way round)
+  const step = (t) => {
+    const k = Math.min(1, (t - t0) / T), e = d3.easeCubicInOut(k);
+    rotate = [r0[0] + d * e, r0[1] + (toRot[1] - r0[1]) * e, 0];
+    zoom = Math.exp(Math.log(z0) + (Math.log(toZoom) - Math.log(z0)) * e);
+    setup(); draw(k < 1);
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+// ---- what is here (a click) ----------------------------------------------------------------------------------------
+function identify(e) {
+  const ll = proj.invert([e.clientX, e.clientY]);
+  if (!ll || !isFinite(ll[0]) || !visible(ll)) return;
+  identifyAt(ll, [e.clientX, e.clientY]);
+}
+
+function identifyAt(ll, px) {
+  const at = [[ll[0], ll[1], ll[0], ll[1]]];
+  const byLayer = (layer) => { const ids = new Set(query(trees[layer], at)); return index.filter((x) => x.layer === layer && x.ids.some((i) => ids.has(i))); };
+  const inside = (x) => x.feats.some((f) => f.geometry && d3.geoContains(f, ll));
+  const hits = [];
+  const country = byLayer("countries").find(inside), region = byLayer("regions").find(inside), lake = byLayer("lakes").find(inside);
+  const onLand = !!country && !lake;
+  for (const x of [country, region, lake]) if (x) hits.push(x);
+  if (src.bio && !lake) for (const l of ["ecoregions", "biomes", "realms"]) { const x = byLayer(l).find(inside); if (x) hits.push(x); }
+  if (src.hist && mode() === "history" && !lake) {                // (the region here, and its state that day)
+    const r = query(trees.hregions, at).find((r) => d3.geoContains(H0.regions[r], ll));
+    if (r != null) {
+      const p = H0.regions[r].properties, pi = histOn().of[r], name = (s) => { const i = H0.byState.get(s); return i ? H0.periods[i[0]].name : "nobody"; };
+      const owners = (p.held || []).map((x) => { const k = x.lastIndexOf(":"), s = x.slice(k + 1); return `${s === "" ? "nobody" : name(+s)} from ${showDay(x.slice(0, k))}`; });
+      hits.unshift({ cat: "history", name: p.name || `region ${p.id}`, kind: "historical region", feats: [H0.regions[r]], at: p.label,
+                     info: [p.admin, p.country, p.area_km2 ? `${fmt(p.area_km2)} km²` : null, owners.length > 12 ? `${owners.length} owners, the last: ${owners.slice(-12).join(", ")}` : owners.join(", ")] });
+      const x = pi >= 0 && index.find((x) => x.period === pi);
+      if (x) hits.unshift(x);
+    }
+  }
+  const areas = byLayer("areas").filter((x) => x.feats.length === 1 && inside(x));
+  areas.sort((a, b) => a.weight - b.weight);                        // (the smallest first: a gulf before its ocean)
+  hits.push(...areas);
+  // rivers passing within 8 pixels
+  const r = 8 * pxKm() / 111, c = Math.max(0.1, Math.cos(ll[1] * Math.PI / 180)), near = [];
+  const cand = new Set(query(trees.rivers, [[ll[0] - r / c, ll[1] - r, ll[0] + r / c, ll[1] + r]]));
+  for (const x of index) {
+    if (x.layer !== "rivers" || !x.ids.some((i) => cand.has(i))) continue;
+    let best = Infinity;
+    for (const f of x.feats) for (const q of f.geometry.coordinates) {
+      if (!visible(q)) continue;
+      const p = proj(q), dd = Math.hypot(p[0] - px[0], p[1] - px[1]);
+      if (dd < best) best = dd;
+    }
+    if (best < 8) near.push([best, x]);
+  }
+  near.sort((a, b) => a[0] - b[0]);
+  hits.push(...near.slice(0, 3).map((q) => q[1]));
+  const info = $("info");
+  info.style.display = "block"; info.innerHTML = "";
+  const close = Object.assign(document.createElement("button"), { textContent: "×", title: "Close" });
+  close.onclick = clearSel;
+  info.append(close, Object.assign(document.createElement("div"), { className: "kind", textContent: `${ll[1].toFixed(2)}°, ${ll[0].toFixed(2)}°` }));
+  history.replaceState(null, "", `#at=${ll[1].toFixed(3)},${ll[0].toFixed(3)}`);
+  const ul = document.createElement("ul");
+  for (const x of hits) {
+    const li = document.createElement("li");
+    li.append(Object.assign(document.createElement("span"), { textContent: x.name }), Object.assign(document.createElement("span"), { textContent: x.kind }));
+    li.onclick = () => select(x);
+    ul.append(li);
+  }
+  if (!hits.length) ul.append(Object.assign(document.createElement("li"), { textContent: onLand ? "(nothing named here)" : "(open water)" }));
+  info.append(ul);
+}
+
+// ---- MY GROUPS: countries (on the political map) or biogeographic regions (on the biogeographical one, at the level
+// shown) put into groups, each one colour. With "a click puts it into the chosen group" on, a click puts the country or
+// region under it into the chosen group (out of any other), a second click takes it out. Kept in the browser
+// (localStorage "map:groups"); "copy link" gives this map with them (#groups=...); a link may also show one list:
+// #bio=PA,E345,B7 (realms, ecoregions, biomes), #countries=SK,CZ (ISO codes). An item is `layer:id`.
+const GROUP_COLOURS = ["#e6194b", "#3cb44b", "#4363d8", "#f58231", "#911eb4", "#42d4f4", "#f032e6", "#bfef45", "#9a6324", "#469990", "#800000", "#000075"];
+let groups = [], activeGroup = 0, linked = false;
+const idOf = {};                                                    // (layer -> id -> its feature: countries by ISO code, the rest by id)
+try { groups = JSON.parse(localStorage["map:groups"] || "[]"); } catch (e) { groups = []; }
+const groupLayer = () => mode() === "bio" ? bioLayer() : "countries";
+const groupsOn = (layer) => groups.some((g) => g.items.some((k) => k.startsWith(layer + ":")));
+const featureOf = (key) => { const [layer, id] = [key.slice(0, key.indexOf(":")), key.slice(key.indexOf(":") + 1)], i = idOf[layer]?.get(id);
+  return i == null ? null : (layer === "countries" ? level(0).countries : src.bio ? bioLevel(0)[layer] : [])[i]; };
+function drawGroups(L, B, v, fillAll) {
+  const m = mode(), layers = m === "bio" ? ["realms", "biomes", "ecoregions"] : m === "geographical" || m === "history" ? [] : ["countries"];
+  for (const layer of layers) {                                     // (the bigger units under the smaller ones)
+    const F = layer === "countries" ? L.countries : B && B[layer];
+    if (!F || !idOf[layer]) continue;
+    const shown = new Set(v(layer));
+    for (const g of groups) {
+      const ids = g.items.filter((k) => k.startsWith(layer + ":")).map((k) => idOf[layer].get(k.slice(layer.length + 1))).filter((i) => i != null && shown.has(i));
+      if (ids.length) { ctx.globalAlpha = 0.8; fillAll(F, ids, g.color); ctx.globalAlpha = 1; }
+    }
+  }
+}
+function saveGroups(again = true) {
+  linked = false;
+  try { localStorage["map:groups"] = JSON.stringify(groups); } catch (e) { }
+  if (again) renderGroups();
+  draw();
+}
+function addGroup() {
+  groups.push({ name: `group ${groups.length + 1}`, color: GROUP_COLOURS[groups.length % GROUP_COLOURS.length], items: [] });
+  activeGroup = groups.length - 1;
+}
+function groupClick(e) {                                            // (the country or region under the pointer: into the chosen group, or out)
+  const ll = proj.invert([e.clientX, e.clientY]);
+  if (!ll || !isFinite(ll[0]) || !visible(ll)) return;
+  const layer = groupLayer(), F = layer === "countries" ? level(0).countries : src.bio ? bioLevel(0)[layer] : null;
+  if (!F || !trees[layer]) return;
+  const i = query(trees[layer], [[ll[0], ll[1], ll[0], ll[1]]]).find((i) => F[i].geometry && d3.geoContains(F[i], ll));
+  if (i == null) return;
+  const key = `${layer}:${F[i].properties[layer === "countries" ? "iso" : "id"]}`;
+  if (!groups.length) addGroup();
+  activeGroup = Math.min(activeGroup, groups.length - 1);
+  const g = groups[activeGroup], had = g.items.includes(key);
+  for (const x of groups) x.items = x.items.filter((k) => k !== key);
+  if (!had) g.items.push(key);
+  saveGroups();
+}
+function renderGroups() {
+  const box = $("groups"); box.innerHTML = "";
+  if (groups.length) $("groups-box").open = true;
+  groups.forEach((g, n) => {
+    const row = Object.assign(document.createElement("div"), { className: "row" });
+    const pick = Object.assign(document.createElement("input"), { type: "radio", name: "group", checked: n === activeGroup, title: "A click puts things into this group" });
+    pick.onchange = () => { activeGroup = n; };
+    const col = Object.assign(document.createElement("input"), { type: "color", value: g.color, title: "Its colour" });
+    col.oninput = () => { g.color = col.value; saveGroups(false); };
+    const name = Object.assign(document.createElement("input"), { type: "text", value: g.name, title: "Its name" });
+    name.onchange = () => { g.name = name.value; saveGroups(false); };
+    const names = g.items.map((k) => featureOf(k)?.properties.name || k.split(":")[1]);
+    const cnt = Object.assign(document.createElement("span"), { className: "n", textContent: g.items.length, title: names.join(", ") || "empty" });
+    const del = Object.assign(document.createElement("button"), { textContent: "×", title: "Delete the group" });
+    del.onclick = () => { groups.splice(n, 1); activeGroup = Math.max(0, Math.min(activeGroup, groups.length - 1)); saveGroups(); };
+    row.append(pick, col, name, cnt, del); box.append(row);
+  });
+  const what = mode() === "bio" ? { realms: "realms", biomes: "biomes", ecoregions: "ecoregions" }[bioLayer()] : mode() === "geographical" ? null : "countries";
+  $("groups-note").textContent = what ? `on this map: ${what}${linked ? " · from the link (not kept until changed)" : ""}` : "groups are shown on the political and biogeographical maps";
+}
+$("add-group").onclick = () => { addGroup(); saveGroups(); $("grouping").checked = true; };
+$("clear-groups").onclick = () => { if (!groups.length || confirm("Delete all groups?")) { groups = []; activeGroup = 0; saveGroups(); } };
+$("link-groups").onclick = async () => {
+  const url = `${location.origin}${location.pathname}#mode=${mode()}${mode() === "bio" ? "&level=" + bioLayer() : ""}&groups=${encodeURIComponent(JSON.stringify(groups))}`;
+  try { await navigator.clipboard.writeText(url); $("groups-note").textContent = "link copied"; } catch (e) { prompt("The link:", url); }
+};
+
+// ---- THE GAME (the button top right): cities of the world, a continent or a country --------------------------------
+// "people": name cities -- their people add up, as a share of all the people there. "outside" / "inside": each city
+// named gets a circle (so many km across); the next must lie outside every circle / inside one. "place": the game names
+// a city, a click says where it is -- a circle round the city out to the click, so many km off (0 is best).
+// While the game panel is open the map has no names but the cities named, and no points but theirs; a start begins
+// it all afresh.
+const game = { open: false, style: "people", where: null, km: 500, named: [], finds: [], ask: null, pool: [], rounds: 10,
+               shown() { return this.style === "place" ? this.finds.map((f) => f.i) : this.named.slice().sort((a, b) => a - b); } };
+let gameData = null;                                                // (cities by name, each one's continent; built once)
+function gameIndex() {
+  if (gameData) return gameData;
+  const L = level(0), key = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  // (only what has a code: a state without one -- Aksai Chin, the Ilemi Triangle -- was filed under `undefined`, and every
+  //  city without a state of its own (Prague) took that one's continent: "Prague (Czechia) is not in Europe")
+  const contOf = new Map([...L.countries, ...L.regions].filter((f) => f.properties.iso).map((f) => [f.properties.iso, f.properties.continent]));
+  const byName = new Map(), cont = [];
+  src.cities.features.forEach((f, i) => {
+    const p = f.properties;
+    cont[i] = contOf.get(p.region) || contOf.get(p.country);
+    for (const k of new Set([p.name, p.name_local].filter(Boolean).map(key))) { if (!byName.has(k)) byName.set(k, []); byName.get(k).push(i); }
+  });
+  // a continent's people: each country's, shared out among the continents by its states' people (Russia's European
+  // oblasts' to Europe)
+  const people = {}, states = d3.group(L.regions.filter((f) => f.properties.population), (f) => f.properties.country);
+  for (const f of L.countries) {
+    const p = f.properties; if (!p.population) continue;
+    const rs = states.get(p.iso) || [], all = d3.sum(rs, (r) => r.properties.population);
+    if (!all) { people[p.continent] = (people[p.continent] || 0) + p.population; continue; }
+    for (const r of rs) people[r.properties.continent] = (people[r.properties.continent] || 0) + p.population * r.properties.population / all;
+  }
+  const names = new Map(L.countries.map((f) => [f.properties.iso, f.properties.name]));
+  return gameData = { key, byName, cont, people, names };
+}
+function gameWhere() {                                              // the choice: the world, a continent, a country
+  const L = level(0), box = $("g-where"), d = gameIndex(), has = new Set(src.cities.features.map((f) => f.properties.country));
+  box.innerHTML = "";
+  box.add(new Option("the whole world", "world"));
+  const cg = Object.assign(document.createElement("optgroup"), { label: "a continent" });
+  for (const c of Object.keys(d.people).sort()) if (d.cont.includes(c)) cg.append(new Option(c, "continent:" + c));
+  const kg = Object.assign(document.createElement("optgroup"), { label: "a country" });
+  for (const f of [...L.countries].sort((a, b) => a.properties.name.localeCompare(b.properties.name))) if (has.has(f.properties.iso)) kg.append(new Option(f.properties.name, "country:" + f.properties.iso));
+  box.append(cg, kg);
+}
+function gameRegion(v) {
+  const L = level(0), d = gameIndex(), [kind, id] = v.split(":");
+  if (kind === "continent") {                                       // (its land: its states, and its countries without states)
+    const O = src.world.objects, split = new Set(O.regions.geometries.map((g) => g.properties.country));
+    const parts = [...O.countries.geometries.filter((g) => !split.has(g.properties.iso)), ...O.regions.geometries].filter((g) => g.properties.continent === id);
+    const f = keepPolygons({ type: "Feature", properties: {}, geometry: topojson.merge(src.world, parts) });
+    return { kind, name: id, geom: f, at: d3.geoCentroid(f), people: d.people[id], has: (i) => d.cont[i] === id };
+  }
+  if (kind === "country") {
+    const f = L.countries[idOf.countries.get(id)];
+    return { kind, name: f.properties.name, geom: f, at: f.properties.label, people: f.properties.population, has: (i) => src.cities.features[i].properties.country === id };
+  }
+  return { kind: "world", name: "the world", people: d3.sum(L.countries, (f) => f.properties.population || 0), has: () => true };
+}
+function openGame(open) {
+  game.open = open; $("game").hidden = !open; $("game-btn").hidden = open; document.body.classList.toggle("gaming", open);
+  $("tip").style.display = "none";
+  if (open) { if (sel) clearSel(); if (!$("g-where").options.length) gameWhere(); gameStyle(); }
+  draw();
+}
+function gameStyle() {                                              // (what the chosen game asks for)
+  const s = $("g-style").value;
+  $("g-kmbox").hidden = s !== "outside" && s !== "inside"; $("g-roundsbox").hidden = s !== "place";
+}
+function startGame() {
+  const d = gameIndex(), C = src.cities.features;
+  Object.assign(game, { style: $("g-style").value, where: gameRegion($("g-where").value), km: Math.max(10, +$("g-km").value || 500),
+                        rounds: Math.max(1, Math.min(100, +$("g-rounds").value || 10)), named: [], finds: [], ask: null });
+  const ids = C.map((_, i) => i).filter(game.where.has);
+  // (to find: the biggest cities there -- the file is biggest first -- in a random order; of the world or a continent,
+  // one a country: China's many big cities would fill the game)
+  game.pool = d3.shuffle(ids.slice(0, game.where.kind === "world" ? 300 : game.where.kind === "continent" ? 150 : Math.max(20, game.rounds * 2)));
+  if (game.where.kind !== "country") {   // (one a country first; a continent of few countries -- Oceania -- then fills up with the rest)
+    const seen = new Set(), first = game.pool.filter((i) => { const c = C[i].properties.country; return !seen.has(c) && seen.add(c); });
+    game.pool = [...first, ...game.pool.filter((i) => !first.includes(i))];
+  }
+  game.rounds = Math.min(game.rounds, game.pool.length);
+  $("g-list").innerHTML = ""; say("");
+  $("g-name").hidden = game.style === "place"; $("g-name").value = "";
+  if (game.style === "place") nextFind(); else { $("g-ask").textContent = ""; $("g-name").focus(); }
+  gameScore();
+  if (game.where.geom) fly({ cat: "area", geom: game.where.geom, at: game.where.at || d3.geoCentroid(game.where.geom) });
+  else { rotate = [-10, 0, 0]; zoom = 1; setup(); draw(); }
+}
+const say = (text, no = false) => { $("g-msg").textContent = text; $("g-msg").className = no ? "no" : ""; };
+const kmApart = (i, j) => d3.geoDistance(src.cities.features[i].geometry.coordinates, src.cities.features[j].geometry.coordinates) * R_KM;
+const cityText = (i) => { const p = src.cities.features[i].properties; return `${p.name} (${gameIndex().names.get(p.country) || p.country})`; };
+function guess(text) {                                              // a city named: taken, or why not
+  const d = gameIndex(), k = d.key(text);
+  if (!k || !game.where) return;
+  const all = d.byName.get(k) || [], here = all.filter(game.where.has), fresh = here.filter((i) => !game.named.includes(i));
+  if (!all.length) return say(`No city “${text}” (of 100,000 people or more, or a capital).`, true);
+  if (!here.length) return say(`${cityText(all[0])} is not in ${game.where.name}.`, true);
+  if (!fresh.length) return say(`${cityText(here[0])} is named already.`, true);
+  const r = game.km / 2, near = (i) => game.named.reduce((b, j) => { const km = kmApart(i, j); return km < b[0] ? [km, j] : b; }, [Infinity, -1]);
+  const fits = (i) => game.style === "outside" ? near(i)[0] > r : game.style === "inside" ? !game.named.length || near(i)[0] <= r : true;
+  const ok = fresh.filter(fits);
+  if (!ok.length) { const [km, j] = near(fresh[0]);
+    return say(game.style === "outside" ? `${cityText(fresh[0])} is in the circle of ${src.cities.features[j].properties.name} (${fmt(km)} km from it).`
+                                        : `${cityText(fresh[0])} is in no circle: the nearest is ${src.cities.features[j].properties.name}'s, ${fmt(km)} km away.`, true); }
+  const i = ok[0], p = src.cities.features[i].properties;                // (of several of that name, the biggest)
+  game.named.push(i); $("g-name").value = "";
+  say(`✓ ${cityText(i)} · ${fmtPop(p.population)}`);
+  const li = document.createElement("li"); li.append(p.name + " ", Object.assign(document.createElement("span"), { textContent: fmtPop(p.population) }));
+  $("g-list").prepend(li);
+  gameScore(); draw();
+}
+function nextFind() {
+  game.ask = game.finds.length < game.rounds ? game.pool[game.finds.length] : null;
+  $("g-ask").innerHTML = "";
+  if (game.ask != null) $("g-ask").append("Where is ", Object.assign(document.createElement("b"), { textContent: game.where.kind === "country" ? src.cities.features[game.ask].properties.name : cityText(game.ask) }), "?");
+  else $("g-ask").textContent = "All found. Start again for more.";
+}
+function gameClick(e) {                                             // (find the city: the click is the answer)
+  if (game.style !== "place" || game.ask == null) return;
+  const ll = proj.invert([e.clientX, e.clientY]);
+  if (!ll || !isFinite(ll[0]) || !visible(ll)) return;
+  const i = game.ask, km = d3.geoDistance(ll, src.cities.features[i].geometry.coordinates) * R_KM;
+  game.finds.push({ i, at: ll, km });
+  say(`${cityText(i)}: ${fmt(km)} km off`);
+  const li = document.createElement("li"); li.append(src.cities.features[i].properties.name + " ", Object.assign(document.createElement("span"), { textContent: `${fmt(km)} km` }));
+  $("g-list").prepend(li);
+  nextFind(); gameScore(); draw();
+}
+function gameScore() {
+  const C = src.cities.features, w = game.where;
+  if (!w) return;
+  if (game.style === "place") {
+    const n = game.finds.length, km = d3.sum(game.finds, (f) => f.km);
+    $("g-score").textContent = `${n} of ${game.rounds} · ${fmt(km)} km off in all` + (n ? ` · ${fmt(km / n)} km a city` : "");
+    return;
+  }
+  const people = d3.sum(game.named, (i) => C[i].properties.population);
+  $("g-score").textContent = `${game.named.length} cities · ${fmtPop(people || 0)} people` +
+    (game.style === "people" && w.people ? ` · ${(100 * people / w.people).toFixed(1)} % of ${w.name}'s ${fmtPop(w.people)}` : "") +
+    (game.style !== "people" ? ` · circles ${fmt(game.km)} km across` : "");
+}
+// the game on the map: its region's outline, the circles, the cities named or found (their names: drawMap)
+function drawGame(fast) {
+  const C = src.cities.features, hi = css("--hi"), deg = (km) => km / R_KM * 180 / Math.PI;
+  const ring = (center, km, fill) => { ctx.beginPath(); path(d3.geoCircle().center(center).radius(deg(km)).precision(km > 300 ? 2 : 0.5)());
+    if (fill) { ctx.fillStyle = css("--hi-fill"); ctx.fill(); } ctx.strokeStyle = hi; ctx.lineWidth = 1.2; ctx.stroke(); };
+  if (game.where?.geom) { ctx.beginPath(); path(game.where.geom); ctx.strokeStyle = hi; ctx.lineWidth = 1.5; ctx.stroke(); }
+  if (game.style === "outside" || game.style === "inside") for (const i of game.named) ring(C[i].geometry.coordinates, game.km / 2, true);
+  if (game.style === "place") game.finds.forEach((f, n) => {
+    const last = n === game.finds.length - 1, c = C[f.i].geometry.coordinates;
+    ctx.globalAlpha = last ? 1 : 0.35;
+    if (f.km > 1) ring(c, f.km, false);
+    ctx.beginPath(); path({ type: "LineString", coordinates: [f.at, c] }); ctx.setLineDash([3, 3]); ctx.stroke(); ctx.setLineDash([]);
+    if (visible(f.at)) { const [x, y] = proj(f.at); ctx.beginPath(); ctx.moveTo(x - 4, y - 4); ctx.lineTo(x + 4, y + 4); ctx.moveTo(x + 4, y - 4); ctx.lineTo(x - 4, y + 4); ctx.lineWidth = 2; ctx.stroke(); }
+    ctx.globalAlpha = 1;
+  });
+  cityDots(game.shown());
+  if (!fast && game.style !== "place" && game.named.length) {          // (the last one named: ringed)
+    const c = C[game.named[game.named.length - 1]].geometry.coordinates;
+    if (visible(c)) { const [x, y] = proj(c); ctx.beginPath(); ctx.arc(x, y, 7, 0, 7); ctx.strokeStyle = hi; ctx.lineWidth = 2; ctx.stroke(); }
+  }
+}
+$("game-btn").onclick = () => { if (src && src.cities) openGame(true); };
+$("game-close").onclick = () => openGame(false);
+$("g-style").onchange = gameStyle;
+$("g-where").onchange = () => { const k = $("g-where").value.split(":")[0]; $("g-km").value = k === "world" ? 500 : k === "continent" ? 300 : 100; };
+$("g-start").onclick = startGame;
+$("g-name").addEventListener("keydown", (ev) => { if (ev.key === "Enter") guess($("g-name").value); });
+
+// ---- the search box ------------------------------------------------------------------------------------------------
+let found = [], cursor = -1;
+function showResults() {
+  const ul = $("results"); ul.innerHTML = "";
+  found.forEach((e, i) => {
+    const li = document.createElement("li");
+    li.className = i === cursor ? "on" : "";
+    li.append(Object.assign(document.createElement("span"), { textContent: e.name }), Object.assign(document.createElement("span"), { textContent: e.kind }));
+    li.onmousedown = (ev) => { ev.preventDefault(); choose(i); };
+    ul.append(li);
+  });
+}
+function choose(i) { const e = found[i]; if (!e) return; found = []; cursor = -1; showResults(); $("q").value = e.name; $("q").blur(); select(e); }
+$("q").addEventListener("input", () => { if (!$("q").value && sel) return clearSel(); found = search($("q").value); cursor = found.length ? 0 : -1; showResults(); });
+$("q").addEventListener("keydown", (ev) => {
+  if (ev.key === "ArrowDown") { cursor = Math.min(found.length - 1, cursor + 1); showResults(); ev.preventDefault(); }
+  else if (ev.key === "ArrowUp") { cursor = Math.max(0, cursor - 1); showResults(); ev.preventDefault(); }
+  else if (ev.key === "Enter") choose(cursor);
+  else if (ev.key === "Escape") { if (sel && !found.length) clearSel(); found = []; showResults(); $("q").blur(); }
+});
+$("q").addEventListener("blur", () => { found = []; showResults(); });
+
+// ---- moving: drag turns the globe (every projection is rotated the same way) and draws a coarser level meanwhile;
+// the wheel scales the last picture about the centre (the projection zooms about it too) and draws once it stops
+let drag = null, idle = null, moved = 0, snapZoom = null, last = null;
+// while the wheel turns or the pointer drags, only the last picture is scaled or shifted; the map is drawn again
+// (with its labels) once the movement pauses for 160 ms or ends
+const takeSnap = () => { snap.width = canvas.width; snap.height = canvas.height; snap.getContext("2d").drawImage(canvas, 0, 0); snapZoom = zoom; };
+const later = () => { clearTimeout(idle); idle = setTimeout(() => { snapZoom = null; draw(); if (drag && last) { takeSnap(); drag = [last[0], last[1], ...rotate]; } }, 160); };
+canvas.addEventListener("pointerdown", (e) => { drag = [e.clientX, e.clientY, ...rotate]; last = null; moved = 0; canvas.classList.add("dragging"); canvas.setPointerCapture(e.pointerId); takeSnap(); });
+canvas.addEventListener("pointermove", (e) => {
+  if (!drag) return tip(e);
+  moved = Math.max(moved, Math.hypot(e.clientX - drag[0], e.clientY - drag[1]));
+  if (moved < 3) return;
+  const k = 150 / proj.scale();
+  rotate = [drag[2] + (e.clientX - drag[0]) * k * 0.6, Math.max(-90, Math.min(90, drag[3] - (e.clientY - drag[1]) * k * 0.6)), 0];
+  proj.rotate(rotate); last = [e.clientX, e.clientY];
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = css("--bg"); ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(snap, (e.clientX - drag[0]) * dpr, (e.clientY - drag[1]) * dpr);
+  ctx.restore();
+  later();
+});
+canvas.addEventListener("pointerup", (e) => {
+  const click = drag && moved < 3;
+  drag = null; canvas.classList.remove("dragging"); clearTimeout(idle);
+  if (click && src) { if (game.open) gameClick(e); else if ($("grouping").checked) groupClick(e); else identify(e); } else { snapZoom = null; draw(); }
+});
+canvas.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  if (snapZoom === null) takeSnap();                            // (the picture as it is, to scale)
+  zoom = Math.max(0.5, Math.min(MAX_ZOOM, zoom * Math.exp(-e.deltaY * 0.0015)));
+  setup();
+  const k = zoom / snapZoom, cx = canvas.width / 2, cy = canvas.height / 2;
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = css("--bg"); ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.setTransform(k, 0, 0, k, cx - k * cx, cy - k * cy); ctx.drawImage(snap, 0, 0);
+  ctx.restore();
+  later();
+}, { passive: false });
+function tip(e) {
+  const t = $("tip");
+  if (!src || game.open) return;                                  // (the game: no names to go by)
+  const ll = proj.invert([e.clientX, e.clientY]);
+  if (!ll || !isFinite(ll[0])) { t.style.display = "none"; return; }
+  const r = 8 * pxKm() / 111, c = Math.max(0.1, Math.cos(ll[1] * Math.PI / 180)), box = [[ll[0] - r / c, ll[1] - r, ll[0] + r / c, ll[1] + r]];
+  const best = [];
+  for (const [layer, label] of [
+    ["cities", (p) => `${p.name}${p.name_local ? " (" + p.name_local + ")" : ""} · ${fmtPop(p.population)}`],
+    ["monuments", (p) => `${p.name} · ${p.kind}` + (p.visitors ? ` · ${fmt(p.visitors)} visitors/yr` : p.wikipedias ? ` · ${p.wikipedias} Wikipedias` : "")],
+    ["airports", (p) => `${p.name} (${p.iata}) · ${p.destinations_abroad} destinations abroad`],
+    ["nature", (p) => `${p.name} · ${p.kind}${p.elevation_m != null ? " · " + fmt(p.elevation_m) + " m" : ""}`],
+    ["events", (p) => `${p.name} · ${p.kind} · ${showDay(p.date)}`],
+  ]) {
+    if (!src[layer] || !on(layer) || (layer === "events" && !(mode() === "history" && src.hist))) continue;
+    for (const i of query(points[layer], box)) {
+      const f = src[layer].features[i], p = f.properties;
+      if (!visible(f.geometry.coordinates)) continue;
+      if ((layer === "cities" && p.population < minPop()) || (layer === "monuments" && i >= 60 * zoom * zoom) ||
+          (layer === "airports" && (p.destinations_abroad || 0) < 80 / (zoom * zoom)) ||
+          (layer === "events" && !(histOn().events.get(i) < EVENTS * zoom * zoom))) continue;   // (only what is drawn)
+      const [x, y] = proj(f.geometry.coordinates), d = Math.hypot(x - e.clientX, y - e.clientY);
+      if (d < 7) best.push([d, label(f.properties)]);
+    }
+  }
+  best.sort((a, b) => a[0] - b[0]);
+  if (!best.length) { t.style.display = "none"; return; }
+  t.textContent = best[0][1]; t.style.display = "block"; t.style.left = e.clientX + 12 + "px"; t.style.top = e.clientY + 12 + "px";
+}
+$("proj").onchange = () => { setup(); draw(); };
+function modeChanged(redraw = true) {
+  $("palette").disabled = mode() !== "political" && mode() !== "history";
+  $("biolevel").hidden = mode() !== "bio";
+  $("histbox").hidden = mode() !== "history";
+  legend(); renderGroups();
+  if (redraw) draw();
+}
+$("mode").onchange = () => { try { localStorage.mode = $("mode").value; } catch (e) { } modeChanged(); };
+$("biolevel").onchange = () => { try { localStorage.biolevel = bioLayer(); } catch (e) { } legend(); renderGroups(); draw(); };
+try { if ($("biolevel").querySelector(`[value="${localStorage.biolevel}"]`)) $("biolevel").value = localStorage.biolevel; } catch (e) { }
+try { setDay(localStorage.histday || "1914-06-28"); } catch (e) { setDay("1914-06-28"); }
+$("year").oninput = () => { setDay(yearText(+$("year").value) + histDay().replace(/^-?\d+/, "")); draw(); };
+$("day").onchange = () => { setDay($("day").value); $("day").value = showDay(histDay()); draw(); };
+modeChanged(false);
+$("palette").onchange = () => { try { localStorage.palette = $("palette").value; } catch (e) { } draw(); };
+for (const c of document.querySelectorAll("[data-layer]")) c.onchange = () => draw();
+addEventListener("resize", () => { setup(); draw(); });
+load();
+</script>
+</body>
+</html>
