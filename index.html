@@ -10,7 +10,7 @@
   @media (prefers-color-scheme: dark) { :root { --bg: #11161b; --sea: #16222c; --land: #2a2d2a; --ink: #d9dee3; --dim: #8b949c; --panel: #1b2228ee; --line: #56616b;
           --hi: #ffb347; --hi-fill: #ffb34755; --water-label: #7fb0d6; --land-label: #d0b48e; --field: #11161b; } }
   html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 13px/1.4 system-ui, sans-serif; }
-  canvas#map { display: block; width: 100vw; height: 100vh; cursor: grab; }
+  canvas#map { display: block; width: 100vw; height: 100vh; cursor: grab; touch-action: none; }   /* (the map's own gestures: a pinch zooms the map, not the page) */
   canvas#map.dragging { cursor: grabbing; }
   #panel { position: fixed; top: 12px; left: 12px; background: var(--panel); padding: 10px 12px; border-radius: 8px; width: 270px; max-width: calc(100vw - 48px); box-shadow: 0 1px 6px #0003; }
   #panel h1 { font-size: 14px; margin: 0 0 6px; }
@@ -46,6 +46,11 @@
   #groups .row button, #groups-box .buttons button { border: 1px solid var(--line); background: var(--field); color: var(--ink); border-radius: 4px; cursor: pointer; font: inherit; padding: 0 6px; }
   #groups-box .buttons { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
   #groups-box .note { color: var(--dim); font-size: 12px; }
+  #version { color: var(--dim); font-size: 12px; margin-top: 4px; }
+  #version button, #update-note button { border: 1px solid var(--line); background: var(--field); color: var(--ink); border-radius: 4px; cursor: pointer; font: inherit; padding: 1px 7px; }
+  #update-note { position: fixed; top: 10px; left: 50%; transform: translateX(-50%); max-width: calc(100vw - 32px); background: var(--panel); color: var(--ink); padding: 6px 12px;
+                 border-radius: 8px; box-shadow: 0 1px 6px #0003; font: 13px system-ui, sans-serif; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+  #update-note[hidden] { display: none; }
   #tip { position: fixed; pointer-events: none; background: var(--panel); padding: 4px 8px; border-radius: 5px; display: none; box-shadow: 0 1px 4px #0003; }
   #game-btn { position: fixed; top: 12px; right: 12px; border: 0; background: var(--panel); color: var(--ink); padding: 7px 12px; border-radius: 8px; box-shadow: 0 1px 6px #0003; cursor: pointer; font: 600 13px system-ui, sans-serif; }
   #game { position: fixed; top: 12px; right: 12px; background: var(--panel); padding: 10px 12px; border-radius: 8px; width: 280px; max-width: calc(100vw - 48px); max-height: calc(100vh - 48px); overflow-y: auto; box-shadow: 0 1px 6px #0003; }
@@ -99,8 +104,10 @@
   </details>
   <div id="info"></div>
   <div id="stats">loading…</div>
-  <div id="hint">drag to turn the globe, wheel to zoom, click to see what is there</div>
+  <div id="hint"></div>
+  <div id="version"><span id="version-text"></span> <button id="checkUpdate" hidden>check for update</button> <button id="doUpdate" hidden></button></div>
 </div>
+<div id="update-note" hidden><span id="update-text"></span> <button id="noteUpdate">update now</button></div>
 <div id="tip"></div>
 <button id="game-btn" title="Name cities, or find them on the map">Game</button>
 <div id="game" hidden>
@@ -122,11 +129,13 @@
   <div id="g-score"></div>
   <ol id="g-list"></ol>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4.0.0/dist/d3-geo-projection.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-simplify@3.0.3/dist/topojson-simplify.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/rbush@3.0.1/rbush.min.js"></script>
+<!-- the libraries kept here (lib/: d3 7.9.0, d3-geo-projection 4.0.0, topojson-client 3.1.0, topojson-simplify 3.0.3, rbush 3.0.1),
+     so the offline copy (sw.js) has them -->
+<script src="lib/d3.min.js"></script>
+<script src="lib/d3-geo-projection.min.js"></script>
+<script src="lib/topojson-client.min.js"></script>
+<script src="lib/topojson-simplify.min.js"></script>
+<script src="lib/rbush.min.js"></script>
 <script>
 // A look at data/: every layer in any d3 projection. The layers are longitude/latitude with edges meant as the
 // shortest way over the globe, so each projection draws them as they are -- nothing here is pre-projected.
@@ -197,7 +206,7 @@ const LANG_COLOURS = ["#e8a06a", "#8fc27a", "#7fb0e6", "#f2d264", "#c69be0", "#6
                       "#8ed3e8", "#f5b98a", "#b4b4e8", "#e0c89a", "#9ad6a8", "#e6a5b8", "#c7d47a", "#a8c8e0"];
 const DENSITY = [[1, "#f5f1e6"], [5, "#f0e3c0"], [20, "#ecd19c"], [50, "#e6b87c"], [100, "#dd9a62"], [250, "#cf7a4e"], [500, "#b95a3f"], [1000, "#963f34"], [Infinity, "#6b2a2a"]];
 const densityColour = (d) => (DENSITY.find(([lim]) => d < lim) || DENSITY[DENSITY.length - 1])[1];
-// BIOGEOGRAPHICAL: the land by realm, biome or ecoregion (data/bio.topo.json, build/bio.py: RESOLVE Ecoregions 2017) --
+// BIOGEOGRAPHICAL: the land by realm, biome or ecoregion (data/lite/bio.txt, build/bio.py: RESOLVE Ecoregions 2017) --
 // a biome and an ecoregion in RESOLVE's own colours, a realm in one of these
 const REALM_COLOURS = { PA: "#e9c77b", NA: "#9cc5a1", NT: "#8fd18a", AT: "#f2a65e", IM: "#e58f8f", AA: "#d8a0d6", OC: "#7fc4e0", AN: "#d9e2ea" };
 const bioLayer = () => $("biolevel").value;
@@ -245,6 +254,8 @@ const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v
 const R_KM = 6371, WEIGHTS = [0, 3e-9, 3e-8, 3e-7, 3e-6, 3e-5]; // (level i drops points of triangles under WEIGHTS[i] sr: ~0.35, 1.1, 3.5, 11, 35 km)
 let W, H, dpr, proj, path, rotate = [-10, 0, 0], zoom = 1, src = null, lod = [], trees = {}, points = {}, index = [], sel = null;
 const on = (k) => document.querySelector(`[data-layer="${k}"]`).checked;
+const HOW = matchMedia("(pointer: coarse)").matches ? "drag to turn, pinch to zoom, tap to see what is there" : "drag to turn, wheel to zoom, click to see what is there";   // (a phone's fingers, or a mouse)
+$("hint").textContent = HOW;
 const MAX_ZOOM = 300;   // (about 100 m a pixel on a 1400 px screen: the coast is kept to 100 m, lines to 0.5 km)
 const dark = () => matchMedia("(prefers-color-scheme: dark)").matches;
 try { if (PALETTES[localStorage.palette] !== undefined) $("palette").value = localStorage.palette; else if (dark()) $("palette").value = "dark muted"; } catch (e) { }
@@ -436,7 +447,7 @@ function viewBoxes() {
 function draw(fast = false) {
   const t0 = performance.now();
   drawMap(fast);
-  if (!fast && src) $("hint").textContent = `drawn in ${Math.round(performance.now() - t0)} ms (level ${pick()}) · drag to turn, wheel to zoom, click to see what is there`;
+  if (!fast && src) $("hint").textContent = `drawn in ${Math.round(performance.now() - t0)} ms (level ${pick()}) · ${HOW}`;
 }
 function drawMap(fast) {
   ctx.clearRect(0, 0, W, H);
@@ -712,17 +723,98 @@ const minPop = () => zoom >= 8 ? 0 : 5e6 / (zoom * zoom);
 const visible = (p) => { const c = proj.clipAngle && proj.clipAngle(); return !c || d3.geoDistance(p, [-rotate[0], -rotate[1]]) < c * Math.PI / 180; };
 
 // ---- loading, and the index of names -------------------------------------------------------------------------------
+// ---- the offline copy and the prepared data ------------------------------------------------------------------------
+// THE OFFLINE COPY (sw.js; offline.json -- build/offline.py -- lists the files and their version): on a real site the
+// service worker keeps every file the map loads, so it opens with no network and downloads nothing again. It does not
+// update on its own: once a visit the page asks for the version online, and a newer one shows a line at the top with
+// its Update -- the version kept and a check are also at the panel's foot. Updating replaces only the kept files (and,
+// with them, the prepared data below); the groups, the mode and the other settings stay.
+const OFFLINE = "map-";
+async function startOffline() {   // -> the version kept ("" while the first copy is being made, null with no worker)
+  if (!/^https?:$/.test(location.protocol) || !("serviceWorker" in navigator) || !("caches" in self)) return null;
+  try { await navigator.serviceWorker.register("sw.js"); } catch (e) { console.warn("map: no offline copy --", e); return null; }
+  navigator.storage?.persist?.();   // (asks the browser not to clear the copy when space runs short)
+  const keys = (await caches.keys()).filter((k) => k.startsWith(OFFLINE));
+  return keys.length ? keys[keys.length - 1].slice(OFFLINE.length) : "";
+}
+const onlineVersion = async () => { try { return (await (await fetch("offline.json?" + Date.now(), { cache: "no-store" })).json()).version; } catch { return null; } };
+async function updateOffline() {   // every file of the online version into its own cache; the old one dropped only once the new one is whole
+  const manifest = await (await fetch("offline.json?" + Date.now(), { cache: "no-store" })).json();
+  const name = OFFLINE + manifest.version, cache = await caches.open(name);
+  try { await cache.addAll(manifest.files.map((f) => new Request(f, { cache: "reload" }))); }
+  catch (e) { await caches.delete(name); throw e; }
+  for (const k of await caches.keys()) if (k.startsWith(OFFLINE) && k !== name) await caches.delete(k);
+  location.reload();
+}
+function showVersion(kept) {
+  if (kept === null) return;
+  const here = kept ? `offline copy ${kept}` : "making the offline copy…";
+  $("version-text").textContent = here; $("checkUpdate").hidden = false;
+  const run = async (button) => {
+    for (const b of [$("doUpdate"), $("noteUpdate")]) { b.disabled = true; b.textContent = "updating…"; }
+    try { await updateOffline(); } catch (e) { for (const b of [$("doUpdate"), $("noteUpdate")]) { b.disabled = false; b.textContent = "update failed — try again" + (b === button && e?.message ? ` · ${e.message}` : ""); } }
+  };
+  const ask = async (quiet) => {
+    $("checkUpdate").disabled = true;
+    const online = await onlineVersion();
+    $("checkUpdate").disabled = false;
+    if (online && kept && online !== kept) {
+      $("version-text").textContent = `${here} · new: ${online}`;
+      Object.assign($("doUpdate"), { hidden: false, textContent: "update now", onclick: () => run($("doUpdate")) });
+      $("update-text").textContent = `A new version of the map is ready (${online}) — your groups and settings stay.`;
+      $("noteUpdate").onclick = () => run($("noteUpdate")); $("update-note").hidden = false;
+    } else if (!quiet) $("version-text").textContent = `${here} · ${online === null ? "no network: nothing to check" : "the newest"}`;
+  };
+  $("checkUpdate").onclick = () => ask(false);
+  if (kept) ask(true);
+}
+// THE PREPARED DATA (IndexedDB "map", store "prepared"): what the page makes of the files before it can draw -- each
+// line layer read and presimplified (its points' weights for the coarser levels), the R-trees of the layers' bounds --
+// kept under the offline copy's version, so a later visit reads them back instead of making them again (measured on a
+// desktop: the world's 1.4 s of reading and presimplifying became 0.4 s). A new version makes them afresh and drops the
+// old ones. Without an offline copy (a file:// page, a first visit) everything is made as before.
+const PREP = { db: null, version: "" };
+async function openPrepared(version) {
+  if (!version || !("indexedDB" in self)) return;
+  try {
+    PREP.db = await new Promise((ok, no) => { const r = indexedDB.open("map", 2); r.onupgradeneeded = () => { if (!r.result.objectStoreNames.contains("prepared")) r.result.createObjectStore("prepared"); }; r.onsuccess = () => ok(r.result); r.onerror = () => no(r.error); });
+    PREP.version = version;
+    const t = PREP.db.transaction("prepared", "readwrite"), store = t.objectStore("prepared");   // (another version's: gone)
+    store.openKeyCursor().onsuccess = (ev) => { const c = ev.target.result; if (!c) return; if (!String(c.key).startsWith(version + "/")) store.delete(c.key); c.continue(); };
+  } catch (e) { PREP.db = null; }
+}
+async function prepared(key, make) {
+  if (PREP.db) {
+    const hit = await new Promise((ok) => { try { const r = PREP.db.transaction("prepared").objectStore("prepared").get(`${PREP.version}/${key}`); r.onsuccess = () => ok(r.result); r.onerror = () => ok(undefined); } catch { ok(undefined); } });
+    if (hit !== undefined) return hit;
+  }
+  const value = await make();
+  if (PREP.db && value != null) { try { PREP.db.transaction("prepared", "readwrite").objectStore("prepared").put(value, `${PREP.version}/${key}`); } catch (e) { } }   // (cloned now: later changes to it are not kept)
+  return value;
+}
+// a line layer as the page uses it: read, and presimplified -- the one topology both the full detail and the coarser
+// levels are drawn from (presimplify's copy has the points' weights as a third value, which drawing ignores)
+const lineLayer = (name) => prepared(name, async () => { const t = await getData(`lite/${name}.txt`); return t && topojson.presimplify(t, topojson.sphericalTriangleArea); });
+// R-trees of the full-detail features' bounds (tree()), kept as rbush's own JSON
+async function treesOf(key, feats) {
+  const json = await prepared(key, () => Object.fromEntries(Object.entries(feats).map(([k, f]) => [k, tree(f).toJSON()])));
+  for (const [k, j] of Object.entries(json)) trees[k] = new RBush().fromJSON(j);
+}
+
+// THE DATA: the light files of the line layers (data/lite/*.txt, build/lite.py) and the point layers' CSV -- the only data
+// the map loads (the full-detail layers, full/*.topo.json, are what the light files are made from: not served)
+const getData = async (f) => { try { const r = await fetch("data/" + f); return !r.ok ? null : f.endsWith(".csv") ? pointsOf(d3.csvParse(await r.text())) : parseLite(await r.text()); } catch { return null; } };
 async function load() {
-  const get = async (f) => { try { const r = await fetch(f); return !r.ok ? null : f.endsWith(".csv") ? pointsOf(d3.csvParse(await r.text())) : f.endsWith(".txt") ? parseLite(await r.text()) : r.json(); } catch { return null; } };
-  const files = ["world.topo.json", "rivers.topo.json", "cities.csv", "monuments.csv", "natural_points.csv", "airports.csv", "transport.topo.json", "events.csv"];
-  const [world, rivers, cities, monuments, nature, airports, transport, events] = await Promise.all(files.map((f) => get(dataFile(f))));
-  if (!world) { $("stats").textContent = "no data/world.topo.json yet (README.md)"; return; }
-  src = { world, rivers, cities, monuments, nature, airports, transport, events,
-          worldPre: topojson.presimplify(world, topojson.sphericalTriangleArea),
-          riversPre: rivers && topojson.presimplify(rivers, topojson.sphericalTriangleArea),
-          transportPre: transport && topojson.presimplify(transport, topojson.sphericalTriangleArea) };
+  const kept = await startOffline();
+  await openPrepared(kept);
+  showVersion(kept);
+  const [world, rivers, transport, cities, monuments, nature, airports, events] = await Promise.all([
+    lineLayer("world"), lineLayer("rivers"), lineLayer("transport"),
+    ...["cities.csv", "monuments.csv", "natural_points.csv", "airports.csv", "events.csv"].map(getData)]);
+  if (!world) { $("stats").textContent = "no data/lite/world.txt yet (README.md)"; return; }
+  src = { world, rivers, cities, monuments, nature, airports, transport, events, worldPre: world, riversPre: rivers, transportPre: transport };
   const L = level(0);
-  for (const k of ["land", "countries", "lakes", "coast", "cb", "rb", "rivers", "areas", "regions", "motorways", "railways", "pipelines"]) trees[k] = tree(L[k]);
+  await treesOf("trees", Object.fromEntries(["land", "countries", "lakes", "coast", "cb", "rb", "rivers", "areas", "regions", "motorways", "railways", "pipelines"].map((k) => [k, L[k]])));
   for (const k of ["cities", "monuments", "nature", "airports", "events"]) points[k] = pointTree(src[k]);
   buildIndex();
   idOf.countries = new Map(L.countries.map((f, i) => [f.properties.iso, i]));
@@ -755,9 +847,6 @@ async function load() {
   loadBio(); loadHistory();
 }
 
-// ?lite: the line layers from the light files (data/lite/*.txt, build/lite.py: fewer points, a readable table format)
-const LITE = new URLSearchParams(location.search).has("lite");
-const dataFile = (f) => LITE && f.endsWith(".topo.json") ? "data/lite/" + f.replace(".topo.json", ".txt") : "data/" + f;
 // a light file read back into the topology the page draws: @arcs (a line each: x y dx dy ...), then each object's CSV
 // (a header, a row a geometry -- or, grouped, a row a thing and @name.pieces a row a piece, with what differs)
 function parseLite(text) {
@@ -812,17 +901,17 @@ function pointsOf(rows) {
   }) };
 }
 
-// the biogeographic layer (data/bio.topo.json): after the rest, as it is only for its own map, its names and the
+// the biogeographic layer (data/lite/bio.txt): after the rest, as it is only for its own map, its names and the
 // ecoregion under a click
 let pendingFind = null;
 const bioLayerOf = (id) => /^E\d+$/.test(id) ? "ecoregions" : /^B\d+$/.test(id) ? "biomes" : "realms";
 async function loadBio() {
-  let bio = null;
-  try { const f = dataFile("bio.topo.json"), r = await fetch(f); bio = !r.ok ? null : f.endsWith(".txt") ? parseLite(await r.text()) : await r.json(); } catch (e) { }
+  const bio = await lineLayer("bio");
   if (!bio) { $("mode").querySelector('[value="bio"]').disabled = true; return; }
-  src.bio = bio; src.bioPre = topojson.presimplify(bio, topojson.sphericalTriangleArea); bioLod = [];
+  src.bio = bio; src.bioPre = bio; bioLod = [];
   const B = bioLevel(0);
-  for (const k of ["realms", "biomes", "ecoregions"]) { trees[k] = tree(B[k]); idOf[k] = new Map(B[k].map((f, i) => [f.properties.id, i])); }
+  await treesOf("trees-bio", { realms: B.realms, biomes: B.biomes, ecoregions: B.ecoregions });
+  for (const k of ["realms", "biomes", "ecoregions"]) idOf[k] = new Map(B[k].map((f, i) => [f.properties.id, i]));
   const realm = Object.fromEntries(B.realms.map((f) => [f.properties.id, f.properties.name])), biome = Object.fromEntries(B.biomes.map((f) => [f.properties.id, f.properties.name]));
   const count = (k, v) => B.ecoregions.filter((f) => f.properties[k] === v).length;
   B.realms.forEach((f, i) => addToIndex({ cat: "bio", name: f.properties.name, alt: f.properties.id, kind: "biogeographic realm", feats: [f], ids: [i], layer: "realms", mask: "land", at: f.properties.label, weight: 5e9, info: [`${count("realm", f.properties.id)} ecoregions`] }));
@@ -836,13 +925,12 @@ async function loadBio() {
   if (pendingFind) { const e = search(pendingFind)[0]; if (e) { pendingFind = null; $("q").value = e.name; select(e); } }
 }
 
-// the historical map (data/history.topo.json): after the rest, as it is only for its own map; each country-period
+// the historical map (data/lite/history.txt): after the rest, as it is only for its own map; each country-period
 // is found by name (chosen, the map shows a day in its span), a region under a click
 async function loadHistory() {
-  let hist = null;
-  try { const f = dataFile("history.topo.json"), r = await fetch(f); hist = !r.ok ? null : f.endsWith(".txt") ? parseLite(await r.text()) : await r.json(); } catch (e) { }
+  const hist = await lineLayer("history");
   if (!hist || !hist.objects.regions) { $("mode").querySelector('[value="history"]').disabled = true; return; }
-  src.hist = hist; src.histPre = topojson.presimplify(hist, topojson.sphericalTriangleArea); histLod = []; histNow = null;
+  src.hist = hist; src.histPre = hist; histLod = []; histNow = null;
   const G = hist.objects.regions.geometries, P = hist.objects.periods.geometries.map((g) => g.properties), byState = new Map(), sides = new Map();
   P.forEach((p, i) => { p._f = dayNum(p.from); p._t = dayNum(p.to); if (!byState.has(p.state)) byState.set(p.state, []); byState.get(p.state).push(i); });
   const held = G.map((g) => { const h = g.properties.held || []; return [h.map((x) => dayNum(x.slice(0, x.lastIndexOf(":")))), h.map((x) => { const s = x.slice(x.lastIndexOf(":") + 1); return s === "" ? -1 : +s; })]; });
@@ -941,19 +1029,25 @@ function buildIndex() {
   }
 }
 
+// TYPING NARROWS: a query that only adds letters to the last one can match nothing the last one did not, so it looks
+// only among those (every match, not the 30 shown) -- the first letter scans the ~55,000 names, the rest a handful.
+// (The names stay in memory: a scan of them takes milliseconds; IndexedDB would make each one slower, not faster.)
+let narrow = { n: null, size: -1, hits: null };
 function search(q) {
   const n = norm(q).trim();
   if (!n) return [];
-  const out = [];
-  for (const e of index) {
+  const pool = narrow.n !== null && n.startsWith(narrow.n) && narrow.size === index.length ? narrow.hits : index;   // (the index grows as bio and history load)
+  const out = [], hits = [];
+  for (const e of pool) {
     let s = 9;
     for (const k of e.keys) {
       const i = k.indexOf(n);
       if (i < 0) continue;
       s = Math.min(s, k === n ? 0 : i === 0 ? 1 : /[\s\-'(]/.test(k[i - 1]) ? 2 : 3);
     }
-    if (s < 9) out.push([s, -e.weight, e]);
+    if (s < 9) { out.push([s, -e.weight, e]); hits.push(e); }
   }
+  narrow = { n, size: index.length, hits };
   out.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
   return out.slice(0, 30).map((r) => r[2]);
 }
@@ -1325,11 +1419,17 @@ function showResults() {
   });
 }
 function choose(i) { const e = found[i]; if (!e) return; found = []; cursor = -1; showResults(); $("q").value = e.name; $("q").blur(); select(e); }
-$("q").addEventListener("input", () => { if (!$("q").value && sel) return clearSel(); found = search($("q").value); cursor = found.length ? 0 : -1; showResults(); });
+let typing = null;   // (searched once the typing pauses: a phone does not search again under every letter)
+const searchNow = () => { clearTimeout(typing); typing = null; found = search($("q").value); cursor = found.length ? 0 : -1; showResults(); };
+$("q").addEventListener("input", () => {
+  clearTimeout(typing);
+  if (!$("q").value && sel) return clearSel();
+  typing = setTimeout(searchNow, 120);
+});
 $("q").addEventListener("keydown", (ev) => {
   if (ev.key === "ArrowDown") { cursor = Math.min(found.length - 1, cursor + 1); showResults(); ev.preventDefault(); }
   else if (ev.key === "ArrowUp") { cursor = Math.max(0, cursor - 1); showResults(); ev.preventDefault(); }
-  else if (ev.key === "Enter") choose(cursor);
+  else if (ev.key === "Enter") { if (typing) searchNow(); choose(cursor); }   // (Enter before the pause: what was typed, not the last results)
   else if (ev.key === "Escape") { if (sel && !found.length) clearSel(); found = []; showResults(); $("q").blur(); }
 });
 $("q").addEventListener("blur", () => { found = []; showResults(); });
@@ -1337,15 +1437,39 @@ $("q").addEventListener("blur", () => { found = []; showResults(); });
 // ---- moving: drag turns the globe (every projection is rotated the same way) and draws a coarser level meanwhile;
 // the wheel scales the last picture about the centre (the projection zooms about it too) and draws once it stops
 let drag = null, idle = null, moved = 0, snapZoom = null, last = null;
-// while the wheel turns or the pointer drags, only the last picture is scaled or shifted; the map is drawn again
-// (with its labels) once the movement pauses for 160 ms or ends
+// while the wheel turns, two fingers pinch or the pointer drags, only the last picture is scaled or shifted; the map is
+// drawn again (with its labels) once the movement pauses for 160 ms or ends
 const takeSnap = () => { snap.width = canvas.width; snap.height = canvas.height; snap.getContext("2d").drawImage(canvas, 0, 0); snapZoom = zoom; };
 const later = () => { clearTimeout(idle); idle = setTimeout(() => { snapZoom = null; draw(); if (drag && last) { takeSnap(); drag = [last[0], last[1], ...rotate]; } }, 160); };
-canvas.addEventListener("pointerdown", (e) => { drag = [e.clientX, e.clientY, ...rotate]; last = null; moved = 0; canvas.classList.add("dragging"); canvas.setPointerCapture(e.pointerId); takeSnap(); });
+// ZOOM (the wheel and a pinch alike): the last picture scaled about the centre -- the projection zooms about it too
+function zoomTo(z) {
+  if (snapZoom === null) takeSnap();                            // (the picture as it is, to scale)
+  zoom = Math.max(0.5, Math.min(MAX_ZOOM, z));
+  setup();
+  const k = zoom / snapZoom, cx = canvas.width / 2, cy = canvas.height / 2;
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = css("--bg"); ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.setTransform(k, 0, 0, k, cx - k * cx, cy - k * cy); ctx.drawImage(snap, 0, 0);
+  ctx.restore();
+  later();
+}
+// THE POINTERS DOWN (a mouse, a pen, each finger): one drags the globe round, two pinch -- the zoom follows the distance
+// between them from where the pinch began; lifting one ends the pinch without a click
+const fingers = new Map();
+let pinch = null;   // [the distance between the two at the start, the zoom then]
+const spread = () => { const [a, b] = [...fingers.values()]; return Math.hypot(a[0] - b[0], a[1] - b[1]); };
+canvas.addEventListener("pointerdown", (e) => {
+  fingers.set(e.pointerId, [e.clientX, e.clientY]); canvas.setPointerCapture(e.pointerId);
+  if (fingers.size === 2) { drag = null; moved = 99; pinch = [Math.max(spread(), 1), zoom]; return; }   // (a second finger: a pinch, never a click)
+  if (fingers.size > 2) return;
+  drag = [e.clientX, e.clientY, ...rotate]; last = null; moved = 0; canvas.classList.add("dragging"); takeSnap();
+});
 canvas.addEventListener("pointermove", (e) => {
-  if (!drag) return tip(e);
+  if (fingers.has(e.pointerId)) fingers.set(e.pointerId, [e.clientX, e.clientY]);
+  if (pinch && fingers.size === 2) return zoomTo(pinch[1] * spread() / pinch[0]);
+  if (!drag) return e.pointerType === "mouse" ? tip(e) : undefined;
   moved = Math.max(moved, Math.hypot(e.clientX - drag[0], e.clientY - drag[1]));
-  if (moved < 3) return;
+  if (moved < (e.pointerType === "mouse" ? 3 : 8)) return;    // (a finger wobbles more than a mouse on a tap)
   const k = 150 / proj.scale();
   rotate = [drag[2] + (e.clientX - drag[0]) * k * 0.6, Math.max(-90, Math.min(90, drag[3] - (e.clientY - drag[1]) * k * 0.6)), 0];
   proj.rotate(rotate); last = [e.clientX, e.clientY];
@@ -1355,23 +1479,16 @@ canvas.addEventListener("pointermove", (e) => {
   ctx.restore();
   later();
 });
-canvas.addEventListener("pointerup", (e) => {
-  const click = drag && moved < 3;
+const lift = (e, cancelled) => {
+  fingers.delete(e.pointerId);
+  if (pinch) { if (!fingers.size) { pinch = null; drag = null; canvas.classList.remove("dragging"); clearTimeout(idle); snapZoom = null; draw(); } return; }
+  const click = !cancelled && drag && moved < (e.pointerType === "mouse" ? 3 : 8);
   drag = null; canvas.classList.remove("dragging"); clearTimeout(idle);
   if (click && src) { if (game.open) gameClick(e); else if ($("grouping").checked) groupClick(e); else identify(e); } else { snapZoom = null; draw(); }
-});
-canvas.addEventListener("wheel", (e) => {
-  e.preventDefault();
-  if (snapZoom === null) takeSnap();                            // (the picture as it is, to scale)
-  zoom = Math.max(0.5, Math.min(MAX_ZOOM, zoom * Math.exp(-e.deltaY * 0.0015)));
-  setup();
-  const k = zoom / snapZoom, cx = canvas.width / 2, cy = canvas.height / 2;
-  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.fillStyle = css("--bg"); ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.setTransform(k, 0, 0, k, cx - k * cx, cy - k * cy); ctx.drawImage(snap, 0, 0);
-  ctx.restore();
-  later();
-}, { passive: false });
+};
+canvas.addEventListener("pointerup", (e) => lift(e, false));
+canvas.addEventListener("pointercancel", (e) => lift(e, true));
+canvas.addEventListener("wheel", (e) => { e.preventDefault(); zoomTo(zoom * Math.exp(-e.deltaY * 0.0015)); }, { passive: false });
 function tip(e) {
   const t = $("tip");
   if (!src || game.open) return;                                  // (the game: no names to go by)

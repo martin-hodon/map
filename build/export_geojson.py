@@ -1,7 +1,7 @@
 """The TopoJSON layers as plain GeoJSON, one file per object (RFC 7946: outer rings anticlockwise -- the other way
 round from the TopoJSON, which winds as d3-geo expects), for tools that read GeoJSON and not TopoJSON.
 
-    .venv/bin/python build/export_geojson.py [decimals]     # -> data/geojson/<object>.geojson (default 3 decimals, 111 m)
+    .venv/bin/python build/export_geojson.py [decimals]     # -> full/geojson/<object>.geojson (default 3 decimals, 111 m)
 
 The shared lines are written out once per geometry that uses them, so these files are several times bigger.
 """
@@ -42,10 +42,10 @@ def geometry(arcs, g, nd):
 
 def main():
     nd = int(sys.argv[1]) if len(sys.argv) > 1 else 3
-    out_dir = os.path.join(ROOT, "data/geojson")
+    out_dir = os.path.join(ROOT, "full/geojson")
     os.makedirs(out_dir, exist_ok=True)
     for name in ("world.topo.json", "rivers.topo.json", "areas.topo.json"):
-        topo = json.load(open(os.path.join(ROOT, "data", name)))
+        topo = json.load(open(os.path.join(ROOT, "full", name)))
         arcs = decode(topo)
         for obj, coll in topo["objects"].items():
             feats = [{"type": "Feature", **({"id": g["id"]} if "id" in g else {}), "properties": g.get("properties", {}),

@@ -6,19 +6,19 @@ applied, so any projection can draw it. `index.html` shows it in nine projection
 
 | # | layer | file · object | what |
 |---|---|---|---|
-| 1 | geographical | `data/world.topo.json` · `land`, `coastline`, `lakes` | every landmass and island of 1 km² or more, the coast as lines, lakes of 100 km² or more |
-| 2 | national borders | `data/world.topo.json` · `countries`, `country_borders` | countries and dependencies as polygons, which reuse the coast, with `population` (Wikidata's latest, by ISO 3166-1 code, two significant digits), `area_km2`, `density`, `language` (`language_code`), `color` (0-6, no two neighbours alike), `label` (a point well inside: where its name is written) and `continent` (the continent area of layer 7 its label lies in, else the nearest); the land borders as lines (`a`, `b`, `disputed`) |
-| 3 | subnational | `data/world.topo.json` · `regions`, `region_borders` | states / provinces (ISO 3166-2) of the big and federal countries (`build/config.py` `REGION_COUNTRIES`), with `population` (by ISO 3166-2 code), `area_km2`, `density`, `language`, `label`, `continent` (its own: Russia's European oblasts are in Europe) |
-| 4 | rivers | `data/rivers.topo.json` · `rivers` | each river that is 50 m wide somewhere, from its source down to its end, as one line (or more at forks), 50 km or longer, big or known to Wikipedia: name (English), Wikidata id, width (median and max), `river` (its id), `river_km`, `wikipedias` |
+| 1 | geographical | `full/world.topo.json` · `land`, `coastline`, `lakes` | every landmass and island of 1 km² or more, the coast as lines, lakes of 100 km² or more |
+| 2 | national borders | `full/world.topo.json` · `countries`, `country_borders` | countries and dependencies as polygons, which reuse the coast, with `population` (Wikidata's latest, by ISO 3166-1 code, two significant digits), `area_km2`, `density`, `language` (`language_code`), `color` (0-6, no two neighbours alike), `label` (a point well inside: where its name is written) and `continent` (the continent area of layer 7 its label lies in, else the nearest); the land borders as lines (`a`, `b`, `disputed`) |
+| 3 | subnational | `full/world.topo.json` · `regions`, `region_borders` | states / provinces (ISO 3166-2) of the big and federal countries (`build/config.py` `REGION_COUNTRIES`), with `population` (by ISO 3166-2 code), `area_km2`, `density`, `language`, `label`, `continent` (its own: Russia's European oblasts are in Europe) |
+| 4 | rivers | `full/rivers.topo.json` · `rivers` | each river that is 50 m wide somewhere, from its source down to its end, as one line (or more at forks), 50 km or longer, big or known to Wikipedia: name (English), Wikidata id, width (median and max), `river` (its id), `river_km`, `wikipedias` |
 | 5 | monuments | `data/monuments.csv` | castles, palaces, cathedrals, temples, ruins, monuments, bridges, dams, national parks, waterfalls… with 100,000+ visitors a year, or well known (written about in enough Wikipedias -- 15+ for a castle, 12+ a bridge, 10+ a dam or a World Heritage Site, 40+ a church: `build/fetch_points.py` FAMOUS), one a line under a header: `name`, `lon`, `lat`, `kind`, `visitors`, `visitors_year`, `wikipedias`, `country`, `region`, `name_local`, `wikidata`, `osm` |
 | 6 | cities | `data/cities.csv` | cities of 100,000+ people and every capital, one a line under a header: `name`, `lon`, `lat`, `population` (the urban one where Wikipedia gives it, two significant digits), `place` (city, town), `capital` (country, state), `country`, `region` (state), `name_local`, `wikidata`, `osm` -- without the districts of a bigger city (Istanbul's, Tokyo's wards, New York's boroughs, China's urban districts) |
-| 7 | areas | `data/world.topo.json` · `areas` | the named parts of the world without borders of their own: oceans, seas, gulfs, bays, straits, sounds, fjords; mountain ranges, plateaus, deserts, plains, basins, peninsulas, islands and island groups, continents — made of the map's own coast and lines across (below) |
+| 7 | areas | `full/world.topo.json` · `areas` | the named parts of the world without borders of their own: oceans, seas, gulfs, bays, straits, sounds, fjords; mountain ranges, plateaus, deserts, plains, basins, peninsulas, islands and island groups, continents — made of the map's own coast and lines across (below) |
 | 8 | natural points | `data/natural_points.csv` | peaks (with elevation), capes, waterfalls, passes, depressions, the poles, one a line under a header: `name`, `lon`, `lat`, `kind`, `elevation_m`, `rank` (Natural Earth's: shown from what zoom), `name_en`, `wikidata` |
 | 9 | airports | `data/airports.csv` | airports with scheduled flights to 3+ airports abroad (large ones: 2+), one a line under a header: `name`, `lon`, `lat`, `iata`, `icao`, `city`, `size` (large, medium), `destinations_abroad`, `country`, `region` |
-| 13 | biogeographic | `data/bio.topo.json` · `realms`, `biomes`, `ecoregions` | the land cut into the 847 terrestrial ecoregions (RESOLVE 2017), and those grouped into 15 biomes (with Rock and Ice) and 8 biogeographic realms: `id` (`PA`… a realm, `B0`–`B14` a biome, `E` + RESOLVE's number an ecoregion), `name`, `realm`, `biome`, `color` (RESOLVE's), `nnh`, `area_km2`, `label` -- made of the map's own coast (below) |
-| 14 | historical borders | `data/history.topo.json` · `regions`, `periods` | the states, empires, dependencies (and, before them, peoples and cultures) from 3000 BC to 2019 -- from 1886 every day (CShapes 2.0), before as mapped for 3000 BC, 2000 BC … 1815, 1878, 1880 (historical-basemaps), as REGIONS of the land and their owners through time: `regions` one polygon each -- `id`, `name`, `admin`, `country`, `held` (`from:state` …), `area_km2`, `label`; `periods` one row per country-period (no geometry) -- `id` (`state:from`), `state`, `name`, `from`, `to` (days, both inclusive; years astronomical, `-0699` is 700 BC), `source`, `precision` (1 approximate, 2 partly undefined, 3 fixed by law), `status`, `owner`, `capital`, `cap`, `gwcode`, `area_km2`, `label` -- made of the map's own coast (below) |
+| 13 | biogeographic | `full/bio.topo.json` · `realms`, `biomes`, `ecoregions` | the land cut into the 847 terrestrial ecoregions (RESOLVE 2017), and those grouped into 15 biomes (with Rock and Ice) and 8 biogeographic realms: `id` (`PA`… a realm, `B0`–`B14` a biome, `E` + RESOLVE's number an ecoregion), `name`, `realm`, `biome`, `color` (RESOLVE's), `nnh`, `area_km2`, `label` -- made of the map's own coast (below) |
+| 14 | historical borders | `full/history.topo.json` · `regions`, `periods` | the states, empires, dependencies (and, before them, peoples and cultures) from 3000 BC to 2019 -- from 1886 every day (CShapes 2.0), before as mapped for 3000 BC, 2000 BC … 1815, 1878, 1880 (historical-basemaps), as REGIONS of the land and their owners through time: `regions` one polygon each -- `id`, `name`, `admin`, `country`, `held` (`from:state` …), `area_km2`, `label`; `periods` one row per country-period (no geometry) -- `id` (`state:from`), `state`, `name`, `from`, `to` (days, both inclusive; years astronomical, `-0699` is 700 BC), `source`, `precision` (1 approximate, 2 partly undefined, 3 fixed by law), `status`, `owner`, `capital`, `cap`, `gwcode`, `area_km2`, `label` -- made of the map's own coast (below) |
 | 15 | historical events | `data/events.csv` | battles, sieges, peace treaties and treaties, assassinations, massacres, coups, revolutions, rebellions, terror attacks, earthquakes, eruptions that enough Wikipedias write about (10+ for a battle, 8+ a peace treaty, 15+ a massacre: `build/events.py` KINDS), one a line under a header: `name`, `lon`, `lat`, `date` (cut to its precision, years astronomical), `precision` (day … century), `calendar` (julian, as historians cite a date before 1582), `kind`, `part_of` (its war or campaign), `wikipedias`, `place` (own coordinates, or its location's), `wikidata` |
-| 10–12 | main lines | `data/transport.topo.json` · `motorways`, `railways`, `pipelines` | motorways and trunk roads signed 100 km/h+ (networks of 20 km+), main-line and high-speed railways (30 km+), oil and gas pipelines that are not distribution lines (50 km+), one line per road or railway (its carriageways and tracks collapsed): `ref`, `name`, `network`, `network_km` |
+| 10–12 | main lines | `full/transport.topo.json` · `motorways`, `railways`, `pipelines` | motorways and trunk roads signed 100 km/h+ (networks of 20 km+), main-line and high-speed railways (30 km+), oil and gas pipelines that are not distribution lines (50 km+), one line per road or railway (its carriageways and tracks collapsed): `ref`, `name`, `network`, `network_km` |
 
 Layers 1–4, 7, 10–14 are **TopoJSON**: every line is stored once. The coast bounds the land, a country, a state, a
 sea and a peninsula with the same arcs, and a national border is one arc shared by both countries. Coordinates are delta-encoded integers on
@@ -59,10 +59,30 @@ start begins afresh.
   these, one a country, so China's do not fill the game), a click says where it is; a circle round the city out to the
   click shows how far off (0 km is best), and the kilometres add up over the rounds.
 
+## Offline copy, updates, prepared data
+
+On a real site (http/https) the map keeps itself in the browser: `sw.js` (a service worker) keeps every file
+`offline.json` lists -- `index.html`, its libraries in `lib/` (d3, d3-geo-projection, topojson-client, topojson-simplify,
+rbush, kept here rather than on a CDN so the map opens offline), `data/lite/*.txt` and the CSVs, 34 MB -- and the map
+opens from that copy, with no network and nothing downloaded again. It does not update on its own: once a visit the page
+compares its version with `offline.json` online, and a newer one shows a line at the top with **update now** (the
+version kept and **check for update** are also at the panel's foot). An update fetches the new files whole, into a new
+copy, and drops the old one; the groups, mode and other settings (localStorage) stay.
+
+What the page makes of the files before it can draw -- each line layer read and presimplified, the R-trees of the
+layers' bounds -- is kept in IndexedDB (`map` / `prepared`) under the copy's version, so a later visit reads it back
+(measured on a desktop: reading and preparing the five line layers 4.1 s -> 2.2 s, the R-trees 1.6 s -> 0.3 s).
+
+After changing what the page loads (`build/lite.py`, a point layer, `index.html`, `lib/`): `python3 build/offline.py`
+writes `offline.json` (the file list and a hash of the files: the version), then commit and push.
+
 ## Light files (data/lite/)
 
 `build/lite.py` writes smaller, readable copies of the line layers -- `data/lite/world.txt`, `rivers.txt`,
-`transport.txt`, `bio.txt`, `history.txt` -- and leaves the originals as they are; `index.html?lite` draws from them.
+`transport.txt`, `bio.txt`, `history.txt` -- from the full-detail ones in `full/`, and leaves those as they are. The map
+loads ONLY these (and the CSV point layers in `data/`): `data/` is what is committed and served. `full/` -- the build's
+full-detail `*.topo.json` (tens of MB each), and `full/old/` the files they superseded -- is not committed
+(`.gitignore`); it is what the light files are rebuilt from.
 
 - **Fewer points.** A point goes when it adds little to the shape: where the line hardly turns, the triangle it makes
   with its neighbours is small (Visvalingam-Whyatt, the smallest first, up to 25 km²) -- but a point more than 1 km
@@ -273,7 +293,7 @@ runs along it.
 | areas, natural points, river names | [Natural Earth](https://www.naturalearthdata.com) 1:10m physical: marine polygons, geographic regions, elevation points, region points, rivers | public domain |
 
 The derived data is a database built from OSM, so it is ODbL:
-"© OpenStreetMap contributors, Overture Maps Foundation". Layer 14 (`data/history.topo.json`, `data/lite/history.txt`)
+"© OpenStreetMap contributors, Overture Maps Foundation". Layer 14 (`full/history.topo.json`, `data/lite/history.txt`)
 is CShapes' and historical-basemaps' as well and keeps their licences: CC BY-NC-SA 4.0 (not for commercial use, shared
 alike, with "CShapes 2.0, ETH Zurich ICR (Schvitz et al. 2022)") and GPL-3.0 ("historical-basemaps, A. Ourednik").
 
@@ -296,15 +316,15 @@ build/fetch_ne.sh                            # raw/ne/: Natural Earth's geograph
 build/fetch_bio.sh                           # raw/ecoregions/: RESOLVE's ecoregions (150 MB zip, 240 MB shapefile)
 build/capped.sh .venv/bin/python build/coast.py      # stage 1: the coast, simplified, border ends found on it (~10 min, 1.9 GB)
 build/capped.sh .venv/bin/python build/topology.py   # stage 2: borders joined, simplified, faces labelled (~8 min, 1.5 GB)
-MEM=1800M build/capped.sh .venv/bin/python build/water.py   # stage 4: lakes (work/) and rivers (data/rivers.topo.json) (~40 min, 1.5 GB)
+MEM=1800M build/capped.sh .venv/bin/python build/water.py   # stage 4: lakes (work/) and rivers (full/rivers.topo.json) (~40 min, 1.5 GB)
 build/capped.sh .venv/bin/python build/areas.py      # stage 6: areas on the topology (work/areas.pkl), data/natural_points.csv (~18 min, 1.4 GB)
-build/capped.sh .venv/bin/python build/write.py      # stage 3: data/world.topo.json (with the areas)
+build/capped.sh .venv/bin/python build/write.py      # stage 3: full/world.topo.json (with the areas)
 build/capped.sh .venv/bin/python build/points.py     # stage 5: data/cities.csv, monuments.csv, airports.csv
-build/capped.sh .venv/bin/python build/transport.py  # stage 7: data/transport.topo.json (~16 min, 1.9 GB)
-build/capped.sh .venv/bin/python build/bio.py        # stage 9: data/bio.topo.json (ecoregions, biomes, realms)
+build/capped.sh .venv/bin/python build/transport.py  # stage 7: full/transport.topo.json (~16 min, 1.9 GB)
+build/capped.sh .venv/bin/python build/bio.py        # stage 9: full/bio.topo.json (ecoregions, biomes, realms)
 build/fetch_history.sh                       # raw/cshapes/: CShapes 2.0 (13 MB zip) and its R package's TopoJSON; raw/basemaps/: 38 maps (47 MB)
 build/capped.sh .venv/bin/python build/admin.py      # Overture's administrative lines and units -> work/admin_*.pkl (~50 min, once)
-build/capped.sh .venv/bin/python build/history.py    # stage 10: data/history.topo.json (~70 min, 1.8 GB, two cuts; ~14 min with work/history_faces.pkl)
+build/capped.sh .venv/bin/python build/history.py    # stage 10: full/history.topo.json (~70 min, 1.8 GB, two cuts; ~14 min with work/history_faces.pkl)
 .venv/bin/python build/events.py             # raw/wd_events.json (QLever, ~2 min) -> data/events.csv
 .venv/bin/python build/lite.py               # data/lite/*.txt: light copies of the line layers (~1 min)
 .venv/bin/python build/export_geojson.py     # optional: data/geojson/*.geojson

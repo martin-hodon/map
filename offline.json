@@ -1,0 +1,23 @@
+{
+ "version": "aa86482086",
+ "made": "2026-10-24 21:00",
+ "files": [
+  "data/airports.csv",
+  "data/cities.csv",
+  "data/events.csv",
+  "data/lite/bio.txt",
+  "data/lite/history.txt",
+  "data/lite/rivers.txt",
+  "data/lite/transport.txt",
+  "data/lite/world.txt",
+  "data/monuments.csv",
+  "data/natural_points.csv",
+  "index.html",
+  "lib/d3-geo-projection.min.js",
+  "lib/d3.min.js",
+  "lib/rbush.min.js",
+  "lib/topojson-client.min.js",
+  "lib/topojson-simplify.min.js",
+  "offline.json"
+ ]
+}

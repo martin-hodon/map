@@ -7,7 +7,7 @@ of land that always shared one fate -- and each region's owners through time. Tw
     the snapshots', not the days things changed. Its borders are approximate (BORDERPRECISION 1) before 1650.
 
     build/capped.sh .venv/bin/python build/history.py     # work/topology.pkl, Overture's divisions (build/admin.py),
-                                                          # data/bio.topo.json, raw/cshapes, raw/basemaps -> data/history.topo.json
+                                                          # full/bio.topo.json, raw/cshapes, raw/basemaps -> full/history.topo.json
 
 THE REGIONS are cut by lines that stay put, not by the sources' own outlines (historical-basemaps draws each map anew:
 one border is drawn a little differently in every map, and their outlines laid together are slivers):
@@ -16,7 +16,7 @@ one border is drawn a little differently in every map, and their outlines laid t
   - CShapes' borders where they run apart from those (Germany's and Poland's of 1871-1945, India's partition): drawn
     to the day, they are kept -- but not where they run within CSHAPES_KM of an administrative line, the same border
     drawn twice;
-  - the ecoregions' borders (data/bio.topo.json: mountain ridges, a desert's edge) where they run apart from both by
+  - the ecoregions' borders (full/bio.topo.json: mountain ridges, a desert's edge) where they run apart from both by
     ECO_KM: natural lines, where empires ended in land of few districts (the Sahara, the steppe, Siberia).
 They cut the map's land into faces (build/bio.land_faces). Each face has an owner on each day: the country-period valid
 then that covers most of it (the smaller of two covering it alike: historical-basemaps draws a vassal inside its empire;
@@ -72,7 +72,7 @@ FACES_VERSION = 11          # (work/history_faces.pkl is made again when the way
                             # 8 twin lines dropped, the second cut, 9 only the coast's and the cut's arcs, 10 the outlines
                             # of the second cut all, none taken for an island's coast, 11 periods from 100 km2)
 FIRST_CUT = 8               # (work/history_faces1.pkl, the first cut: only to tell which periods it leaves short)
-BIO = os.path.join(ROOT, "data/bio.topo.json")
+BIO = os.path.join(ROOT, "full/bio.topo.json")
 BORDER_KM = config.EPS_KM   # CShapes' borders are drawn lines, not a raster's steps: simplified as the map's own
 CSHAPES_KM = 5.0            # a CShapes border this close to an administrative line is that line (CShapes draws coarser)
 ECO_KM = 5.0                # an ecoregion border this close to any of them is that line (a stretch's end is tied to the line
@@ -254,7 +254,7 @@ def even(own, recs, days):
 
 
 def eco_lines():
-    """the ecoregions' borders: the arcs of data/bio.topo.json two ecoregions share -> [coords]"""
+    """the ecoregions' borders: the arcs of full/bio.topo.json two ecoregions share -> [coords]"""
     t = json.load(open(BIO))
     sc, tr = np.array(t["transform"]["scale"]), np.array(t["transform"]["translate"])
     use = collections.Counter()
@@ -524,7 +524,7 @@ def main():
     out = {"type": "Topology", "bbox": [-180, -90, 180, 90],
            "transform": {"scale": [config.QUANT_DEG, config.QUANT_DEG], "translate": [-180, -90]},
            "objects": objects, "arcs": qarcs}
-    path = os.path.join(ROOT, "data/history.topo.json")
+    path = os.path.join(ROOT, "full/history.topo.json")
     json.dump(out, open(path, "w"), separators=(",", ":"))
     log(f"{path}: {os.path.getsize(path) / 2**20:.1f} MB, {len(qarcs)} arcs")
 

@@ -2,7 +2,7 @@
 Dinerstein et al. 2017, CC BY 4.0: raw/ecoregions/, build/fetch_bio.sh), and those grouped into their biomes and their
 biogeographic realms -- for showing where something lives (an animal's range as a list of regions to highlight).
 
-    build/capped.sh .venv/bin/python build/bio.py     # work/topology.pkl + raw/ecoregions -> data/bio.topo.json
+    build/capped.sh .venv/bin/python build/bio.py     # work/topology.pkl + raw/ecoregions -> full/bio.topo.json
 
 Made of the map's own lines, as the areas are (build/areas.py): the COAST is the map's, and the borders between
 ecoregions are lines across the land. RESOLVE's polygons share their vertices along a border, so a border is the
@@ -282,7 +282,7 @@ def main():
     out = {"type": "Topology", "bbox": [-180, -90, 180, 90],
            "transform": {"scale": [config.QUANT_DEG, config.QUANT_DEG], "translate": [-180, -90]},
            "objects": objects, "arcs": qarcs}
-    path = os.path.join(ROOT, "data/bio.topo.json")
+    path = os.path.join(ROOT, "full/bio.topo.json")
     json.dump(out, open(path, "w"), separators=(",", ":"))
     log(f"{path}: {os.path.getsize(path) / 2**20:.1f} MB, {len(qarcs)} arcs")
 

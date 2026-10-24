@@ -26,7 +26,7 @@ THE FORMAT. Text, one thing a line, no name repeated:
 
 The arcs of a row: polygon -- rings split by ";" (the outer one first), polygons by "|"; line -- lines split by ";";
 an arc is its index in @arcs, -1 - index when it is followed backwards (TopoJSON's ~index).
-index.html?lite reads it back into the topology the page draws.
+index.html reads it back into the topology the page draws (the map loads only these, never full/*.topo.json).
 """
 import os, sys, csv, io, json, heapq, collections
 import numpy as np
@@ -170,7 +170,7 @@ def write_object(name, o):
 
 
 def lighten(name, height_km, tri_km2):
-    src = os.path.join(ROOT, "data", name + ".topo.json")
+    src = os.path.join(ROOT, "full", name + ".topo.json")
     if not os.path.exists(src):
         return
     t = json.load(open(src))

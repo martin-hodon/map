@@ -1,6 +1,6 @@
 """STAGE 3 -- THE FILE: the topology (stage 2) and the lakes written as one TopoJSON, every shared line stored once.
 
-    .venv/bin/python build/write.py               # -> data/world.topo.json
+    .venv/bin/python build/write.py               # -> full/world.topo.json
 
 Objects (every geometry refers to the same arcs -- a coast is stored once whether it bounds the land, a country or
 a state):
@@ -469,8 +469,8 @@ def main():
            "bbox": [-180, -90, 180, 90],
            "transform": {"scale": [config.QUANT_DEG, config.QUANT_DEG], "translate": [-180, -90]},
            "objects": objects, "arcs": qarcs}
-    os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)
-    path = os.path.join(ROOT, "data/world.topo.json")
+    os.makedirs(os.path.join(ROOT, "full"), exist_ok=True)   # (the full-detail layers: not committed -- the map loads data/lite/)
+    path = os.path.join(ROOT, "full/world.topo.json")
     json.dump(out, open(path, "w"), separators=(",", ":"))
     log(f"{path}: {os.path.getsize(path) / 2**20:.1f} MB, {len(arcs)} arcs, {sum(len(c) for c in arcs):,} points")
 
@@ -621,8 +621,8 @@ def populations(objects, items):
 
 def props_only():
     """`write.py props`: only the countries' and states' colour classes, areas, languages and populations of
-    data/world.topo.json, in place"""
-    path = os.path.join(ROOT, "data/world.topo.json")
+    full/world.topo.json, in place"""
+    path = os.path.join(ROOT, "full/world.topo.json")
     out = json.load(open(path))
     colour(out["objects"], out["arcs"])
     items = iso_items(out["objects"])
@@ -637,7 +637,7 @@ if __name__ == "__main__":
     if sys.argv[1:] == ["props"]:
         props_only(); raise SystemExit
     if sys.argv[1:] == ["places"]:                          # (only the labels and continents: no Wikidata)
-        path = os.path.join(ROOT, "data/world.topo.json")
+        path = os.path.join(ROOT, "full/world.topo.json")
         out = json.load(open(path))
         places(out["objects"], out["arcs"])
         json.dump(out, open(path, "w"), separators=(",", ":"))

@@ -1,7 +1,7 @@
 """STAGE 7 -- TRANSPORT: the main lines of the world -- motorways (and trunk roads signed 100 km/h or more), main-line
 and high-speed railways, oil and gas pipelines -- out of OSM (raw/transport/, build/fetch_transport.py).
 
-    .venv/bin/python build/transport.py           # -> data/transport.topo.json (objects: motorways, railways, pipelines)
+    .venv/bin/python build/transport.py           # -> full/transport.topo.json (objects: motorways, railways, pipelines)
 
 Only the main ones: a road by its class and its speed, a railway by OSM's `usage=main` (or `highspeed=yes`), a pipeline
 by what it carries (oil, gas) and what it is for (not `distribution`, `gathering`, a penstock). And then by length:
@@ -22,7 +22,7 @@ from write import quantize
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RAW = os.environ.get("TRANSPORT_RAW", os.path.join(ROOT, "raw", "transport"))          # (overrides: for a test on a few tiles)
-OUT = os.environ.get("TRANSPORT_OUT", os.path.join(ROOT, "data/transport.topo.json"))
+OUT = os.environ.get("TRANSPORT_OUT", os.path.join(ROOT, "full/transport.topo.json"))
 MIN_KM = {"motorways": 20.0, "railways": 30.0, "pipelines": 50.0}
 EPS_KM = {"motorways": 1.0, "railways": 1.0, "pipelines": 1.0}      # (their detail: coarser than the coast's)
 MIN_SPEED = 100.0
