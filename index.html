@@ -274,25 +274,35 @@ function setup() {
 
 // ---- levels of detail --------------------------------------------------------------------------------------------
 // a polygon whose ring the simplification collapsed, or turned inside out (d3 would paint the globe but it), is dropped
-function keepPolygons(f) {
+// -- and at a coarser level (`min`: its WEIGHTS, steradians) every island, polygon or hole SMALLER than the triangles the
+// level drops: the simplification keeps a few points of any ring however small, and at the world's view the 19,730
+// pieces of land, the countries' islands and the coast round them were ~600,000 points drawn as specks under a pixel
+// (a draw of the whole world took seconds). They go at the zoom where a bend their size goes.
+const ringArea = (r) => { const a = d3.geoArea({ type: "Polygon", coordinates: [r] }); return Math.min(a, 4 * Math.PI - a); };   // (either winding)
+function keepPolygons(f, min = 0) {
   const g = f.geometry;
   if (!g || (g.type !== "Polygon" && g.type !== "MultiPolygon")) return f;
   const parts = (g.type === "Polygon" ? [g.coordinates] : g.coordinates)
-    .map((p) => p.filter((r) => r.length >= 4)).filter((p) => p.length && p[0].length >= 4)
-    .filter((p) => d3.geoArea({ type: "Polygon", coordinates: p }) <= 2 * Math.PI);
+    .map((p) => p.filter((r, k) => r.length >= 4 && (!min || !k || ringArea(r) >= min))).filter((p) => p.length && p[0].length >= 4)
+    .filter((p) => { const a = d3.geoArea({ type: "Polygon", coordinates: p }); return a <= 2 * Math.PI && (!min || ringArea(p[0]) >= min); });
   return { ...f, geometry: parts.length ? { type: "MultiPolygon", coordinates: parts } : null };
 }
+// ...and a closed line as small (an islet's own coast) the same
+const keepLine = (f, min) => { const c = f.geometry?.coordinates, n = c?.length;
+  return min && n && c[0][0] === c[n - 1][0] && c[0][1] === c[n - 1][1] && ringArea(c) < min ? { ...f, geometry: null } : f; };
 function level(i) {
   if (lod[i]) return lod[i];
   const t = i ? topojson.simplify(src.worldPre, WEIGHTS[i]) : src.world, o = t.objects;
   const r = src.rivers && (i ? topojson.simplify(src.riversPre, WEIGHTS[i]) : src.rivers);
   const tr = src.transport && (i ? topojson.simplify(src.transportPre, WEIGHTS[i]) : src.transport);
   const lines = (obj) => tr && tr.objects[obj] ? tr.objects[obj].geometries.map((g) => topojson.feature(tr, g)) : [];
-  const feats = (obj, poly) => obj ? obj.geometries.map((g) => { const f = topojson.feature(t, g); return poly ? keepPolygons(f) : f; }) : [];
+  const feats = (obj, poly) => obj ? obj.geometries.map((g) => { const f = topojson.feature(t, g); return poly ? keepPolygons(f, WEIGHTS[i]) : f; }) : [];
+  // (the states at every level, of the same simplified arcs as the countries round them: they used to be drawn at full
+  //  detail only, half a million points under a world view)
   return lod[i] = {
-    land: feats(o.land, true), countries: feats(o.countries, true), regions: i ? [] : feats(o.regions, true), lakes: feats(o.lakes, true),
+    land: feats(o.land, true), countries: feats(o.countries, true), regions: feats(o.regions, true), lakes: feats(o.lakes, true),
     areas: feats(o.areas, true),
-    coast: o.coastline.geometries[0].arcs.map((a) => topojson.feature(t, { type: "LineString", arcs: a })),
+    coast: o.coastline.geometries[0].arcs.map((a) => keepLine(topojson.feature(t, { type: "LineString", arcs: a }), WEIGHTS[i])),
     cb: feats(o.country_borders), rb: feats(o.region_borders),
     rivers: r ? r.objects.rivers.geometries.map((g) => topojson.feature(r, g)) : [],
     motorways: lines("motorways"), railways: lines("railways"), pipelines: lines("pipelines"),
@@ -303,7 +313,7 @@ let bioLod = [];
 function bioLevel(i) {
   if (bioLod[i]) return bioLod[i];
   const t = i ? topojson.simplify(src.bioPre, WEIGHTS[i]) : src.bio, o = t.objects;
-  const feats = (obj) => obj.geometries.map((g) => keepPolygons(topojson.feature(t, g)));
+  const feats = (obj) => obj.geometries.map((g) => keepPolygons(topojson.feature(t, g), WEIGHTS[i]));
   return bioLod[i] = { realms: feats(o.realms), biomes: feats(o.biomes), ecoregions: feats(o.ecoregions) };
 }
 // the historical map's levels (its own file, loaded after the rest: loadHistory) -- regions, each with its owners
@@ -375,7 +385,7 @@ function histOn() {
 }
 // at level i: the regions (the same every day; a state is filled as its regions, all of one colour in one path, so no
 // seam shows), and the day's borders, a line for each way of drawing one
-const histRegions = (i) => H0.lv[i] ??= histLevel(i).objects.regions.geometries.map((g) => keepPolygons(topojson.feature(histLevel(i), g)));
+const histRegions = (i) => H0.lv[i] ??= histLevel(i).objects.regions.geometries.map((g) => keepPolygons(topojson.feature(histLevel(i), g), WEIGHTS[i]));
 function histFeatures(i) {
   const now = histOn(); if (now.lv[i]) return now.lv[i];
   const t = histLevel(i);
@@ -459,7 +469,7 @@ function drawMap(fast) {
   const v = (k) => query(trees[k], boxes);
   const m = mode(), geo = m === "geographical", political = m === "political", themed = m === "language" || m === "density";
   const themeFill = (name) => {                                     // countries, then the states over them, by language or density
-    const F = name === "regions" ? level(0).regions : L[name], by = {};   // (the states are kept at full detail only)
+    const F = L[name], by = {};
     if (m === "language" && !Object.keys(langColour).length) rankLanguages();
     for (const i of v(name)) {
       const p = F[i].properties; if (!F[i].geometry) continue;
@@ -495,7 +505,7 @@ function drawMap(fast) {
   if (political && on("countries") && pal) { const by = {}; for (const i of v("countries")) { const f = L.countries[i]; if (f.geometry) (by[f.properties.color % pal.length] ??= []).push(i); }
     for (const c in by) fillAll(L.countries, by[c], pal[c]);
     if (on("regions")) {                                            // (the states over them, in shades of their country's colour)
-      const R = level(0).regions, sh = regionShades(), cls = new Map(level(0).countries.map((f) => [f.properties.iso, f.properties.color])), rby = {};
+      const R = L.regions, sh = regionShades(), cls = new Map(L.countries.map((f) => [f.properties.iso, f.properties.color])), rby = {};
       for (const i of v("regions")) { const f = R[i], c = cls.get(f.properties.country); if (c != null && f.geometry) (rby[shade(pal[c % pal.length], sh[i])] ??= []).push(i); }
       for (const c in rby) fillAll(R, rby[c], c);
     } }
@@ -517,7 +527,7 @@ function drawMap(fast) {
     ctx.setLineDash([3, 3]); stroke([b.open], [0], ink, 0.6); ctx.setLineDash([]);
     if (on("regions") && !fast) stroke([b.inner], [0], dk ? "#6a7580" : "#a8b0b8", 0.4);   // (a province's border within its state: as a modern state's)
   }
-  if ((political || themed) && on("regions") && !fast) stroke(level(0).rb, v("rb"), dk ? "#6a7580" : "#a8b0b8", 0.4);
+  if ((political || themed) && on("regions") && !fast) stroke(L.rb, v("rb"), dk ? "#6a7580" : "#a8b0b8", 0.4);
   if ((political || themed) && on("countries")) stroke(L.cb, v("cb"), dk ? "#b9c2cb" : "#55606b", 0.8);
   if (on("rivers") && L.rivers.length) {
     const min = zoom < 1.5 ? 600 : zoom < 3 ? 250 : zoom < 6 ? 100 : 0;    // (the long rivers first, the rest closer in)
@@ -532,6 +542,7 @@ function drawMap(fast) {
   if (on("railways") && L.railways.length && !G) { ctx.setLineDash([4, 2]); stroke(L.railways, net(L.railways, v("railways"), minNet), dk ? "#c8ccd2" : "#4a4f57", 0.9 * lw); ctx.setLineDash([]); }
   if (on("motorways") && L.motorways.length && !G) stroke(L.motorways, net(L.motorways, v("motorways"), minNet), dk ? "#e0914a" : "#d9731f", 1.1 * lw);
   if (sel && (sel.cat === "river" || sel.cat === "line")) { ctx.beginPath(); path(sel.geom); ctx.strokeStyle = css("--hi"); ctx.lineWidth = 2.5; ctx.stroke(); }
+  if (G && !fast) keepGameBase();                                // (the map under the game: a guess repaints only what lies on it)
   if (G) drawGame(fast);
   if (fast) return;
   const placed = [];                                            // (labels placed so far: a label that would overlap one is left out)
@@ -845,6 +856,11 @@ async function load() {
     rotate = [-lon, -lat, 0]; zoom = Math.min(MAX_ZOOM, z || 4); setup(); draw(); identifyAt([lon, lat], proj([lon, lat]));
   }
   loadBio(); loadHistory();
+  // the other levels of detail, made while nothing else is going on (each ~1 s): made only when first needed, the first
+  // zoom across into each one stalled for that long
+  const idle = (f) => (self.requestIdleCallback ? requestIdleCallback(f, { timeout: 4000 }) : setTimeout(f, 200));
+  const ahead = (i) => { if (i < 0) return; level(i); idle(() => ahead(i - 1)); };
+  idle(() => ahead(WEIGHTS.length - 1));
 }
 
 // a light file read back into the topology the page draws: @arcs (a line each: x y dx dy ...), then each object's CSV
@@ -1346,7 +1362,7 @@ function guess(text) {                                              // a city na
   say(`✓ ${cityText(i)} · ${fmtPop(p.population)}`);
   const li = document.createElement("li"); li.append(p.name + " ", Object.assign(document.createElement("span"), { textContent: fmtPop(p.population) }));
   $("g-list").prepend(li);
-  gameScore(); draw();
+  gameScore(); drawGameOver();
 }
 function nextFind() {
   game.ask = game.finds.length < game.rounds ? game.pool[game.finds.length] : null;
@@ -1363,7 +1379,7 @@ function gameClick(e) {                                             // (find the
   say(`${cityText(i)}: ${fmt(km)} km off`);
   const li = document.createElement("li"); li.append(src.cities.features[i].properties.name + " ", Object.assign(document.createElement("span"), { textContent: `${fmt(km)} km` }));
   $("g-list").prepend(li);
-  nextFind(); gameScore(); draw();
+  nextFind(); gameScore(); drawGameOver();
 }
 function gameScore() {
   const C = src.cities.features, w = game.where;
@@ -1379,6 +1395,21 @@ function gameScore() {
     (game.style !== "people" ? ` · circles ${fmt(game.km)} km across` : "");
 }
 // the game on the map: its region's outline, the circles, the cities named or found (their names: drawMap)
+// THE MAP UNDER THE GAME, as last drawn whole: between two guesses (or two clicks) only the game changes -- its circles,
+// the cities named and their names -- so a guess paints those over this picture instead of drawing the map again
+// (a full draw is what took a guess its time). Kept for the view it was drawn at; any other view draws the map afresh.
+const gameBase = document.createElement("canvas");
+const viewKey = () => `${rotate}|${zoom}|${W}|${H}|${$("proj").value}`;
+function keepGameBase() {
+  gameBase.width = canvas.width; gameBase.height = canvas.height;
+  gameBase.getContext("2d").drawImage(canvas, 0, 0); gameBase.view = viewKey();
+}
+function drawGameOver() {
+  if (gameBase.view !== viewKey() || snapZoom !== null || drag) return draw();
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(gameBase, 0, 0); ctx.restore();
+  drawGame(false);
+  cityLabels([], game.shown(), true);
+}
 function drawGame(fast) {
   const C = src.cities.features, hi = css("--hi"), deg = (km) => km / R_KM * 180 / Math.PI;
   const ring = (center, km, fill) => { ctx.beginPath(); path(d3.geoCircle().center(center).radius(deg(km)).precision(km > 300 ? 2 : 0.5)());
