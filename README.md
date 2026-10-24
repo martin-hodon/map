@@ -30,7 +30,11 @@ peak, motorway, pipeline…; a city with its country), highlights it and flies t
 at that spot; `#find=Alps` and `#at=46.5,10.5[,zoom]` link to one. It draws only what is in view (each layer in an
 R-tree), in levels of detail (topojson-simplify, the coarsest still finer than a pixel), and while the wheel turns it
 only scales the last picture, and while the map is dragged it only shifts it (drawn again with its labels once the
-movement pauses); it zooms to 300x (100 m a pixel). The selection goes with the panel's x, or by emptying the search
+movement pauses); it zooms to 300x (100 m a pixel). Points come by zoom, in tiers (`TIERS`): at the whole globe only
+the cities of 10 million (a capital counts three times its people), from 2.5x those of 3 million, 5x 1 million, 8x
+300,000, 14x all; the 25 best-known monuments from 5x (150 from 8x, 800 from 12x, all from 20x), the highest-ranked
+peaks and capes from 4x, the airports with 100 destinations abroad from 5x (30 from 8x, all from 14x), the day's 15
+best-known events from 4x (60 from 6x, 250 from 10x, all from 18x). The selection goes with the panel's x, or by emptying the search
 box (its x, Escape). Two maps: POLITICAL (countries coloured, their borders and their states') and GEOGRAPHICAL
 (the areas coloured by kind -- ocean, sea, gulf; mountains, plateau, desert, plain, delta, tundra... -- and no
 political line), LANGUAGES (each country and state by its first official language: `language`, `language_code`
@@ -45,7 +49,10 @@ density maps the countries' names are written at their `label` in spaced capital
 and, with layer 3, the states' in mixed case, fading in from closer in; `build/write.py places` adds `label` and
 `continent` to the file alone. On the historical map the day's states are named the same way, and with layer 3 the
 provinces and dependencies within one (a period with an `owner`: the Duchy of Swabia in the Empire, a colony) get a
-thin inner border and fading italic names. R rolls the panel up (or down again), as its ▴ does.
+thin inner border and fading italic names. With layer 4 on, the rivers are named along their flow, in blue italics
+beside a stretch of the line that runs nearly straight (letter by letter, reading left to right), again every 350 px of
+a river: those of 1,000 km and more from zoom 4, 300 km from 6, 100 km from 9, the rest from 12 (`RIVER_NAMES`).
+R rolls the panel up (or down again), as its ▴ does.
 
 THE GAME (the button top right): a game on the cities (layer 6) of the whole world, a continent or a country. While its
 panel is open the map shows no names but those of the cities named or found, and no points, roads or railways; each
@@ -58,6 +65,19 @@ start begins afresh.
 - **Find the city:** the game names one of the biggest cities there (300 of the world's, 150 of a continent's; of
   these, one a country, so China's do not fill the game), a click says where it is; a circle round the city out to the
   click shows how far off (0 km is best), and the kilometres add up over the rounds.
+
+The countries' games: the countries of the world or a continent (with those that have a state in it: Russia, Turkey
+and Kazakhstan are Europe's too), or a country's states (of the 67 countries the map has states for). A name is
+taken in English or the local one, and for a country also as often called (UK, USA, Czech Republic, Burma...). Two
+are neighbours if they share a land border; a dependency's borders count for its country (France borders Brazil),
+and the countries round a disputed piece (Bir Tawil) border each other across it. Named ones are filled green, missed
+or shown ones violet.
+- **Which one is this?** The map flies to one and outlines it; you name it (so many rounds; Show gives it away).
+- **Name them all:** every one named is filled in, against the clock; Give up shows those left.
+- **Neighbour chain:** from a random start, each one named must border the last, none twice; it ends when the last
+  has no neighbour left (or with End, which says what was still possible).
+- **From one to another:** a start and a goal 2–6 countries apart; each one named must border one named before, and
+  it is done when the goal borders one; the end says how many the shortest way goes through (Show a way gives one).
 
 ## Offline copy, updates, prepared data
 
@@ -251,6 +271,18 @@ has a name and is among the 1,000 longest or the 1,000 widest, or some Wikipedia
 (`wikipedias`). A river's English name is Wikidata's (from its ways' items), or Natural Earth's where its river line
 runs along it.
 
+Then one network of single lines (`build/rivernet.py`): as tracked, a river is every channel OSM maps of it -- a
+braided river hundreds of lines side by side (the Diamantina was 9,398), a river in its floodplain with its side arms.
+Of each river (each connected part of it) the TRUNK is the way between its two ends farthest apart, once through its
+braids. Then, the longest rivers' trunks first and the other pieces after: a stretch closer than 2.5 km to a line kept
+before is the same water, dropped where that runs on for 4 km (a parallel duplicate) or at an end that does not reach
+the other line (a braid's, a side arm's); of a trunk any piece of 2 km is kept, of the other pieces only one running
+apart for 10 km (the Little Danube and the Moson Danube beside the Danube). A cut end is carried onto the line it ran
+beside, an end within 0.6 km of a line -- or a free mouth within 5 km -- onto that line, and every line is cut into
+arcs at the junctions on it, so a tributary meets its river exactly at every level of detail. A mouth in the sea is
+cut where the river crosses the coast, one ending inland within 8 km of the coast (and not at a lake) is carried on to
+it, and that point is put into the coast's own line (`full/world.topo.json`; `build/lite.py` keeps it).
+
 ## How the detail was chosen
 
 - **Simplified on the sphere, not in degrees** (`build/geo.py`). Douglas–Peucker with each point's distance to the
@@ -316,9 +348,10 @@ build/fetch_ne.sh                            # raw/ne/: Natural Earth's geograph
 build/fetch_bio.sh                           # raw/ecoregions/: RESOLVE's ecoregions (150 MB zip, 240 MB shapefile)
 build/capped.sh .venv/bin/python build/coast.py      # stage 1: the coast, simplified, border ends found on it (~10 min, 1.9 GB)
 build/capped.sh .venv/bin/python build/topology.py   # stage 2: borders joined, simplified, faces labelled (~8 min, 1.5 GB)
-MEM=1800M build/capped.sh .venv/bin/python build/water.py   # stage 4: lakes (work/) and rivers (full/rivers.topo.json) (~40 min, 1.5 GB)
+MEM=1800M build/capped.sh .venv/bin/python build/water.py   # stage 4: lakes (work/) and rivers as tracked (full/rivers.tracked.topo.json) (~40 min, 1.5 GB)
 build/capped.sh .venv/bin/python build/areas.py      # stage 6: areas on the topology (work/areas.pkl), data/natural_points.csv (~18 min, 1.4 GB)
 build/capped.sh .venv/bin/python build/write.py      # stage 3: full/world.topo.json (with the areas)
+build/capped.sh .venv/bin/python build/rivernet.py   # stage 4b: the rivers as one network (full/rivers.topo.json), their mouths into the coast
 build/capped.sh .venv/bin/python build/points.py     # stage 5: data/cities.csv, monuments.csv, airports.csv
 build/capped.sh .venv/bin/python build/transport.py  # stage 7: full/transport.topo.json (~16 min, 1.9 GB)
 build/capped.sh .venv/bin/python build/bio.py        # stage 9: full/bio.topo.json (ecoregions, biomes, realms)

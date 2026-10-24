@@ -37,8 +37,8 @@ GROUP = {"rivers": "river", "motorways": "network", "railways": "network", "pipe
 KM_LAT = 110.57
 
 
-def keep_points(ll, height_km, tri_km2):
-    """Visvalingam-Whyatt on one arc (longitude/latitude), sharp points kept -> the indices kept"""
+def keep_points(ll, height_km, tri_km2, fixed=None):
+    """Visvalingam-Whyatt on one arc (longitude/latitude), sharp points kept (and those `fixed` says) -> the indices kept"""
     n = len(ll)
     closed = n > 3 and ll[0, 0] == ll[-1, 0] and ll[0, 1] == ll[-1, 1]
     floor = 4 if closed else 2
@@ -54,7 +54,9 @@ def keep_points(ll, height_km, tri_km2):
     alive = np.ones(n, bool)
     cur, heap = {}, []
     for i in range(1, n - 1):
-        cur[i] = measure(i - 1, i, i + 1); heap.append((cur[i][0], i))
+        cur[i] = measure(i - 1, i, i + 1)
+        if fixed is None or not fixed[i]:
+            heap.append((cur[i][0], i))
     heapq.heapify(heap)
     left = n
     while heap and left > floor:
@@ -69,7 +71,7 @@ def keep_points(ll, height_km, tri_km2):
         p, q = prev[i], nxt[i]
         nxt[p], prev[q] = q, p
         for j in (p, q):
-            if 0 < j < n - 1 and alive[j]:
+            if 0 < j < n - 1 and alive[j] and (fixed is None or not fixed[j]):
                 ar, h = measure(prev[j], j, nxt[j])
                 cur[j] = (max(ar, a), h)                     # (never smaller than the one just dropped: the order holds)
                 heapq.heappush(heap, (cur[j][0], j))
@@ -169,6 +171,19 @@ def write_object(name, o):
             f"@{name}.pieces\n" + table(pieces, [gk] + differ + ["arcs"], types))
 
 
+def river_ends():
+    """the grid points where the rivers end (full/rivers.topo.json): a mouth is also a point of the coast
+    (build/rivernet.py), kept there so river and coast still meet"""
+    path = os.path.join(ROOT, "full/rivers.topo.json")
+    if not os.path.exists(path):
+        return set()
+    t, ends = json.load(open(path)), set()
+    for arc in t["arcs"]:
+        q = np.cumsum(np.array(arc, dtype=np.int64), axis=0)
+        ends.add(tuple(q[0].tolist())); ends.add(tuple(q[-1].tolist()))
+    return ends
+
+
 def lighten(name, height_km, tri_km2):
     src = os.path.join(ROOT, "full", name + ".topo.json")
     if not os.path.exists(src):
@@ -178,9 +193,10 @@ def lighten(name, height_km, tri_km2):
     sc, tr = np.array(scale), np.array(translate)
     before = after = 0
     lines = []
+    mouths = river_ends() if name == "world" else set()
     for arc in t["arcs"]:
         q = np.cumsum(np.array(arc, dtype=np.int64), axis=0)
-        k = keep_points(q * sc + tr, height_km, tri_km2)
+        k = keep_points(q * sc + tr, height_km, tri_km2, np.array([tuple(p) in mouths for p in q.tolist()]) if mouths else None)
         q = q[k]
         d = np.vstack((q[:1], np.diff(q, axis=0)))
         lines.append(" ".join(str(int(v)) for v in d.ravel()))

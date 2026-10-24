@@ -1,6 +1,6 @@
 """STAGE 4 -- WATER: the big lakes, and the rivers where they are 50 m wide or more.
 
-    .venv/bin/python build/water.py               # -> work/lakes.pkl (for build/write.py), full/rivers.topo.json
+    .venv/bin/python build/water.py               # -> work/lakes.pkl (for build/write.py), full/rivers.tracked.topo.json (for build/rivernet.py)
 
 LAKES: every lake or reservoir polygon (OSM's water areas, via raw/water.parquet) of MIN_LAKE_KM2 or more, simplified
 on the sphere like the coast; islands in them under MIN_ISLAND_KM2 left out.
@@ -19,7 +19,7 @@ MEMORY: the water file is ~5 GB of geometry and 2.5 million rivers, so nothing i
 TILE-degree tiles on disk (work/water_tiles/, read a few rows at a time), and the rivers are measured tile by tile:
 all that is kept of a tile is the samples that lie in water.
 
-    .venv/bin/python build/water.py names         # (only: full/rivers.topo.json's rivers named -- English, and local)
+    .venv/bin/python build/water.py names         # (only: full/rivers.tracked.topo.json's rivers named -- English, and local)
 """
 import os, sys, time, json, pickle, collections
 import duckdb, numpy as np, shapely
@@ -539,7 +539,7 @@ def rivers(con):
             "objects": {"rivers": {"type": "GeometryCollection", "geometries": [
                 {"type": "LineString", "arcs": [i], "properties": {k: v for k, v in f.items() if k != "c" and v is not None}} for i, f in enumerate(feats)]}},
             "arcs": quantize(arcs)}
-    path = os.path.join(ROOT, "full/rivers.topo.json")
+    path = os.path.join(ROOT, "full/rivers.tracked.topo.json")
     json.dump(topo, open(path, "w"), ensure_ascii=False, separators=(",", ":"))
     log(f"{path}: {len(feats)} river lines, {sum(len(a) for a in arcs):,} points, {sum(f['length_km'] for f in feats):,.0f} km, {os.path.getsize(path) / 2**20:.1f} MB")
 
@@ -548,11 +548,11 @@ import re as _re
 
 
 def name_rivers():
-    """full/rivers.topo.json's rivers by their English names, and by their names in the official language of each country
+    """full/rivers.tracked.topo.json's rivers by their English names, and by their names in the official language of each country
     they flow through (in that order; its Wikidata item's labels -- else OSM's own name): `names_local`"""
     from points import Where
     from export_geojson import decode
-    path = os.path.join(ROOT, "full/rivers.topo.json")
+    path = os.path.join(ROOT, "full/rivers.tracked.topo.json")
     topo = json.load(open(path))
     geoms = topo["objects"]["rivers"]["geometries"]
     props = [g["properties"] for g in geoms]
