@@ -27,6 +27,7 @@ import geo, config, wdnames
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 GAP_DEG = 1e-4             # merge: a ring of faces read back with a gap under this (11 m; the grid is 278 m) is closed over it
+STITCH_DEG = 0.05          # ...and a ring chained to the next one starting this near its end, when it stopped short (5 km)
 T0 = time.time()
 
 
@@ -165,6 +166,19 @@ def merge(topo, polys):
             if endk(ring[-1]) == startk(ring[0]) or (a is None and near(end(ring[-1]), begin(ring[0]))):
                 break
         rings.append(ring)
+    # (a chain that stopped short -- its next arc a few hundred metres off, past more than GAP_DEG: the North
+    # Atlantic's at Cape Farewell -- goes on with the chain that starts nearest its end, so a ring never jumps across
+    # its area from where it stopped back to where it began: d3 would draw that as a great circle, the area inside out)
+    shut = lambda r: near(end(r[-1]), begin(r[0]))
+    open_ = [r for r in rings if not shut(r)]
+    while open_:
+        r = open_.pop()
+        d, s = min(((abs(end(r[-1]) - begin(o[0])).sum(), k) for k, o in enumerate(open_)), default=(None, None))
+        if s is None or d >= STITCH_DEG or abs(end(r[-1]) - begin(r[0])).sum() <= d:
+            continue                                         # (none near, or itself the nearest: as it is)
+        o = open_.pop(s); rings = [x for x in rings if x is not o]; r.extend(o)
+        if not shut(r):
+            open_.append(r)
     rings = [r for r in rings if len(topo.coords(r)) >= 4]   # (an arc there and back, left of a thin sliver: no ring)
     outers = [r for r in rings if signed_area(topo.coords(r)) < 0]
     holes = [r for r in rings if signed_area(topo.coords(r)) >= 0]

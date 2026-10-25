@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flags and arms</title>
+<style>
+  :root { --bg: #f4f6f8; --ink: #2a3440; --dim: #6b7682; --panel: #fff; --line: #c9d1d9; --field: #fff; --hi: #e0552b; --err: #c62828; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #11161b; --ink: #dde3ea; --dim: #8a96a3; --panel: #1b222a; --line: #34404c; --field: #0d1217; --hi: #ffb347; --err: #ff6b6b; } }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 system-ui, sans-serif; }
+  main { max-width: 1180px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 20px; margin: 4px 0 2px; } h2 { font-size: 15px; margin: 22px 0 8px; }
+  .dim { color: var(--dim); } a { color: inherit; }
+  #edit { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  #src { width: 100%; box-sizing: border-box; min-height: 74px; resize: vertical; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 8px; font: 14px/1.4 ui-monospace, monospace; }
+  #msg { min-height: 1.4em; font-size: 13px; } #msg.no { color: var(--err); }
+  #out { display: flex; gap: 12px; align-items: flex-start; }
+  #out figure { margin: 0; text-align: center; font-size: 11px; color: var(--dim); }
+  #out svg, #out canvas { display: block; filter: drop-shadow(0 1px 2px #0003); }
+  @media (max-width: 760px) { #edit { grid-template-columns: 1fr; } }
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; margin-top: 12px; }
+  summary { cursor: pointer; font-weight: 600; }
+  table { border-collapse: collapse; font-size: 13px; margin: 6px 0; }
+  td { padding: 3px 10px 3px 0; vertical-align: top; } td:first-child { white-space: nowrap; }
+  code { font: 12.5px ui-monospace, monospace; background: color-mix(in srgb, var(--line) 40%, transparent); padding: 0 3px; border-radius: 3px; }
+  #swatches span { display: inline-flex; align-items: center; gap: 4px; margin: 0 10px 4px 0; font-size: 12px; }
+  #swatches i { width: 14px; height: 14px; border-radius: 3px; border: 1px solid #0003; display: inline-block; }
+  #filter { width: 260px; max-width: 100%; box-sizing: border-box; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px; font: inherit; }
+  #grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; margin-top: 10px; }
+  #grid button { all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; border-radius: 8px; text-align: center; font-size: 11.5px; line-height: 1.25; }
+  #grid button:hover, #grid button:focus-visible { background: var(--panel); outline: 1px solid var(--line); }
+  #grid .pic { height: 58px; display: flex; align-items: center; } #grid svg { filter: drop-shadow(0 1px 1.5px #0003); }
+  .motif svg, .motif canvas { background: #5b6b7c; border-radius: 4px; }
+  #grid b { font-weight: 600; } #grid .code { color: var(--dim); font-size: 10.5px; }
+  #errors { color: var(--err); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Flags and coats of arms, written as text</h1>
+  <div class="dim">The definitions are in <code>data/flags.txt</code> and the engine is <code>flags.js</code>. The map uses them in its info panel and its flag game. Click any flag below to open it in the editor.</div>
+
+  <h2>Try one</h2>
+  <div id="edit">
+    <div>
+      <textarea id="src" spellcheck="false" aria-label="A flag definition">blue | white | red</textarea>
+      <div id="msg"></div>
+      <div class="dim" style="font-size:12.5px">e.g. <code>[3:5] black / red / gold</code> · <code>white + red disc size 0.6</code> · <code>red + white nordic</code> ·
+        <code>[shield] quarterly(@castile, @leon, @aragon, @navarre)</code> · <code>@ES</code> (another flag, by its code)</div>
+    </div>
+    <div id="out"></div>
+  </div>
+
+  <details>
+    <summary>The language</summary>
+    <table>
+      <tr><td><code>a | b | c</code></td><td>vertical bands, from the hoist to the fly, of equal width (France: <code>blue | white | red</code>)</td></tr>
+      <tr><td><code>a / b / c</code></td><td>horizontal bands, from top to bottom (Germany: <code>black / red / gold</code>). <code>/</code> binds looser than <code>|</code>, so <code>a | b / c</code> is <code>(a | b) / c</code></td></tr>
+      <tr><td><code>b*2</code></td><td>a band's share, 1 by default (Spain: <code>red / gold*2 / red</code>)</td></tr>
+      <tr><td><code>( … )</code></td><td>a part that is a whole flag of its own: <code>white | (red / green)*2</code> (Madagascar). It can carry its own charges, centred in it and kept inside it: <code>(crimson + gold castle size 0.5) | white</code> (Castile-La Mancha), <code>(blue + gold crown at 0.25,0.5) / red</code> (Liechtenstein); there <code>at</code> and <code>size</code> are shares of that part</td></tr>
+      <tr><td><code>[h:w]</code> <code>[shield]</code></td><td>at the very start: the ratio, height to width (2:3 by default; Switzerland <code>[1:1]</code>), or a shape: <code>[shield]</code> for a coat of arms, <code>[pennant]</code> (Nepal), <code>[round]</code></td></tr>
+      <tr><td><code>+ … + …</code></td><td>a motif: a definition that is only charges, with no field (it starts with <code>+</code>), reused by others as one charge: <code>southern-cross: [1:1] + star size 0.14 at 0.5,0.17 + …</code>, then <code>navy + @southern-cross points 7 at 0.75,0.5</code>. Placed like any charge, <code>size</code> 1 (the field's height) unless given; its charges that name no colour take the one it is given (<code>+ gold @southern-cross</code>), its stars that name no <code>points</code> those it is given</td></tr>
+      <tr><td><code>@CODE</code></td><td>another definition, as a field (each quarter of a coat of arms can be a flag) or as a charge (<code>+ @ES-arms size 0.4</code>, drawn in its own shape)</td></tr>
+      <tr><td><code>+ charge</code></td><td>something drawn over the field, in order: <code>+ red disc</code>. A charge starts with its colour (white if none is given; two for <code>taegeuk</code> and <code>sun</code>)</td></tr>
+      <tr><td>divisions</td><td><code>quarterly(a, b, c, d)</code> · <code>up(a, b)</code> (split by a line rising to the fly's top corner: <code>a</code> above it) · <code>down(a, b)</code> (a line falling to the fly's bottom corner) · <code>x(top, fly, bottom, hoist)</code> (split by both diagonals) · <code>stripes(13, red, white)</code> · <code>pales(9, gold, red)</code> · <code>checky(5, 5, red, white)</code> · <code>lozengy(4, 9, white, blue)</code> (diamonds: Bavaria)</td></tr>
+      <tr><td>lines</td><td><code>cross</code> · <code>nordic</code> (off to the hoist) · <code>saltire</code> · <code>band</code> (across) · <code>pale</code> (down) · <code>bend</code> (top left to bottom right) · <code>rise</code> (bottom left to top right) · <code>pall</code> (a Y on its side) · <code>border</code> · <code>wave</code> (across, <code>n</code> waves of height <code>r</code>: Kiribati). <code>w</code> is a line's width as a share of the height</td></tr>
+      <tr><td>shapes</td><td><code>disc</code> <code>ring</code> <code>star</code> (<code>points 7</code>) <code>stars 12</code> <code>crescent</code> (<code>k</code>, <code>d</code>) <code>plus</code> <code>square</code> <code>diamond</code> <code>triangle</code> (from the hoist; <code>flip</code>: from the fly) <code>sun</code> (<code>n</code> rays) <code>wheel</code> <code>taegeuk</code> <code>script</code> (writing, as a mere impression) <code>triskele</code> (three legs) <code>trigram 101</code> (three bars from the top, 1 whole, 0 broken: Korea) <code>poly x,y x,y …</code> (corners, as shares of the width and height; more outlines after <code>/</code>, where they overlap a hole: <code>poly … / …</code>)</td></tr>
+      <tr><td>emblems</td><td><code>eagle</code> <code>eagle2</code> (two heads) <code>lion</code> <code>castle</code> <code>tower</code> <code>fleur</code> <code>crown</code> <code>tree</code> <code>maple</code> <code>bird</code> <code>dragon</code> <code>bear</code> <code>harp</code> <code>trident</code> <code>horse</code> <code>shieldform</code>: simple outlines, with no detail (the lion, which many arms share, a little more: rampant, traced from Scotland's Royal Banner, its mane and inner lines cut out). Busier emblems are motifs traced from the flags' own drawings and simplified, in their colours: <code>@druk</code> (Bhutan's dragon), <code>@mx-arms</code>, <code>@sisserou</code> (Dominica's parrot), <code>@frigatebird</code>, <code>@tm-guls</code>…</td></tr>
+      <tr><td>fields as charges</td><td><code>canton( … )</code> (the top-left corner, <code>size w,h</code>), <code>box( … )</code>, <code>shield( … )</code>, <code>circle( … )</code>: a smaller flag drawn inside</td></tr>
+      <tr><td>modifiers</td><td><code>at x,y</code> (the centre, as shares of the width and height) · <code>size s</code> (a share of the height) or <code>size w,h</code> (shares of the width and height) · <code>rot 30</code> (degrees) · <code>flip</code> <code>flipv</code> (mirror) · <code>outline</code> (the shape as lines <code>w</code> wide; a star as its line star: Morocco, Israel) · for <code>stars</code>: <code>ring</code> with <code>r</code>, <code>row</code>, <code>from x,y to x,y</code>, <code>arc</code> with <code>r</code> and <code>span</code>, <code>grid rows,cols</code></td></tr>
+      <tr><td>colours</td><td>by name, each the usual shade on flags (near enough, not exact), or <code>#rrggbb</code>:<div id="swatches"></div></td></tr>
+      <tr><td>the file</td><td><code>CODE Name: definition</code>, one per line (<code>FR France: blue | white | red</code>; the name is optional). Codes are ISO 3166 codes for countries (<code>FR</code>) and states (<code>DE-BY</code>), <code>CODE-arms</code> for a coat of arms, or any word for a part used by others (<code>castile</code>). A line that starts with a space continues the previous one. <code>#</code> followed by a space starts a comment (<code>#c8102e</code> stays a colour)</td></tr>
+    </table>
+  </details>
+
+  <h2>All definitions <span class="dim" id="count"></span></h2>
+  <input id="filter" type="search" placeholder="Filter by code or name" aria-label="Filter">
+  <div id="errors"></div>
+  <div id="grid"></div>
+</main>
+<script src="flags.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+let lib = Flags.library("");
+for (const [k, v] of Object.entries(Flags.COLORS)) if (!k.endsWith("_")) $("swatches").insertAdjacentHTML("beforeend", `<span><i style="background:${v}"></i>${k}</span>`);
+
+function preview() {
+  const text = $("src").value.trim(), out = $("out"), msg = $("msg");
+  try {
+    const def = Flags.parse(text), h = 150, w = h / def.ratio;
+    out.innerHTML = `<figure${def.motif ? ' class="motif"' : ""}>${lib.render(def, { height: h })}SVG</figure>`;
+    const cv = document.createElement("canvas"), dpr = devicePixelRatio || 1;
+    cv.width = Math.ceil(w / 2 * dpr); cv.height = Math.ceil(h / 2 * dpr); cv.style.width = w / 2 + "px"; cv.style.height = h / 2 + "px";
+    const ctx = cv.getContext("2d"); ctx.scale(dpr, dpr); lib.paint(ctx, def, 0, 0, w / 2, h / 2, {});
+    const fig = document.createElement("figure"); fig.append(cv, "canvas"); if (def.motif) fig.className = "motif"; out.append(fig);
+    msg.className = ""; msg.textContent = def.shape === "shield" ? "a coat of arms" : `ratio ${+(def.ratio).toFixed(3)} (height:width)`;
+  } catch (e) { msg.className = "no"; msg.textContent = e.message; }
+}
+$("src").addEventListener("input", preview);
+
+function gallery() {
+  const q = $("filter").value.trim().toLowerCase(), grid = $("grid");
+  grid.innerHTML = "";
+  let n = 0;
+  for (const code of lib.codes) {
+    const name = lib.names.get(code) || "";
+    if (q && !code.toLowerCase().includes(q) && !name.toLowerCase().includes(q)) continue;
+    n++;
+    const b = document.createElement("button");
+    let pic;
+    try { pic = lib.svg(code, { height: lib.shape(code) === "shield" ? 58 : 46 }); } catch (e) { pic = `<span style="color:var(--err)">${e.message}</span>`; }
+    b.innerHTML = `<span class="pic${lib.has(code) && lib.motif(code) ? " motif" : ""}">${pic}</span><b></b><span class="code"></span>`;
+    b.querySelector("b").textContent = name || code; b.querySelector(".code").textContent = name ? code : "";
+    b.title = `${code}: ${lib.source(code)}`;
+    b.onclick = () => { $("src").value = lib.source(code); preview(); scrollTo({ top: 0, behavior: "smooth" }); };
+    grid.append(b);
+  }
+  $("count").textContent = `· ${n} of ${lib.codes.length}`;
+}
+$("filter").addEventListener("input", gallery);
+
+fetch("data/flags.txt").then((r) => r.text()).then((t) => {
+  lib = Flags.library(t);
+  $("errors").textContent = lib.errors.map((e) => `line ${e.line}${e.code ? " (" + e.code + ")" : ""}: ${e.msg}`).join(" · ");
+  const want = decodeURIComponent(location.hash.slice(1));
+  if (want && lib.has(want)) $("src").value = lib.source(want);
+  preview(); gallery();
+}).catch(() => { $("errors").textContent = "data/flags.txt could not be read (open this page over http)."; preview(); });
+</script>
+</body>
+</html>

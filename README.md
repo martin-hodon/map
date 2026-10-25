@@ -2,7 +2,7 @@
 
 World map data built from public sources, OpenStreetMap first, at about **1 km of detail**. Lines are simplified on
 the globe to 0.5 km and stored on a 1/400° grid. Everything is longitude/latitude (WGS 84) with no projection
-applied, so any projection can draw it. `index.html` shows it in nine projections.
+applied, so any projection can draw it. `index.html` shows it in nine projections (the globe, orthographic, by default).
 
 | # | layer | file · object | what |
 |---|---|---|---|
@@ -10,31 +10,33 @@ applied, so any projection can draw it. `index.html` shows it in nine projection
 | 2 | national borders | `full/world.topo.json` · `countries`, `country_borders` | countries and dependencies as polygons, which reuse the coast, with `population` (Wikidata's latest, by ISO 3166-1 code, two significant digits), `area_km2`, `density`, `language` (`language_code`), `color` (0-6, no two neighbours alike), `label` (a point well inside: where its name is written) and `continent` (the continent area of layer 7 its label lies in, else the nearest); the land borders as lines (`a`, `b`, `disputed`) |
 | 3 | subnational | `full/world.topo.json` · `regions`, `region_borders` | states / provinces (ISO 3166-2) of the big and federal countries (`build/config.py` `REGION_COUNTRIES`), with `population` (by ISO 3166-2 code), `area_km2`, `density`, `language`, `label`, `continent` (its own: Russia's European oblasts are in Europe) |
 | 4 | rivers | `full/rivers.topo.json` · `rivers` | each river that is 50 m wide somewhere, from its source down to its end, as one line (or more at forks), 50 km or longer, big or known to Wikipedia: name (English), Wikidata id, width (median and max), `river` (its id), `river_km`, `wikipedias` |
-| 5 | monuments | `data/monuments.csv` | castles, palaces, cathedrals, temples, ruins, monuments, bridges, dams, national parks, waterfalls… with 100,000+ visitors a year, or well known (written about in enough Wikipedias -- 15+ for a castle, 12+ a bridge, 10+ a dam or a World Heritage Site, 40+ a church: `build/fetch_points.py` FAMOUS), one a line under a header: `name`, `lon`, `lat`, `kind`, `visitors`, `visitors_year`, `wikipedias`, `country`, `region`, `name_local`, `wikidata`, `osm` |
-| 6 | cities | `data/cities.csv` | cities of 100,000+ people and every capital, one a line under a header: `name`, `lon`, `lat`, `population` (the urban one where Wikipedia gives it, two significant digits), `place` (city, town), `capital` (country, state), `country`, `region` (state), `name_local`, `wikidata`, `osm` -- without the districts of a bigger city (Istanbul's, Tokyo's wards, New York's boroughs, China's urban districts) |
+| 5 | monuments | `data/monuments.csv` | castles, palaces, cathedrals, temples, ruins, monuments, bridges, dams, national parks, waterfalls… with 100,000+ visitors a year, or well known (written about in enough Wikipedias -- 15+ for a castle, 12+ a bridge, 10+ a dam or a World Heritage Site, 40+ a church: `build/fetch_points.py` FAMOUS; not a name that is only a number, the Valley of the Kings' KV1 to KV63, nor a city's own item -- Wikidata's Athens is an archaeological site too -- nor a place twice: "Pompeii" and "archaeological excavations of Pompeii" are one, the village "Devín" goes for "Devín Castle"), one a line under a header: `name`, `lon`, `lat`, `kind`, `level` (1: 2 million visitors a year or more, 2: 500,000, 3: fewer -- one without a count by its Wikipedias: 80+, 40+, fewer), `visitors`, `visitors_year`, `country`, `region`, `name_local`, `wikidata`, `osm` |
+| 6 | cities | `data/cities.csv` | cities of 100,000+ people (70,000+ in Europe: by the state's continent, so European Russia and Istanbul too) and every capital, one a line under a header: `name`, `lon`, `lat`, `population` (the urban one where Wikipedia gives it, two significant digits), `place` (city, town), `capital` (country, state), `country`, `region` (state), `name_local`, `wikidata`, `osm` -- without the districts of a bigger city (Istanbul's, Tokyo's wards, New York's boroughs, China's urban districts) |
 | 7 | areas | `full/world.topo.json` · `areas` | the named parts of the world without borders of their own: oceans, seas, gulfs, bays, straits, sounds, fjords; mountain ranges, plateaus, deserts, plains, basins, peninsulas, islands and island groups, continents — made of the map's own coast and lines across (below) |
 | 8 | natural points | `data/natural_points.csv` | peaks (with elevation), capes, waterfalls, passes, depressions, the poles, one a line under a header: `name`, `lon`, `lat`, `kind`, `elevation_m`, `rank` (Natural Earth's: shown from what zoom), `name_en`, `wikidata` |
-| 9 | airports | `data/airports.csv` | airports with scheduled flights to 3+ airports abroad (large ones: 2+), one a line under a header: `name`, `lon`, `lat`, `iata`, `icao`, `city`, `size` (large, medium), `destinations_abroad`, `country`, `region` |
+| 9 | airports | `data/airports.csv` | airports with scheduled flights to 3+ airports abroad (large ones: 2+), one a line under a header: `name`, `lon`, `lat`, `iata`, `icao`, `city`, `level` (1: 20 million passengers a year or more, 2: 5 million, 3: fewer or no count), `passengers`, `passengers_year`, `country`, `region` |
 | 13 | biogeographic | `full/bio.topo.json` · `realms`, `biomes`, `ecoregions` | the land cut into the 847 terrestrial ecoregions (RESOLVE 2017), and those grouped into 15 biomes (with Rock and Ice) and 8 biogeographic realms: `id` (`PA`… a realm, `B0`–`B14` a biome, `E` + RESOLVE's number an ecoregion), `name`, `realm`, `biome`, `color` (RESOLVE's), `nnh`, `area_km2`, `label` -- made of the map's own coast (below) |
 | 14 | historical borders | `full/history.topo.json` · `regions`, `periods` | the states, empires, dependencies (and, before them, peoples and cultures) from 3000 BC to 2019 -- from 1886 every day (CShapes 2.0), before as mapped for 3000 BC, 2000 BC … 1815, 1878, 1880 (historical-basemaps), as REGIONS of the land and their owners through time: `regions` one polygon each -- `id`, `name`, `admin`, `country`, `held` (`from:state` …), `area_km2`, `label`; `periods` one row per country-period (no geometry) -- `id` (`state:from`), `state`, `name`, `from`, `to` (days, both inclusive; years astronomical, `-0699` is 700 BC), `source`, `precision` (1 approximate, 2 partly undefined, 3 fixed by law), `status`, `owner`, `capital`, `cap`, `gwcode`, `area_km2`, `label` -- made of the map's own coast (below) |
 | 15 | historical events | `data/events.csv` | battles, sieges, peace treaties and treaties, assassinations, massacres, coups, revolutions, rebellions, terror attacks, earthquakes, eruptions that enough Wikipedias write about (10+ for a battle, 8+ a peace treaty, 15+ a massacre: `build/events.py` KINDS), one a line under a header: `name`, `lon`, `lat`, `date` (cut to its precision, years astronomical), `precision` (day … century), `calendar` (julian, as historians cite a date before 1582), `kind`, `part_of` (its war or campaign), `wikipedias`, `place` (own coordinates, or its location's), `wikidata` |
-| 10–12 | main lines | `full/transport.topo.json` · `motorways`, `railways`, `pipelines` | motorways and trunk roads signed 100 km/h+ (networks of 20 km+), main-line and high-speed railways (30 km+), oil and gas pipelines that are not distribution lines (50 km+), one line per road or railway (its carriageways and tracks collapsed): `ref`, `name`, `network`, `network_km` |
+| 10–12 | main lines | `full/transport.topo.json` · `motorways`, `railways`, `pipelines` | motorways and trunk roads signed 100 km/h+ (networks of 20 km+), main-line and high-speed railways (30 km+), oil and gas pipelines that are not distribution lines (networks of 100 km+, without the fields' and terminals' short loops and dead ends), one line per road or railway (its carriageways and tracks collapsed), meeting at its junctions exactly: `ref`, `name`, `class`, `highspeed`, `network`, `network_km`, `tier` (1-3: from what zoom it is drawn) |
 
 Layers 1–4, 7, 10–14 are **TopoJSON**: every line is stored once. The coast bounds the land, a country, a state, a
 sea and a peninsula with the same arcs, and a national border is one arc shared by both countries. Coordinates are delta-encoded integers on
 the `transform` grid (1/400° = 278 m of latitude). The point layers (5, 6, 8, 9, 15) are CSV tables, one point a line under
 a header (`lon`, `lat` to 4 decimals).
 
-`index.html` finds anything by name (a country, state, city, monument, airport, river, lake, sea, range, peninsula,
+`index.html` finds anything by name (the search box top middle: a country, state, city, monument, airport, river, lake, sea, range, peninsula,
 peak, motorway, pipeline…; a city with its country), highlights it and flies there; a click on the map lists what is
 at that spot; `#find=Alps` and `#at=46.5,10.5[,zoom]` link to one. It draws only what is in view (each layer in an
 R-tree), in levels of detail (topojson-simplify, the coarsest still finer than a pixel), and while the wheel turns it
 only scales the last picture, and while the map is dragged it only shifts it (drawn again with its labels once the
 movement pauses); it zooms to 300x (100 m a pixel). Points come by zoom, in tiers (`TIERS`): at the whole globe only
 the cities of 10 million (a capital counts three times its people), from 2.5x those of 3 million, 5x 1 million, 8x
-300,000, 14x all; the 25 best-known monuments from 5x (150 from 8x, 800 from 12x, all from 20x), the highest-ranked
-peaks and capes from 4x, the airports with 100 destinations abroad from 5x (30 from 8x, all from 14x), the day's 15
-best-known events from 4x (60 from 6x, 250 from 10x, all from 18x). The selection goes with the panel's x, or by emptying the search
+300,000, 14x all; the monuments of level 1 (by their visitors) from 5x (2 from 9x, 3 from 15x), the highest-ranked
+peaks and capes from 4x, the airports of level 1 (by their passengers) from 4x (2 from 7x, 3 from 11x), the day's 15
+best-known events from 4x (60 from 6x, 250 from 10x, all from 18x). The main lines come so too, in three tiers
+(`LINE_TIERS`, `tier`: below): none at the whole globe, from 3x the first -- the motorways and railways that run on
+across a country, the high-speed lines --, from 5x the second, from 8x all. The selection goes with the panel's x, or by emptying the search
 box (its x, Escape). Two maps: POLITICAL (countries coloured, their borders and their states') and GEOGRAPHICAL
 (the areas coloured by kind -- ocean, sea, gulf; mountains, plateau, desert, plain, delta, tundra... -- and no
 political line), LANGUAGES (each country and state by its first official language: `language`, `language_code`
@@ -50,18 +52,32 @@ and, with layer 3, the states' in mixed case, fading in from closer in; `build/w
 `continent` to the file alone. On the historical map the day's states are named the same way, and with layer 3 the
 provinces and dependencies within one (a period with an `owner`: the Duchy of Swabia in the Empire, a colony) get a
 thin inner border and fading italic names. With layer 4 on, the rivers are named along their flow, in blue italics
-beside a stretch of the line that runs nearly straight (letter by letter, reading left to right), again every 350 px of
+on one straight line, beside a stretch of the river that runs straight under the whole name (reading left to
+right; where it bends within a name, not there), again every 350 px of
 a river: those of 1,000 km and more from zoom 4, 300 km from 6, 100 km from 9, the rest from 12 (`RIVER_NAMES`).
-R rolls the panel up (or down again), as its ▴ does.
+The panel opens rolled up at every start (however it was left): its title and three buttons, the political, the geographical and the biogeographical
+map (a second click on it switches between the biomes and the ecoregions; the other maps are in its list). R rolls it
+down (or up again), as its ▾ does. Under them two rows more, each button on or off a click: the networks over the map
+-- rivers, roads (motorways), railways, pipelines -- and its points: cities, natural (peaks, capes, waterfalls) and
+travel (monuments and airports). A map chosen starts with its own: the roads and the cities over the political map,
+the rivers and the natural points over every other. Every other layer is on at first. A monument is drawn by its
+kind -- a work of nature (a national park, a waterfall, a cave) a green tree, a building or a ruin a purple temple
+front -- and, as an airport's ✈, in three sizes by its level. The monuments, peaks and airports are named from 1.6x
+the zoom they show from (`LABEL_ZOOM`), the best known first, where the name overlaps none placed before (the
+cities' first).
 
-THE GAME (the button top right): a game on the cities (layer 6) of the whole world, a continent or a country. While its
-panel is open the map shows no names but those of the cities named or found, and no points, roads or railways; each
-start begins afresh.
-- **Their people:** name cities (English or local name, accents and case aside; of several of one name, the biggest
-  there); their people add up, as a share of all the people there (a continent's: each country's, shared out by its
+THE GAME (the button top right): a game on the cities (layer 6) of the whole world, a continent or a country -- chosen
+first (World / Continent / Country, then which), the map flying there as it is chosen, a country drawn alone, without
+the globe round it, its outline (or the continent's) in red. Then the game, and only what it asks besides: the
+circles' size (a few, by where: 250 km to 2,000 for the world, 100 to 1,000 a continent, 25 to 200 a country) or how
+many rounds. A start hides the choices: the question, the score and the box to type in are left (Again, New game).
+While its panel is open the map shows no names but those of the cities named or found, and no points, roads or
+railways.
+- **Their people:** name cities (English or local name, accents and case aside, and w as v, y as i, k as c: Cracow
+  is Kraków; of several of one name, the biggest there); their people add up, as a share of all the people there (a continent's: each country's, shared out by its
   states' -- so the cities of Russia's European oblasts count for Europe).
 - **Outside every circle / inside a circle:** each city named gets a circle (so many km across, 500 for the world,
-  300 a continent, 100 a country to start with); the next must lie outside every circle -- or inside one.
+  300 a continent, 100 a country to start with: above); the next must lie outside every circle -- or inside one.
 - **Find the city:** the game names one of the biggest cities there (300 of the world's, 150 of a continent's; of
   these, one a country, so China's do not fill the game), a click says where it is; a circle round the city out to the
   click shows how far off (0 km is best), and the kilometres add up over the rounds.
@@ -78,16 +94,24 @@ or shown ones violet.
   has no neighbour left (or with End, which says what was still possible).
 - **From one to another:** a start and a goal 2–6 countries apart; each one named must border one named before, and
   it is done when the goal borders one; the end says how many the shortest way goes through (Show a way gives one).
+- **Whose flag is this?** The game shows a flag (one of the world's countries and dependencies, or a country's states
+  that have one: below) and you name whose it is (so many rounds; Show gives it away).
 
 ## Offline copy, updates, prepared data
 
 On a real site (http/https) the map keeps itself in the browser: `sw.js` (a service worker) keeps every file
 `offline.json` lists -- `index.html`, its libraries in `lib/` (d3, d3-geo-projection, topojson-client, topojson-simplify,
-rbush, kept here rather than on a CDN so the map opens offline), `data/lite/*.txt` and the CSVs, 34 MB -- and the map
+rbush, kept here rather than on a CDN so the map opens offline), `data/lite/*.txt`, the CSVs and the flags (`flags.js`,
+`flags.html`, `data/flags.txt`), 34 MB -- and the map
 opens from that copy, with no network and nothing downloaded again. It does not update on its own: once a visit the page
-compares its version with `offline.json` online, and a newer one shows a line at the top with **update now** (the
+compares its version with `offline.json` online, and a newer one shows a line at the foot with **update now** (the
 version kept and **check for update** are also at the panel's foot). An update fetches the new files whole, into a new
 copy, and drops the old one; the groups, mode and other settings (localStorage) stay.
+
+It draws as soon as the world (`world.txt`: land, countries, states, lakes, areas) is read; the rivers, the main lines
+and the points are asked for at once and drawn as each comes. The biogeographic and the historical map
+(`bio.txt`, `history.txt`, 13 MB) are read only when wanted -- their mode chosen, a group of ecoregions, a link to
+one -- so their names are found from then on.
 
 What the page makes of the files before it can draw -- each line layer read and presimplified, the R-trees of the
 layers' bounds -- is kept in IndexedDB (`map` / `prepared`) under the copy's version, so a later visit reads it back
@@ -108,13 +132,13 @@ full-detail `*.topo.json` (tens of MB each), and `full/old/` the files they supe
   with its neighbours is small (Visvalingam-Whyatt, the smallest first, up to 25 km²) -- but a point more than 1 km
   off the line between its neighbours always stays, so a fjord's end, a cape or a border's corner keeps its shape.
   Every shared line is simplified once with its ends fixed: borders and coast still meet exactly. About half the
-  points go (world 1.45 M -> 0.74 M, rivers 0.65 M -> 0.34 M); the roads, already sparse, keep 92 %.
+  points go (world 1.45 M -> 0.74 M, rivers 0.65 M -> 0.34 M); the roads, already sparse, keep 94 %.
 - **A text format, nothing repeated.** `grid` (the 1/400° grid), `@arcs` (a shared line a line: its first point and
   then its steps), then each object as CSV under its own header -- a column's type in its name (`population#` a
   number, `names_local[]` a list, `highspeed?` yes/no) -- with each geometry's arcs in its last column (rings `;`,
   polygons `|`, `-1 - i` for an arc followed backwards). A river or a road network is one row with what all its pieces
-  share, and its pieces (`@rivers.pieces`) only their arcs and what differs. Sizes: world 19.5 -> 9.9 MB, rivers
-  13.6 -> 3.4 MB, transport 10.0 -> 4.1 MB, bio 8.2 -> 4.7 MB, history 14.4 -> 8.6 MB.
+  share, and its pieces (`@rivers.pieces`) only their arcs and what differs. Sizes: world 19.5 -> 10.0 MB, rivers
+  5.2 -> 1.9 MB, transport 10.6 -> 4.1 MB, bio 8.2 -> 4.7 MB, history 14.4 -> 8.6 MB.
 
 ## Biogeography (layer 13) and groups
 
@@ -220,6 +244,46 @@ its day. A state is drawn as its regions that day (no merging: all regions of on
 are the arcs between regions of different states. A click lists the state there on the day shown and the region, with
 its owners through time. `#mode=history&date=-0699-01-01` links to a day.
 
+## Flags and coats of arms
+
+`data/flags.txt` writes the flags and coats of arms as text, one a line, and `flags.js` (no dependencies) draws them
+as SVG or on a canvas. France is `FR France: blue | white | red` -- three vertical bands of equal width. Each is the
+simplest version of the flag: its fields and shapes in the right colours, an eagle as a plain outline, the lion (which many share)
+with its mane and inner lines;
+the busier emblems (Mexico's eagle, Bhutan's dragon, Dominica's parrot, Turkmenistan's carpet guls…) are traced from the
+flag's own drawing, simplified, and kept as motifs (`@druk`).
+The file has every country and dependency of the map (by ISO 3166-1 code), the states of the UK, Germany, Austria,
+Switzerland, Belgium, Spain, Canada, Australia and some of Italy, France, Poland and the US (by ISO 3166-2 code:
+`DE-BY`), the coats of arms of about 30 countries (`ES-arms`), and the parts others are made of (`castile`, `leon`).
+`flags.html` shows them all, with an editor that draws what is typed and the whole language; a click on a flag in the
+map's info panel opens it there. The map shows a country's or state's flag in the search results and its flag and arms
+in the info panel, and plays **Whose flag is this?** with them.
+
+- `a | b | c` vertical bands, `a / b / c` horizontal ones (`/` binds looser), `b*2` a band twice as wide, `( … )` a
+  part that is a flag of its own: Spain `red / gold*2 / red`, Madagascar `white | (red / green)*2`. A part can carry
+  its own charges, centred in it, sized and placed as shares of it and kept inside it: Castile-La Mancha
+  `(crimson + gold castle size 0.5) | white`, Texas `(navy + white star size 0.4) | (white / red)*2`.
+- `[2:3]` the ratio, height to width, first (2:3 if none); `[shield]` a coat of arms, `[pennant]`, `[round]`.
+- colours by name, about 60, each the usual shade on flags rather than an exact one: `red`, `scarlet`, `crimson`,
+  `cherry`, `maroon`, `saffron`, `amber`, `gold`, `ochre`, `emerald`, `kelly`, `mediumgreen`, `olive`, `navy`, `cobalt`,
+  `royalblue`, `sky`, `cerulean`… (all of them in `flags.html`), or `#rrggbb`.
+- divisions: `quarterly(a, b, c, d)`, `up(a, b)`, `down(a, b)`, `x(a, b, c, d)`, `stripes(13, red, white)`,
+  `pales(n, a, b)`, `checky(rows, cols, a, b)`, `lozengy(rows, cols, a, b)` -- each part any field, `@CODE` too.
+- `+ charge` draws on the field: lines (`cross`, `nordic`, `saltire`, `band`, `pale`, `bend`, `rise`, `pall`, `border`,
+  `wave`), shapes (`disc`, `ring`, `star`, `stars 50 grid 9,11`, `crescent`, `sun`, `triangle`, `trigram 101`,
+  `poly x,y … / x,y …` -- outlines after `/` cut holes where they overlap…), outlines
+  (`eagle`, `lion`, `castle`, `fleur`, `crown`, `maple`…) and fields (`canton(…)`, `box(…)`, `shield(…)`, `circle(…)`,
+  `@CODE`), each with its colour first and `at x,y`, `size s`, `w`, `rot`, `outline` (as lines: Morocco's star) after it. Spain's arms are
+  `[shield] quarterly(@castile, @leon, @aragon, @navarre) + shield(@granada) size 0.24,0.2 at 0.5,0.9 + shield(@bourbon) size 0.3`.
+- a motif is a definition that is only charges (it starts with `+`), reused as one charge: `southern-cross` is the
+  Southern Cross's five stars, and Australia is `navy + canton(@GB) + white star points 7 size 0.3 at 0.25,0.75 +
+  @southern-cross points 7 at 0.75,0.5`. Its charges that name no colour take the one it is given (`+ gold @southern-cross`,
+  Cocos), its stars that name no `points` those given; `size` is 1 (the field's height) unless given.
+
+In code: `lib = Flags.library(text)`, then `lib.svg("FR", { height: 20 })` (a string of SVG), `lib.draw(ctx, "FR", x, y, w, h)`
+(on a canvas) or `lib.image("FR", 40)` (a canvas, kept, for drawImage); `lib.codes`, `lib.names`, `lib.has(code)`,
+`lib.errors` (each line that could not be read). `Flags.svg("blue | white | red")` draws one definition alone.
+
 ## Names
 
 Everything is named in English (`name`) and, where that is another, in the official language of its country
@@ -261,7 +325,8 @@ biggest), and its Wikidata id.
 
 Measured, not tagged: a river is in when the river area OSM maps around its centerline is 50 m wide or more
 somewhere. From there it is followed downstream to its end -- along its OSM ways in their direction (the flow), from
-way to way while they share a name (English, OSM's, or one part of a two-language name: "Le Rhin / Rhein") or a
+way to way while they share a name (English, OSM's, or one part of a two-language name: "Le Rhin / Rhein" -- or one
+within the other, without an article: "Rhin" in "Vieux Rhin", the Old Rhine below the weir at Kembs) or a
 Wikidata item -- the same one, or one `part of` the other's: the Solimões is the Amazon's Brazilian upper course under
 its own name and item -- across gaps under 10 km (30 km where the gap lies straight ahead: the Váh through the
 Kráľová reservoir) and through lakes -- and then back upstream from every way reached, way to way of the same name,
@@ -282,6 +347,35 @@ beside, an end within 0.6 km of a line -- or a free mouth within 5 km -- onto th
 arcs at the junctions on it, so a tributary meets its river exactly at every level of detail. A mouth in the sea is
 cut where the river crosses the coast, one ending inland within 8 km of the coast (and not at a lake) is carried on to
 it, and that point is put into the coast's own line (`full/world.topo.json`; `build/lite.py` keeps it).
+
+## The main lines (layers 10-12)
+
+`build/transport.py` takes OSM's ways (their tags: Limits, below) and joins the ways of one road number end to end --
+lines as OSM has them (`full/transport.tracked.topo.json`). Then one network of single lines (`build/roadnet.py`), as
+for the rivers: a motorway is two carriageways in OSM, a railway as many tracks, each its own way a few metres to a
+few hundred apart, and they meet only at the road's ends if at all. So the lines go one by one, a high-speed railway
+first, a motorway before a trunk road, then the longest: a stretch closer than 600 m to a line kept before is the same
+road, dropped where that runs on for 2 km or at an end that does not reach the other line; the rest is kept where it
+runs apart for 1 km (the carriageways parting through a mountain), its cut ends carried onto the line it ran beside.
+(A line whose ways turn back on themselves -- both carriageways joined at the road's end -- is first cut there.) Two
+roads side by side that close are one line too: at the map's closest they would be a pixel or two apart. A road that
+meets another ends ON it -- an end within 1.5 km of another line (1 km for a railway: the slip roads between them are
+not in the map) is carried onto that line, one that crosses a line and stops just beyond it ends where it crossed --
+and every line is cut into arcs at the junctions on it, so the roads meet exactly at every level of detail. Before
+that, two ends that face each other across a gap of up to 3 km (5 km for a railway) are joined: a line's ways in OSM
+are not all tagged as it is (a station, a bridge, a tunnel named as itself), so a line is not drawn in pieces.
+Pipelines side by side stay side by side; they are only joined (within 0.5 km). Of the pipelines only the long
+routes are kept, not the fields and terminals: an offshore field's knot of flowlines loses its short loops first (an
+arc under 20 km that is not the only way between its ends goes, one a loop at a time), then the dead ends under
+20 km (from a line's end to its first junction, again and again: a star's spokes, then the platform's own line), then
+whatever network is left under 100 km.
+
+Each arc is then in one of three tiers (`tier`; the map draws the first from 3x, the second from 5x, the rest from
+8x). Not by its tags -- they are too uneven across the world: India's railways have no name, number or speed -- but
+by its STROKE, the way on through the junctions: at each, the two arcs that run on most nearly straight (turning less
+than 45 degrees, or 75 for the same road number) are one way, and its length ranks it. A motorway's stroke of 400 km
+or more is in the first tier, of 100 km the second; a railway's of 500 and 150 km; a high-speed line is in the first
+whatever its length; a pipeline is ranked by its network's length (1,000 and 200 km).
 
 ## How the detail was chosen
 
@@ -353,7 +447,8 @@ build/capped.sh .venv/bin/python build/areas.py      # stage 6: areas on the top
 build/capped.sh .venv/bin/python build/write.py      # stage 3: full/world.topo.json (with the areas)
 build/capped.sh .venv/bin/python build/rivernet.py   # stage 4b: the rivers as one network (full/rivers.topo.json), their mouths into the coast
 build/capped.sh .venv/bin/python build/points.py     # stage 5: data/cities.csv, monuments.csv, airports.csv
-build/capped.sh .venv/bin/python build/transport.py  # stage 7: full/transport.topo.json (~16 min, 1.9 GB)
+build/capped.sh .venv/bin/python build/transport.py  # stage 7: the main lines as tracked (full/transport.tracked.topo.json) (~16 min, 1.9 GB)
+build/capped.sh .venv/bin/python build/roadnet.py   # stage 7b: one network of single lines, ranked (full/transport.topo.json)
 build/capped.sh .venv/bin/python build/bio.py        # stage 9: full/bio.topo.json (ecoregions, biomes, realms)
 build/fetch_history.sh                       # raw/cshapes/: CShapes 2.0 (13 MB zip) and its R package's TopoJSON; raw/basemaps/: 38 maps (47 MB)
 build/capped.sh .venv/bin/python build/admin.py      # Overture's administrative lines and units -> work/admin_*.pkl (~50 min, once)
@@ -374,17 +469,18 @@ Every number that decides the detail is in `build/config.py`.
 - **Areas** (layer 7) are Natural Earth's at 1:10m: their lines across are rough on purpose, and they are only as
   complete as its list (1,341 named seas, gulfs, straits, ranges, deserts, peninsulas, islands…).
 - **Airports**' international routes are OpenFlights' of 2014 (the newest free list); a large airport newer than
-  that (Berlin's) is kept by its size.
+  that (Berlin's) is kept by its size. Their passengers are Wikidata's (P3872): the most of an airport's last five
+  years of counts, so not a year of the pandemic; 117 of 948 have none (level 3).
 - **Main lines** are what OSM tags: a railway without `usage=main`, a trunk road without `maxspeed`, a pipeline
-  without `substance` is not there. A road or railway is drawn once: OSM's separate carriageways and tracks are
-  collapsed -- of the lines of one road number the longest is kept, and of the others only the stretches of 1 km+
-  that run more than 250 m from a kept one (`build/transport.py` TWIN_KM); two different lines side by side (a
-  high-speed line beside the old one) stay two. Stubs under 1 km are dropped.
+  without `substance` is not there. A road or railway is drawn once (above): two different lines within 600 m of
+  each other for 2 km (a high-speed line beside the old one) are drawn as one, the more important kept (where they part
+  for less than 1 km, the other is not drawn there either).
 - **Rivers** are measured, not tagged. A stretch counts where the river area OSM maps around its centerline is
   50 m wide or more (twice the distance from the centerline to the nearer bank). A wide river that OSM maps only as a
   line, without its area, is missed.
-- **Visitor numbers** are only as complete as Wikidata's P1174, and counts are of different years
-  (`visitors_year`); the sites without one are there if enough Wikipedias write about them.
+- **Visitor numbers** are only as complete as Wikidata's P1174 (and, where it has none, the English Wikipedia
+  infobox's `visitation_num`), and counts are of different years (`visitors_year`); the sites without one -- most
+  of them -- are there, and take their level, by how many Wikipedias write about them.
 - **Disputed borders** are OSM's. Each area goes to the country whose boundary relation holds it (a dependency before
   its sovereign), and the disputed lines are flagged in `country_borders`.
 - **Population** is whatever OSM's `population` tag says (the year when tagged), else Wikidata's latest -- rounded to

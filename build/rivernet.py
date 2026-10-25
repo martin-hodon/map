@@ -74,11 +74,11 @@ def km(ll):
     return float(np.linalg.norm(np.diff(xyz(ll), axis=0), axis=1).sum() * R) if len(ll) > 1 else 0.0
 
 
-def samples(ll):
-    """points every ~STEP_KM along a line -> (xyz, the segment each lies on, how far along it 0..1, km from the start)"""
+def samples(ll, step=STEP_KM):
+    """points every ~step km along a line -> (xyz, the segment each lies on, how far along it 0..1, km from the start)"""
     P = xyz(ll)
     seg = np.linalg.norm(np.diff(P, axis=0), axis=1) * R
-    n = np.maximum(1, np.ceil(seg / STEP_KM).astype(int))
+    n = np.maximum(1, np.ceil(seg / step).astype(int))
     j = np.repeat(np.arange(len(seg)), n)
     t = np.concatenate([np.arange(k) / k for k in n])
     j = np.append(j, len(seg) - 1); t = np.append(t, 1.0)
@@ -89,7 +89,8 @@ def samples(ll):
 
 class Index:
     """the samples of the lines kept so far, by cell: which line, which of its segments"""
-    def __init__(self):
+    def __init__(self, cell=CELL):
+        self.cell = cell
         self.xyz = np.zeros((1 << 20, 3)); self.line = np.zeros(1 << 20, np.int32); self.seg = np.zeros(1 << 20, np.int32)
         self.n = 0; self.cells = collections.defaultdict(list)
 
@@ -98,13 +99,13 @@ class Index:
         while self.n + m > len(self.xyz):
             self.xyz = np.vstack((self.xyz, np.zeros_like(self.xyz))); self.line = np.concatenate((self.line, np.zeros_like(self.line))); self.seg = np.concatenate((self.seg, np.zeros_like(self.seg)))
         self.xyz[self.n:self.n + m] = S; self.line[self.n:self.n + m] = line; self.seg[self.n:self.n + m] = j
-        for k, c in zip(range(self.n, self.n + m), map(tuple, np.floor(S / CELL).astype(np.int64))):
+        for k, c in zip(range(self.n, self.n + m), map(tuple, np.floor(S / self.cell).astype(np.int64))):
             self.cells[c].append(k)
         self.n += m
 
     def near(self, S, reach=1, skip=-1):
         """each point's nearest kept sample within `reach` cells (not of line `skip`) -> (km, sample id; inf, -1 if none)"""
-        cs = np.unique(np.floor(S / CELL).astype(np.int64), axis=0)
+        cs = np.unique(np.floor(S / self.cell).astype(np.int64), axis=0)
         off = np.array([(a, b, c) for a in range(-reach, reach + 1) for b in range(-reach, reach + 1) for c in range(-reach, reach + 1)])
         ids = {k for c in cs for o in off for k in self.cells.get(tuple(c + o), ())}
         d, i = np.full(len(S), np.inf), np.full(len(S), -1)
@@ -115,7 +116,7 @@ class Index:
             ids = ids[self.line[ids] != skip]
             if not len(ids):
                 return d, i
-        dd, ii = cKDTree(self.xyz[ids]).query(S, distance_upper_bound=(reach * CELL))
+        dd, ii = cKDTree(self.xyz[ids]).query(S, distance_upper_bound=(reach * self.cell))
         ok = np.isfinite(dd)
         d[ok], i[ok] = dd[ok] * R, ids[ii[ok]]
         return d, i

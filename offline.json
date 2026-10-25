@@ -1,10 +1,11 @@
 {
- "version": "bf95e836af",
- "made": "2026-10-25 01:28",
+ "version": "a6321b1814",
+ "made": "2026-10-25 23:50",
  "files": [
   "data/airports.csv",
   "data/cities.csv",
   "data/events.csv",
+  "data/flags.txt",
   "data/lite/bio.txt",
   "data/lite/history.txt",
   "data/lite/rivers.txt",
@@ -12,6 +13,8 @@
   "data/lite/world.txt",
   "data/monuments.csv",
   "data/natural_points.csv",
+  "flags.html",
+  "flags.js",
   "index.html",
   "lib/d3-geo-projection.min.js",
   "lib/d3.min.js",

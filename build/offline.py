@@ -9,8 +9,9 @@ import glob, hashlib, json, os, subprocess, time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # what the page loads: itself, its libraries (lib/: kept here so the map opens offline), the light line layers and the
-# point layers (sw.js itself is the browser's to keep -- but it is hashed, so a change to it is a new version)
-PATTERNS = ["index.html", "lib/*.js", "data/lite/*.txt", "data/*.csv"]
+# point layers, the flags (flags.js, data/flags.txt, their gallery flags.html) (sw.js itself is the browser's to keep
+# -- but it is hashed, so a change to it is a new version)
+PATTERNS = ["index.html", "lib/*.js", "data/lite/*.txt", "data/*.csv", "flags.js", "flags.html", "data/flags.txt"]
 
 
 def main():

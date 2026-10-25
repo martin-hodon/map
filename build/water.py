@@ -42,6 +42,7 @@ MIN_RIVER_KM = 50.0        # a river drawn shorter than this (from where it is f
 BIG = 1000                 # a river among the BIG longest or widest is kept whatever Wikipedia knows
 BRIDGE_KM = 10.0           # a gap between two ways of one river (a lake without a centerline) is bridged up to this
 FAR_BRIDGE_KM = 30.0       # ...and up to this where the gap lies ahead, the way the river was going (a long reservoir)
+MOUTH_DEG = 0.0015         # a way ending this near (~150 m: a wide river's centerline) a way of another river flows into it: no gap after it
 TILE = 2.0                 # degrees: the rivers are measured tile by tile
 MARGIN = 0.1               # ...with the water this far round each tile (so the banks just outside it count)
 T0 = time.time()
@@ -317,10 +318,12 @@ def track(by, ways):
     # one part of a name in two languages ("Le Rhin / Rhein"), or one within the other ("Große Isar", the arm of the
     # Isar through Landshut) -- so a river goes on through its sections (High
     # Rhine, Upper Rhine...) and across a border, and a tributary stops where it flows into another river
+    # -- without a leading article: "Le Rhin" is "Rhin", within "Vieux Rhin" (the Old Rhine, below the weir at Kembs)
     import re as _re
+    article = _re.compile(r"^(?:(?:the|le|la|les|el|il|lo|los|las|der|die|das)\s+|l['’]\s*)")
     def names(w):
-        t = {x.strip().lower() for n in (w["name"], w["osm_name"]) if n for x in _re.split(r"\s*[/;,]\s*|\s+-\s+", n) if x.strip()}
-        return t
+        t = {article.sub("", x.strip().lower()) for n in (w["name"], w["osm_name"]) if n for x in _re.split(r"\s*[/;,]\s*|\s+-\s+", n) if x.strip()}
+        return t - {""}
     tok = [names(w) for w in ways]
     heads = collections.defaultdict(list)
     for k, w in enumerate(ways):
@@ -329,14 +332,14 @@ def track(by, ways):
     ring = [key(w["c"][0]) == key(w["c"][-1]) for w in ways]   # (a way round an island in the river, or a reservoir's shore: no way on)
     bridge_chord = 2 * np.sin(BRIDGE_KM / geo.R_KM / 2)
     far_chord = 2 * np.sin(FAR_BRIDGE_KM / geo.R_KM / 2)
-    def ahead(k, p):                                        # is p on, roughly, where way k was heading at its end?
+    def ahead(k, p, cos=0.3):                               # is p on, roughly, where way k was heading at its end?
         c = ways[k]["c"]
         i = max(0, len(c) - 2)
         while i > 0 and geo.length_km(c[i:]) < 2.0:
             i -= 1
         u, v = c[-1] - c[i], p - c[-1]
         u[0] *= np.cos(np.radians(c[-1][1])); v[0] *= np.cos(np.radians(c[-1][1]))
-        return float(u @ v) > 0.3 * float(np.linalg.norm(u) * np.linalg.norm(v))
+        return float(u @ v) > cos * float(np.linalg.norm(u) * np.linalg.norm(v))
     def within(x, y):                                       # (one name in the other, as whole words: "Isar" in "Große Isar")
         return len(x) >= 3 and _re.search(r"(?<!\w)" + _re.escape(x) + r"(?!\w)", y) is not None
     # ...or by Wikidata: the same item, or one a part (P361) of the other's -- the Solimões is the Amazon's Brazilian
@@ -353,6 +356,9 @@ def track(by, ways):
     lake_geoms = [shapely.make_valid(shapely.Polygon(L["rings"][0], L["rings"][1:])) for L in lakes_]
     lake_tree = STRtree(lake_geoms) if lake_geoms else None
     head_tree = STRtree(shapely.points(np.array([w["c"][0] for w in ways])))
+    line_tree = STRtree(lines)
+    def mouth(k, end):                                      # does way k end on another river (its mouth: no gap to bridge)?
+        return any(not same(k, j) for j in line_tree.query(shapely.points(end), predicate="dwithin", distance=MOUTH_DEG).tolist() if j != k)
     begin, bridges, steps = {}, [], []
     widths = collections.defaultdict(list)
     for k, d, wmed, wmax in starts:
@@ -365,10 +371,13 @@ def track(by, ways):
             begin[k] = d
             end = ways[k]["c"][-1]
             nxt = [j for j in heads.get(key(end), []) if j != k and same(k, j) and not ring[j]]
-            if not nxt:                                     # (a gap: a head of the same river within BRIDGE_KM -- or FAR_BRIDGE_KM straight ahead)
+            # (a gap: a head of the same river within BRIDGE_KM not behind -- or FAR_BRIDGE_KM straight ahead; none from a
+            #  river's mouth on another: the Orava, at its mouth in the Váh, went back up to an arm of its own 3 km off, and
+            #  from that 10 km up its own course, and was a loop)
+            if not nxt and not mouth(k, end):
                 near = hx.query_ball_point(geo.to_xyz(end[None])[0], far_chord)
                 cand = [j for j in near if j != k and j not in begin and same(k, j) and not ring[j]
-                        and (np.linalg.norm(geo.to_xyz(ways[j]["c"][:1])[0] - geo.to_xyz(end[None])[0]) <= bridge_chord or ahead(k, ways[j]["c"][0]))]
+                        and ahead(k, ways[j]["c"][0], 0.0 if np.linalg.norm(geo.to_xyz(ways[j]["c"][:1])[0] - geo.to_xyz(end[None])[0]) <= bridge_chord else 0.3)]
                 if cand:
                     j = min(cand, key=lambda j: np.linalg.norm(ways[j]["c"][0] - end))
                     nxt = [j]; bridges.append((k, j))
@@ -381,6 +390,7 @@ def track(by, ways):
                         nxt.append(j); break
             todo += [(j, 0.0) for j in nxt]
             steps += [(k, j) for j in nxt]
+    log(len(bridges), "gaps bridged on the way down")
     # and up to the source: the whole of every way reached, then the ways that end where one begins under the same
     # name (or over a gap under BRIDGE_KM), and theirs
     tails = collections.defaultdict(list)
@@ -393,9 +403,11 @@ def track(by, ways):
     while up:
         k = up.pop()
         head = ways[k]["c"][0]
-        prev = [j for j in tails.get(key(head), []) if j != k and j not in begin and same(k, j) and not ring[j]]
-        if not prev:
-            cand = [j for j in tx.query_ball_point(geo.to_xyz(head[None])[0], bridge_chord) if j != k and j not in begin and same(k, j) and not ring[j]]
+        joined = [j for j in tails.get(key(head), []) if j != k and same(k, j) and not ring[j]]
+        prev = [j for j in joined if j not in begin]
+        if not joined:                                      # (a gap: no way of it ends here -- not one already walked)
+            cand = [j for j in tx.query_ball_point(geo.to_xyz(head[None])[0], bridge_chord) if j != k and j not in begin and same(k, j) and not ring[j]
+                    and not mouth(j, ways[j]["c"][-1]) and ahead(j, head, 0.0)]   # (as on the way down: no gap from a mouth, none behind)
             if cand:
                 j = min(cand, key=lambda j: np.linalg.norm(ways[j]["c"][-1] - head))
                 prev = [j]; bridges.append((j, k))

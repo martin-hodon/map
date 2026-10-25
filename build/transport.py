@@ -1,15 +1,14 @@
 """STAGE 7 -- TRANSPORT: the main lines of the world -- motorways (and trunk roads signed 100 km/h or more), main-line
 and high-speed railways, oil and gas pipelines -- out of OSM (raw/transport/, build/fetch_transport.py).
 
-    .venv/bin/python build/transport.py           # -> full/transport.topo.json (objects: motorways, railways, pipelines)
+    .venv/bin/python build/transport.py           # -> full/transport.tracked.topo.json (objects: motorways, railways, pipelines)
 
 Only the main ones: a road by its class and its speed, a railway by OSM's `usage=main` (or `highspeed=yes`), a pipeline
 by what it carries (oil, gas) and what it is for (not `distribution`, `gathering`, a penstock). And then by length:
 the ways that meet end to end make one network, and a network shorter than MIN_KM of its kind (a spur in a city, a
-gas main under one town) is left out. Each network's lines are joined end to end and simplified on the sphere. A
-road or railway is one line: the two carriageways of a motorway, the tracks of a railway, are separate ways in OSM
-(parallel, a few metres to a few hundred apart) -- of the lines of one road number the longest is kept, and of each
-other one only the stretches that do not run within TWIN_KM of a kept one (an arm that is really elsewhere).
+gas main under one town) is left out. Within a network the ways of one road number (or name) are joined end to end:
+lines as OSM has them, every carriageway and track, at FINE_KM. build/roadnet.py then makes them one network of single
+lines (a road's carriageways one line, its junctions exact) and ranks them -> full/transport.topo.json.
 
 Memory: each answer of Overpass is read a way at a time (ijson), every way kept simplified to FINE_KM at once.
 """
@@ -22,13 +21,9 @@ from write import quantize
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RAW = os.environ.get("TRANSPORT_RAW", os.path.join(ROOT, "raw", "transport"))          # (overrides: for a test on a few tiles)
-OUT = os.environ.get("TRANSPORT_OUT", os.path.join(ROOT, "full/transport.topo.json"))
+OUT = os.environ.get("TRANSPORT_OUT", os.path.join(ROOT, "full/transport.tracked.topo.json"))
 MIN_KM = {"motorways": 20.0, "railways": 30.0, "pipelines": 50.0}
-EPS_KM = {"motorways": 1.0, "railways": 1.0, "pipelines": 1.0}      # (their detail: coarser than the coast's)
 MIN_SPEED = 100.0
-TWIN_KM = {"motorways": 0.25, "railways": 0.25}                   # (pipelines side by side are pipelines side by side)
-MIN_RUN_KM = 1.0                                                  # a stretch of a line beside a kept one, kept if this long
-MIN_LINE_KM = 1.0                                                 # (a stub shorter than this vanishes on the 1/400 degree grid anyway)
 T0 = time.time()
 
 
@@ -55,35 +50,6 @@ def classify(t):
         sub = "gas" if "gas" in sub or sub in ("lng", "lpg") else "oil"
         return "pipelines", {"substance": sub, "name": t.get("name:en") or t.get("name"), "operator": t.get("operator")}
     return None
-
-
-def collapse(lines, d_km):
-    """the lines of one road (shapely linestrings at FINE_KM), longest first: each one without its stretches within
-    d_km of the ones before it -> coordinate arrays. The kept lines' points (densified to ~0.3 km) are the yardstick."""
-    from scipy.spatial import cKDTree
-    chord = 2 * np.sin(d_km / geo.R_KM / 2)
-    cloud, tree, out, dirty = [], None, [], False
-    for g in sorted(lines, key=lambda g: -g.length):
-        c = shapely.get_coordinates(shapely.segmentize(g, 0.003))
-        xyz = geo.to_xyz(c)
-        if dirty:
-            tree, dirty = cKDTree(np.concatenate(cloud)), False
-        free = np.ones(len(c), bool) if tree is None else tree.query(xyz, distance_upper_bound=chord)[0] == np.inf
-        if free.all():
-            runs = [(0, len(c))]
-        else:                                                  # the runs of points not beside a kept line (with a point over at each end)
-            runs, i = [], 0
-            while i < len(c):
-                if not free[i]:
-                    i += 1; continue
-                j = i
-                while j < len(c) and free[j]:
-                    j += 1
-                runs.append((max(0, i - 1), min(len(c), j + 1))); i = j
-        for a, b in runs:
-            if b - a >= 2 and (b - a == len(c) or geo.length_km(c[a:b]) >= MIN_RUN_KM):
-                out.append(c[a:b]); cloud.append(xyz[a:b]); dirty = True
-    return out
 
 
 def main():
@@ -127,7 +93,7 @@ def main():
         nets = collections.defaultdict(list)
         for i in range(len(ws)):
             nets[find(i)].append(i)
-        geoms, short, twins = [], 0, 0
+        geoms, short = [], 0
         for ids in nets.values():
             km = sum(geo.length_km(ws[i][0]) for i in ids)
             if km < MIN_KM[obj]:
@@ -147,16 +113,11 @@ def main():
                 p = {k: c.most_common(1)[0][0] for k, c in props.items()}
                 p.update(network=net, network_km=round(km))
                 merged = shapely.line_merge(shapely.multilinestrings([shapely.linestrings(ws[i][0]) for i in part]))
-                parts = list(shapely.get_parts(merged))
-                if obj in TWIN_KM and len(parts) > 1:
-                    twins += len(parts); parts = collapse(parts, TWIN_KM[obj]); twins -= len(parts)
-                for c in (shapely.get_coordinates(g) if not isinstance(g, np.ndarray) else g for g in parts):
-                    c = c[geo.simplify(geo.to_xyz(c), EPS_KM[obj])]
-                    if len(c) >= 2 and geo.length_km(c) >= MIN_LINE_KM:
-                        geoms.append({"type": "LineString", "arcs": [len(arcs)], "properties": p}); arcs.append(c)
+                for g in shapely.get_parts(merged):
+                    geoms.append({"type": "LineString", "arcs": [len(arcs)], "properties": p}); arcs.append(shapely.get_coordinates(g))
         objects[obj] = {"type": "GeometryCollection", "geometries": geoms}
         log(f"{obj}: {len(ws):,} ways -> {len(nets):,} networks, {short:,} under {MIN_KM[obj]:.0f} km left out;",
-            f"{twins:,} twin lines collapsed; {len(geoms):,} lines, {sum(len(arcs[g['arcs'][0]]) for g in geoms):,} points")
+            f"{len(geoms):,} lines, {sum(len(arcs[g['arcs'][0]]) for g in geoms):,} points")
         ways[obj] = None
     topo = {"type": "Topology", "bbox": [-180, -90, 180, 90],
             "transform": {"scale": [config.QUANT_DEG, config.QUANT_DEG], "translate": [-180, -90]},

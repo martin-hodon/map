@@ -1,4 +1,5 @@
-"""STAGE 5 -- THE POINTS: cities of 100,000 people or more, and monuments with 100,000 visitors a year or more.
+"""STAGE 5 -- THE POINTS: cities of 100,000 people or more (70,000 in Europe: MIN_POP_BY, by the continents
+full/world.topo.json gives the states and countries), and monuments with 100,000 visitors a year or more.
 
     .venv/bin/python build/points.py [cities] [monuments] [airports]   # -> data/cities.csv, monuments.csv, airports.csv
 
@@ -21,10 +22,13 @@ the former (the Louvre is a palace).
 
 ...and the WELL KNOWN ones whatever their count: castles, palaces, cathedrals, temples, forts, ancient sites... that
 enough Wikipedias write about (build/fetch_points.py FAMOUS: 15 or more for a castle, 40 for a church), and the World
-Heritage Sites that 10 or more do.
+Heritage Sites that 10 or more do. A count Wikidata lacks is taken from the English Wikipedia's infobox
+(visitation_num...). Each monument has a LEVEL, 1 to 3, by its visitors (MONUMENT_LEVELS) -- or, with no count, by
+its Wikipedias (FAME_LEVELS) -- which the map shows it by; the Wikipedias themselves are not written.
 
 AIRPORTS: OurAirports' airports with scheduled service -- the large ones, and the medium ones with routes (OpenFlights)
-to MIN_INTL_DESTINATIONS or more airports abroad.
+to MIN_INTL_DESTINATIONS or more airports abroad -- with their passengers a year (Wikidata, P3872) and a LEVEL by
+them (AIRPORT_LEVELS).
 
 All get the country and state they are in from the map's own faces (work/topology.pkl), so a point and the polygon it
 is drawn on always agree.
@@ -39,10 +43,16 @@ import config, wdnames
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RAW = os.path.join(ROOT, "raw")
 MIN_POP = 100_000
+MIN_POP_BY = {"Europe": 70_000}   # ...or this many in these continents (by the city's state's continent, else its country's)
 MIN_VISITORS = 100_000
 POP_STEP = 5_000
 URBAN_FACTOR = 3        # a place's urban population counts when it is at most this many times its municipal one
 MIN_HERITAGE_WIKIPEDIAS = 10    # a World Heritage Site's item is kept when this many Wikipedias write about it (not each part)
+CATALOGUE = re.compile(r"[A-Z]{1,4} ?\d+[A-Za-z]?")     # a name that is only a number in a list: the Valley of the
+                                # Kings' tombs, KV1 to KV63 (the valley itself kept) -- left out, they crowd round Luxor
+MONUMENT_LEVELS = (2_000_000, 500_000)   # visitors a year: a monument of level 1 has the first, of 2 the second, of 3 fewer
+FAME_LEVELS = (80, 40)          # ...and one with no count, as many Wikipedias (how well known: in its place)
+AIRPORT_LEVELS = (20_000_000, 5_000_000)   # passengers a year: an airport of level 1, of 2 (of 3 fewer, or no count)
 MIN_INTL_DESTINATIONS = 3       # an airport is international when its routes reach this many airports abroad (or it is large)
 UA = {"User-Agent": "welle-map-builder/0.1 (world map layers from OSM + Wikidata)", "Accept": "application/sparql-results+json"}
 
@@ -148,8 +158,8 @@ class Where:
 
 
 CITY_COLUMNS = ["name", "lon", "lat", "population", "place", "capital", "country", "region", "name_local", "wikidata", "osm"]
-MONUMENT_COLUMNS = ["name", "lon", "lat", "kind", "visitors", "visitors_year", "wikipedias", "country", "region", "name_local", "wikidata", "osm"]
-AIRPORT_COLUMNS = ["name", "lon", "lat", "iata", "icao", "city", "size", "destinations_abroad", "country", "region"]
+MONUMENT_COLUMNS = ["name", "lon", "lat", "kind", "level", "visitors", "visitors_year", "country", "region", "name_local", "wikidata", "osm"]
+AIRPORT_COLUMNS = ["name", "lon", "lat", "iata", "icao", "city", "level", "passengers", "passengers_year", "country", "region"]
 
 
 def write_points(rows, columns, path):
@@ -185,9 +195,17 @@ def wd_classes(qids):
 
 
 def wp_urban(qids):
-    """{qid: the urban population its English Wikipedia article's infobox gives (population_urban), or None} -- read
-    from the lead section's wikitext, 50 articles a request (cached in raw/wp_urban.json)"""
-    path = os.path.join(RAW, "wp_urban.json")
+    """{qid: the urban population its English Wikipedia article's infobox gives (population_urban), or None}"""
+    def read(text):
+        m = re.search(r"\|\s*population_urban\s*=([^\n]*)", text)
+        return infobox_number(m.group(1)) if m else None
+    return wp_infobox(qids, "wp_urban.json", read, "urban populations")
+
+
+def wp_infobox(qids, cache, read, what):
+    """{qid: read(the lead section's wikitext of its English Wikipedia article), or None} -- 50 articles a request
+    (cached in raw/<cache>)"""
+    path = os.path.join(RAW, cache)
     have = json.load(open(path)) if os.path.exists(path) else {}
     need = sorted({q for q in qids if q and re.match(r"^Q\d+$", q) and q not in have})
     titles = {}
@@ -216,17 +234,61 @@ def wp_urban(qids):
         for page in res["pages"]:
             q = titles.get(page["title"]) or titles.get(back.get(page["title"], ""))
             text = page.get("revisions", [{}])[0].get("slots", {}).get("main", {}).get("content", "")
-            m = re.search(r"\|\s*population_urban\s*=([^\n]*)", text)
-            have[q] = infobox_number(m.group(1)) if q and m else None
+            if q:
+                have[q] = read(text) if text else None
         for t in todo[i:i + 50]:
             have.setdefault(titles[t], None)
         json.dump(have, open(path, "w"))
-        print(f"  wikipedia urban populations {min(i + 50, len(todo))}/{len(todo)}", flush=True)
+        print(f"  wikipedia {what} {min(i + 50, len(todo))}/{len(todo)}", flush=True)
         time.sleep(0.5)
     for q in need:
         have.setdefault(q, None)
     json.dump(have, open(path, "w"))
     return {q: have.get(q) for q in qids}
+
+
+def wp_visitors(qids):
+    """{qid: [visitors a year, the year or None] its English Wikipedia article's infobox gives (visitation_num,
+    visitors...), or None}"""
+    def read(text):
+        m = re.search(r"\|\s*(?:visitation_num|visitation|visitors_num|annual_visitors|visitors|annual_visitation)\s*=([^\n|]*)", text)
+        if not m:
+            return None
+        v = re.sub(r"^\s*(?:over|more than|about|around|approx(?:imately|\.)?|c(?:a)?\.|est(?:imated|\.)?)\s*", "", m.group(1), flags=re.I)
+        n = infobox_number(v)
+        y = re.search(r"\|\s*(?:visitation_year|visitors_year|visitation_date)\s*=\D*((?:19|20)\d\d)", text) or re.search(r"\b((?:19|20)\d\d)\b", m.group(1))
+        return [n, int(y.group(1)) if y else None] if n and n >= 1000 else None
+    return wp_infobox(qids, "wp_visitors.json", read, "visitors")
+
+
+def level(n, steps):
+    """1, 2 or 3: n reaches steps[0], steps[1] or neither (None: 3)"""
+    return 1 if n is not None and n >= steps[0] else 2 if n is not None and n >= steps[1] else 3
+
+
+def wd_passengers(codes):
+    """{IATA code: [passengers a year, the year]} -- Wikidata's (P3872, the airport's item by its code, P238): the
+    most of its last five years' counts (so not a year of the pandemic), cached in raw/wd_passengers.json"""
+    path = os.path.join(RAW, "wd_passengers.json")
+    if os.path.exists(path):
+        return json.load(open(path))
+    P = ("PREFIX p: <http://www.wikidata.org/prop/> PREFIX ps: <http://www.wikidata.org/prop/statement/> "
+         "PREFIX pq: <http://www.wikidata.org/prop/qualifier/>\n")
+    years = collections.defaultdict(dict)
+    for i in range(0, len(codes), 300):
+        vals = " ".join(f'"{c}"' for c in codes[i:i + 300])
+        for b in wdnames.sparql(P + f"""SELECT ?iata ?n ?date WHERE {{ VALUES ?iata {{ {vals} }} ?item wdt:P238 ?iata .
+                ?item p:P3872 ?s . ?s ps:P3872 ?n . ?s pq:P585 ?date }}"""):
+            y, n = int(b["date"]["value"][:4]), float(b["n"]["value"])
+            c = years[b["iata"]["value"]]
+            c[y] = max(c.get(y, 0), n)
+    out = {}
+    for c, ys in years.items():
+        last = max(ys)
+        y = max((y for y in ys if y > last - 5), key=lambda y: ys[y])
+        out[c] = [int(ys[y]), y]
+    json.dump(out, open(path, "w"))
+    return out
 
 
 def infobox_number(v):
@@ -313,7 +375,7 @@ def cities(where):
         cap = "country" if t.get("capital") in ("yes", "2") or t.get("admin_level") == "2" else "state" if t.get("capital") == "4" else None
         if cap == "country" and wdcap.get(t.get("wikidata")) and wdcap[t["wikidata"]][0] > (pop or 0):
             pop, year = wdcap[t["wikidata"]]; src = "wikidata"   # (a capital's node can be its old town: Muscat's)
-        if pop is None or (pop < MIN_POP / URBAN_FACTOR and cap != "country") or not t.get("name"):
+        if pop is None or (pop < min(MIN_POP, *MIN_POP_BY.values()) / URBAN_FACTOR and cap != "country") or not t.get("name"):
             continue
         r = {"name": t.get("name"), "_tags": t, "population": pop, "population_municipal": pop, "population_source": src,
              "population_year": year if year and year.isdigit() else None, "place": t.get("place"), "capital": cap,
@@ -324,12 +386,19 @@ def cities(where):
             if (o["place"] == "city", o["population"]) >= (r["place"] == "city", r["population"]):
                 continue
         seen[k] = r
+    # each city's floor: its continent's (a state's own: Russia's European oblasts, Istanbul's; else its country's)
+    T = json.load(open(os.path.join(ROOT, "full/world.topo.json")))["objects"]
+    cont = {g["properties"]["iso"]: g["properties"].get("continent") for o in ("countries", "regions") for g in T[o]["geometries"] if "iso" in g["properties"]}
+    vs = list(seen.values())
+    for r, c, g in zip(vs, *where(np.array([r["lon"] for r in vs]), np.array([r["lat"] for r in vs]))):
+        r["_floor"] = MIN_POP_BY.get(cont.get(g) or cont.get(c), MIN_POP)
+    seen = {k: r for k, r in seen.items() if r["population"] >= r["_floor"] / URBAN_FACTOR or r["capital"] == "country"}
     urban = wp_urban([r["wikidata"] for r in seen.values()])
     for r in seen.values():                                    # the urban population where Wikipedia gives one that is
         u = urban.get(r["wikidata"])                           # bigger (and not absurdly: a district's article can carry
         if u and r["population_municipal"] < u <= URBAN_FACTOR * r["population_municipal"]:   # the whole city's)
             r["population"], r["population_source"], r["population_year"] = u, "wikipedia-urban", None
-    rows = sorted([r for r in seen.values() if r["population"] >= MIN_POP or r["capital"] == "country"], key=lambda r: -r["population"])
+    rows = sorted([r for r in seen.values() if r.pop("_floor") <= r["population"] or r["capital"] == "country"], key=lambda r: -r["population"])
     cc, rc = where(np.array([r["lon"] for r in rows]), np.array([r["lat"] for r in rows]))
     # the names: English (OSM's name:en, else Wikidata's English label, else its name), and the one in its country's
     # official language, where that is another
@@ -346,7 +415,58 @@ def cities(where):
         r["population"] = round_pop(r["population"])
     path = os.path.join(ROOT, "data/cities.csv")
     write_points(rows, CITY_COLUMNS, path)
-    print(f"{path}: {len(rows)} cities of {MIN_POP:,}+ (population from {dict(by)}), {os.path.getsize(path) // 1024} KB", flush=True)
+    print(f"{path}: {len(rows)} cities of {MIN_POP:,}+ ({', '.join(f'{v:,}+ in {k}' for k, v in MIN_POP_BY.items())}; population from {dict(by)}), {os.path.getsize(path) // 1024} KB", flush=True)
+
+
+# the same place twice (twice()): words that only wrap a name ("archaeological excavations of Pompeii", "Castle Clinton
+# National Monument", "wreck of the RMS Titanic") -- and a kind, the building of a place named as itself ("Devín
+# Castle" and the village Devín, "Karnak Temple Complex" and Karnak)
+WRAP = {"the", "of", "and", "in", "at", "complex", "compounds", "national", "monument", "monuments", "park", "memorial",
+        "archaeological", "excavations", "site", "sites", "ruins", "area", "associated", "wreck", "rms", "historic",
+        "historical", "ancient", "city", "kingdom", "unesco", "world", "heritage"}
+BUILDING = {"castle", "citadel", "fortress", "fort", "palace", "temple", "cathedral", "abbey", "church", "mosque",
+            "monastery", "pyramid"}
+TWICE_KM = 3.0      # (two such names this near: one place)
+CITY_KM = 10.0      # a monument named as a city this near is the city (Wikidata's Athens is an archaeological site too)
+
+
+def twice(out, why):
+    """the monuments without the cities (named as a city of data/cities.csv near) and without the second of a place
+    named twice (WRAP, BUILDING): of a name and its wrapping the better known kept (its visitors the larger of the two),
+    of a place and its building the building -- unless the place is twice as well known"""
+    import unicodedata
+    from scipy.spatial import cKDTree
+    fold = lambda s: unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower().strip()
+    words = lambda s: frozenset(re.findall(r"[a-z0-9]+", fold(s)))
+    xy = lambda r: (r["lon"] * np.cos(np.radians(r["lat"])), r["lat"])
+    cities = list(csv.DictReader(open(os.path.join(ROOT, "data/cities.csv"), encoding="utf-8")))
+    ct = cKDTree([xy({"lon": float(c["lon"]), "lat": float(c["lat"])}) for c in cities])
+    drop, gone = set(), []
+    for i, r in enumerate(out):
+        if any(fold(r["name"]) in (fold(cities[j]["name"]), fold(cities[j]["name_local"])) for j in ct.query_ball_point(xy(r), CITY_KM / 111)):
+            drop.add(i); why["a city's own item"] += 1
+    t = cKDTree([xy(r) for r in out])
+    fame = lambda r: r.get("wikipedias") or 0
+    for i, j in sorted(t.query_pairs(TWICE_KM / 111)):
+        if i in drop or j in drop:
+            continue
+        a, b = out[i], out[j]
+        wa, wb = words(a["name"]), words(b["name"])
+        if not wa or not wb or not (wa <= wb or wb <= wa):
+            continue
+        short, long_ = (i, j) if len(wa) < len(wb) or (len(wa) == len(wb) and fame(a) >= fame(b)) else (j, i)
+        extra = words(out[long_]["name"]) - words(out[short]["name"])
+        if extra <= WRAP:                                      # (the same, wrapped: the better known, with the count)
+            keep, lose = (short, long_) if fame(out[short]) >= fame(out[long_]) else (long_, short)
+            if (out[lose].get("visitors") or 0) > (out[keep].get("visitors") or 0):
+                out[keep]["visitors"], out[keep]["visitors_year"] = out[lose]["visitors"], out[lose].get("visitors_year")
+        elif len(extra - WRAP) == 1 and extra - WRAP <= BUILDING:   # (a place and its building)
+            keep, lose = (short, long_) if fame(out[short]) > 2 * fame(out[long_]) else (long_, short)
+        else:
+            continue
+        drop.add(lose); gone.append(f"{out[lose]['name']} ({out[keep]['name']})"); why["the same place twice"] += 1
+    print(len(gone), "monuments the same as another:", ", ".join(gone[:40]), "...", flush=True)
+    return [r for i, r in enumerate(out) if i not in drop]
 
 
 def monuments(where):
@@ -378,6 +498,9 @@ def monuments(where):
         if re.match(r"^Q\d+$", best["itemLabel"]["value"]):
             why["no name"] += 1
             continue
+        if CATALOGUE.fullmatch(best["itemLabel"]["value"]):
+            why["only a number (KV62)"] += 1
+            continue
         m = re.match(r"Point\(([-\d.eE]+) ([-\d.eE]+)\)", best["coord"]["value"], re.I)     # (WDQS: Point, QLever: POINT)
         if not m:
             continue
@@ -393,6 +516,9 @@ def monuments(where):
             continue
         if r["item"] in have or not r.get("label") or re.match(r"^Q\d+$", r["label"]):
             continue
+        if CATALOGUE.fullmatch(r["label"]):
+            why["only a number (KV62)"] += 1
+            continue
         o = fame.get(r["item"])
         if o is None or (o["kind"] == "heritage" and r["kind"] != "heritage"):   # (the telling kind over "heritage")
             fame[r["item"]] = r
@@ -405,16 +531,28 @@ def monuments(where):
         langs[r["item"]] = max(langs.get(r["item"], 0), r["n"])
     for _, _, p in feats:
         p.setdefault("wikipedias", langs.get(p["wikidata"]))
-    why["well known (Wikipedias), no visitor count"] = len(fame)
+    # (a count where Wikidata has none: the English Wikipedia's infobox)
+    wp = wp_visitors([p["wikidata"] for _, _, p in feats if not p.get("visitors")])
+    for _, _, p in feats:
+        if not p.get("visitors") and wp.get(p["wikidata"]):
+            p["visitors"], p["visitors_year"] = wp[p["wikidata"]]
+            why["(a count from Wikipedia)"] += 1
+    why["well known (Wikipedias), no visitor count"] = sum(not p.get("visitors") for _, _, p in feats)
     feats.sort(key=lambda f: (-(f[2].get("visitors") or 0), -(f[2].get("wikipedias") or 0)))
     cc, rc = where(np.array([f[0] for f in feats]), np.array([f[1] for f in feats]))
     local = wdnames.local_labels([(p["wikidata"], c) for (_, _, p), c in zip(feats, cc)])   # (its name in its country's language)
     for (_, _, p), l in zip(feats, local):
         p["name_local"] = l if l and l != p["name"] else None
     out = [{**p, "lon": lon, "lat": lat, "country": c, "region": g} for (lon, lat, p), c, g in zip(feats, cc, rc)]
+    out = twice(out, why)
+    # (its level: by its visitors -- or, with no count, by how many Wikipedias write about it; the first first)
+    for r in out:
+        r["level"] = level(r["visitors"], MONUMENT_LEVELS) if r.get("visitors") else level(r.get("wikipedias"), FAME_LEVELS)
+    out.sort(key=lambda r: (r["level"], -(r.get("visitors") or 0), -(r.get("wikipedias") or 0)))
     path = os.path.join(ROOT, "data/monuments.csv")
     write_points(out, MONUMENT_COLUMNS, path)
-    print(f"{path}: {len(out)} monuments ({dict(collections.Counter(r['kind'] for r in out).most_common())}); left out: {dict(why)}", flush=True)
+    print(f"{path}: {len(out)} monuments ({dict(collections.Counter(r['kind'] for r in out).most_common())};",
+          f"by level {dict(sorted(collections.Counter(r['level'] for r in out).items()))}); left out: {dict(why)}", flush=True)
 
 
 def airports(where):
@@ -438,16 +576,19 @@ def airports(where):
     # (a large airport with flights to 2 or more airports abroad -- or newer than the routes (2014), like Berlin's)
     keep = [r for c, r in ap.items() if len(abroad[c]) >= MIN_INTL_DESTINATIONS
             or (r["type"] == "large_airport" and (len(abroad[c]) >= 2 or c not in routed))]
-    keep.sort(key=lambda r: -len(abroad[r["iata_code"]]))
+    pax = wd_passengers(sorted(r["iata_code"] for r in keep))
+    keep.sort(key=lambda r: -pax.get(r["iata_code"], [0])[0])
     lon, lat = np.array([float(r["longitude_deg"]) for r in keep]), np.array([float(r["latitude_deg"]) for r in keep])
     cc, rc = where(lon, lat)
     out = [{"name": r["name"], "lon": x, "lat": y, "iata": r["iata_code"], "icao": r["icao_code"] or r["gps_code"] or None,
-            "city": r["municipality"] or None, "size": r["type"].split("_")[0],
-            "destinations_abroad": len(abroad[r["iata_code"]]), "country": c or r["iso_country"], "region": g}
+            "city": r["municipality"] or None, "level": level(pax.get(r["iata_code"], [None])[0], AIRPORT_LEVELS),
+            "passengers": pax.get(r["iata_code"], [None])[0], "passengers_year": pax.get(r["iata_code"], [None, None])[1],
+            "country": c or r["iso_country"], "region": g}
            for r, x, y, c, g in zip(keep, lon.tolist(), lat.tolist(), cc, rc)]
     path = os.path.join(ROOT, "data/airports.csv")
     write_points(out, AIRPORT_COLUMNS, path)
-    print(f"{path}: {len(out)} international airports ({sum(r['type'] == 'large_airport' for r in keep)} large)", flush=True)
+    print(f"{path}: {len(out)} international airports ({sum(r['passengers'] is not None for r in out)} with a passenger count;",
+          f"by level {dict(sorted(collections.Counter(r['level'] for r in out).items()))})", flush=True)
 
 
 def main():
