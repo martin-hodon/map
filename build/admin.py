@@ -1,6 +1,6 @@
 """The world's administrative lines and units, for build/history.py's regions: Overture's land boundaries of countries,
 their first-level divisions (regions: states, provinces) and second-level ones (counties: districts, departements,
-Kreise) -- every country's, not only config.REGION_COUNTRIES' -- and the units' names.
+Kreise) -- every country's, not only those the map draws with their states -- and the units' names.
 
     lines()   -> [coords]: each boundary simplified to KM on the sphere with every point where a boundary ends kept,
               so that two boundaries on one path (a county's along its region's, a region's along the country's) stay

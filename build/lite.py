@@ -1,5 +1,5 @@
 """THE LIGHT FILES: smaller, readable copies of the line layers -- data/lite/world.txt, rivers.txt, transport.txt (and
-bio.txt, history.txt) -- for a page that needs the shapes but not every bend. The originals (data/*.topo.json) stay as they are.
+pipelines.txt, bio.txt, history.txt) -- for a page that needs the shapes but not every bend. The originals (data/*.topo.json) stay as they are.
 
     .venv/bin/python build/lite.py [HEIGHT_KM [TRI_KM2]]     # data/*.topo.json -> data/lite/*.txt (defaults 1 and 25)
 
@@ -26,6 +26,11 @@ THE FORMAT. Text, one thing a line, no name repeated:
 
 The arcs of a row: polygon -- rings split by ";" (the outer one first), polygons by "|"; line -- lines split by ";";
 an arc is its index in @arcs, -1 - index when it is followed backwards (TopoJSON's ~index).
+
+A file made partly of another's lines (bio.txt, history.txt -- of world.txt's) says so: "uses world"; an arc of it may
+then take a stretch of one of world.txt's: in its line "dw:k:dk" -- points k to k + dk of world's arc w (backwards when
+dk < 0), w the last such stretch's (in the file, from 0) plus dw -- and the steps after it go on from its last point
+(as do those of a line that starts with one).
 index.html reads it back into the topology the page draws (the map loads only these, never full/*.topo.json).
 """
 import os, sys, csv, io, json, heapq, collections
@@ -33,6 +38,10 @@ import numpy as np
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 FILES = ["world", "rivers", "transport", "bio", "history"]
+APART = {"transport": ["pipelines"]}     # (objects in a file of their own, with only their arcs: the page loads it when shown)
+SHARE = ["bio", "history"]               # (their lines run much of their way along the world's -- its coast, lake shores,
+                                         #  borders: those stretches they take from world.txt's points, see share())
+MIN_REF = 2                              # (a stretch of fewer of world.txt's points is cheaper written out)
 GROUP = {"rivers": "river", "motorways": "network", "railways": "network", "pipelines": "network"}   # (pieces of one thing)
 KM_LAT = 110.57
 
@@ -171,6 +180,73 @@ def write_object(name, o):
             f"@{name}.pieces\n" + table(pieces, [gk] + differ + ["arcs"], types))
 
 
+def renumber(objects, arc_lines):
+    """the objects with only the arcs they use, numbered afresh -> (objects, arc lines)"""
+    used = set()
+    def walk(a):
+        for x in a:
+            if isinstance(x, list): walk(x)
+            else: used.add(x if x >= 0 else ~x)
+    for o in objects.values():
+        for g in o["geometries"]:
+            walk(g.get("arcs") or [])
+    old = sorted(used); new = {k: i for i, k in enumerate(old)}
+    def remap(a): return [remap(x) if isinstance(x, list) else (new[x] if x >= 0 else ~new[~x]) for x in a]
+    objects = {k: {**o, "geometries": [{**g, "arcs": remap(g["arcs"])} if g.get("arcs") is not None else g for g in o["geometries"]]}
+               for k, o in objects.items()}
+    return objects, [arc_lines[k] for k in old]
+
+
+def load(name):
+    """full/NAME.topo.json, its arcs as absolute grid points (numpy) -> the topology, or None"""
+    src = os.path.join(ROOT, "full", name + ".topo.json")
+    if not os.path.exists(src):
+        return None
+    t = json.load(open(src))
+    t["arcs"] = [np.cumsum(np.array(a, dtype=np.int64), axis=0) for a in t["arcs"]]
+    return t
+
+
+def share(base, kept, t):
+    """THE SHARED STRETCHES: where an arc of t runs point for point along one of base's (the coast, a lake's shore, a
+    border), it takes that stretch from base's light points (kept: the indices lighten() kept of each of its arcs) --
+    one line, the two maps meet. -> for each arc of t its stretches (i, j, w, a0, a1): its points i to j are base's arc
+    w's, of which the light ones a0 to a1"""
+    BT = [list(map(tuple, a.tolist())) for a in base["arcs"]]
+    at = collections.defaultdict(list)
+    for w, a in enumerate(BT):
+        for k, p in enumerate(a):
+            at[p].append((w, k))
+    out, n_runs, n_pts = [], 0, 0
+    for a in t["arcs"]:
+        P = list(map(tuple, a.tolist())); n = len(P); i = 0; rs = []
+        while i < n - 1:
+            best = None
+            for w, k in at.get(P[i], ()):
+                bw = BT[w]
+                for d in (1, -1):
+                    j, kk = i, k
+                    while j + 1 < n and 0 <= kk + d < len(bw) and P[j + 1] == bw[kk + d]:
+                        j += 1; kk += d
+                    if j > i and (best is None or j > best[1]):
+                        best = (i, j, w, k, kk)
+            if best is None:
+                i += 1
+                continue
+            i, j, w, k0, k1 = best
+            K = kept[w]
+            if k0 < k1:
+                a0, a1 = np.searchsorted(K, k0), np.searchsorted(K, k1, "right") - 1
+            else:
+                a0, a1 = np.searchsorted(K, k0, "right") - 1, np.searchsorted(K, k1)
+            if (int(a1) - int(a0)) * (1 if k0 < k1 else -1) + 1 >= MIN_REF:     # (how many of its light points)
+                rs.append((i, j, w, int(a0), int(a1))); n_runs += 1; n_pts += j - i + 1
+            i = j
+        out.append(rs)
+    print(f"{n_runs:,} stretches ({n_pts:,} points) along {base.get('name', 'world')}'s lines", flush=True)
+    return out
+
+
 def river_ends():
     """the grid points where the rivers end (full/rivers.topo.json): a mouth is also a point of the coast
     (build/rivernet.py), kept there so river and coast still meet"""
@@ -184,36 +260,75 @@ def river_ends():
     return ends
 
 
-def lighten(name, height_km, tri_km2):
+def lighten(name, height_km, tri_km2, base=None):
+    """full/NAME.topo.json -> data/lite/NAME.txt; base: (its name, its topology, the indices kept of its arcs) when NAME
+    takes stretches of it (share()) -> the indices kept of each arc"""
     src = os.path.join(ROOT, "full", name + ".topo.json")
-    if not os.path.exists(src):
-        return
-    t = json.load(open(src))
+    t = load(name)
+    if t is None:
+        return None
     scale, translate = t["transform"]["scale"], t["transform"]["translate"]
     sc, tr = np.array(scale), np.array(translate)
     before = after = 0
     lines = []
     mouths = river_ends() if name == "world" else set()
-    for arc in t["arcs"]:
-        q = np.cumsum(np.array(arc, dtype=np.int64), axis=0)
+    stretches = share(base[1], base[2], t) if base else [[] for _ in t["arcs"]]
+    kept, last_w = [], 0
+    for q, rs in zip(t["arcs"], stretches):
         k = keep_points(q * sc + tr, height_km, tri_km2, np.array([tuple(p) in mouths for p in q.tolist()]) if mouths else None)
-        q = q[k]
-        d = np.vstack((q[:1], np.diff(q, axis=0)))
-        lines.append(" ".join(str(int(v)) for v in d.ravel()))
-        before += len(arc); after += len(k)
-    out = [f"# {name}: a light copy of data/{name}.topo.json (build/lite.py: points off by less than {height_km:g} km and in "
-           f"triangles under {tri_km2:g} km2 left out; the format: build/lite.py)",
-           f"grid {scale[0]:g} {translate[0]:g} {translate[1]:g}", "@arcs", *lines]
-    text = "\n".join(out) + "\n" + "".join(write_object(k, o) for k, o in t["objects"].items())
+        before += len(q)
+        if not rs:
+            kept.append(k); after += len(k)
+            q = q[k]
+            d = np.vstack((q[:1], np.diff(q, axis=0)))
+            lines.append(" ".join(str(int(v)) for v in d.ravel()))
+            continue
+        toks, last, pos = [], None, 0                     # (its own points between the stretches, lightened apart: from
+        light = lambda w, a: base[1]["arcs"][w][base[2][w][a]]    #  where the last stretch left the world's light line to
+        def own(seg, upto):                                       #  where the next joins it; its ends exact)
+            nonlocal last, after
+            pts = seg[keep_points(seg * sc + tr, height_km, tri_km2)].tolist()
+            for p in pts[:len(pts) - (not upto)]:
+                if last is None:
+                    toks.append(f"{p[0]} {p[1]}")
+                elif p != last:
+                    toks.append(f"{p[0] - last[0]} {p[1] - last[1]}")
+                else:
+                    continue
+                last = p; after += 1
+        start = q[:1]
+        for i, j, w, a0, a1 in rs:
+            own(np.vstack((start, q[pos + 1:i], light(w, a0)[None])) if i else start, not i)
+            toks.append(f"{w - last_w}:{a0}:{a1 - a0}"); last, last_w = light(w, a1).tolist(), w
+            pos, start = j, light(w, a1)[None]
+        own(np.vstack((start, q[pos + 1:] if pos < len(q) - 1 else q[-1:])), True)
+        kept.append(None)
+        lines.append(" ".join(toks))
+    apart = APART.get(name, [])
+    files = [(name, {k: o for k, o in t["objects"].items() if k not in apart})] + [(k, {k: t["objects"][k]}) for k in apart if k in t["objects"]]
     os.makedirs(os.path.join(ROOT, "data/lite"), exist_ok=True)
-    dest = os.path.join(ROOT, "data/lite", name + ".txt")
-    open(dest, "w", encoding="utf-8").write(text)
-    print(f"{dest}: {before:,} -> {after:,} points ({100 * after / before:.0f} %), "
-          f"{os.path.getsize(src) / 2**20:.1f} -> {os.path.getsize(dest) / 2**20:.1f} MB", flush=True)
+    for fname, objects in files:
+        arcs = lines
+        if apart:
+            objects, arcs = renumber(objects, lines)
+        what = f"a light copy of data/{name}.topo.json" + (f" ({', '.join(objects)})" if apart else "")
+        out = [f"# {fname}: {what} (build/lite.py: points off by less than {height_km:g} km and in "
+               f"triangles under {tri_km2:g} km2 left out; the format: build/lite.py)",
+               f"grid {scale[0]:g} {translate[0]:g} {translate[1]:g}", *([f"uses {base[0]}"] if base else []),
+               "@arcs", *arcs]
+        text = "\n".join(out) + "\n" + "".join(write_object(k, o) for k, o in objects.items())
+        dest = os.path.join(ROOT, "data/lite", fname + ".txt")
+        open(dest, "w", encoding="utf-8").write(text)
+        print(f"{dest}: {len(arcs):,} arcs, {os.path.getsize(dest) / 2**20:.1f} MB", flush=True)
+    print(f"{name}: {before:,} -> {after:,} points ({100 * after / before:.0f} %), {os.path.getsize(src) / 2**20:.1f} MB before", flush=True)
+    return t, kept
 
 
 if __name__ == "__main__":
     h = float(sys.argv[1]) if len(sys.argv) > 1 else 1.0
     a = float(sys.argv[2]) if len(sys.argv) > 2 else 25.0
+    world = None
     for f in FILES:
-        lighten(f, h, a)
+        r = lighten(f, h, a, ("world", *world) if f in SHARE and world else None)
+        if f == "world":
+            world = r

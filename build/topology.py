@@ -37,9 +37,45 @@ def log(*a):
 
 
 # ---- the divisions: who is who, and their areas (to label the faces) ---------------------------------------------
+def region_countries(con):
+    """the countries drawn with their states (config: a federation, or divisions big enough and not too few, or many
+    people) -> [ISO 3166-1 alpha-2]"""
+    sizes = collections.defaultdict(list)
+    rel = con.execute(f"SELECT country, ST_AsWKB(geometry) FROM '{AREA}' WHERE subtype = 'region' AND class = 'land'")
+    while rows := rel.fetchmany(50):
+        for cc, w in rows:
+            sizes[cc].append(sum(abs(geo.ring_area_km2(shapely.get_coordinates(p.exterior)))
+                                 - sum(abs(geo.ring_area_km2(shapely.get_coordinates(r))) for r in p.interiors)
+                                 for p in shapely.get_parts(shapely.simplify(shapely.from_wkb(w), 0.01))))
+    people = populations(sorted(sizes))
+    pick, why = [], collections.Counter()
+    for cc, a in sorted(sizes.items()):
+        if cc in config.NO_STATES:
+            continue
+        reason = ("federal" if cc in config.FEDERAL else
+                  "big" if len(a) >= config.MIN_STATES and sum(a) / len(a) >= config.MIN_STATE_KM2 else
+                  "people" if people.get(cc, 0) >= config.MIN_STATES_PEOPLE else None)
+        if reason:
+            pick.append(cc); why[reason] += 1
+    log(len(pick), "of", len(sizes), "countries drawn with their states:", dict(why), " ".join(pick))
+    return pick
+
+
+def populations(codes):
+    """{ISO 3166-1 alpha-2: Wikidata's latest population of the item with that code} (as build/write.py has them)"""
+    import wdnames
+    from points import wd_population
+    items = collections.defaultdict(list)
+    vals = " ".join(f'"{c}"' for c in codes)
+    for b in wdnames.sparql(f"SELECT ?item ?code WHERE {{ VALUES ?code {{ {vals} }} ?item wdt:P297 ?code . }}"):
+        items[b["code"]["value"]].append(b["item"]["value"].rsplit("/", 1)[-1])
+    pops = wd_population(sorted({q for qs in items.values() for q in qs}))
+    return {c: max(pops[q][0] for q in qs if pops.get(q)) for c, qs in items.items() if any(pops.get(q) for q in qs)}
+
+
 def divisions(con):
     rel = con.execute(f"""SELECT division_id, subtype, class, country, region, names.primary, names.common['en'], ST_AsWKB(geometry)
-                          FROM '{AREA}' WHERE subtype IN ('country', 'dependency') OR (subtype = 'region' AND country IN ({",".join(f"'{c}'" for c in config.REGION_COUNTRIES)}))""")
+                          FROM '{AREA}' WHERE subtype IN ('country', 'dependency') OR (subtype = 'region' AND country IN ({",".join(f"'{c}'" for c in region_countries(con))}))""")
     info, geoms, cls_of = {}, {}, {}
     while True:
         rows = rel.fetchmany(20)

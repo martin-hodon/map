@@ -26,26 +26,36 @@
   #swatches span { display: inline-flex; align-items: center; gap: 4px; margin: 0 10px 4px 0; font-size: 12px; }
   #swatches i { width: 14px; height: 14px; border-radius: 3px; border: 1px solid #0003; display: inline-block; }
   #filter { width: 260px; max-width: 100%; box-sizing: border-box; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px; font: inherit; }
-  #grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; margin-top: 10px; }
-  #grid button { all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; border-radius: 8px; text-align: center; font-size: 11.5px; line-height: 1.25; }
-  #grid button:hover, #grid button:focus-visible { background: var(--panel); outline: 1px solid var(--line); }
-  #grid .pic { height: 58px; display: flex; align-items: center; } #grid svg { filter: drop-shadow(0 1px 1.5px #0003); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; margin-top: 10px; }
+  .grid button { all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; border-radius: 8px; text-align: center; font-size: 11.5px; line-height: 1.25; }
+  .grid button:hover, .grid button:focus-visible { background: var(--panel); outline: 1px solid var(--line); }
+  .grid .pic { height: 58px; display: flex; align-items: center; } .grid svg { filter: drop-shadow(0 1px 1.5px #0003); }
   .motif svg, .motif canvas { background: #5b6b7c; border-radius: 4px; }
-  #grid b { font-weight: 600; } #grid .code { color: var(--dim); font-size: 10.5px; }
+  .grid b { font-weight: 600; } .grid .code, .grid .used { color: var(--dim); font-size: 10.5px; }
+  .grid .used { font-style: italic; }
+  section h2 .dim { font-weight: 400; } section > .dim { font-size: 12.5px; margin: -4px 0 0; }
+  #cur { margin: 0 0 8px; font-size: 16px; } #cur .dim { font-size: 12.5px; margin-left: 6px; }
+  #rel { font-size: 12.5px; margin-top: 6px; } #rel > div { margin-top: 8px; }
+  #rel .tiles { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; max-height: 236px; overflow-y: auto; }
+  #rel a { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 52px; padding: 4px; border-radius: 6px; text-decoration: none; font-size: 10.5px; color: var(--dim); }
+  #rel a:hover, #rel a:focus-visible { background: var(--bg); color: var(--hi); outline: 1px solid var(--line); }
+  #rel .pic { height: 38px; display: flex; align-items: center; } #rel svg { filter: drop-shadow(0 1px 1px #0003); }
   #errors { color: var(--err); font-size: 13px; }
 </style>
 </head>
 <body>
 <main>
   <h1>Flags and coats of arms, written as text</h1>
-  <div class="dim">The definitions are in <code>data/flags.txt</code> and the engine is <code>flags.js</code>. The map uses them in its info panel and its flag game. Click any flag below to open it in the editor.</div>
+  <div class="dim">The definitions are in <code>data/flags.txt</code> and the engine is <code>flags.js</code>. The map uses them in its info panel and its flag game. Click any of them below to open it in the editor, with what it uses and what uses it.</div>
 
   <h2>Try one</h2>
   <div id="edit">
     <div>
+      <div id="cur"><span class="dim" style="margin:0">Your own: type a definition, or pick one below</span></div>
       <textarea id="src" spellcheck="false" aria-label="A flag definition">blue | white | red</textarea>
       <div id="msg"></div>
-      <div class="dim" style="font-size:12.5px">e.g. <code>[3:5] black / red / gold</code> · <code>white + red disc size 0.6</code> · <code>red + white nordic</code> ·
+      <div id="rel"></div>
+      <div class="dim" style="font-size:12.5px;margin-top:10px">e.g. <code>[3:5] black / red / gold</code> · <code>white + red disc size 0.6</code> · <code>red + white nordic</code> ·
         <code>[shield] quarterly(@castile, @leon, @aragon, @navarre)</code> · <code>@ES</code> (another flag, by its code)</div>
     </div>
     <div id="out"></div>
@@ -59,24 +69,29 @@
       <tr><td><code>b*2</code></td><td>a band's share, 1 by default (Spain: <code>red / gold*2 / red</code>)</td></tr>
       <tr><td><code>( … )</code></td><td>a part that is a whole flag of its own: <code>white | (red / green)*2</code> (Madagascar). It can carry its own charges, centred in it and kept inside it: <code>(crimson + gold castle size 0.5) | white</code> (Castile-La Mancha), <code>(blue + gold crown at 0.25,0.5) / red</code> (Liechtenstein); there <code>at</code> and <code>size</code> are shares of that part</td></tr>
       <tr><td><code>[h:w]</code> <code>[shield]</code></td><td>at the very start: the ratio, height to width (2:3 by default; Switzerland <code>[1:1]</code>), or a shape: <code>[shield]</code> for a coat of arms, <code>[pennant]</code> (Nepal), <code>[round]</code></td></tr>
-      <tr><td><code>+ … + …</code></td><td>a motif: a definition that is only charges, with no field (it starts with <code>+</code>), reused by others as one charge: <code>southern-cross: [1:1] + star size 0.14 at 0.5,0.17 + …</code>, then <code>navy + @southern-cross points 7 at 0.75,0.5</code>. Placed like any charge, <code>size</code> 1 (the field's height) unless given; its charges that name no colour take the one it is given (<code>+ gold @southern-cross</code>), its stars that name no <code>points</code> those it is given</td></tr>
+      <tr><td><code>+ … + …</code></td><td>a motif: a definition that is only charges, with no field (it starts with <code>+</code>), reused by others as one charge: <code>southern-cross: [1:1] + star size 0.14 at 0.5,0.17 + …</code>, then <code>navy + @southern-cross points 7 at 0.75,0.5</code>. Placed like any charge, <code>size</code> 1 (the field's height) unless given, <code>rot</code> turning it about its centre and <code>flip</code> mirroring it (Hong Kong is one petal, <code>@hk-petal</code>, five times: <code>+ white @hk-petal rot 72</code> …); its charges that name no colour take the one it is given (<code>+ gold @southern-cross</code>), its stars that name no <code>points</code> those it is given</td></tr>
       <tr><td><code>@CODE</code></td><td>another definition, as a field (each quarter of a coat of arms can be a flag) or as a charge (<code>+ @ES-arms size 0.4</code>, drawn in its own shape)</td></tr>
       <tr><td><code>+ charge</code></td><td>something drawn over the field, in order: <code>+ red disc</code>. A charge starts with its colour (white if none is given; two for <code>taegeuk</code> and <code>sun</code>)</td></tr>
-      <tr><td>divisions</td><td><code>quarterly(a, b, c, d)</code> · <code>up(a, b)</code> (split by a line rising to the fly's top corner: <code>a</code> above it) · <code>down(a, b)</code> (a line falling to the fly's bottom corner) · <code>x(top, fly, bottom, hoist)</code> (split by both diagonals) · <code>stripes(13, red, white)</code> · <code>pales(9, gold, red)</code> · <code>checky(5, 5, red, white)</code> · <code>lozengy(4, 9, white, blue)</code> (diamonds: Bavaria)</td></tr>
+      <tr><td>divisions</td><td><code>quarterly(a, b, c, d)</code> · <code>up(a, b)</code> (split by a line rising to the fly's top corner: <code>a</code> above it) · <code>down(a, b)</code> (a line falling to the fly's bottom corner) · <code>x(top, fly, bottom, hoist)</code> (split by both diagonals) · <code>stripes(13, red, white)</code> · <code>pales(9, gold, red)</code> · <code>checky(5, 5, red, white)</code> (the second part charges alone makes a semé, them in every other square: <code>checky(7, 6, blue, (+ gold fleur size 0.8))</code>, France ancient) · <code>lozengy(4, 9, white, blue)</code> (diamonds, <code>r</code> rows and <code>c</code> columns; a fifth number turns them by that many degrees about the top of the hoist, the rows and columns then any numbers: Bavaria's bendwise <code>lozengy(2.75, 2.2, white, cerulean, 39)</code>)</td></tr>
       <tr><td>lines</td><td><code>cross</code> · <code>nordic</code> (off to the hoist) · <code>saltire</code> · <code>band</code> (across) · <code>pale</code> (down) · <code>bend</code> (top left to bottom right) · <code>rise</code> (bottom left to top right) · <code>pall</code> (a Y on its side) · <code>border</code> · <code>wave</code> (across, <code>n</code> waves of height <code>r</code>: Kiribati). <code>w</code> is a line's width as a share of the height</td></tr>
-      <tr><td>shapes</td><td><code>disc</code> <code>ring</code> <code>star</code> (<code>points 7</code>) <code>stars 12</code> <code>crescent</code> (<code>k</code>, <code>d</code>) <code>plus</code> <code>square</code> <code>diamond</code> <code>triangle</code> (from the hoist; <code>flip</code>: from the fly) <code>sun</code> (<code>n</code> rays) <code>wheel</code> <code>taegeuk</code> <code>script</code> (writing, as a mere impression) <code>triskele</code> (three legs) <code>trigram 101</code> (three bars from the top, 1 whole, 0 broken: Korea) <code>poly x,y x,y …</code> (corners, as shares of the width and height; more outlines after <code>/</code>, where they overlap a hole: <code>poly … / …</code>)</td></tr>
-      <tr><td>emblems</td><td><code>eagle</code> <code>eagle2</code> (two heads) <code>lion</code> <code>castle</code> <code>tower</code> <code>fleur</code> <code>crown</code> <code>tree</code> <code>maple</code> <code>bird</code> <code>dragon</code> <code>bear</code> <code>harp</code> <code>trident</code> <code>horse</code> <code>shieldform</code>: simple outlines, with no detail (the lion, which many arms share, a little more: rampant, traced from Scotland's Royal Banner, its mane and inner lines cut out). Busier emblems are motifs traced from the flags' own drawings and simplified, in their colours: <code>@druk</code> (Bhutan's dragon), <code>@mx-arms</code>, <code>@sisserou</code> (Dominica's parrot), <code>@frigatebird</code>, <code>@tm-guls</code>…</td></tr>
+      <tr><td>shapes</td><td><code>disc</code> <code>ring</code> <code>star</code> (<code>points 7</code>) <code>stars 12</code> <code>crescent</code> (<code>k</code>, <code>d</code>) <code>plus</code> <code>square</code> <code>diamond</code> <code>triangle</code> (from the hoist; <code>flip</code>: from the fly) <code>sun</code> (<code>n</code> rays) <code>wheel</code> <code>taegeuk</code> <code>script</code> (writing, as a mere impression) <code>triskele</code> (three legs) <code>trigram 101</code> (three bars from the top, 1 whole, 0 broken: Korea) <code>poly x,y x,y …</code> (corners, as shares of the width and height; more outlines after <code>/</code>, where they overlap a hole: <code>poly … / …</code>) · <code>branch</code> (a stalk <code>from x,y to x,y</code>, bowed by <code>span</code> degrees, to the right of the way from <code>from</code> to <code>to</code> — minus, the left — with <code>n</code> pairs of leaves and one at its tip, all alike: <code>size</code> a leaf's length, <code>k</code> its width (of the length), <code>rot</code> its angle off the stalk (40), <code>w</code> the stalk's width; Cyprus's olive branches, Eritrea's wreath)</td></tr>
+      <tr><td>emblems</td><td><code>lion</code> (rampant) <code>eagle</code> (Germany's) <code>eagle2</code> (two heads: Albania's) <code>eagle-at</code> (Austria's) <code>eagle-ru</code> (Russia's) <code>eagle-pl</code> with <code>eagle-pl-gold</code> (Poland's: <code>@polish-eagle</code>) <code>bear</code> (Berlin's) <code>horse</code> (Lower Saxony's) <code>harp</code> with <code>harp-strings</code> (<code>@irish-harp</code>): traced from the arms' own drawings, simplified, their inner lines cut out; and plain outlines: <code>castle</code> <code>tower</code> <code>fleur</code> <code>crown</code> <code>tree</code> <code>maple</code> <code>bird</code> <code>dragon</code> <code>trident</code> <code>shieldform</code>. Busier emblems are motifs traced from the flags' own drawings and simplified, in their colours: <code>@druk</code> (Bhutan's dragon), <code>@mx-arms</code>, <code>@sisserou</code> (Dominica's parrot), <code>@frigatebird</code>, <code>@tm-guls</code>, <code>@sa-shahada</code>… A definition is kept under 5,000 characters (longer ones are reported): built of the parts above where it can be — a ring of stars is <code>stars 12 r 0.33</code>, not twelve stars placed one by one — and traced only roughly where it can't</td></tr>
       <tr><td>fields as charges</td><td><code>canton( … )</code> (the top-left corner, <code>size w,h</code>), <code>box( … )</code>, <code>shield( … )</code>, <code>circle( … )</code>: a smaller flag drawn inside</td></tr>
       <tr><td>modifiers</td><td><code>at x,y</code> (the centre, as shares of the width and height) · <code>size s</code> (a share of the height) or <code>size w,h</code> (shares of the width and height) · <code>rot 30</code> (degrees) · <code>flip</code> <code>flipv</code> (mirror) · <code>outline</code> (the shape as lines <code>w</code> wide; a star as its line star: Morocco, Israel) · for <code>stars</code>: <code>ring</code> with <code>r</code>, <code>row</code>, <code>from x,y to x,y</code>, <code>arc</code> with <code>r</code> and <code>span</code>, <code>grid rows,cols</code></td></tr>
       <tr><td>colours</td><td>by name, each the usual shade on flags (near enough, not exact), or <code>#rrggbb</code>:<div id="swatches"></div></td></tr>
-      <tr><td>the file</td><td><code>CODE Name: definition</code>, one per line (<code>FR France: blue | white | red</code>; the name is optional). Codes are ISO 3166 codes for countries (<code>FR</code>) and states (<code>DE-BY</code>), <code>CODE-arms</code> for a coat of arms, or any word for a part used by others (<code>castile</code>). A line that starts with a space continues the previous one. <code>#</code> followed by a space starts a comment (<code>#c8102e</code> stays a colour)</td></tr>
+      <tr><td>the file</td><td><code>CODE Name: definition</code>, one per line (<code>FR France: blue | white | red</code>; the name is optional). Codes are ISO 3166 codes for countries (<code>FR</code>) and states (<code>DE-BY</code>), <code>CODE-arms</code> for a coat of arms, <code>h365</code> for a state of the historical map (its id there) and <code>h365.1923-11-12</code> for its flag from that day on (the latest not after the day shown counts; a year alone is its first day), or any word for a part used by others (<code>castile</code>). The definition <code>-</code> is no flag (<code>h255.1935-09-15 Germany 1935-45: -</code>: none drawn from that day). A line that starts with a space continues the previous one. <code>#</code> followed by a space starts a comment (<code>#c8102e</code> stays a colour)</td></tr>
     </table>
   </details>
 
   <h2>All definitions <span class="dim" id="count"></span></h2>
   <input id="filter" type="search" placeholder="Filter by code or name" aria-label="Filter">
   <div id="errors"></div>
-  <div id="grid"></div>
+  <section><h2>Components <span class="dim" data-n="parts"></span></h2>
+    <div class="dim">The emblems built into <code>flags.js</code> (by name: <code>+ gold lion</code>) and the parts and motifs of the file (by code: <code>@castile</code>), with what uses each</div>
+    <div class="grid" id="g-parts"></div></section>
+  <section><h2>Coats of arms <span class="dim" data-n="arms"></span></h2><div class="grid" id="g-arms"></div></section>
+  <section><h2>Flags <span class="dim" data-n="flags"></span></h2><div class="dim">Countries and dependencies, then states</div><div class="grid" id="g-flags"></div></section>
+  <section><h2>Historical flags <span class="dim" data-n="hist"></span></h2><div class="dim">The historical map's states: <code>h365</code>, then <code>h365.1923-11-12</code> from that day on</div><div class="grid" id="g-hist"></div></section>
 </main>
 <script src="flags.js"></script>
 <script>
@@ -96,35 +111,72 @@ function preview() {
     msg.className = ""; msg.textContent = def.shape === "shield" ? "a coat of arms" : `ratio ${+(def.ratio).toFixed(3)} (height:width)`;
   } catch (e) { msg.className = "no"; msg.textContent = e.message; }
 }
-$("src").addEventListener("input", preview);
+$("src").addEventListener("input", () => { preview(); $("rel").innerHTML = ""; if (current) title(current, true); });
+addEventListener("hashchange", () => { const c = decodeURIComponent(location.hash.slice(1)); if (lib.has(c) || isEmblem(c)) { show(c); scrollTo({ top: 0, behavior: "smooth" }); } });
 
+// what each definition uses (others by @code, the built-in emblems by name) and, turned round, what uses each
+let uses = new Map(), usedBy = new Map();
+const EMBLEM = Flags.emblems, emblemRe = new RegExp(`(?<![\\w@.-])(${EMBLEM.map((e) => e.replace(/-/g, "\\-")).sort((a, b) => b.length - a.length).join("|")})(?![\\w-])`, "g");
+function relations() {
+  uses = new Map(); usedBy = new Map();
+  for (const c of lib.codes) {
+    const s = lib.source(c), u = new Set([...s.matchAll(/@([A-Za-z_][\w.-]*[\w])/g)].map((m) => m[1]).filter((x) => lib.has(x)));
+    for (const m of s.matchAll(emblemRe)) u.add(m[1]);
+    uses.set(c, [...u]);
+    for (const x of u) { if (!usedBy.has(x)) usedBy.set(x, []); usedBy.get(x).push(c); }
+  }
+}
+const isEmblem = (c) => !lib.has(c) && EMBLEM.includes(c);
+const sourceOf = (c) => isEmblem(c) ? `[1:1] + white ${c} size 1` : lib.source(c);
+const kindOf = (c) => isEmblem(c) || (/^[a-z]/.test(c) && !/^h\d/.test(c)) ? "parts" : /^h\d/.test(c) ? "hist" : /-arms$/.test(c) || lib.shape(c) === "shield" ? "arms" : "flags";
+const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+const KIND = { parts: "component", arms: "coat of arms", flags: "flag", hist: "historical flag" };
+// a small picture of one (h high: a shield a little higher, a wide one -- a sword, a bird -- no wider than 2.4 h), and if it is a motif
+function picture(code, h) {
+  try { const def = Flags.parse(sourceOf(code)); return { svg: lib.render(def, { height: Math.min(def.shape === "shield" ? h * 1.26 : h, 2.4 * h * def.ratio) }), motif: def.motif }; }
+  catch (e) { return { svg: `<span style="color:var(--err)">${esc(e.message)}</span>`, motif: false }; }
+}
+let current = "";                                                  // (the one shown: its name over the editor, and in the tab's title)
+function title(code, edited) {
+  const name = lib.names.get(code) || "", what = isEmblem(code) ? "built-in emblem" : KIND[kindOf(code)];
+  $("cur").innerHTML = `<b>${esc(name || code)}</b><span class="dim">${name ? esc(code) + " · " : ""}${what}${edited ? " · edited" : ""}</span>`;
+  document.title = `${name || code} · Flags and arms`;
+}
+function rel(code) {                                              // (under the editor: what the one shown uses, what uses it, each drawn and a link)
+  const tile = (c) => { const p = picture(c, 30);
+    return `<a href="#${encodeURIComponent(c)}" title="${esc(lib.names.get(c) || (isEmblem(c) ? "built-in emblem" : c))}"><span class="pic${p.motif ? " motif" : ""}">${p.svg}</span>${esc(c)}</a>`; };
+  const u = uses.get(code) || [], by = usedBy.get(code) || [];
+  $("rel").innerHTML = !code ? "" : (u.length ? `<div><span class="dim">uses ${u.length}:</span><div class="tiles">${u.map(tile).join("")}</div></div>` : "") +
+    (by.length ? `<div><span class="dim">used by ${by.length}:</span><div class="tiles">${by.map(tile).join("")}</div></div>` : `<div class="dim">used by nothing else</div>`);
+}
+function show(code) { current = code; $("src").value = sourceOf(code); preview(); title(code); rel(code); }
 function gallery() {
-  const q = $("filter").value.trim().toLowerCase(), grid = $("grid");
-  grid.innerHTML = "";
-  let n = 0;
-  for (const code of lib.codes) {
+  const q = $("filter").value.trim().toLowerCase(), n = { parts: 0, arms: 0, flags: 0, hist: 0 };
+  for (const k in n) $("g-" + k).innerHTML = "";
+  for (const code of [...EMBLEM, ...lib.codes]) {
     const name = lib.names.get(code) || "";
     if (q && !code.toLowerCase().includes(q) && !name.toLowerCase().includes(q)) continue;
-    n++;
-    const b = document.createElement("button");
-    let pic;
-    try { pic = lib.svg(code, { height: lib.shape(code) === "shield" ? 58 : 46 }); } catch (e) { pic = `<span style="color:var(--err)">${e.message}</span>`; }
-    b.innerHTML = `<span class="pic${lib.has(code) && lib.motif(code) ? " motif" : ""}">${pic}</span><b></b><span class="code"></span>`;
-    b.querySelector("b").textContent = name || code; b.querySelector(".code").textContent = name ? code : "";
-    b.title = `${code}: ${lib.source(code)}`;
-    b.onclick = () => { $("src").value = lib.source(code); preview(); scrollTo({ top: 0, behavior: "smooth" }); };
-    grid.append(b);
+    const kind = kindOf(code); n[kind]++;
+    const b = document.createElement("button"), by = usedBy.get(code) || [];
+    const p = picture(code, 46);
+    b.innerHTML = `<span class="pic${p.motif ? " motif" : ""}">${p.svg}</span><b></b><span class="code"></span>${by.length ? `<span class="used">used by ${by.length}</span>` : ""}`;
+    b.querySelector("b").textContent = name || code; b.querySelector(".code").textContent = name ? code : isEmblem(code) ? "built-in emblem" : "";
+    b.title = `${code}: ${sourceOf(code)}`;
+    b.onclick = () => { history.replaceState(null, "", "#" + encodeURIComponent(code)); show(code); scrollTo({ top: 0, behavior: "smooth" }); };
+    $("g-" + kind).append(b);
   }
-  $("count").textContent = `· ${n} of ${lib.codes.length}`;
+  for (const k in n) { document.querySelector(`[data-n="${k}"]`).textContent = `· ${n[k]}`; $("g-" + k).closest("section").hidden = !n[k]; }
+  $("count").textContent = `· ${Object.values(n).reduce((a, b) => a + b)} of ${lib.codes.length + EMBLEM.length}`;
 }
 $("filter").addEventListener("input", gallery);
 
 fetch("data/flags.txt").then((r) => r.text()).then((t) => {
   lib = Flags.library(t);
   $("errors").textContent = lib.errors.map((e) => `line ${e.line}${e.code ? " (" + e.code + ")" : ""}: ${e.msg}`).join(" · ");
+  relations();
   const want = decodeURIComponent(location.hash.slice(1));
-  if (want && lib.has(want)) $("src").value = lib.source(want);
-  preview(); gallery();
+  if (want && (lib.has(want) || isEmblem(want))) show(want); else preview();
+  gallery();
 }).catch(() => { $("errors").textContent = "data/flags.txt could not be read (open this page over http)."; preview(); });
 </script>
 </body>

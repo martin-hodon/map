@@ -6,9 +6,9 @@ applied, so any projection can draw it. `index.html` shows it in nine projection
 
 | # | layer | file · object | what |
 |---|---|---|---|
-| 1 | geographical | `full/world.topo.json` · `land`, `coastline`, `lakes` | every landmass and island of 1 km² or more, the coast as lines, lakes of 100 km² or more |
+| 1 | geographical | `full/world.topo.json` · `land`, `coastline`, `lakes` | every landmass and island of 1 km² or more, the coast as lines, lakes of 45 km² or more (Ammersee and up) |
 | 2 | national borders | `full/world.topo.json` · `countries`, `country_borders` | countries and dependencies as polygons, which reuse the coast, with `population` (Wikidata's latest, by ISO 3166-1 code, two significant digits), `area_km2`, `density`, `language` (`language_code`), `color` (0-6, no two neighbours alike), `label` (a point well inside: where its name is written) and `continent` (the continent area of layer 7 its label lies in, else the nearest); the land borders as lines (`a`, `b`, `disputed`) |
-| 3 | subnational | `full/world.topo.json` · `regions`, `region_borders` | states / provinces (ISO 3166-2) of the big and federal countries (`build/config.py` `REGION_COUNTRIES`), with `population` (by ISO 3166-2 code), `area_km2`, `density`, `language`, `label`, `continent` (its own: Russia's European oblasts are in Europe) |
+| 3 | subnational | `full/world.topo.json` · `regions`, `region_borders` | states / provinces (ISO 3166-2) of the federations, of the countries whose divisions are big enough to see (8,500 km² on average -- Denmark's and Greece's are about the smallest -- two or more), and of those of 40 million people or more (`build/config.py`; `build/topology.py` picks them), with `population` (by ISO 3166-2 code), `area_km2`, `density`, `language`, `label`, `continent` (its own: Russia's European oblasts are in Europe) |
 | 4 | rivers | `full/rivers.topo.json` · `rivers` | each river that is 50 m wide somewhere, from its source down to its end, as one line (or more at forks), 50 km or longer, big or known to Wikipedia: name (English), Wikidata id, width (median and max), `river` (its id), `river_km`, `wikipedias` |
 | 5 | monuments | `data/monuments.csv` | castles, palaces, cathedrals, temples, ruins, monuments, bridges, dams, national parks, waterfalls… with 100,000+ visitors a year, or well known (written about in enough Wikipedias -- 15+ for a castle, 12+ a bridge, 10+ a dam or a World Heritage Site, 40+ a church: `build/fetch_points.py` FAMOUS; not a name that is only a number, the Valley of the Kings' KV1 to KV63, nor a city's own item -- Wikidata's Athens is an archaeological site too -- nor a place twice: "Pompeii" and "archaeological excavations of Pompeii" are one, the village "Devín" goes for "Devín Castle"), one a line under a header: `name`, `lon`, `lat`, `kind`, `level` (1: 2 million visitors a year or more, 2: 500,000, 3: fewer -- one without a count by its Wikipedias: 80+, 40+, fewer), `visitors`, `visitors_year`, `country`, `region`, `name_local`, `wikidata`, `osm` |
 | 6 | cities | `data/cities.csv` | cities of 100,000+ people (70,000+ in Europe: by the state's continent, so European Russia and Istanbul too) and every capital, one a line under a header: `name`, `lon`, `lat`, `population` (the urban one where Wikipedia gives it, two significant digits), `place` (city, town), `capital` (country, state), `country`, `region` (state), `name_local`, `wikidata`, `osm` -- without the districts of a bigger city (Istanbul's, Tokyo's wards, New York's boroughs, China's urban districts) |
@@ -123,8 +123,10 @@ writes `offline.json` (the file list and a hash of the files: the version), then
 ## Light files (data/lite/)
 
 `build/lite.py` writes smaller, readable copies of the line layers -- `data/lite/world.txt`, `rivers.txt`,
-`transport.txt`, `bio.txt`, `history.txt` -- from the full-detail ones in `full/`, and leaves those as they are. The map
-loads ONLY these (and the CSV point layers in `data/`): `data/` is what is committed and served. `full/` -- the build's
+`transport.txt` (motorways and railways), `pipelines.txt`, `bio.txt`, `history.txt` -- from the full-detail ones in
+`full/`, and leaves those as they are. The pipelines, off by default, are a file of their own with only their arcs:
+the map asks for it when the layer is first switched on (or a link finds one), as it does the biogeographic and the
+historical map when wanted. The map loads ONLY these (and the CSV point layers in `data/`): `data/` is what is committed and served. `full/` -- the build's
 full-detail `*.topo.json` (tens of MB each), and `full/old/` the files they superseded -- is not committed
 (`.gitignore`); it is what the light files are rebuilt from.
 
@@ -138,7 +140,12 @@ full-detail `*.topo.json` (tens of MB each), and `full/old/` the files they supe
   number, `names_local[]` a list, `highspeed?` yes/no) -- with each geometry's arcs in its last column (rings `;`,
   polygons `|`, `-1 - i` for an arc followed backwards). A river or a road network is one row with what all its pieces
   share, and its pieces (`@rivers.pieces`) only their arcs and what differs. Sizes: world 19.5 -> 10.0 MB, rivers
-  5.2 -> 1.9 MB, transport 10.6 -> 4.1 MB, bio 8.2 -> 4.7 MB, history 14.4 -> 8.6 MB.
+  5.2 -> 1.9 MB, transport 10.6 -> 3.5 MB + pipelines 0.7 MB, bio 8.2 -> 4.1 MB, history 14.4 -> 7.9 MB.
+- **The world's lines not stored twice.** The ecoregions and the historical regions are cut from the map's own land:
+  much of their lines runs point for point along the world's coast, lake shores and borders. Those stretches
+  `bio.txt` and `history.txt` take from `world.txt`'s light points (`uses world`; in a line `dw:k:dk` -- points k to
+  k + dk of a world arc), and store only their own points between them; the page reads them with the world's already
+  loaded. Their lines then lie on the coast exactly, and the two files are 1.3 MB smaller (0.5 MB gzipped).
 
 ## Biogeography (layer 13) and groups
 
@@ -248,14 +255,27 @@ its owners through time. `#mode=history&date=-0699-01-01` links to a day.
 
 `data/flags.txt` writes the flags and coats of arms as text, one a line, and `flags.js` (no dependencies) draws them
 as SVG or on a canvas. France is `FR France: blue | white | red` -- three vertical bands of equal width. Each is the
-simplest version of the flag: its fields and shapes in the right colours, an eagle as a plain outline, the lion (which many share)
-with its mane and inner lines;
-the busier emblems (Mexico's eagle, Bhutan's dragon, Dominica's parrot, Turkmenistan's carpet guls…) are traced from the
-flag's own drawing, simplified, and kept as motifs (`@druk`).
-The file has every country and dependency of the map (by ISO 3166-1 code), the states of the UK, Germany, Austria,
-Switzerland, Belgium, Spain, Canada, Australia and some of Italy, France, Poland and the US (by ISO 3166-2 code:
-`DE-BY`), the coats of arms of about 30 countries (`ES-arms`), and the parts others are made of (`castile`, `leon`).
-`flags.html` shows them all, with an editor that draws what is typed and the whole language; a click on a flag in the
+simplest version of the flag: its fields and shapes in the right colours; the emblems many share -- the lion, the
+eagles (Germany's, Albania's two-headed, Austria's, Russia's, Poland's), Berlin's bear, Lower Saxony's horse, Ireland's
+harp, Wales's dragon -- traced from the arms' own drawings with their inner lines; the busier emblems (Mexico's eagle, Bhutan's dragon,
+Dominica's parrot, Turkmenistan's carpet guls, Normandy's leopard, Hesse's barry lion, the Dauphiné's dolphin…) traced from the flag's own drawing, simplified, and kept as motifs
+(`@druk`). Each definition stays under 5,000 characters (longer ones are reported): built of parts where it can be (a
+ring of stars is `stars 12 r 0.33`, olive branches are `branch`), traced only roughly where it can't.
+The file has every country and dependency of the map (by ISO 3166-1 code); the states (by ISO 3166-2 code: `DE-BY`)
+of the UK, Germany, Austria, Switzerland, Belgium, Spain, Canada, Australia, the US, Brazil, Argentina, Venezuela,
+Russia, Malaysia, the UAE, Ethiopia, Pakistan, Comoros and Micronesia, France's regions (not Grand Est's or
+Hauts-de-France, which have only proposed ones), and some of Italy, Poland, Nigeria and Bosnia -- only where a state has an official flag of its own (none of India's, Nepal's, Iraq's or Sudan's has;
+Mexico's states use banners of their arms, not flags set by law, so Mexico is the country's flag alone); the
+coats of arms of about 30 countries (`ES-arms`), of Germany's 16 states (`DE-BY-arms`, which their flags'
+shields are) and of France's regions (`FR-NOR-arms`); the flags of the historical map's states (`h365` the state, by its id
+there; `h365.1923-11-12` its flag from that day on; `-` none: Germany's of 1935-45 is not drawn), about 230 of them,
+where a state's flag is known well (none drawn otherwise, not even for a colony); and the parts others are made of
+(`castile`, `leon`; `france-ancient`, a semé of fleurs, is `checky(7, 6, blue, (+ gold fleur size 0.8))`, ermine
+the same with `@ermine-spot`).
+`flags.html` shows them all -- the components (the built-in emblems, the parts and motifs), the coats of arms, the
+flags and the historical flags, each with how many others use it -- with an editor that draws what is typed and the
+whole language, and shows the one picked under its name (and kind: flag, coat of arms, component), with what it
+uses and what uses it, each drawn small and a link to it; a click on a flag in the
 map's info panel opens it there. The map shows a country's or state's flag in the search results and its flag and arms
 in the info panel, and plays **Whose flag is this?** with them.
 
@@ -268,21 +288,24 @@ in the info panel, and plays **Whose flag is this?** with them.
   `cherry`, `maroon`, `saffron`, `amber`, `gold`, `ochre`, `emerald`, `kelly`, `mediumgreen`, `olive`, `navy`, `cobalt`,
   `royalblue`, `sky`, `cerulean`… (all of them in `flags.html`), or `#rrggbb`.
 - divisions: `quarterly(a, b, c, d)`, `up(a, b)`, `down(a, b)`, `x(a, b, c, d)`, `stripes(13, red, white)`,
-  `pales(n, a, b)`, `checky(rows, cols, a, b)`, `lozengy(rows, cols, a, b)` -- each part any field, `@CODE` too.
+  `pales(n, a, b)`, `checky(rows, cols, a, b)`, `lozengy(rows, cols, a, b)` (a fifth number turns the lozenges:
+  Bavaria `lozengy(2.75, 2.2, white, cerulean, 39)`) -- each part any field, `@CODE` too.
 - `+ charge` draws on the field: lines (`cross`, `nordic`, `saltire`, `band`, `pale`, `bend`, `rise`, `pall`, `border`,
   `wave`), shapes (`disc`, `ring`, `star`, `stars 50 grid 9,11`, `crescent`, `sun`, `triangle`, `trigram 101`,
-  `poly x,y … / x,y …` -- outlines after `/` cut holes where they overlap…), outlines
+  `poly x,y … / x,y …` -- outlines after `/` cut holes where they overlap…; `branch from x,y to x,y span 30 n 6`, a
+  bowed stalk with pairs of leaves, all alike: Cyprus's olive branches, Eritrea's wreath), outlines
   (`eagle`, `lion`, `castle`, `fleur`, `crown`, `maple`…) and fields (`canton(…)`, `box(…)`, `shield(…)`, `circle(…)`,
   `@CODE`), each with its colour first and `at x,y`, `size s`, `w`, `rot`, `outline` (as lines: Morocco's star) after it. Spain's arms are
   `[shield] quarterly(@castile, @leon, @aragon, @navarre) + shield(@granada) size 0.24,0.2 at 0.5,0.9 + shield(@bourbon) size 0.3`.
 - a motif is a definition that is only charges (it starts with `+`), reused as one charge: `southern-cross` is the
   Southern Cross's five stars, and Australia is `navy + canton(@GB) + white star points 7 size 0.3 at 0.25,0.75 +
   @southern-cross points 7 at 0.75,0.5`. Its charges that name no colour take the one it is given (`+ gold @southern-cross`,
-  Cocos), its stars that name no `points` those given; `size` is 1 (the field's height) unless given.
+  Cocos), its stars that name no `points` those given; `size` is 1 (the field's height) unless given; `rot` turns it (and `flip` mirrors it) about
+  its centre (Hong Kong's bauhinia is one petal, `@hk-petal`, five times turned by 72°).
 
 In code: `lib = Flags.library(text)`, then `lib.svg("FR", { height: 20 })` (a string of SVG), `lib.draw(ctx, "FR", x, y, w, h)`
-(on a canvas) or `lib.image("FR", 40)` (a canvas, kept, for drawImage); `lib.codes`, `lib.names`, `lib.has(code)`,
-`lib.errors` (each line that could not be read). `Flags.svg("blue | white | red")` draws one definition alone.
+(on a canvas) or `lib.image("FR", 40)` (a canvas, kept, for drawImage); `lib.codes`, `lib.gaps` (the codes defined as `-`), `lib.names`, `lib.has(code)`,
+`lib.errors` (each line that could not be read). `Flags.svg("blue | white | red")` draws one definition alone; `Flags.emblems` names the built-in emblems.
 
 ## Names
 
@@ -444,6 +467,7 @@ build/capped.sh .venv/bin/python build/coast.py      # stage 1: the coast, simpl
 build/capped.sh .venv/bin/python build/topology.py   # stage 2: borders joined, simplified, faces labelled (~8 min, 1.5 GB)
 MEM=1800M build/capped.sh .venv/bin/python build/water.py   # stage 4: lakes (work/) and rivers as tracked (full/rivers.tracked.topo.json) (~40 min, 1.5 GB)
 build/capped.sh .venv/bin/python build/areas.py      # stage 6: areas on the topology (work/areas.pkl), data/natural_points.csv (~18 min, 1.4 GB)
+build/capped.sh .venv/bin/python build/areas.py islands   # stage 6b: + every other landmass Wikidata knows as an island (~10k; never leave it out)
 build/capped.sh .venv/bin/python build/write.py      # stage 3: full/world.topo.json (with the areas)
 build/capped.sh .venv/bin/python build/rivernet.py   # stage 4b: the rivers as one network (full/rivers.topo.json), their mouths into the coast
 build/capped.sh .venv/bin/python build/points.py     # stage 5: data/cities.csv, monuments.csv, airports.csv

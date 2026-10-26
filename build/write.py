@@ -11,7 +11,7 @@ a state):
     countries        countries and dependencies (Greenland, Puerto Rico, Hong Kong...): iso, name, name_en,
                      subtype, sovereign, label (where its name is written), continent
     country_borders  the land borders between them as lines (a, b: the two sides; disputed)
-    regions          the states / provinces of config.REGION_COUNTRIES: iso (ISO 3166-2), name, name_en, country,
+    regions          the states / provinces of the countries build/topology.py picks (config): iso (ISO 3166-2), name, name_en, country,
                      label, continent
     region_borders   the borders between them as lines
 Coordinates are longitude/latitude (WGS 84) on a grid of QUANT_DEG, delta-encoded (the TopoJSON `transform`).

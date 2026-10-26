@@ -1,6 +1,6 @@
 {
- "version": "a6321b1814",
- "made": "2026-10-25 23:50",
+ "version": "b09655e83b",
+ "made": "2026-10-26 16:50",
  "files": [
   "data/airports.csv",
   "data/cities.csv",
@@ -8,6 +8,7 @@
   "data/flags.txt",
   "data/lite/bio.txt",
   "data/lite/history.txt",
+  "data/lite/pipelines.txt",
   "data/lite/rivers.txt",
   "data/lite/transport.txt",
   "data/lite/world.txt",

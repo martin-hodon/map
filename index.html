@@ -32,6 +32,19 @@
   #panel.rolled #points { margin-bottom: 0; }
   #panel.rolled #legend { margin-top: 8px; }
   #panel.rolled h1 { margin-bottom: 2px; }
+  /* a phone: rolled up, only the three maps' icons (and ▾ for the rest), side by side; what you clicked and the year below */
+  @media (max-width: 700px) {
+    #panel:not(.rolled) { max-height: calc(100vh - 76px); max-height: calc(100dvh - 76px); overflow-y: auto; box-sizing: border-box; }
+    #panel.rolled { display: flex; flex-wrap: wrap; align-items: center; gap: 0 2px; width: auto; padding: 4px; }
+    #panel.rolled .toggles { display: none; }
+    #panel.rolled h1 { order: 1; margin: 0; font-size: 0; }
+    #panel.rolled #roll { font-size: 15px; padding: 6px 5px; }
+    #panel.rolled #quick { margin: 0; gap: 4px; }
+    #panel.rolled #quick button { font-size: 0; gap: 0; padding: 6px 9px; }
+    #panel.rolled #quick button svg { width: 18px; height: 18px; }
+    #panel.rolled #info, #panel.rolled #histbox { order: 2; flex-basis: 100%; }
+    #panel.rolled #histbox { margin: 6px 0 0; }
+  }
   #panel label { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   #panel select, #q { width: 100%; box-sizing: border-box; margin: 4px 0 8px; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 4px 6px; font: inherit; }
   /* the search: on its own, top middle (on a narrow screen across the top, the panel and the game below it) */
@@ -77,8 +90,9 @@
   #game-btn { position: fixed; top: 12px; right: 12px; border: 0; background: var(--panel); color: var(--ink); padding: 7px 12px; border-radius: 8px; box-shadow: 0 1px 6px #0003; cursor: pointer; font: 600 13px system-ui, sans-serif; }
   #game { position: fixed; top: 12px; right: 12px; background: var(--panel); padding: 10px 12px; border-radius: 8px; width: 280px; max-width: calc(100vw - 48px); max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); overflow-y: auto; box-shadow: 0 1px 6px #0003; }
   #game h1 { font-size: 14px; margin: 0 0 6px; }
-  #game select, #game input { box-sizing: border-box; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 4px 6px; font: inherit; }
+  #game select, #game input, #game textarea { box-sizing: border-box; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 4px 6px; font: inherit; }
   #game select, #g-name { width: 100%; margin: 4px 0 6px; }
+  #g-name { display: block; resize: none; overflow: hidden; white-space: nowrap; }   /* (a one-line textarea: see #g-name) */
   #game input[type=number] { width: 72px; padding: 2px 4px; }
   #game label { display: block; margin: 2px 0 6px; }
   #game button { border: 1px solid var(--line); background: var(--field); color: var(--ink); border-radius: 5px; cursor: pointer; font: inherit; padding: 3px 10px; }
@@ -99,7 +113,11 @@
   #g-list { margin: 4px 0 0; padding-left: 22px; max-height: 40vh; overflow-y: auto; font-size: 12px; }
   #g-list li span { color: var(--dim); }
   body.gaming #search, body.gaming #info { display: none; }
-  @media (max-width: 700px) { body.gaming #panel { display: none; } }
+  /* a phone, playing: the question, the answer, the score -- the title, the game's name and the list of answers left out */
+  @media (max-width: 700px) { body.gaming #panel { display: none; }
+    #game { top: 8px; left: 8px; right: 8px; width: auto; max-width: none; padding: 6px 10px; }
+    #game:has(#g-play:not([hidden])) h1, #g-title, #g-list { display: none; }
+    #g-ask { margin: 2px 0 4px; } #g-flag:not(:empty) { margin: 4px 0 2px; } #g-flag svg { max-height: 18vh; width: auto; } #g-score { margin: 2px 0; } #g-msg:empty { display: none; } }
 </style>
 </head>
 <body>
@@ -188,7 +206,9 @@
   <div id="g-title"></div>
   <div id="g-ask"></div>
   <div id="g-flag"></div>
-  <input id="g-name" type="text" placeholder="a city, then Enter" autocomplete="off" aria-label="A name" hidden>
+  <!-- (a textarea of one line, not an input: a phone's keyboard then shows no bar of passwords, cards and addresses to
+       fill in, nor suggestions -- Enter answers, it never adds a line) -->
+  <textarea id="g-name" rows="1" placeholder="a city, then Enter" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" aria-label="A name" hidden></textarea>
   <div id="g-msg"></div>
   <div id="g-score"></div>
   <button id="g-give" hidden></button> <button id="g-again" title="The same game afresh">Again</button> <button id="g-new" title="Choose another game">New game</button>
@@ -327,6 +347,7 @@ let W, H, dpr, proj, path, rotate = [-10, 0, 0], zoom = 1, src = null, lod = [],
 const on = (k) => document.querySelector(`[data-layer="${k}"]`).checked;
 const HOW = matchMedia("(pointer: coarse)").matches ? "drag to turn, pinch to zoom, tap to see what is there" : "drag to turn, wheel to zoom, click to see what is there";   // (a phone's fingers, or a mouse)
 $("hint").textContent = HOW;
+const GAME_ZOOM = 25;   // (the game flies less close, and never closer: Vatican City a dot among Rome and the hills, not the screen)
 const MAX_ZOOM = 300;   // (about 100 m a pixel on a 1400 px screen: the coast is kept to 100 m, lines to 0.5 km)
 const dark = () => matchMedia("(prefers-color-scheme: dark)").matches;
 try { if (PALETTES[localStorage.palette] !== undefined) $("palette").value = localStorage.palette; else if (dark()) $("palette").value = "dark muted"; } catch (e) { }
@@ -375,7 +396,7 @@ function level(i) {
     areas: feats(o.areas, true),
     coast: o.coastline.geometries[0].arcs.map((a) => keepLine(topojson.feature(t, { type: "LineString", arcs: a }), WEIGHTS[i])),
     cb: feats(o.country_borders), rb: feats(o.region_borders),
-    ...riverLevel(i), ...transportLevel(i),
+    ...riverLevel(i), ...transportLevel(i), ...pipelineLevel(i),
   };
 }
 // the line layers at a level (none while their file is still coming: addLayer puts them into the levels made so far)
@@ -386,7 +407,11 @@ function riverLevel(i) {
 function transportLevel(i) {
   const tr = src.transport && (i ? topojson.simplify(src.transportPre, WEIGHTS[i]) : src.transport);
   const lines = (obj) => tr && tr.objects[obj] ? tr.objects[obj].geometries.map((g) => topojson.feature(tr, g)) : [];
-  return { motorways: lines("motorways"), railways: lines("railways"), pipelines: lines("pipelines") };
+  return { motorways: lines("motorways"), railways: lines("railways") };
+}
+function pipelineLevel(i) {                                        // (a file of their own, loaded when first shown: wanted())
+  const t = src.pipelines && (i ? topojson.simplify(src.pipelinesPre, WEIGHTS[i]) : src.pipelines);
+  return { pipelines: t ? t.objects.pipelines.geometries.map((g) => topojson.feature(t, g)) : [] };
 }
 // the biogeographic layer's levels (its own file, loaded after the rest: loadBio)
 let bioLod = [];
@@ -986,7 +1011,8 @@ async function prepared(key, make) {
 }
 // a line layer as the page uses it: read, and presimplified -- the one topology both the full detail and the coarser
 // levels are drawn from (presimplify's copy has the points' weights as a third value, which drawing ignores)
-const lineLayer = (name) => prepared(name, async () => { const t = await getData(`lite/${name}.txt`); return t && topojson.presimplify(t, topojson.sphericalTriangleArea); });
+// (base: the presimplified layer whose stretches its lines take -- the world's, for the biogeographic and the historical map)
+const lineLayer = (name, base) => prepared(name, async () => { const t = await getData(`lite/${name}.txt`, base); return t && topojson.presimplify(t, topojson.sphericalTriangleArea); });
 // R-trees of the full-detail features' bounds (tree()), kept as rbush's own JSON
 async function treesOf(key, feats) {
   const json = await prepared(key, () => Object.fromEntries(Object.entries(feats).map(([k, f]) => [k, tree(f).toJSON()])));
@@ -997,10 +1023,11 @@ async function treesOf(key, feats) {
 // the map loads (the full-detail layers, full/*.topo.json, are what the light files are made from: not served)
 // THE ORDER: the world first (land, countries, states, lakes, areas) -- the map is drawn as soon as it is read -- and the
 // rest as each comes (rivers, the main lines, the points: asked for at once, read after the world, each drawn when
-// ready); the biogeographic and the historical map only when wanted (wanted(): their mode, a group of theirs, a link)
+// ready); the biogeographic and the historical map, and the pipelines, only when wanted (wanted(): their mode, a group
+// of theirs, their layer switched on, a link)
 const fetched = {};
 const fetchText = (f) => fetched[f] ??= fetch("data/" + f).then((r) => r.ok ? r.text() : null).catch(() => null);
-const getData = async (f) => { const t = await fetchText(f); delete fetched[f]; return t == null ? null : f.endsWith(".csv") ? pointsOf(d3.csvParse(t)) : parseLite(t); };
+const getData = async (f, base) => { const t = await fetchText(f); delete fetched[f]; return t == null ? null : f.endsWith(".csv") ? pointsOf(d3.csvParse(t)) : parseLite(t, base); };
 const POINT_FILES = { cities: "cities.csv", monuments: "monuments.csv", nature: "natural_points.csv", airports: "airports.csv", events: "events.csv" };
 let redrawing = false;
 const redraw = () => { if (redrawing) return; redrawing = true;                // (a layer come: drawn once, not while the map is moved)
@@ -1021,9 +1048,12 @@ function showStats() {
   if (H0) t += ` · ${H0.periods.length} country-periods ${showYear(Math.min(...H0.periods.map((p) => yearOf(p.from))))}–2019 in ${H0.regions.length} regions`;
   $("stats").textContent = t;
 }
-let bioLoad = null, histLoad = null, restLoaded = false;
+let bioLoad = null, histLoad = null, pipeLoad = null, restLoaded = false;
 function wanted() {
   if (!src || !restLoaded) return;
+  if (on("pipelines") || pendingFind) pipeLoad ??= lineLayer("pipelines").then((t) => t && (src.pipelines = src.pipelinesPre = t,
+    addLayer("pipelines", pipelineLevel, ["pipelines"], (L) => indexLines(L, ["pipelines"])).then(() => {
+      if (pendingFind) { const e = search(pendingFind)[0]; if (e) { pendingFind = null; $("q").value = e.name; select(e); } } })));
   if (mode() === "bio" || ["realms", "biomes", "ecoregions"].some(groupsOn) || pendingFind) bioLoad ??= loadBio();
   if (mode() === "history" || pendingFind) histLoad ??= loadHistory();
 }
@@ -1060,7 +1090,7 @@ async function load() {
   }
   await Promise.all([
     lineLayer("rivers").then((r) => r && (src.rivers = src.riversPre = r, addLayer("rivers", riverLevel, ["rivers"], indexRivers))),
-    lineLayer("transport").then((t) => t && (src.transport = src.transportPre = t, addLayer("transport", transportLevel, ["motorways", "railways", "pipelines"], indexLines))),
+    lineLayer("transport").then((t) => t && (src.transport = src.transportPre = t, addLayer("transport", transportLevel, ["motorways", "railways"], (L) => indexLines(L, ["motorways", "railways"])))),
     ...Object.entries(POINT_FILES).map(([k, f]) => getData(f).then((d) => { if (!d) return; src[k] = d; points[k] = pointTree(d); indexPoints(k); showStats(); redraw(); })),
     fetchText("flags.txt").then((t) => { if (!t) return; flagLib = Flags.library(t); if (flagLib.errors.length) console.warn("data/flags.txt:", flagLib.errors);
       showResults(); }),
@@ -1078,12 +1108,13 @@ async function load() {
 
 // a light file read back into the topology the page draws: @arcs (a line each: x y dx dy ...), then each object's CSV
 // (a header, a row a geometry -- or, grouped, a row a thing and @name.pieces a row a piece, with what differs)
-function parseLite(text) {
+function parseLite(text, base) {
   const topo = { type: "Topology", arcs: [], objects: {} }, sections = [];
   let cur = null;
   for (const line of text.split("\n")) {
     if (!line || line[0] === "#") continue;
     if (line.startsWith("grid ")) { const [s, x, y] = line.slice(5).split(" ").map(Number); topo.transform = { scale: [s, s], translate: [x, y] }; continue; }
+    if (line.startsWith("uses ")) { if (!base) throw new Error(`a light file made partly of ${line.slice(5)}.txt's lines, read without it`); continue; }
     if (line[0] === "@") { cur = { head: line.slice(1).split(" "), lines: [] }; sections.push(cur); continue; }
     cur.lines.push(line);
   }
@@ -1094,6 +1125,21 @@ function parseLite(text) {
     return rows.map((r) => { const o = {}; spec.forEach(([k, t], i) => { const v = k === "arcs" ? r[i] : value(r[i], t); if (v !== undefined) o[k] = v; }); return o; });
   };
   const ints = (s) => s.split(" ").filter(Boolean).map(Number);
+  let w = 0;                                                       // (a line taking stretches of base's -- "dw:k:dk", build/lite.py:
+  const stretches = (l) => {                                       //  their points, back on the grid, as steps like its own)
+    const [sc] = topo.transform.scale, [tx, ty] = topo.transform.translate, n = l.split(" "), a = [];
+    let x, y;
+    const to = (px, py) => { if (x === undefined) a.push([px, py]); else if (px !== x || py !== y) a.push([px - x, py - y]); else return; x = px; y = py; };
+    for (let i = 0; i < n.length; i++) {
+      if (n[i].includes(":")) {
+        const [dw, k, dk] = n[i].split(":").map(Number), B = base.arcs[w += dw], d = Math.sign(dk);
+        for (let j = 0; j <= Math.abs(dk); j++) { const p = B[k + j * d]; to(Math.round((p[0] - tx) / sc), Math.round((p[1] - ty) / sc)); }
+      } else if (x === undefined) to(+n[i], +n[++i]);
+      else to(x + +n[i], y + +n[++i]);
+    }
+    if (a.length === 1) a.push([0, 0]);                            // (all on one point of the grid: two points still, as topojson's merge wants)
+    return a;
+  };
   const geometry = (kind, s, props) => {
     const g = { properties: props };
     if (!s) g.type = null;
@@ -1105,7 +1151,7 @@ function parseLite(text) {
   const kinds = {}, things = {};
   for (const s of sections) {
     const [name, kind] = s.head;
-    if (name === "arcs") { topo.arcs = s.lines.map((l) => { const n = ints(l), a = []; for (let i = 0; i < n.length; i += 2) a.push([n[i], n[i + 1]]); return a; }); continue; }
+    if (name === "arcs") { topo.arcs = s.lines.map((l) => l.includes(":") ? stretches(l) : (() => { const n = ints(l), a = []; for (let i = 0; i < n.length; i += 2) a.push([n[i], n[i + 1]]); return a; })()); continue; }
     if (name.endsWith(".pieces")) {                                 // (each piece: its thing's values, then its own)
       const base = name.slice(0, -7), key = Object.keys(things[base][0] || {})[0], by = new Map(things[base].map((t) => [t[key], t]));
       topo.objects[base] = { type: "GeometryCollection", geometries: rowsOf(s.lines).map((p) => { const { arcs, ...own } = p; return geometry(kinds[base], arcs, { ...by.get(own[key]), ...own }); }) };
@@ -1135,7 +1181,7 @@ function pointsOf(rows) {
 let pendingFind = null;
 const bioLayerOf = (id) => /^E\d+$/.test(id) ? "ecoregions" : /^B\d+$/.test(id) ? "biomes" : "realms";
 async function loadBio() {
-  const bio = await lineLayer("bio");
+  const bio = await lineLayer("bio", src.worldPre);
   if (!bio) { $("mode").querySelector('[value="bio"]').disabled = true; return; }
   src.bio = bio; src.bioPre = bio; bioLod = [];
   const B = bioLevel(0);
@@ -1157,7 +1203,7 @@ async function loadBio() {
 // the historical map (data/lite/history.txt): only when wanted (its map, a link), as it is only for its own map; each country-period
 // is found by name (chosen, the map shows a day in its span), a region under a click
 async function loadHistory() {
-  const hist = await lineLayer("history");
+  const hist = await lineLayer("history", src.worldPre);
   if (!hist || !hist.objects.regions) { $("mode").querySelector('[value="history"]').disabled = true; return; }
   src.hist = hist; src.histPre = hist; histLod = []; histNow = null;
   const G = hist.objects.regions.geometries, P = hist.objects.periods.geometries.map((g) => g.properties), byState = new Map(), sides = new Map();
@@ -1165,7 +1211,7 @@ async function loadHistory() {
   const held = G.map((g) => { const h = g.properties.held || []; return [h.map((x) => dayNum(x.slice(0, x.lastIndexOf(":")))), h.map((x) => { const s = x.slice(x.lastIndexOf(":") + 1); return s === "" ? -1 : +s; })]; });
   G.forEach((g, r) => { const walk = (x) => { for (const y of x) if (Array.isArray(y)) walk(y); else { const a = y < 0 ? ~y : y; if (!sides.has(a)) sides.set(a, []); sides.get(a).push(r); } }; walk(g.arcs || []); });
   const pairs = [...sides].map(([a, rs]) => [a, rs[0], rs.length > 1 ? rs[1] : -1]);   // (an arc and the regions on its two sides; one: the coast)
-  const regions = G.map((g) => topojson.feature(hist, g));
+  const regions = G.map((g) => keepPolygons(topojson.feature(hist, g)));   // (a sliver wound backwards would hold the whole globe: a click anywhere found it)
   H0 = { periods: P, byState, held, pairs, regions, lv: [regions.map(keepPolygons)] };
   trees.hregions = tree(regions);
   const name = new Map(P.map((p) => [p.state, p.name]));
@@ -1237,9 +1283,9 @@ function indexAreas(L) {                                            // the areas
 }
 // the main lines: a road by its number or name -- its lines of that number that meet end to end (Germany's A1 and
 // Italy's are two; a motorway's "A1" is found with its kind)
-function indexLines(L) {
+function indexLines(L, layers) {
   const add = addToIndex;
-  for (const layer of ["motorways", "railways", "pipelines"]) {
+  for (const layer of layers) {
     const by = new Map();
     L[layer].forEach((f, i) => { const p = f.properties, k = p.ref || p.name; if (!k || !f.geometry) return; if (!by.has(k)) by.set(k, []); by.get(k).push(i); });
     for (const all of by.values()) {
@@ -1300,7 +1346,26 @@ function search(q) {
 // ---- FLAGS (flags.js, data/flags.txt): a country's or a state's flag and coat of arms, by its ISO code -- under its name
 // when it is selected, small beside it in the search, and the flag game's question
 let flagLib = null;
-const flagCode = (e) => e && (e.layer === "countries" || e.layer === "regions") ? e.feats[0].properties.iso || null : null;
+const flagCode = (e) => !e ? null : e.layer === "countries" || e.layer === "regions" ? e.feats[0].properties.iso || null
+  : e.layer === "hperiods" && H0 ? histFlag(H0.periods[e.period].state, inSpan(e) ? histDay() : e.span[0]) : null;
+// a state of the historical map: its flag on a day -- h<state id>, or h<state id>.<date> (1923, 1923-07-06) for the one from
+// that day on: the latest not after the day
+let histFlags = null;
+function histFlag(state, day) {
+  if (!flagLib) return null;
+  if (!histFlags) {
+    histFlags = new Map();
+    for (const c of [...flagLib.codes, ...flagLib.gaps]) {
+      const m = /^h(\d+)(?:\.(-?\d{1,4}(?:-\d\d-\d\d)?))?$/.exec(c); if (!m) continue;
+      if (!histFlags.has(+m[1])) histFlags.set(+m[1], []);
+      histFlags.get(+m[1]).push([m[2] ? dayNum(m[2]) : -Infinity, c]);
+    }
+    for (const l of histFlags.values()) l.sort((a, b) => a[0] - b[0]);
+  }
+  let best = null;
+  for (const [t, c] of histFlags.get(+state) || []) if (t <= dayNum(day)) best = c;
+  return best && flagLib.has(best) ? best : null;  // (a `-` code: no flag from that day)
+}
 function flagSvg(code, h, opts = {}) {
   if (!flagLib || !code || !flagLib.has(code)) return "";
   try { return flagLib.svg(code, { height: h, ...opts }); } catch (err) { console.warn(code, err.message); return ""; }
@@ -1330,7 +1395,7 @@ function select(e) {
   if (e.alt && norm(e.alt) !== norm(e.name)) info.append(Object.assign(document.createElement("div"), { className: "kind", textContent: e.alt }));
   const fc = flagCode(e);
   if (fc && flagLib?.has(fc)) info.append(Object.assign(document.createElement("a"), { className: "flags", href: "flags.html#" + fc, target: "_blank",
-    title: `${e.name}: its flag${flagLib.has(fc + "-arms") ? " and coat of arms" : ""} (simplified; all of them: flags.html)`, innerHTML: flagSvg(fc, 40) + flagSvg(fc + "-arms", 48) }));
+    title: `${e.name}: its flag${flagLib.has(fc + "-arms") ? " and coat of arms" : ""}${e.span ? ` on ${showDay(inSpan(e) ? histDay() : e.span[0])}` : ""} (simplified; all of them: flags.html)`, innerHTML: flagSvg(fc, 40) + flagSvg(fc + "-arms", 48) }));
   history.replaceState(null, "", "#find=" + encodeURIComponent(e.name) + ($("proj").selectedIndex ? "&proj=" + encodeURIComponent($("proj").value) : "") + (e.span ? "&date=" + encodeURIComponent(histDay()) : ""));
   fly(sel);
 }
@@ -1342,7 +1407,8 @@ function fly(s) {
     const dlon = ((ea - w) + 360) % 360 || 360;
     span = Math.max(n - so, dlon * Math.cos(((n + so) / 2) * Math.PI / 180));
   }
-  const toZoom = s.cat === "point" ? Math.max(zoom, 6) : Math.max(1, Math.min(MAX_ZOOM, 110 / Math.max(span, 0.5)));
+  const toZoom = s.cat === "point" ? Math.max(zoom, 6) : game.open ? Math.max(1, Math.min(GAME_ZOOM, 60 / Math.max(span, 0.5)))
+                                                       : Math.max(1, Math.min(MAX_ZOOM, 110 / Math.max(span, 0.5)));
   const toRot = [-s.at[0], Math.max(-80, Math.min(80, -s.at[1])), 0];
   const r0 = rotate.slice(), z0 = zoom, t0 = performance.now(), T = 700;
   const d = ((toRot[0] - r0[0] + 540) % 360) - 180;                  // (the short way round)
@@ -1908,7 +1974,8 @@ $("g-start").onclick = startGame;
 $("g-again").onclick = startGame;
 $("g-new").onclick = () => setupGame(true);
 $("g-give").onclick = giveUp;
-$("g-name").addEventListener("keydown", (ev) => { if (ev.key === "Enter") (SHAPES.has(game.style) ? unitGuess : guess)($("g-name").value); });
+$("g-name").addEventListener("keydown", (ev) => { if (ev.key === "Enter") { ev.preventDefault(); (SHAPES.has(game.style) ? unitGuess : guess)($("g-name").value); } });
+$("g-name").addEventListener("input", (ev) => { if (/\n/.test(ev.target.value)) ev.target.value = ev.target.value.replace(/\s*\n\s*/g, " "); });   // (pasted lines)
 
 // ---- the search box ------------------------------------------------------------------------------------------------
 let found = [], cursor = -1;
@@ -2039,7 +2106,7 @@ const toggles = () => document.querySelectorAll(".toggles button");
 const layersOf = (b) => b.dataset.layers.split(" ");
 const TOGGLED = { political: ["motorways", "cities"], other: ["rivers", "nature"] };
 function togglesShown() { for (const b of toggles()) { const v = layersOf(b).every(on); b.classList.toggle("on", v); b.setAttribute("aria-pressed", String(v)); } }
-for (const b of toggles()) b.onclick = () => { const v = !layersOf(b).every(on); for (const k of layersOf(b)) document.querySelector(`[data-layer="${k}"]`).checked = v; togglesShown(); draw(); };
+for (const b of toggles()) b.onclick = () => { const v = !layersOf(b).every(on); for (const k of layersOf(b)) document.querySelector(`[data-layer="${k}"]`).checked = v; togglesShown(); wanted(); draw(); };
 function toggleDefaults() {
   const want = TOGGLED[mode() === "political" ? "political" : "other"];
   for (const b of toggles()) for (const k of layersOf(b)) document.querySelector(`[data-layer="${k}"]`).checked = layersOf(b).some((x) => want.includes(x));
@@ -2061,7 +2128,7 @@ $("year").oninput = () => { setDay(yearText(+$("year").value) + histDay().replac
 $("day").onchange = () => { setDay($("day").value); $("day").value = showDay(histDay()); draw(); };
 modeChanged(false);
 $("palette").onchange = () => { try { localStorage.palette = $("palette").value; } catch (e) { } draw(); };
-for (const c of document.querySelectorAll("[data-layer]")) c.onchange = () => { togglesShown(); draw(); };
+for (const c of document.querySelectorAll("[data-layer]")) c.onchange = () => { togglesShown(); wanted(); draw(); };
 // (drawn again at a new size -- the window's, or the canvas's as a phone's browser bar slides in or out -- once a frame)
 let resizing = false;
 const resized = () => { if (resizing) return; resizing = true; requestAnimationFrame(() => { resizing = false; setup(); draw(); }); };
