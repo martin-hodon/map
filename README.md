@@ -264,7 +264,7 @@ ring of stars is `stars 12 r 0.33`, olive branches are `branch`), traced only ro
 The file has every country and dependency of the map (by ISO 3166-1 code); the states (by ISO 3166-2 code: `DE-BY`)
 of the UK, Germany, Austria, Switzerland, Belgium, Spain, Canada, Australia, the US, Brazil, Argentina, Venezuela,
 Russia, Malaysia, the UAE, Ethiopia, Pakistan, Comoros and Micronesia, France's regions (not Grand Est's or
-Hauts-de-France, which have only proposed ones), and some of Italy, Poland, Nigeria and Bosnia -- only where a state has an official flag of its own (none of India's, Nepal's, Iraq's or Sudan's has;
+Hauts-de-France, which have only proposed ones), and some of Italy, Poland, Sweden, Nigeria and Bosnia -- only where a state has an official flag of its own (none of India's, Nepal's, Iraq's or Sudan's has;
 Mexico's states use banners of their arms, not flags set by law, so Mexico is the country's flag alone); the
 coats of arms of about 30 countries (`ES-arms`), of Germany's 16 states (`DE-BY-arms`, which their flags'
 shields are) and of France's regions (`FR-NOR-arms`); the flags of the historical map's states (`h365` the state, by its id
@@ -283,7 +283,9 @@ in the info panel, and plays **Whose flag is this?** with them.
   part that is a flag of its own: Spain `red / gold*2 / red`, Madagascar `white | (red / green)*2`. A part can carry
   its own charges, centred in it, sized and placed as shares of it and kept inside it: Castile-La Mancha
   `(crimson + gold castle size 0.5) | white`, Texas `(navy + white star size 0.4) | (white / red)*2`.
-- `[2:3]` the ratio, height to width, first (2:3 if none); `[shield]` a coat of arms, `[pennant]`, `[round]`.
+- `[2:3]` the ratio, height to width, first (2:3 if none); a shape for a coat of arms: `[shield]` (rounded to a
+  point), `[iberian]` (round at the foot: Spain's, Portugal's), `[french]` (square, a point at the foot), each with a
+  ratio of its own if given (`[iberian 1.28:1]`); `[pennant]`, `[round]` (`[round 5:4]` an oval).
 - colours by name, about 60, each the usual shade on flags rather than an exact one: `red`, `scarlet`, `crimson`,
   `cherry`, `maroon`, `saffron`, `amber`, `gold`, `ochre`, `emerald`, `kelly`, `mediumgreen`, `olive`, `navy`, `cobalt`,
   `royalblue`, `sky`, `cerulean`… (all of them in `flags.html`), or `#rrggbb`.

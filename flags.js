@@ -42,7 +42,8 @@ const isColor = (name) => !!color(name);
 class FlagError extends Error { constructor(msg, at) { super(at == null ? msg : `${msg} (at ${at + 1})`); this.at = at; } }
 
 // ---- the language ----------------------------------------------------------------------------------------------
-//   def      := [shape] expr                  [2:3] (height:width, the default), [1:1], [shield], [pennant]
+//   def      := [shape] expr                  [2:3] (height:width, the default), [1:1], [shield] (iberian, french: other
+//                                             shields; any with its own h:w: [iberian 6:5]), [pennant], [round]
 //   expr     := field ('+' charge)*           charges drawn over the field, in order
 //             | ('+' charge)+                a motif: charges alone, no field (a constellation), used as + @name
 //   field    := cols ('/' cols)*              bands top to bottom
@@ -53,7 +54,8 @@ class FlagError extends Error { constructor(msg, at) { super(at == null ? msg : 
 //   modifier := at x,y | size s | size w,h | w s | n k | rot deg | points k | r s | span deg | t s | from x,y | to x,y
 //             | ring | row | arc | grid r,c | flip | flipv | outline (a shape as lines, w wide: a star as its line star)
 //   poly x,y x,y … [/ x,y x,y …]               outlines, filled even-odd (a / starts the next: a hole, or another piece)
-const SHAPES = ["rect", "shield", "pennant", "round"];
+const SHAPES = ["rect", "shield", "iberian", "french", "pennant", "round"];
+const ARMS = new Set(["shield", "iberian", "french"]);    // (the shields: a coat of arms' shapes)
 const DIVISIONS = new Set(["quarterly", "up", "down", "x", "stripes", "pales", "checky", "lozengy"]);
 const BOXES = new Set(["canton", "box", "shield", "circle"]);
 const MODS_NUM = new Set(["size", "w", "n", "rot", "points", "r", "span", "t", "inner", "k", "d"]);
@@ -91,7 +93,7 @@ function parse(text) {
     next();
     if (peek().t === "num") { const h = num(); want(":"); const w = num(); ratio = h / w; }
     else { const x = next(); if (x.t !== "word" || !SHAPES.includes(x.v)) throw new FlagError(`unknown shape ${show(x)}`, x.at); shape = x.v;
-           ratio = { shield: 1.2, pennant: 1.22, round: 1, rect: ratio }[shape];
+           ratio = { shield: 1.2, iberian: 1.15, french: 1.12, pennant: 1.22, round: 1, rect: ratio }[shape];
            if (peek().t === "num") { const h = num(); want(":"); const w = num(); ratio = h / w; } }
     want("]");
   }
@@ -173,6 +175,11 @@ const lineD = (pts) => "M" + pts.map((q) => `${f2(q[0])} ${f2(q[1])}`).join("L")
 function outlineD(shape, x, y, w, h) {
   if (shape === "shield") return `M${f2(x)} ${f2(y)}H${f2(x + w)}V${f2(y + h * 0.5)}C${f2(x + w)} ${f2(y + h * 0.78)} ${f2(x + w * 0.62)} ${f2(y + h * 0.9)} ${f2(x + w / 2)} ${f2(y + h)}` +
                                  `C${f2(x + w * 0.38)} ${f2(y + h * 0.9)} ${f2(x)} ${f2(y + h * 0.78)} ${f2(x)} ${f2(y + h * 0.5)}Z`;
+  if (shape === "iberian") { const r = Math.min(w / 2, h / 2);             // (round at the foot: Spain's, Portugal's)
+    return polyD([[x, y], [x + w, y], ...arc(x + w / 2, y + h - r, w / 2, r, 0, Math.PI, 32), [x, y]]); }
+  if (shape === "french") return `M${f2(x)} ${f2(y)}H${f2(x + w)}V${f2(y + h * 0.8)}Q${f2(x + w)} ${f2(y + h * 0.9)} ${f2(x + w * 0.64)} ${f2(y + h * 0.91)}` +   // (square, a point at the foot)
+                                 `Q${f2(x + w * 0.54)} ${f2(y + h * 0.92)} ${f2(x + w / 2)} ${f2(y + h)}Q${f2(x + w * 0.46)} ${f2(y + h * 0.92)} ${f2(x + w * 0.36)} ${f2(y + h * 0.91)}` +
+                                 `Q${f2(x)} ${f2(y + h * 0.9)} ${f2(x)} ${f2(y + h * 0.8)}Z`;
   if (shape === "round") return polyD(arc(x + w / 2, y + h / 2, w / 2, h / 2, 0, 2 * Math.PI, 48));
   if (shape === "pennant") return polyD([[x, y], [x + w, y + h * 0.45], [x + w * 0.38, y + h * 0.45], [x + w, y + h], [x, y + h]]);
   return rectD(x, y, w, h);
@@ -442,7 +449,7 @@ function compile(def, lib, x, y, w, h) {
         else if (ch.shape === "shield" && !Array.isArray(size)) w = sh / 1.2;
         const S = sub(R, cx - w / 2, cy - h / 2, w, h, shape);
         const o = [{ clip: S.outline, ops: node(ch.sub, S) }];      // (a shield or arms gets a fine line round it)
-        if (shape === "shield") o.push({ stroke: "#00000033", width: Math.max(0.3, h * 0.012), d: S.outline });
+        if (ARMS.has(shape)) o.push({ stroke: "#00000033", width: Math.max(0.3, h * 0.012), d: S.outline });
         return o;
       }
       case "disc": return [fillP([arc(cx, cy, sw / 2, sh / 2, 0, 2 * Math.PI, 64)])];
@@ -660,7 +667,7 @@ function library(text = "") {
 
 // one definition alone (it may name others of `lib`)
 const Flags = {
-  COLORS, FlagError, parse, library,
+  COLORS, FlagError, parse, library, isArms: (shape) => ARMS.has(shape),
   charges: Object.keys(CHARGES), divisions: [...DIVISIONS], emblems: Object.keys(SIL),
   svg: (text, opts = {}, lib = library()) => lib.render(parse(text), opts),
   draw: (ctx, text, x, y, w, h, opts = {}, lib = library()) => lib.paint(ctx, parse(text), x, y, w, h, opts),

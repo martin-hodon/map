@@ -68,7 +68,7 @@
       <tr><td><code>a / b / c</code></td><td>horizontal bands, from top to bottom (Germany: <code>black / red / gold</code>). <code>/</code> binds looser than <code>|</code>, so <code>a | b / c</code> is <code>(a | b) / c</code></td></tr>
       <tr><td><code>b*2</code></td><td>a band's share, 1 by default (Spain: <code>red / gold*2 / red</code>)</td></tr>
       <tr><td><code>( … )</code></td><td>a part that is a whole flag of its own: <code>white | (red / green)*2</code> (Madagascar). It can carry its own charges, centred in it and kept inside it: <code>(crimson + gold castle size 0.5) | white</code> (Castile-La Mancha), <code>(blue + gold crown at 0.25,0.5) / red</code> (Liechtenstein); there <code>at</code> and <code>size</code> are shares of that part</td></tr>
-      <tr><td><code>[h:w]</code> <code>[shield]</code></td><td>at the very start: the ratio, height to width (2:3 by default; Switzerland <code>[1:1]</code>), or a shape: <code>[shield]</code> for a coat of arms, <code>[pennant]</code> (Nepal), <code>[round]</code></td></tr>
+      <tr><td><code>[h:w]</code> <code>[shield]</code></td><td>at the very start: the ratio, height to width (2:3 by default; Switzerland <code>[1:1]</code>), or a shape: <code>[shield]</code> for a coat of arms (pointed at the foot; <code>[iberian]</code> round at the foot, Spain's and Portugal's; <code>[french]</code> square with a small point; each may take its own ratio: <code>[iberian 6:5]</code>, and <code>[round 5:4]</code> is an oval cartouche), <code>[pennant]</code> (Nepal), <code>[round]</code></td></tr>
       <tr><td><code>+ … + …</code></td><td>a motif: a definition that is only charges, with no field (it starts with <code>+</code>), reused by others as one charge: <code>southern-cross: [1:1] + star size 0.14 at 0.5,0.17 + …</code>, then <code>navy + @southern-cross points 7 at 0.75,0.5</code>. Placed like any charge, <code>size</code> 1 (the field's height) unless given, <code>rot</code> turning it about its centre and <code>flip</code> mirroring it (Hong Kong is one petal, <code>@hk-petal</code>, five times: <code>+ white @hk-petal rot 72</code> …); its charges that name no colour take the one it is given (<code>+ gold @southern-cross</code>), its stars that name no <code>points</code> those it is given</td></tr>
       <tr><td><code>@CODE</code></td><td>another definition, as a field (each quarter of a coat of arms can be a flag) or as a charge (<code>+ @ES-arms size 0.4</code>, drawn in its own shape)</td></tr>
       <tr><td><code>+ charge</code></td><td>something drawn over the field, in order: <code>+ red disc</code>. A charge starts with its colour (white if none is given; two for <code>taegeuk</code> and <code>sun</code>)</td></tr>
@@ -108,7 +108,7 @@ function preview() {
     cv.width = Math.ceil(w / 2 * dpr); cv.height = Math.ceil(h / 2 * dpr); cv.style.width = w / 2 + "px"; cv.style.height = h / 2 + "px";
     const ctx = cv.getContext("2d"); ctx.scale(dpr, dpr); lib.paint(ctx, def, 0, 0, w / 2, h / 2, {});
     const fig = document.createElement("figure"); fig.append(cv, "canvas"); if (def.motif) fig.className = "motif"; out.append(fig);
-    msg.className = ""; msg.textContent = def.shape === "shield" ? "a coat of arms" : `ratio ${+(def.ratio).toFixed(3)} (height:width)`;
+    msg.className = ""; msg.textContent = Flags.isArms(def.shape) ? "a coat of arms" : `ratio ${+(def.ratio).toFixed(3)} (height:width)`;
   } catch (e) { msg.className = "no"; msg.textContent = e.message; }
 }
 $("src").addEventListener("input", () => { preview(); $("rel").innerHTML = ""; if (current) title(current, true); });
@@ -128,12 +128,12 @@ function relations() {
 }
 const isEmblem = (c) => !lib.has(c) && EMBLEM.includes(c);
 const sourceOf = (c) => isEmblem(c) ? `[1:1] + white ${c} size 1` : lib.source(c);
-const kindOf = (c) => isEmblem(c) || (/^[a-z]/.test(c) && !/^h\d/.test(c)) ? "parts" : /^h\d/.test(c) ? "hist" : /-arms$/.test(c) || lib.shape(c) === "shield" ? "arms" : "flags";
+const kindOf = (c) => isEmblem(c) || (/^[a-z]/.test(c) && !/^h\d/.test(c)) ? "parts" : /^h\d/.test(c) ? "hist" : /-arms$/.test(c) || Flags.isArms(lib.shape(c)) ? "arms" : "flags";
 const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 const KIND = { parts: "component", arms: "coat of arms", flags: "flag", hist: "historical flag" };
 // a small picture of one (h high: a shield a little higher, a wide one -- a sword, a bird -- no wider than 2.4 h), and if it is a motif
 function picture(code, h) {
-  try { const def = Flags.parse(sourceOf(code)); return { svg: lib.render(def, { height: Math.min(def.shape === "shield" ? h * 1.26 : h, 2.4 * h * def.ratio) }), motif: def.motif }; }
+  try { const def = Flags.parse(sourceOf(code)); return { svg: lib.render(def, { height: Math.min(Flags.isArms(def.shape) ? h * 1.26 : h, 2.4 * h * def.ratio) }), motif: def.motif }; }
   catch (e) { return { svg: `<span style="color:var(--err)">${esc(e.message)}</span>`, motif: false }; }
 }
 let current = "";                                                  // (the one shown: its name over the editor, and in the tab's title)
