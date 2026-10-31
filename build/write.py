@@ -2,9 +2,13 @@
 
     .venv/bin/python build/write.py               # -> full/world.topo.json
 
-Objects (every geometry refers to the same arcs -- a coast is stored once whether it bounds the land, a country or
-a state):
-    land             the land, one polygon per landmass (islands of MIN_ISLAND_KM2 and more)
+Objects (every geometry refers to the same arcs -- a coast is stored once whether it bounds the land, a country,
+a state or a sea):
+    continents       the landmasses of MIN_CONTINENT_KM2 and more, one polygon each: name (Eurasia, Americas, Africa,
+                     Antarctica, Australia -- by the continent areas on it)
+    islands          every other landmass (of MIN_ISLAND_KM2 and more), one polygon each -- with the properties of the
+                     island area that is that landmass alone, where there is one (name, name_local, rank, wikidata,
+                     label...; a group of islands, an island of several landmasses, stays an area)
     coastline        the coast as lines -- the land's outline without the cuts along the antimeridian and the pole
     lakes            the lakes of MIN_LAKE_KM2 and more (their own arcs: a lake is drawn over the land): name (English,
                      from Wikidata, where it has one), name_local, type (lake, reservoir), area_km2, wikidata
@@ -14,6 +18,8 @@ a state):
     regions          the states / provinces of the countries build/topology.py picks (config): iso (ISO 3166-2), name, name_en, country,
                      label, continent
     region_borders   the borders between them as lines
+    areas            the named areas of stage 6 (build/areas.py): seas, gulfs, ranges, peninsulas, island groups... A sea
+                     has no holes for the islands in it -- they are drawn over it -- only for what else is not its own
 Coordinates are longitude/latitude (WGS 84) on a grid of QUANT_DEG, delta-encoded (the TopoJSON `transform`).
 Rings wind as d3-geo expects (outer clockwise, holes anticlockwise, in longitude/latitude with north up);
 build/export_geojson.py writes RFC 7946 GeoJSON (the other way round) for tools that want that.
@@ -195,6 +201,42 @@ def merge(topo, polys):
     return out
 
 
+CONTINENT_NAMES = {frozenset(("Europe", "Asia")): "Eurasia", frozenset(("North America", "South America")): "Americas"}
+
+
+def split_land(objects, land, topo):
+    """the landmasses as two objects: `continents` (MIN_CONTINENT_KM2 and more, named by the continent areas whose
+    label is on them) and `islands` (the rest) -- an island area that is one landmass whole (Iceland, and Wikidata's
+    islands) put on its landmass, and out of the areas: one row, its arcs once"""
+    km2 = [abs(geo.ring_area_km2(topo.coords(g["arcs"][0]))) for g in land]
+    big = [i for i, a in enumerate(km2) if a >= config.MIN_CONTINENT_KM2]
+    areas = objects.get("areas", {"geometries": []})["geometries"]
+    shapes = {i: shapely.Polygon(topo.coords(land[i]["arcs"][0])) for i in big}
+    for i in big:
+        on = sorted(g["properties"]["name"] for g in areas if g["properties"].get("kind") == "continent" and g["properties"].get("label")
+                    and shapes[i].covers(shapely.Point(g["properties"]["label"])))
+        land[i]["properties"] = {"name": CONTINENT_NAMES.get(frozenset(on), " and ".join(on) or None)}
+    key = lambda ring: frozenset(a if a >= 0 else ~a for a in ring)
+    of = {key(g["arcs"][0]): i for i, g in enumerate(land) if i not in shapes}
+    taken, keep = set(), []
+    order = sorted(range(len(areas)), key=lambda n: (areas[n]["properties"].get("kind") != "island", areas[n]["properties"].get("src") == "wikidata"))
+    for n in order:                                         # (Natural Earth's islands first, then a group of one landmass, then Wikidata's)
+        g = areas[n]
+        i = of.get(key(g["arcs"][0])) if g["type"] == "Polygon" and g["properties"].get("kind") in ("island", "islands") else None
+        if i is None or i in taken:
+            continue
+        taken.add(i)
+        p = {k: v for k, v in g["properties"].items() if k != "mask" and not (k == "kind" and v == "island")}
+        land[i]["properties"] = p
+        areas[n] = None
+    if "areas" in objects:
+        objects["areas"]["geometries"] = [g for g in areas if g is not None]
+    objects["continents"] = {"type": "GeometryCollection", "geometries": [land[i] for i in big]}
+    objects["islands"] = {"type": "GeometryCollection", "geometries": [g for i, g in enumerate(land) if i not in shapes]}
+    log(len(big), "continents:", ", ".join(str(land[i]["properties"]["name"]) for i in big), ";", len(land) - len(big), "islands,",
+        len(taken), "of them named (out of the areas)")
+
+
 def geometry(rings_list, props, gid=None):
     g = {"type": "Polygon", "arcs": rings_list[0]} if len(rings_list) == 1 else {"type": "MultiPolygon", "arcs": rings_list}
     if gid is not None:
@@ -218,7 +260,7 @@ def quantize(arcs):
     return out
 
 
-def drop_inside_out(objects, qarcs, names=("land", "lakes", "countries", "regions")):
+def drop_inside_out(objects, qarcs, names=("continents", "islands", "lakes", "countries", "regions")):
     """the polygons as they are on the grid: a tiny island whose three points flip over when snapped to it would be
     read inside out (the whole globe but it) -- such a part is left out"""
     q = config.QUANT_DEG
@@ -359,7 +401,6 @@ def main():
                 ra = [~a for a in reversed(ra)]
             rings.append(ra)
         land.append({"type": "Polygon", "arcs": rings})
-    objects["land"] = {"type": "GeometryCollection", "geometries": land}
     objects["coastline"] = {"type": "GeometryCollection", "geometries": [{"type": "MultiLineString", "arcs": [[i] for i, k in enumerate(kinds) if k == "coast" and not cut[i]]}]}
     log(len(land), "land polygons")
 
@@ -398,11 +439,14 @@ def main():
                 except ValueError:
                     bad += 1
             polys = merge(topo, polys) if polys else []
+            if rec["props"].get("mask") == "water":         # (a sea's islands are no holes: drawn over it, as the land is)
+                polys = [[p[0]] + [h for h in p[1:] if not all(kinds[a if a >= 0 else ~a] == "coast" for a in h)] for p in polys]
             polys += [lk[i]["arcs"] for i in rec["lakes"]]
             if polys:
                 geoms.append(geometry(polys, rec["props"]))
         objects["areas"] = {"type": "GeometryCollection", "geometries": geoms}
         log(len(geoms), "areas" + (f" ({bad} faces could not be read back as arcs)" if bad else ""))
+    split_land(objects, land, topo)
 
     # ---- the names: English, and in the official language of the country (Overture's names, OSM's)
     common = division_names(list(info))
@@ -444,7 +488,8 @@ def main():
     # ---- regions
     def rprops(d):
         v = info[d]
-        return {"iso": v["region"], "name": v["name_en"] or v["name"], "name_local": local_of(d, v["country"]), "country": v["country"], "overture": v["id"]}
+        return {"iso": v["region"], "name": v["name_en"] or v["name"], "name_local": local_of(d, v["country"]), "country": v["country"], "overture": v["id"],
+                **{k: v[k] for k in ("part_of", "part_iso") if k in v}}
     objects["regions"] = {"type": "GeometryCollection", "geometries": units(T["region_faces"], T["region_labels"], rprops)}
     log(len(objects["regions"]["geometries"]), "regions")
 
@@ -470,8 +515,10 @@ def main():
         objects[name] = {"type": "GeometryCollection", "geometries": geoms}
         log(len(geoms), name)
 
+    order = ["continents", "islands", "coastline", "lakes", "countries", "country_borders", "regions", "region_borders", "areas"]
+    objects = {k: objects[k] for k in sorted(objects, key=lambda k: order.index(k) if k in order else len(order))}
     qarcs = quantize(arcs)
-    drop_inside_out(objects, qarcs, [k for k in ("land", "lakes", "countries", "regions", "areas") if k in objects])
+    drop_inside_out(objects, qarcs, [k for k in ("continents", "islands", "lakes", "countries", "regions", "areas") if k in objects])
     qarcs = drop_unused(objects, qarcs)
     colour(objects, qarcs)
     items = iso_items(objects)
@@ -483,7 +530,7 @@ def main():
            "bbox": [-180, -90, 180, 90],
            "transform": {"scale": [config.QUANT_DEG, config.QUANT_DEG], "translate": [-180, -90]},
            "objects": objects, "arcs": qarcs}
-    os.makedirs(os.path.join(ROOT, "full"), exist_ok=True)   # (the full-detail layers: not committed -- the map loads data/lite/)
+    os.makedirs(os.path.join(ROOT, "full"), exist_ok=True)   # (the full-detail layers: not committed -- the map loads data/*.txt)
     path = os.path.join(ROOT, "full/world.topo.json")
     json.dump(out, open(path, "w"), separators=(",", ":"))
     log(f"{path}: {os.path.getsize(path) / 2**20:.1f} MB, {len(arcs)} arcs, {sum(len(c) for c in arcs):,} points")
@@ -499,6 +546,9 @@ def iso_items(objects):
             vals = " ".join(json.dumps(c) for c in codes[i:i + 300])
             for b in wdnames.sparql(f"SELECT ?item ?code WHERE {{ VALUES ?code {{ {vals} }} ?item wdt:{prop} ?code . }}"):
                 items[(name, b["code"]["value"])].append(b["item"]["value"].rsplit("/", 1)[-1])
+    for _, parts in config.STATE_PARTS.values():            # (no ISO code: their items are config's)
+        for p, (_, q, _) in parts.items():
+            items[("regions", p)] = [q]
     return items
 
 

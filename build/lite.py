@@ -1,7 +1,7 @@
-"""THE LIGHT FILES: smaller, readable copies of the line layers -- data/lite/world.txt, rivers.txt, transport.txt (and
-pipelines.txt, bio.txt, history.txt) -- for a page that needs the shapes but not every bend. The originals (data/*.topo.json) stay as they are.
+"""THE LIGHT FILES: smaller, readable copies of the line layers -- data/world.txt, rivers.txt, transport.txt (and
+roads.txt, pipelines.txt, bio.txt, history.txt) -- for a page that needs the shapes but not every bend. The originals (full/*.topo.json) stay as they are.
 
-    .venv/bin/python build/lite.py [HEIGHT_KM [TRI_KM2]]     # data/*.topo.json -> data/lite/*.txt (defaults 1 and 25)
+    .venv/bin/python build/lite.py [HEIGHT_KM [TRI_KM2 [NAME ...]]]     # full/*.topo.json -> data/*.txt (defaults 1, 25, all); then build/small.py
 
 FEWER POINTS. A point is left out when it adds little to the shape: where the line hardly turns, the triangle it makes
 with its two neighbours is small. Visvalingam-Whyatt: the point of the smallest triangle goes first, its neighbours'
@@ -31,13 +31,13 @@ A file made partly of another's lines (bio.txt, history.txt -- of world.txt's) s
 then take a stretch of one of world.txt's: in its line "dw:k:dk" -- points k to k + dk of world's arc w (backwards when
 dk < 0), w the last such stretch's (in the file, from 0) plus dw -- and the steps after it go on from its last point
 (as do those of a line that starts with one).
-index.html reads it back into the topology the page draws (the map loads only these, never full/*.topo.json).
+index.html reads it into typed arrays (parseLite; the map loads only these, never full/*.topo.json).
 """
 import os, sys, csv, io, json, heapq, collections
 import numpy as np
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-FILES = ["world", "rivers", "transport", "bio", "history"]
+FILES = ["world", "rivers", "transport", "roads", "bio", "history"]
 APART = {"transport": ["pipelines"]}     # (objects in a file of their own, with only their arcs: the page loads it when shown)
 SHARE = ["bio", "history"]               # (their lines run much of their way along the world's -- its coast, lake shores,
                                          #  borders: those stretches they take from world.txt's points, see share())
@@ -261,7 +261,7 @@ def river_ends():
 
 
 def lighten(name, height_km, tri_km2, base=None):
-    """full/NAME.topo.json -> data/lite/NAME.txt; base: (its name, its topology, the indices kept of its arcs) when NAME
+    """full/NAME.topo.json -> data/NAME.txt; base: (its name, its topology, the indices kept of its arcs) when NAME
     takes stretches of it (share()) -> the indices kept of each arc"""
     src = os.path.join(ROOT, "full", name + ".topo.json")
     t = load(name)
@@ -306,18 +306,18 @@ def lighten(name, height_km, tri_km2, base=None):
         lines.append(" ".join(toks))
     apart = APART.get(name, [])
     files = [(name, {k: o for k, o in t["objects"].items() if k not in apart})] + [(k, {k: t["objects"][k]}) for k in apart if k in t["objects"]]
-    os.makedirs(os.path.join(ROOT, "data/lite"), exist_ok=True)
+    os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)
     for fname, objects in files:
         arcs = lines
         if apart:
             objects, arcs = renumber(objects, lines)
-        what = f"a light copy of data/{name}.topo.json" + (f" ({', '.join(objects)})" if apart else "")
+        what = f"a light copy of full/{name}.topo.json" + (f" ({', '.join(objects)})" if apart else "")
         out = [f"# {fname}: {what} (build/lite.py: points off by less than {height_km:g} km and in "
                f"triangles under {tri_km2:g} km2 left out; the format: build/lite.py)",
                f"grid {scale[0]:g} {translate[0]:g} {translate[1]:g}", *([f"uses {base[0]}"] if base else []),
                "@arcs", *arcs]
         text = "\n".join(out) + "\n" + "".join(write_object(k, o) for k, o in objects.items())
-        dest = os.path.join(ROOT, "data/lite", fname + ".txt")
+        dest = os.path.join(ROOT, "data", fname + ".txt")
         open(dest, "w", encoding="utf-8").write(text)
         print(f"{dest}: {len(arcs):,} arcs, {os.path.getsize(dest) / 2**20:.1f} MB", flush=True)
     print(f"{name}: {before:,} -> {after:,} points ({100 * after / before:.0f} %), {os.path.getsize(src) / 2**20:.1f} MB before", flush=True)
@@ -328,7 +328,7 @@ if __name__ == "__main__":
     h = float(sys.argv[1]) if len(sys.argv) > 1 else 1.0
     a = float(sys.argv[2]) if len(sys.argv) > 2 else 25.0
     world = None
-    for f in FILES:
+    for f in sys.argv[3:] or FILES:                          # (only some: not one made of the world's lines without it)
         r = lighten(f, h, a, ("world", *world) if f in SHARE and world else None)
         if f == "world":
             world = r

@@ -74,10 +74,10 @@
       <tr><td><code>+ charge</code></td><td>something drawn over the field, in order: <code>+ red disc</code>. A charge starts with its colour (white if none is given; two for <code>taegeuk</code> and <code>sun</code>)</td></tr>
       <tr><td>divisions</td><td><code>quarterly(a, b, c, d)</code> · <code>up(a, b)</code> (split by a line rising to the fly's top corner: <code>a</code> above it) · <code>down(a, b)</code> (a line falling to the fly's bottom corner) · <code>x(top, fly, bottom, hoist)</code> (split by both diagonals) · <code>stripes(13, red, white)</code> · <code>pales(9, gold, red)</code> · <code>checky(5, 5, red, white)</code> (the second part charges alone makes a semé, them in every other square: <code>checky(7, 6, blue, (+ gold fleur size 0.8))</code>, France ancient) · <code>lozengy(4, 9, white, blue)</code> (diamonds, <code>r</code> rows and <code>c</code> columns; a fifth number turns them by that many degrees about the top of the hoist, the rows and columns then any numbers: Bavaria's bendwise <code>lozengy(2.75, 2.2, white, cerulean, 39)</code>)</td></tr>
       <tr><td>lines</td><td><code>cross</code> · <code>nordic</code> (off to the hoist) · <code>saltire</code> · <code>band</code> (across) · <code>pale</code> (down) · <code>bend</code> (top left to bottom right) · <code>rise</code> (bottom left to top right) · <code>pall</code> (a Y on its side) · <code>border</code> · <code>wave</code> (across, <code>n</code> waves of height <code>r</code>: Kiribati). <code>w</code> is a line's width as a share of the height</td></tr>
-      <tr><td>shapes</td><td><code>disc</code> <code>ring</code> <code>star</code> (<code>points 7</code>) <code>stars 12</code> <code>crescent</code> (<code>k</code>, <code>d</code>) <code>plus</code> <code>square</code> <code>diamond</code> <code>triangle</code> (from the hoist; <code>flip</code>: from the fly) <code>sun</code> (<code>n</code> rays) <code>wheel</code> <code>taegeuk</code> <code>script</code> (writing, as a mere impression) <code>triskele</code> (three legs) <code>trigram 101</code> (three bars from the top, 1 whole, 0 broken: Korea) <code>poly x,y x,y …</code> (corners, as shares of the width and height; more outlines after <code>/</code>, where they overlap a hole: <code>poly … / …</code>) · <code>branch</code> (a stalk <code>from x,y to x,y</code>, bowed by <code>span</code> degrees, to the right of the way from <code>from</code> to <code>to</code> — minus, the left — with <code>n</code> pairs of leaves and one at its tip, all alike: <code>size</code> a leaf's length, <code>k</code> its width (of the length), <code>rot</code> its angle off the stalk (40), <code>w</code> the stalk's width; Cyprus's olive branches, Eritrea's wreath)</td></tr>
-      <tr><td>emblems</td><td><code>lion</code> (rampant) <code>eagle</code> (Germany's) <code>eagle2</code> (two heads: Albania's) <code>eagle-at</code> (Austria's) <code>eagle-ru</code> (Russia's) <code>eagle-pl</code> with <code>eagle-pl-gold</code> (Poland's: <code>@polish-eagle</code>) <code>bear</code> (Berlin's) <code>horse</code> (Lower Saxony's) <code>harp</code> with <code>harp-strings</code> (<code>@irish-harp</code>): traced from the arms' own drawings, simplified, their inner lines cut out; and plain outlines: <code>castle</code> <code>tower</code> <code>fleur</code> <code>crown</code> <code>tree</code> <code>maple</code> <code>bird</code> <code>dragon</code> <code>trident</code> <code>shieldform</code>. Busier emblems are motifs traced from the flags' own drawings and simplified, in their colours: <code>@druk</code> (Bhutan's dragon), <code>@mx-arms</code>, <code>@sisserou</code> (Dominica's parrot), <code>@frigatebird</code>, <code>@tm-guls</code>, <code>@sa-shahada</code>… A definition is kept under 5,000 characters (longer ones are reported): built of the parts above where it can be — a ring of stars is <code>stars 12 r 0.33</code>, not twelve stars placed one by one — and traced only roughly where it can't</td></tr>
+      <tr><td>shapes</td><td><code>disc</code> <code>ring</code> <code>star</code> (<code>points 7</code>) <code>stars 12</code> <code>crescent</code> (<code>k</code>, <code>d</code>) <code>plus</code> <code>square</code> <code>diamond</code> <code>triangle</code> (from the hoist; <code>flip</code>: from the fly) <code>sun</code> (<code>n</code> rays) <code>wheel</code> <code>taegeuk</code> <code>script</code> (writing, as a mere impression) <code>triskele</code> (three legs) <code>trigram 101</code> (three bars from the top, 1 whole, 0 broken: Korea) <code>poly x,y x,y …</code> (corners, as shares of the width and height; more outlines after <code>/</code>, where they overlap a hole: <code>poly … / …</code>) <code>line x,y x,y …</code> (the same, a stroke of a pen: <code>w</code> wide, round at its ends: the writing of Saudi Arabia) · <code>branch</code> (a stalk <code>from x,y to x,y</code>, bowed by <code>span</code> degrees, to the right of the way from <code>from</code> to <code>to</code> — minus, the left — with <code>n</code> pairs of leaves and one at its tip, all alike: <code>size</code> a leaf's length, <code>k</code> its width (of the length), <code>rot</code> its angle off the stalk (40), <code>w</code> the stalk's width; Cyprus's olive branches, Eritrea's wreath)</td></tr>
+      <tr><td>emblems</td><td>Motifs of the file, in a 1:1 box, placed as any motif (<code>+ gold @lion size 0.6</code>): <code>@lion</code> (rampant) <code>@eagle</code> (Germany's) <code>@eagle2</code> (two heads: Albania's) <code>@eagle-at</code> (Austria's) <code>@eagle-ru</code> (Russia's) <code>@polish-eagle</code> <code>@bear</code> (Berlin's) <code>@horse</code> (Lower Saxony's) <code>@irish-harp</code>, traced from the arms' own drawings and simplified; and plain ones: <code>@castle</code> <code>@tower</code> <code>@fleur</code> <code>@crown</code> <code>@tree</code> <code>@maple</code> <code>@bird</code> <code>@dragon</code> <code>@shieldform</code>. Busier emblems are motifs traced from the flags' own drawings and simplified, in their colours: <code>@druk</code> (Bhutan's dragon), <code>@mx-arms</code>, <code>@sisserou</code> (Dominica's parrot), <code>@frigatebird</code>, <code>@tm-guls</code>, <code>@sa-shahada</code>… A definition is kept under 5,000 characters (longer ones are reported): built of the parts above where it can be — a ring of stars is <code>stars 12 r 0.33</code>, not twelve stars placed one by one — and traced only roughly where it can't</td></tr>
       <tr><td>fields as charges</td><td><code>canton( … )</code> (the top-left corner, <code>size w,h</code>), <code>box( … )</code>, <code>shield( … )</code>, <code>circle( … )</code>: a smaller flag drawn inside</td></tr>
-      <tr><td>modifiers</td><td><code>at x,y</code> (the centre, as shares of the width and height) · <code>size s</code> (a share of the height) or <code>size w,h</code> (shares of the width and height) · <code>rot 30</code> (degrees) · <code>flip</code> <code>flipv</code> (mirror) · <code>outline</code> (the shape as lines <code>w</code> wide; a star as its line star: Morocco, Israel) · for <code>stars</code>: <code>ring</code> with <code>r</code>, <code>row</code>, <code>from x,y to x,y</code>, <code>arc</code> with <code>r</code> and <code>span</code>, <code>grid rows,cols</code></td></tr>
+      <tr><td>modifiers</td><td><code>at x,y</code> (the centre, as shares of the width and height) · <code>size s</code> (a share of the height) or <code>size w,h</code> (shares of the width and height) · <code>rot 30</code> (degrees) · <code>flip</code> <code>flipv</code> (mirror) · <code>smooth</code> (a <code>poly</code> or <code>line</code> as a curve through its points, <code>x,y!</code> a corner in it) · <code>mirror</code> (the charge again, mirrored about its middle: a <code>poly</code> or <code>line</code> gives one side only, and an outline that starts and ends on <code>x</code> = 0.5 is joined to its image: a crown is half a crown) · <code>outline</code> (the shape as lines <code>w</code> wide; a star as its line star: Morocco, Israel) · for <code>stars</code>: <code>ring</code> with <code>r</code>, <code>row</code>, <code>from x,y to x,y</code>, <code>arc</code> with <code>r</code> and <code>span</code>, <code>grid rows,cols</code></td></tr>
       <tr><td>colours</td><td>by name, each the usual shade on flags (near enough, not exact), or <code>#rrggbb</code>:<div id="swatches"></div></td></tr>
       <tr><td>the file</td><td><code>CODE Name: definition</code>, one per line (<code>FR France: blue | white | red</code>; the name is optional). Codes are ISO 3166 codes for countries (<code>FR</code>) and states (<code>DE-BY</code>), <code>CODE-arms</code> for a coat of arms, <code>h365</code> for a state of the historical map (its id there) and <code>h365.1923-11-12</code> for its flag from that day on (the latest not after the day shown counts; a year alone is its first day), or any word for a part used by others (<code>castile</code>). The definition <code>-</code> is no flag (<code>h255.1935-09-15 Germany 1935-45: -</code>: none drawn from that day). A line that starts with a space continues the previous one. <code>#</code> followed by a space starts a comment (<code>#c8102e</code> stays a colour)</td></tr>
     </table>
@@ -87,7 +87,7 @@
   <input id="filter" type="search" placeholder="Filter by code or name" aria-label="Filter">
   <div id="errors"></div>
   <section><h2>Components <span class="dim" data-n="parts"></span></h2>
-    <div class="dim">The emblems built into <code>flags.js</code> (by name: <code>+ gold lion</code>) and the parts and motifs of the file (by code: <code>@castile</code>), with what uses each</div>
+    <div class="dim">The parts and motifs of the file (by code: <code>@castile</code>, <code>+ gold @lion</code>), with what uses each</div>
     <div class="grid" id="g-parts"></div></section>
   <section><h2>Coats of arms <span class="dim" data-n="arms"></span></h2><div class="grid" id="g-arms"></div></section>
   <section><h2>Flags <span class="dim" data-n="flags"></span></h2><div class="dim">Countries and dependencies, then states</div><div class="grid" id="g-flags"></div></section>
@@ -112,23 +112,20 @@ function preview() {
   } catch (e) { msg.className = "no"; msg.textContent = e.message; }
 }
 $("src").addEventListener("input", () => { preview(); $("rel").innerHTML = ""; if (current) title(current, true); });
-addEventListener("hashchange", () => { const c = decodeURIComponent(location.hash.slice(1)); if (lib.has(c) || isEmblem(c)) { show(c); scrollTo({ top: 0, behavior: "smooth" }); } });
+addEventListener("hashchange", () => { const c = decodeURIComponent(location.hash.slice(1)); if (lib.has(c)) { show(c); scrollTo({ top: 0, behavior: "smooth" }); } });
 
-// what each definition uses (others by @code, the built-in emblems by name) and, turned round, what uses each
+// what each definition uses (others by @code) and, turned round, what uses each
 let uses = new Map(), usedBy = new Map();
-const EMBLEM = Flags.emblems, emblemRe = new RegExp(`(?<![\\w@.-])(${EMBLEM.map((e) => e.replace(/-/g, "\\-")).sort((a, b) => b.length - a.length).join("|")})(?![\\w-])`, "g");
 function relations() {
   uses = new Map(); usedBy = new Map();
   for (const c of lib.codes) {
     const s = lib.source(c), u = new Set([...s.matchAll(/@([A-Za-z_][\w.-]*[\w])/g)].map((m) => m[1]).filter((x) => lib.has(x)));
-    for (const m of s.matchAll(emblemRe)) u.add(m[1]);
     uses.set(c, [...u]);
     for (const x of u) { if (!usedBy.has(x)) usedBy.set(x, []); usedBy.get(x).push(c); }
   }
 }
-const isEmblem = (c) => !lib.has(c) && EMBLEM.includes(c);
-const sourceOf = (c) => isEmblem(c) ? `[1:1] + white ${c} size 1` : lib.source(c);
-const kindOf = (c) => isEmblem(c) || (/^[a-z]/.test(c) && !/^h\d/.test(c)) ? "parts" : /^h\d/.test(c) ? "hist" : /-arms$/.test(c) || Flags.isArms(lib.shape(c)) ? "arms" : "flags";
+const sourceOf = (c) => lib.source(c);
+const kindOf = (c) => (/^[a-z]/.test(c) && !/^h\d/.test(c)) ? "parts" : /^h\d/.test(c) ? "hist" : /-arms$/.test(c) || Flags.isArms(lib.shape(c)) ? "arms" : "flags";
 const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 const KIND = { parts: "component", arms: "coat of arms", flags: "flag", hist: "historical flag" };
 // a small picture of one (h high: a shield a little higher, a wide one -- a sword, a bird -- no wider than 2.4 h), and if it is a motif
@@ -138,13 +135,13 @@ function picture(code, h) {
 }
 let current = "";                                                  // (the one shown: its name over the editor, and in the tab's title)
 function title(code, edited) {
-  const name = lib.names.get(code) || "", what = isEmblem(code) ? "built-in emblem" : KIND[kindOf(code)];
+  const name = lib.names.get(code) || "", what = KIND[kindOf(code)];
   $("cur").innerHTML = `<b>${esc(name || code)}</b><span class="dim">${name ? esc(code) + " · " : ""}${what}${edited ? " · edited" : ""}</span>`;
   document.title = `${name || code} · Flags and arms`;
 }
 function rel(code) {                                              // (under the editor: what the one shown uses, what uses it, each drawn and a link)
   const tile = (c) => { const p = picture(c, 30);
-    return `<a href="#${encodeURIComponent(c)}" title="${esc(lib.names.get(c) || (isEmblem(c) ? "built-in emblem" : c))}"><span class="pic${p.motif ? " motif" : ""}">${p.svg}</span>${esc(c)}</a>`; };
+    return `<a href="#${encodeURIComponent(c)}" title="${esc(lib.names.get(c) || c)}"><span class="pic${p.motif ? " motif" : ""}">${p.svg}</span>${esc(c)}</a>`; };
   const u = uses.get(code) || [], by = usedBy.get(code) || [];
   $("rel").innerHTML = !code ? "" : (u.length ? `<div><span class="dim">uses ${u.length}:</span><div class="tiles">${u.map(tile).join("")}</div></div>` : "") +
     (by.length ? `<div><span class="dim">used by ${by.length}:</span><div class="tiles">${by.map(tile).join("")}</div></div>` : `<div class="dim">used by nothing else</div>`);
@@ -153,20 +150,20 @@ function show(code) { current = code; $("src").value = sourceOf(code); preview()
 function gallery() {
   const q = $("filter").value.trim().toLowerCase(), n = { parts: 0, arms: 0, flags: 0, hist: 0 };
   for (const k in n) $("g-" + k).innerHTML = "";
-  for (const code of [...EMBLEM, ...lib.codes]) {
+  for (const code of lib.codes) {
     const name = lib.names.get(code) || "";
     if (q && !code.toLowerCase().includes(q) && !name.toLowerCase().includes(q)) continue;
     const kind = kindOf(code); n[kind]++;
     const b = document.createElement("button"), by = usedBy.get(code) || [];
     const p = picture(code, 46);
     b.innerHTML = `<span class="pic${p.motif ? " motif" : ""}">${p.svg}</span><b></b><span class="code"></span>${by.length ? `<span class="used">used by ${by.length}</span>` : ""}`;
-    b.querySelector("b").textContent = name || code; b.querySelector(".code").textContent = name ? code : isEmblem(code) ? "built-in emblem" : "";
+    b.querySelector("b").textContent = name || code; b.querySelector(".code").textContent = name ? code : "";
     b.title = `${code}: ${sourceOf(code)}`;
     b.onclick = () => { history.replaceState(null, "", "#" + encodeURIComponent(code)); show(code); scrollTo({ top: 0, behavior: "smooth" }); };
     $("g-" + kind).append(b);
   }
   for (const k in n) { document.querySelector(`[data-n="${k}"]`).textContent = `· ${n[k]}`; $("g-" + k).closest("section").hidden = !n[k]; }
-  $("count").textContent = `· ${Object.values(n).reduce((a, b) => a + b)} of ${lib.codes.length + EMBLEM.length}`;
+  $("count").textContent = `· ${Object.values(n).reduce((a, b) => a + b)} of ${lib.codes.length}`;
 }
 $("filter").addEventListener("input", gallery);
 
@@ -175,7 +172,7 @@ fetch("data/flags.txt").then((r) => r.text()).then((t) => {
   $("errors").textContent = lib.errors.map((e) => `line ${e.line}${e.code ? " (" + e.code + ")" : ""}: ${e.msg}`).join(" · ");
   relations();
   const want = decodeURIComponent(location.hash.slice(1));
-  if (want && (lib.has(want) || isEmblem(want))) show(want); else preview();
+  if (want && lib.has(want)) show(want); else preview();
   gallery();
 }).catch(() => { $("errors").textContent = "data/flags.txt could not be read (open this page over http)."; preview(); });
 </script>

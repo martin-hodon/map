@@ -43,6 +43,8 @@ import config, wdnames
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RAW = os.path.join(ROOT, "raw")
 MIN_POP = 100_000
+ALSO_CITIES = {"Q3370", "Q4656", "Q27001", "Q26175", "Q145002", "Q26393", "Q200133"}   # (under the floor, wanted all the same, by Wikidata item: Zadar, Pula, Martin, Trnava, Trenčín, Poprad, Chalcis)
+CITY_NAMES = {"Q200133": "Chalcis"}   # (the English name wanted, over OSM's and Wikidata's: Chalkida)
 MIN_POP_BY = {"Europe": 70_000}   # ...or this many in these continents (by the city's state's continent, else its country's)
 MIN_VISITORS = 100_000
 POP_STEP = 5_000
@@ -162,14 +164,17 @@ MONUMENT_COLUMNS = ["name", "lon", "lat", "kind", "level", "visitors", "visitors
 AIRPORT_COLUMNS = ["name", "lon", "lat", "iata", "icao", "city", "level", "passengers", "passengers_year", "country", "region"]
 
 
+COORD_DECIMALS = 3          # a point's lon and lat: 0.001 degree, 111 m -- finer than the map's grid (config.QUANT_DEG, 278 m) needs
+
+
 def write_points(rows, columns, path):
     """points (dicts with lon, lat) as a table: a header line of the columns, one point a line, an empty field for
-    none (index.html pointsOf reads it back)"""
+    none (index.html pointsOf reads it back); lon and lat to COORD_DECIMALS"""
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f, lineterminator="\n")
         w.writerow(columns)
         for r in rows:
-            w.writerow(["" if r.get(c) is None else round(r[c], 4) if c in ("lon", "lat") else r[c] for c in columns])
+            w.writerow(["" if r.get(c) is None else round(r[c], COORD_DECIMALS) + 0.0 if c in ("lon", "lat") else r[c] for c in columns])
 
 
 def round_pop(n):
@@ -391,7 +396,7 @@ def cities(where):
     cont = {g["properties"]["iso"]: g["properties"].get("continent") for o in ("countries", "regions") for g in T[o]["geometries"] if "iso" in g["properties"]}
     vs = list(seen.values())
     for r, c, g in zip(vs, *where(np.array([r["lon"] for r in vs]), np.array([r["lat"] for r in vs]))):
-        r["_floor"] = MIN_POP_BY.get(cont.get(g) or cont.get(c), MIN_POP)
+        r["_floor"] = 0 if r["wikidata"] in ALSO_CITIES else MIN_POP_BY.get(cont.get(g) or cont.get(c), MIN_POP)
     seen = {k: r for k, r in seen.items() if r["population"] >= r["_floor"] / URBAN_FACTOR or r["capital"] == "country"}
     urban = wp_urban([r["wikidata"] for r in seen.values()])
     for r in seen.values():                                    # the urban population where Wikipedia gives one that is
@@ -406,7 +411,7 @@ def cities(where):
     for r, c, g in zip(rows, cc, rc):
         t = r.pop("_tags")
         local = wdnames.local_name(t, c)
-        r["name"] = t.get("name:en") or en.get(r["wikidata"]) or local or t.get("name")
+        r["name"] = CITY_NAMES.get(r["wikidata"]) or t.get("name:en") or en.get(r["wikidata"]) or local or t.get("name")
         r["name_local"] = local if local and local != r["name"] else None
         r["country"], r["region"] = c, g
     rows = city_parts(districts(rows))

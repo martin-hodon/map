@@ -38,8 +38,8 @@ def log(*a):
 
 # ---- the divisions: who is who, and their areas (to label the faces) ---------------------------------------------
 def region_countries(con):
-    """the countries drawn with their states (config: a federation, or divisions big enough and not too few, or many
-    people) -> [ISO 3166-1 alpha-2]"""
+    """the countries drawn with their states (config: a federation, or divisions big enough and not too few, or a
+    country big enough with divisions not too small, or many people) -> [ISO 3166-1 alpha-2]"""
     sizes = collections.defaultdict(list)
     rel = con.execute(f"SELECT country, ST_AsWKB(geometry) FROM '{AREA}' WHERE subtype = 'region' AND class = 'land'")
     while rows := rel.fetchmany(50):
@@ -54,6 +54,7 @@ def region_countries(con):
             continue
         reason = ("federal" if cc in config.FEDERAL else
                   "big" if len(a) >= config.MIN_STATES and sum(a) / len(a) >= config.MIN_STATE_KM2 else
+                  "sized" if len(a) >= config.MIN_STATES and sum(a) >= config.MIN_COUNTRY_KM2 and sum(a) / len(a) >= config.MIN_SMALL_STATE_KM2 else
                   "people" if people.get(cc, 0) >= config.MIN_STATES_PEOPLE else None)
         if reason:
             pick.append(cc); why[reason] += 1
@@ -90,24 +91,91 @@ def divisions(con):
             if cls == "maritime" or did not in geoms:
                 geoms[did] = shapely.simplify(shapely.from_wkb(w), 0.001)   # (100 m: plenty to tell which unit a face is in)
                 cls_of[did] = cls
+    state_parts(con, info, geoms)
     log(len(info), "divisions:", dict(collections.Counter(v["subtype"] for v in info.values())), dict(collections.Counter(cls_of.values())))
     return info, geoms
 
 
+COUNTY_PART = {}                                            # (a county of a state drawn in parts, its Overture id: that part)
+
+
+def state_parts(con, info, geoms):
+    """a state drawn in parts (config.STATE_PARTS): each part a division of its own, its area its counties' together; the
+    state stays in `info` for the borders it has with others, without an area, so no face is its"""
+    for state, (state_name, parts) in config.STATE_PARTS.items():
+        parent = next(d for d, v in info.items() if v["region"] == state)
+        part_of = {c: p for p, (_, _, counties) in parts.items() for c in counties}
+        areas, seen = collections.defaultdict(list), set()
+        for did, name, w in con.execute(f"SELECT division_id, names.primary, ST_AsWKB(geometry) FROM '{AREA}' WHERE subtype = 'county' AND region = '{state}'").fetchall():
+            if name not in part_of:
+                raise ValueError(f"{name}: a county of {state} in no part of it")
+            seen.add(name); COUNTY_PART[did] = part_of[name]
+            areas[part_of[name]].append(shapely.simplify(shapely.make_valid(shapely.from_wkb(w)), 0.001))
+        if set(part_of) - seen:
+            raise ValueError(f"not counties of {state}: {sorted(set(part_of) - seen)}")
+        for p, (name, _, _) in parts.items():
+            info[p] = {**info[parent], "id": p, "region": p, "name": name, "name_en": name, "part_of": state_name, "part_iso": state}
+            geoms[p] = shapely.union_all(areas[p])
+        del geoms[parent]
+        log(state, "drawn in", len(parts), "parts, of", len(seen), "counties")
+
+
 # ---- the border lines ---------------------------------------------------------------------------------------------
+def part_borders(con):
+    """the lines between a state's parts: the county boundaries with a county of another part on the other side, and
+    config.PART_LINES where there is none; an end that meets nothing, close to the state's own border, moved onto that
+    line's nearest vertex (Overture's county and state lines are not always noded) -> [(id, "region", [part, part],
+    disputed, WKB, its ends)]"""
+    near = 1.0 / geo.R_KM                                   # (1 km, on the unit sphere)
+    out = []
+    for state in config.STATE_PARTS:
+        pieces = []
+        for bid, ids, disputed, w in con.execute(f"SELECT id, division_ids, is_disputed, ST_AsWKB(geometry) FROM '{BOUNDARY}' WHERE class = 'land' AND subtype = 'county' AND region = '{state}'").fetchall():
+            a, b = (COUNTY_PART.get(i) for i in ids) if ids and len(ids) == 2 else (None, None)
+            if a and b and a != b:
+                g = shapely.from_wkb(w)
+                pieces += [[bid, [a, b], disputed, shapely.get_coordinates(p)] for p in (g.geoms if g.geom_type == "MultiLineString" else [g])]
+        tree = cKDTree(geo.to_xyz(np.vstack([c[[0, -1]] for *_, c in pieces])))
+        tips = np.vstack([c[[0, -1]] for *_, c in pieces])
+        for k, (ids, c) in enumerate(config.PART_LINES.get(state, [])):
+            c = np.array(c, dtype=float)
+            for pos in (0, -1):                             # (ended on those lines' own ends, exactly)
+                d, i = tree.query(geo.to_xyz(c[[pos]]))
+                if d[0] < near:
+                    c[pos] = tips[int(i[0])]
+            pieces.append([f"part:{state}:{k}", list(ids), False, c])
+        outer = np.vstack([shapely.get_coordinates(shapely.from_wkb(w)) for (w,) in con.execute(
+            f"SELECT ST_AsWKB(geometry) FROM '{BOUNDARY}' WHERE class = 'land' AND subtype = 'region' AND country = '{state[:2]}'").fetchall()])
+        rim = cKDTree(geo.to_xyz(outer))
+        deg = collections.Counter(int(k) for *_, c in pieces for k in geo.key(c[[0, -1]]))
+        moved = 0
+        for *_, c in pieces:
+            for pos in (0, -1):
+                if deg[int(geo.key(c[[pos]])[0])] == 1:
+                    d, i = rim.query(geo.to_xyz(c[[pos]]))
+                    if d[0] < near:
+                        c[pos] = outer[int(i[0])]; moved += 1
+        out += [(bid, "region", ids, disputed, shapely.to_wkb(shapely.linestrings(c)), c[[0, -1]]) for bid, ids, disputed, c in pieces]
+        log(len(pieces), "lines between the parts of", state, ";", moved, "ends moved onto its border")
+    return out
+
+
 def border_lines(con, info, ends):
     """the land borders, read a few at a time: each split where another line's end lies on one of its inner vertices
     (`ends`: every border end, found by stage 1), exact duplicates dropped. They are kept as OSM has them (a few
     million points): simplified, they are their own finest version, which does not cross (0.1 km would)."""
+    parted = part_borders(con)                              # (first: a query on the connection ends the one being read)
     rel = con.execute(f"""SELECT id, subtype, division_ids, is_disputed, ST_AsWKB(geometry) FROM '{BOUNDARY}'
                           WHERE class = 'land' AND subtype IN ('country', 'region')""")
-    ends = np.unique(geo.key(ends))
+    ends = np.unique(geo.key(np.vstack([ends, *[e for *_, e in parted]]) if parted else ends))
     lines, seen, n_in, pts_in = [], set(), 0, 0
     skipped = collections.Counter()
     while True:
         rows = rel.fetchmany(100)
         if not rows:
-            break
+            if not parted:
+                break
+            rows, parted = [r[:-1] for r in parted], []     # (last, the lines between a state's parts: their ends are in `ends`)
         for bid, sub, ids, disputed, w in rows:
             if sub == "region":
                 a, b = (info.get(i) for i in ids) if ids and len(ids) == 2 else (None, None)
@@ -146,6 +214,18 @@ def load_coast():
     return rings, z["poly"], z["hole"], z["area"], z["ends"], z["cand"]
 
 
+def nearest_coast(p, rings, cells=[]):
+    """the fine coast's vertex nearest to p, among the rings round it -> (ring, vertex, km)"""
+    if not cells:
+        for r, c in enumerate(rings):
+            at = np.flatnonzero((abs(c[:-1, 0] - p[0]) < 10) & (abs(c[:-1, 1] - p[1]) < 8))
+            cells += [(r, int(v)) for v in at]
+        cells.append(cKDTree(geo.to_xyz(np.array([rings[r][v] for r, v in cells]))))
+    d, i = cells[-1].query(geo.to_xyz(np.array([p])))
+    r, v = cells[int(i[0])]
+    return r, v, float(d[0]) * geo.R_KM
+
+
 def attach(lines, rings, E, cand):
     """each line end on the coast: which ring and which vertex of it (the best candidate stage 1 found) -- within
     SNAP_KM, or LOOSE_KM for an end that meets no other line (a border that stops short of a river mouth)"""
@@ -162,6 +242,8 @@ def attach(lines, rings, E, cand):
         for j, pos in ((0, 0), (1, -1)):
             k = int(geo.key(l["c"][pos]))
             b = best.get(k)
+            if not b and deg[k] == 1 and config.PART_CODES.intersection(l["ids"]):   # (stage 1 looked only for the states' own ends)
+                b = nearest_coast(l["c"][pos], rings)
             if b and (b[2] <= config.SNAP_KM or (deg[k] == 1 and b[2] <= config.LOOSE_KM)):
                 l["at"][j] = b[:2]
                 l["c"][pos] = rings[b[0]][b[1]]          # (the coast's own vertex: exactly equal from here on)

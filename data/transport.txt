@@ -1,4 +1,4 @@
-# transport: a light copy of data/transport.topo.json (motorways, railways) (build/lite.py: points off by less than 1 km and in triangles under 25 km2 left out; the format: build/lite.py)
+# transport: a light copy of full/transport.topo.json (motorways, railways) (build/lite.py: points off by less than 1 km and in triangles under 25 km2 left out; the format: build/lite.py)
 grid 0.0025 -180 -90
 @arcs
 114953 52337 -89 34 -41 -2 -31 -14 -68 -14 -41 -17 -31 -22 -19 0 -31 -10 -84 -95 -55 -37 -114 -3 -65 -8 -53 18 -110 15 -20 12 -50 9 -55 55 -55 16 -59 7 -66 33 -86 77 -23 49 -1 38 -61 34 -90 12 -94 43 -131 50 -98 81 -127 44 -30 28 -73 27 -40 -1 -52 -16 -83 19 -213 11 -11 -11 -44 -5 -73 -40 -54 -8 -56 9 -147 -19 -191 4 -174 12 -105 19 -108 -9 -95 13 -34 13 -107 14 -138 -3 -50 7 -77 -20 -47 -5 -52 2 -194 -38 -45 -3 -103 34 -126 28 -94 0 -20 15 -31 5 -14 20 -110 20 -53 39

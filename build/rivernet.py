@@ -348,8 +348,9 @@ def apply_inserts(kept, inserts, ext):
 def mouths(kept, world, attached):
     """the free downstream ends: cut at the coast if in the sea, carried on to it if near -> (kept, the points into the coast)"""
     arcs = decode(world)
-    land = [shapely.Polygon(ring(arcs, g["arcs"][0]), [ring(arcs, h) for h in g["arcs"][1:]]) for g in world["objects"]["land"]["geometries"] if g["type"] == "Polygon"]
-    land += [shapely.Polygon(ring(arcs, p[0]), [ring(arcs, h) for h in p[1:]]) for g in world["objects"]["land"]["geometries"] if g["type"] == "MultiPolygon" for p in g["arcs"]]
+    geoms = [g for k in ("continents", "islands", "land") for g in world["objects"].get(k, {"geometries": []})["geometries"]]   # (land: a file of before the split)
+    land = [shapely.Polygon(ring(arcs, g["arcs"][0]), [ring(arcs, h) for h in g["arcs"][1:]]) for g in geoms if g["type"] == "Polygon"]
+    land += [shapely.Polygon(ring(arcs, p[0]), [ring(arcs, h) for h in p[1:]]) for g in geoms if g["type"] == "MultiPolygon" for p in g["arcs"]]
     land_tree = shapely.STRtree(land)
     lakes = [shapely.Polygon(ring(arcs, a[0])) for g in world["objects"]["lakes"]["geometries"] for a in ([g["arcs"]] if g["type"] == "Polygon" else g["arcs"])]
     lake_tree = shapely.STRtree(lakes)

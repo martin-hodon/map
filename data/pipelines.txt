@@ -1,4 +1,4 @@
-# pipelines: a light copy of data/transport.topo.json (pipelines) (build/lite.py: points off by less than 1 km and in triangles under 25 km2 left out; the format: build/lite.py)
+# pipelines: a light copy of full/transport.topo.json (pipelines) (build/lite.py: points off by less than 1 km and in triangles under 25 km2 left out; the format: build/lite.py)
 grid 0.0025 -180 -90
 @arcs
 33998 42701 9 -22 0 -21 -81 -170

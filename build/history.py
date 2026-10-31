@@ -66,12 +66,13 @@ BASE_ID = 10000             # (historical-basemaps' states: numbered from here, 
 # "culture", a cultural area, not a polity
 CULTURE = re.compile(r"\b(cultures?|hunters?|gatherers?|hunter-gatherers|farmers|nomads|pastoral(ists)?|peoples|foragers|fishers|fichers|"
                      r"herders|neolithic|bronze age|aboriginal)\b", re.I)
-FACES_VERSION = 11          # (work/history_faces.pkl is made again when the way of cutting changes: 2 no antimeridian, no loops,
+FACES_VERSION = 13          # (work/history_faces.pkl is made again when the way of cutting changes: 2 no antimeridian, no loops,
                             # 4 an arc in two landmasses given to the one holding most of it, 5 historical-basemaps too, 6 an
                             # islet ring only if it touches no other, 7 regions: administrative lines, CShapes', ecoregions',
                             # 8 twin lines dropped, the second cut, 9 only the coast's and the cut's arcs, 10 the outlines
-                            # of the second cut all, none taken for an island's coast, 11 periods from 100 km2)
-FIRST_CUT = 8               # (work/history_faces1.pkl, the first cut: only to tell which periods it leaves short)
+                            # of the second cut all, none taken for an island's coast, 11 periods from 100 km2, 12 lines cut
+                            # again at the coast, hugs in km on the ground, 13 a border's nearest coast may jump)
+FIRST_CUT = 10              # (work/history_faces1.pkl, the first cut: only to tell which periods it leaves short)
 BIO = os.path.join(ROOT, "full/bio.topo.json")
 BORDER_KM = config.EPS_KM   # CShapes' borders are drawn lines, not a raster's steps: simplified as the map's own
 CSHAPES_KM = 5.0            # a CShapes border this close to an administrative line is that line (CShapes draws coarser)

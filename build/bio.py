@@ -33,9 +33,10 @@ SRC = os.path.join(ROOT, "raw/ecoregions/Ecoregions2017.shp")
 REALMS = {"Palearctic": "PA", "Nearctic": "NA", "Neotropic": "NT", "Afrotropic": "AT", "Indomalayan": "IM",
           "Australasia": "AA", "Oceania": "OC", "Antarctica": "AN"}
 ICE = 0                     # RESOLVE's "Rock and Ice": no realm, no biome of the fourteen
-FACES_VERSION = 10          # (work/bio_faces.pkl is made again when the way of cutting changes: 2 the lake shores too, 4 TIE_KM,
+FACES_VERSION = 12          # (work/bio_faces.pkl is made again when the way of cutting changes: 2 the lake shores too, 4 TIE_KM,
                             # 5 BORDER_KM and no islet rings, 6 a tie's point put into the line it meets, 10 the inland ends merged
-                            # before the lines are joined)
+                            # before the lines are joined, 11 lines cut again at the coast, hugs in km on the ground, 12 a
+                            # border's nearest coast may jump)
 BORDER_KM = 2.0             # a border's simplification: RESOLVE's borders are traced from a raster, a straight line runs as a
                             # staircase of its cells -- steps under this are flattened (the map's own lines: config.EPS_KM)
 MIN_LAND_KM2 = 10.0         # an island (with all its faces) smaller than this is left out of the file: a rock -- unless it is

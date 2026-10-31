@@ -686,7 +686,7 @@ def main():
     con = duckdb.connect()
     con.execute(f"""LOAD spatial; SET memory_limit='900MB'; SET threads=1; SET preserve_insertion_order=false;
                     SET temp_directory='{os.path.join(ROOT, "work", "duck.tmp")}'""")
-    os.makedirs(os.path.join(ROOT, "full"), exist_ok=True)   # (the full-detail layers: not committed -- the map loads data/lite/)
+    os.makedirs(os.path.join(ROOT, "full"), exist_ok=True)   # (the full-detail layers: not committed -- the map loads data/*.txt)
     if "rivers" not in sys.argv[1:]:
         lakes(con)
     if "lakes" not in sys.argv[1:]:

@@ -97,6 +97,8 @@
   #game label { display: block; margin: 2px 0 6px; }
   #game button { border: 1px solid var(--line); background: var(--field); color: var(--ink); border-radius: 5px; cursor: pointer; font: inherit; padding: 3px 10px; }
   #game #game-close { float: right; border: 0; background: none; color: var(--dim); font-size: 15px; line-height: 1; padding: 0 2px; }
+  #g-stage { position: fixed; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+  #g-stage svg { max-width: 100%; max-height: 100%; width: auto; height: auto; filter: drop-shadow(0 1px 3px #0005); }
   #game [hidden] { display: none; }   /* (over `#game label`'s block: a field the game does not use is not shown) */
   #game #g-km { width: auto; margin: 0 4px; }
   #g-scope { display: flex; margin: 4px 0 6px; }
@@ -113,6 +115,7 @@
   #g-list { margin: 4px 0 0; padding-left: 22px; max-height: 40vh; overflow-y: auto; font-size: 12px; }
   #g-list li span { color: var(--dim); }
   body.gaming #search, body.gaming #info { display: none; }
+  body.bare #panel { display: none; }   /* (Bare shape, Bare flag: no map, so no layers) */
   /* a phone, playing: the question, the answer, the score -- the title, the game's name and the list of answers left out */
   @media (max-width: 700px) { body.gaming #panel { display: none; }
     #game { top: 8px; left: 8px; right: 8px; width: auto; max-width: none; padding: 6px 10px; }
@@ -131,7 +134,7 @@
   </div>
   <div id="nets" class="toggles" role="group" aria-label="Networks">
     <button data-layers="rivers" aria-pressed="false" title="Rivers"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 6c2.3-2 4.7 2 7 0s4.7-2 7 0M1 11c2.3-2 4.7 2 7 0s4.7-2 7 0"/></svg>rivers</button>
-    <button data-layers="motorways" aria-pressed="false" title="Motorways"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 15 7 1M11 15 9 1M8 13.5v-2M8 8.5v-2M8 3.5v-1"/></svg>roads</button>
+    <button data-layers="motorways" aria-pressed="false" title="Roads: motorways and trunk roads"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 15 7 1M11 15 9 1M8 13.5v-2M8 8.5v-2M8 3.5v-1"/></svg>roads</button>
     <button data-layers="railways" aria-pressed="false" title="Main railways"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 1v14M11 1v14M3 4h10M3 8h10M3 12h10"/></svg>rails</button>
     <button data-layers="pipelines" aria-pressed="false" title="Oil and gas pipelines"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 6h14M1 10h14M5 4v8M11 4v8"/></svg>pipes</button>
   </div>
@@ -155,7 +158,7 @@
   <label><input type="checkbox" data-layer="areas" checked> 7 seas, mountains, peninsulas… (names)</label>
   <label><input type="checkbox" data-layer="nature" checked> 8 peaks, capes, waterfalls</label>
   <label><input type="checkbox" data-layer="airports" checked> 9 international airports</label>
-  <label><input type="checkbox" data-layer="motorways" checked> 10 motorways</label>
+  <label><input type="checkbox" data-layer="motorways" checked> 10 roads (motorways, trunk roads)</label>
   <label><input type="checkbox" data-layer="railways" checked> 11 main railways</label>
   <label><input type="checkbox" data-layer="pipelines" checked> 12 oil and gas pipelines</label>
   <label><input type="checkbox" data-layer="events" checked> 15 historical events (the historical map)</label>
@@ -177,6 +180,7 @@
 <div id="update-note" hidden><span id="update-text"></span> <button id="noteUpdate">update now</button></div>
 <div id="tip"></div>
 <button id="game-btn" title="Name cities or countries, find them on the map">Game</button>
+<div id="g-stage"></div>
 <div id="game" hidden>
   <button id="game-close" title="End the game: the map as it was">×</button>
   <h1>Map game</h1>
@@ -185,17 +189,19 @@
   <select id="g-where" aria-label="Which continent or country" hidden></select>
   <select id="g-style" aria-label="The game">
     <optgroup label="cities">
-      <option value="people">Name cities: their people, as a share of all</option>
-      <option value="outside">Name cities, each outside every circle so far</option>
-      <option value="inside">Name cities, each inside a circle so far</option>
-      <option value="place">Find the city: click where it is</option>
+      <option value="people" title="Name cities: their people, as a share of all">Headcount</option>
+      <option value="outside" title="Name cities, each outside every circle so far">Outside circles</option>
+      <option value="inside" title="Name cities, each inside a circle so far">Inside circles</option>
+      <option value="place" title="Find the city: click where it is">Pin city</option>
     </optgroup>
-    <optgroup label="countries (a country chosen: its states)">
-      <option value="which">Which one is this? Name the one shown</option>
-      <option value="flag">Whose flag is this? Name its country (or state)</option>
-      <option value="all">Name them all: each one named is filled in</option>
-      <option value="chain">Neighbour chain: each one next to the last</option>
-      <option value="route">From one to another, across borders</option>
+    <optgroup label="countries (or a country's states)">
+      <option value="which" title="Which one is this? Name the one shown">Name shape</option>
+      <option value="which:bare" title="Which one is this? Its outline alone, in the middle: no map">Bare shape</option>
+      <option value="flag" title="Whose flag is this? Name its country (or state)">Name flag</option>
+      <option value="flag:bare" title="Whose flag is this? The flag alone, in the middle: no map">Bare flag</option>
+      <option value="all" title="Name them all: each one named is filled in">Name all</option>
+      <option value="chain" title="Each one next to the last">Neighbour chain</option>
+      <option value="route" title="From one to another, across borders">Border route</option>
     </optgroup>
   </select>
   <label id="g-kmbox">circles <select id="g-km" aria-label="Circle size"></select> across</label>
@@ -215,21 +221,22 @@
   <ol id="g-list"></ol>
   </div>
 </div>
-<!-- the libraries kept here (lib/: d3 7.9.0, d3-geo-projection 4.0.0, topojson-client 3.1.0, topojson-simplify 3.0.3, rbush 3.0.1),
+<!-- the libraries kept here (lib/: d3 7.9.0, d3-geo-projection 4.0.0, topojson-client 3.1.0, rbush 3.0.1),
      so the offline copy (sw.js) has them -->
 <script src="lib/d3.min.js"></script>
 <script src="lib/d3-geo-projection.min.js"></script>
 <script src="lib/topojson-client.min.js"></script>
-<script src="lib/topojson-simplify.min.js"></script>
 <script src="lib/rbush.min.js"></script>
 <script src="flags.js"></script>
 <script>
 // A look at data/: every layer in any d3 projection. The layers are longitude/latitude with edges meant as the
 // shortest way over the globe, so each projection draws them as they are -- nothing here is pre-projected.
-// Speed: each layer's pieces sit in an R-tree by their bounding boxes and only the ones in view are drawn; the lines
-// come in levels of detail (topojson-simplify: a point is dropped when the triangle it makes is smaller than the
-// level's area) and each view uses the coarsest level still finer than a pixel; while the wheel turns, the last
-// picture is only scaled, and the map is drawn again once it stops.
+// Speed: each layer's pieces sit in an R-tree by their bounding boxes and only the ones in view are drawn; every line
+// layer is three files (data/, data/small, data/xsmall: build/small.py) and each view uses the coarsest still about as
+// fine as a pixel; while the map moves it is drawn from a coarser one where that is still within a few pixels, without
+// labels, a frame at a time, and whole once it stops.
+// Memory: a layer's points sit in one typed array and its rows are numbers into it (THE LINES, below); GeoJSON is made
+// only for what asks for it, a click or a selection, and a layer not in use for a few minutes is let go (RELEASE).
 const $ = (id) => document.getElementById(id);
 const PROJ = {   // (the first is the default)
   "Orthographic (globe)": () => d3.geoOrthographic().clipAngle(90),
@@ -260,7 +267,7 @@ const SHADES = [0, -5, 5, -10, 10, -15];                        // (steps of Lab
 let regionShade = null, shadeCache = new Map();
 function regionShades() {                                       // each state's shade: greedy, the most neighbours first
   if (regionShade) return regionShade;
-  const R = src.world.objects.regions.geometries, nb = topojson.neighbors(R), cc = (i) => R[i].properties.country;
+  const R = Map0.regions, nb = neighbors(R), cc = (i) => R[i].properties.country;
   regionShade = new Int8Array(R.length).fill(-1);
   for (const i of R.map((_, i) => i).sort((a, b) => nb[b].length - nb[a].length)) {
     const used = new Set(nb[i].filter((j) => cc(j) === cc(i)).map((j) => regionShade[j]));
@@ -294,14 +301,14 @@ const LANG_COLOURS = ["#e8a06a", "#8fc27a", "#7fb0e6", "#f2d264", "#c69be0", "#6
                       "#8ed3e8", "#f5b98a", "#b4b4e8", "#e0c89a", "#9ad6a8", "#e6a5b8", "#c7d47a", "#a8c8e0"];
 const DENSITY = [[1, "#f5f1e6"], [5, "#f0e3c0"], [20, "#ecd19c"], [50, "#e6b87c"], [100, "#dd9a62"], [250, "#cf7a4e"], [500, "#b95a3f"], [1000, "#963f34"], [Infinity, "#6b2a2a"]];
 const densityColour = (d) => (DENSITY.find(([lim]) => d < lim) || DENSITY[DENSITY.length - 1])[1];
-// BIOGEOGRAPHICAL: the land by realm, biome or ecoregion (data/lite/bio.txt, build/bio.py: RESOLVE Ecoregions 2017) --
+// BIOGEOGRAPHICAL: the land by realm, biome or ecoregion (data/bio.txt, build/bio.py: RESOLVE Ecoregions 2017) --
 // a biome and an ecoregion in RESOLVE's own colours, a realm in one of these
 const REALM_COLOURS = { PA: "#e9c77b", NA: "#9cc5a1", NT: "#8fd18a", AT: "#f2a65e", IM: "#e58f8f", AA: "#d8a0d6", OC: "#7fc4e0", AN: "#d9e2ea" };
 const bioLayer = () => $("biolevel").value;
 let langColour = {};
 function rankLanguages() {                                         // (the language colours: by the people speaking them, from the data)
   const people = {};
-  for (const f of level(0).countries) { const p = f.properties; if (p.language) people[p.language] = (people[p.language] || 0) + (p.population || 1e5); }
+  for (const f of Map0.countries) { const p = f.properties; if (p.language) people[p.language] = (people[p.language] || 0) + (p.population || 1e5); }
   const order = Object.keys(people).sort((a, b) => people[b] - people[a]);
   langColour = {};
   order.forEach((l, i) => { langColour[l] = i < LANG_COLOURS.length ? LANG_COLOURS[i] : "#d8d8d8"; });
@@ -320,7 +327,7 @@ function legend() {
     for (const [lim, c] of DENSITY) { el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:${c}"></i>${lim === Infinity ? lo + "+" : lo + "–" + lim}` })); lo = lim; }
     el.append(Object.assign(document.createElement("span"), { textContent: "people per km²" }));
   } else if (m === "bio" && src && src.bio) {
-    for (const f of bioLevel(0)[bioLayer()]) { const p = f.properties; el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:${bioColour(p)}"></i>${p.name}` })); }
+    for (const f of B0[bioLayer()]) { const p = f.properties; el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:${bioColour(p)}"></i>${p.name}` })); }
   } else if (m === "history") {
     el.append(Object.assign(document.createElement("div"), { textContent: "a dependency: paler, in its ruler's colour · a people or culture (no state): pale, its name grey · a blurred border: approximate (all before 1650) · dashed: to land no state held · ◆ events within a few years (the further back, the more)" }));
   }
@@ -337,13 +344,13 @@ document.addEventListener("keydown", (ev) => {
 roll(true);
 try { if ($("mode").querySelector(`[value="${localStorage.mode}"]`)) $("mode").value = localStorage.mode; } catch (e) { }
 const canvas = $("map"), ctx = canvas.getContext("2d");
-const snap = document.createElement("canvas");                  // (the last picture, scaled while the wheel turns)
 const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
-const R_KM = 6371, WEIGHTS = [0, 3e-9, 3e-8, 3e-7, 3e-6, 3e-5]; // (level i drops points of triangles under WEIGHTS[i] sr: ~0.35, 1.1, 3.5, 11, 35 km)
+const R_KM = 6371;
 // the view's centre never right on the equator: the globe's edge then runs through both poles, along Antarctica's
 // edge at -90°, and its clip takes Antarctica (the land, the realm) for all the sphere round it
-const tilt = (r) => Math.abs(r[1]) < 1e-3 ? [r[0], -1e-3, r[2]] : r;
-let W, H, dpr, proj, path, rotate = [-10, 0, 0], zoom = 1, src = null, lod = [], trees = {}, points = {}, index = [], sel = null;
+// (nor right over a pole, where a drag ends: every line through it is then on the same meridian and the clip paints the same way)
+const tilt = (r) => Math.abs(r[1]) < 1e-3 ? [r[0], -1e-3, r[2]] : Math.abs(r[1]) > 90 - 1e-3 ? [r[0], Math.sign(r[1]) * (90 - 1e-3), r[2]] : r;
+let W, H, dpr, proj, path, rotate = [-10, 0, 0], zoom = 1, src = null, trees = {}, points = {}, index = [], sel = null;
 const on = (k) => document.querySelector(`[data-layer="${k}"]`).checked;
 const HOW = matchMedia("(pointer: coarse)").matches ? "drag to turn, pinch to zoom, tap to see what is there" : "drag to turn, wheel to zoom, click to see what is there";   // (a phone's fingers, or a mouse)
 $("hint").textContent = HOW;
@@ -364,71 +371,196 @@ function setup() {
   path = d3.geoPath(proj, ctx).pointRadius(2);
 }
 
-// ---- levels of detail --------------------------------------------------------------------------------------------
-// a polygon whose ring the simplification collapsed, or turned inside out (d3 would paint the globe but it), is dropped
-// -- and at a coarser level (`min`: its WEIGHTS, steradians) every island, polygon or hole SMALLER than the triangles the
-// level drops: the simplification keeps a few points of any ring however small, and at the world's view the 19,730
-// pieces of land, the countries' islands and the coast round them were ~600,000 points drawn as specks under a pixel
-// (a draw of the whole world took seconds). They go at the zoom where a bend their size goes.
-const ringArea = (r) => { const a = d3.geoArea({ type: "Polygon", coordinates: [r] }); return Math.min(a, 4 * Math.PI - a); };   // (either winding)
+// ---- what is merged at run time (a continent, a state of its day): rings the globe's clip can read ----------------
+// (the files' polygons are mended already, by these same rules: build/small.py)
 // a ring of fewer than three distinct points (one point over and over: some coast cut to nothing) -- the globe's clip takes
 // it for one round the whole sphere
 const flat = (r) => { const [x, y] = r[0]; let a = null; for (const [u, w] of r) if (u !== x || w !== y) { if (!a) a = [u, w]; else if (u !== a[0] || w !== a[1]) return false; } return true; };
-function keepPolygons(f, min = 0) {
+// a ring that runs along itself (a narrow bay or spit that a coarser grid or the simplification closed to no width: A B A):
+// where the globe's edge crosses such a stretch the two crossings are one point, the clip cannot tell which way is in, and
+// it paints the globe but the polygon -- at those rotations only. So a ring is cut at each point it comes back to: a
+// spike goes, a loop is a ring of its own -- wound as the polygon is, a polygon of its own; the other way, a hole
+// (the same place: read from sums of grid steps, not always the same float; -180° and 180° one meridian, a pole one point --
+//  a ring round Antarctica is cut along the seam, the Southern Ocean's runs up it and back)
+const placeKey = ([x, y]) => Math.round(Math.abs(y) === 90 ? 0 : (x === 180 ? -180 : x) * 1e5 + 18e6) * 4e7 + Math.round((y + 90) * 1e5);
+const loopsOf = (r) => {
+  const at = new Map(), st = [], out = [];
+  for (const q of r) {
+    const key = placeKey(q), i = at.get(key);
+    if (i === undefined) { at.set(key, st.length); st.push(q); continue; }
+    const loop = st.splice(i + 1);
+    for (const u of loop) at.delete(placeKey(u));
+    if (loop.length >= 2) out.push([st[i], ...loop, q]);
+  }
+  return out.length === 1 && out[0].length === r.length ? [r] : out;
+};
+// a long edge along a parallel (where the IHO's Southern Ocean meets the oceans north of it: -60.5°, 146° in one step) is meant
+// along it: as the great circle between its ends it would dip across Antarctica and through the ring's own hole
+const alongParallel = (r) => {
+  if (!r.some((q, j) => j && q[1] === r[j - 1][1] && Math.abs(q[0] - r[j - 1][0]) > 10 && Math.abs(q[0] - r[j - 1][0]) < 180)) return r;
+  return r.flatMap((q, j) => {
+    const o = r[j - 1], d = j && q[1] === o[1] ? q[0] - o[0] : 0, n = Math.abs(d) > 10 && Math.abs(d) < 180 ? Math.ceil(Math.abs(d) / 5) : 1;
+    return Array.from({ length: n }, (_, k) => k === n - 1 ? q : [o[0] + d * (k + 1) / n, q[1]]);
+  });
+};
+// a ring along the ±180° seam, there and back with different points (cut there in the source): each stretch cut at the
+// other's points, so that untangle sees the two as the same line
+const alongSeam = (r) => {
+  const on = (q) => Math.abs(q[0]) === 180, ys = [...new Set(r.filter(on).map((q) => q[1]))];
+  if (ys.length < 3) return r;
+  return r.flatMap((q, j) => {
+    const o = r[j - 1];
+    if (!j || !on(o) || !on(q) || o[1] === q[1]) return [q];
+    const between = ys.filter((y) => (y - o[1]) * (y - q[1]) < 0).sort((u, w) => (u - o[1]) * (o[1] < q[1] ? 1 : -1) - (w - o[1]) * (o[1] < q[1] ? 1 : -1));
+    return [...between.map((y) => [q[0], y]), q];
+  });
+};
+const wound = (r) => d3.geoArea({ type: "Polygon", coordinates: [r] }) <= 2 * Math.PI;
+function untangle(p) {
+  const loops = p.map(loopsOf);
+  if (loops.every((l, k) => l.length === 1 && l[0] === p[k])) return [p];
+  const rings = loops.flat(), polys = rings.filter(wound).map((r) => [r]).sort((a, b) => d3.geoArea({ type: "Polygon", coordinates: a }) - d3.geoArea({ type: "Polygon", coordinates: b }));
+  for (const h of rings) if (!wound(h) && polys.length) {             // (a hole: in the smallest polygon round it)
+    const mid = h[h.length >> 1];
+    (polys.find((q) => d3.geoContains({ type: "Polygon", coordinates: [q[0]] }, mid)) ?? polys.at(-1)).push(h);
+  }
+  return polys;
+}
+function keepPolygons(f) {
   const g = f.geometry;
   if (!g || (g.type !== "Polygon" && g.type !== "MultiPolygon")) return f;
-  const parts = (g.type === "Polygon" ? [g.coordinates] : g.coordinates)
-    .map((p) => p.filter((r, k) => r.length >= 4 && !flat(r) && (!min || !k || ringArea(r) >= min))).filter((p) => p.length && p[0].length >= 4)
-    .filter((p) => { const a = d3.geoArea({ type: "Polygon", coordinates: p }); return a <= 2 * Math.PI && (!min || ringArea(p[0]) >= min); });
+  const parts = (g.type === "Polygon" ? [g.coordinates] : g.coordinates).map((p) => p.map((r) => alongSeam(alongParallel(r)))).flatMap(untangle)
+    .map((p) => p.filter((r) => r.length >= 4 && !flat(r))).filter((p) => p.length && p[0].length >= 4)
+    .filter((p) => d3.geoArea({ type: "Polygon", coordinates: p }) <= 2 * Math.PI);
   return { ...f, geometry: parts.length ? { type: "MultiPolygon", coordinates: parts } : null };
 }
-// ...and a closed line as small (an islet's own coast) the same
-const keepLine = (f, min) => { const c = f.geometry?.coordinates, n = c?.length;
-  return min && n && c[0][0] === c[n - 1][0] && c[0][1] === c[n - 1][1] && ringArea(c) < min ? { ...f, geometry: null } : f; };
-function level(i) {
-  if (lod[i]) return lod[i];
-  const t = i ? topojson.simplify(src.worldPre, WEIGHTS[i]) : src.world, o = t.objects;
-  const feats = (obj, poly) => obj ? obj.geometries.map((g) => { const f = topojson.feature(t, g); return poly ? keepPolygons(f, WEIGHTS[i]) : f; }) : [];
-  // (the states at every level, of the same simplified arcs as the countries round them: they used to be drawn at full
-  //  detail only, half a million points under a world view)
-  return lod[i] = { topo: t,
-    land: feats(o.land, true), countries: feats(o.countries, true), regions: feats(o.regions, true), lakes: feats(o.lakes, true),
-    areas: feats(o.areas, true),
-    coast: o.coastline.geometries[0].arcs.map((a) => keepLine(topojson.feature(t, { type: "LineString", arcs: a }), WEIGHTS[i])),
-    cb: feats(o.country_borders), rb: feats(o.region_borders),
-    ...riverLevel(i), ...transportLevel(i), ...pipelineLevel(i),
-  };
+
+// ---- THE LINES -----------------------------------------------------------------------------------------------------
+// A file read (parseLite) is its points -- one Float32Array, longitude and latitude in turn; `at`: where each arc starts --
+// and its objects, each row's arcs as numbers in one Int32Array (`refs`, from `start[row]`: signed as in TopoJSON, RING at
+// a ring's or a line's end, POLY at a polygon's). A point is 8 bytes, as an array in JS 40 or more (the page once took 1.4 GB for
+// 37 MB of text). A row is a Thing: what it is called, and its place: it is drawn straight from the numbers (trace), and
+// GeoJSON is made of it only when something asks for its `geometry` (a click, a selection): not kept.
+// COPIES: every file comes in three (build/small.py), its rows the same rows: a row of the full file by its number in each.
+const COPIES = [{ dir: "", km: 1 }, { dir: "small/", km: 5 }, { dir: "xsmall/", km: 25 }];
+const RING = 0x7fffffff, POLY = 0x7ffffffe, NOTHING = { start: [], refs: [] };
+const geoAt = (o, lv) => { for (; lv >= 0; lv--) if (o.geos[lv]) return o.geos[lv]; return NOTHING; };   // (a copy not come yet: the next finer)
+class Thing {
+  constructor(o, i, properties) { this.o = o; this.i = i; this.properties = properties; }
+  get type() { return "Feature"; }
+  has(lv = 0) { const g = geoAt(this.o, lv); return g.start[this.i + 1] > g.start[this.i]; }
+  get geometry() { return shape(this, 0); }
+  named(properties) { return new Thing(this.o, this.i, properties); }
 }
-// the line layers at a level (none while their file is still coming: addLayer puts them into the levels made so far)
-function riverLevel(i) {
-  const r = src.rivers && (i ? topojson.simplify(src.riversPre, WEIGHTS[i]) : src.rivers);
-  return { rivers: r ? r.objects.rivers.geometries.map((g) => topojson.feature(r, g)) : [] };
+// the row's arcs as TopoJSON has them: polygons of rings, or lines, of signed arcs
+function arcsOf(f, lv = 0) {
+  const g = geoAt(f.o, lv), out = []; let cur = [], poly = [];
+  for (let j = g.start[f.i], e = g.start[f.i + 1]; j < e; j++) { const a = g.refs[j];
+    if (a === RING) { poly.push(cur); cur = []; } else if (a === POLY) { out.push(poly); poly = []; } else cur.push(a); }
+  return f.o.kind === "polygon" ? out : poly;
 }
-function transportLevel(i) {
-  const tr = src.transport && (i ? topojson.simplify(src.transportPre, WEIGHTS[i]) : src.transport);
-  const lines = (obj) => tr && tr.objects[obj] ? tr.objects[obj].geometries.map((g) => topojson.feature(tr, g)) : [];
-  return { motorways: lines("motorways"), railways: lines("railways") };
+const arcPoints = (T, a) => { const r = a < 0 ? ~a : a, q = []; for (let k = T.at[r]; k < T.at[r + 1]; k++) q.push([T.xy[2 * k], T.xy[2 * k + 1]]); return a < 0 ? q.reverse() : q; };
+const joined = (T, arcs) => { const q = []; for (const a of arcs) { const p = arcPoints(T, a); for (let k = q.length ? 1 : 0; k < p.length; k++) q.push(p[k]); } return q; };
+function shape(f, lv = 0) {                                         // (GeoJSON, made anew)
+  if (!f.has(lv)) return null;
+  const T = geoAt(f.o, lv).T, A = arcsOf(f, lv);
+  if (f.o.kind === "polygon") return { type: "MultiPolygon", coordinates: A.map((p) => p.map((r) => joined(T, r))) };
+  return A.length === 1 ? { type: "LineString", coordinates: joined(T, A[0]) } : { type: "MultiLineString", coordinates: A.map((l) => joined(T, l)) };
 }
-function pipelineLevel(i) {                                        // (a file of their own, loaded when first shown: wanted())
-  const t = src.pipelines && (i ? topojson.simplify(src.pipelinesPre, WEIGHTS[i]) : src.pipelines);
-  return { pipelines: t ? t.objects.pipelines.geometries.map((g) => topojson.feature(t, g)) : [] };
+// what the canvas gets from the projection (d3.geoPath's own, for a canvas)
+const sink = { ring: false, first: false,
+  polygonStart() { this.ring = true; }, polygonEnd() { this.ring = false; }, lineStart() { this.first = true; },
+  lineEnd() { if (this.ring) ctx.closePath(); },
+  point(x, y) { if (this.first) { ctx.moveTo(x, y); this.first = false; } else ctx.lineTo(x, y); } };
+// an arc's points through the stream, but its last (the next arc's first; a ring's first again)
+function arcInto(s, T, a) {
+  const xy = T.xy;
+  if (a >= 0) for (let k = 2 * T.at[a], e = 2 * T.at[a + 1] - 2; k < e; k += 2) s.point(xy[k], xy[k + 1]);
+  else { const r = ~a; for (let k = 2 * T.at[r + 1] - 2, e = 2 * T.at[r]; k > e; k -= 2) s.point(xy[k], xy[k + 1]); }
 }
-// the biogeographic layer's levels (its own file, loaded after the rest: loadBio)
-let bioLod = [];
-function bioLevel(i) {
-  if (bioLod[i]) return bioLod[i];
-  const t = i ? topojson.simplify(src.bioPre, WEIGHTS[i]) : src.bio, o = t.objects;
-  const feats = (obj) => obj.geometries.map((g) => keepPolygons(topojson.feature(t, g), WEIGHTS[i]));
-  return bioLod[i] = { realms: feats(o.realms), biomes: feats(o.biomes), ecoregions: feats(o.ecoregions) };
+const arcEnd = (s, T, a) => { const k = a >= 0 ? 2 * T.at[a + 1] - 2 : 2 * T.at[~a]; s.point(T.xy[k], T.xy[k + 1]); };
+// a row into the path being built
+function trace(f, lv) {
+  const g = geoAt(f.o, lv), e = g.start[f.i + 1], refs = g.refs, T = g.T;
+  let j = g.start[f.i];
+  if (j === e) return;
+  const s = proj.stream(sink);
+  if (f.o.kind === "polygon") {
+    let open = false;
+    while (j < e) {
+      if (refs[j] === POLY) { s.polygonEnd(); open = false; j++; continue; }
+      if (!open) { s.polygonStart(); open = true; }
+      s.lineStart();
+      for (; refs[j] !== RING; j++) arcInto(s, T, refs[j]);
+      s.lineEnd(); j++;
+    }
+  } else while (j < e) {
+    s.lineStart();
+    let a;
+    for (; refs[j] !== RING; j++) arcInto(s, T, a = refs[j]);
+    arcEnd(s, T, a); s.lineEnd(); j++;
+  }
 }
-// the historical map's levels (its own file, loaded after the rest: loadHistory) -- regions, each with its owners
-// through time; H0: what does not change with the day (each region's owners as numbers, the periods, the arcs between
-// regions), read once
-let histLod = [], histNow = null, H0 = null;
-const histLevel = (i) => histLod[i] ??= i ? topojson.simplify(src.histPre, WEIGHTS[i]) : src.hist;
+function traceArcs(T, arcs) {                                       // (arcs, each a line of its own)
+  const s = proj.stream(sink);
+  for (const a of arcs) { s.lineStart(); arcInto(s, T, a); arcEnd(s, T, a); s.lineEnd(); }
+}
+// the rows' neighbours (topojson.neighbors): those with an arc in common
+function neighbors(F) {
+  const by = new Map(), nb = F.map(() => new Set());
+  F.forEach((f, i) => { const g = geoAt(f.o, 0); for (let j = g.start[f.i]; j < g.start[f.i + 1]; j++) { const a = g.refs[j]; if (a === RING || a === POLY) continue;
+    const r = a < 0 ? ~a : a, o = by.get(r); if (o === undefined) by.set(r, [i]); else { for (const x of o) if (x !== i) { nb[i].add(x); nb[x].add(i); } o.push(i); } } });
+  return nb.map((n) => [...n].sort((a, b) => a - b));
+}
+// rows merged into one outline (topojson.merge, given only the arcs it needs)
+function merged(F, lv = 0) {
+  const parts = F.filter((f) => f.has(lv)), arcs = [], T = parts.length ? geoAt(parts[0].o, lv).T : null;
+  const geoms = parts.map((f) => { const A = arcsOf(f, lv); for (const p of A) for (const r of p) for (const a of r) { const x = a < 0 ? ~a : a; arcs[x] ??= arcPoints(T, x); } return { type: "MultiPolygon", arcs: A }; });
+  return keepPolygons({ type: "Feature", properties: {}, geometry: topojson.merge({ type: "Topology", arcs }, geoms) });
+}
+const lengthKm = (f) => {                                           // (near enough: the search's "1,200 km")
+  const g = geoAt(f.o, 0), T = g.T, rad = Math.PI / 180; let km = 0;
+  for (let j = g.start[f.i]; j < g.start[f.i + 1]; j++) { const a = g.refs[j]; if (a === RING || a === POLY) continue; const r = a < 0 ? ~a : a;
+    for (let k = T.at[r] + 1; k < T.at[r + 1]; k++) { const y = T.xy[2 * k + 1], y0 = T.xy[2 * k - 1]; km += Math.hypot((T.xy[2 * k] - T.xy[2 * k - 2]) * Math.cos((y + y0) / 2 * rad), y - y0); } }
+  return km * rad * R_KM;
+};
+const endsOf = (f) => {                                             // (a line's two ends, as text)
+  const g = geoAt(f.o, 0), T = g.T, first = g.refs[g.start[f.i]], last = g.refs[g.start[f.i + 1] - 2], p = (a, end) => { const r = a < 0 ? ~a : a, k = (a >= 0) === end ? T.at[r + 1] - 1 : T.at[r]; return `${T.xy[2 * k]},${T.xy[2 * k + 1]}`; };
+  return [p(first, false), p(last, true)];
+};
+
+const eachPoint = (f, go) => { const g = geoAt(f.o, 0), T = g.T;     // (a row's points, the shared ends twice)
+  for (let j = g.start[f.i]; j < g.start[f.i + 1]; j++) { const a = g.refs[j]; if (a === RING || a === POLY) continue; const r = a < 0 ? ~a : a;
+    for (let k = T.at[r]; k < T.at[r + 1]; k++) go(T.xy[2 * k], T.xy[2 * k + 1]); } };
+
+// the map's rows: the world's objects, and the rest as they come; a layer of one file's objects has one list of Things
+let Map0 = { land: [], countries: [], regions: [], lakes: [], areas: [], cb: [], rb: [], rivers: [], motorways: [], roads: [], railways: [], pipelines: [] };
+const thingsOf = (O, name) => { const o = O[name]; if (!o) return []; const R = o.rows; o.rows = null; return Array.from({ length: o.n }, (_, i) => new Thing(o, i, R ? R[i] : {})); };
+// the coast is one row of many lines: in each copy a Thing a line (a copy's lines are longer: a tree of its own)
+const coasts = [];
+function coastAt(lv) {
+  const o = objectsOf.world.coastline;
+  for (; lv > 0 && !o.geos[lv]; lv--);
+  if (coasts[lv]) return coasts[lv];
+  const g = o.geos[lv], ends = [g.start[0]];
+  for (let j = g.start[0]; j < g.start[1]; j++) if (g.refs[j] === RING) ends.push(j + 1);
+  const own = { kind: "line", geos: [{ T: g.T, refs: g.refs, start: Int32Array.from(ends) }] }, lines = Array.from({ length: ends.length - 1 }, (_, i) => new Thing(own, i));
+  return coasts[lv] = { lines, tree: tree(lines) };
+}
+function strokeCoast(lv, boxes, color, width) {
+  const c = coastAt(lv);
+  ctx.beginPath(); for (const i of query(c.tree, boxes)) trace(c.lines[i], 0);
+  ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+}
+// the biogeographic layer's rows (its own file, loaded when wanted: loadBio)
+let B0 = { realms: [], biomes: [], ecoregions: [] };
+// the historical map's rows (its own file, loaded when wanted: loadHistory) -- regions, each with its owners through
+// time; H0: what does not change with the day (each region's owners as numbers, the periods, the arcs between regions)
+let histNow = null, H0 = null;
 // a day as the data writes it: "1914-06-28", "-0699-01-01" (years astronomical: 0 is 1 BC, -699 700 BC); a number to
 // compare (strings will not: "-0699" < "-0700"); a date cut to its year or month ("-0479", "1415-06") is its first day
 const dayNum = (s) => { const m = /^(-?\d+)(?:-(\d\d))?(?:-(\d\d))?$/.exec(s || ""); return m ? +m[1] * 10000 + +(m[2] || 1) * 100 + +(m[3] || 1) : NaN; };
+const dayText = (n) => { const y = Math.floor(n / 10000), r = n - y * 10000, md = String(r).padStart(4, "0"); return yearText(y) + (r === 101 ? "" : `-${md.slice(0, 2)}-${md.slice(2)}`); };
 const yearOf = (s) => parseInt(s, 10);
 const yearText = (y) => (y < 0 ? "-" : "") + String(Math.abs(y)).padStart(4, "0");
 const showYear = (y) => y <= 0 ? `${1 - y} BC` : String(y);
@@ -452,30 +584,18 @@ const eventYears = (y) => Math.max(1, Math.round((2020 - y) / 25));   // (the ev
 function histOn() {
   const d = histDay();
   if (histNow && histNow.day === d) return histNow;
-  const n = dayNum(d), P = H0.periods, R = H0.held.length, of = new Int32Array(R).fill(-1), members = new Map();
+  const n = dayNum(d), P = H0.periods, { start, from, state } = H0.held, R = start.length - 1, of = new Int32Array(R).fill(-1), members = new Map();
   for (let r = 0; r < R; r++) {                                     // (each region's country-period that day: its state's period spanning it)
-    const [from, state] = H0.held[r];
-    let k = -1; while (k + 1 < from.length && from[k + 1] <= n) k++;
-    if (k < 0 || state[k] < 0) continue;
+    let k = start[r] - 1; while (k + 1 < start[r + 1] && from[k + 1] <= n) k++;
+    if (k < start[r] || state[k] < 0) continue;
     const pi = (H0.byState.get(state[k]) || []).find((i) => P[i]._f <= n && n <= P[i]._t);
     if (pi === undefined) continue;
     of[r] = pi; if (!members.has(pi)) members.set(pi, []); members.get(pi).push(r);
   }
   const countries = [...members.keys()];
-  // (the arcs between two regions of different states that day, by how they are drawn: an approximate border blurred,
-  // one to land no state held dashed)
-  const lines = { rough: [], roughOpen: [], fixed: [], partly: [], open: [], inner: [] }, near = new Map(), owner = new Map(), colour = new Map(), N = 8;
+  const near = new Map(), owner = new Map(), colour = new Map(), N = 8;
   for (const pi of countries) { const p = P[pi]; near.set(p.state, new Set()); if (p.owner != null) owner.set(p.state, p.owner); }
-  for (const [a, r1, r2] of H0.pairs) {
-    const p1 = of[r1], p2 = r2 < 0 ? -2 : of[r2];
-    if (p2 === -2 || p1 === p2 || (p1 < 0 && p2 < 0)) continue;
-    const s1 = p1 < 0 ? null : P[p1].state, s2 = p2 < 0 ? null : P[p2].state;
-    if (s1 === s2) continue;
-    const pr = Math.min(p1 < 0 ? 9 : P[p1].precision, p2 < 0 ? 9 : P[p2].precision), open = s1 == null || s2 == null;
-    const o1 = p1 < 0 ? null : P[p1].owner, o2 = p2 < 0 ? null : P[p2].owner;   // (within one state: a province and its ruler, two of one ruler's)
-    lines[!open && (o1 === s2 || o2 === s1 || (o1 != null && o1 === o2)) ? "inner" : pr === 1 ? (open ? "roughOpen" : "rough") : open ? "open" : pr === 2 ? "partly" : "fixed"].push(a);
-    if (!open) { near.get(s1).add(s2); near.get(s2).add(s1); }
-  }
+  for (const { s1, s2, open } of bordersOf(of, 0)) if (!open) { near.get(s1).add(s2); near.get(s2).add(s1); }
   const free = (g, c) => ![...near.get(g)].some((x) => colour.get(x) === c);
   for (const g of [...near.keys()].sort((a, b) => owner.has(a) - owner.has(b) || near.get(b).size - near.get(a).size)) {   // (the states first, the most neighbours first)
     const want = colour.get(owner.get(g));
@@ -485,37 +605,71 @@ function histOn() {
   }
   const y = yearOf(d), w = eventYears(y), events = [];
   if (src.events) src.events.features.forEach((f, i) => { if (Math.abs((f.properties._y ??= yearOf(f.properties.date)) - y) <= w) events.push(i); });
-  return histNow = { day: d, of, members, countries, lines, colour, lv: [], events: new Map(events.map((i, r) => [i, r])) };   // (event -> its rank that day: the file is the best known first)
+  return histNow = { day: d, of, members, countries, colour, lv: [], events: new Map(events.map((i, r) => [i, r])) };   // (event -> its rank that day: the file is the best known first)
 }
-// at level i: the regions (the same every day; a state is filled as its regions, all of one colour in one path, so no
-// seam shows), and the day's borders, a line for each way of drawing one
-const histRegions = (i) => H0.lv[i] ??= histLevel(i).objects.regions.geometries.map((g) => keepPolygons(topojson.feature(histLevel(i), g), WEIGHTS[i]));
-function histFeatures(i) {
-  const now = histOn(); if (now.lv[i]) return now.lv[i];
-  const t = histLevel(i);
-  return now.lv[i] = { regions: histRegions(i), hborders: Object.fromEntries(Object.entries(now.lines).map(([k, arcs]) => [k, topojson.feature(t, { type: "MultiLineString", arcs: arcs.map((a) => [a]) })])) };
+// the arcs between two regions of different states that day (of a copy: its arcs)
+function* bordersOf(of, lv) {
+  const P = H0.periods, pairs = regionPairs(lv);
+  for (let n = 0; n < pairs.length; n += 3) {
+    const a = pairs[n], r1 = pairs[n + 1], r2 = pairs[n + 2], p1 = of[r1], p2 = r2 < 0 ? -2 : of[r2];
+    if (p2 === -2 || p1 === p2 || (p1 < 0 && p2 < 0)) continue;
+    const s1 = p1 < 0 ? null : P[p1].state, s2 = p2 < 0 ? null : P[p2].state;
+    if (s1 === s2) continue;
+    yield { a, p1, p2, s1, s2, open: s1 == null || s2 == null };
+  }
+}
+// an arc and the regions on its two sides (-1: one side only, the coast), three numbers each
+function regionPairs(lv) {
+  const g = geoAt(H0.regions[0].o, lv), R = H0.pairs;
+  if (R.has(g)) return R.get(g);
+  const n = g.T.at.length - 1, one = new Int32Array(n).fill(-1), two = new Int32Array(n).fill(-1);
+  for (let r = 0; r < H0.regions.length; r++) for (let j = g.start[r]; j < g.start[r + 1]; j++) { const a = g.refs[j]; if (a === RING || a === POLY) continue;
+    const x = a < 0 ? ~a : a; if (one[x] < 0) one[x] = r; else if (two[x] < 0) two[x] = r; }
+  const out = []; for (let x = 0; x < n; x++) if (one[x] >= 0) out.push(x, one[x], two[x]);
+  const pairs = Int32Array.from(out); R.set(g, pairs); return pairs;
+}
+// from a copy: the day's borders, a list of arcs for each way of drawing one: an approximate border blurred, one to land no
+// state held dashed
+function histLines(lv) {
+  const now = histOn(), g = geoAt(H0.regions[0].o, lv), P = H0.periods;
+  return now.lv[lv]?.g === g ? now.lv[lv] : now.lv[lv] = (() => {
+    const lines = { g, T: g.T, rough: [], roughOpen: [], fixed: [], partly: [], open: [], inner: [] };
+    for (const { a, p1, p2, s1, s2, open } of bordersOf(now.of, lv)) {
+      const pr = Math.min(p1 < 0 ? 9 : P[p1].precision, p2 < 0 ? 9 : P[p2].precision);
+      const o1 = p1 < 0 ? null : P[p1].owner, o2 = p2 < 0 ? null : P[p2].owner;   // (within one state: a province and its ruler, two of one ruler's)
+      lines[!open && (o1 === s2 || o2 === s1 || (o1 != null && o1 === o2)) ? "inner" : pr === 1 ? (open ? "roughOpen" : "rough") : open ? "open" : pr === 2 ? "partly" : "fixed"].push(a);
+    }
+    return lines;
+  })();
 }
 // a country-period's land on the day shown, merged of its regions (none if it has none then)
 function histFeature(pi) {
-  const rs = histOn().members.get(pi), G = src.hist.objects.regions.geometries;
-  return rs ? [keepPolygons({ type: "Feature", properties: H0.periods[pi], geometry: topojson.merge(src.hist, rs.map((r) => G[r])) })] : [];
+  const rs = histOn().members.get(pi);
+  return rs ? [{ ...merged(rs.map((r) => H0.regions[r])), properties: H0.periods[pi] }] : [];
 }
-// the coarsest level whose points are still under a pixel apart
+// the coarsest copy still about as fine as a pixel; while the map moves, as fine as a few
 const pxKm = () => R_KM / proj.scale();
-function pick(coarser = 0) {
+function pick(moving = false) {
   let i = 0;
-  while (i + 1 < WEIGHTS.length && Math.sqrt(WEIGHTS[i + 1]) * R_KM <= 0.8 * pxKm()) i++;
-  return Math.min(WEIGHTS.length - 1, i + coarser);
+  while (i + 1 < COPIES.length && COPIES[i + 1].km <= (moving ? 2.5 : 1.25) * pxKm()) i++;
+  return i;
 }
 
 // ---- the R-trees: every piece by its box (a piece over the antimeridian by two) ---------------------------------
+// (from the points: an edge's bulge over a straight line is within the view's margin; a ring all the way round the
+//  globe has the pole in it)
 function tree(feats) {
   const items = [];
   feats.forEach((f, i) => {
-    if (!f.geometry) return;
-    const [[w, s], [e, n]] = d3.geoBounds(f);
-    if (w <= e) items.push({ minX: w, minY: s, maxX: e, maxY: n, i });
-    else items.push({ minX: w, minY: s, maxX: 180, maxY: n, i }, { minX: -180, minY: s, maxX: e, maxY: n, i });
+    const g = geoAt(f.o, 0), T = g.T, xy = T?.xy;
+    let w = 999, s = 999, e = -999, n = -999;
+    for (let j = g.start[f.i], end = g.start[f.i + 1]; j < end; j++) {
+      const a = g.refs[j];
+      if (a === RING) { if (f.o.kind !== "polygon") { items.push({ minX: w, minY: s, maxX: e, maxY: n, i }); w = s = 999; e = n = -999; } continue; }
+      if (a === POLY) { if (e - w >= 359) { if (s + n > 0) n = 90; else s = -90; } items.push({ minX: w, minY: s, maxX: e, maxY: n, i }); w = s = 999; e = n = -999; continue; }
+      const r = a < 0 ? ~a : a;
+      for (let k = 2 * T.at[r], x = 2 * T.at[r + 1]; k < x; k += 2) { const u = xy[k], v = xy[k + 1]; if (u < w) w = u; if (u > e) e = u; if (v < s) s = v; if (v > n) n = v; }
+    }
   });
   const t = new RBush(); t.load(items); return t;
 }
@@ -562,25 +716,27 @@ function viewBoxes() {
 function draw(fast = false) {
   const t0 = performance.now();
   drawMap(fast);
-  if (!fast && src) $("hint").textContent = `drawn in ${Math.round(performance.now() - t0)} ms (level ${pick()}) · ${HOW}`;
+  if (!fast && src) $("hint").textContent = `drawn in ${Math.round(performance.now() - t0)} ms (${["full", "small", "xsmall"][pick()]}) · ${HOW}`;
 }
 function drawMap(fast) {
-  ctx.clearRect(0, 0, W, H);
-  const stroke = (feats, ids, color, width) => { ctx.beginPath(); for (const i of ids) if (feats[i].geometry) path(feats[i]); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke(); };
-  const fillAll = (feats, ids, color) => { ctx.beginPath(); for (const i of ids) if (feats[i].geometry) path(feats[i]); ctx.fillStyle = color; ctx.fill(); };
-  const lv = src ? pick(fast ? 1 : 0) : 0;
+  ctx.clearRect(0, 0, W, H); ctx.lineJoin = "miter";
+  document.body.classList.toggle("bare", bareGame());
+  const lv = src ? pick(fast) : 0;
+  if (src && bareGame()) return drawBare(lv);
+  const stroke = (feats, ids, color, width) => { ctx.beginPath(); for (const i of ids) trace(feats[i], lv); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke(); };
+  const fillAll = (feats, ids, color) => { ctx.beginPath(); for (const i of ids) trace(feats[i], lv); ctx.fillStyle = color; ctx.fill(); };
   const only = src && game.open && game.where?.kind === "country" ? whereGeom(lv) : null;   // (a country's game: that country alone, no globe round it)
-  if (only) { ctx.save(); ctx.beginPath(); path(only); ctx.clip(); }
+  if (only) { ctx.save(); ctx.beginPath(); outline(only, lv); ctx.clip(); }
   ctx.beginPath(); path({ type: "Sphere" }); ctx.fillStyle = css("--sea"); ctx.fill();
   if (!src) return;
-  const L = level(lv), boxes = viewBoxes(), dk = dark();
+  const L = Map0, boxes = viewBoxes(), dk = dark();
   const v = (k) => query(trees[k], boxes);
   const m = mode(), geo = m === "geographical", political = m === "political", themed = m === "language" || m === "density";
   const themeFill = (name) => {                                     // countries, then the states over them, by language or density
     const F = L[name], by = {};
     if (m === "language" && !Object.keys(langColour).length) rankLanguages();
     for (const i of v(name)) {
-      const p = F[i].properties; if (!F[i].geometry) continue;
+      const p = F[i].properties; if (!F[i].has(lv)) continue;
       const c = m === "language" ? (p.language ? (langColour[p.language] || "#d8d8d8") : null) : (p.density != null ? densityColour(p.density) : null);
       if (c) (by[c] ??= []).push(i);
     }
@@ -588,52 +744,54 @@ function drawMap(fast) {
   };
   const geoFill = (mask) => {                                      // the areas of one side of the coast, by kind, the bigger first
     const by = {};
-    for (const i of v("areas")) { const p = L.areas[i].properties; if (p.mask === mask && GEO[p.kind] && L.areas[i].geometry) (by[p.kind] ??= []).push(i); }
+    for (const i of v("areas")) { const p = L.areas[i].properties; if (p.mask === mask && GEO[p.kind] && L.areas[i].has(lv)) (by[p.kind] ??= []).push(i); }
     const order = Object.keys(by).sort((a, b) => Math.min(...by[a].map((i) => L.areas[i].properties.rank ?? 9)) - Math.min(...by[b].map((i) => L.areas[i].properties.rank ?? 9)));
     if (dk) ctx.globalAlpha = 0.45;
     for (const k of order) fillAll(L.areas, by[k].sort((i, j) => (L.areas[i].properties.rank ?? 9) - (L.areas[j].properties.rank ?? 9)), GEO[k]);
     ctx.globalAlpha = 1;
   };
   if (geo && on("areas")) geoFill("water");
+  if (sel && sel.cat === "area" && sel.mask === "water") highlight(sel);   // (a sea under the land: it has no holes for its islands)
   if (on("land")) fillAll(L.land, v("land"), css("--land"));
   const pal = groupsOn("countries") ? null : palette();          // (countries put into groups: only the groups coloured)
-  const B = m === "bio" && src.bio ? bioLevel(pick(fast ? 1 : 0)) : null, bl = bioLayer();
+  const B = m === "bio" && src.bio ? B0 : null, bl = bioLayer();
   if (B) {                                                          // (the land by realm, biome or ecoregion; paler under groups)
-    const by = {}; for (const i of v(bl)) { const f = B[bl][i]; if (f.geometry) (by[bioColour(f.properties)] ??= []).push(i); }
+    const by = {}; for (const i of v(bl)) { const f = B[bl][i]; if (f.has(lv)) (by[bioColour(f.properties)] ??= []).push(i); }
     ctx.globalAlpha = (dk ? 0.55 : 1) * (groupsOn(bl) ? 0.35 : 1); for (const c in by) fillAll(B[bl], by[c], c); ctx.globalAlpha = 1;
   }
-  const Hl = m === "history" && src.hist ? histFeatures(pick(fast ? 1 : 0)) : null;
+  const Hl = m === "history" && src.hist ? histLines(lv) : null;
   if (Hl) {                                                         // (the day's country-periods; a dependency paler, in its ruler's colour)
     const now = histOn(), hp = palette() || PALETTES.pastel, by = {};
-    for (const i of v("hregions")) { const pi = now.of[i]; if (pi < 0 || !Hl.regions[i].geometry) continue; const p = H0.periods[pi];
+    for (const i of v("hregions")) { const pi = now.of[i]; if (pi < 0 || !H0.regions[i].has(lv)) continue; const p = H0.periods[pi];
       (by[`${now.colour.get(p.state) % hp.length}|${p.status === "culture" ? 2 : p.owner != null ? 1 : 0}`] ??= []).push(i); }
-    for (const k in by) { const [c, dep] = k.split("|"); ctx.globalAlpha = (dk ? 0.8 : 1) * [1, 0.55, 0.3][dep]; fillAll(Hl.regions, by[k], hp[c]); }
+    for (const k in by) { const [c, dep] = k.split("|"); ctx.globalAlpha = (dk ? 0.8 : 1) * [1, 0.55, 0.3][dep]; fillAll(H0.regions, by[k], hp[c]); }
     ctx.globalAlpha = 1;
   }
-  if (political && on("countries") && pal) { const by = {}; for (const i of v("countries")) { const f = L.countries[i]; if (f.geometry) (by[f.properties.color % pal.length] ??= []).push(i); }
+  if (political && on("countries") && pal) { const by = {}; for (const i of v("countries")) { const f = L.countries[i]; if (f.has(lv)) (by[f.properties.color % pal.length] ??= []).push(i); }
     for (const c in by) fillAll(L.countries, by[c], pal[c]);
     if (on("regions")) {                                            // (the states over them, in shades of their country's colour)
       const R = L.regions, sh = regionShades(), cls = new Map(L.countries.map((f) => [f.properties.iso, f.properties.color])), rby = {};
-      for (const i of v("regions")) { const f = R[i], c = cls.get(f.properties.country); if (c != null && f.geometry) (rby[shade(pal[c % pal.length], sh[i])] ??= []).push(i); }
+      for (const i of v("regions")) { const f = R[i], c = cls.get(f.properties.country); if (c != null && f.has(lv)) (rby[shade(pal[c % pal.length], sh[i])] ??= []).push(i); }
       for (const c in rby) fillAll(R, rby[c], c);
     } }
   if (themed) { if (dk) ctx.globalAlpha = 0.6; themeFill("countries"); if (on("regions")) themeFill("regions"); ctx.globalAlpha = 1; }
   if (geo && on("areas")) geoFill("land");
   drawGroups(L, B, v, fillAll);
   if (sel && sel.mask === "land") highlight(sel);
-  if (on("land")) { fillAll(L.lakes, v("lakes"), css("--sea")); stroke(L.coast, v("coast"), css("--line"), 0.6); }
-  if (sel && sel.mask !== "land") highlight(sel);
+  if (on("land")) { fillAll(L.lakes, v("lakes"), css("--sea")); strokeCoast(lv, boxes, css("--line"), 0.6); }
+  if (sel && sel.mask !== "land" && !(sel.cat === "area" && sel.mask === "water")) highlight(sel);
   if (B) {                                                          // (the outlines of the level shown, and the realms' over them)
     if (bl !== "realms") stroke(B[bl], v(bl), dk ? "#00000088" : "#ffffffaa", bl === "ecoregions" ? 0.5 : 0.7);
     stroke(B.realms, v("realms"), dk ? "#e8e8e8aa" : "#4a4a4aaa", 1.1);
   }
   if (Hl) {                                                         // (the day's land borders: an approximate one blurred -- wide and faint
-    const b = Hl.hborders, ink = dk ? "#b9c2cb" : "#55606b";   // under a thin line --, one to land no state held dashed)
-    ctx.globalAlpha = 0.18; stroke([b.rough, b.roughOpen], [0, 1], ink, 4); ctx.globalAlpha = 0.6; stroke([b.rough], [0], ink, 0.6); ctx.globalAlpha = 1;
-    stroke([b.fixed], [0], ink, 0.8);
-    ctx.globalAlpha = 0.7; stroke([b.partly], [0], ink, 0.7); ctx.globalAlpha = 1;
-    ctx.setLineDash([3, 3]); stroke([b.open], [0], ink, 0.6); ctx.setLineDash([]);
-    if (on("regions") && !fast) stroke([b.inner], [0], dk ? "#6a7580" : "#a8b0b8", 0.4);   // (a province's border within its state: as a modern state's)
+    const ink = dk ? "#b9c2cb" : "#55606b";                   // under a thin line --, one to land no state held dashed)
+    const arcs = (lists, color, width) => { ctx.beginPath(); for (const a of lists) traceArcs(Hl.T, a); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke(); };
+    ctx.globalAlpha = 0.18; arcs([Hl.rough, Hl.roughOpen], ink, 4); ctx.globalAlpha = 0.6; arcs([Hl.rough], ink, 0.6); ctx.globalAlpha = 1;
+    arcs([Hl.fixed], ink, 0.8);
+    ctx.globalAlpha = 0.7; arcs([Hl.partly], ink, 0.7); ctx.globalAlpha = 1;
+    ctx.setLineDash([3, 3]); arcs([Hl.open], ink, 0.6); ctx.setLineDash([]);
+    if (on("regions") && !fast) arcs([Hl.inner], dk ? "#6a7580" : "#a8b0b8", 0.4);   // (a province's border within its state: as a modern state's)
   }
   const gu = game.open && game.units && SHAPES.has(game.style) ? game.units.layer : null;   // (a countries' game: their borders, whatever the layers)
   if (((political || themed) && on("regions") && !fast) || gu === "regions") stroke(L.rb, v("rb"), dk ? "#6a7580" : "#a8b0b8", 0.4);
@@ -648,6 +806,8 @@ function drawMap(fast) {
   const G = game.open;                                            // (the game: no names but the cities named, nothing to go by but the map)
   if (on("pipelines") && L.pipelines.length && !G) { ctx.setLineDash([1.5, 2.5]); stroke(L.pipelines, tiered(L.pipelines, v("pipelines")), dk ? "#b58b5a" : "#8a5a2b", lw); ctx.setLineDash([]); }
   if (on("railways") && L.railways.length && !G) { ctx.setLineDash([4, 2]); stroke(L.railways, tiered(L.railways, v("railways")), dk ? "#c8ccd2" : "#4a4f57", 0.9 * lw); ctx.setLineDash([]); }
+  if (on("motorways") && zoom >= ROAD_TIERS[0] && !loads.roads) wanted();   // (their file: only once they would be drawn)
+  if (on("motorways") && L.roads.length && !G) stroke(L.roads, v("roads").filter((i) => zoom >= ROAD_TIERS[L.roads[i].properties.tier - 1]), dk ? "#c9b45c" : "#b48c0a", 0.7 * lw);   // (under the motorways, thinner and yellow)
   if (on("motorways") && L.motorways.length && !G) stroke(L.motorways, tiered(L.motorways, v("motorways")), dk ? "#e0914a" : "#d9731f", 1.1 * lw);
   if (sel && (sel.cat === "river" || sel.cat === "line")) { ctx.beginPath(); path(sel.geom); ctx.strokeStyle = css("--hi"); ctx.lineWidth = 2.5; ctx.stroke(); }
   if (only) ctx.restore();
@@ -655,6 +815,7 @@ function drawMap(fast) {
   if (G) drawGame(fast);
   if (fast) return;
   const placed = [];                                            // (labels placed so far: a label that would overlap one is left out)
+  ctx.lineJoin = "round";                                       // (a name's halo: pointed, it runs out in spikes at an M, a W)
   if (G) return gameLabels(placed);
   if (B) bioLabels(placed);
   if (Hl) histLabels(placed);
@@ -665,7 +826,7 @@ function drawMap(fast) {
     const near = ids.filter((i) => shown("cities", i));
     cityDots(near); cityLabels(placed, near);
   }
-  if (on("rivers") && L.rivers.length) riverLabels(placed, L.rivers, v("rivers"));
+  if (on("rivers") && L.rivers.length) riverLabels(placed, L.rivers, v("rivers"), lv);
   if (on("monuments") && src.monuments) {
     // (a work of nature -- a park, a waterfall -- a tree; a building or a ruin a temple's front; by its level the larger)
     const F = src.monuments.features, ink = (i) => natural(F[i].properties) ? (dk ? "#9be07a" : "#2e7d32") : (dk ? "#e0a3d8" : "#8e3a80"), seen = [];
@@ -766,7 +927,7 @@ const STATE_KM2 = 4e6;                                              // (a state'
 
 // the realms' names, or the ecoregions' (the big ones first, more of them the closer in)
 function bioLabels(boxes) {
-  const bl = bioLayer(), F = bioLevel(0)[bl === "biomes" ? "realms" : bl];
+  const bl = bioLayer(), F = B0[bl === "biomes" ? "realms" : bl];
   if (bl === "biomes") return;                                      // (a biome is everywhere in pieces: its colour says it, the legend names it)
   const min = bl === "realms" ? 0 : 4e6 / (zoom * zoom);
   for (const f of [...F].sort((a, b) => (b.properties.area_km2 || 0) - (a.properties.area_km2 || 0))) {
@@ -793,7 +954,7 @@ function histLabels(boxes) {
 // the countries' names in spaced capitals, then their states' (with layer 3) in mixed case, fading in: the biggest
 // first, more of them the closer in
 function unitLabels(boxes) {
-  const L = level(0), by = (a, b) => (b.properties.area_km2 || 0) - (a.properties.area_km2 || 0);
+  const L = Map0, by = (a, b) => (b.properties.area_km2 || 0) - (a.properties.area_km2 || 0);
   const write = (F, min, size, font, fill, up) => { for (const f of F) { const p = f.properties;
     if (p.label && (p.area_km2 || 0) >= min && visible(p.label) && !(sel && sel.feats.includes(f)))
       writeName(boxes, up ? caps(p.name) : p.name, p.label, size, font, fill, up ? { spacing: SPACED(size) } : { alpha: fadeIn(p.area_km2 || 0, min) }); } };
@@ -804,7 +965,7 @@ const unitsBySize = {};
 
 // the areas' names: the biggest first, more of them the closer in
 function areaLabels(boxes) {
-  const dk = dark(), maxRank = Math.log2(zoom) * 1.6 + 1.2, A = level(0).areas;
+  const dk = dark(), maxRank = Math.log2(zoom) * 1.6 + 1.2, A = Map0.areas;
   ctx.textAlign = "center"; ctx.textBaseline = "middle";
   for (const f of A) {
     const p = f.properties;
@@ -869,15 +1030,15 @@ function pointLabels(boxes, layer, ids, ink) {
 // river, wherever it overlaps no name placed before
 const RIVER_NAMES = [[1000, 4], [300, 6], [100, 9], [0, 12]];     // (a river's km drawn -> the zoom its name shows from)
 const RIVER_GAP = 350;
-function riverLabels(boxes, F, ids) {
+function riverLabels(boxes, F, ids, lv) {
   const from = (km) => RIVER_NAMES.find(([min]) => km >= min)[1], size = 11, near = new Map();   // (a river -> its names on screen)
-  const ok = ids.filter((i) => F[i].geometry && F[i].properties.name && zoom >= from(F[i].properties.river_km || 0))
+  const ok = ids.filter((i) => F[i].has(lv) && F[i].properties.name && zoom >= from(F[i].properties.river_km || 0))
     .sort((a, b) => (F[b].properties.river_km || 0) - (F[a].properties.river_km || 0));
   ctx.font = `italic ${size}px Georgia, serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
   ctx.lineWidth = 3; ctx.strokeStyle = css("--land"); ctx.fillStyle = css("--water-label");
   for (const i of ok) {
     const p = F[i].properties, k = p.river || p.name, tw = ctx.measureText(p.name).width, w = tw + 10;
-    const g = F[i].geometry, runs = [];
+    const g = shape(F[i], lv), runs = [];
     for (const line of g.type === "LineString" ? [g.coordinates] : g.coordinates) {   // (the line on screen: its runs of visible points)
       let r = [];
       for (const c of line) { const q = visible(c) && proj(c); if (q) r.push(q); else { if (r.length > 1) runs.push(r); r = []; } }
@@ -934,18 +1095,18 @@ const natural = (p) => NATURAL.has(p.kind);
 // ...and the main lines in three tiers (build/roadnet.py: a road or railway by the length of its way on through the
 // junctions -- a motorway across a continent, a ring road, a spur --, a high-speed line first, a pipeline by its
 // network's length): the zoom each tier shows from; none further out than the first
-const LINE_TIERS = [3, 5, 8];
+const LINE_TIERS = [3, 5, 8], ROAD_TIERS = [4, 7, 11];   // (the first-class roads: closer in than the motorways)
 
 // (a point on the far side of the globe is not drawn)
 const visible = (p) => { const c = proj.clipAngle && proj.clipAngle(); return !c || d3.geoDistance(p, [-rotate[0], -rotate[1]]) < c * Math.PI / 180; };
 
 // ---- loading, and the index of names -------------------------------------------------------------------------------
-// ---- the offline copy and the prepared data ------------------------------------------------------------------------
+// ---- the offline copy -------------------------------------------------------------------------------------
 // THE OFFLINE COPY (sw.js; offline.json -- build/offline.py -- lists the files and their version): on a real site the
 // service worker keeps every file the map loads, so it opens with no network and downloads nothing again. It does not
 // update on its own: once a visit the page asks for the version online, and a newer one shows a line at the top with
-// its Update -- the version kept and a check are also at the panel's foot. Updating replaces only the kept files (and,
-// with them, the prepared data below); the groups, the mode and the other settings stay.
+// its Update -- the version kept and a check are also at the panel's foot. Updating replaces only the kept files; the
+// groups, the mode and the other settings stay.
 const OFFLINE = "map-";
 async function startOffline() {   // -> the version kept ("" while the first copy is being made, null with no worker)
   if (!/^https?:$/.test(location.protocol) || !("serviceWorker" in navigator) || !("caches" in self)) return null;
@@ -985,41 +1146,9 @@ function showVersion(kept) {
   $("checkUpdate").onclick = () => ask(false);
   if (kept) ask(true);
 }
-// THE PREPARED DATA (IndexedDB "map", store "prepared"): what the page makes of the files before it can draw -- each
-// line layer read and presimplified (its points' weights for the coarser levels), the R-trees of the layers' bounds --
-// kept under the offline copy's version, so a later visit reads them back instead of making them again (measured on a
-// desktop: the world's 1.4 s of reading and presimplifying became 0.4 s). A new version makes them afresh and drops the
-// old ones. Without an offline copy (a file:// page, a first visit) everything is made as before.
-const PREP = { db: null, version: "" };
-async function openPrepared(version) {
-  if (!version || !("indexedDB" in self)) return;
-  try {
-    PREP.db = await new Promise((ok, no) => { const r = indexedDB.open("map", 2); r.onupgradeneeded = () => { if (!r.result.objectStoreNames.contains("prepared")) r.result.createObjectStore("prepared"); }; r.onsuccess = () => ok(r.result); r.onerror = () => no(r.error); });
-    PREP.version = version;
-    const t = PREP.db.transaction("prepared", "readwrite"), store = t.objectStore("prepared");   // (another version's: gone)
-    store.openKeyCursor().onsuccess = (ev) => { const c = ev.target.result; if (!c) return; if (!String(c.key).startsWith(version + "/")) store.delete(c.key); c.continue(); };
-  } catch (e) { PREP.db = null; }
-}
-async function prepared(key, make) {
-  if (PREP.db) {
-    const hit = await new Promise((ok) => { try { const r = PREP.db.transaction("prepared").objectStore("prepared").get(`${PREP.version}/${key}`); r.onsuccess = () => ok(r.result); r.onerror = () => ok(undefined); } catch { ok(undefined); } });
-    if (hit !== undefined) return hit;
-  }
-  const value = await make();
-  if (PREP.db && value != null) { try { PREP.db.transaction("prepared", "readwrite").objectStore("prepared").put(value, `${PREP.version}/${key}`); } catch (e) { } }   // (cloned now: later changes to it are not kept)
-  return value;
-}
-// a line layer as the page uses it: read, and presimplified -- the one topology both the full detail and the coarser
-// levels are drawn from (presimplify's copy has the points' weights as a third value, which drawing ignores)
-// (base: the presimplified layer whose stretches its lines take -- the world's, for the biogeographic and the historical map)
-const lineLayer = (name, base) => prepared(name, async () => { const t = await getData(`lite/${name}.txt`, base); return t && topojson.presimplify(t, topojson.sphericalTriangleArea); });
-// R-trees of the full-detail features' bounds (tree()), kept as rbush's own JSON
-async function treesOf(key, feats) {
-  const json = await prepared(key, () => Object.fromEntries(Object.entries(feats).map(([k, f]) => [k, tree(f).toJSON()])));
-  for (const [k, j] of Object.entries(json)) trees[k] = new RBush().fromJSON(j);
-}
+try { indexedDB.deleteDatabase("map"); } catch (e) { }   // (what was kept there once: reading the files is now as quick)
 
-// THE DATA: the light files of the line layers (data/lite/*.txt, build/lite.py) and the point layers' CSV -- the only data
+// THE DATA: the light files of the line layers (data/*.txt, build/lite.py) and the point layers' CSV -- the only data
 // the map loads (the full-detail layers, full/*.topo.json, are what the light files are made from: not served)
 // THE ORDER: the world first (land, countries, states, lakes, areas) -- the map is drawn as soon as it is read -- and the
 // rest as each comes (rivers, the main lines, the points: asked for at once, read after the world, each drawn when
@@ -1031,42 +1160,99 @@ const getData = async (f, base) => { const t = await fetchText(f); delete fetche
 const POINT_FILES = { cities: "cities.csv", monuments: "monuments.csv", nature: "natural_points.csv", airports: "airports.csv", events: "events.csv" };
 let redrawing = false;
 const redraw = () => { if (redrawing) return; redrawing = true;                // (a layer come: drawn once, not while the map is moved)
-  requestAnimationFrame(() => { redrawing = false; if (!drag && snapZoom === null) draw(); }); };
-async function addLayer(name, make, keys, indexIt) {              // a line layer come: into every level made so far, its trees, the index
-  for (const i in lod) Object.assign(lod[i], make(+i));
-  const L = level(0);
-  await treesOf(`trees-${name}`, Object.fromEntries(keys.map((k) => [k, L[k]])));
-  indexIt(L); showStats(); redraw();
-}
+  requestAnimationFrame(() => { redrawing = false; if (!drag && !moving) draw(); }); };
 function showStats() {
-  const o = src.world.objects, pts = (t) => t.arcs.reduce((n, a) => n + a.length, 0), n = (k, t) => src[k] ? ` · ${src[k].features.length} ${t}` : "";
-  let t = `${o.countries.geometries.length} countries · ${o.regions.geometries.length} states · ${o.lakes.geometries.length} lakes · ` +
-    (o.areas ? `${o.areas.geometries.length} areas · ` : "") + `${pts(src.world).toLocaleString("en")} points` +
-    (src.rivers ? ` · ${new Set(src.rivers.objects.rivers.geometries.map((g) => g.properties.river)).size} rivers` : "") +
+  const n = (k, t) => src[k] ? ` · ${src[k].features.length} ${t}` : "";
+  let t = `${Map0.countries.length} countries · ${Map0.regions.length} states · ${Map0.lakes.length} lakes · ${Map0.areas.length} areas · ` +
+    `${(src.world.xy.length / 2).toLocaleString("en")} points` +
+    (Map0.rivers.length ? ` · ${new Set(Map0.rivers.map((f) => f.properties.river)).size} rivers` : "") +
     n("cities", "cities") + n("monuments", "monuments") + n("nature", "peaks, capes…") + n("airports", "airports") + n("events", "historical events");
-  if (src.bio) { const B = bioLevel(0); t += ` · ${B.ecoregions.length} ecoregions in ${B.biomes.length} biomes, ${B.realms.length} realms`; }
+  if (B0.realms.length) t += ` · ${B0.ecoregions.length} ecoregions in ${B0.biomes.length} biomes, ${B0.realms.length} realms`;
   if (H0) t += ` · ${H0.periods.length} country-periods ${showYear(Math.min(...H0.periods.map((p) => yearOf(p.from))))}–2019 in ${H0.regions.length} regions`;
   $("stats").textContent = t;
 }
-let bioLoad = null, histLoad = null, pipeLoad = null, restLoaded = false;
+// a copy of a line layer, read when asked for: `objectsOf[name]`, what its Things point at, gets the copy's numbers. Stays
+// when the layer is let go (RELEASE), as its names stay to be found: read again, it only gets the numbers again.
+const BASE = { bio: "world", history: "world" }, lineFiles = {}, objectsOf = {};
+function readCopy(name, lv) {
+  const c = lineFiles[name] ??= [];
+  return c[lv] ??= (async () => {
+    const f = `${COPIES[lv].dir}${name}.txt`, t = await fetchText(f);
+    delete fetched[f];
+    const full = lv ? await readCopy(name, 0) : true, base = BASE[name] ? await readCopy(BASE[name], lv) : null;
+    if (t == null || !full || lineFiles[name] !== c || (BASE[name] && !base)) return null;   // (let go meanwhile: not wanted any more)
+    const T = parseLite(t, base, objectsOf[name]), O = objectsOf[name] ??= {};
+    for (const k in T.objects) { const o = O[k] ??= { kind: T.objects[k].kind, n: T.objects[k].n, rows: T.objects[k].rows, geos: [] }; o.geos[lv] = T.objects[k].g; }
+    delete T.objects;
+    if (lv) redraw();
+    return T;
+  })();
+}
+// a layer of its own file: its full copy, its rows (and, the first time, their names in the index), its trees; the coarser copies after it
+// (`used`: what keeps it from being let go: RELEASE)
+async function addLayer(name) {
+  const L = LAYERS[name], T = await readCopy(name, 0);
+  if (!T) return null;
+  if (!L.known) { for (const k of L.keys) Map0[k] = thingsOf(objectsOf[name], k); L.indexIt(Map0); L.known = true; }
+  for (const k of L.keys) trees[k] = tree(Map0[k]);
+  L.ready = true; L.last = Date.now();
+  readCopy(name, 1); readCopy(name, 2);
+  showStats(); redraw();
+  return T;
+}
+const LAYERS = {
+  rivers: { keys: ["rivers"], used: () => on("rivers"), indexIt: (L) => indexRivers(L) },
+  transport: { keys: ["motorways", "railways"], used: () => on("motorways") || on("railways"), indexIt: (L) => indexLines(L, ["motorways", "railways"]) },
+  roads: { keys: ["roads"], used: () => on("motorways") && zoom >= ROAD_TIERS[0], indexIt: (L) => indexLines(L, ["roads"]) },
+  pipelines: { keys: ["pipelines"], used: () => on("pipelines"), indexIt: (L) => indexLines(L, ["pipelines"]) },
+  bio: { keys: ["realms", "biomes", "ecoregions"], read: () => loadBio(), used: () => mode() === "bio" || ["realms", "biomes", "ecoregions"].some(groupsOn) },
+  history: { keys: ["hregions"], read: () => loadHistory(), used: () => mode() === "history" },
+};
+const FILE_OF = { hperiods: "history", ...Object.fromEntries(Object.entries(LAYERS).flatMap(([name, L]) => L.keys.map((k) => [k, name]))) };
+const loads = {}, layerLoad = (name) => loads[name] ??= (LAYERS[name].read ?? (() => addLayer(name)))();
+let restLoaded = false;
+function foundWhenCome() {                                          // (#find=...: what the link names, once a layer of it has come)
+  if (!pendingFind) return;
+  const r = search(pendingFind), e = r.find(inSpan) || r[0];
+  if (e) { pendingFind = null; $("q").value = e.name; select(e); }
+}
 function wanted() {
   if (!src || !restLoaded) return;
-  if (on("pipelines") || pendingFind) pipeLoad ??= lineLayer("pipelines").then((t) => t && (src.pipelines = src.pipelinesPre = t,
-    addLayer("pipelines", pipelineLevel, ["pipelines"], (L) => indexLines(L, ["pipelines"])).then(() => {
-      if (pendingFind) { const e = search(pendingFind)[0]; if (e) { pendingFind = null; $("q").value = e.name; select(e); } } })));
-  if (mode() === "bio" || ["realms", "biomes", "ecoregions"].some(groupsOn) || pendingFind) bioLoad ??= loadBio();
-  if (mode() === "history" || pendingFind) histLoad ??= loadHistory();
+  for (const name in LAYERS) if (LAYERS[name].used() || pendingFind) layerLoad(name).then(foundWhenCome);
 }
+// RELEASE: a layer not in use for a few minutes is let go -- its points (tens of MB, the historical map's more) -- and read
+// again when wanted (from the browser's cache, in a moment). Its names stay in the index, so it is still found: chosen, it comes back first.
+const RELEASE_MS = 3 * 60 * 1000;
+function letGo(name) {
+  const L = LAYERS[name];
+  if (name === "history") { H0 = null; histNow = null; delete objectsOf.history; L.known = false; }
+  else for (const k in objectsOf[name]) objectsOf[name][k].geos = [];
+  for (const k of L.keys) delete trees[k];
+  delete lineFiles[name]; delete loads[name];
+  L.ready = false;
+  if (name === "bio") src.bio = null;
+  if (name === "history") src.hist = null;
+}
+function releaseUnused() {
+  const now = Date.now();
+  for (const name in LAYERS) { const L = LAYERS[name];
+    if (L.used() || !L.ready) L.last = now;
+    else if (now - L.last > RELEASE_MS) letGo(name);
+  }
+}
+setInterval(releaseUnused, 30000);
 async function load() {
   const kept = await startOffline();
-  await openPrepared(kept);
   showVersion(kept);
-  for (const f of ["lite/rivers.txt", "lite/transport.txt", ...Object.values(POINT_FILES), "flags.txt"]) fetchText(f);
-  const world = await lineLayer("world");
-  if (!world) { $("stats").textContent = "no data/lite/world.txt yet (README.md)"; return; }
-  src = { world, worldPre: world };
-  const L = level(0);
-  await treesOf("trees-world", Object.fromEntries(["land", "countries", "lakes", "coast", "cb", "rb", "areas", "regions"].map((k) => [k, L[k]])));
+  for (const f of ["rivers.txt", "transport.txt", ...Object.values(POINT_FILES), "flags.txt"]) fetchText(f);
+  const world = await readCopy("world", 0);
+  if (!world) { $("stats").textContent = "no data/world.txt yet (README.md)"; return; }
+  src = { world };
+  const L = Map0, O = objectsOf.world, islands = thingsOf(O, "islands");
+  // (the land is the continents and the islands; a named island is an area too -- one row in the file, its name on it)
+  Object.assign(L, { land: [...thingsOf(O, "continents"), ...islands], countries: thingsOf(O, "countries"), regions: thingsOf(O, "regions"), lakes: thingsOf(O, "lakes"), cb: thingsOf(O, "country_borders"), rb: thingsOf(O, "region_borders"),
+    areas: [...thingsOf(O, "areas"), ...islands.filter((f) => f.properties.name).map((f) => f.named({ kind: "island", mask: "land", ...f.properties }))] });
+  for (const k of ["land", "countries", "lakes", "cb", "rb", "areas", "regions"]) trees[k] = tree(L[k]);
   buildIndex();
   idOf.countries = new Map(L.countries.map((f, i) => [f.properties.iso, i]));
   legend(); showStats();
@@ -1088,9 +1274,9 @@ async function load() {
     const [lat, lon, z] = h.get("at").split(",").map(Number);
     rotate = [-lon, -lat, 0]; zoom = Math.min(MAX_ZOOM, z || 4); setup(); draw(); identifyAt([lon, lat], proj([lon, lat]));
   }
+  readCopy("world", 1); readCopy("world", 2);                     // (not waited for: the full file draws till then)
   await Promise.all([
-    lineLayer("rivers").then((r) => r && (src.rivers = src.riversPre = r, addLayer("rivers", riverLevel, ["rivers"], indexRivers))),
-    lineLayer("transport").then((t) => t && (src.transport = src.transportPre = t, addLayer("transport", transportLevel, ["motorways", "railways"], (L) => indexLines(L, ["motorways", "railways"])))),
+    layerLoad("rivers"), layerLoad("transport"),
     ...Object.entries(POINT_FILES).map(([k, f]) => getData(f).then((d) => { if (!d) return; src[k] = d; points[k] = pointTree(d); indexPoints(k); showStats(); redraw(); })),
     fetchText("flags.txt").then((t) => { if (!t) return; flagLib = Flags.library(t); if (flagLib.errors.length) console.warn("data/flags.txt:", flagLib.errors);
       showResults(); }),
@@ -1099,70 +1285,126 @@ async function load() {
   // (#find=Alps: once all but the two maps of their own are in -- the Rhine is no state's name, Berlin the city before the state)
   if (h.get("find")) { const e = search(h.get("find"))[0]; if (e) { $("q").value = e.name; select(e); } else pendingFind = h.get("find"); }
   wanted();
-  // the other levels of detail, made while nothing else is going on (each ~1 s): made only when first needed, the first
-  // zoom across into each one stalled for that long
-  const idle = (f) => (self.requestIdleCallback ? requestIdleCallback(f, { timeout: 4000 }) : setTimeout(f, 200));
-  const ahead = (i) => { if (i < 0) return; level(i); idle(() => ahead(i - 1)); };
-  idle(() => ahead(WEIGHTS.length - 1));
 }
 
-// a light file read back into the topology the page draws: @arcs (a line each: x y dx dy ...), then each object's CSV
-// (a header, a row a geometry -- or, grouped, a row a thing and @name.pieces a row a piece, with what differs)
-function parseLite(text, base) {
-  const topo = { type: "Topology", arcs: [], objects: {} }, sections = [];
-  let cur = null;
-  for (const line of text.split("\n")) {
-    if (!line || line[0] === "#") continue;
-    if (line.startsWith("grid ")) { const [s, x, y] = line.slice(5).split(" ").map(Number); topo.transform = { scale: [s, s], translate: [x, y] }; continue; }
-    if (line.startsWith("uses ")) { if (!base) throw new Error(`a light file made partly of ${line.slice(5)}.txt's lines, read without it`); continue; }
-    if (line[0] === "@") { cur = { head: line.slice(1).split(" "), lines: [] }; sections.push(cur); continue; }
-    cur.lines.push(line);
-  }
+// a light file read (the format: build/lite.py; build/small.py its copies): @arcs (a line each: x y dx dy ...; "dw:k:dk",
+// a stretch of base's), then each object's rows (a header, a row each, its arcs last -- or, grouped, a row a thing and
+// @name.pieces a row a piece, with what differs). The points and the rows' arcs go straight into typed arrays: the text
+// is never split into lines or numbers. `known`: the objects known already -- a copy's rows name their row, a layer read again
+// has its names already.
+function parseLite(text, base, known) {
+  const len = text.length, objects = {};
+  let pos = 0, sc = 1, tx = 0, ty = 0, xy = new Float32Array(1 << 16), np = 0, at = new Int32Array(1 << 12), na = 0;
+  const lineEnd = () => { const e = text.indexOf("\n", pos); return e < 0 ? len : e; };
   const value = (v, t) => v === "" ? undefined : t === "#" ? +v : t === "[]" ? v.split("|") : t === "[]#" ? v.split("|").map(Number) : t === "?" ? v === "1" : t === "{}" ? JSON.parse(v) : v;
-  const rowsOf = (lines) => {
-    const [cols, ...rows] = d3.csvParseRows(lines.join("\n"));
-    const spec = cols.map((c) => { const m = c.match(/^(.*?)(\[\]#|\[\]|#|\?|\{\})?$/); return [m[1], m[2] || ""]; });
-    return rows.map((r) => { const o = {}; spec.forEach(([k, t], i) => { const v = k === "arcs" ? r[i] : value(r[i], t); if (v !== undefined) o[k] = v; }); return o; });
-  };
-  const ints = (s) => s.split(" ").filter(Boolean).map(Number);
-  let w = 0;                                                       // (a line taking stretches of base's -- "dw:k:dk", build/lite.py:
-  const stretches = (l) => {                                       //  their points, back on the grid, as steps like its own)
-    const [sc] = topo.transform.scale, [tx, ty] = topo.transform.translate, n = l.split(" "), a = [];
-    let x, y;
-    const to = (px, py) => { if (x === undefined) a.push([px, py]); else if (px !== x || py !== y) a.push([px - x, py - y]); else return; x = px; y = py; };
-    for (let i = 0; i < n.length; i++) {
-      if (n[i].includes(":")) {
-        const [dw, k, dk] = n[i].split(":").map(Number), B = base.arcs[w += dw], d = Math.sign(dk);
-        for (let j = 0; j <= Math.abs(dk); j++) { const p = B[k + j * d]; to(Math.round((p[0] - tx) / sc), Math.round((p[1] - ty) / sc)); }
-      } else if (x === undefined) to(+n[i], +n[++i]);
-      else to(x + +n[i], y + +n[++i]);
+  const readArcs = () => {
+    for (; pos < len && text.charCodeAt(pos) !== 64; pos++) {       // (to the next @)
+      const e = lineEnd();
+      if (na + 2 > at.length) { const b = new Int32Array(at.length * 2); b.set(at); at = b; }
+      at[na++] = np;
+      let x = 0, y = 0, first = true, have = 0, pair = 0;
+      const put = (px, py) => {
+        if (!first && px === x && py === y) return;
+        if (2 * np + 4 > xy.length) { const b = new Float32Array(xy.length * 2); b.set(xy); xy = b; }
+        xy[2 * np] = px * sc + tx; xy[2 * np + 1] = py * sc + ty; np++; x = px; y = py; first = false;
+      };
+      for (let i = pos; i < e;) {
+        let c = text.charCodeAt(i);
+        if (c === 32) { i++; continue; }
+        let neg = false, n = 0;
+        if (c === 45) { neg = true; c = text.charCodeAt(++i); }
+        while (c >= 48 && c <= 57) { n = n * 10 + c - 48; c = i + 1 < e ? text.charCodeAt(++i) : (i++, 32); }
+        if (neg) n = -n;
+        if (c === 58) {                                             // (dw:k:dk: base's arc, from its point k, |dk| steps on, back on the grid)
+          let k = 0, dk = 0, sign = 1;
+          for (c = text.charCodeAt(++i); c >= 48 && c <= 57; c = text.charCodeAt(++i)) k = k * 10 + c - 48;
+          c = text.charCodeAt(++i); if (c === 45) { sign = -1; c = text.charCodeAt(++i); }
+          while (c >= 48 && c <= 57) { dk = dk * 10 + c - 48; c = i + 1 < e ? text.charCodeAt(++i) : (i++, 32); }
+          lastW += n;
+          for (let j = 0, q = 2 * (base.at[lastW] + k); j <= dk; j++, q += 2 * sign) put(Math.round((base.xy[q] - tx) / sc), Math.round((base.xy[q + 1] - ty) / sc));
+          have = 0; continue;
+        }
+        if (!have) { pair = n; have = 1; continue; }
+        have = 0;
+        if (first) put(pair, n); else put(x + pair, y + n);
+      }
+      if (np - at[na - 1] === 1) { if (2 * np + 4 > xy.length) { const b = new Float32Array(xy.length * 2); b.set(xy); xy = b; } xy[2 * np] = xy[2 * np - 2]; xy[2 * np + 1] = xy[2 * np - 1]; np++; }   // (all on one point of the grid: two still, as a line must have)
+      pos = e;
     }
-    if (a.length === 1) a.push([0, 0]);                            // (all on one point of the grid: two points still, as topojson's merge wants)
-    return a;
+    at[na] = np;
   };
-  const geometry = (kind, s, props) => {
-    const g = { properties: props };
-    if (!s) g.type = null;
-    else if (kind === "polygon") { const p = s.split("|").map((x) => x.split(";").map(ints)); Object.assign(g, p.length === 1 ? { type: "Polygon", arcs: p[0] } : { type: "MultiPolygon", arcs: p }); }
-    else { const l = s.split(";").map(ints); Object.assign(g, l.length === 1 ? { type: "LineString", arcs: l[0] } : { type: "MultiLineString", arcs: l }); }
-    if (props["~id"] !== undefined) { g.id = props["~id"]; delete props["~id"]; }
-    return g;
+  let lastW = 0;
+  const spec = (line) => line.split(",").map((c) => { const m = c.match(/^(.*?)(\[\]#|\[\]|#|\?|\{\})?$/); return [m[1], m[2] || ""]; });
+  const things = {};
+  const readObject = (head) => {
+    const piecesOf = head[0].endsWith(".pieces") ? head[0].slice(0, -7) : null, name = piecesOf ?? head[0];
+    let e = lineEnd();
+    const cols = spec(text.slice(pos, e)), hasArcs = cols.at(-1)[0] === "arcs", byRow = cols[0][0] === "row", was = known?.[name];
+    pos = e + 1;
+    const wantProps = !byRow && !was && cols.length > (hasArcs ? 1 : 0), lines = [];
+    let refs = new Int32Array(hasArcs ? 1 << 12 : 0), nr = 0, idx = 0, rows = 0;
+    const n0 = byRow ? was.n : 0;
+    let start = new Int32Array(byRow ? n0 + 1 : 1 << 10);
+    const open = () => { if (nr + 2 >= refs.length) { const b = new Int32Array(refs.length * 2); b.set(refs); refs = b; } };
+    for (; pos < len && text.charCodeAt(pos) !== 64; pos = e + 1) {
+      e = lineEnd();
+      if (e === pos) continue;
+      if (!hasArcs) { if (wantProps) lines.push(text.slice(pos, e)); rows++; continue; }
+      let cut = text.lastIndexOf(",", e - 1); if (cut < pos) cut = pos - 1;
+      if (byRow) { const r = +text.slice(pos, cut); while (idx <= r) start[idx++] = nr; }
+      else { if (idx + 2 > start.length) { const b = new Int32Array(start.length * 2); b.set(start); start = b; } start[idx++] = nr; if (wantProps) lines.push(text.slice(pos, Math.max(cut, pos))); }
+      rows++;
+      let c, v = 0, neg = false, inNum = false;
+      const any = cut + 1 < e;
+      for (let i = cut + 1; i <= e; i++) {
+        c = i < e ? text.charCodeAt(i) : 0;
+        if (c >= 48 && c <= 57) { v = v * 10 + c - 48; inNum = true; continue; }
+        if (c === 45) { neg = true; continue; }
+        if (inNum) { open(); refs[nr++] = neg ? -v : v; v = 0; neg = false; inNum = false; }
+        if (c === 59) { open(); refs[nr++] = RING; }
+        else if (c === 124) { open(); refs[nr++] = RING; refs[nr++] = POLY; }
+      }
+      if (any) { open(); refs[nr++] = RING; if ((was?.kind ?? kindOf[name]) === "polygon") refs[nr++] = POLY; }
+    }
+    if (!hasArcs) {                                                 // (a grouped object's things: the key first)
+      if (wantProps) things[name] = readRows(cols, lines);
+      kindOf[name] = head[1] ?? kindOf[name];
+      return;
+    }
+    if (byRow) while (idx <= n0) start[idx++] = nr;
+    else start[idx] = nr;
+    const n = byRow ? n0 : idx;
+    let props = null;
+    if (wantProps) {
+      props = readRows(cols, lines, name);
+      if (piecesOf && things[name]) { const key = Object.keys(things[name][0] || {})[0], by = new Map(things[name].map((t) => [t[key], t]));
+        props = props.map((own) => Object.assign(Object.create(by.get(own[key]) ?? null), own)); }
+    }
+    objects[name] = { kind: was?.kind ?? kindOf[name], n, rows: props, g: { start: byRow ? start : start.slice(0, n + 1), refs: refs.slice(0, nr) } };
   };
-  const kinds = {}, things = {};
-  for (const s of sections) {
-    const [name, kind] = s.head;
-    if (name === "arcs") { topo.arcs = s.lines.map((l) => l.includes(":") ? stretches(l) : (() => { const n = ints(l), a = []; for (let i = 0; i < n.length; i += 2) a.push([n[i], n[i + 1]]); return a; })()); continue; }
-    if (name.endsWith(".pieces")) {                                 // (each piece: its thing's values, then its own)
-      const base = name.slice(0, -7), key = Object.keys(things[base][0] || {})[0], by = new Map(things[base].map((t) => [t[key], t]));
-      topo.objects[base] = { type: "GeometryCollection", geometries: rowsOf(s.lines).map((p) => { const { arcs, ...own } = p; return geometry(kinds[base], arcs, { ...by.get(own[key]), ...own }); }) };
+  const kindOf = {};
+  const readRows = (cols, lines) => {
+    const keep = cols.filter(([k]) => k !== "arcs"), out = [], one = new Map();   // (a text only once: "primary", "Asia")
+    for (const r of d3.csvParseRows(lines.join("\n"))) { const o = {}; keep.forEach(([k, t], i) => { if (k === "~id") return; let v = value(r[i] ?? "", t); if (typeof v === "string") { const w = one.get(v); if (w) v = w; else one.set(v, v); } if (v !== undefined) o[k] = v; }); out.push(o); }
+    return out;
+  };
+  while (pos < len) {
+    const c = text.charCodeAt(pos), e = lineEnd();
+    if (e === pos || c === 35) { pos = e + 1; continue; }
+    if (c === 103) { const [a, x, y] = text.slice(pos + 5, e).split(" ").map(Number); sc = a; tx = x; ty = y; pos = e + 1; continue; }   // (grid ...)
+    if (c === 64) {
+      const head = text.slice(pos + 1, e).split(" ");
+      pos = e + 1;
+      if (head[0] === "arcs") { readArcs(); continue; }
+      if (head[1]) kindOf[head[0]] = head[1];
+      readObject(head);
       continue;
     }
-    kinds[name] = kind;
-    const rows = rowsOf(s.lines);
-    if (!s.lines[0].split(",").includes("arcs")) { things[name] = rows; continue; }   // (a grouped object's things: the key first)
-    topo.objects[name] = { type: "GeometryCollection", geometries: rows.map(({ arcs, ...p }) => geometry(kind, arcs || "", p)) };
+    pos = e + 1;                                                    // (uses ...)
   }
-  return topo;
+  const T = { xy: xy.slice(0, 2 * np), at: at.slice(0, na + 1), objects };
+  for (const k in objects) objects[k].g.T = T;
+  return T;
 }
 
 // a table of points (data/cities.csv, monuments.csv, natural_points.csv, airports.csv, events.csv: a header line, one a line,
@@ -1176,54 +1418,62 @@ function pointsOf(rows) {
   }) };
 }
 
-// the biogeographic layer (data/lite/bio.txt): only when wanted (its map, a group of its, a link), as it is only for its
+// the biogeographic layer (data/bio.txt): only when wanted (its map, a group of its, a link), as it is only for its
 // own map, its names and the ecoregion under a click
 let pendingFind = null;
 const bioLayerOf = (id) => /^E\d+$/.test(id) ? "ecoregions" : /^B\d+$/.test(id) ? "biomes" : "realms";
 async function loadBio() {
-  const bio = await lineLayer("bio", src.worldPre);
+  const L = LAYERS.bio, first = !L.known, bio = await readCopy("bio", 0);
   if (!bio) { $("mode").querySelector('[value="bio"]').disabled = true; return; }
-  src.bio = bio; src.bioPre = bio; bioLod = [];
-  const B = bioLevel(0);
-  await treesOf("trees-bio", { realms: B.realms, biomes: B.biomes, ecoregions: B.ecoregions });
-  for (const k of ["realms", "biomes", "ecoregions"]) idOf[k] = new Map(B[k].map((f, i) => [f.properties.id, i]));
-  const realm = Object.fromEntries(B.realms.map((f) => [f.properties.id, f.properties.name])), biome = Object.fromEntries(B.biomes.map((f) => [f.properties.id, f.properties.name]));
-  const count = (k, v) => B.ecoregions.filter((f) => f.properties[k] === v).length;
-  B.realms.forEach((f, i) => addToIndex({ cat: "bio", name: f.properties.name, alt: f.properties.id, kind: "biogeographic realm", feats: [f], ids: [i], layer: "realms", mask: "land", at: f.properties.label, weight: 5e9, info: [`${count("realm", f.properties.id)} ecoregions`] }));
-  B.biomes.forEach((f, i) => addToIndex({ cat: "bio", name: f.properties.name, alt: f.properties.id, kind: "biome", feats: [f], ids: [i], layer: "biomes", mask: "land", weight: 4e9, info: [`${count("biome", f.properties.id)} ecoregions`] }));
-  B.ecoregions.forEach((f, i) => { const p = f.properties;
-    addToIndex({ cat: "bio", name: p.name, alt: p.id, kind: `ecoregion · ${realm[p.realm] || "no realm"}`, feats: [f], ids: [i], layer: "ecoregions", mask: "land", at: p.label, weight: 1e6 + (p.area_km2 || 0),
-                 info: [biome[p.biome], p.area_km2 ? `${fmt(p.area_km2)} km²` : null, p.id] }); });
+  if (first) { const O = objectsOf.bio; for (const k of L.keys) B0[k] = thingsOf(O, k); }
+  const B = B0;
+  for (const k of L.keys) trees[k] = tree(B[k]);
+  src.bio = bio; L.known = true; L.ready = true; L.last = Date.now();
+  readCopy("bio", 1); readCopy("bio", 2);
+  if (first) {
+    for (const k of ["realms", "biomes", "ecoregions"]) idOf[k] = new Map(B[k].map((f, i) => [f.properties.id, i]));
+    const realm = Object.fromEntries(B.realms.map((f) => [f.properties.id, f.properties.name])), biome = Object.fromEntries(B.biomes.map((f) => [f.properties.id, f.properties.name]));
+    const count = (k, v) => B.ecoregions.filter((f) => f.properties[k] === v).length;
+    B.realms.forEach((f, i) => addToIndex({ cat: "bio", name: f.properties.name, alt: f.properties.id, kind: "biogeographic realm", feats: [f], ids: [i], layer: "realms", mask: "land", at: f.properties.label, weight: 5e9, info: [`${count("realm", f.properties.id)} ecoregions`] }));
+    B.biomes.forEach((f, i) => addToIndex({ cat: "bio", name: f.properties.name, alt: f.properties.id, kind: "biome", feats: [f], ids: [i], layer: "biomes", mask: "land", weight: 4e9, info: [`${count("biome", f.properties.id)} ecoregions`] }));
+    B.ecoregions.forEach((f, i) => { const p = f.properties;
+      addToIndex({ cat: "bio", name: p.name, alt: p.id, kind: `ecoregion · ${realm[p.realm] || "no realm"}`, feats: [f], ids: [i], layer: "ecoregions", mask: "land", at: p.label, weight: 1e6 + (p.area_km2 || 0),
+                   info: [biome[p.biome], p.area_km2 ? `${fmt(p.area_km2)} km²` : null, p.id] }); });
+  }
   showStats();
   legend(); renderGroups();
   if (mode() === "bio" || groups.length) draw();
-  if (pendingFind) { const e = search(pendingFind)[0]; if (e) { pendingFind = null; $("q").value = e.name; select(e); } }
 }
 
-// the historical map (data/lite/history.txt): only when wanted (its map, a link), as it is only for its own map; each country-period
+// the historical map (data/history.txt): only when wanted (its map, a link), as it is only for its own map; each country-period
 // is found by name (chosen, the map shows a day in its span), a region under a click
+let historyIndexed = false;
 async function loadHistory() {
-  const hist = await lineLayer("history", src.worldPre);
-  if (!hist || !hist.objects.regions) { $("mode").querySelector('[value="history"]').disabled = true; return; }
-  src.hist = hist; src.histPre = hist; histLod = []; histNow = null;
-  const G = hist.objects.regions.geometries, P = hist.objects.periods.geometries.map((g) => g.properties), byState = new Map(), sides = new Map();
+  const L = LAYERS.history, hist = await readCopy("history", 0);
+  if (!hist || !objectsOf.history?.regions) { $("mode").querySelector('[value="history"]').disabled = true; return; }
+  histNow = null;
+  const O = objectsOf.history, P = O.periods.rows, regions = thingsOf(O, "regions"), byState = new Map();
   P.forEach((p, i) => { p._f = dayNum(p.from); p._t = dayNum(p.to); if (!byState.has(p.state)) byState.set(p.state, []); byState.get(p.state).push(i); });
-  const held = G.map((g) => { const h = g.properties.held || []; return [h.map((x) => dayNum(x.slice(0, x.lastIndexOf(":")))), h.map((x) => { const s = x.slice(x.lastIndexOf(":") + 1); return s === "" ? -1 : +s; })]; });
-  G.forEach((g, r) => { const walk = (x) => { for (const y of x) if (Array.isArray(y)) walk(y); else { const a = y < 0 ? ~y : y; if (!sides.has(a)) sides.set(a, []); sides.get(a).push(r); } }; walk(g.arcs || []); });
-  const pairs = [...sides].map(([a, rs]) => [a, rs[0], rs.length > 1 ? rs[1] : -1]);   // (an arc and the regions on its two sides; one: the coast)
-  const regions = G.map((g) => keepPolygons(topojson.feature(hist, g)));   // (a sliver wound backwards would hold the whole globe: a click anywhere found it)
-  H0 = { periods: P, byState, held, pairs, regions, lv: [regions.map(keepPolygons)] };
+  // (each region's owners as numbers, all in one array: the text it comes as was a third of what this map took)
+  const start = new Int32Array(regions.length + 1), from = [], state = [];
+  regions.forEach((f, r) => { start[r] = from.length; for (const x of f.properties.held || []) { const k = x.lastIndexOf(":"), s = x.slice(k + 1); from.push(dayNum(x.slice(0, k))); state.push(s === "" ? -1 : +s); } delete f.properties.held; });
+  start[regions.length] = from.length;
+  H0 = { periods: P, byState, held: { start, from: Int32Array.from(from), state: Int32Array.from(state) }, pairs: new Map(), regions };
   trees.hregions = tree(regions);
-  const name = new Map(P.map((p) => [p.state, p.name]));
-  const years = (p) => `${showYear(yearOf(p.from))}–${showYear(yearOf(p.to))}`;
-  P.forEach((p, i) => {
-    addToIndex({ cat: "history", name: p.name, kind: `${p.status === "independent" || !p.status ? "state" : p.status} ${years(p)}`, feats: [], ids: [], layer: "hperiods", period: i,
-                 mask: "land", at: p.label, weight: 1e5 + (p.area_km2 || 0) / 1e3, span: [p.from, p.to],
-                 info: [p.owner != null ? `of ${name.get(p.owner) || p.owner}` : null, p.capital ? `capital ${p.capital}` : null, p.area_km2 ? `${fmt(p.area_km2)} km²` : null,
-                        p.source === "basemaps" ? `as mapped for ${showYear(yearOf(p.from))}, until the next map` : `${p.from} to ${p.to}`, p.precision === 1 ? "borders approximate" : null] }); });
+  src.hist = hist; L.ready = true; L.last = Date.now();
+  readCopy("history", 1); readCopy("history", 2);
+  if (!historyIndexed) {
+    historyIndexed = true;
+    const name = new Map(P.map((p) => [p.state, p.name]));
+    const years = (p) => `${showYear(yearOf(p.from))}–${showYear(yearOf(p.to))}`;
+    P.forEach((p, i) => {
+      addToIndex({ cat: "history", name: p.name, kind: `${p.status === "independent" || !p.status ? "state" : p.status} ${years(p)}`, feats: [], ids: [], layer: "hperiods", period: i,
+                   mask: "land", at: p.label, weight: 1e5 + (p.area_km2 || 0) / 1e3, span: [p.from, p.to],
+                   info: [p.owner != null ? `of ${name.get(p.owner) || p.owner}` : null, p.capital ? `capital ${p.capital}` : null, p.area_km2 ? `${fmt(p.area_km2)} km²` : null,
+                          p.source === "basemaps" ? `as mapped for ${showYear(yearOf(p.from))}, until the next map` : `${p.from} to ${p.to}`, p.precision === 1 ? "borders approximate" : null] }); });
+  }
   showStats();
   if (mode() === "history") draw();
-  if (pendingFind) { const r = search(pendingFind), e = r.find(inSpan) || r[0]; if (e) { pendingFind = null; $("q").value = e.name; select(e); } }
 }
 const inSpan = (e) => e.span && dayNum(e.span[0]) <= dayNum(histDay()) && dayNum(histDay()) <= dayNum(e.span[1]);
 
@@ -1231,26 +1481,33 @@ const inSpan = (e) => e.span && dayNum(e.span[0]) <= dayNum(histDay()) && dayNum
 //  the letters that do not decompose, Polish ł, Nordic ø and æ, ß, Croatian đ, Turkish ı, are folded by hand)
 const FOLD = { "ł": "l", "ø": "o", "đ": "d", "ð": "d", "þ": "th", "æ": "ae", "œ": "oe", "ß": "ss", "ı": "i", "ħ": "h", "ŧ": "t", "ŋ": "n" };
 const norm = (s) => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[łøđðþæœßıħŧŋ]/g, (c) => FOLD[c]);
-const collect = (feats) => feats.length === 1 ? feats[0] : { type: "FeatureCollection", features: feats };
+// (what a selection draws: the shape itself, not made anew each frame)
+const frozen = (f) => f instanceof Thing ? { type: "Feature", properties: f.properties, geometry: f.geometry } : f;
+const collect = (feats) => feats.length === 1 ? frozen(feats[0]) : { type: "FeatureCollection", features: feats.map(frozen) };
 
 const addToIndex = (e) => { e.keys = [...new Set([e.name, ...String(e.alt || "").split(" / ")].filter(Boolean).map(norm))]; index.push(e); };
 function buildIndex() {
-  const L = level(0), add = addToIndex;
+  const L = Map0, add = addToIndex;
   const countryName = Object.fromEntries(L.countries.map((f) => [f.properties.iso, f.properties.name]));
   L.countries.forEach((f, i) => {
     const p = f.properties;
-    if (!f.geometry) return;
+    if (!f.has()) return;
     add({ cat: "country", name: p.name, alt: p.name_local, kind: p.subtype === "dependency" ? "dependency" : p.subtype === "continent" ? "continent" : "country",
           feats: [f], ids: [i], layer: "countries", mask: "land", weight: 1e10, info: [p.iso, p.population ? `${fmtPop(p.population)} people` : null, p.density != null ? `${Math.round(p.density)}/km²` : null, p.language, p.sovereign && p.sovereign !== p.iso ? `of ${countryName[p.sovereign] || p.sovereign}` : null] });
   });
   L.regions.forEach((f, i) => {
     const p = f.properties;
-    if (!f.geometry) return;
+    if (!f.has()) return;
     add({ cat: "region", name: p.name, alt: p.name_local, kind: `state · ${countryName[p.country] || p.country}`, feats: [f], ids: [i], layer: "regions", mask: "land", weight: 1e5, info: [p.iso, p.population ? `${fmtPop(p.population)} people` : null, p.density != null ? `${Math.round(p.density)}/km²` : null, p.language] });   // (below a city of the same name: Istanbul)
   });
+  // a state drawn in parts (England, its nine regions): found as a whole too
+  for (const [name, F] of d3.group(L.regions.filter((f) => f.properties.part_of && f.has()), (f) => f.properties.part_of)) {
+    const p = F[0].properties, people = d3.sum(F, (f) => f.properties.population || 0);
+    add({ cat: "region", name, kind: `state · ${countryName[p.country] || p.country}`, feats: F, ids: F.map((f) => L.regions.indexOf(f)), layer: "regions", mask: "land", weight: 1e5, flag: p.part_iso, info: [p.part_iso, people ? `${fmtPop(people)} people` : null, p.language] });
+  }
   // a lake: its pieces (OSM's separate features) together, by Wikidata item or name
   const lakes = new Map();
-  L.lakes.forEach((f, i) => { const p = f.properties; if (!p.name || !f.geometry) return; const k = p.wikidata || p.name; if (!lakes.has(k)) lakes.set(k, []); lakes.get(k).push(i); });
+  L.lakes.forEach((f, i) => { const p = f.properties; if (!p.name || !f.has()) return; const k = p.wikidata || p.name; if (!lakes.has(k)) lakes.set(k, []); lakes.get(k).push(i); });
   for (const ids of lakes.values()) {
     const fs = ids.map((i) => L.lakes[i]), p = fs[0].properties, area = Math.max(...fs.map((f) => f.properties.area_km2 || 0));
     add({ cat: "lake", name: p.name, alt: p.name_local, kind: p.type || "lake", feats: fs, ids, layer: "lakes", mask: "water", weight: area * 1e3, info: [`${fmt(area)} km²`] });
@@ -1270,7 +1527,7 @@ function indexAreas(L) {                                            // the areas
   const add = addToIndex, byWd = new Map();
   L.areas.forEach((f, i) => {
     const p = f.properties;
-    if (!f.geometry) return;
+    if (!f.has()) return;
     add({ cat: "area", name: p.name, alt: p.name_en || p.name_local, kind: p.kind, feats: [f], ids: [i], layer: "areas", mask: p.mask, at: p.label, weight: 1e9 / (1 + (p.rank ?? 9)) });
     if (p.wikidata) { if (!byWd.has(p.wikidata)) byWd.set(p.wikidata, []); byWd.get(p.wikidata).push(i); }
   });
@@ -1283,18 +1540,19 @@ function indexAreas(L) {                                            // the areas
 }
 // the main lines: a road by its number or name -- its lines of that number that meet end to end (Germany's A1 and
 // Italy's are two; a motorway's "A1" is found with its kind)
+const ROAD_MIN_FOUND_KM = 10;                                       // (a few km of a first-class road: too many to name)
 function indexLines(L, layers) {
   const add = addToIndex;
   for (const layer of layers) {
     const by = new Map();
-    L[layer].forEach((f, i) => { const p = f.properties, k = p.ref || p.name; if (!k || !f.geometry) return; if (!by.has(k)) by.set(k, []); by.get(k).push(i); });
+    L[layer].forEach((f, i) => { const p = f.properties, k = p.ref || p.name; if (!k || !f.has() || (layer === "roads" && lengthKm(f) < ROAD_MIN_FOUND_KM)) return; if (!by.has(k)) by.set(k, []); by.get(k).push(i); });
     for (const all of by.values()) {
       const up = new Map(all.map((i) => [i, i])), find = (i) => { while (up.get(i) !== i) i = up.get(i); return i; }, end = new Map();
-      for (const i of all) { const c = L[layer][i].geometry.coordinates; for (const q of [c[0], c[c.length - 1]]) { const k = `${q}`, j = end.get(k); if (j == null) end.set(k, i); else up.set(find(i), find(j)); } }
+      for (const i of all) { for (const k of endsOf(L[layer][i])) { const j = end.get(k); if (j == null) end.set(k, i); else up.set(find(i), find(j)); } }
       const parts = new Map(); for (const i of all) { const r = find(i); if (!parts.has(r)) parts.set(r, []); parts.get(r).push(i); }
       for (const ids of parts.values()) {
-        const fs = ids.map((i) => L[layer][i]), p = fs[0].properties, km = fs.reduce((s, f) => s + d3.geoLength(f) * 6371, 0);
-        const kind = layer === "motorways" ? p.class : layer === "railways" ? (p.highspeed ? "high-speed railway" : "railway") : `${p.substance} pipeline`;
+        const fs = ids.map((i) => L[layer][i]), p = fs[0].properties, km = fs.reduce((s, f) => s + lengthKm(f), 0);
+        const kind = layer === "motorways" ? p.class : layer === "roads" ? `${p.class} road` : layer === "railways" ? (p.highspeed ? "high-speed railway" : "railway") : `${p.substance} pipeline`;
         add({ cat: "line", name: p.name || p.ref, alt: p.ref, kind, feats: fs, ids, layer, weight: km * 10, info: [`${fmt(Math.round(km))} km`, p.operator] });
       }
     }
@@ -1303,7 +1561,7 @@ function indexLines(L, layers) {
 // a point layer: each point by its name (a monument weighs less than a city of its name -- Rabat the city before Rabat
 // the World Heritage Site)
 function indexPoints(k) {
-  const add = addToIndex, countryName = Object.fromEntries(level(0).countries.map((f) => [f.properties.iso, f.properties.name]));
+  const add = addToIndex, countryName = Object.fromEntries(Map0.countries.map((f) => [f.properties.iso, f.properties.name]));
   for (const [set, kindOf, weight, info] of [
     [src.cities, (p) => `${p.capital === "country" ? "capital" : "city"} · ${p.country || "?"}`, (p) => p.population, (p) => [`${fmtPop(p.population)} people`, countryName[p.country]]],
     [src.monuments, (p) => `${p.kind} · ${p.country || "?"}`, (p) => (4 - (p.level ?? 3)) * 2e4 + (p.visitors || 0) / 1e3, (p) => [p.visitors ? `${fmt(p.visitors)} visitors/yr${p.visitors_year ? " (" + p.visitors_year + ")" : ""}` : null, countryName[p.country]]],
@@ -1346,7 +1604,7 @@ function search(q) {
 // ---- FLAGS (flags.js, data/flags.txt): a country's or a state's flag and coat of arms, by its ISO code -- under its name
 // when it is selected, small beside it in the search, and the flag game's question
 let flagLib = null;
-const flagCode = (e) => !e ? null : e.layer === "countries" || e.layer === "regions" ? e.feats[0].properties.iso || null
+const flagCode = (e) => !e ? null : e.flag ? e.flag : e.layer === "countries" || e.layer === "regions" ? e.feats[0].properties.part_iso || e.feats[0].properties.iso || null
   : e.layer === "hperiods" && H0 ? histFlag(H0.periods[e.period].state, inSpan(e) ? histDay() : e.span[0]) : null;
 // a state of the historical map: its flag on a day -- h<state id>, or h<state id>.<date> (1923, 1923-07-06) for the one from
 // that day on: the latest not after the day
@@ -1378,6 +1636,9 @@ function clearSel() {
   history.replaceState(null, "", location.pathname + location.search); draw();
 }
 function select(e) {
+  const file = FILE_OF[e.layer];
+  if (file && !LAYERS[file].ready) return void layerLoad(file).then(() => LAYERS[file].ready && select(e));   // (let go: read again first)
+  if (file) LAYERS[file].last = Date.now();
   if (e.span) {                                                     // (a country-period: on the historical map, on a day of its span)
     if (mode() !== "history") { $("mode").value = "history"; modeChanged(false); }
     if (!inSpan(e)) setDay(e.span[0]);
@@ -1407,7 +1668,7 @@ function fly(s) {
     const dlon = ((ea - w) + 360) % 360 || 360;
     span = Math.max(n - so, dlon * Math.cos(((n + so) / 2) * Math.PI / 180));
   }
-  const toZoom = s.cat === "point" ? Math.max(zoom, 6) : game.open ? Math.max(1, Math.min(GAME_ZOOM, 60 / Math.max(span, 0.5)))
+  const toZoom = s.cat === "point" ? Math.max(zoom, 6) : bareGame() ? Math.max(1, Math.min(60, 60 / Math.max(span, 0.02))) : game.open ? Math.max(1, Math.min(GAME_ZOOM, 60 / Math.max(span, 0.5)))
                                                        : Math.max(1, Math.min(MAX_ZOOM, 110 / Math.max(span, 0.5)));
   const toRot = [-s.at[0], Math.max(-80, Math.min(80, -s.at[1])), 0];
   const r0 = rotate.slice(), z0 = zoom, t0 = performance.now(), T = 700;
@@ -1432,24 +1693,24 @@ function identify(e) {
 function identifyAt(ll, px) {
   const at = [[ll[0], ll[1], ll[0], ll[1]]];
   const byLayer = (layer) => { const ids = new Set(query(trees[layer], at)); return index.filter((x) => x.layer === layer && x.ids.some((i) => ids.has(i))); };
-  const inside = (x) => x.feats.some((f) => f.geometry && d3.geoContains(f, ll));
+  const inside = (x) => x.feats.some((f) => f.has() && d3.geoContains(f, ll));
   const hits = [];
   const country = byLayer("countries").find(inside), region = byLayer("regions").find(inside), lake = byLayer("lakes").find(inside);
-  const onLand = !!country && !lake;
+  const L0 = Map0, onLand = !lake && (!!country || query(trees.land, at).some((i) => L0.land[i].has() && d3.geoContains(L0.land[i], ll)));
   for (const x of [country, region, lake]) if (x) hits.push(x);
   if (src.bio && !lake) for (const l of ["ecoregions", "biomes", "realms"]) { const x = byLayer(l).find(inside); if (x) hits.push(x); }
   if (src.hist && mode() === "history" && !lake) {                // (the region here, and its state that day)
     const r = query(trees.hregions, at).find((r) => d3.geoContains(H0.regions[r], ll));
     if (r != null) {
       const p = H0.regions[r].properties, pi = histOn().of[r], name = (s) => { const i = H0.byState.get(s); return i ? H0.periods[i[0]].name : "nobody"; };
-      const owners = (p.held || []).map((x) => { const k = x.lastIndexOf(":"), s = x.slice(k + 1); return `${s === "" ? "nobody" : name(+s)} from ${showDay(x.slice(0, k))}`; });
+      const { start, from, state } = H0.held, owners = []; for (let k = start[r]; k < start[r + 1]; k++) owners.push(`${state[k] < 0 ? "nobody" : name(state[k])} from ${showDay(dayText(from[k]))}`);
       hits.unshift({ cat: "history", name: p.name || `region ${p.id}`, kind: "historical region", feats: [H0.regions[r]], at: p.label,
                      info: [p.admin, p.country, p.area_km2 ? `${fmt(p.area_km2)} km²` : null, owners.length > 12 ? `${owners.length} owners, the last: ${owners.slice(-12).join(", ")}` : owners.join(", ")] });
       const x = pi >= 0 && index.find((x) => x.period === pi);
       if (x) hits.unshift(x);
     }
   }
-  const areas = byLayer("areas").filter((x) => x.feats.length === 1 && inside(x));
+  const areas = byLayer("areas").filter((x) => x.feats.length === 1 && (x.mask === "water") !== onLand && inside(x));   // (a sea has no holes for its islands)
   areas.sort((a, b) => a.weight - b.weight);                        // (the smallest first: a gulf before its ocean)
   hits.push(...areas);
   // rivers passing within 8 pixels
@@ -1458,11 +1719,11 @@ function identifyAt(ll, px) {
   for (const x of index) {
     if (x.layer !== "rivers" || !x.ids.some((i) => cand.has(i))) continue;
     let best = Infinity;
-    for (const f of x.feats) for (const q of f.geometry.coordinates) {
-      if (!visible(q)) continue;
+    for (const f of x.feats) eachPoint(f, (u, w) => {
+      const q = [u, w]; if (!visible(q)) return;
       const p = proj(q), dd = Math.hypot(p[0] - px[0], p[1] - px[1]);
       if (dd < best) best = dd;
-    }
+    });
     if (best < 8) near.push([best, x]);
   }
   near.sort((a, b) => a[0] - b[0]);
@@ -1496,7 +1757,7 @@ try { groups = JSON.parse(localStorage["map:groups"] || "[]"); } catch (e) { gro
 const groupLayer = () => mode() === "bio" ? bioLayer() : "countries";
 const groupsOn = (layer) => groups.some((g) => g.items.some((k) => k.startsWith(layer + ":")));
 const featureOf = (key) => { const [layer, id] = [key.slice(0, key.indexOf(":")), key.slice(key.indexOf(":") + 1)], i = idOf[layer]?.get(id);
-  return i == null ? null : (layer === "countries" ? level(0).countries : src.bio ? bioLevel(0)[layer] : [])[i]; };
+  return i == null ? null : (layer === "countries" ? Map0.countries : src.bio ? B0[layer] : [])[i]; };
 function drawGroups(L, B, v, fillAll) {
   const m = mode(), layers = m === "bio" ? ["realms", "biomes", "ecoregions"] : m === "geographical" || m === "history" ? [] : ["countries"];
   for (const layer of layers) {                                     // (the bigger units under the smaller ones)
@@ -1522,9 +1783,9 @@ function addGroup() {
 function groupClick(e) {                                            // (the country or region under the pointer: into the chosen group, or out)
   const ll = proj.invert([e.clientX, e.clientY]);
   if (!ll || !isFinite(ll[0]) || !visible(ll)) return;
-  const layer = groupLayer(), F = layer === "countries" ? level(0).countries : src.bio ? bioLevel(0)[layer] : null;
+  const layer = groupLayer(), F = layer === "countries" ? Map0.countries : src.bio ? B0[layer] : null;
   if (!F || !trees[layer]) return;
-  const i = query(trees[layer], [[ll[0], ll[1], ll[0], ll[1]]]).find((i) => F[i].geometry && d3.geoContains(F[i], ll));
+  const i = query(trees[layer], [[ll[0], ll[1], ll[0], ll[1]]]).find((i) => F[i].has() && d3.geoContains(F[i], ll));
   if (i == null) return;
   const key = `${layer}:${F[i].properties[layer === "countries" ? "iso" : "id"]}`;
   if (!groups.length) addGroup();
@@ -1570,13 +1831,29 @@ $("link-groups").onclick = async () => {
 // it all afresh.
 const game = { open: false, scope: "world", style: "people", where: null, km: 500, named: [], finds: [], ask: null, pool: [], rounds: 10,
                shown() { return SHAPES.has(this.style) ? [] : this.style === "place" ? this.finds.map((f) => f.i) : this.named.slice().sort((a, b) => a - b); } };
+const bareGame = () => game.open && game.bare && game.units && game.ask != null;   // (Bare shape, Bare flag: the one asked alone, no map to go by)
+const pickedStyle = () => $("g-style").value.split(":")[0];         // ("which:bare": the game "which", played bare)
+// the screen beside the game's panel (above a phone's, across the top: below it)
+function bareArea() {
+  const r = $("game").getBoundingClientRect(), pad = 24, top = r.width > W * .6;
+  return { x: pad, y: (top ? r.bottom : 0) + pad, w: (top ? W : r.left) - 2 * pad, h: H - (top ? r.bottom : 0) - 2 * pad };
+}
+function drawBare(lv) {
+  const A = bareArea();
+  if (game.style === "flag") { Object.assign($("g-stage").style, { left: `${A.x}px`, top: `${A.y}px`, width: `${A.w}px`, height: `${A.h}px` }); return; }
+  // (fitted here, not by the zoom: a shape's middle is not its label's point, and a zoom has its limits)
+  const f = unitFeat(game.ask), [[x0, y0], [x1, y1]] = path.bounds(f), k = Math.min(A.w / (x1 - x0 || 1), A.h / (y1 - y0 || 1));
+  ctx.save(); ctx.translate(A.x + A.w / 2, A.y + A.h / 2); ctx.scale(k, k); ctx.translate(-(x0 + x1) / 2, -(y0 + y1) / 2);
+  ctx.beginPath(); trace(f, lv); ctx.fillStyle = css("--game-fill"); ctx.fill(); ctx.strokeStyle = css("--ink"); ctx.lineWidth = 1.5 / k; ctx.stroke();
+  ctx.restore();
+}
 const SHAPES = new Set(["which", "flag", "all", "chain", "route"]);          // (the games of countries, or of a country's states)
 // (a name as typed: no accents, case or punctuation -- and w as v, y as i, k as c: "Cracow" for Kraków, "Kioto" for Kyoto)
 const nameKey = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/w/g, "v").replace(/y/g, "i").replace(/k/g, "c");
 let gameData = null;                                                // (cities by name, each one's continent; built once)
 function gameIndex() {
   if (gameData) return gameData;
-  const L = level(0), key = nameKey;
+  const L = Map0, key = nameKey;
   // (only what has a code: a state without one -- Aksai Chin, the Ilemi Triangle -- was filed under `undefined`, and every
   //  city without a state of its own (Prague) took that one's continent: "Prague (Czechia) is not in Europe")
   const contOf = new Map([...L.countries, ...L.regions].filter((f) => f.properties.iso).map((f) => [f.properties.iso, f.properties.continent]));
@@ -1602,10 +1879,10 @@ function gameIndex() {
 // that game asks besides (the circles' size, how many rounds). A start hides it all: the question, the score, the box
 // to type in; "New game" brings it back. Where is shown as it is chosen: the map flies there (a country alone).
 function gameWhere() {                                              // the second list: the continents, or the countries (with cities,
-  const L = level(0), box = $("g-where"), d = gameIndex(), was = box.value;                     // or for the countries' games: with states)
-  const flagged = (c) => flagLib && src.world.objects.regions.geometries.filter((g) => g.properties.country === c && flagLib.has(g.properties.iso)).length > 1;
-  const has = $("g-style").value === "flag" ? new Set(src.world.objects.countries.geometries.map((g) => g.properties.iso).filter(flagged))
-    : SHAPES.has($("g-style").value) ? new Set(d3.rollups(src.world.objects.regions.geometries, (v) => v.length, (g) => g.properties.country).filter(([, n]) => n > 1).map(([c]) => c))
+  const L = Map0, box = $("g-where"), d = gameIndex(), was = box.value;                     // or for the countries' games: with states)
+  const flagged = (c) => flagLib && Map0.regions.filter((g) => g.properties.country === c && flagLib.has(g.properties.iso)).length > 1;
+  const has = pickedStyle() === "flag" ? new Set(Map0.countries.map((g) => g.properties.iso).filter(flagged))
+    : SHAPES.has(pickedStyle()) ? new Set(d3.rollups(Map0.regions, (v) => v.length, (g) => g.properties.country).filter(([, n]) => n > 1).map(([c]) => c))
     : new Set(src.cities.features.map((f) => f.properties.country));
   box.innerHTML = ""; box.hidden = game.scope === "world";
   if (game.scope === "continent") for (const c of Object.keys(d.people).sort()) { if (d.cont.includes(c)) box.add(new Option(c, "continent:" + c)); }
@@ -1613,25 +1890,26 @@ function gameWhere() {                                              // the secon
   if ([...box.options].some((o) => o.value === was)) box.value = was;
 }
 const whereValue = () => game.scope === "world" ? "world" : $("g-where").value;
-// the outline of where at a level of detail: a continent merged of that level's own arcs (merged of the full detail, its
-// coast was drawn at 1.5 px from afar -- Norway's fjords, the Aegean's islands -- and looked hairy)
-function continentGeom(t, id, min = 0) {
-  const O = t.objects, split = new Set(O.regions.geometries.map((g) => g.properties.country));   // (its land: its states, and its countries without states)
-  const parts = [...O.countries.geometries.filter((g) => !split.has(g.properties.iso)), ...O.regions.geometries].filter((g) => g.properties.continent === id);
-  return keepPolygons({ type: "Feature", properties: {}, geometry: topojson.merge(t, parts) }, min);
+// the outline of where in a copy: a continent merged of that copy's own arcs (merged of the full detail, its coast was
+// drawn at 1.5 px from afar -- Norway's fjords, the Aegean's islands -- and looked hairy)
+function continentGeom(lv, id) {
+  const split = new Set(Map0.regions.map((f) => f.properties.country));   // (its land: its states, and its countries without states)
+  return merged([...Map0.countries.filter((f) => !split.has(f.properties.iso)), ...Map0.regions].filter((f) => f.properties.continent === id), lv);
 }
-function whereGeom(i) {
+function whereGeom(lv) {                                            // (a Thing, or GeoJSON)
   const w = game.where;
   if (!w || w.kind === "world") return null;
-  if (w.kind === "country") { const k = idOf.countries.get(w.id), f = level(i).countries[k]; return f.geometry ? f : level(0).countries[k]; }
+  if (w.kind === "country") { const f = Map0.countries[idOf.countries.get(w.id)]; return f.has(lv) ? f : w.geom; }
   w.lv ??= [];
-  if (!w.lv[i]) { const f = continentGeom(level(i).topo, w.id, WEIGHTS[i]); w.lv[i] = f.geometry ? f : w.geom; }
-  return w.lv[i];
+  const g = geoAt(Map0.regions[0].o, lv);
+  if (w.lv[lv]?.g !== g) { const f = continentGeom(lv, w.id); w.lv[lv] = { g, f: f.geometry ? f : w.geom }; }
+  return w.lv[lv].f;
 }
+const outline = (f, lv) => { if (f instanceof Thing) trace(f, f.has(lv) ? lv : 0); else path(f); };
 function gameRegion(v) {
-  const L = level(0), d = gameIndex(), [kind, id] = v.split(":");
+  const L = Map0, d = gameIndex(), [kind, id] = v.split(":");
   if (kind === "continent") {
-    const f = continentGeom(src.world, id);
+    const f = continentGeom(0, id);
     return { kind, id, name: id, geom: f, at: d3.geoCentroid(f), people: d.people[id], has: (i) => d.cont[i] === id };
   }
   if (kind === "country") {
@@ -1648,7 +1926,7 @@ function flyWhere() {
 function resetGame() {                                              // (nothing played: the map shows only where)
   clearInterval(game.clock);
   Object.assign(game, { named: [], finds: [], ask: null, units: null, over: false, start: null, goal: null, way: null });
-  $("g-flag").innerHTML = "";
+  $("g-flag").innerHTML = ""; $("g-stage").innerHTML = "";
 }
 function previewGame() { resetGame(); game.where = gameRegion(whereValue()); flyWhere(); }
 function setupGame(on) { $("g-setup").hidden = !on; $("g-play").hidden = on; if (on) { resetGame(); draw(); } }
@@ -1658,7 +1936,7 @@ function openGame(open) {
   if (open) { if (sel) clearSel(); setupGame(true); gameStyle(); gameKm(); previewGame(); } else draw();
 }
 function gameStyle() {                                              // (what the chosen game asks for)
-  const s = $("g-style").value;
+  const s = pickedStyle();
   $("g-kmbox").hidden = s !== "outside" && s !== "inside"; $("g-roundsbox").hidden = s !== "place" && s !== "which" && s !== "flag";
   $("g-roundsof").textContent = s === "place" ? "cities to find" : "to name";
   const was = whereValue(); gameWhere();                           // (the countries offered: with cities, or with states)
@@ -1670,7 +1948,7 @@ function gameKm() { $("g-km").replaceChildren(...KM[game.scope].map((km) => new 
 function startGame() {
   const d = gameIndex(), C = src.cities.features;
   resetGame();
-  Object.assign(game, { style: $("g-style").value, where: gameRegion(whereValue()), km: +$("g-km").value || KM0[game.scope],
+  Object.assign(game, { style: pickedStyle(), bare: $("g-style").value.endsWith(":bare"), where: gameRegion(whereValue()), km: +$("g-km").value || KM0[game.scope],
                         rounds: Math.max(1, Math.min(100, +$("g-rounds").value || 10)) });
   $("g-setup").hidden = true; $("g-play").hidden = false;
   $("g-title").textContent = `${$("g-style").selectedOptions[0].textContent.split(":")[0]} · ${game.where.kind === "world" ? "the world" : game.where.name}` +
@@ -1759,15 +2037,15 @@ const ALSO = { US: "USA / United States of America / America", GB: "UK / Great B
   VC: "Saint Vincent", PG: "Papua", IR: "Persia" };
 const unitKey = (s) => nameKey(s).replace(/^the /, "").replace(/\bst\b/g, "saint");   // (The Gambia: Gambia; St Lucia: Saint Lucia)
 function gameUnits(w) {
-  const states = w.kind === "country", layer = states ? "regions" : "countries", G = src.world.objects[layer].geometries, nb = topojson.neighbors(G);
+  const states = w.kind === "country", layer = states ? "regions" : "countries", G = Map0[layer], nb = neighbors(G);
   // (a continent's: those of it, and those with a state in it -- Russia, Turkey and Kazakhstan are Europe's too)
-  const part = new Set(w.kind === "continent" ? src.world.objects.regions.geometries.filter((g) => g.properties.continent === w.id).map((g) => g.properties.country) : []);
+  const part = new Set(w.kind === "continent" ? Map0.regions.filter((g) => g.properties.continent === w.id).map((g) => g.properties.country) : []);
   const isUnit = (p) => states ? p.country === w.id
     : p.subtype === "country" && p.continent !== "Antarctica" && (!/^X/.test(p.iso) || p.iso === "XK") && (w.kind === "world" || p.continent === w.id || part.has(p.iso));
   const at = new Map(states ? [] : G.map((g, k) => [g.properties.iso, k]));
   const owner = G.map((g, k) => { const p = g.properties; if (isUnit(p)) return k;
     const s = states || p.subtype !== "dependency" ? undefined : at.get(p.sovereign); return s !== undefined && isUnit(G[s].properties) ? s : null; });
-  const units = [], of = new Map(), F = level(0)[layer];
+  const units = [], of = new Map(), F = Map0[layer];
   G.forEach((g, k) => { if (owner[k] !== k) return; const p = g.properties;
     of.set(k, units.length);
     units.push({ k, iso: p.iso, name: p.name, label: p.label || d3.geoCentroid(F[k]), area: p.area_km2 || 0, nb: new Set(),
@@ -1778,7 +2056,7 @@ function gameUnits(w) {
   const byKey = new Map(); units.forEach((u, i) => { for (const k of u.keys) if (!byKey.has(k)) byKey.set(k, i); });
   return { layer, word: states ? "state" : "country", words: states ? "states" : "countries", units, byKey };
 }
-const unitFeat = (u, L = level(0)) => { const k = game.units.units[u].k, f = L[game.units.layer][k]; return f.geometry ? f : level(0)[game.units.layer][k]; };
+const unitFeat = (u) => Map0[game.units.layer][game.units.units[u].k];
 function reach(from) {                                              // every unit reachable across borders: [its steps from `from`, the one before]
   const U = game.units.units, got = new Map([[from, [0, -1]]]), q = [from];
   for (let h = 0; h < q.length; h++) { const a = q[h], d = got.get(a)[0]; for (const b of U[a].nb) if (!got.has(b)) { got.set(b, [d + 1, a]); q.push(b); } }
@@ -1813,7 +2091,7 @@ function startUnits() {
   $("g-give").textContent = { which: "Show", flag: "Show", all: "Give up", chain: "End", route: "Show a way" }[game.style]; $("g-give").hidden = false;
   unitScore(); $("g-name").focus();
   if (game.style === "which") return nextUnit();
-  if (game.style === "flag") { flyWhere(); return nextUnit(); }
+  if (game.style === "flag") { if (!game.bare) flyWhere(); return nextUnit(); }
   const show = game.style === "chain" ? [game.start, ...U.units[game.start].nb] : game.style === "route" ? [game.start, game.goal] : null;
   if (show) { const g = collect(show.map((u) => unitFeat(u))); fly({ cat: "area", geom: g, at: d3.geoCentroid(g) }); }
   else flyWhere();
@@ -1821,10 +2099,19 @@ function startUnits() {
 function nextUnit() {                                               // ("which": the next one shown, the map flown to it)
   const U = game.units;
   game.ask = game.finds.length < game.rounds ? game.pool[game.finds.length] : null;
-  $("g-flag").innerHTML = "";
-  if (game.ask == null) { finish(""); $("g-ask").textContent = `All ${game.rounds} shown. Again for more.`; return draw(); }
-  if (game.style === "flag") { $("g-ask").textContent = `Whose flag is this? Name the ${U.word}.`; $("g-flag").innerHTML = flagSvg(U.units[game.ask].iso, 110); return draw(); }
+  $("g-flag").innerHTML = ""; $("g-stage").innerHTML = "";
+  if (game.ask == null) { finish(""); $("g-ask").textContent = `All ${game.rounds} shown. Again for more.`; if (game.bare) return flyWhere(); return draw(); }
+  if (game.style === "flag") {
+    $("g-ask").textContent = `Whose flag is this? Name the ${U.word}.`;
+    if (game.bare) $("g-stage").innerHTML = flagSvg(U.units[game.ask].iso, 600); else $("g-flag").innerHTML = flagSvg(U.units[game.ask].iso, 110);
+    return draw();
+  }
   $("g-ask").textContent = `Which ${U.word} is this?`;
+  if (game.bare) {                                                  // (no flight: nothing to fly over, and it would show the way)
+    const g = unitFeat(game.ask), [[w, so], [ea, n]] = d3.geoBounds(g), dlon = ((ea - w) + 360) % 360 || 360;
+    rotate = [-(w + dlon / 2), -(n + so) / 2, 0]; zoom = Math.max(1, Math.min(60, 60 / Math.max(n - so, dlon * Math.cos((n + so) / 2 * Math.PI / 180), .02)));
+    setup(); return draw();
+  }
   fly({ cat: "area", geom: unitFeat(game.ask), at: U.units[game.ask].label });
 }
 function askChain() {
@@ -1893,12 +2180,12 @@ function unitScore() {
 function drawUnits() {
   const U = game.units;
   if (!U) return;
-  const L = level(pick()), hi = css("--game"), km2 = pxKm() * pxKm();
+  const lv = pick(), hi = css("--game"), km2 = pxKm() * pxKm();
   const paint = (us, fill, line = 0) => {
     if (!us.length) return;
     ctx.beginPath();
     for (const u of us) { const c = U.units[u].label;
-      if (U.units[u].area / km2 < 12) { if (visible(c)) { const [x, y] = proj(c); ctx.moveTo(x + 4, y); ctx.arc(x, y, 4, 0, 7); } } else path(unitFeat(u, L)); }
+      if (U.units[u].area / km2 < 12) { if (visible(c)) { const [x, y] = proj(c); ctx.moveTo(x + 4, y); ctx.arc(x, y, 4, 0, 7); } } else outline(unitFeat(u), lv); }
     ctx.fillStyle = fill; ctx.fill();
     if (line) { ctx.strokeStyle = hi; ctx.lineWidth = line; ctx.stroke(); }
   };
@@ -1934,7 +2221,7 @@ function keepGameBase() {
   gameBase.getContext("2d").drawImage(canvas, 0, 0); gameBase.view = viewKey();
 }
 function drawGameOver() {
-  if (gameBase.view !== viewKey() || snapZoom !== null || drag) return draw();
+  if (gameBase.view !== viewKey() || moving || drag || bareGame()) return draw();
   ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(gameBase, 0, 0); ctx.restore();
   drawGame(false);
   gameLabels([]);
@@ -1942,8 +2229,8 @@ function drawGameOver() {
 const gameLabels = (boxes) => SHAPES.has(game.style) ? gameUnitNames(boxes) : cityLabels(boxes, game.shown());
 function drawGame(fast) {
   const C = src.cities.features, hi = css("--game"), deg = (km) => km / R_KM * 180 / Math.PI;
-  const where = whereGeom(pick(fast ? 2 : 1));                       // (a level coarser than the map's: a 2 px line)
-  if (where) { ctx.beginPath(); path(where); ctx.strokeStyle = hi; ctx.lineWidth = 2; ctx.stroke(); }
+  const lv = Math.min(COPIES.length - 1, pick(fast) + 1), where = whereGeom(lv);   // (a copy coarser than the map's: a 2 px line)
+  if (where) { ctx.beginPath(); outline(where, lv); ctx.strokeStyle = hi; ctx.lineWidth = 2; ctx.stroke(); }
   if (SHAPES.has(game.style)) return drawUnits();
   const ring = (center, km, fill) => { ctx.beginPath(); path(d3.geoCircle().center(center).radius(deg(km)).precision(km > 300 ? 2 : 0.5)());
     if (fill) { ctx.fillStyle = css("--game-fill"); ctx.fill(); } ctx.strokeStyle = hi; ctx.lineWidth = 2; ctx.stroke(); };
@@ -2007,25 +2294,18 @@ $("q").addEventListener("keydown", (ev) => {
 });
 $("q").addEventListener("blur", () => { found = []; showResults(); });
 
-// ---- moving: drag turns the globe (every projection is rotated the same way) and draws a coarser level meanwhile;
-// the wheel scales the last picture about the centre (the projection zooms about it too) and draws once it stops
-let drag = null, idle = null, moved = 0, snapZoom = null, last = null;
-// while the wheel turns, two fingers pinch or the pointer drags, only the last picture is scaled or shifted; the map is
-// drawn again (with its labels) once the movement pauses for 160 ms or ends
-const takeSnap = () => { snap.width = canvas.width; snap.height = canvas.height; snap.getContext("2d").drawImage(canvas, 0, 0); snapZoom = zoom; };
-const later = () => { clearTimeout(idle); idle = setTimeout(() => { snapZoom = null; draw(); if (drag && last) { takeSnap(); drag = [last[0], last[1], ...rotate]; } }, 160); };
-// ZOOM (the wheel and a pinch alike): the last picture scaled about the centre -- the projection zooms about it too
-function zoomTo(z) {
-  if (snapZoom === null) takeSnap();                            // (the picture as it is, to scale)
-  zoom = Math.max(0.5, Math.min(MAX_ZOOM, z));
-  setup();
-  const k = zoom / snapZoom, cx = canvas.width / 2, cy = canvas.height / 2;
-  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.fillStyle = css("--bg"); ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.setTransform(k, 0, 0, k, cx - k * cx, cy - k * cy); ctx.drawImage(snap, 0, 0);
-  ctx.restore();
-  later();
-}
+// ---- moving: drag turns the globe (every projection is rotated the same way), the wheel and a pinch zoom about the
+// centre. The map is drawn as it moves -- from a coarser copy, without labels -- once a frame, at where it has got to: a
+// draw that takes longer than a frame is followed, when it ends, by one at where the map has moved since (the moves
+// meanwhile are one draw, not many). Drawn whole (its labels, its own copy) once the movement pauses for 160 ms or ends.
+let drag = null, idle = null, moved = 0, moving = false, frame = 0;
+const still = () => { clearTimeout(idle); cancelAnimationFrame(frame); frame = 0; moving = false; draw(); };
+const moveDraw = () => {
+  moving = true; frame ||= requestAnimationFrame(() => { frame = 0; draw(true); });
+  clearTimeout(idle); idle = setTimeout(still, 160);
+};
+// ZOOM (the wheel and a pinch alike)
+function zoomTo(z) { zoom = Math.max(0.5, Math.min(MAX_ZOOM, z)); setup(); moveDraw(); }
 // THE POINTERS DOWN (a mouse, a pen, each finger): one drags the globe round, two pinch -- the zoom follows the distance
 // between them from where the pinch began; lifting one ends the pinch without a click
 const fingers = new Map();
@@ -2035,7 +2315,7 @@ canvas.addEventListener("pointerdown", (e) => {
   fingers.set(e.pointerId, [e.clientX, e.clientY]); canvas.setPointerCapture(e.pointerId);
   if (fingers.size === 2) { drag = null; moved = 99; pinch = [Math.max(spread(), 1), zoom]; return; }   // (a second finger: a pinch, never a click)
   if (fingers.size > 2) return;
-  drag = [e.clientX, e.clientY, ...rotate]; last = null; moved = 0; canvas.classList.add("dragging"); takeSnap();
+  drag = [e.clientX, e.clientY, ...rotate]; moved = 0; canvas.classList.add("dragging");
 });
 canvas.addEventListener("pointermove", (e) => {
   if (fingers.has(e.pointerId)) fingers.set(e.pointerId, [e.clientX, e.clientY]);
@@ -2045,19 +2325,15 @@ canvas.addEventListener("pointermove", (e) => {
   if (moved < (e.pointerType === "mouse" ? 3 : 8)) return;    // (a finger wobbles more than a mouse on a tap)
   const k = 150 / proj.scale();
   rotate = [drag[2] + (e.clientX - drag[0]) * k * 0.6, Math.max(-90, Math.min(90, drag[3] - (e.clientY - drag[1]) * k * 0.6)), 0];
-  proj.rotate(tilt(rotate)); last = [e.clientX, e.clientY];
-  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.fillStyle = css("--bg"); ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(snap, (e.clientX - drag[0]) * dpr, (e.clientY - drag[1]) * dpr);
-  ctx.restore();
-  later();
+  proj.rotate(tilt(rotate));
+  moveDraw();
 });
 const lift = (e, cancelled) => {
   fingers.delete(e.pointerId);
-  if (pinch) { if (!fingers.size) { pinch = null; drag = null; canvas.classList.remove("dragging"); clearTimeout(idle); snapZoom = null; draw(); } return; }
+  if (pinch) { if (!fingers.size) { pinch = null; drag = null; canvas.classList.remove("dragging"); still(); } return; }
   const click = !cancelled && drag && moved < (e.pointerType === "mouse" ? 3 : 8);
   drag = null; canvas.classList.remove("dragging"); clearTimeout(idle);
-  if (click && src) { if (game.open) gameClick(e); else if ($("grouping").checked) groupClick(e); else identify(e); } else { snapZoom = null; draw(); }
+  if (click && src) { if (game.open) gameClick(e); else if ($("grouping").checked) groupClick(e); else identify(e); } else still();
 };
 canvas.addEventListener("pointerup", (e) => lift(e, false));
 canvas.addEventListener("pointercancel", (e) => lift(e, true));
