@@ -2294,8 +2294,8 @@ $("q").addEventListener("keydown", (ev) => {
 });
 $("q").addEventListener("blur", () => { found = []; showResults(); });
 
-// ---- moving: drag turns the globe (every projection is rotated the same way), the wheel and a pinch zoom about the
-// centre. The map is drawn as it moves -- from a coarser copy, without labels -- once a frame, at where it has got to: a
+// ---- moving: drag turns the globe (every projection is rotated the same way), the wheel zooms about the place under the
+// cursor (about the centre with the cursor off the map, in space), a pinch about the centre. The map is drawn as it moves -- from a coarser copy, without labels -- once a frame, at where it has got to: a
 // draw that takes longer than a frame is followed, when it ends, by one at where the map has moved since (the moves
 // meanwhile are one draw, not many). Drawn whole (its labels, its own copy) once the movement pauses for 160 ms or ends.
 let drag = null, idle = null, moved = 0, moving = false, frame = 0;
@@ -2305,7 +2305,48 @@ const moveDraw = () => {
   clearTimeout(idle); idle = setTimeout(still, 160);
 };
 // ZOOM (the wheel and a pinch alike)
-function zoomTo(z) { zoom = Math.max(0.5, Math.min(MAX_ZOOM, z)); setup(); moveDraw(); }
+// `at` (a point on the screen): the place there stays there -- the globe turned after the zoom until it is back under it.
+// (Newton's steps on the turn's two angles, the place's offset from `at` the error: a turn moves a place by its own
+// longitude and latitude only near the centre, and a flat projection turned obliquely -- Mercator's -- far from it. The zoom
+// taken in steps of 5% at most, each solved from the last: in one jump the place can leave across the map's edge, the
+// meridian 180° from its middle, and come back on the other side, where no step leads back from)
+function zoomTo(z, at) {
+  const ll = at && proj.invert(at), p = ll && isFinite(ll[0]) && isFinite(ll[1]) && proj(ll);
+  const keep = p && Math.hypot(p[0] - at[0], p[1] - at[1]) < 1;   // (on the map: off it a projection's inverse is no place, or another)
+  const z0 = zoom;
+  zoom = Math.max(0.5, Math.min(MAX_ZOOM, z)); setup();
+  if (keep) {
+    const off = (r) => { proj.rotate(r); const q = proj(ll); return q && isFinite(q[0]) && isFinite(q[1]) ? [q[0] - at[0], q[1] - at[1]] : null; };
+    const size = (e) => e ? Math.hypot(e[0], e[1]) : Infinity, h = 1e-4, base = proj.scale() / zoom;
+    const steps = Math.min(100, Math.max(1, Math.ceil(Math.abs(Math.log(zoom / z0)) / Math.log(1.05))));
+    let r = [rotate[0], rotate[1], 0];
+    for (let st = 1; st <= steps; st++) {
+      proj.scale(base * z0 * (zoom / z0) ** (st / steps));
+      let e = off(r);
+      for (let i = 0; e && size(e) > 0.01 && i < 20; i++) {
+        const a = off([r[0] + h, r[1], 0]), b = off([r[0], r[1] + h, 0]);
+        if (!a || !b) break;
+        const j00 = (a[0] - e[0]) / h, j01 = (b[0] - e[0]) / h, j10 = (a[1] - e[1]) / h, j11 = (b[1] - e[1]) / h, det = j00 * j11 - j01 * j10;
+        if (!det) break;
+        let dl = -(j11 * e[0] - j01 * e[1]) / det, dp = -(j00 * e[1] - j10 * e[0]) / det, s = 1, n = null;
+        const most = 30 / Math.max(Math.abs(dl), Math.abs(dp), 30); dl *= most; dp *= most;
+        for (let k = 0; k < 8; k++, s /= 2) {   // (a step that makes it worse: halved)
+          n = [r[0] + dl * s, Math.max(-90, Math.min(90, r[1] + dp * s)), 0];
+          if (size(off(n)) < size(e)) break;
+          n = null;
+        }
+        if (!n) break;
+        r = n; e = off(r);
+      }
+    }
+    // (no turn keeps it there: on a whole world's Mercator, at its side, the place is so far round that only a globe turned
+    //  past the pole -- upside down -- would hold it. The zoom is about the centre then, as off the map)
+    proj.scale(base * zoom);
+    if (size(off(r)) < 1) rotate = r;
+  }
+  proj.rotate(tilt(rotate));
+  moveDraw();
+}
 // THE POINTERS DOWN (a mouse, a pen, each finger): one drags the globe round, two pinch -- the zoom follows the distance
 // between them from where the pinch began; lifting one ends the pinch without a click
 const fingers = new Map();
@@ -2337,7 +2378,7 @@ const lift = (e, cancelled) => {
 };
 canvas.addEventListener("pointerup", (e) => lift(e, false));
 canvas.addEventListener("pointercancel", (e) => lift(e, true));
-canvas.addEventListener("wheel", (e) => { e.preventDefault(); zoomTo(zoom * Math.exp(-e.deltaY * 0.0015)); }, { passive: false });
+canvas.addEventListener("wheel", (e) => { e.preventDefault(); zoomTo(zoom * Math.exp(-e.deltaY * 0.0015), [e.clientX, e.clientY]); }, { passive: false });
 function tip(e) {
   const t = $("tip");
   if (!src || game.open) return;                                  // (the game: no names to go by)

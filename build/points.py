@@ -43,13 +43,14 @@ import config, wdnames
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RAW = os.path.join(ROOT, "raw")
 MIN_POP = 100_000
-ALSO_CITIES = {"Q3370", "Q4656", "Q27001", "Q26175", "Q145002", "Q26393", "Q200133"}   # (under the floor, wanted all the same, by Wikidata item: Zadar, Pula, Martin, Trnava, Trenčín, Poprad, Chalcis)
+ALSO_CITIES = {"Q3370", "Q4656", "Q27001", "Q26175", "Q145002", "Q26393", "Q200133", "Q1915327", "Q384544", "Q183111", "Q13375", "node/240088844"}   # (under the floor, wanted all the same, by Wikidata item -- or by OSM node, where the node names none: Zadar, Pula, Martin, Trnava, Trenčín, Poprad, Chalcis, Nizwa, Karlovy Vary, Jihlava, Pisa, Fulda)
 CITY_NAMES = {"Q200133": "Chalcis"}   # (the English name wanted, over OSM's and Wikidata's: Chalkida)
 MIN_POP_BY = {"Europe": 70_000}   # ...or this many in these continents (by the city's state's continent, else its country's)
 MIN_VISITORS = 100_000
 POP_STEP = 5_000
 URBAN_FACTOR = 3        # a place's urban population counts when it is at most this many times its municipal one
-MIN_HERITAGE_WIKIPEDIAS = 10    # a World Heritage Site's item is kept when this many Wikipedias write about it (not each part)
+ALSO_MONUMENTS = {"Q857763": ("Caminito del Rey", "landform", -4.773, 36.916, 25, "relation/4678863")}   # (wanted all the same, though of no kind KINDS knows and with no count, by Wikidata item: its name, kind, lon, lat, Wikipedias, OSM -- a walkway in a gorge)
+MIN_HERITAGE_WIKIPEDIAS = 10   # a World Heritage Site's item is kept when this many Wikipedias write about it (not each part)
 CATALOGUE = re.compile(r"[A-Z]{1,4} ?\d+[A-Za-z]?")     # a name that is only a number in a list: the Valley of the
                                 # Kings' tombs, KV1 to KV63 (the valley itself kept) -- left out, they crowd round Luxor
 MONUMENT_LEVELS = (2_000_000, 500_000)   # visitors a year: a monument of level 1 has the first, of 2 the second, of 3 fewer
@@ -396,7 +397,7 @@ def cities(where):
     cont = {g["properties"]["iso"]: g["properties"].get("continent") for o in ("countries", "regions") for g in T[o]["geometries"] if "iso" in g["properties"]}
     vs = list(seen.values())
     for r, c, g in zip(vs, *where(np.array([r["lon"] for r in vs]), np.array([r["lat"] for r in vs]))):
-        r["_floor"] = 0 if r["wikidata"] in ALSO_CITIES else MIN_POP_BY.get(cont.get(g) or cont.get(c), MIN_POP)
+        r["_floor"] = 0 if r["wikidata"] in ALSO_CITIES or r["osm"] in ALSO_CITIES else MIN_POP_BY.get(cont.get(g) or cont.get(c), MIN_POP)
     seen = {k: r for k, r in seen.items() if r["population"] >= r["_floor"] / URBAN_FACTOR or r["capital"] == "country"}
     urban = wp_urban([r["wikidata"] for r in seen.values()])
     for r in seen.values():                                    # the urban population where Wikipedia gives one that is
@@ -531,6 +532,10 @@ def monuments(where):
         m = re.match(r"Point\(([-\d.eE]+) ([-\d.eE]+)\)", r["coord"], re.I)
         if m:
             feats.append((float(m.group(1)), float(m.group(2)), {"name": r["label"], "kind": r["kind"], "wikipedias": r["n"], "wikidata": q}))
+    # ...and the ones wanted all the same (ALSO_MONUMENTS)
+    for q, (name, kind, lon, lat, n, osm) in ALSO_MONUMENTS.items():
+        if q not in have and q not in fame:
+            feats.append((lon, lat, {"name": name, "kind": kind, "wikipedias": n, "wikidata": q, "osm": osm}))
     langs = {}
     for r in famous:
         langs[r["item"]] = max(langs.get(r["item"], 0), r["n"])
