@@ -11,7 +11,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # what the page loads: itself, its libraries (lib/: kept here so the map opens offline), the light line layers
 # (data/*.txt, data/flags.txt among them; their small copies data/*/*.txt) and the point layers, the flags (flags.js, their gallery flags.html) (sw.js
 # itself is the browser's to keep -- but it is hashed, so a change to it is a new version)
-PATTERNS = ["index.html", "lib/*.js", "data/*.txt", "data/*/*.txt", "data/*.csv", "flags.js", "flags.html"]
+PATTERNS = ["index.html", "js/*.js", "js/*.wasm", "lib/*.js", "data/*.txt", "data/*/*.txt", "data/*.csv", "flags.js", "flags.html"]
 
 
 def main():

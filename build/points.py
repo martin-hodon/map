@@ -43,7 +43,8 @@ import config, wdnames
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RAW = os.path.join(ROOT, "raw")
 MIN_POP = 100_000
-ALSO_CITIES = {"Q3370", "Q4656", "Q27001", "Q26175", "Q145002", "Q26393", "Q200133", "Q1915327", "Q384544", "Q183111", "Q13375", "node/240088844"}   # (under the floor, wanted all the same, by Wikidata item -- or by OSM node, where the node names none: Zadar, Pula, Martin, Trnava, Trenčín, Poprad, Chalcis, Nizwa, Karlovy Vary, Jihlava, Pisa, Fulda)
+ALSO_CITIES = {"Q3370", "Q4656", "Q27001", "Q26175", "Q145002", "Q26393", "Q200133", "Q1915327", "Q384544", "Q183111", "Q13375", "node/240088844",
+               "Q167895", "Q206957", "Q210470", "Q210296", "Q188731", "Q182299", "Q207467", "Q190847"}   # (2026-11-09: Kalamata, Serres, Katerini, Xanthi, Rhodes, Chania, Trikala, Alexandroupolis -- Greek cities of 45-62,000 wanted on the map)   # (under the floor, wanted all the same, by Wikidata item -- or by OSM node, where the node names none: Zadar, Pula, Martin, Trnava, Trenčín, Poprad, Chalcis, Nizwa, Karlovy Vary, Jihlava, Pisa, Fulda)
 CITY_NAMES = {"Q200133": "Chalcis"}   # (the English name wanted, over OSM's and Wikidata's: Chalkida)
 MIN_POP_BY = {"Europe": 70_000}   # ...or this many in these continents (by the city's state's continent, else its country's)
 MIN_VISITORS = 100_000

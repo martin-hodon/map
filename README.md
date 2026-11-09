@@ -115,14 +115,43 @@ and the points are asked for at once and drawn as each comes. The biogeographic 
 (`bio.txt`, `history.txt`, 13 MB) are read only when wanted -- their mode chosen, a group of ecoregions, a link to
 one -- so their names are found from then on.
 
-**Memory.** A layer's points are one `Float32Array` and its rows numbers into it (`parseLite`, THE LINES in `index.html`): a
+**Memory.** A layer's points are one `Float32Array` and its rows numbers into it (`parseLite` in `js/lite.js`, THE LINES in `js/geom.js`): a
 point is 8 bytes, not the 40+ of `[x, y]` in JS. Each row is a `Thing`, drawn straight from the numbers; GeoJSON is made
 only for what asks (a click, a selection) and not kept. A layer not in use for 3 minutes is let go, and read again when
 wanted (`RELEASE_MS`; its names stay, so it is still found). Every mode opened, measured in Chromium, `performance.memory` with
 `gc()`: 1325 MB in the page of levels of detail, 187 MB now with the first-class roads, plus 53 MB of typed arrays; 111 MB with the optional layers let go.
 
-After changing what the page loads (`build/lite.py`, a point layer, `index.html`, `lib/`): `python3 build/offline.py`
+After changing what the page loads (`build/lite.py`, a point layer, `index.html`, `js/`, `lib/`): `python3 build/offline.py`
 writes `offline.json` (the file list and a hash of the files: the version), then commit and push.
+
+## The code: js/ and wasm/
+
+`index.html` is the page alone; the script is ES modules in `js/` (`main.js` loads them in order and calls each
+module's `init()`; the shared mutable state is `S` in `state.js`): `style.js` the projections and colours, `geom.js`
+the lines in typed arrays and how a row is traced, `view.js` the frame (which copy to draw from, the R-trees, `drawMap`),
+`labels.js`, `data.js` the loading and letting go, `lite.js` the light-file reader, `history.js`, `search.js`,
+`select.js`, `groups.js`, `game.js`, `ui.js`, `offline.js`, `flags.js`.
+
+**The geometry core runs in WebAssembly** (`wasm/`, Rust, built to `js/mapgeo.wasm`, 150 KB): d3-geo's projection
+pipeline ported for the nine projections -- the rotation, the antimeridian and small-circle clips, the adaptive
+resampling, Mercator's extent -- the rows traced from the same typed arrays (handed to the module once a file is read)
+into one buffer of canvas commands, and the R-trees. `js/wasm.js` is the seam: with the module every trace, tree and
+query goes to it, without it (`?wasm=0`, or the file missing) the page runs the same JS as before -- the pixels are
+the same either way (`wasm/check.sh` compares the Rust output with d3's own over `data/small/world.txt`, float for float,
+in sixteen projection/rotation/zoom cases; the ten-view screenshot diff is identical). It draws in about half the time.
+
+Building it needs Fedora's `cargo` with the wasm32 standard library (`rust-std-static-wasm32-unknown-unknown`) and
+`lld`: `wasm/build.sh` (the result is committed, so the page needs none of this). `wasm/check.sh` runs the comparison
+(node, for d3).
+
+**The frame is painted in parallel** (`js/paint.js`, `js/worker.js`): `drawMap` writes down what is to be painted --
+fills and strokes of rows, in order, and the few steps drawn on the main thread (the sphere, a selection, a clip) --
+and a few painters (workers, one fewer than the cores, up to four; each with the module and its own copy of the lines)
+paint contiguous chunks of equal weight onto bitmaps the main thread stacks in order; the labels and the points come on
+top. One frame is in flight at a time, the newest asked for meanwhile is painted next (the moving map keeps up). A
+moving map keeps its icons, and its names while dragged. `?workers=N` sets the number (0: the one thread paints).
+Measured headless on four cores (three painters), a whole frame: the globe 100 ms (one thread 168, the JS 393),
+Europe at zoom 6 96 ms (165, 360), the historical map 171 ms (374, 641).
 
 ## Light files (data/*.txt)
 
