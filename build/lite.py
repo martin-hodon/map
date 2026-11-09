@@ -43,6 +43,10 @@ SHARE = ["bio", "history"]               # (their lines run much of their way al
                                          #  borders: those stretches they take from world.txt's points, see share())
 MIN_REF = 2                              # (a stretch of fewer of world.txt's points is cheaper written out)
 GROUP = {"rivers": "river", "motorways": "network", "railways": "network", "pipelines": "network"}   # (pieces of one thing)
+# the motorways, trunk roads and railways carry no name (2026-11-09): in OpenStreetMap a way is as often named after its tunnel,
+# its bridge or its stretch as after the road, and that name then stood for the whole line, or for a line of its own where
+# the way had no number -- a line is its number (ref), or nothing
+UNNAMED = {"motorways", "railways", "roads"}
 KM_LAT = 110.57
 
 
@@ -150,6 +154,8 @@ def write_object(name, o):
     rows = []
     for g in geoms:
         r = dict(g.get("properties") or {})
+        if name in UNNAMED:
+            r.pop("name", None)
         if "id" in g:
             r["~id"] = g["id"]
         r["arcs"] = arcs_text(g)
