@@ -149,7 +149,11 @@ fills and strokes of rows, in order, and the few steps drawn on the main thread 
 and a few painters (workers, one fewer than the cores, up to four; each with the module and its own copy of the lines)
 paint contiguous chunks of equal weight onto bitmaps the main thread stacks in order; the labels and the points come on
 top. One frame is in flight at a time, the newest asked for meanwhile is painted next (the moving map keeps up). A
-moving map keeps its icons, and its names while dragged. `?workers=N` sets the number (0: the one thread paints).
+moving map keeps its icons, and its names while dragged. `?workers=N` sets the number (0: the one thread paints);
+a device of 4 GB or less (`navigator.deviceMemory`) gets two at most, of 2 GB none. A painter that dies or throws, or a
+frame not painted within 6 s, gives the painters up: the workers are ended and the page paints on one thread for the
+rest of the visit (2026-11-10: a phone pinched to a close zoom ran its painters out of memory, and the frame in flight
+waited for ever -- the map froze).
 Measured headless on four cores (three painters), a whole frame: the globe 100 ms (one thread 168, the JS 393),
 Europe at zoom 6 96 ms (165, 360), the historical map 171 ms (374, 641).
 

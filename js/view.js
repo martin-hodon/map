@@ -81,6 +81,7 @@ export function viewBoxes() {
 }
 // ---- drawing -------------------------------------------------------------------------------------------------------
 export const draw = (fast = false) => drawMap(fast);
+canvas.addEventListener("painters-lost", () => draw());            // (wasm.js: the workers gone, the map drawn here instead)
 // THE FRAME: drawMap writes down what is to be painted, in order -- fills and strokes of rows (ops), and steps drawn here
 // (main: the sphere, a selection, a clip) -- then the painters (paint.js) paint the ops in parallel and the bitmaps are
 // stacked, or, with no painters, the ops are run here one after the other; the labels and the points come on top

@@ -2,7 +2,7 @@
 // handed to the module too, rows are traced into canvas commands there (d3's projection pipeline ported: rotate, clip,
 // resample, the Mercator extent) and the R-trees live there. Loaded unless ?wasm=0 or the file is missing: then the page
 // runs in JS as before (geom.js trace, view.js tree) -- one interface either way, the same pixels (wasm/check compares).
-import { ctx } from "./state.js";
+import { ctx, canvas } from "./state.js";
 import { Painter } from "./paint.js";
 
 export let W = null;                                                // (the module's exports, when it runs)
@@ -10,8 +10,17 @@ export let painter = null;                                          // (the work
 export let projParams = null;                                       // (the projection's numbers, as handed to the module and the workers)
 let scratch = { ptr: 0, bytes: 0 };
 export const wasmWanted = () => new URLSearchParams(location.search).get("wasm") !== "0";
-// how many painters: ?workers=N, or one fewer than the cores, up to four (fewer than two: the one thread paints)
-export const workersWanted = () => { const q = new URLSearchParams(location.search).get("workers"); return q != null ? +q : Math.min(4, (navigator.hardwareConcurrency || 2) - 1); };
+// how many painters: ?workers=N, or one fewer than the cores, up to four (fewer than two: the one thread paints) -- and
+// each holds its own copy of the lines, so a device of 4 GB or less (navigator.deviceMemory, where it is told) gets two at
+// most, one of 2 GB or less none (2026-11-10: a phone pinched to a close zoom ran its painters out of memory)
+export const workersWanted = () => {
+  const q = new URLSearchParams(location.search).get("workers"); if (q != null) return +q;
+  const gb = navigator.deviceMemory, cap = gb == null ? 4 : gb <= 2 ? 0 : gb <= 4 ? 2 : 4;
+  return Math.min(cap, (navigator.hardwareConcurrency || 2) - 1);
+};
+// the painters given up (paint.js: a worker lost, a frame never painted): the page draws on one thread from here on, and
+// the frame that was in flight is drawn again that way
+const paintersLost = () => { painter = null; canvas.dispatchEvent(new CustomEvent("painters-lost")); };
 export async function loadWasm() {
   if (!wasmWanted() || typeof WebAssembly === "undefined") return false;
   try {
@@ -20,7 +29,7 @@ export async function loadWasm() {
     const module = await WebAssembly.compile(await r.arrayBuffer()), instance = await WebAssembly.instantiate(module, {});
     W = instance.exports;
     const n = workersWanted();
-    if (n >= 2 && typeof Worker !== "undefined" && typeof OffscreenCanvas !== "undefined") painter = new Painter(module, n);
+    if (n >= 2 && typeof Worker !== "undefined" && typeof OffscreenCanvas !== "undefined") painter = new Painter(module, n, paintersLost);
     return true;
   } catch (e) { console.warn("mapgeo.wasm not loaded, the JS geometry is used:", e.message); W = null; return false; }
 }

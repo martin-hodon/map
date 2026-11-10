@@ -2,9 +2,10 @@
 // main thread has, painting the chunk of a frame's operations it is given onto an OffscreenCanvas, the bitmap sent back.
 let W, scratch = { ptr: 0, bytes: 0 }, canvas, ctx, ready, projKey = "";
 const lines = new Map(), rows = new Map();                          // (the main thread's ids -> the module's)
-const give = (arr) => { const bytes = arr.byteLength, ptr = W.alloc(bytes); new Uint8Array(W.memory.buffer, ptr, bytes).set(new Uint8Array(arr.buffer, arr.byteOffset, bytes)); return [ptr, bytes]; };
+const taken = (ptr, bytes) => { if (!ptr && bytes) throw new Error(`out of memory: ${bytes} bytes`); return ptr; };   // (the allocator gives 0 when the memory cannot grow -- a phone)
+const give = (arr) => { const bytes = arr.byteLength, ptr = taken(W.alloc(bytes), bytes); new Uint8Array(W.memory.buffer, ptr, bytes).set(new Uint8Array(arr.buffer, arr.byteOffset, bytes)); return [ptr, bytes]; };
 const scratchFor = (arr) => {
-  if (scratch.bytes < arr.byteLength) { if (scratch.bytes) W.dealloc(scratch.ptr, scratch.bytes); scratch = { ptr: W.alloc(arr.byteLength * 2), bytes: arr.byteLength * 2 }; }
+  if (scratch.bytes < arr.byteLength) { if (scratch.bytes) W.dealloc(scratch.ptr, scratch.bytes); scratch = { ptr: taken(W.alloc(arr.byteLength * 2), arr.byteLength * 2), bytes: arr.byteLength * 2 }; }
   new Uint8Array(W.memory.buffer, scratch.ptr, arr.byteLength).set(new Uint8Array(arr.buffer, arr.byteOffset, arr.byteLength));
   return scratch.ptr;
 };
@@ -27,12 +28,16 @@ function paint(m) {
   const t1 = performance.now(), bitmap = canvas.transferToImageBitmap();
   postMessage({ t: "bitmap", frame: m.frame, chunk: m.chunk, bitmap, paint: t1 - t0, ms: performance.now() - t0 }, [bitmap]);
 }
+// (anything that goes wrong -- the module not instantiated, its memory not growing, a trap in a trace -- is told to the main
+//  thread as `fail`, which gives the painters up and draws on one thread (paint.js); swallowed, it left a frame waiting for ever)
 onmessage = async (e) => {
   const m = e.data;
-  if (m.t === "init") { ready = WebAssembly.instantiate(m.module, {}).then((inst) => { W = inst.exports; canvas = new OffscreenCanvas(1, 1); ctx = canvas.getContext("2d"); }); return; }
-  await ready;                                                      // (in the order they came)
-  if (m.t === "lines") lines.set(m.lid, W.lines_new(...give(m.xy), ...give(m.at)));
-  else if (m.t === "rows") rows.set(m.pid, W.rows_new(lines.get(m.lid), ...give(m.start), ...give(m.refs), m.polygon));
-  else if (m.t === "free") { for (const p of m.pids) if (rows.has(p)) { W.rows_free(rows.get(p)); rows.delete(p); } for (const l of m.lids) if (lines.has(l)) { W.lines_free(lines.get(l)); lines.delete(l); } }
-  else if (m.t === "paint") paint(m);
+  try {
+    if (m.t === "init") { ready = WebAssembly.instantiate(m.module, {}).then((inst) => { W = inst.exports; canvas = new OffscreenCanvas(1, 1); ctx = canvas.getContext("2d"); }); await ready; return; }
+    await ready;                                                    // (in the order they came)
+    if (m.t === "lines") lines.set(m.lid, W.lines_new(...give(m.xy), ...give(m.at)));
+    else if (m.t === "rows") rows.set(m.pid, W.rows_new(lines.get(m.lid), ...give(m.start), ...give(m.refs), m.polygon));
+    else if (m.t === "free") { for (const p of m.pids) if (rows.has(p)) { W.rows_free(rows.get(p)); rows.delete(p); } for (const l of m.lids) if (lines.has(l)) { W.lines_free(lines.get(l)); lines.delete(l); } }
+    else if (m.t === "paint") paint(m);
+  } catch (err) { postMessage({ t: "fail", frame: m.frame, error: `${m.t}: ${err && err.message || err}` }); }
 };
