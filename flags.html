@@ -41,6 +41,13 @@
   #rel a:hover, #rel a:focus-visible { background: var(--bg); color: var(--hi); outline: 1px solid var(--line); }
   #rel .pic { height: 38px; display: flex; align-items: center; } #rel svg { filter: drop-shadow(0 1px 1px #0003); }
   #errors { color: var(--err); font-size: 13px; }
+  #pick { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 4px; }
+  #pick select, #pick button { background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px; font: inherit; max-width: 100%; }
+  #pick button { cursor: pointer; }
+  #g-flags h3, #g-flags h4 { margin: 0; } #g-flags h3 { font-size: 15px; margin-top: 18px; padding-bottom: 3px; border-bottom: 1px solid var(--line); }
+  #g-flags h4 { font-size: 13px; margin-top: 12px; color: var(--dim); font-weight: 600; }
+  #g-flags h3 button, #g-flags h4 button { all: unset; cursor: pointer; } #g-flags h3 button:hover, #g-flags h4 button:hover, #g-flags button:focus-visible { color: var(--hi); }
+  #g-flags .grid { margin-top: 6px; }
 </style>
 </head>
 <body>
@@ -90,7 +97,15 @@
     <div class="dim">The parts and motifs of the file (by code: <code>@castile</code>, <code>+ gold @lion</code>), with what uses each</div>
     <div class="grid" id="g-parts"></div></section>
   <section><h2>Coats of arms <span class="dim" data-n="arms"></span></h2><div class="grid" id="g-arms"></div></section>
-  <section><h2>Flags <span class="dim" data-n="flags"></span></h2><div class="dim">Countries and dependencies, then states</div><div class="grid" id="g-flags"></div></section>
+  <section><h2>Flags <span class="dim" data-n="flags"></span></h2>
+    <div class="dim">By continent: its countries, its dependencies (under the country they belong to) and its states (under their country). Pick a group here, or click any heading below</div>
+    <div id="pick">
+      <select id="f-cont" aria-label="Continent"><option value="">All continents</option></select>
+      <select id="f-kind" aria-label="Kind"><option value="">Countries, dependencies and states</option><option value="country">Countries</option><option value="dependency">Dependencies</option><option value="state">States</option><option value="union">Unions</option></select>
+      <select id="f-of" aria-label="Of a country"><option value="">Of any country</option></select>
+      <button id="f-all" type="button">Show all</button>
+    </div>
+    <div id="g-flags"></div></section>
   <section><h2>Historical flags <span class="dim" data-n="hist"></span></h2><div class="dim">The historical map's states: <code>h365</code>, then <code>h365.1923-11-12</code> from that day on</div><div class="grid" id="g-hist"></div></section>
 </main>
 <script src="flags.js"></script>
@@ -148,7 +163,7 @@ function rel(code) {                                              // (under the 
 }
 function show(code) { current = code; $("src").value = sourceOf(code); preview(); title(code); rel(code); }
 function gallery() {
-  const q = $("filter").value.trim().toLowerCase(), n = { parts: 0, arms: 0, flags: 0, hist: 0 };
+  const q = $("filter").value.trim().toLowerCase(), n = { parts: 0, arms: 0, flags: 0, hist: 0 }, tiles = [];
   for (const k in n) $("g-" + k).innerHTML = "";
   for (const code of lib.codes) {
     const name = lib.names.get(code) || "";
@@ -160,20 +175,76 @@ function gallery() {
     b.querySelector("b").textContent = name || code; b.querySelector(".code").textContent = name ? code : "";
     b.title = `${code}: ${sourceOf(code)}`;
     b.onclick = () => { history.replaceState(null, "", "#" + encodeURIComponent(code)); show(code); scrollTo({ top: 0, behavior: "smooth" }); };
-    $("g-" + kind).append(b);
+    if (kind === "flags") tiles.push([code, b]); else $("g-" + kind).append(b);
   }
-  for (const k in n) { document.querySelector(`[data-n="${k}"]`).textContent = `· ${n[k]}`; $("g-" + k).closest("section").hidden = !n[k]; }
+  n.flags = layFlags(tiles);
+  for (const k in n) { document.querySelector(`[data-n="${k}"]`).textContent = `· ${n[k]}`; $("g-" + k).closest("section").hidden = !n[k] && k !== "flags"; }
   $("count").textContent = `· ${Object.values(n).reduce((a, b) => a + b)} of ${lib.codes.length}`;
 }
 $("filter").addEventListener("input", gallery);
 
-fetch("data/flags.txt").then((r) => r.text()).then((t) => {
-  lib = Flags.library(t);
+// ---- THE FLAGS BY GROUP (data/flag_groups.json, build/flaggroups.py): each country's, dependency's and state's continent,
+// and the country a dependency or a state belongs to. A state the file does not list goes by its code (ES-AN: Spain's)
+let GROUPS = {};
+const CONTINENTS = ["Europe", "Asia", "Africa", "North America", "South America", "Oceania", "Antarctica", "Other"];
+const KINDS = [["country", "Countries"], ["dependency", "Dependencies"], ["state", "States"], ["union", "Unions"]];
+function groupOf(code) {
+  const g = GROUPS[code]; if (g) return { cont: g[0], kind: g[1], of: g[2] || "" };
+  const m = /^([A-Z]{2})-/.exec(code), c = m && GROUPS[m[1]];
+  return { cont: c ? c[0] : "Other", kind: m ? "state" : "country", of: m ? m[1] : "" };
+}
+const nameOf = (c) => lib.names.get(c) || c;
+const pick = { cont: $("f-cont"), kind: $("f-kind"), of: $("f-of") };
+function setPick(o) {                                              // (the group shown: the three lists, kept in the address)
+  for (const k in pick) pick[k].value = o[k] ?? "";
+  const u = new URL(location.href);
+  for (const k in pick) pick[k].value ? u.searchParams.set(k, pick[k].value) : u.searchParams.delete(k);
+  history.replaceState(null, "", u); gallery();
+}
+for (const k in pick) pick[k].addEventListener("change", () => setPick({ cont: pick.cont.value, kind: pick.kind.value, of: pick.of.value }));
+$("f-all").onclick = () => setPick({});
+function fillPick() {                                              // (the continents that have flags; the countries with dependencies or states)
+  const flags = lib.codes.filter((c) => kindOf(c) === "flags"), conts = new Set(flags.map((c) => groupOf(c).cont)), of = new Map();
+  for (const c of flags) { const g = groupOf(c); if (g.of) { const t = of.get(g.of) || { dependency: 0, state: 0 }; t[g.kind]++; of.set(g.of, t); } }
+  pick.cont.insertAdjacentHTML("beforeend", CONTINENTS.filter((c) => conts.has(c)).map((c) => `<option>${c}</option>`).join(""));
+  pick.of.insertAdjacentHTML("beforeend", [...of].sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0]))).map(([c, t]) =>
+    `<option value="${c}">Of ${esc(nameOf(c))} (${[t.state && t.state + " states", t.dependency && t.dependency + " dependencies"].filter(Boolean).join(", ")})</option>`).join(""));
+  const u = new URL(location.href);
+  for (const k in pick) pick[k].value = u.searchParams.get(k) || "";
+}
+// the flags' tiles under their headings: a continent, then its countries, its dependencies by their country, its states by
+// theirs -- each heading a button that shows that group alone; returns how many are shown
+function layFlags(tiles) {
+  const box = $("g-flags"), want = { cont: pick.cont.value, kind: pick.kind.value, of: pick.of.value };
+  box.innerHTML = "";
+  const shown = tiles.map(([c, b]) => [c, b, groupOf(c)]).filter(([c, , g]) => (!want.cont || g.cont === want.cont) && (!want.kind || g.kind === want.kind) && (!want.of || g.of === want.of || c === want.of));
+  const head = (tag, text, o, count) => { const h = document.createElement(tag), b = document.createElement("button"); b.type = "button";
+    b.textContent = text; b.title = "Show this group alone"; b.onclick = () => setPick(o); h.append(b, ` `); h.insertAdjacentHTML("beforeend", `<span class="dim">· ${count}</span>`); box.append(h); };
+  const grid = (list) => { const g = document.createElement("div"); g.className = "grid"; for (const [, b] of list) g.append(b); box.append(g); };
+  for (const cont of CONTINENTS) {
+    const inC = shown.filter(([, , g]) => g.cont === cont); if (!inC.length) continue;
+    head("h3", cont, { cont }, inC.length);
+    for (const [kind, label] of KINDS) {
+      const inK = inC.filter(([, , g]) => g.kind === kind); if (!inK.length) continue;
+      if (kind === "country" || kind === "union") { head("h4", label, { cont, kind }, inK.length); grid(inK); continue; }
+      const byOf = groupBy(inK, ([, , g]) => g.of);
+      for (const of of [...byOf.keys()].sort((a, b) => nameOf(a).localeCompare(nameOf(b)))) {
+        head("h4", `${label} of ${nameOf(of)}`, { kind, of }, byOf.get(of).length); grid(byOf.get(of));
+      }
+    }
+  }
+  return shown.length;
+}
+const groupBy = (list, key) => { const m = new Map(); for (const x of list) { const k = key(x); if (!m.has(k)) m.set(k, []); m.get(k).push(x); } return m; };
+
+Promise.all([fetch("data/flags.txt").then((r) => r.text()), fetch("data/flag_groups.json").then((r) => r.json()).catch(() => ({}))]).then(([t, groups]) => {
+  lib = Flags.library(t); GROUPS = groups; fillPick();
   $("errors").textContent = lib.errors.map((e) => `line ${e.line}${e.code ? " (" + e.code + ")" : ""}: ${e.msg}`).join(" · ");
   relations();
   const want = decodeURIComponent(location.hash.slice(1));
   if (want && lib.has(want)) show(want); else preview();
   gallery();
+  if (!(want && lib.has(want)) && Object.keys(pick).some((k) => pick[k].value)) $("pick").scrollIntoView();   // (a link to a group opens at it)
 }).catch(() => { $("errors").textContent = "data/flags.txt could not be read (open this page over http)."; preview(); });
 </script>
 </body>
