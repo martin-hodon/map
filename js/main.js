@@ -14,6 +14,7 @@ import * as select from "./select.js";
 import * as groups from "./groups.js";
 import * as game from "./game.js";
 import * as ui from "./ui.js";
+import * as ranks from "./ranks.js";
 
 style.init();
 state.init();
@@ -21,4 +22,5 @@ offline.init();
 data.init();
 groups.init();
 game.init();
+ranks.init();
 ui.init();

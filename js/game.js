@@ -1,4 +1,4 @@
-// game.js -- the games: cities to find, countries to name, chains and routes
+// game.js -- the games: cities to find, countries to name, chains and routes (and the rankings' games: rankgame.js)
 // (split out of index.html's one script, 2026-11-09: split.js in the session's scratchpad; the names are the script's own)
 import { S } from "./state.js";
 import { $, canvas, ctx, css, R_KM, fmt, fmtPop } from "./state.js";
@@ -10,6 +10,7 @@ import { norm, collect } from "./search.js";
 import { flagSvg } from "./flags.js";
 import { clearSel, fly } from "./select.js";
 import { idOf, game, bareGame, pickedStyle } from "./groups.js";
+import { RANKED, startRank, rankGuess, rankGiveUp, rankScore, drawRank, rankNames, rankSetup, rankWhere, init as rankInit } from "./rankgame.js";
 
 export const SHAPES = new Set(["which", "flag", "all", "chain", "route"]);          // (the games of countries, or of a country's states)
 // (a name as typed: no accents, case or punctuation -- and w as v, y as i, k as c: "Cracow" for Kraków, "Kioto" for Kyoto)
@@ -89,10 +90,14 @@ export function flyWhere() {
 }
 export function resetGame() {                                              // (nothing played: the map shows only where)
   clearInterval(game.clock);
-  Object.assign(game, { named: [], finds: [], ask: null, units: null, over: false, start: null, goal: null, way: null });
+  Object.assign(game, { named: [], finds: [], ask: null, units: null, over: false, start: null, goal: null, way: null, rk: null, pair: null, missed: [] });
   $("g-flag").innerHTML = ""; $("g-stage").innerHTML = "";
 }
-export function previewGame() { resetGame(); game.where = gameRegion(whereValue()); flyWhere(); }
+export function previewGame() {
+  resetGame();
+  if (RANKED.has(pickedStyle())) { game.where = gameRegion("world"); return rankWhere(); }   // (a ranking's scope: its own)
+  game.where = gameRegion(whereValue()); flyWhere();
+}
 export function setupGame(on) { $("g-setup").hidden = !on; $("g-play").hidden = on; if (on) { resetGame(); draw(); } }
 export function openGame(open) {
   game.open = open; $("game").hidden = !open; $("game-btn").hidden = open; document.body.classList.toggle("gaming", open);
@@ -102,8 +107,13 @@ export function openGame(open) {
 export function gameStyle() {                                              // (what the chosen game asks for)
   const s = pickedStyle();
   $("g-kmbox").hidden = s !== "outside" && s !== "inside"; $("g-roundsbox").hidden = s !== "place" && s !== "which" && s !== "flag";
-  $("g-roundsof").textContent = s === "place" ? "cities to find" : "to name";
+  if (RANKED.has(s)) $("g-roundsbox").hidden = false;
+  $("g-roundsof").textContent = s === "place" ? "cities to find" : s === "higher" ? "pairs" : s === "top" ? "the first so many" : "to name";
+  const ranked = RANKED.has(s), wasRanked = !$("g-rank").hidden;       // (the rankings' games: the list's choices, not where)
+  $("g-rank").hidden = !ranked; $("g-scope").hidden = ranked;
+  if (ranked) { rankSetup(); $("g-where").hidden = true; if (!wasRanked) previewGame(); else draw(); return; }
   const was = whereValue(); gameWhere();                           // (the countries offered: with cities, or with states)
+  if (wasRanked) return previewGame();
   if (whereValue() !== was) previewGame(); else draw();
 }
 // the circles' sizes offered, by where: the world's cities lie far apart, a country's close
@@ -118,6 +128,7 @@ export function startGame() {
   $("g-title").textContent = `${$("g-style").selectedOptions[0].textContent.split(":")[0]} · ${game.where.kind === "world" ? "the world" : game.where.name}` +
     (game.style === "outside" || game.style === "inside" ? ` · circles ${fmt(game.km)} km` : "");
   $("g-give").hidden = true;
+  if (RANKED.has(game.style)) return startRank();
   if (SHAPES.has(game.style)) return startUnits();
   const ids = C.map((_, i) => i).filter(game.where.has);
   // (to find: the biggest cities there -- the file is biggest first -- in a random order; of the world or a continent,
@@ -176,6 +187,7 @@ export function gameClick(e) {                                             // (f
 export function gameScore() {
   const C = S.src.cities.features, w = game.where;
   if (!w) return;
+  if (RANKED.has(game.style)) return rankScore();
   if (SHAPES.has(game.style)) return unitScore();
   if (game.style === "place") {
     const n = game.finds.length, km = d3.sum(game.finds, (f) => f.km);
@@ -319,6 +331,7 @@ export function unitGuess(text) {                                          // a 
   unitScore(); drawGameOver();
 }
 export function giveUp() {                                                 // (Show / Give up / End / Show a way)
+  if (RANKED.has(game.style)) return rankGiveUp();
   const U = game.units;
   if (!U || game.over) return;
   if (game.style === "which" || game.style === "flag") { const a = game.ask; game.finds.push({ u: a, ok: false }); say(`That is ${U.units[a].name}.`); gameLi(U.units[a].name, "shown"); unitScore(); return nextUnit(); }
@@ -390,11 +403,12 @@ export function drawGameOver() {
   drawGame(false);
   gameLabels([]);
 }
-export const gameLabels = (boxes) => SHAPES.has(game.style) ? gameUnitNames(boxes) : cityLabels(boxes, game.shown());
+export const gameLabels = (boxes) => RANKED.has(game.style) ? rankNames(boxes) : SHAPES.has(game.style) ? gameUnitNames(boxes) : cityLabels(boxes, game.shown());
 export function drawGame(fast) {
   const C = S.src.cities.features, hi = css("--game"), deg = (km) => km / R_KM * 180 / Math.PI;
   const lv = Math.min(COPIES.length - 1, pick(fast) + 1), where = whereGeom(lv);   // (a copy coarser than the map's: a 2 px line)
   if (where) { ctx.beginPath(); outline(where, lv); ctx.strokeStyle = hi; ctx.lineWidth = 2; ctx.stroke(); }
+  if (RANKED.has(game.style)) return drawRank();
   if (SHAPES.has(game.style)) return drawUnits();
   const ring = (center, km, fill) => { ctx.beginPath(); S.path(d3.geoCircle().center(center).radius(deg(km)).precision(km > 300 ? 2 : 0.5)());
     if (fill) { ctx.fillStyle = css("--game-fill"); ctx.fill(); } ctx.strokeStyle = hi; ctx.lineWidth = 2; ctx.stroke(); };
@@ -424,10 +438,11 @@ export function init() {
     gameWhere(); gameKm(); previewGame();
   };
   $("g-where").onchange = previewGame;
+  rankInit();
   $("g-start").onclick = startGame;
   $("g-again").onclick = startGame;
   $("g-new").onclick = () => setupGame(true);
   $("g-give").onclick = giveUp;
-  $("g-name").addEventListener("keydown", (ev) => { if (ev.key === "Enter") { ev.preventDefault(); (SHAPES.has(game.style) ? unitGuess : guess)($("g-name").value); } });
+  $("g-name").addEventListener("keydown", (ev) => { if (ev.key === "Enter") { ev.preventDefault(); (RANKED.has(game.style) ? rankGuess : SHAPES.has(game.style) ? unitGuess : guess)($("g-name").value); } });
   $("g-name").addEventListener("input", (ev) => { if (/\n/.test(ev.target.value)) ev.target.value = ev.target.value.replace(/\s*\n\s*/g, " "); });   // (pasted lines)
 }

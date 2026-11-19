@@ -99,6 +99,17 @@ or shown ones violet.
 - **Name flag** (whose flag is this?): the game shows a flag (one of the world's countries and dependencies, or a country's states
   that have one: below) and you name whose it is (so many rounds; Show gives it away).
 
+The rankings' games (`js/rankgame.js`) play a list of the Rankings (below), chosen as there -- what, by what, within
+what -- in place of World / Continent / Country:
+
+- **Which is bigger?** Two of the list's first 150 are shown, both on the map, and you click the one with more people,
+  area, length or height (or press 1 / 2, ← / →). The answer gives both numbers. You get so many pairs, and no pair is
+  asked twice.
+- **Name the top** the first so many of the list (the 10 most populous countries, the longest rivers, Germany's biggest
+  cities, the largest islands…), in any order and against the clock. Each one named fills its place in the list and on
+  the map. One further down is told its place ("Volga is #14"). Give up shows the rest. A name counts with or without
+  its kind: Amazon or Amazon River, Everest or Mount Everest.
+
 ## Offline copy, updates, memory
 
 On a real site (http/https) the map keeps itself in the browser: `sw.js` (a service worker) keeps every file
@@ -317,6 +328,37 @@ its day. A state is drawn as its regions that day (no merging: all regions of on
 are the arcs between regions of different states. A click lists the state there on the day shown and the region, with
 its owners through time. `#mode=history&date=-0699-01-01` links to a day.
 
+**Wars and campaigns** (`data/campaigns.json`, `build/campaigns.py`): the events gathered into what Wikidata says they
+were part of (P361, four levels up: the Battle of Waterloo in the Waterloo Campaign in the Hundred Days in the
+Napoleonic Wars) -- 484 wars, campaigns, invasions, offensives (182 at the top) with two or more events, 2,430 events
+in them -- and in each the MOVES between its battles and sieges: each joins the thread (an army, as far as places and
+dates tell) whose last battle is within a march of it (30 km a day, plus 150 km, plus the slack of a date known only to
+its month or year; at most 900 km and 550 days), so a war on two fronts gets two chains, not a zigzag. A guess, not a
+record of marches. On the historical map the day's moves are drawn faintly between the day's events; a war chosen --
+found by name, from the ⚔ list (beside the year: the wars at the day shown first, then all by their start, filtered by
+typing), or from an event's "part of" -- is drawn whole whatever the day: its moves in a colour per campaign, with
+arrows, its events numbered by date and listed in the panel, with its parts and the wars it was part of.
+
+## Rankings
+
+`index.html`'s **Rankings** (`js/ranks.js`; beside the map on a wide screen, in its place on a phone, where choosing a
+row brings the map back): what the map has, ordered by a number -- countries by people, area or density (in the world
+or a continent), a country's states so, cities by people (in the world, a continent, a country or one of its states),
+rivers by length, peaks by height, oceans and seas, gulfs and bays, straits, mountain ranges, deserts, plateaus,
+peninsulas and islands by area. Each row shows its share of the first as a bar; a click selects it on the map. The
+numbers are the map's own but for a river's length and an area's: the map traces only where a river is wide (the
+Nile's 2,863 km) and a sea without its islands, so those are Wikidata's (`data/measures.json`, `build/measures.py`:
+P2043 for 3,392 of the 4,806 rivers, P2046 for 4,778 areas and islands).
+
+While the list is open the map shows it ("colour the map", on unless unticked): what it ranks in seven shades by
+its place, a seventh of the rows each, the first the darkest -- even steps of the list, not of the number, so a few
+giants do not leave everything else one colour. Countries and states are filled, seas, gulfs, ranges, deserts and
+islands too (the largest first: a gulf over its sea), rivers are drawn over in their shade and thicker the longer,
+cities are dots by their people and peaks triangles. The country colours (and languages, density) are left out
+meanwhile, so the ranking is the only colour. A key under the choices gives each shade's numbers, each row's bar is
+in its shade, and a new scope (a continent, a country, a state) is flown to. On a phone a row chosen keeps the
+colours on the map until the list is closed with its ×.
+
 ## Flags and coats of arms
 
 `data/flags.txt` writes the flags and coats of arms as text, one a line, and `flags.js` (no dependencies) draws them
@@ -522,6 +564,7 @@ whatever its length; a pipeline is ranked by its network's length (1,000 and 200
 | historical borders | [CShapes 2.0](https://icr.ethz.ch/data/cshapes/) (Schvitz, Girardin, Rüegger, Weidmann, Cederman, Gleditsch 2022, *Journal of Conflict Resolution* 66:144), the shapes from its shapefile, `status` and `owner` from the copy in its R package, `build/fetch_history.sh` | **CC BY-NC-SA 4.0** (non-commercial) |
 | historical borders before 1886 | [historical-basemaps](https://github.com/aourednik/historical-basemaps) (A. Ourednik and contributors): the world as mapped for 3000 BC … 1880, `NAME`, `SUBJECTO`, `BORDERPRECISION` | **GPL-3.0** |
 | historical events | Wikidata: what an event is (P31/P279), its date (P585, else P580, else P571, with precision and calendar), place (P625, else its location's, P276), what it is part of (P361), Wikipedia articles (via QLever), `build/events.py` | CC0 |
+| wars and campaigns; rivers' lengths, areas' areas | Wikidata: part of (P361), start and end (P580, P582), what it is (P31); length (P2043), area (P2046), normalised to SI (via QLever) | CC0 |
 | areas, natural points, river names | [Natural Earth](https://www.naturalearthdata.com) 1:10m physical: marine polygons, geographic regions, elevation points, region points, rivers | public domain |
 
 The derived data is a database built from OSM, so it is ODbL:
@@ -563,6 +606,8 @@ build/fetch_history.sh                       # raw/cshapes/: CShapes 2.0 (13 MB 
 build/capped.sh .venv/bin/python build/admin.py      # Overture's administrative lines and units -> work/admin_*.pkl (~50 min, once)
 build/capped.sh .venv/bin/python build/history.py    # stage 10: full/history.topo.json (~70 min, 1.8 GB, two cuts; ~14 min with work/history_faces.pkl)
 .venv/bin/python build/events.py             # raw/wd_events.json (QLever, ~2 min) -> data/events.csv
+.venv/bin/python build/campaigns.py          # raw/wd_partof.json (QLever, ~1 min) -> data/campaigns.json (wars, moves)
+.venv/bin/python build/measures.py           # data/measures.json (QLever): rivers' lengths, areas' areas (rankings)
 .venv/bin/python build/lite.py               # data/*.txt: light copies of the line layers (~1 min)
 .venv/bin/python build/small.py              # data/*.txt mended, data/small/, data/xsmall/: every layer for small maps (~3 min)
 .venv/bin/python build/export_geojson.py     # optional: data/geojson/*.geojson
@@ -576,6 +621,12 @@ Every number that decides the detail is in `build/config.py`.
   Wikidata item with an English label; else OSM's own. `name_local` keeps OSM's. A piece whose item is called as it
   is votes too (the Colorado's US ways); an item named with a qualifier in brackets ("Colorado River (Maule)") names
   only its own pieces (so Chile's Colorado items do not name Argentina's Río Colorado).
+  A river with no item on any of its ways finds it by name and place -- also without its word for river ("Río Paraná":
+  the Paraná River's item), or from a river of the same name within ~30 km that has one (a stretch cut off from the
+  rest); a river is then called by its item's English name. Natural Earth's English names stand in where OSM's ways
+  have neither item nor English name, but not for `NE_WRONG` (`build/water.py`): its one "Paraná" line runs on up the
+  Paraguay. A river goes on into a way whose name holds its own as a whole word -- two letters are enough: the Po into
+  "Fiume Po" and its delta's "Po di Venezia"... -- or that has its item.
 - **Areas** (layer 7) are Natural Earth's at 1:10m: their lines across are rough on purpose, and they are only as
   complete as its list (1,341 named seas, gulfs, straits, ranges, deserts, peninsulas, islands…).
 - **Airports**' international routes are OpenFlights' of 2014 (the newest free list); a large airport newer than

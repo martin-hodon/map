@@ -1,6 +1,7 @@
 // data.js -- loading: the light files and the point tables, the layers and their copies, releasing a layer not in use, load()
 // (split out of index.html's one script, 2026-11-09: split.js in the session's scratchpad; the names are the script's own)
 import { S } from "./state.js";
+import { loadWars } from "./wars.js";
 import { PROJ, mode, legend } from "./style.js";
 import { $, trees, points, on, MAX_ZOOM, fmt } from "./state.js";
 import { setup, COPIES, Map0, thingsOf, B0 } from "./geom.js";
@@ -103,7 +104,7 @@ export function letGo(name) {
 export function releaseUnused() {
   const now = Date.now();
   for (const name in LAYERS) { const L = LAYERS[name];
-    if (L.used() || !L.ready) L.last = now;
+    if (L.used() || !L.ready || S.keepLayer?.(name)) L.last = now;   // (S.keepLayer: ranks.js -- a ranking or its game of rivers)
     else if (now - L.last > RELEASE_MS) letGo(name);
   }
 }
@@ -144,7 +145,8 @@ export async function load() {
   readCopy("world", 1); readCopy("world", 2);                     // (not waited for: the full file draws till then)
   await Promise.all([
     layerLoad("rivers"), layerLoad("transport"),
-    ...Object.entries(POINT_FILES).map(([k, f]) => getData(f).then((d) => { if (!d) return; S.src[k] = d; points[k] = pointTree(d); indexPoints(k); showStats(); redraw(); })),
+    ...Object.entries(POINT_FILES).map(([k, f]) => getData(f).then((d) => { if (!d) return; S.src[k] = d; points[k] = pointTree(d); indexPoints(k); showStats(); redraw();
+      if (k === "events") return loadWars(); })),                // (the wars: groups of the events, found by name)
     fetchText("flags.txt").then((t) => { if (!t) return; S.flagLib = Flags.library(t); if (S.flagLib.errors.length) console.warn("data/flags.txt:", S.flagLib.errors);
       showResults(); }),
   ]);

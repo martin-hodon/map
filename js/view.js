@@ -10,6 +10,8 @@ import { histOn, histLines, pxKm } from "./history.js";
 import { bioLabels, histLabels, unitLabels, areaLabels, cityDots, cityLabels, pointLabels, riverLabels, shown, SIZE, natural, LINE_TIERS, ROAD_TIERS, visible } from "./labels.js";
 import { loads, wanted } from "./data.js";
 import { groupsOn, drawGroups, game, bareGame, drawBare } from "./groups.js";
+import { drawWars } from "./wars.js";
+import { rankMap, rampColour } from "./ranks.js";
 import { SHAPES, whereGeom, outline, keepGameBase, gameLabels, drawGame } from "./game.js";
 
 export function pick(moving = false) {
@@ -106,7 +108,14 @@ export function drawMap(fast) {
   if (!S.src) return compose(F);
   const L = Map0, boxes = viewBoxes(), dk = dark();
   const v = (k) => query(trees[k], boxes);
-  const m = mode(), geo = m === "geographical", political = m === "political", themed = m === "language" || m === "density";
+  const m = mode(), geo = m === "geographical", political = m === "political", rk = rankMap();
+  const themed = (m === "language" || m === "density") && !rk;     // (a ranking shown: its colours the only ones)
+  const rankFill = (alpha) => {                                    // (ranks.js: what the list ranks, in its shades)
+    const F = L[rk.layer], seen = new Set(v(rk.layer));
+    ctx.globalAlpha = alpha;                                       // (the largest first: a gulf over its sea)
+    for (let s = 6; s >= 0; s--) fillAll(F, rk.by[s].filter((i) => seen.has(i) && F[i].has(lv)), rampColour(s));
+    ctx.globalAlpha = 1;
+  };
   const themeFill = (name) => {                                     // countries, then the states over them, by language or density
     const F = L[name], by = {};
     if (m === "language" && !Object.keys(S.langColour).length) rankLanguages();
@@ -126,9 +135,10 @@ export function drawMap(fast) {
     ctx.globalAlpha = 1;
   };
   if (geo && on("areas")) geoFill("water");
+  if (rk?.mask === "water") rankFill(dk ? 0.85 : 1);
   if (S.sel && S.sel.cat === "area" && S.sel.mask === "water") main(() => highlight(S.sel));   // (a sea under the land: it has no holes for its islands)
   if (on("land")) fillAll(L.land, v("land"), css("--land"));
-  const pal = groupsOn("countries") ? null : palette();          // (countries put into groups: only the groups coloured)
+  const pal = groupsOn("countries") || rk ? null : palette();          // (countries put into groups: only the groups coloured)
   const B = m === "bio" && S.src.bio ? B0 : null, bl = bioLayer();
   if (B) {                                                          // (the land by realm, biome or ecoregion; paler under groups)
     const by = {}; for (const i of v(bl)) { const f = B[bl][i]; if (f.has(lv)) (by[bioColour(f.properties)] ??= []).push(i); }
@@ -150,7 +160,9 @@ export function drawMap(fast) {
       for (const c in rby) fillAll(R, rby[c], c);
     } }
   if (themed) { if (dk) ctx.globalAlpha = 0.6; themeFill("countries"); if (on("regions")) themeFill("regions"); ctx.globalAlpha = 1; }
+  if (rk?.unit) rankFill(dk ? 0.9 : 1);
   if (geo && on("areas")) geoFill("land");
+  if (rk?.mask === "land") rankFill(0.85);
   drawGroups(L, B, v, fillAll);
   if (S.sel && S.sel.mask === "land") main(() => highlight(S.sel));
   if (on("land")) { fillAll(L.lakes, v("lakes"), css("--sea")); const c = coastAt(lv); stroke(c.lines, query(c.tree, boxes), css("--line"), 0.6); }
@@ -169,12 +181,13 @@ export function drawMap(fast) {
     if (on("regions") && !fast) arcs([Hl.inner], dk ? "#6a7580" : "#a8b0b8", 0.4);   // (a province's border within its state: as a modern state's)
   }
   const gu = game.open && game.units && SHAPES.has(game.style) ? game.units.layer : null;   // (a countries' game: their borders, whatever the layers)
-  if (((political || themed) && on("regions") && !fast) || gu === "regions") stroke(L.rb, v("rb"), dk ? "#6a7580" : "#a8b0b8", 0.4);
-  if (((political || themed) && on("countries")) || gu) stroke(L.cb, v("cb"), dk ? "#b9c2cb" : "#55606b", 0.8);
+  if (((political || themed) && on("regions") && !fast) || gu === "regions" || rk?.layer === "regions") stroke(L.rb, v("rb"), dk ? "#6a7580" : "#a8b0b8", 0.4);
+  if (((political || themed) && on("countries")) || gu || rk?.unit) stroke(L.cb, v("cb"), dk ? "#b9c2cb" : "#55606b", 0.8);
   if (on("rivers") && L.rivers.length) {
     const min = S.zoom < 1.5 ? 600 : S.zoom < 3 ? 250 : S.zoom < 6 ? 100 : 0;    // (the long rivers first, the rest closer in)
     stroke(L.rivers, v("rivers").filter((i) => (L.rivers[i].properties.river_km || 0) >= min), dk ? "#4d86b3" : "#5b95c7", 0.7);
   }
+  if (rk?.lines) { const seen = new Set(v("rivers")); rk.by.forEach((ids, s) => stroke(L.rivers, ids.filter((i) => seen.has(i)), rampColour(s), 1.2 + 0.45 * s)); }
   // the main lines by tier (LINE_TIERS): none from afar, the main roads first, the rest closer in; a railway dashed, a pipeline dotted
   const tiered = (feats, ids) => ids.filter((i) => S.zoom >= LINE_TIERS[(feats[i].properties.tier || 3) - 1]);
   const lw = Math.min(1, 0.35 + 0.2 * Math.log2(S.zoom + 1));      // (thinner the farther out: a continent's roads are many)
@@ -199,6 +212,12 @@ export function drawMap(fast) {
   if (names && Hl) histLabels(placed);
   if (names && (political || themed) && on("countries")) unitLabels(placed);
   if (names && on("areas")) areaLabels(placed);
+  if (rk?.dots) {                                               // (cities, peaks ranked: a dot each, the first on top)
+    ctx.strokeStyle = dk ? "#000a" : "#fffc"; ctx.lineWidth = 0.8;
+    for (const d of rk.dots) { if (!visible(d.at)) continue; const [x, y] = S.proj(d.at); ctx.fillStyle = rampColour(d.shade); ctx.beginPath();
+      if (rk.peaks) { ctx.moveTo(x, y - 1.3 * d.r); ctx.lineTo(x + 1.1 * d.r, y + 0.7 * d.r); ctx.lineTo(x - 1.1 * d.r, y + 0.7 * d.r); ctx.closePath(); } else ctx.arc(x, y, d.r, 0, 7);
+      ctx.fill(); ctx.stroke(); }
+  }
   if (on("cities") && S.src.cities) {
     const ids = query(points.cities, boxes);
     const near = ids.filter((i) => shown("cities", i));
@@ -246,6 +265,7 @@ export function drawMap(fast) {
     }
     if (names) pointLabels(placed, "airports", seen, ink);
   }
+  if (Hl && on("events") && S.src.events && S.war == null) drawWars(dk);   // (the moves between the day's battles, under them)
   if (Hl && on("events") && S.src.events) {                          // (the day's events: the best known first, more the closer in)
     const F = S.src.events.features;
     ctx.fillStyle = dk ? "#ff7a8a" : "#b0124a"; ctx.strokeStyle = dk ? "#000" : "#fff"; ctx.lineWidth = 1;
@@ -255,6 +275,7 @@ export function drawMap(fast) {
       ctx.beginPath(); ctx.moveTo(x, y - 4); ctx.lineTo(x + 3.5, y); ctx.lineTo(x, y + 4); ctx.lineTo(x - 3.5, y); ctx.closePath(); ctx.fill(); ctx.stroke();
     }
   }
+  if (Hl && on("events") && S.src.events && S.war != null) drawWars(dk);   // (a war chosen: whole, over the day's events)
   if (names && S.sel) mark(S.sel);
   };
   if (painter) { F.ops = F.ops.flatMap(forPainters); F.view = viewNow(); painter.paint(F); } else compose(F);
@@ -309,13 +330,13 @@ function composeNow(F) {
 }
 // the selection: an area of the map's own lines (a sea is water only, a range land only), a country, a lake -- filled
 export function highlight(s) {
-  if (s.cat === "river" || s.cat === "line" || s.cat === "point") return;
+  if (s.cat === "river" || s.cat === "line" || s.cat === "point" || s.cat === "war") return;
   ctx.beginPath(); S.path(s.geom); ctx.fillStyle = css("--hi-fill"); ctx.fill();
   ctx.strokeStyle = css("--hi"); ctx.lineWidth = 1.4; ctx.stroke();
 }
 // the selection's name (and a ring round a point)
 export function mark(s) {
-  const p = s.at && visible(s.at) ? S.proj(s.at) : null;
+  const p = s.cat !== "war" && s.at && visible(s.at) ? S.proj(s.at) : null;   // (a war: its events numbered, drawWars)
   if (!p) return;
   const [x, y] = p;
   if (s.cat === "point") { ctx.beginPath(); ctx.arc(x, y, 7, 0, 7); ctx.strokeStyle = css("--hi"); ctx.lineWidth = 2; ctx.stroke(); }

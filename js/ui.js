@@ -10,7 +10,7 @@ import { shown, visible } from "./labels.js";
 import { wanted, load } from "./data.js";
 import { search } from "./search.js";
 import { flagCode, flagSvg } from "./flags.js";
-import { clearSel, select, identify } from "./select.js";
+import { clearSel, select, identify, showWars } from "./select.js";
 import { groupClick, renderGroups, game } from "./groups.js";
 import { gameClick } from "./game.js";
 
@@ -197,6 +197,7 @@ export function init() {
   try { if ($("biolevel").querySelector(`[value="${localStorage.biolevel}"]`)) $("biolevel").value = localStorage.biolevel; } catch (e) { }
   try { setDay(localStorage.histday || "1914-06-28"); } catch (e) { setDay("1914-06-28"); }
   $("year").oninput = () => { setDay(yearText(+$("year").value) + histDay().replace(/^-?\d+/, "")); draw(); };
+  $("wars-btn").onclick = showWars;
   $("day").onchange = () => { setDay($("day").value); $("day").value = showDay(histDay()); draw(); };
   modeChanged(false);
   $("palette").onchange = () => { try { localStorage.palette = $("palette").value; } catch (e) { } draw(); };

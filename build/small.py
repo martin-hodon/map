@@ -33,6 +33,9 @@ such a polygon for all the sphere round it. So every ring, of the full files as 
 index.html's keepPolygons has for what it merges at run time): an arc is cut where a ring leaves it, a spike goes, a loop
 is a ring of its own -- a polygon, or wound the other way a hole -- still of the file's arcs, and an edge along a parallel or
 up the seam gets the points it needs. The page reads polygons as they are.
+A ring round a pole (the Southern Ocean's: one ring, slit at the seam) is never dropped as "turned round": its area on
+the plane is the difference of two long edges, and simplifying can flip its sign (the xsmall copy lost the ocean, and
+the globe drew a dark band round Antarctica).
 """
 import os, sys, csv, io, math, re, collections
 import numpy as np
@@ -109,6 +112,9 @@ def prune(shapes, kinds, pts, min_km2, turn=None):
         x, y = p[:, 0] * KM_LAT * np.cos(np.radians(p[:, 1])), p[:, 1] * KM_LAT
         return (np.dot(x, np.roll(y, -1)) - np.dot(y, np.roll(x, -1))) / 2
     live = lambda a: pts[ix(a)] is not None
+    def round_pole(ring):                               # (a ring across every longitude, -180 to 180)
+        x = np.concatenate([pts[ix(a)][:, 0] for a in ring])
+        return x.max() - x.min() >= 359.9
     kept, gone, out, way = set(), set(), {}, {}
     for key, s in shapes.items():                       # (the polygons first: their rings decide the lines')
         if kinds[key] != "polygon":
@@ -119,6 +125,11 @@ def prune(shapes, kinds, pts, min_km2, turn=None):
             for k, ring in enumerate(poly):
                 rest = [a for a in ring if live(a)]
                 a = area_km2(rest) if rest else 0.0
+                if rest and round_pole(rest):
+                    # (a ring round a pole -- the Southern Ocean's, slit at the seam: its area on the plane is the
+                    # difference of two long edges, so its sign says nothing and a simplified one would seem turned
+                    # round. Kept as it is, the way it was; mend() makes it a ring and a hole)
+                    a = (turn[key, pi, k] if turn is not None else (np.sign(a) or 1.0)) * max(abs(a), min_km2)
                 if abs(a) >= min_km2 and (turn is None or np.sign(a) == turn[key, pi, k]):
                     way[key, len(polys), len(rings)] = np.sign(a)
                     rings.append(rest); kept.update(map(ix, rest))

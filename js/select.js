@@ -12,11 +12,12 @@ import { norm, collect } from "./search.js";
 import { flagCode, flagSvg } from "./flags.js";
 import { game, bareGame } from "./groups.js";
 import { showResults, modeChanged } from "./ui.js";
+import { warInfo, eventWars, warList } from "./wars.js";
 
 // ---- selecting: highlight, fly there, say what it is ---------------------------------------------------------------
 // the selection goes with the panel's x, with the search box emptied (its own x, or Escape in it), or the link cleared
 export function clearSel() {
-  S.sel = null; $("info").style.display = "none"; $("q").value = ""; S.found = []; showResults();
+  S.sel = null; S.war = null; $("info").style.display = "none"; $("q").value = ""; S.found = []; showResults();
   history.replaceState(null, "", location.pathname + location.search); draw();
 }
 export function select(e) {
@@ -37,12 +38,26 @@ export function select(e) {
   const h = Object.assign(document.createElement("h2"), { textContent: e.name });
   const k = Object.assign(document.createElement("div"), { className: "kind", textContent: [e.kind, ...(e.info || [])].filter(Boolean).join(" · ") });
   info.append(close, h, k);
+  S.war = e.war ?? null;
+  if (e.war != null) warInfo(e.war, info, chooseWar, chooseEvent);
+  else if (e.layer === "events" || (e.cat === "point" && e.span)) S.war = eventWars(S.src.events.features.indexOf(e.feats[0]), info, chooseWar);
   if (e.alt && norm(e.alt) !== norm(e.name)) info.append(Object.assign(document.createElement("div"), { className: "kind", textContent: e.alt }));
   const fc = flagCode(e);
   if (fc && S.flagLib?.has(fc)) info.append(Object.assign(document.createElement("a"), { className: "flags", href: "flags.html#" + fc, target: "_blank",
     title: `${e.name}: its flag${S.flagLib.has(fc + "-arms") ? " and coat of arms" : ""}${e.span ? ` on ${showDay(inSpan(e) ? histDay() : e.span[0])}` : ""} (simplified; all of them: flags.html)`, innerHTML: flagSvg(fc, 40) + flagSvg(fc + "-arms", 48) }));
   history.replaceState(null, "", "#find=" + encodeURIComponent(e.name) + ($("proj").selectedIndex ? "&proj=" + encodeURIComponent($("proj").value) : "") + (e.span ? "&date=" + encodeURIComponent(histDay()) : ""));
   fly(S.sel);
+}
+// a war (a group of campaigns.json) or an event (a row of events.csv) chosen from the panel: as if found by name
+export const chooseWar = (gi) => { const e = index.find((x) => x.war === gi); if (e) { $("q").value = e.name; select(e); } };
+export const chooseEvent = (row) => { const f = S.src.events.features[row], e = index.find((x) => x.cat === "point" && x.feats[0] === f); if (e) { $("q").value = e.name; select(e); } };
+// the ⚔ list of wars, in the panel
+export function showWars() {
+  if (!S.wars) return;
+  const info = $("info"); info.style.display = "block"; info.innerHTML = "";
+  const close = Object.assign(document.createElement("button"), { textContent: "×", title: "Close" });
+  close.onclick = clearSel; info.append(close);
+  warList(info, chooseWar);
 }
 export function fly(s) {
   let span = 0;

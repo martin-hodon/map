@@ -69,6 +69,15 @@
   #histbox:not([hidden]) { display: flex; gap: 6px; align-items: center; margin: -4px 0 8px; }
   #histbox input[type=range] { flex: 1; min-width: 0; }
   #histbox input[type=text] { background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 2px 4px; font: inherit; }
+  #histbox button { border: 1px solid var(--line); background: var(--field); color: var(--ink); border-radius: 5px; cursor: pointer; font: inherit; padding: 1px 6px; }
+  /* a war chosen: its events by date, numbered as on the map; the ⚔ list */
+  #info ol.wars-events { list-style: none; margin: 4px 0 0; padding: 0; max-height: 45vh; overflow-y: auto; }
+  #info ol.wars-events b { display: inline-block; min-width: 18px; padding: 0 3px; box-sizing: border-box; border-radius: 9px; color: #fff; font-size: 10px; text-align: center; margin-right: 2px; }
+  #info .kind a { color: inherit; }
+  #info .wars-filter { width: 100%; box-sizing: border-box; margin: 6px 0 2px; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 4px 6px; font: inherit; }
+  #info ul.wars-list { max-height: 50vh; overflow-y: auto; }
+  #info ul.wars-list li.head { cursor: default; color: var(--dim); font-size: 12px; margin-top: 4px; }
+  #info ul.wars-list li.head:hover { background: none; }
   #legend { display: none; font-size: 12px; margin: -4px 0 8px; line-height: 1.5; }
   #legend span { display: inline-block; margin-right: 8px; white-space: nowrap; }
   #legend i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; vertical-align: -1px; margin-right: 4px; border: 1px solid #0002; }
@@ -88,6 +97,32 @@
   #update-note[hidden] { display: none; }
   #tip { position: fixed; pointer-events: none; background: var(--panel); padding: 4px 8px; border-radius: 5px; display: none; box-shadow: 0 1px 4px #0003; }
   #game-btn { position: fixed; top: 12px; right: 12px; border: 0; background: var(--panel); color: var(--ink); padding: 7px 12px; border-radius: 8px; box-shadow: 0 1px 6px #0003; cursor: pointer; font: 600 13px system-ui, sans-serif; }
+  /* the rankings: a side view on the right (on a phone the whole screen, the map back when a row is chosen) */
+  #ranks-btn { position: fixed; top: 12px; right: 84px; border: 0; background: var(--panel); color: var(--ink); padding: 7px 12px; border-radius: 8px; box-shadow: 0 1px 6px #0003; cursor: pointer; font: 600 13px system-ui, sans-serif; }
+  body.gaming #ranks-btn, body.gaming #ranks, body.ranking #game-btn, #ranks-btn[hidden] { display: none; }
+  #ranks { position: fixed; top: 12px; right: 12px; bottom: 12px; width: 360px; max-width: calc(100vw - 24px); box-sizing: border-box; display: flex; flex-direction: column; background: var(--panel); padding: 10px 12px; border-radius: 8px; box-shadow: 0 1px 6px #0003; }
+  #ranks[hidden] { display: none; }
+  #ranks h1 { font-size: 14px; margin: 0 0 6px; }
+  #rk-close { float: right; border: 0; background: none; color: var(--dim); cursor: pointer; font-size: 17px; line-height: 1; padding: 0 2px; }
+  #ranks .ctrl { display: flex; flex-wrap: wrap; gap: 4px; }
+  #ranks select { flex: 1 1 30%; min-width: 0; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 4px 4px; font: inherit; }
+  #ranks select[hidden] { display: none; }
+  #rk-paint-l { display: block; font-size: 12px; margin: 6px 0 0; cursor: pointer; }
+  #rk-key { display: flex; flex-wrap: wrap; gap: 2px 8px; font-size: 11px; margin: 4px 0 0; font-variant-numeric: tabular-nums; }
+  #rk-key[hidden] { display: none; }
+  #rk-key i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: -1px; margin-right: 3px; border: 1px solid #0002; }
+  #rk-sum { color: var(--dim); font-size: 12px; margin: 6px 0 4px; }
+  #rk-rows { list-style: none; margin: 0; padding: 0; overflow-y: auto; flex: 1; }
+  #rk-rows li { position: relative; display: flex; gap: 6px; align-items: baseline; padding: 3px 6px 5px; border-radius: 4px; cursor: pointer; }
+  #rk-rows li:hover, #rk-rows li.on { background: var(--hi-fill); }
+  #rk-rows .n { color: var(--dim); font-size: 11px; min-width: 26px; text-align: right; font-variant-numeric: tabular-nums; }
+  #rk-rows .nm { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #rk-rows .nm small { color: var(--dim); font-size: 11px; }
+  #rk-rows .v { font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 12px; }
+  #rk-rows i { position: absolute; left: 38px; bottom: 1px; height: 3px; max-width: calc(100% - 44px); background: var(--hi); opacity: .55; border-radius: 2px; }
+  #rk-rows li.more { color: var(--dim); justify-content: center; }
+  @media (max-width: 1040px) { #ranks-btn, #ranks { top: 64px; } }   /* (under the search, which spans the top) */
+  @media (max-width: 700px) { #ranks { inset: 0; width: auto; max-width: none; border-radius: 0; z-index: 5; background: var(--field); } }
   #game { position: fixed; top: 12px; right: 12px; background: var(--panel); padding: 10px 12px; border-radius: 8px; width: 280px; max-width: calc(100vw - 48px); max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); overflow-y: auto; box-shadow: 0 1px 6px #0003; }
   #game h1 { font-size: 14px; margin: 0 0 6px; }
   #game select, #game input, #game textarea { box-sizing: border-box; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 4px 6px; font: inherit; }
@@ -101,11 +136,15 @@
   #g-stage svg { max-width: 100%; max-height: 100%; width: auto; height: auto; filter: drop-shadow(0 1px 3px #0005); }
   #game [hidden] { display: none; }   /* (over `#game label`'s block: a field the game does not use is not shown) */
   #game #g-km { width: auto; margin: 0 4px; }
-  #g-scope { display: flex; margin: 4px 0 6px; }
+  #g-scope { display: flex; margin: 4px 0 6px; } #g-scope[hidden] { display: none; }
   #game #g-scope button { flex: 1; border-radius: 0; margin-left: -1px; padding: 4px 0; }
   #game #g-scope button:first-child { border-radius: 5px 0 0 5px; margin-left: 0; }
   #game #g-scope button:last-child { border-radius: 0 5px 5px 0; }
   #game #g-scope button.on { background: var(--ink); color: var(--field); border-color: var(--ink); }
+  #g-rank { display: flex; flex-wrap: wrap; gap: 4px; } #game #g-rank select { flex: 1 1 30%; min-width: 0; margin: 0 0 6px; } #game #g-rank select[hidden], #g-rank[hidden] { display: none; }
+  #g-pair { display: flex; gap: 6px; margin: 6px 0 2px; } #game #g-pair button { flex: 1; padding: 8px 6px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 0; }
+  #g-pair button .fl { flex: none; }
+  #g-list li.gap { color: var(--dim); }
   #g-title { color: var(--dim); font-size: 12px; }
   #g-ask { font-size: 15px; margin: 6px 0; }
   #g-msg { min-height: 1.4em; }
@@ -146,7 +185,7 @@
   <select id="proj" aria-label="Projection"></select>
   <select id="mode" aria-label="Map mode"><option value="political">political map</option><option value="geographical">geographical map</option><option value="language">languages</option><option value="density">population density</option><option value="bio">biogeographical (realms, biomes, ecoregions)</option><option value="history">historical borders (3000 BC–2019)</option></select>
   <select id="biolevel" aria-label="Biogeographic level" hidden><option value="realms">realms</option><option value="biomes">biomes</option><option value="ecoregions">ecoregions</option></select>
-  <div id="histbox" hidden><input type="range" id="year" min="-2999" max="2019" step="1" aria-label="Year"><input type="text" id="day" size="11" aria-label="Day (1914-06-28, 1914, 700 BC)" title="a day (1914-06-28), a year (1914) or a year BC (700 BC)"></div>
+  <div id="histbox" hidden><input type="range" id="year" min="-2999" max="2019" step="1" aria-label="Year"><input type="text" id="day" size="11" aria-label="Day (1914-06-28, 1914, 700 BC)" title="a day (1914-06-28), a year (1914) or a year BC (700 BC)"><button id="wars-btn" title="Wars and campaigns: their battles and the moves between them">⚔</button></div>
   <div id="legend"></div>
   <select id="palette" aria-label="Country colours"></select>
   <label><input type="checkbox" data-layer="land" checked> 1 land, coast, lakes</label>
@@ -180,6 +219,15 @@
 <div id="update-note" hidden><span id="update-text"></span> <button id="noteUpdate">update now</button></div>
 <div id="tip"></div>
 <button id="game-btn" title="Name cities or countries, find them on the map">Game</button>
+<button id="ranks-btn" title="Rankings: countries, states, cities, rivers, mountains, seas -- ordered by a number">Rankings</button>
+<aside id="ranks" hidden aria-label="Rankings">
+  <h1>Rankings <button id="rk-close" title="Close">×</button></h1>
+  <div class="ctrl"><select id="rk-list" aria-label="What"></select><select id="rk-by" aria-label="By"></select><select id="rk-within" aria-label="Within"></select></div>
+  <label id="rk-paint-l"><input type="checkbox" id="rk-paint" checked> colour the map</label>
+  <div id="rk-key"></div>
+  <div id="rk-sum"></div>
+  <ol id="rk-rows"></ol>
+</aside>
 <div id="g-stage"></div>
 <div id="game" hidden>
   <button id="game-close" title="End the game: the map as it was">×</button>
@@ -203,7 +251,12 @@
       <option value="chain" title="Each one next to the last">Neighbour chain</option>
       <option value="route" title="From one to another, across borders">Border route</option>
     </optgroup>
+    <optgroup label="rankings (as in Rankings)">
+      <option value="higher" title="Two of a ranking: which has more (people, area, length, height)?">Which is bigger?</option>
+      <option value="top" title="Name the first so many of a ranking: the most populous countries, the longest rivers…">Name the top</option>
+    </optgroup>
   </select>
+  <div id="g-rank" class="ctrl" hidden><select id="g-rlist" aria-label="What"></select><select id="g-rby" aria-label="By"></select><select id="g-rwithin" aria-label="Within"></select></div>
   <label id="g-kmbox">circles <select id="g-km" aria-label="Circle size"></select> across</label>
   <label id="g-roundsbox"><input id="g-rounds" type="number" min="1" max="100" value="10"> <span id="g-roundsof">cities to find</span></label>
   <button id="g-start">Start</button>

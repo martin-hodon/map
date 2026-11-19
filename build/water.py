@@ -22,6 +22,7 @@ all that is kept of a tile is the samples that lie in water.
     .venv/bin/python build/water.py names         # (only: full/rivers.tracked.topo.json's rivers named -- English, and local)
 """
 import os, sys, time, json, pickle, collections
+import re as _re
 import duckdb, numpy as np, shapely
 import shapely.ops
 from shapely import STRtree
@@ -340,8 +341,9 @@ def track(by, ways):
         u, v = c[-1] - c[i], p - c[-1]
         u[0] *= np.cos(np.radians(c[-1][1])); v[0] *= np.cos(np.radians(c[-1][1]))
         return float(u @ v) > cos * float(np.linalg.norm(u) * np.linalg.norm(v))
-    def within(x, y):                                       # (one name in the other, as whole words: "Isar" in "Große Isar")
-        return len(x) >= 3 and _re.search(r"(?<!\w)" + _re.escape(x) + r"(?!\w)", y) is not None
+    def within(x, y):                                       # (one name in the other, as whole words: "Isar" in "Große Isar";
+                                                            # "Po" in "Fiume Po" and in its delta's "Po di Venezia")
+        return len(x) >= 2 and _re.search(r"(?<!\w)" + _re.escape(x) + r"(?!\w)", y) is not None
     # ...or by Wikidata: the same item, or one a part (P361) of the other's -- the Solimões is the Amazon's Brazilian
     # upper course, under its own name and item, part of the Amazon's
     part = wdnames.part_of(sorted({w["wikidata"] for w in ways if w["wikidata"]}))
@@ -436,6 +438,22 @@ def track(by, ways):
     return out
 
 
+def fold(s):
+    """lower case without accents: Río Paraná -> rio parana"""
+    import unicodedata
+    return "".join(ch for ch in unicodedata.normalize("NFKD", s.lower()) if not unicodedata.combining(ch))
+
+
+# OSM names of rivers that Natural Earth's centerlines name wrongly: its one "Paraná" line runs on up the Paraguay. (A
+# general rule -- Natural Earth's name only where it shares a word with OSM's -- lost the Elbe's Czech "Labe", the Orange's
+# "Senqu", the Kura's "Mtkvari": a river's own name in another language is mostly right to differ)
+NE_WRONG = {"Río Paraguay", "Rio Paraguai", "Rio Paraguay"}
+
+
+# a river's own name without its word for river ("Río Paraná" -> "Paraná"), to find its Wikidata item by
+GENERIC = _re.compile(r"^(?:r[ií]o|rivi[eè]re|fleuve|fiume|fluss|rzeka|reka|řeka|rieka|río|ribeirão|arroyo|rio)\s+(?:(?:d[eoa]s?|del|di|du|la|le)\s+)?", _re.I)
+
+
 def natural_earth_names():
     """a river's English name from Natural Earth's river centerlines (1:10m, raw/ne/), for the rivers OSM has no
     Wikidata item on (the Nile, the Yangtze): the name of the one of its lines that most of the river's points lie
@@ -495,6 +513,8 @@ def rivers(con):
         ne, own = ne_name(segs), weigh(ks, lambda w: w["name"])
         if ne and own and _re.search(r"(?<!\w)" + _re.escape(ne.lower()) + r"(?!\w)", own[0][0].lower()):
             return own, False                               # (OSM's own name says it in full: "Peace River", not Natural Earth's "Peace")
+        if ne and own and own[0][0] in NE_WRONG:
+            return own, False                               # (Natural Earth's name another river's: NE_WRONG)
         return ([(ne, 0)], True) if ne else (own, False)
     rivs = [(rid, ks, segs, ws, *english(ks, segs)) for rid, ks, segs, ws in track(by, ways)]
     # pieces that meet end to end under the same English name are one river: a border where the ways share no name
@@ -581,7 +601,9 @@ def name_rivers():
     for g, smp in zip(geoms, samples):
         pts[g["properties"].get("river")].append(smp)
     lost = [rid for rid, p in first.items() if not p.get("wikidata") and p.get("name")]
-    variants = lambda n: {n, n + " River", n[:-6] if n.endswith(" River") else n}   # (Wikidata's "Mekong River")
+    def variants(n):                                        # (Wikidata's "Mekong River"; "Río Paraná": "Paraná River")
+        core = GENERIC.sub("", n)
+        return {n, n + " River", n[:-6] if n.endswith(" River") else n, core, core + " River"}
     found = wdnames.items_named(sorted({v for r in lost for v in variants(first[r]["name"])}), "Q4022")
     got_items = 0
     for rid in lost:
@@ -601,6 +623,35 @@ def name_rivers():
                     p["wikidata"] = best[1]
             got_items += 1
     log(got_items, "of", len(lost), "rivers without an item found theirs by name and place")
+    # ...or the item of a river of the same name (without its word for river: "Río Paraná", "Rio Paraná") beside it -- a
+    # stretch cut off from the rest of its river, too short to be found by the item's place
+    core = lambda n: fold(GENERIC.sub("", n or "")).strip()
+    item_of = {rid: p["wikidata"] for rid, p in first.items() if p.get("wikidata")}
+    by_core = collections.defaultdict(list)
+    for rid in item_of:
+        by_core[core(first[rid]["name"])].append(rid)
+    trees_ = {}
+    beside = 0
+    for rid in lost:
+        if first[rid].get("wikidata"):
+            continue
+        cands = by_core.get(core(first[rid]["name"]), [])
+        if not cands:
+            continue
+        P = np.vstack(pts[rid])
+        best = None
+        for r2 in cands:
+            if r2 not in trees_:
+                trees_[r2] = cKDTree(np.vstack(pts[r2]))
+            d = float(trees_[r2].query(P)[0].min())
+            if d < 0.3 and (best is None or d < best[0]):
+                best = (d, item_of[r2])
+        if best:
+            for p in props:
+                if p.get("river") == rid:
+                    p["wikidata"] = best[1]
+            beside += 1
+    log(beside, "more found theirs: a river of the same name beside them")
     # one river per Wikidata item: its pieces the walk could not connect (a gap over 10 km, a side arm from its own
     # wide stretch) go by the id of its longest, with their lengths added up
     by_item = collections.defaultdict(dict)
@@ -622,7 +673,7 @@ def name_rivers():
     full = 0
     for p in props:
         e = en.get(p.get("wikidata"))
-        if e and p.get("name") and e != p["name"] and _re.search(r"(?<!\w)" + _re.escape(p["name"].lower()) + r"(?!\w)", e.lower()):
+        if e and p.get("name") and e != p["name"] and any(_re.search(r"(?<!\w)" + _re.escape(fold(n)) + r"(?!\w)", fold(e)) for n in (p["name"], GENERIC.sub("", p["name"])) if n):   # (and "Río Paraná": "Paraná River")
             p["name"] = e; full += 1
     log(full, "river lines named in full by their item")
     where = Where()
