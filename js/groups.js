@@ -2,7 +2,7 @@
 // (split out of index.html's one script, 2026-11-09: split.js in the session's scratchpad; the names are the script's own)
 import { S } from "./state.js";
 import { mode, bioLayer } from "./style.js";
-import { $, ctx, css, trees } from "./state.js";
+import { $, ctx, css, trees, make } from "./state.js";
 import { trace, Map0, B0 } from "./geom.js";
 import { query, draw } from "./view.js";
 import { visible } from "./labels.js";
@@ -61,16 +61,16 @@ export function renderGroups() {
   const box = $("groups"); box.innerHTML = "";
   if (S.groups.length) $("groups-box").open = true;
   S.groups.forEach((g, n) => {
-    const row = Object.assign(document.createElement("div"), { className: "row" });
-    const pick = Object.assign(document.createElement("input"), { type: "radio", name: "group", checked: n === S.activeGroup, title: "A click puts things into this group" });
+    const row = make("div", { className: "row" });
+    const pick = make("input", { type: "radio", name: "group", checked: n === S.activeGroup, title: "A click puts things into this group" });
     pick.onchange = () => { S.activeGroup = n; };
-    const col = Object.assign(document.createElement("input"), { type: "color", value: g.color, title: "Its colour" });
+    const col = make("input", { type: "color", value: g.color, title: "Its colour" });
     col.oninput = () => { g.color = col.value; saveGroups(false); };
-    const name = Object.assign(document.createElement("input"), { type: "text", value: g.name, title: "Its name" });
+    const name = make("input", { type: "text", value: g.name, title: "Its name" });
     name.onchange = () => { g.name = name.value; saveGroups(false); };
     const names = g.items.map((k) => featureOf(k)?.properties.name || k.split(":")[1]);
-    const cnt = Object.assign(document.createElement("span"), { className: "n", textContent: g.items.length, title: names.join(", ") || "empty" });
-    const del = Object.assign(document.createElement("button"), { textContent: "×", title: "Delete the group" });
+    const cnt = make("span", { className: "n", textContent: g.items.length, title: names.join(", ") || "empty" });
+    const del = make("button", { textContent: "×", title: "Delete the group" });
     del.onclick = () => { S.groups.splice(n, 1); S.activeGroup = Math.max(0, Math.min(S.activeGroup, S.groups.length - 1)); saveGroups(); };
     row.append(pick, col, name, cnt, del); box.append(row);
   });

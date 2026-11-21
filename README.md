@@ -18,6 +18,7 @@ applied, so any projection can draw it. `index.html` shows it in nine projection
 | 13 | biogeographic | `full/bio.topo.json` · `realms`, `biomes`, `ecoregions` | the land cut into the 847 terrestrial ecoregions (RESOLVE 2017), and those grouped into 15 biomes (with Rock and Ice) and 8 biogeographic realms: `id` (`PA`… a realm, `B0`–`B14` a biome, `E` + RESOLVE's number an ecoregion), `name`, `realm`, `biome`, `color` (RESOLVE's), `nnh`, `area_km2`, `label` -- made of the map's own coast (below) |
 | 14 | historical borders | `full/history.topo.json` · `regions`, `periods` | the states, empires, dependencies (and, before them, peoples and cultures) from 3000 BC to 2019 -- from 1886 every day (CShapes 2.0), before as mapped for 3000 BC, 2000 BC … 1815, 1878, 1880 (historical-basemaps), as REGIONS of the land and their owners through time: `regions` one polygon each -- `id`, `name`, `admin`, `country`, `held` (`from:state` …), `area_km2`, `label`; `periods` one row per country-period (no geometry) -- `id` (`state:from`), `state`, `name`, `from`, `to` (days, both inclusive; years astronomical, `-0699` is 700 BC), `source`, `precision` (1 approximate, 2 partly undefined, 3 fixed by law), `status`, `owner`, `capital`, `cap`, `gwcode`, `area_km2`, `label` -- made of the map's own coast (below) |
 | 15 | historical events | `data/events.csv` | battles, sieges, peace treaties and treaties, assassinations, massacres, coups, revolutions, rebellions, terror attacks, earthquakes, eruptions that enough Wikipedias write about (10+ for a battle, 8+ a peace treaty, 15+ a massacre: `build/events.py` KINDS), one a line under a header: `name`, `lon`, `lat`, `date` (cut to its precision, years astronomical), `precision` (day … century), `calendar` (julian, as historians cite a date before 1582), `kind`, `part_of` (its war or campaign), `wikipedias`, `place` (own coordinates, or its location's), `wikidata` |
+| 16 | tectonic plates | `data/plates.json` | Peter Bird's PB2002 model: 52 plates (`code`, `name`, `area_km2`, `label`, outline) and their boundaries in 1,688 runs, each of one class -- spreading ridge, continental rift, transform fault, collision zone, subduction zone (with the upper plate's side, from Bird's `A\B` / `A/B`) -- and the plates' relative speed there (opening, closing, sliding, mm a year), `build/plates.py`; read once, drawn on the main thread (js/plates.js) |
 | 13 | first-class roads | `full/roads.topo.json` · `roads` | what is one class below a motorway (OSM's trunk, without slip roads; beside a motorway they are that motorway; networks of 25 km+), one line per road, thinner and yellow under the motorways' orange: `ref`, `class`, `tier` (1-3: from 4x, 7x, 11x); below |
 | 10–12 | main lines | `full/transport.topo.json` · `motorways`, `railways`, `pipelines` | motorways and trunk roads signed 100 km/h+ (networks of 20 km+), main-line and high-speed railways (30 km+), oil and gas pipelines that are not distribution lines (networks of 100 km+, without the fields' and terminals' short loops and dead ends), one line per road or railway (its carriageways and tracks collapsed), meeting at its junctions exactly: `ref`, `class`, `highspeed`, `network`, `network_km`, `tier` (pipelines: `name`, `substance`, `operator`) (1-3: from what zoom it is drawn) |
 
@@ -28,7 +29,7 @@ a header (`lon`, `lat` to 3 decimals, 111 m: finer than the 1/400° grid).
 
 `index.html` finds anything by name (the search box top middle: a country, state, city, monument, airport, river, lake, sea, range, peninsula,
 peak, motorway, pipeline…; a city with its country), highlights it and flies there; a click on the map lists what is
-at that spot; `#find=Alps` and `#at=46.5,10.5[,zoom]` link to one. It draws only what is in view (each layer in an
+at that spot; `#find=Alps` (with `&id=Q1286` or an iso code: that one of the namesakes) and `#at=46.5,10.5[,zoom]` link to one. It draws only what is in view (each layer in an
 R-tree), from the coarsest of the layer's three copies still about as fine as a pixel (`data/`, `data/small/`, `data/xsmall/`: below);
 while the map moves from one about as fine as a few pixels, and without labels, once a frame at where it has got to (whole
 again once the movement pauses); it zooms to 300x (100 m a pixel). Points come by zoom, in tiers (`TIERS`): at the whole globe only
@@ -141,7 +142,8 @@ writes `offline.json` (the file list and a hash of the files: the version), then
 module's `init()`; the shared mutable state is `S` in `state.js`): `style.js` the projections and colours, `geom.js`
 the lines in typed arrays and how a row is traced, `view.js` the frame (which copy to draw from, the R-trees, `drawMap`),
 `labels.js`, `data.js` the loading and letting go, `lite.js` the light-file reader, `history.js`, `search.js`,
-`select.js`, `groups.js`, `game.js`, `ui.js`, `offline.js`, `flags.js`.
+`select.js`, `groups.js`, `game.js`, `ui.js`, `offline.js`, `flags.js`; `welle.js` the notes naming the thing selected
+(../welle's data/back.json, listed in its panel as links into welle -- none without welle beside the map).
 
 **The geometry core runs in WebAssembly** (`wasm/`, Rust, built to `js/mapgeo.wasm`, 150 KB): d3-geo's projection
 pipeline ported for the nine projections -- the rotation, the antimeridian and small-circle clips, the adaptive
@@ -565,6 +567,7 @@ whatever its length; a pipeline is ranked by its network's length (1,000 and 200
 | historical borders before 1886 | [historical-basemaps](https://github.com/aourednik/historical-basemaps) (A. Ourednik and contributors): the world as mapped for 3000 BC … 1880, `NAME`, `SUBJECTO`, `BORDERPRECISION` | **GPL-3.0** |
 | historical events | Wikidata: what an event is (P31/P279), its date (P585, else P580, else P571, with precision and calendar), place (P625, else its location's, P276), what it is part of (P361), Wikipedia articles (via QLever), `build/events.py` | CC0 |
 | wars and campaigns; rivers' lengths, areas' areas | Wikidata: part of (P361), start and end (P580, P582), what it is (P31); length (P2043), area (P2046), normalised to SI (via QLever) | CC0 |
+| tectonic plates | P. Bird 2003, *An updated digital model of plate boundaries*, G³ 4(3):1027 (PB2002), as converted by H. Ahlenius ([fraxen/tectonicplates](https://github.com/fraxen/tectonicplates)), `build/fetch_plates.sh` | ODC-By 1.0 |
 | areas, natural points, river names | [Natural Earth](https://www.naturalearthdata.com) 1:10m physical: marine polygons, geographic regions, elevation points, region points, rivers | public domain |
 
 The derived data is a database built from OSM, so it is ODbL:
@@ -589,6 +592,7 @@ build/fetch_raw.sh                           # raw/: OSM land polygons, Overture
 .venv/bin/python build/fetch_transport.py    # raw/transport/: main roads, railways, pipelines (Overpass, 10° tiles, resumes; ~6 h, 450 MB)
 build/fetch_ne.sh                            # raw/ne/: Natural Earth's geography layers and rivers (~15 MB)
 build/fetch_bio.sh                           # raw/ecoregions/: RESOLVE's ecoregions (150 MB zip, 240 MB shapefile)
+build/fetch_plates.sh && .venv/bin/python build/plates.py   # raw/plates/ -> data/plates.json: the tectonic plates (layer 16, 1 MB in, a second)
 build/capped.sh .venv/bin/python build/coast.py      # stage 1: the coast, simplified, border ends found on it (~10 min, 1.9 GB)
 build/capped.sh .venv/bin/python build/topology.py   # stage 2: borders joined, simplified, faces labelled (~8 min, 1.5 GB)
 MEM=1800M build/capped.sh .venv/bin/python build/water.py   # stage 4: lakes (work/) and rivers as tracked (full/rivers.tracked.topo.json) (~40 min, 1.5 GB)

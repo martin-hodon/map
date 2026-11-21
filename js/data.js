@@ -15,6 +15,7 @@ import { addToIndex, buildIndex, indexRivers, indexLines, indexPoints, search } 
 import { select, identifyAt } from "./select.js";
 import { GROUP_COLOURS, idOf, groupsOn, renderGroups } from "./groups.js";
 import { showResults, modeChanged } from "./ui.js";
+import { loadPlates } from "./plates.js";
 
 // THE DATA: the light files of the line layers (data/*.txt, build/lite.py) and the point layers' CSV -- the only data
 // the map loads (the full-detail layers, full/*.topo.json, are what the light files are made from: not served)
@@ -79,13 +80,18 @@ export const LAYERS = {
 export const FILE_OF = { hperiods: "history", ...Object.fromEntries(Object.entries(LAYERS).flatMap(([name, L]) => L.keys.map((k) => [k, name]))) };
 export const loads = {}, layerLoad = (name) => loads[name] ??= (LAYERS[name].read ?? (() => addLayer(name)))();
 S.restLoaded = false;
+// (#find=Amazonas&id=BR-AM: of the things of that name the one with that wikidata or iso id -- the state of Brazil, not
+//  Venezuela's, nor the river -- else, as without an id, the first, one of the day shown before)
+const idsOf = (e) => { const p = e.feats?.[0]?.properties ?? {}; return [p.wikidata, p.iso]; };
+const byId = (r, id) => id && r.find((e) => idsOf(e).includes(id));
 export function foundWhenCome() {                                          // (#find=...: what the link names, once a layer of it has come)
   if (!S.pendingFind) return;
-  const r = search(S.pendingFind), e = r.find(inSpan) || r[0];
-  if (e) { S.pendingFind = null; $("q").value = e.name; select(e); }
+  const r = search(S.pendingFind), e = byId(r, S.pendingId) || r.find(inSpan) || r[0];
+  if (e) { S.pendingFind = S.pendingId = null; $("q").value = e.name; select(e); }
 }
 export function wanted() {
   if (!S.src || !S.restLoaded) return;
+  loadPlates(redraw).then(foundWhenCome);                          // (the plates: one small file, read once -- found by name with their layer off)
   for (const name in LAYERS) if (LAYERS[name].used() || S.pendingFind) layerLoad(name).then(foundWhenCome);
 }
 // RELEASE: a layer not in use for a few minutes is let go -- its points (tens of MB, the historical map's more) -- and read
@@ -152,7 +158,10 @@ export async function load() {
   ]);
   S.restLoaded = true;
   // (#find=Alps: once all but the two maps of their own are in -- the Rhine is no state's name, Berlin the city before the state)
-  if (h.get("find")) { const e = search(h.get("find"))[0]; if (e) { $("q").value = e.name; select(e); } else S.pendingFind = h.get("find"); }
+  if (h.get("find")) {
+    const r = search(h.get("find")), e = byId(r, h.get("id")) || r.find(inSpan) || r[0];
+    if (e) { $("q").value = e.name; select(e); } else { S.pendingFind = h.get("find"); S.pendingId = h.get("id"); }
+  }
   wanted();
 }
 // a table of points (data/cities.csv, monuments.csv, natural_points.csv, airports.csv, events.csv: a header line, one a line,

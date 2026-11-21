@@ -1,7 +1,7 @@
 // style.js -- colours and legends: the projections, the palettes, the states' shades, the geographical kinds, languages, density, the biogeographic colours, the legend, the panel's roll
 // (split out of index.html's one script, 2026-11-09: split.js in the session's scratchpad; the names are the script's own)
 import { S } from "./state.js";
-import { $ } from "./state.js";
+import { $, make } from "./state.js";
 import { neighbors, Map0, B0 } from "./geom.js";
 
 export const PROJ = {   // (the first is the default)
@@ -85,16 +85,16 @@ export function legend() {
   el.innerHTML = "";
   if (m === "language") {
     const order = rankLanguages();
-    for (const l of order.slice(0, LANG_COLOURS.length)) el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:${S.langColour[l]}"></i>${l}` }));
-    el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:#d8d8d8"></i>other` }));
+    for (const l of order.slice(0, LANG_COLOURS.length)) el.append(make("span", { innerHTML: `<i style="background:${S.langColour[l]}"></i>${l}` }));
+    el.append(make("span", { innerHTML: `<i style="background:#d8d8d8"></i>other` }));
   } else if (m === "density") {
     let lo = 0;
-    for (const [lim, c] of DENSITY) { el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:${c}"></i>${lim === Infinity ? lo + "+" : lo + "–" + lim}` })); lo = lim; }
-    el.append(Object.assign(document.createElement("span"), { textContent: "people per km²" }));
+    for (const [lim, c] of DENSITY) { el.append(make("span", { innerHTML: `<i style="background:${c}"></i>${lim === Infinity ? lo + "+" : lo + "–" + lim}` })); lo = lim; }
+    el.append(make("span", { textContent: "people per km²" }));
   } else if (m === "bio" && S.src && S.src.bio) {
-    for (const f of B0[bioLayer()]) { const p = f.properties; el.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:${bioColour(p)}"></i>${p.name}` })); }
+    for (const f of B0[bioLayer()]) { const p = f.properties; el.append(make("span", { innerHTML: `<i style="background:${bioColour(p)}"></i>${p.name}` })); }
   } else if (m === "history") {
-    el.append(Object.assign(document.createElement("div"), { textContent: "a dependency: paler, in its ruler's colour · a people or culture (no state): pale, its name grey · a blurred border: approximate (all before 1650) · dashed: to land no state held · ◆ events within a few years (the further back, the more)" }));
+    el.append(make("div", { textContent: "a dependency: paler, in its ruler's colour · a people or culture (no state): pale, its name grey · a blurred border: approximate (all before 1650) · dashed: to land no state held · ◆ events within a few years (the further back, the more)" }));
   }
 }
 export const bioColour = (p) => REALM_COLOURS[p.id] || p.color || "#d8d8d8";

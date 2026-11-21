@@ -264,7 +264,7 @@ RU-arms Russia: [french 1.15:1] red + gold @eagle-ru size 0.88 + shield(red + wh
 SE Sweden: [5:8] blue + gold nordic w 0.2 at 0.375,0.5
 SE-arms Sweden: [iberian 1.25:1] blue + gold @crown size 0.3 at 0.3,0.25 + gold @crown size 0.3 at 0.7,0.25 + gold @crown size 0.3 at 0.5,0.62
 SI Slovenia: [1:2] white / blue / red + @SI-arms size 0.33 at 0.27,0.34
-SI-arms Slovenia: [shield] blue + white poly 0.15,0.72 0.32,0.5 0.42,0.6 0.5,0.38 0.58,0.6 0.68,0.5 0.85,0.72 + gold star size 0.15 points 6 at 0.32,0.16 + gold star size 0.15 points 6 at 0.68,0.16 + gold star size 0.15 points 6 at 0.5,0.28
+SI-arms Slovenia: [shield] blue + white poly -0.05,1.1 -0.05,0.76 0.3,0.52 0.4,0.62 0.5,0.37 0.6,0.62 0.7,0.52 1.05,0.76 1.05,1.1 + blue line smooth w 0.04 0.02,0.8 0.14,0.765 0.26,0.8 0.38,0.765 0.5,0.8 0.62,0.765 0.74,0.8 0.86,0.765 0.98,0.8 + blue line smooth w 0.04 0.08,0.9 0.2,0.865 0.32,0.9 0.44,0.865 0.56,0.9 0.68,0.865 0.8,0.9 0.92,0.865 + gold star size 0.13 points 6 at 0.3,0.14 + gold star size 0.13 points 6 at 0.7,0.14 + gold star size 0.13 points 6 at 0.5,0.25
     + red border w 0.05
 SK Slovakia: white / blue / red + shield(white) size 0.53 at 0.3,0.51 + @SK-arms size 0.5 at 0.3,0.5
 SK-arms Slovakia: [shield] red + white poly mirror smooth .5,.039 .572,.036! .544,.191! .662,.184 .751,.167! .751,.287! .662,.269 .544,.263! .544,.371! .695,.366 .805,.347! .805,.467! .7,.449 .544,.444! .544,.616! .5,.616 + blue poly mirror .5,.598 .543,.604 .587,.626 .622,.658 .659,.711 .691,.68 .737,.661 .784,.657 .826,.669 .883,.713 1.05,.9 1.05,1.1 .5,1.1

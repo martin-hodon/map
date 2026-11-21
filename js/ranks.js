@@ -13,7 +13,7 @@
 // shade, and a key under the choices gives each shade's numbers. On a phone a row chosen hides the list but not its
 // colours: they stay on the map until the list is closed with its ×. A new scope (a continent, a country, a state) is
 // flown to.
-import { S, $, index, fmt, fmtPop, dark } from "./state.js";
+import { S, $, index, fmt, fmtPop, dark, make } from "./state.js";
 import { Map0 } from "./geom.js";
 import { fetchText, LAYERS, layerLoad } from "./data.js";
 import { game } from "./groups.js";
@@ -108,12 +108,12 @@ function within(R, sel) {
   if (L.within === "country") { const has = new Set(Map0.regions.map((f) => f.properties.country)); countries.filter((p) => has.has(p.iso)).forEach((p) => add(p.iso, p.name)); }
   if (L.within === "place") {
     add("world:", "the world");
-    const g1 = Object.assign(document.createElement("optgroup"), { label: "a continent" }); conts.forEach((c) => g1.append(new Option(c, "continent:" + c)));
-    const g2 = Object.assign(document.createElement("optgroup"), { label: "a country" }); countries.forEach((p) => g2.append(new Option(p.name, "country:" + p.iso)));
+    const g1 = make("optgroup", { label: "a continent" }); conts.forEach((c) => g1.append(new Option(c, "continent:" + c)));
+    const g2 = make("optgroup", { label: "a country" }); countries.forEach((p) => g2.append(new Option(p.name, "country:" + p.iso)));
     sel.append(g1, g2);
     const [scope, code] = (R.within || "").split(":"), cc = scope === "state" ? code.split("-")[0] : scope === "country" ? code : null;
     const st = Map0.regions.map((f) => f.properties).filter((p) => p.country === cc && !p.part_of).sort((a, b) => a.name.localeCompare(b.name));
-    if (st.length) { const g3 = Object.assign(document.createElement("optgroup"), { label: `a state of ${C.find((p) => p.iso === cc)?.name}` }); st.forEach((p) => g3.append(new Option(p.name, "state:" + p.iso))); sel.append(g3); }
+    if (st.length) { const g3 = make("optgroup", { label: `a state of ${C.find((p) => p.iso === cc)?.name}` }); st.forEach((p) => g3.append(new Option(p.name, "state:" + p.iso))); sel.append(g3); }
   }
   if (L.within === "water" || L.within === "land") Object.keys(L.within === "water" ? WATER : LAND).forEach((k) => add(k, k));
   if (![...sel.options].some((o) => o.value === R.within)) R.within = sel.options[0]?.value ?? "";
@@ -157,7 +157,7 @@ function key() {
   for (let s = 0; s < 7; s++) {
     const rows = shown.filter((_, j) => shadeOf(j, n) === s); if (!rows.length) continue;
     const lo = rows.at(-1).v, hi = rows[0].v;
-    k.append(Object.assign(document.createElement("span"), { innerHTML: `<i style="background:${rampColour(s)}"></i>`, title: `${fmt(rows.length)} ${L.noun || "of them"}: ${L.by[R.by](lo)} – ${L.by[R.by](hi)}` }));
+    k.append(make("span", { innerHTML: `<i style="background:${rampColour(s)}"></i>`, title: `${fmt(rows.length)} ${L.noun || "of them"}: ${L.by[R.by](lo)} – ${L.by[R.by](hi)}` }));
     k.lastChild.append(lo === hi ? short(lo) : `${short(lo)}–${short(hi)}`);
   }
 }
@@ -187,13 +187,13 @@ function fill() {
     const li = document.createElement("li");
     const share = R.by === "population" && sum ? ` · ${(100 * r.v / sum).toFixed(r.v / sum >= .1 ? 0 : 1)}%` : "";
     li.innerHTML = `<span class="n">${k + 1}</span><span class="nm">${flagSvg(flagCode(r.e), 11, { cls: "fl", outline: false })}</span><span class="v"></span><i style="width:${(100 * r.v / top).toFixed(1)}%${R.paint ? `;background:${rampColour(shadeOf(k, shown.length))};opacity:1` : ""}"></i>`;
-    li.querySelector(".nm").append(r.name, Object.assign(document.createElement("small"), { textContent: r.sub ? " " + r.sub : "" }));
+    li.querySelector(".nm").append(r.name, make("small", { textContent: r.sub ? " " + r.sub : "" }));
     li.querySelector(".v").textContent = L.by[R.by](r.v); li.title = L.by[R.by](r.v) + share;
     li.onclick = () => { for (const x of ol.children) x.classList.remove("on"); li.classList.add("on"); $("q").value = r.e.name; select(r.e); if (matchMedia("(max-width: 700px)").matches) openRanks(false, true); };
     ol.append(li);
   });
   if (shown.length > limit) {
-    const more = Object.assign(document.createElement("li"), { className: "more", textContent: `${fmt(shown.length - limit)} more…` });
+    const more = make("li", { className: "more", textContent: `${fmt(shown.length - limit)} more…` });
     more.onclick = () => { limit += 200; fill(); }; ol.append(more);
   }
 }

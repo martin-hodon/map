@@ -3,7 +3,7 @@
 import { S } from "./state.js";
 import { PROJ } from "./style.js";
 import { $, canvas, ctx, R_KM, tilt } from "./state.js";
-import { tree, query } from "./view.js";
+import { tree } from "./view.js";
 import { objectsOf } from "./data.js";
 import { W, setProj, attachRows, traceRows, traceArcsOf } from "./wasm.js";
 

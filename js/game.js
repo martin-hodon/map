@@ -1,7 +1,7 @@
 // game.js -- the games: cities to find, countries to name, chains and routes (and the rankings' games: rankgame.js)
 // (split out of index.html's one script, 2026-11-09: split.js in the session's scratchpad; the names are the script's own)
 import { S } from "./state.js";
-import { $, canvas, ctx, css, R_KM, fmt, fmtPop } from "./state.js";
+import { $, canvas, ctx, css, R_KM, fmt, fmtPop, make } from "./state.js";
 import { setup, COPIES, geoAt, Thing, trace, neighbors, merged, Map0 } from "./geom.js";
 import { pxKm } from "./history.js";
 import { pick, draw } from "./view.js";
@@ -45,7 +45,8 @@ export function gameIndex() {
 // to type in; "New game" brings it back. Where is shown as it is chosen: the map flies there (a country alone).
 export function gameWhere() {                                              // the second list: the continents, or the countries (with cities,
   const L = Map0, box = $("g-where"), d = gameIndex(), was = box.value;                     // or for the countries' games: with states)
-  const flagged = (c) => S.flagLib && Map0.regions.filter((g) => g.properties.country === c && S.flagLib.has(g.properties.iso)).length > 1;
+  const flags = S.flagLib && d3.rollup(Map0.regions.filter((g) => S.flagLib.has(g.properties.iso)), (v) => v.length, (g) => g.properties.country);
+  const flagged = (c) => flags?.get(c) > 1;   // (a country with flags for more than one of its states; counted once, not per country)
   const has = pickedStyle() === "flag" ? new Set(Map0.countries.map((g) => g.properties.iso).filter(flagged))
     : SHAPES.has(pickedStyle()) ? new Set(d3.rollups(Map0.regions, (v) => v.length, (g) => g.properties.country).filter(([, n]) => n > 1).map(([c]) => c))
     : new Set(S.src.cities.features.map((f) => f.properties.country));
@@ -163,14 +164,14 @@ export function guess(text) {                                              // a 
   const i = ok[0], p = S.src.cities.features[i].properties;                // (of several of that name, the biggest)
   game.named.push(i); $("g-name").value = "";
   say(`✓ ${cityText(i)} · ${fmtPop(p.population)}`);
-  const li = document.createElement("li"); li.append(p.name + " ", Object.assign(document.createElement("span"), { textContent: fmtPop(p.population) }));
+  const li = document.createElement("li"); li.append(p.name + " ", make("span", { textContent: fmtPop(p.population) }));
   $("g-list").prepend(li);
   gameScore(); drawGameOver();
 }
 export function nextFind() {
   game.ask = game.finds.length < game.rounds ? game.pool[game.finds.length] : null;
   $("g-ask").innerHTML = "";
-  if (game.ask != null) $("g-ask").append("Where is ", Object.assign(document.createElement("b"), { textContent: game.where.kind === "country" ? S.src.cities.features[game.ask].properties.name : cityText(game.ask) }), "?");
+  if (game.ask != null) $("g-ask").append("Where is ", make("b", { textContent: game.where.kind === "country" ? S.src.cities.features[game.ask].properties.name : cityText(game.ask) }), "?");
   else $("g-ask").textContent = "All found. Again for more.";
 }
 export function gameClick(e) {                                             // (find the city: the click is the answer)
@@ -180,7 +181,7 @@ export function gameClick(e) {                                             // (f
   const i = game.ask, km = d3.geoDistance(ll, S.src.cities.features[i].geometry.coordinates) * R_KM;
   game.finds.push({ i, at: ll, km });
   say(`${cityText(i)}: ${fmt(km)} km off`);
-  const li = document.createElement("li"); li.append(S.src.cities.features[i].properties.name + " ", Object.assign(document.createElement("span"), { textContent: `${fmt(km)} km` }));
+  const li = document.createElement("li"); li.append(S.src.cities.features[i].properties.name + " ", make("span", { textContent: `${fmt(km)} km` }));
   $("g-list").prepend(li);
   nextFind(); gameScore(); drawGameOver();
 }
@@ -238,8 +239,8 @@ export function reach(from) {                                              // ev
   for (let h = 0; h < q.length; h++) { const a = q[h], d = got.get(a)[0]; for (const b of U[a].nb) if (!got.has(b)) { got.set(b, [d + 1, a]); q.push(b); } }
   return got;
 }
-export const bold = (t) => Object.assign(document.createElement("b"), { textContent: t });
-export const gameLi = (t, note = "") => { const e = document.createElement("li"); e.append(t + " ", Object.assign(document.createElement("span"), { textContent: note })); $("g-list").prepend(e); };
+export const bold = (t) => make("b", { textContent: t });
+export const gameLi = (t, note = "") => { const e = document.createElement("li"); e.append(t + " ", make("span", { textContent: note })); $("g-list").prepend(e); };
 export const into = () => game.where.kind === "world" ? "the world" : game.where.name;
 export const clock = () => { const s = Math.round(((game.t1 ?? performance.now()) - game.t0) / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
 export function startUnits() {

@@ -4,23 +4,27 @@
 // On the historical map the day's moves are drawn faintly between the day's events. A war chosen (found by name, from
 // the ⚔ list, or an event's "part of") is drawn whole whatever the day: its moves in a colour per campaign, with
 // arrows, its events numbered by date -- and listed in the panel, with its parts and what it was part of.
-import { S, ctx } from "./state.js";
+import { S, ctx, make } from "./state.js";
 import { histOn, showYear, showDay, histDay, yearOf, yearText } from "./history.js";
 import { fetchText } from "./data.js";
 import { addToIndex } from "./search.js";
 import { shown, visible } from "./labels.js";
 
-S.wars = null;      // { G: the groups, kids: gi -> [gi], of: event row -> gi, moves: [[a, b, gi]] }
+S.wars = null;      // { G: the groups, kids: gi -> [gi], of: event row -> gi, moves: [[a, b, gi]], sorted: gi -> its rows by date }
 S.war = null;       // the war drawn whole (a group's index), or null
 const COLOURS = ["#d7263d", "#1b6ca8", "#2e933c", "#e07a00", "#7b3fa0", "#00897b", "#a0522d", "#c2185b"];
 
 export const years = (g) => g.from == null ? "" : g.to == null || g.to === g.from ? showYear(g.from) : `${showYear(g.from)}–${g.to <= 0 ? showYear(g.to) : g.to}`;
 // a group and every group within it
 export function within(gi) { const out = [gi]; for (let k = 0; k < out.length; k++) out.push(...(S.wars.kids.get(out[k]) || [])); return out; }
-// its events, its parts' too, by date
+// its events, its parts' too, by date -- sorted once and kept (asked each frame while a war is drawn, and for each war
+// of the list at every key of its filter); callers only read the rows
 export function eventsOf(gi) {
-  const F = S.src.events.features, rows = within(gi).flatMap((g) => S.wars.G[g].events);
-  return rows.sort((a, b) => dayKey(F[a].properties.date) - dayKey(F[b].properties.date));
+  if (!S.wars.sorted.has(gi)) {
+    const F = S.src.events.features, day = new Map(), key = (r) => { if (!day.has(r)) day.set(r, dayKey(F[r].properties.date)); return day.get(r); };
+    S.wars.sorted.set(gi, within(gi).flatMap((g) => S.wars.G[g].events).sort((a, b) => key(a) - key(b)));
+  }
+  return S.wars.sorted.get(gi);
 }
 // (a date cut to its year or month: the middle of it -- the Siege of Metz, "1870", among the summer's battles, not before them)
 const dayKey = (d) => { const m = /^(-?\d+)(?:-(\d\d))?(?:-(\d\d))?/.exec(d || ""); return m ? +m[1] * 10000 + +(m[2] || 7) * 100 + +(m[3] || (m[2] ? 15 : 1)) : 0; };
@@ -35,7 +39,7 @@ export async function loadWars() {
     for (const r of g.events) of.set(r, gi);
     for (const [a, b] of g.moves) moves.push([a, b, gi]);
   });
-  S.wars = { G, kids, of, moves };
+  S.wars = { G, kids, of, moves, sorted: new Map() };
   G.forEach((g, gi) => {
     const rows = eventsOf(gi); if (!rows.length) return;
     const coords = rows.map(pointOf), lon = coords.map((c) => c[0]), lat = coords.map((c) => c[1]);
@@ -83,7 +87,7 @@ export function drawWars(dk) {
 }
 
 // ---- the panel ------------------------------------------------------------------------------------------------------
-const el = (tag, props = {}, ...kids) => { const e = Object.assign(document.createElement(tag), props); e.append(...kids); return e; };
+const el = (tag, props = {}, ...kids) => { const e = make(tag, props); e.append(...kids); return e; };
 // a group's line in a list: its name, its years and events; a click chooses it
 function warItem(gi, choose) {
   const g = S.wars.G[gi], n = eventsOf(gi).length;

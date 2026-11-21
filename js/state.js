@@ -14,8 +14,14 @@ export const S = {};
 // Memory: a layer's points sit in one typed array and its rows are numbers into it (THE LINES, below); GeoJSON is made
 // only for what asks for it, a click or a selection, and a layer not in use for a few minutes is let go (RELEASE).
 export const $ = (id) => document.getElementById(id);
+// (an element with its properties set: make("button", { textContent: "×", title: "Close" }))
+export function make(tag, props) { return Object.assign(document.createElement(tag), props); }
 export const canvas = $("map"), ctx = canvas.getContext("2d");
-export const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+// a CSS variable's value, kept: it was read for every label of every frame, a style lookup each time; the variables
+// change only with the system's dark mode (index.html), which empties the store
+const CSS = new Map();
+export const css = (v) => { if (!CSS.has(v)) CSS.set(v, getComputedStyle(document.documentElement).getPropertyValue(v).trim()); return CSS.get(v); };
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => CSS.clear());
 export const R_KM = 6371;
 // the view's centre never right on the equator: the globe's edge then runs through both poles, along Antarctica's
 // edge at -90°, and its clip takes Antarctica (the land, the realm) for all the sphere round it

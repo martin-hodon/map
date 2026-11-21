@@ -12,7 +12,18 @@ export const norm = (s) => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, 
 // (what a selection draws: the shape itself, not made anew each frame)
 export const frozen = (f) => f instanceof Thing ? { type: "Feature", properties: f.properties, geometry: f.geometry } : f;
 export const collect = (feats) => feats.length === 1 ? frozen(feats[0]) : { type: "FeatureCollection", features: feats.map(frozen) };
-export const addToIndex = (e) => { e.keys = [...new Set([e.name, ...String(e.alt || "").split(" / ")].filter(Boolean).map(norm))]; index.push(e); };
+export const addToIndex = (e) => {
+  e.keys = [...new Set([e.name, ...String(e.alt || "").split(" / ")].filter(Boolean).map(norm))]; e.at0 = index.length; index.push(e);
+  if (e.layer) for (const i of e.ids ?? []) { const k = e.layer + "|" + i; if (!PIECES.has(k)) PIECES.set(k, []); PIECES.get(k).push(e); }
+};
+// the entries drawn from these pieces of a layer, in the index's order -- a click's lookup (it was a filter of the whole
+// index, ~55,000 entries, per layer per click): the pieces under the pointer, from the layer's R-tree, to their entries
+const PIECES = new Map();   // ("regions|17" -> its entries)
+export function entriesAt(layer, ids) {
+  const out = new Set();
+  for (const i of ids) for (const e of PIECES.get(layer + "|" + i) ?? []) out.add(e);
+  return [...out].sort((a, b) => a.at0 - b.at0);
+}
 export function buildIndex() {
   const L = Map0, add = addToIndex;
   const countryName = Object.fromEntries(L.countries.map((f) => [f.properties.iso, f.properties.name]));
@@ -28,9 +39,10 @@ export function buildIndex() {
     add({ cat: "region", name: p.name, alt: p.name_local, kind: `state · ${countryName[p.country] || p.country}`, feats: [f], ids: [i], layer: "regions", mask: "land", weight: 1e5, info: [p.iso, p.population ? `${fmtPop(p.population)} people` : null, p.density != null ? `${Math.round(p.density)}/km²` : null, p.language] });   // (below a city of the same name: Istanbul)
   });
   // a state drawn in parts (England, its nine regions): found as a whole too
+  const regionAt = new Map(L.regions.map((f, i) => [f, i]));
   for (const [name, F] of d3.group(L.regions.filter((f) => f.properties.part_of && f.has()), (f) => f.properties.part_of)) {
     const p = F[0].properties, people = d3.sum(F, (f) => f.properties.population || 0);
-    add({ cat: "region", name, kind: `state · ${countryName[p.country] || p.country}`, feats: F, ids: F.map((f) => L.regions.indexOf(f)), layer: "regions", mask: "land", weight: 1e5, flag: p.part_iso, info: [p.part_iso, people ? `${fmtPop(people)} people` : null, p.language] });
+    add({ cat: "region", name, kind: `state · ${countryName[p.country] || p.country}`, feats: F, ids: F.map((f) => regionAt.get(f)), layer: "regions", mask: "land", weight: 1e5, flag: p.part_iso, info: [p.part_iso, people ? `${fmtPop(people)} people` : null, p.language] });
   }
   // a lake: its pieces (OSM's separate features) together, by Wikidata item or name
   const lakes = new Map();
@@ -99,7 +111,7 @@ export function indexPoints(k) {
     if (!set || set !== S.src[k]) continue;
     for (const f of set.features) {
       const p = f.properties;
-      add({ cat: "point", name: p.name, alt: p.name_local || p.name_en, kind: kindOf(p), feats: [f], at: f.geometry.coordinates, weight: weight(p), info: info(p),   // (name_en: a peak's or cape's -- Cabo de Hornos, Cape Horn)
+      add({ cat: "point", src: k, name: p.name, alt: p.name_local || p.name_en, kind: kindOf(p), feats: [f], at: f.geometry.coordinates, weight: weight(p), info: info(p),   // (name_en: a peak's or cape's -- Cabo de Hornos, Cape Horn)
             ...(set === S.src.events ? { span: [p.date, p.date] } : {}) });   // (an event: chosen, the historical map on its day)
     }
   }

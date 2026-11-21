@@ -2,7 +2,7 @@
 // (split out of index.html's one script, 2026-11-09: split.js in the session's scratchpad; the names are the script's own)
 import { S } from "./state.js";
 import { mode, bioLayer, legend } from "./style.js";
-import { $, canvas, tilt, points, on, MAX_ZOOM, fmt, fmtPop } from "./state.js";
+import { $, canvas, tilt, points, on, MAX_ZOOM, fmt, fmtPop, make } from "./state.js";
 import { setup } from "./geom.js";
 import { yearText, showDay, histDay, setDay, pxKm } from "./history.js";
 import { query, draw } from "./view.js";
@@ -11,8 +11,10 @@ import { wanted, load } from "./data.js";
 import { search } from "./search.js";
 import { flagCode, flagSvg } from "./flags.js";
 import { clearSel, select, identify, showWars } from "./select.js";
+import { isShown } from "./shown.js";
 import { groupClick, renderGroups, game } from "./groups.js";
 import { gameClick } from "./game.js";
+import { platesKey } from "./plates.js";
 
 // ---- the search box ------------------------------------------------------------------------------------------------
 S.found = []; S.cursor = -1;
@@ -21,9 +23,9 @@ export function showResults() {
   S.found.forEach((e, i) => {
     const li = document.createElement("li");
     li.className = i === S.cursor ? "on" : "";
-    const name = Object.assign(document.createElement("span"), { textContent: e.name });
+    const name = make("span", { textContent: e.name });
     name.insertAdjacentHTML("afterbegin", flagSvg(flagCode(e), 11, { cls: "fl", outline: false }));
-    li.append(name, Object.assign(document.createElement("span"), { textContent: e.kind }));
+    li.append(name, make("span", { textContent: e.kind }));
     li.onmousedown = (ev) => { ev.preventDefault(); choose(i); };
     ul.append(li);
   });
@@ -133,12 +135,15 @@ export function quickShown() {
 export const toggles = () => document.querySelectorAll(".toggles button");
 export const layersOf = (b) => b.dataset.layers.split(" ");
 export const TOGGLED = { political: ["motorways", "cities"], other: ["rivers", "nature"] };
-export function togglesShown() { for (const b of toggles()) { const v = layersOf(b).every(on); b.classList.toggle("on", v); b.setAttribute("aria-pressed", String(v)); } }
+export function togglesShown() { for (const b of toggles()) { const v = layersOf(b).every(on); b.classList.toggle("on", v); b.setAttribute("aria-pressed", String(v)); } platesKey(); }
 export function toggleDefaults() {
   const want = TOGGLED[mode() === "political" ? "political" : "other"];
   for (const b of toggles()) for (const k of layersOf(b)) document.querySelector(`[data-layer="${k}"]`).checked = layersOf(b).some((x) => want.includes(x));
   togglesShown();
 }
+export const levelShown = () => { quickShown(); legend(); renderGroups(); };   // (the biogeographic level changed: its button, legend, groups)
+// (a layer switched off or another map chosen: a choice no longer on the map is let go -- shown.js)
+const dropHidden = () => { if (S.sel && !isShown(S.sel)) clearSel(); };
 export function modeChanged(redraw = true) {
   quickShown(); toggleDefaults();
   $("palette").disabled = mode() !== "political" && mode() !== "history";
@@ -191,9 +196,9 @@ export function init() {
     if (b.dataset.mode === "bio" && bioLayer() === "realms") $("biolevel").value = "biomes";
     $("mode").value = b.dataset.mode; $("mode").onchange();
   };
-  for (const b of toggles()) b.onclick = () => { const v = !layersOf(b).every(on); for (const k of layersOf(b)) document.querySelector(`[data-layer="${k}"]`).checked = v; togglesShown(); wanted(); draw(); };
-  $("mode").onchange = () => { try { localStorage.mode = $("mode").value; } catch (e) { } modeChanged(); };
-  $("biolevel").onchange = () => { try { localStorage.biolevel = bioLayer(); } catch (e) { } quickShown(); legend(); renderGroups(); draw(); };
+  for (const b of toggles()) b.onclick = () => { const v = !layersOf(b).every(on); for (const k of layersOf(b)) document.querySelector(`[data-layer="${k}"]`).checked = v; togglesShown(); wanted(); dropHidden(); draw(); };
+  $("mode").onchange = () => { try { localStorage.mode = $("mode").value; } catch (e) { } modeChanged(false); dropHidden(); draw(); };
+  $("biolevel").onchange = () => { try { localStorage.biolevel = bioLayer(); } catch (e) { } levelShown(); dropHidden(); draw(); };
   try { if ($("biolevel").querySelector(`[value="${localStorage.biolevel}"]`)) $("biolevel").value = localStorage.biolevel; } catch (e) { }
   try { setDay(localStorage.histday || "1914-06-28"); } catch (e) { setDay("1914-06-28"); }
   $("year").oninput = () => { setDay(yearText(+$("year").value) + histDay().replace(/^-?\d+/, "")); draw(); };
@@ -201,7 +206,7 @@ export function init() {
   $("day").onchange = () => { setDay($("day").value); $("day").value = showDay(histDay()); draw(); };
   modeChanged(false);
   $("palette").onchange = () => { try { localStorage.palette = $("palette").value; } catch (e) { } draw(); };
-  for (const c of document.querySelectorAll("[data-layer]")) c.onchange = () => { togglesShown(); wanted(); draw(); };
+  for (const c of document.querySelectorAll("[data-layer]")) c.onchange = () => { togglesShown(); wanted(); dropHidden(); draw(); };
   addEventListener("resize", resized);
   new ResizeObserver(resized).observe(canvas);
   load();

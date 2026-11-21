@@ -4,7 +4,7 @@
 // two and shows them, the answer tells both numbers. So many pairs, the score the right ones.
 // "top" (Name the top): the first so many of the list named in any order, against the clock; each named fills its
 // place in the list (and the map), one named further down is told its place, and a give-up shows the rest.
-import { S, $, ctx, css, fmt } from "./state.js";
+import { S, $, ctx, css, fmt, make } from "./state.js";
 import { game } from "./groups.js";
 import { rows, choices, LISTS, loadMeasures, flyWithin, riversReady } from "./ranks.js";
 import { say, gameLi, finish, unitKey, ALSO, nameKey, clock } from "./game.js";
@@ -47,7 +47,7 @@ export async function startRank() {
     for (const n of [r.name, ...String(r.e.alt || "").split(" / "), ...also]) for (const key of n ? [unitKey(n), unitKey(n.replace(BARE, " "))] : [])
       if (key && !game.keys.has(key)) game.keys.set(key, k);
   });
-  for (let k = 0; k < game.top; k++) $("g-list").append(Object.assign(document.createElement("li"), { className: "gap", textContent: "?" }));
+  for (let k = 0; k < game.top; k++) $("g-list").append(make("li", { className: "gap", textContent: "?" }));
   $("g-list").start = 1;
   $("g-ask").textContent = `Name the top ${game.top} ${noun} by ${GR.by}${where ? ` in ${where}` : ""}.`;
   $("g-name").hidden = false; $("g-name").value = ""; $("g-name").placeholder = "a name, then Enter";
@@ -67,7 +67,7 @@ function nextPair() {
   }
   game.asked.add(a.name + "|" + b.name); game.asked.add(b.name + "|" + a.name);
   game.pair = [a, b];
-  const box = Object.assign(document.createElement("div"), { id: "g-pair" });
+  const box = make("div", { id: "g-pair" });
   game.pair.forEach((r, k) => {
     const btn = document.createElement("button"); btn.title = `${r.name} (${k ? "2 or →" : "1 or ←"})`;
     btn.innerHTML = flagSvg(flagCode(r.e), 14, { cls: "fl", outline: false }); btn.append(r.name); btn.onclick = () => answer(r);
@@ -88,7 +88,7 @@ function answer(r) {
 // ---- name the top ----
 function slot(k, missed) {
   const li = $("g-list").children[k], r = game.ranked[k];
-  li.className = ""; li.replaceChildren(r.name + " ", Object.assign(document.createElement("span"), { textContent: val(r) + (missed ? " · not named" : "") }));
+  li.className = ""; li.replaceChildren(r.name + " ", make("span", { textContent: val(r) + (missed ? " · not named" : "") }));
 }
 export function rankGuess(text) {
   if (game.style !== "top" || game.over || !nameKey(text)) return;

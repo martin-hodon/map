@@ -3,8 +3,8 @@
 import { S } from "./state.js";
 import { PALETTES, palette, regionShades, shade, GEO, mode, densityColour, bioLayer, rankLanguages, bioColour } from "./style.js";
 import { $, canvas, ctx, css, trees, points, on, HOW, dark } from "./state.js";
-import { COPIES, RING, POLY, geoAt, trace, traceAll, traceArcs, Map0, coastAt, B0, syncProj, viewNow } from "./geom.js";
-import { W, painter, projParams, treeOfRows, treeOfPoints, queryTree, workersWanted } from "./wasm.js";
+import { COPIES, RING, POLY, geoAt, traceAll, traceArcs, Map0, coastAt, B0, syncProj, viewNow } from "./geom.js";
+import { W, painter, projParams, treeOfRows, treeOfPoints, queryTree } from "./wasm.js";
 import { rowsOf, rowCosts } from "./geom.js";
 import { histOn, histLines, pxKm } from "./history.js";
 import { bioLabels, histLabels, unitLabels, areaLabels, cityDots, cityLabels, pointLabels, riverLabels, shown, SIZE, natural, LINE_TIERS, ROAD_TIERS, visible } from "./labels.js";
@@ -13,6 +13,7 @@ import { groupsOn, drawGroups, game, bareGame, drawBare } from "./groups.js";
 import { drawWars } from "./wars.js";
 import { rankMap, rampColour } from "./ranks.js";
 import { SHAPES, whereGeom, outline, keepGameBase, gameLabels, drawGame } from "./game.js";
+import { drawPlates, plateLabels } from "./plates.js";
 
 export function pick(moving = false) {
   let i = 0;
@@ -197,6 +198,7 @@ export function drawMap(fast) {
   if (on("motorways") && S.zoom >= ROAD_TIERS[0] && !loads.roads) wanted();   // (their file: only once they would be drawn)
   if (on("motorways") && L.roads.length && !G) stroke(L.roads, v("roads").filter((i) => S.zoom >= ROAD_TIERS[L.roads[i].properties.tier - 1]), dk ? "#c9b45c" : "#b48c0a", 0.7 * lw);   // (under the motorways, thinner and yellow)
   if (on("motorways") && L.motorways.length && !G) stroke(L.motorways, tiered(L.motorways, v("motorways")), dk ? "#e0914a" : "#d9731f", 1.1 * lw);
+  if (on("plates") && !G) main(drawPlates);                        // (the tectonic plates' boundaries: over the lines, under a chosen one)
   if (S.sel && (S.sel.cat === "river" || S.sel.cat === "line")) main(() => { ctx.beginPath(); S.path(S.sel.geom); ctx.strokeStyle = css("--hi"); ctx.lineWidth = 2.5; ctx.stroke(); });
   if (only) main(() => ctx.restore());
   F.after = () => {
@@ -211,6 +213,7 @@ export function drawMap(fast) {
   if (names && B) bioLabels(placed);
   if (names && Hl) histLabels(placed);
   if (names && (political || themed) && on("countries")) unitLabels(placed);
+  if (names && on("plates")) plateLabels(placed);                 // (the plates' names before the seas': with their layer on, they are what is looked at)
   if (names && on("areas")) areaLabels(placed);
   if (rk?.dots) {                                               // (cities, peaks ranked: a dot each, the first on top)
     ctx.strokeStyle = dk ? "#000a" : "#fffc"; ctx.lineWidth = 0.8;
@@ -224,47 +227,7 @@ export function drawMap(fast) {
     cityDots(near); if (names) cityLabels(placed, near);
   }
   if (names && on("rivers") && L.rivers.length) riverLabels(placed, L.rivers, v("rivers"), lv);
-  if (on("monuments") && S.src.monuments) {
-    // (a work of nature -- a park, a waterfall -- a tree; a building or a ruin a temple's front; by its level the larger)
-    const F = S.src.monuments.features, ink = (i) => natural(F[i].properties) ? (dk ? "#9be07a" : "#2e7d32") : (dk ? "#e0a3d8" : "#8e3a80"), seen = [];
-    for (const i of query(points.monuments, boxes)) {
-      const f = F[i];
-      if (!shown("monuments", i) || !visible(f.geometry.coordinates)) continue;
-      const [x, y] = S.proj(f.geometry.coordinates), s = SIZE[f.properties.level] ?? 1; seen.push(i);
-      ctx.fillStyle = ink(i); ctx.beginPath();
-      if (natural(f.properties)) { ctx.arc(x, y - 1.2 * s, 2.6 * s, 0, 2 * Math.PI); ctx.rect(x - 0.6 * s, y, 1.2 * s, 2.6 * s); }
-      else { ctx.moveTo(x, y - 3.4 * s); ctx.lineTo(x + 3.2 * s, y - 1.2 * s); ctx.lineTo(x - 3.2 * s, y - 1.2 * s); ctx.closePath();
-             ctx.rect(x - 2.6 * s, y - 0.6 * s, 1.3 * s, 2.4 * s); ctx.rect(x + 1.3 * s, y - 0.6 * s, 1.3 * s, 2.4 * s); ctx.rect(x - 3.2 * s, y + 2.1 * s, 6.4 * s, 1 * s); }
-      ctx.fill();
-    }
-    if (names) pointLabels(placed, "monuments", seen, ink);
-  }
-  if (on("nature") && S.src.nature) {
-    const ink = dk ? "#c9a27a" : "#7a4f2a", seen = [];
-    ctx.fillStyle = ink;
-    for (const i of query(points.nature, boxes)) {
-      const f = S.src.nature.features[i];
-      if (!shown("nature", i) || !visible(f.geometry.coordinates)) continue;
-      const [x, y] = S.proj(f.geometry.coordinates); seen.push(i);
-      ctx.beginPath();
-      if (f.properties.kind === "peak") { ctx.moveTo(x, y - 3.5); ctx.lineTo(x + 3, y + 1.5); ctx.lineTo(x - 3, y + 1.5); }
-      else ctx.rect(x - 1.8, y - 1.8, 3.6, 3.6);
-      ctx.fill();
-    }
-    if (names) pointLabels(placed, "nature", seen, ink);
-  }
-  if (on("airports") && S.src.airports) {
-    const ink = dk ? "#8fb8ff" : "#1d4f9c", seen = [];
-    ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillStyle = ink;
-    for (const i of query(points.airports, boxes)) {
-      const f = S.src.airports.features[i];
-      if (!shown("airports", i) || !visible(f.geometry.coordinates)) continue;
-      const [x, y] = S.proj(f.geometry.coordinates); seen.push(i);
-      ctx.font = `${Math.round(11 * (SIZE[f.properties.level] ?? 1))}px system-ui, sans-serif`;   // (by its passengers: three sizes)
-      ctx.fillText("✈", x, y);
-    }
-    if (names) pointLabels(placed, "airports", seen, ink);
-  }
+  iconLayers(boxes, names ? placed : null, dk);
   if (Hl && on("events") && S.src.events && S.war == null) drawWars(dk);   // (the moves between the day's battles, under them)
   if (Hl && on("events") && S.src.events) {                          // (the day's events: the best known first, more the closer in)
     const F = S.src.events.features;
@@ -279,6 +242,47 @@ export function drawMap(fast) {
   if (names && S.sel) mark(S.sel);
   };
   if (painter) { F.ops = F.ops.flatMap(forPainters); F.view = viewNow(); painter.paint(F); } else compose(F);
+}
+// the icons of the point layers -- monuments, nature, airports -- and, with `placed` (names shown), their names
+function iconLayers(boxes, placed, dk) {
+  // (one layer: its points in view and shown, each drawn at its place, then their names)
+  const each = (layer, ink, draw) => {
+    if (!on(layer) || !S.src[layer]) return;
+    const F = S.src[layer].features, seen = [];
+    for (const i of query(points[layer], boxes)) {
+      const f = F[i];
+      if (!shown(layer, i) || !visible(f.geometry.coordinates)) continue;
+      const [x, y] = S.proj(f.geometry.coordinates); seen.push(i);
+      draw(f, x, y, i);
+    }
+    if (placed) pointLabels(placed, layer, seen, ink);
+  };
+  // (a work of nature -- a park, a waterfall -- a tree; a building or a ruin a temple's front; by its level the larger)
+  const M = S.src.monuments?.features, monumentInk = (i) => natural(M[i].properties) ? (dk ? "#9be07a" : "#2e7d32") : (dk ? "#e0a3d8" : "#8e3a80");
+  each("monuments", monumentInk, (f, x, y, i) => {
+    const s = SIZE[f.properties.level] ?? 1;
+    ctx.fillStyle = monumentInk(i); ctx.beginPath();
+    if (natural(f.properties)) { ctx.arc(x, y - 1.2 * s, 2.6 * s, 0, 2 * Math.PI); ctx.rect(x - 0.6 * s, y, 1.2 * s, 2.6 * s); }
+    else { ctx.moveTo(x, y - 3.4 * s); ctx.lineTo(x + 3.2 * s, y - 1.2 * s); ctx.lineTo(x - 3.2 * s, y - 1.2 * s); ctx.closePath();
+           ctx.rect(x - 2.6 * s, y - 0.6 * s, 1.3 * s, 2.4 * s); ctx.rect(x + 1.3 * s, y - 0.6 * s, 1.3 * s, 2.4 * s); ctx.rect(x - 3.2 * s, y + 2.1 * s, 6.4 * s, 1 * s); }
+    ctx.fill();
+  });
+  // (a peak a triangle, the rest a square)
+  const natureInk = dk ? "#c9a27a" : "#7a4f2a";
+  if (on("nature") && S.src.nature) ctx.fillStyle = natureInk;
+  each("nature", natureInk, (f, x, y) => {
+    ctx.beginPath();
+    if (f.properties.kind === "peak") { ctx.moveTo(x, y - 3.5); ctx.lineTo(x + 3, y + 1.5); ctx.lineTo(x - 3, y + 1.5); }
+    else ctx.rect(x - 1.8, y - 1.8, 3.6, 3.6);
+    ctx.fill();
+  });
+  // (a plane, by its passengers in three sizes)
+  const airInk = dk ? "#8fb8ff" : "#1d4f9c";
+  if (on("airports") && S.src.airports) { ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillStyle = airInk; }
+  each("airports", airInk, (f, x, y) => {
+    ctx.font = `${Math.round(11 * (SIZE[f.properties.level] ?? 1))}px system-ui, sans-serif`;
+    ctx.fillText("✈", x, y);
+  });
 }
 // an op as the painters take it: the rows (or arcs) of the module's copy, and the weight of each (its points) -- a list
 // of several objects' Things (the land: continents and islands) an op per object when opaque; what they cannot paint is
@@ -332,6 +336,7 @@ function composeNow(F) {
 export function highlight(s) {
   if (s.cat === "river" || s.cat === "line" || s.cat === "point" || s.cat === "war") return;
   ctx.beginPath(); S.path(s.geom); ctx.fillStyle = css("--hi-fill"); ctx.fill();
+  if (s.edge) { ctx.beginPath(); S.path(s.edge); }                   // (a plate: its boundaries, not its shape's cut at the 180th meridian and down to the pole)
   ctx.strokeStyle = css("--hi"); ctx.lineWidth = 1.4; ctx.stroke();
 }
 // the selection's name (and a ring round a point)
