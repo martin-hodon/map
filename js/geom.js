@@ -211,7 +211,7 @@ export const eachPoint = (f, go) => { const g = geoAt(f.o, 0), T = g.T;     // (
   for (let j = g.start[f.i]; j < g.start[f.i + 1]; j++) { const a = g.refs[j]; if (a === RING || a === POLY) continue; const r = a < 0 ? ~a : a;
     for (let k = T.at[r]; k < T.at[r + 1]; k++) go(T.xy[2 * k], T.xy[2 * k + 1]); } };
 // the map's rows: the world's objects, and the rest as they come; a layer of one file's objects has one list of Things
-export let Map0 = { land: [], countries: [], regions: [], lakes: [], areas: [], cb: [], rb: [], rivers: [], motorways: [], roads: [], railways: [], pipelines: [] };
+export let Map0 = { land: [], countries: [], regions: [], lakes: [], areas: [], cb: [], rb: [], rivers: [], motorways: [], roads: [], railways: [], pipelines: [], zones: [], zone_borders: [], parks: [] };
 export const thingsOf = (O, name) => { const o = O[name]; if (!o) return []; const R = o.rows; o.rows = null; return Array.from({ length: o.n }, (_, i) => new Thing(o, i, R ? R[i] : {})); };
 // the coast is one row of many lines: in each copy a Thing a line (a copy's lines are longer: a tree of its own)
 export const coasts = [];

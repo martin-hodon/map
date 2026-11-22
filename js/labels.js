@@ -56,13 +56,13 @@ export function histLabels(boxes) {
 }
 // the countries' names in spaced capitals, then their states' (with layer 3) in mixed case, fading in: the biggest
 // first, more of them the closer in
-export function unitLabels(boxes) {
+export function unitLabels(boxes, inCity) {
   const L = Map0, by = (a, b) => (b.properties.area_km2 || 0) - (a.properties.area_km2 || 0);
   const write = (F, min, size, font, fill, up) => { for (const f of F) { const p = f.properties;
     if (p.label && (p.area_km2 || 0) >= min && visible(p.label) && !(S.sel && S.sel.feats.includes(f)))
       writeName(boxes, up ? caps(p.name) : p.name, p.label, size, font, fill, up ? { spacing: SPACED(size) } : { alpha: fadeIn(p.area_km2 || 0, min) }); } };
   write(unitsBySize.countries ??= [...L.countries].sort(by), 6e5 / (S.zoom * S.zoom), 11, 600, css("--ink"), true);
-  if (on("regions")) write(unitsBySize.regions ??= [...L.regions].sort(by), STATE_KM2 / (S.zoom * S.zoom), 11, 400, css("--ink"), false);   // (upright, full ink: a grey italic was lost on the fills)
+  if (on("regions") && !inCity) write(unitsBySize.regions ??= [...L.regions].sort(by), STATE_KM2 / (S.zoom * S.zoom), 11, 400, css("--ink"), false);   // (upright, full ink: a grey italic was lost on the fills)
 }
 export const unitsBySize = {};
 // the areas' names: the biggest first, more of them the closer in
@@ -129,14 +129,22 @@ export function pointLabels(boxes, layer, ids, ink) {
 export const RIVER_NAMES = [[1000, 4], [300, 6], [100, 9], [0, 12]];     // (a river's km drawn -> the zoom its name shows from)
 export const RIVER_GAP = 350;
 export function riverLabels(boxes, F, ids, lv) {
-  const from = (km) => RIVER_NAMES.find(([min]) => km >= min)[1], size = 11, near = new Map();   // (a river -> its names on screen)
+  const from = (km) => RIVER_NAMES.find(([min]) => km >= min)[1], size = 11;
   const ok = ids.filter((i) => F[i].has(lv) && F[i].properties.name && S.zoom >= from(F[i].properties.river_km || 0))
     .sort((a, b) => (F[b].properties.river_km || 0) - (F[a].properties.river_km || 0));
   ctx.font = `italic ${size}px Georgia, serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
   ctx.lineWidth = 3; ctx.strokeStyle = css("--land"); ctx.fillStyle = css("--water-label");
-  for (const i of ok) {
-    const p = F[i].properties, k = p.river || p.name, tw = ctx.measureText(p.name).width, w = tw + 10;
+  nameAlong(boxes, F, ok, lv, { text: (p) => p.name, key: (p) => p.river || p.name, size, gap: RIVER_GAP });
+}
+// names along lines (the rivers'; a city map's streets and waterways: city.js), in the font and colours set: each row of
+// `ids` in turn, beside a stretch of it that runs straight under the whole name, again every `gap` px of one `key`;
+// `offset` (in sizes) how far beside the line -- 0 on it, as a street's name
+export function nameAlong(boxes, F, ids, lv, { text: textOf, key: keyOf, size, gap, offset = 0.75 }) {
+  const near = new Map();                                                          // (a key -> its names on screen)
+  for (const i of ids) {
+    const p = F[i].properties, name = textOf(p), k = keyOf(p), tw = ctx.measureText(name).width, w = tw + 10;
     const g = shape(F[i], lv), runs = [];
+    if (!g) continue;
     for (const line of g.type === "LineString" ? [g.coordinates] : g.coordinates) {   // (the line on screen: its runs of visible points)
       let r = [];
       for (const c of line) { const q = visible(c) && S.proj(c); if (q) r.push(q); else { if (r.length > 1) runs.push(r); r = []; } }
@@ -149,7 +157,7 @@ export function riverLabels(boxes, F, ids, lv) {
       for (let c = w / 2; c <= s[s.length - 1] - w / 2; c += w / 3) {
         const a = at(c - w / 2), b = at(c + w / 2), m = at(c);
         if (Math.hypot(b[0] - a[0], b[1] - a[1]) < 0.94 * w) continue;                  // (a bend: the letters would crowd)
-        if ((near.get(k) || []).some((o) => Math.hypot(o[0] - m[0], o[1] - m[1]) < RIVER_GAP)) continue;
+        if ((near.get(k) || []).some((o) => Math.hypot(o[0] - m[0], o[1] - m[1]) < gap)) continue;
         // (on a straight line, beside the river where it runs straight under the whole name: bent letter by letter
         //  along it, a bend in the middle of a word made it unreadable)
         const cx = b[0] - a[0], cy = b[1] - a[1], cl = Math.hypot(cx, cy), off = (q) => Math.abs((q[0] - a[0]) * cy - (q[1] - a[1]) * cx) / cl;
@@ -157,12 +165,12 @@ export function riverLabels(boxes, F, ids, lv) {
         for (let j = 0; j < r.length; j++) if (s[j] > c - w / 2 && s[j] < c + w / 2) dev = Math.max(dev, off(r[j]));
         if (dev > size * 0.3) continue;
         const dir = cx >= 0 ? 1 : -1, ang = Math.atan2(dir * cy, dir * cx);              // (left to right, whichever way it flows)
-        const ux = Math.cos(ang), uy = Math.sin(ang), x = (a[0] + b[0]) / 2 + uy * size * 0.75, y = (a[1] + b[1]) / 2 - ux * size * 0.75;
+        const ux = Math.cos(ang), uy = Math.sin(ang), x = (a[0] + b[0]) / 2 + uy * size * offset, y = (a[1] + b[1]) / 2 - ux * size * offset;
         const bx = [];                                                                   // (its boxes: a letter's width apart along it)
         for (let d = -tw / 2 + size / 2; d < tw / 2; d += size) bx.push([x + ux * d - size / 2, y + uy * d - size / 2, x + ux * d + size / 2, y + uy * d + size / 2]);
         if (bx.some((q) => q[0] < 0 || q[1] < 0 || q[2] > S.W || q[3] > S.H || boxes.some((o) => q[0] < o[2] && q[2] > o[0] && q[1] < o[3] && q[3] > o[1]))) continue;
         boxes.push(...bx); (near.get(k) || near.set(k, []).get(k)).push(m);
-        ctx.save(); ctx.translate(x, y); ctx.rotate(ang); ctx.strokeText(p.name, 0, 0); ctx.fillText(p.name, 0, 0); ctx.restore();
+        ctx.save(); ctx.translate(x, y); ctx.rotate(ang); ctx.strokeText(name, 0, 0); ctx.fillText(name, 0, 0); ctx.restore();
       }
     }
   }

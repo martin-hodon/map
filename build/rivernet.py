@@ -28,6 +28,7 @@ MOUTHS. A river that ends in the sea is cut where it crosses the coast; one that
 on the shared grid), so river and coast meet exactly; build/lite.py keeps those points.
 """
 import os, sys, json, time, heapq, collections
+from types import SimpleNamespace
 import numpy as np
 import shapely, shapely.ops
 from scipy.spatial import cKDTree
@@ -51,6 +52,7 @@ PIECE_KM = 10.0      # a trunk's piece left shorter than this: dropped
 CLOSE_KM = 40.0      # a side arm's end that meets nothing: joined back along its own channels this far
 MOUTH_KM = 8.0       # a free downstream end this near the coast (and not at a lake): carried on into the sea
 LAKE_KM = 1.0        # ...unless a lake is this near, and nearer than the coast (not one whose shore is the coast: the Caspian)
+ONWARD_KM = 50.0     # a free end short of the water: followed on along OSM's waterways this far, to find it
 STEP_KM = 0.5        # the samples along a line, for the distances
 CELL = SEP_KM / R    # the index's cells (on the unit sphere)
 T0 = time.time()
@@ -345,17 +347,128 @@ def apply_inserts(kept, inserts, ext):
     return out
 
 
-def mouths(kept, world, attached):
-    """the free downstream ends: cut at the coast if in the sea, carried on to it if near -> (kept, the points into the coast)"""
+def water_of(world):
+    """the map's own water, as drawn: its land (the rest is sea), its lakes, its coast"""
     arcs = decode(world)
     geoms = [g for k in ("continents", "islands", "land") for g in world["objects"].get(k, {"geometries": []})["geometries"]]   # (land: a file of before the split)
     land = [shapely.Polygon(ring(arcs, g["arcs"][0]), [ring(arcs, h) for h in g["arcs"][1:]]) for g in geoms if g["type"] == "Polygon"]
     land += [shapely.Polygon(ring(arcs, p[0]), [ring(arcs, h) for h in p[1:]]) for g in geoms if g["type"] == "MultiPolygon" for p in g["arcs"]]
-    land_tree = shapely.STRtree(land)
     lakes = [shapely.Polygon(ring(arcs, a[0])) for g in world["objects"]["lakes"]["geometries"] for a in ([g["arcs"]] if g["type"] == "Polygon" else g["arcs"])]
-    lake_tree = shapely.STRtree(lakes)
     coast_ids = sorted({i if i >= 0 else ~i for line in world["objects"]["coastline"]["geometries"][0]["arcs"] for i in line})
-    coast = [shapely.LineString(arcs[i]) for i in coast_ids]; coast_tree = shapely.STRtree(coast)
+    coast = [shapely.LineString(arcs[i]) for i in coast_ids]
+    return SimpleNamespace(land=land, land_tree=shapely.STRtree(land), lakes=lakes, lake_tree=shapely.STRtree(lakes),
+                           coast_ids=coast_ids, coast=coast, coast_tree=shapely.STRtree(coast))
+
+
+def deg_at(k, lat):
+    return k / 111.2 / max(0.2, np.cos(np.radians(lat)))
+
+
+def onward(kept, water, idx, props, attached):
+    """a free downstream end short of the map's water (on land, no lake or other line near) goes on along OSM's
+    waterways (raw/water.parquet's river centerlines, as build/water.py cut them into work/water_tiles/), whatever their
+    name -- the shortest way, up to ONWARD_KM -- to where they reach the sea, the coast or a lake; or another line of
+    the network, if that way is the river's own (its name, a local one, or its item; or no name): a river renamed for
+    its last stretch (the Liri as the Garigliano), an estuary's channel (the Xi's), a mouth beyond a lake OSM maps
+    without a centerline through it. Then on to the coast or the lake shore as any other mouth (mouths)."""
+    from water import read_tile, TILE, TILES
+    if not os.path.exists(os.path.join(TILES, "done")):
+        log(f"onward: {TILES} missing (build/water.py makes it) -- skipped"); return kept
+    free = free_ends(kept, attached)
+    on_land = lambda q: len(water.land_tree.query(shapely.Point(q), predicate="intersects")) > 0
+    tiles = collections.OrderedDict()
+
+    def ways(i, j):
+        if (i, j) not in tiles:
+            f = os.path.join(TILES, f"{i}_{j}.pkl")
+            rows = [(shapely.get_coordinates(shapely.from_wkb(w)), name, wd) for s, g, _, name, wd, w in (read_tile(i, j) if os.path.exists(f) else []) if g == "line"]
+            starts = collections.defaultdict(list)
+            for k, (c, _, _) in enumerate(rows):
+                starts[pkey(c[0])].append(k)
+            tiles[(i, j)] = (rows, shapely.STRtree([shapely.LineString(c) for c, _, _ in rows]) if rows else None, starts)
+            while len(tiles) > 8:
+                tiles.popitem(last=False)
+        tiles.move_to_end((i, j))
+        return tiles[(i, j)]
+
+    def reached(p, L, own):
+        """the water this point is at -> ("sea" | "coast" | "lake" | "river", the point to end on) or None"""
+        P = shapely.Point(p)
+        if not on_land(p):
+            return "sea", p
+        for k in water.lake_tree.query(P, predicate="dwithin", distance=deg_at(LAKE_KM, p[1])).tolist():
+            h = shapely.ops.nearest_points(water.lakes[k].boundary, P)[0]
+            return "lake", np.array([h.x, h.y]) if not water.lakes[k].contains(P) else p
+        if len(water.coast_tree.query(P, predicate="dwithin", distance=deg_at(STEP_KM, p[1]))):
+            return "coast", p
+        d, _ = idx.near(xyz(p[None]), reach=1, skip=L)
+        if d[0] < TOUCH_KM:
+            return "river", p
+        return None
+
+    got = collections.Counter()
+    for L, (c, rid, trunk) in enumerate(kept):
+        q = c[-1]
+        if not free(q) or not on_land(q):
+            continue
+        P = shapely.Point(q)
+        if len(water.lake_tree.query(P, predicate="dwithin", distance=deg_at(LAKE_KM, q[1]))) or len(water.coast_tree.query(P, predicate="dwithin", distance=deg_at(TOUCH_KM, q[1]))):
+            continue
+        d, _ = idx.near(xyz(q[None]), reach=int(np.ceil((JOIN_KM + STEP_KM) / SEP_KM)), skip=L)
+        if d[0] < JOIN_KM + STEP_KM:                         # (joins carries it onto that line)
+            continue
+        i, j = int(np.floor(q[0] / TILE)), int(np.floor(q[1] / TILE))
+        rows, tree, starts = ways(i, j)
+        if tree is None:
+            continue
+        p = props.get(rid, {})
+        own_names = {p.get("name")} | set(p.get("names_local") or []) - {None}
+        own = lambda k: rows[k][1] is None or rows[k][1] in own_names or (rows[k][2] and rows[k][2] == p.get("wikidata"))
+        heap, seen, best, n = [], {}, None, 0
+        for k in tree.query(P, predicate="dwithin", distance=deg_at(0.3, q[1])).tolist():
+            g = shapely.LineString(rows[k][0])
+            rest = shapely.get_coordinates(shapely.ops.substring(g, g.project(P), g.length))
+            if len(rest) > 1:
+                heapq.heappush(heap, (0.0, n, (k,), rest)); n += 1
+        while heap and n < 50000:                            # (Dijkstra over the ways, from the end: the nearest water)
+            dist, _, path, w = heapq.heappop(heap)
+            along = np.concatenate(([dist], dist + np.cumsum(np.linalg.norm(np.diff(xyz(w), axis=0), axis=1) * R)))
+            hit = None
+            for v in range(1, len(w)):
+                if along[v] > ONWARD_KM:
+                    break
+                r = reached(w[v], L, path)
+                if r and (r[0] != "river" or all(own(k) for k in path)):
+                    hit = (v, r); break
+                if r and r[0] == "river":
+                    break
+            if hit:
+                best = (path, w, hit); break
+            if along[-1] > ONWARD_KM or seen.get(pkey(w[-1]), np.inf) <= along[-1]:
+                continue
+            seen[pkey(w[-1])] = along[-1]
+            for k in starts.get(pkey(w[-1]), ()):
+                heapq.heappush(heap, (along[-1], n, path + (k,), rows[k][0])); n += 1
+        if best is None:
+            continue
+        # the way found, again from the end: each step's coordinates (the last up to the hit)
+        path, w, (v, (kind, end)) = best
+        g = shapely.LineString(rows[path[0]][0])
+        pts = [shapely.get_coordinates(shapely.ops.substring(g, g.project(P), g.length))] if len(path) > 1 else []
+        pts += [rows[k][0] for k in path[1:-1]]
+        pts.append(np.vstack((w[:v + 1], [end])) if kind == "lake" else w[:v + 1])
+        ext = np.vstack(pts)
+        ext = ext[np.r_[True, np.any(np.abs(np.diff(ext, axis=0)) > 1e-9, axis=1)]]
+        kept[L] = (np.vstack((c, ext[1:] if np.allclose(ext[0], q) else ext)), rid, trunk)
+        got[kind] += 1
+    log(f"onward: {sum(got.values()):,} ends on along OSM's waterways, to {dict(got)}")
+    return kept
+
+
+def mouths(kept, world, attached, water):
+    """the free downstream ends: cut at the coast if in the sea, carried on to it if near -> (kept, the points into the coast)"""
+    land_tree, lakes, lake_tree = water.land_tree, water.lakes, water.lake_tree
+    coast_ids, coast, coast_tree = water.coast_ids, water.coast, water.coast_tree
     free = free_ends(kept, attached)
     on_land = lambda q: len(land_tree.query(shapely.Point(q), predicate="intersects")) > 0
     into, cut, carried = [], 0, 0
@@ -427,10 +540,12 @@ def main():
     lines = [(ring(arcs, g["arcs"]), g["properties"]) for g in topo["objects"]["rivers"]["geometries"]]
     km0 = sum(km(c) for c, _ in lines)
     kept, inserts, idx, props, attached = network(lines)
+    world = json.load(open(WORLD))
+    water = water_of(world)
+    kept = onward(kept, water, idx, props, attached)
     ext = joins(kept, inserts, idx, attached)
     kept = apply_inserts(kept, inserts, ext)
-    world = json.load(open(WORLD))
-    kept, into = mouths(kept, world, attached)
+    kept, into = mouths(kept, world, attached, water)
     coast_points(world, into)
     # the arcs: every line cut at every junction (an end of another line on it), so a join is an arc's end
     q = config.QUANT_DEG

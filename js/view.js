@@ -14,6 +14,11 @@ import { drawWars } from "./wars.js";
 import { rankMap, rampColour } from "./ranks.js";
 import { SHAPES, whereGeom, outline, keepGameBase, gameLabels, drawGame } from "./game.js";
 import { drawPlates, plateLabels } from "./plates.js";
+import { cityShown, clipOut, cityAreas, cityLines, cityStations, cityNames } from "./city.js";
+import { redraw } from "./data.js";
+import { drawScale } from "./scale.js";
+import { drawZones, zoneLabels } from "./zones.js";
+import { drawParks, parkNames, PARK_ZOOM } from "./parks.js";
 
 export function pick(moving = false) {
   let i = 0;
@@ -91,10 +96,13 @@ canvas.addEventListener("painters-lost", () => draw());            // (wasm.js: 
 // (after). The one-thread way and the painted way give the same pixels.
 export function drawMap(fast) {
   const t0 = performance.now();
-  if (S.proj) syncProj();
+  if (S.proj) { syncProj(); drawScale(); }
   document.body.classList.toggle("bare", bareGame());
   const lv = S.src ? pick(fast) : 0;
-  if (S.src && bareGame()) { ctx.clearRect(0, 0, S.W, S.H); ctx.lineJoin = "miter"; return drawBare(lv); }
+  if (S.src && bareGame()) {                                     // (drawn at once, here: told as a frame -- ui.js's pinch steps wait on it)
+    ctx.clearRect(0, 0, S.W, S.H); ctx.lineJoin = "miter"; const r = drawBare(lv);
+    canvas.dispatchEvent(new CustomEvent("drawn", { detail: { ms: performance.now() - t0, zoom: S.zoom, fast, bare: true } })); return r;
+  }
   const F = { fast, lv, t0, ops: [], proj: projParams, W: S.W, H: S.H, dpr: S.dpr, done: compose };
   const main = (fn) => F.ops.push({ main: fn });
   const paint = (feats, ids, fill, color, width) => {
@@ -139,7 +147,7 @@ export function drawMap(fast) {
   if (rk?.mask === "water") rankFill(dk ? 0.85 : 1);
   if (S.sel && S.sel.cat === "area" && S.sel.mask === "water") main(() => highlight(S.sel));   // (a sea under the land: it has no holes for its islands)
   if (on("land")) fillAll(L.land, v("land"), css("--land"));
-  const pal = groupsOn("countries") || rk ? null : palette();          // (countries put into groups: only the groups coloured)
+  const pal = groupsOn("countries") || rk || on("timezones") ? null : palette();   // (countries put into groups: only the groups coloured; the time zones on: theirs)
   const B = m === "bio" && S.src.bio ? B0 : null, bl = bioLayer();
   if (B) {                                                          // (the land by realm, biome or ecoregion; paler under groups)
     const by = {}; for (const i of v(bl)) { const f = B[bl][i]; if (f.has(lv)) (by[bioColour(f.properties)] ??= []).push(i); }
@@ -166,7 +174,16 @@ export function drawMap(fast) {
   if (rk?.mask === "land") rankFill(0.85);
   drawGroups(L, B, v, fillAll);
   if (S.sel && S.sel.mask === "land") main(() => highlight(S.sel));
+  // (the time zones, layer 18: over the land and the sea alike, tinted by their offset -- the lakes, the coast and the borders over them)
+  const Z = on("timezones") && L.zones.length && !game.open && !rk ? drawZones(v, fillAll, stroke, lv, fast) : null;
+  if (Z) { ctx.globalAlpha = dk ? 0.6 : 0.65; Z.fill(); ctx.globalAlpha = 1; }
   if (on("land")) { fillAll(L.lakes, v("lakes"), css("--sea")); const c = coastAt(lv); stroke(c.lines, query(c.tree, boxes), css("--line"), 0.6); }
+  // (a city's detail map, zoomed in close on it -- city.js: not in a game, nor on the historical or biogeographic map)
+  const C = !game.open && m !== "history" && m !== "bio" && !rk ? cityShown(fast, redraw) : null;
+  if (C) cityAreas(C, boxes, fillAll, stroke, fast);
+  // (the national parks as areas, with the monuments: those more than a few pixels across -- parks.js)
+  if (on("monuments") && S.zoom >= PARK_ZOOM && !loads.parks && !fast) wanted();   // (their file: once one could be drawn, the map at rest)
+  const bigParks = on("monuments") && L.parks.length && !game.open && !C ? drawParks(v, fillAll, stroke, lv) : new Set();
   if (S.sel && S.sel.mask !== "land" && !(S.sel.cat === "area" && S.sel.mask === "water")) main(() => highlight(S.sel));
   if (B) {                                                          // (the outlines of the level shown, and the realms' over them)
     if (bl !== "realms") stroke(B[bl], v(bl), dk ? "#00000088" : "#ffffffaa", bl === "ecoregions" ? 0.5 : 0.7);
@@ -184,7 +201,13 @@ export function drawMap(fast) {
   const gu = game.open && game.units && SHAPES.has(game.style) ? game.units.layer : null;   // (a countries' game: their borders, whatever the layers)
   if (((political || themed) && on("regions") && !fast) || gu === "regions" || rk?.layer === "regions") stroke(L.rb, v("rb"), dk ? "#6a7580" : "#a8b0b8", 0.4);
   if (((political || themed) && on("countries")) || gu || rk?.unit) stroke(L.cb, v("cb"), dk ? "#b9c2cb" : "#55606b", 0.8);
-  if (on("rivers") && L.rivers.length) {
+  if (Z) Z.lines();                                                 // (where the clock changes: over the countries' borders)
+  // (the map's own rivers, roads, railways: not in the city's window -- clipped out; and not at all while the map moves
+  //  over a city, which keeps its frames to the painters' chunks: a clip is a main-thread step, a cut between chunks)
+  const nets = !(C && fast);
+  if (C && nets) main(() => clipOut(C));
+  if (on("rivers") && L.rivers.length) {                           // (rivers even in a moving frame over a city, unclipped: thin, cheap, and
+                                                                  //  a river that vanished while the map moved looked broken -- 2026-11-22)
     const min = S.zoom < 1.5 ? 600 : S.zoom < 3 ? 250 : S.zoom < 6 ? 100 : 0;    // (the long rivers first, the rest closer in)
     stroke(L.rivers, v("rivers").filter((i) => (L.rivers[i].properties.river_km || 0) >= min), dk ? "#4d86b3" : "#5b95c7", 0.7);
   }
@@ -193,11 +216,12 @@ export function drawMap(fast) {
   const tiered = (feats, ids) => ids.filter((i) => S.zoom >= LINE_TIERS[(feats[i].properties.tier || 3) - 1]);
   const lw = Math.min(1, 0.35 + 0.2 * Math.log2(S.zoom + 1));      // (thinner the farther out: a continent's roads are many)
   const G = game.open;                                            // (the game: no names but the cities named, nothing to go by but the map)
-  if (on("pipelines") && L.pipelines.length && !G) { ctx.setLineDash([1.5, 2.5]); stroke(L.pipelines, tiered(L.pipelines, v("pipelines")), dk ? "#b58b5a" : "#8a5a2b", lw); ctx.setLineDash([]); }
-  if (on("railways") && L.railways.length && !G) { ctx.setLineDash([4, 2]); stroke(L.railways, tiered(L.railways, v("railways")), dk ? "#c8ccd2" : "#4a4f57", 0.9 * lw); ctx.setLineDash([]); }
+  if (nets && on("pipelines") && L.pipelines.length && !G) { ctx.setLineDash([1.5, 2.5]); stroke(L.pipelines, tiered(L.pipelines, v("pipelines")), dk ? "#b58b5a" : "#8a5a2b", lw); ctx.setLineDash([]); }
+  if (nets && on("railways") && L.railways.length && !G) { ctx.setLineDash([4, 2]); stroke(L.railways, tiered(L.railways, v("railways")), dk ? "#c8ccd2" : "#4a4f57", 0.9 * lw); ctx.setLineDash([]); }
   if (on("motorways") && S.zoom >= ROAD_TIERS[0] && !loads.roads && !fast) wanted();   // (their file: only once they would be drawn -- and the map at rest: read mid-pinch it held the frames up for seconds)
-  if (on("motorways") && L.roads.length && !G) stroke(L.roads, v("roads").filter((i) => S.zoom >= ROAD_TIERS[L.roads[i].properties.tier - 1]), dk ? "#c9b45c" : "#b48c0a", 0.7 * lw);   // (under the motorways, thinner and yellow)
-  if (on("motorways") && L.motorways.length && !G) stroke(L.motorways, tiered(L.motorways, v("motorways")), dk ? "#e0914a" : "#d9731f", 1.1 * lw);
+  if (nets && on("motorways") && L.roads.length && !G) stroke(L.roads, v("roads").filter((i) => S.zoom >= ROAD_TIERS[L.roads[i].properties.tier - 1]), dk ? "#c9b45c" : "#b48c0a", 0.7 * lw);   // (under the motorways, thinner and yellow)
+  if (nets && on("motorways") && L.motorways.length && !G) stroke(L.motorways, tiered(L.motorways, v("motorways")), dk ? "#e0914a" : "#d9731f", 1.1 * lw);
+  if (C) { if (nets) main(() => ctx.restore()); cityLines(C, boxes, stroke, fast); }
   if (on("plates") && !G) main(drawPlates);                        // (the tectonic plates' boundaries: over the lines, under a chosen one)
   if (S.sel && (S.sel.cat === "river" || S.sel.cat === "line")) main(() => { ctx.beginPath(); S.path(S.sel.geom); ctx.strokeStyle = css("--hi"); ctx.lineWidth = 2.5; ctx.stroke(); });
   if (only) main(() => ctx.restore());
@@ -212,8 +236,9 @@ export function drawMap(fast) {
   if (G) { if (names) gameLabels(placed); return; }
   if (names && B) bioLabels(placed);
   if (names && Hl) histLabels(placed);
-  if (names && (political || themed) && on("countries")) unitLabels(placed);
+  if (names && (political || themed) && on("countries")) unitLabels(placed, !!C);   // (in a city map no state's name: "London", "Community of Madrid" on its districts')
   if (names && on("plates")) plateLabels(placed);                 // (the plates' names before the seas': with their layer on, they are what is looked at)
+  if (names && Z) zoneLabels(placed);                              // ("UTC+1": with their layer on, before the seas' names)
   if (names && on("areas")) areaLabels(placed);
   if (rk?.dots) {                                               // (cities, peaks ranked: a dot each, the first on top)
     ctx.strokeStyle = dk ? "#000a" : "#fffc"; ctx.lineWidth = 0.8;
@@ -223,11 +248,14 @@ export function drawMap(fast) {
   }
   if (on("cities") && S.src.cities) {
     const ids = query(points.cities, boxes);
-    const near = ids.filter((i) => shown("cities", i));
+    const near = ids.filter((i) => shown("cities", i) && S.src.cities.features[i].properties.wikidata !== C?.id);   // (in its own city map a city's name would sit on its middle's square: its districts' and stations' names say where)
     cityDots(near); if (names) cityLabels(placed, near);
   }
-  if (names && on("rivers") && L.rivers.length) riverLabels(placed, L.rivers, v("rivers"), lv);
-  iconLayers(boxes, names ? placed : null, dk);
+  if (names && on("rivers") && L.rivers.length && !C) riverLabels(placed, L.rivers, v("rivers"), lv);   // (a city's: its own waterways')
+  if (C) cityStations(C);
+  iconLayers(boxes, names ? placed : null, dk, C, bigParks);
+  if (names) parkNames(placed, bigParks);
+  if (C && names) cityNames(C, placed, boxes);
   if (Hl && on("events") && S.src.events && S.war == null) drawWars(dk);   // (the moves between the day's battles, under them)
   if (Hl && on("events") && S.src.events) {                          // (the day's events: the best known first, more the closer in)
     const F = S.src.events.features;
@@ -244,10 +272,11 @@ export function drawMap(fast) {
   if (painter) { F.ops = F.ops.flatMap(forPainters); F.view = viewNow(); painter.paint(F); } else compose(F);
 }
 // the icons of the point layers -- monuments, nature, airports -- and, with `placed` (names shown), their names
-function iconLayers(boxes, placed, dk) {
-  // (one layer: its points in view and shown, each drawn at its place, then their names)
+function iconLayers(boxes, placed, dk, city, bigParks) {
+  // (one layer: its points in view and shown, each drawn at its place, then their names -- in a city map its monuments
+  //  and airport whatever the switch: city.js)
   const each = (layer, ink, draw) => {
-    if (!on(layer) || !S.src[layer]) return;
+    if (!(on(layer) || (city && layer !== "nature")) || !S.src[layer]) return;
     const F = S.src[layer].features, seen = [];
     for (const i of query(points[layer], boxes)) {
       const f = F[i];
@@ -260,6 +289,7 @@ function iconLayers(boxes, placed, dk) {
   // (a work of nature -- a park, a waterfall -- a tree; a building or a ruin a temple's front; by its level the larger)
   const M = S.src.monuments?.features, monumentInk = (i) => natural(M[i].properties) ? (dk ? "#9be07a" : "#2e7d32") : (dk ? "#e0a3d8" : "#8e3a80");
   each("monuments", monumentInk, (f, x, y, i) => {
+    if (city?.areas?.has(f.properties.wikidata) || bigParks.has(f.properties.wikidata)) return;   // (drawn as its area -- the city map's, a park's: its name only)
     const s = SIZE[f.properties.level] ?? 1;
     ctx.fillStyle = monumentInk(i); ctx.beginPath();
     if (natural(f.properties)) { ctx.arc(x, y - 1.2 * s, 2.6 * s, 0, 2 * Math.PI); ctx.rect(x - 0.6 * s, y, 1.2 * s, 2.6 * s); }
@@ -278,7 +308,7 @@ function iconLayers(boxes, placed, dk) {
   });
   // (a plane, by its passengers in three sizes)
   const airInk = dk ? "#8fb8ff" : "#1d4f9c";
-  if (on("airports") && S.src.airports) { ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillStyle = airInk; }
+  if ((on("airports") || city) && S.src.airports) { ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillStyle = airInk; }
   each("airports", airInk, (f, x, y) => {
     ctx.font = `${Math.round(11 * (SIZE[f.properties.level] ?? 1))}px system-ui, sans-serif`;
     ctx.fillText("✈", x, y);
@@ -326,7 +356,7 @@ function composeNow(F) {
   const t2 = performance.now();
   if (F.after) F.after();
   const ms = performance.now() - F.t0;
-  const detail = { ms, fast: F.fast, lv: F.lv, names: !F.fast || !!S.drag, wait: F.tAll ? F.tAll - F.t0 : t1 - F.t0, main: tm, images: ti, ops: t2 - t1, after: performance.now() - t2,
+  const detail = { ms, zoom: S.zoom, fast: F.fast, lv: F.lv, names: !F.fast || !!S.drag, wait: F.tAll ? F.tAll - F.t0 : t1 - F.t0, main: tm, images: ti, ops: t2 - t1, after: performance.now() - t2,
                    chunks: F.chunks?.map((c) => ({ cost: c.cost, ops: c.ops.length, ms: Math.round(c.ms), paint: Math.round(c.paint) })),
                    fallback: F.seq ? F.ops.filter((o) => o.main && !o.cost && (o.feats || o.arcs)).length : 0 };
   if (!F.fast && S.src) $("hint").textContent = `drawn in ${Math.round(ms)} ms (${["full", "small", "xsmall"][F.lv]}${painter ? `, ${painter.n} painters` : ""}) · ${HOW}`;

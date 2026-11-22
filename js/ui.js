@@ -8,7 +8,7 @@ import { yearText, showDay, histDay, setDay, pxKm } from "./history.js";
 import { query, draw } from "./view.js";
 import { painter } from "./wasm.js";
 import { shown, visible } from "./labels.js";
-import { wanted, load } from "./data.js";
+import { wanted, load, layerLoad, LAYERS } from "./data.js";
 import { search } from "./search.js";
 import { flagCode, flagSvg } from "./flags.js";
 import { clearSel, select, identify, showWars } from "./select.js";
@@ -16,6 +16,7 @@ import { isShown } from "./shown.js";
 import { groupClick, renderGroups, game } from "./groups.js";
 import { gameClick } from "./game.js";
 import { platesKey } from "./plates.js";
+import { zoomCap } from "./city.js";
 
 // ---- the search box ------------------------------------------------------------------------------------------------
 S.found = []; S.cursor = -1;
@@ -33,7 +34,9 @@ export function showResults() {
 }
 export function choose(i) { const e = S.found[i]; if (!e) return; S.found = []; S.cursor = -1; showResults(); $("q").value = e.name; $("q").blur(); select(e); }
 S.typing = null;   // (searched once the typing pauses: a phone does not search again under every letter)
-export const searchNow = () => { clearTimeout(S.typing); S.typing = null; S.found = search($("q").value); S.cursor = S.found.length ? 0 : -1; showResults(); };
+export const searchNow = () => { clearTimeout(S.typing); S.typing = null; S.found = search($("q").value); S.cursor = S.found.length ? 0 : -1; showResults();
+  // (a time zone asked for -- "UTC+5:30", "Europe/Berlin" -- with their layer off: its file read, and the search made again)
+  if (S.src && !LAYERS.timezones.known && /^\s*(utc|gmt)|\w\/\w/i.test($("q").value)) layerLoad("timezones").then(() => { if ($("q").value && document.activeElement === $("q")) searchNow(); }); };
 // ---- moving: drag turns the globe (every projection is rotated the same way), the wheel zooms about the place under the
 // cursor (about the centre with the cursor off the map, in space), a pinch about the centre. The map is drawn as it moves -- from a coarser copy, without labels -- once a frame, at where it has got to: a
 // draw that takes longer than a frame is followed, when it ends, by one at where the map has moved since (the moves
@@ -65,7 +68,7 @@ export function zoomTo(z, at) {
   const ll = at && S.proj.invert(at), p = ll && isFinite(ll[0]) && isFinite(ll[1]) && S.proj(ll);
   const keep = p && Math.hypot(p[0] - at[0], p[1] - at[1]) < 1;   // (on the map: off it a projection's inverse is no place, or another)
   const z0 = S.zoom;
-  S.zoom = Math.max(0.5, Math.min(MAX_ZOOM, z)); setup();
+  S.zoom = Math.max(0.5, Math.min(zoomCap(), z)); setup();   // (closer in a city with a detail map: city.js)
   if (keep) {
     const off = (r) => { S.proj.rotate(r); const q = S.proj(ll); return q && isFinite(q[0]) && isFinite(q[1]) ? [q[0] - at[0], q[1] - at[1]] : null; };
     const size = (e) => e ? Math.hypot(e[0], e[1]) : Infinity, h = 1e-4, base = S.proj.scale() / S.zoom;
@@ -103,9 +106,28 @@ export function zoomTo(z, at) {
 export const fingers = new Map();
 S.pinch = null;   // [the distance between the two at the start, the zoom then]
 export const spread = () => { const [a, b] = [...fingers.values()]; return Math.hypot(a[0] - b[0], a[1] - b[1]); };
+// A PINCH IN STEPS (2026-11-22: on a phone the fingers move the zoom on every event, so the map was redrawn almost without
+// pause, where a mouse wheel moves in notches): between steps the picture last drawn is scaled about the middle, as the
+// pinch is, by the canvas's CSS transform; the map is drawn anew only once the zoom is a step of √2 from the one drawn,
+// and on the lift. The transform is let go once a frame drawn at the zoom asked for is on the canvas (the drawn event)
+const STEP = Math.log(Math.SQRT2);
+S.pinchZ = 0; S.shownZoom = 0; S.pinchAfter = false;
+const pinchScale = () => {
+  if (!S.pinch && !S.pinchAfter) return;
+  const k = S.shownZoom ? (S.pinch ? S.pinchZ : S.zoom) / S.shownZoom : 1;
+  if (!S.pinch && Math.abs(k - 1) < 1e-9) S.pinchAfter = false;
+  canvas.style.transform = Math.abs(k - 1) < 1e-9 ? "" : `scale(${k})`;
+};
+canvas.addEventListener("drawn", (e) => { S.shownZoom = e.detail.zoom; pinchScale(); });
+const pinchMove = () => {
+  S.pinchZ = Math.max(0.5, Math.min(zoomCap(), S.pinch[1] * spread() / S.pinch[0]));
+  if (Math.abs(Math.log(S.pinchZ / S.zoom)) >= STEP) zoomTo(S.pinchZ);
+  pinchScale();
+};
 export const lift = (e, cancelled) => {
   fingers.delete(e.pointerId);
-  if (S.pinch) { if (!fingers.size) { S.pinch = null; S.drag = null; canvas.classList.remove("dragging"); still(); } return; }
+  if (S.pinch) { if (!fingers.size) { S.pinch = null; S.drag = null; canvas.classList.remove("dragging"); S.pinchAfter = true;
+    if (S.pinchZ && S.pinchZ !== S.zoom) zoomTo(S.pinchZ); still(); pinchScale(); } return; }
   const click = !cancelled && S.drag && S.moved < (e.pointerType === "mouse" ? 3 : 8);
   S.drag = null; canvas.classList.remove("dragging"); clearTimeout(S.idle);
   if (click && S.src) { if (game.open) gameClick(e); else if ($("grouping").checked) groupClick(e); else identify(e); } else still();
@@ -186,14 +208,14 @@ export function init() {
     fingers.set(e.pointerId, [e.clientX, e.clientY]); canvas.setPointerCapture(e.pointerId);
     if (fingers.size === 2) {                                       // (a second finger: a pinch, never a click -- and the whole frame still
       painter?.drop((f) => !f.fast);                                //  coming dropped at once: its labels would hold the pinch up; lift draws whole)
-      S.drag = null; S.moved = 99; S.pinch = [Math.max(spread(), 1), S.zoom]; return;
+      S.drag = null; S.moved = 99; S.pinch = [Math.max(spread(), 1), S.zoom]; S.pinchZ = S.zoom; S.shownZoom ||= S.zoom; return;
     }
     if (fingers.size > 2) return;
     S.drag = [e.clientX, e.clientY, ...S.rotate]; S.moved = 0; canvas.classList.add("dragging");
   });
   canvas.addEventListener("pointermove", (e) => {
     if (fingers.has(e.pointerId)) fingers.set(e.pointerId, [e.clientX, e.clientY]);
-    if (S.pinch && fingers.size === 2) return zoomTo(S.pinch[1] * spread() / S.pinch[0]);
+    if (S.pinch && fingers.size === 2) return pinchMove();
     if (!S.drag) return e.pointerType === "mouse" ? tip(e) : undefined;
     S.moved = Math.max(S.moved, Math.hypot(e.clientX - S.drag[0], e.clientY - S.drag[1]));
     if (S.moved < (e.pointerType === "mouse" ? 3 : 8)) return;    // (a finger wobbles more than a mouse on a tap)

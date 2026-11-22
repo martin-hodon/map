@@ -16,6 +16,7 @@ import { warInfo, eventWars, warList } from "./wars.js";
 import { welleLines } from "./welle.js";
 import { platesAt } from "./plates.js";
 import { isShown, showFor } from "./shown.js";
+import { parksAt } from "./parks.js";
 
 // ---- selecting: highlight, fly there, say what it is ---------------------------------------------------------------
 // the selection goes with the panel's x, with the search box emptied (its own x, or Escape in it), or the link cleared
@@ -141,6 +142,9 @@ export function identifyAt(ll, px, { cycle = false } = {}) {
   }
   near.sort((a, b) => a[0] - b[0]);
   hits.push(...near.slice(0, 3).map((q) => q[1]));
+  hits.push(...parksAt(ll, query(trees.parks, at)));                // (a park drawn as its area: monuments on)
+  const zone = byLayer("zones").find((x) => x.feats.length === 1 && inside(x));   // (the time zone here, and its offset with all its zones: layer 18)
+  if (zone) hits.push(zone, ...byLayer("zones").filter((x) => x.offset === zone.feats[0].properties.utc));
   hits.push(...platesAt(ll, px));                                   // (the plate under it and a boundary near: their layer on)
   // A CLICK CHOOSES (`cycle`): the first thing here, or, the chosen one among them, the next -- after the last, nothing
   // (a country, again its state, its sea, a river near...: click on till it is the one); the list of all of them under

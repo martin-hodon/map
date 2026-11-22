@@ -3,7 +3,13 @@
     .venv/bin/python build/water.py               # -> work/lakes.pkl (for build/write.py), full/rivers.tracked.topo.json (for build/rivernet.py)
 
 LAKES: every lake or reservoir polygon (OSM's water areas, via raw/water.parquet) of MIN_LAKE_KM2 or more, simplified
-on the sphere like the coast; islands in them under MIN_ISLAND_KM2 left out.
+on the sphere like the coast; islands in them under MIN_ISLAND_KM2 left out. After them (so the areas' lake numbers,
+work/areas.pkl, still hold) the LAGOONS: OSM's other water areas (raw/water_more.parquet: a plain natural=water, a
+bay) of that size that lie on the map's land -- OSM's coast runs across their mouth, so they are neither sea nor
+lake there: the Dniester Liman, the Tuzly lagoons, Lake Burullus --, as lakes (`type` "lagoon" by its name, or where it meets the sea); not one that is
+mostly a lake already kept, nor a fjord under its ice shelf.
+
+    .venv/bin/python build/water.py lagoons       # (only: the lagoons, put after work/lakes.pkl's lakes again)
 
 RIVERS: OSM rarely says how wide a river is, but it maps every river of any size as an AREA (water=river) around its
 centerline (waterway=river). So the width is measured: the centerline is sampled every ~250 m, and where a sample
@@ -82,6 +88,72 @@ def lakes(con):
                 out.append({"rings": rings, "name": name, "type": sub, "wikidata": wd, "area_km2": round(a, 1)})
     log(f"lakes: {len(out)} of {config.MIN_LAKE_KM2} km2 or more (of {seen} big-box candidates)")
     pickle.dump(out, open(os.path.join(ROOT, "work/lakes.pkl"), "wb"))
+    lagoons(con)
+
+
+def lake_rings(p, a):
+    """a polygon's rings as a lake keeps them: islands under MIN_ISLAND_KM2 out, simplified, wound for d3"""
+    from write import signed_area
+    rings = [shapely.get_coordinates(p.exterior)]
+    for h in p.interiors:
+        c = shapely.get_coordinates(h)
+        if abs(geo.ring_area_km2(c)) >= config.MIN_ISLAND_KM2:
+            rings.append(c)
+    rings = [c[geo.simplify(geo.to_xyz(c), config.EPS_KM)] for c in rings]
+    return [c if (i == 0) == (signed_area(c) < 0) else c[::-1] for i, c in enumerate(rings)]
+
+
+LAGOON = _re.compile(r"lagoon|lagun|lagoa|liman|lyman|лиман|лагун|haff|zalew", _re.I)        # (its type by its name;
+LAKE = _re.compile(r"lake|lac\b|lago|lacul|озеро|gölü|jezioro|sjø|järvi|ทะเลสาบ|호", _re.I)      #  else a lagoon where it meets the sea)
+
+
+def lagoons(con):
+    """the lagoons (raw/water_more.parquet) after the lakes in work/lakes.pkl (any put there before: replaced)"""
+    more = os.path.join(ROOT, "raw/water_more.parquet")
+    path = os.path.join(ROOT, "work/lakes.pkl")
+    if not os.path.exists(more):
+        log(f"lagoons: {more} missing (build/fetch_water.py) -- none"); return
+    import topology
+    from types import SimpleNamespace
+    T = pickle.load(open(os.path.join(ROOT, "work/topology.pkl"), "rb"))
+    land, _ = topology.land_polygons([SimpleNamespace(c=a[0]) for a in T["arcs"]], T["ring_arcs"], T["poly"], T["hole"])
+    land = [shapely.make_valid(g) for g in land]
+    shapely.prepare(land)
+    land_tree = STRtree(land)
+    lakes_ = [L for L in pickle.load(open(path, "rb")) if not L.get("lagoon")]
+    lake_geoms = [shapely.make_valid(shapely.Polygon(L["rings"][0], L["rings"][1:])) for L in lakes_]
+    lake_tree = STRtree(lake_geoms)
+    out, kept, seen = [], [], 0
+    rel = con.execute(f"SELECT name, subtype, class, wikidata, ST_AsWKB(geometry) FROM '{more}' ORDER BY ST_Area(geometry) DESC")
+    while True:
+        rows = rel.fetchmany(100)
+        if not rows:
+            break
+        for name, sub, cls, wd, w in rows:
+            seen += 1
+            for p in shapely.get_parts(shapely.make_valid(shapely.from_wkb(w))):
+                if p.geom_type != "Polygon":
+                    continue
+                a = abs(geo.ring_area_km2(shapely.get_coordinates(p.exterior)))
+                if a < config.MIN_LAKE_KM2 or a > 50000:      # (not a sea)
+                    continue
+                on = shapely.union_all([shapely.intersection(land[i], p) for i in land_tree.query(p).tolist()] or [shapely.Polygon()])
+                if on.area < 0.5 * p.area:                     # (in the sea: the coast draws it)
+                    continue
+                if any(shapely.intersection(lake_geoms[i], p).area >= 0.5 * p.area for i in lake_tree.query(p).tolist()):
+                    continue
+                if any(shapely.intersection(q, p).area >= 0.5 * min(p.area, q.area) for q in kept):   # (one water mapped twice: the Sivash)
+                    continue
+                if cls == "bay" and abs(p.centroid.y) > 75:     # (a fjord under its ice shelf: Nioghalvfjerd -- the land there is ice)
+                    continue
+                kept.append(p)
+                buf = shapely.buffer(p, 0.01)
+                sea = not any(land[i].covers(buf) for i in land_tree.query(buf).tolist())
+                lagoon = LAGOON.search(name or "") or (sea and not LAKE.search(name or ""))
+                out.append({"rings": lake_rings(p, a), "name": name, "type": "lagoon" if lagoon else "lake",
+                            "wikidata": wd, "area_km2": round(a, 1), "lagoon": True})
+    log(f"lagoons: {len(out)} of {config.MIN_LAKE_KM2} km2 or more on the land (of {seen} other big water areas), after {len(lakes_)} lakes")
+    pickle.dump(lakes_ + out, open(path, "wb"))
 
 
 # ---- rivers -------------------------------------------------------------------------------------------------------
@@ -738,6 +810,8 @@ def main():
     con.execute(f"""LOAD spatial; SET memory_limit='900MB'; SET threads=1; SET preserve_insertion_order=false;
                     SET temp_directory='{os.path.join(ROOT, "work", "duck.tmp")}'""")
     os.makedirs(os.path.join(ROOT, "full"), exist_ok=True)   # (the full-detail layers: not committed -- the map loads data/*.txt)
+    if "lagoons" in sys.argv[1:]:
+        return lagoons(con)
     if "rivers" not in sys.argv[1:]:
         lakes(con)
     if "lakes" not in sys.argv[1:]:

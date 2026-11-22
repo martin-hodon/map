@@ -44,9 +44,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import SIZES, ROW_LIMITS
 from lite import keep_points, KM_LAT, ROOT
 
-ALL = ["world", "bio", "history", "rivers", "transport", "roads", "pipelines"]   # (the world first: the others go by its copy)
+ALL = ["world", "bio", "history", "rivers", "transport", "roads", "pipelines", "timezones", "parks"]   # (the world first: the others go by its copy)
 ON_WORLD = {"bio", "history"}                           # (run along the world's lines: only their own lines simplified)
-ENDS_ON_WORLD = {"rivers"}                              # (only meet them, at their ends)
+ENDS_ON_WORLD = {"rivers"}
+ALONE = {"roads", "timezones", "parks"}                 # (on no other file's lines: `small.py timezones` makes their copies alone)                              # (only meet them, at their ends)
 csv.field_size_limit(sys.maxsize)                       # (a continent's arcs are one long field)
 ix = lambda a: a if a >= 0 else ~a                      # (an arc's index, whichever way it is followed)
 
@@ -633,10 +634,11 @@ def mend_full(name, old_world, world=None):
 
 
 if __name__ == "__main__":
-    if sys.argv[1:] == ["roads"]:                            # (of their own: the other files are as they were)
-        mend_full("roads", None)
-        for size in SIZES:
-            shrink("roads", size, **SIZES[size], world_full=None, follow=None)
+    if sys.argv[1:] and set(sys.argv[1:]) <= ALONE:          # (of their own: the other files are as they were)
+        for name in sys.argv[1:]:
+            mend_full(name, None)
+            for size in SIZES:
+                shrink(name, size, **SIZES[size], world_full=None, follow=None)
         sys.exit()
     old_world = read(os.path.join(ROOT, "data", "world.txt"))[1]
     world_full = mend_full("world", old_world)

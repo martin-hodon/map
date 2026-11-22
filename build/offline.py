@@ -11,11 +11,17 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # what the page loads: itself, its libraries (lib/: kept here so the map opens offline), the light line layers
 # (data/*.txt, data/flags.txt among them; their small copies data/*/*.txt) and the point layers, the flags (flags.js, their gallery flags.html) (sw.js
 # itself is the browser's to keep -- but it is hashed, so a change to it is a new version)
-PATTERNS = ["index.html", "js/*.js", "js/*.wasm", "lib/*.js", "data/*.txt", "data/*/*.txt", "data/*.csv", "data/*.json", "flags.js", "flags.html"]
+PATTERNS = ["index.html", "js/*.js", "js/*.wasm", "lib/*.js", "data/*.txt", "data/*/*.txt", "data/*.csv", "data/*.json", "flags.js", "flags.html",
+            "data/city/index.csv"]
+# ...but not the city detail maps (data/city/<wikidata>.txt, build/citymaps.py): a city's is read only when the map is
+# zoomed in on it, and all of them would be tens of MB for the few a visitor looks at -- the service worker keeps each
+# one the first time it is read (sw.js), in the copy of the version it came with; only their index is in the package
+LAZY = ["data/city/*.txt"]
 
 
 def main():
-    files = sorted({os.path.relpath(p, ROOT) for pat in PATTERNS for p in glob.glob(os.path.join(ROOT, pat))})
+    lazy = {os.path.relpath(p, ROOT) for pat in LAZY for p in glob.glob(os.path.join(ROOT, pat))}
+    files = sorted({os.path.relpath(p, ROOT) for pat in PATTERNS for p in glob.glob(os.path.join(ROOT, pat))} - lazy)
     # every file of the package must be ONLINE: one git ignores is never pushed, the site answers 404 and every update
     # fails on it (the language trainer's engine/listen.json did); one not yet added is a reminder before pushing
     ignored = subprocess.run(["git", "-C", ROOT, "check-ignore", "--no-index", *files], capture_output=True, text=True).stdout.split()

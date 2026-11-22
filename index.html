@@ -101,6 +101,9 @@
   #update-note { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); max-width: calc(100vw - 32px); background: var(--panel); color: var(--ink); padding: 6px 12px;
                  border-radius: 8px; box-shadow: 0 1px 6px #0003; font: 13px system-ui, sans-serif; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
   #update-note[hidden] { display: none; }
+  #scale { position: fixed; left: 12px; bottom: 12px; pointer-events: none; color: var(--ink); font: 12px system-ui, sans-serif; background: var(--panel); padding: 3px 7px 5px; border-radius: 5px; box-shadow: 0 1px 4px #0002; }
+  #scale i { display: block; height: 5px; margin-top: 2px; border: 2px solid var(--ink); border-top: 0; }   /* (the scale bar: scale.js) */
+  body.bare #scale, body.gaming #scale { display: none; }
   #tip { position: fixed; pointer-events: none; background: var(--panel); padding: 4px 8px; border-radius: 5px; display: none; box-shadow: 0 1px 4px #0003; }
   #game-btn { position: fixed; top: 12px; right: 12px; border: 0; background: var(--panel); color: var(--ink); padding: 7px 12px; border-radius: 8px; box-shadow: 0 1px 6px #0003; cursor: pointer; font: 600 13px system-ui, sans-serif; }
   /* the rankings: a side view on the right (on a phone the whole screen, the map back when a row is chosen) */
@@ -183,6 +186,7 @@
     <button data-layers="railways" aria-pressed="false" title="Main railways"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 1v14M11 1v14M3 4h10M3 8h10M3 12h10"/></svg>rails</button>
     <button data-layers="pipelines" aria-pressed="false" title="Oil and gas pipelines"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 6h14M1 10h14M5 4v8M11 4v8"/></svg>pipes</button>
     <button data-layers="plates" aria-pressed="false" title="Tectonic plates: their boundaries, by what the plates do there"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M1 9 5 7l3 2 3-3 4 1"/><path d="m5 7 .5-2.2L7 6.5M11 6l.5-2.2L13 6"/></svg>plates</button>
+    <button data-layers="timezones" aria-pressed="false" title="Time zones: coloured by their offset from UTC"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6.5"/><path d="M8 4v4l2.5 2"/></svg>zones</button>
   </div>
   <div id="points" class="toggles" role="group" aria-label="Points">
     <button data-layers="cities" aria-pressed="false" title="Cities"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M1 15h14M2 15V7h4v8M6 15V2h5v13M11 15V6h3v9"/></svg>cities</button>
@@ -209,6 +213,7 @@
   <label><input type="checkbox" data-layer="pipelines" checked> 12 oil and gas pipelines</label>
   <label><input type="checkbox" data-layer="events" checked> 15 historical events (the historical map)</label>
   <label><input type="checkbox" data-layer="plates"> 16 tectonic plates (Bird 2003)</label>
+  <label><input type="checkbox" data-layer="timezones"> 18 time zones (by their offset from UTC)</label>
   <div id="plates-key" class="key" hidden></div>
   <details id="groups-box"><summary>My groups</summary>
     <label><input type="checkbox" id="grouping"> a click puts it into the chosen group</label>
@@ -267,7 +272,7 @@
   </select>
   <div id="g-rank" class="ctrl" hidden><select id="g-rlist" aria-label="What"></select><select id="g-rby" aria-label="By"></select><select id="g-rwithin" aria-label="Within"></select></div>
   <label id="g-kmbox">circles <select id="g-km" aria-label="Circle size"></select> across</label>
-  <label id="g-roundsbox"><input id="g-rounds" type="number" min="1" max="100" value="10"> <span id="g-roundsof">cities to find</span></label>
+  <label id="g-roundsbox"><input id="g-rounds" type="number" min="1" max="1000" value="10"> <span id="g-roundsof">cities to find</span></label>
   <button id="g-start">Start</button>
   </div>
   <div id="g-play" hidden>

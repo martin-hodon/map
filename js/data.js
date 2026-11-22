@@ -3,7 +3,7 @@
 import { S } from "./state.js";
 import { loadWars } from "./wars.js";
 import { PROJ, mode, legend } from "./style.js";
-import { $, trees, points, on, MAX_ZOOM, fmt } from "./state.js";
+import { $, trees, points, on, MAX_ZOOM, R_KM, fmt } from "./state.js";
 import { setup, COPIES, Map0, thingsOf, B0 } from "./geom.js";
 import { dayNum, yearOf, showYear, histDay, setDay } from "./history.js";
 import { tree, pointTree, draw } from "./view.js";
@@ -16,6 +16,9 @@ import { select, identifyAt } from "./select.js";
 import { GROUP_COLOURS, idOf, groupsOn, renderGroups } from "./groups.js";
 import { showResults, modeChanged } from "./ui.js";
 import { loadPlates } from "./plates.js";
+import { zoomCap } from "./city.js";
+import { indexZones } from "./zones.js";
+import { PARK_ZOOM } from "./parks.js";
 
 // THE DATA: the light files of the line layers (data/*.txt, build/lite.py) and the point layers' CSV -- the only data
 // the map loads (the full-detail layers, full/*.topo.json, are what the light files are made from: not served)
@@ -52,7 +55,7 @@ export function readCopy(name, lv) {
     if (t == null || !full || lineFiles[name] !== c || (BASE[name] && !base)) return null;   // (let go meanwhile: not wanted any more)
     const T = parseLite(t, base, objectsOf[name]), O = objectsOf[name] ??= {};
     for (const k in T.objects) { const o = O[k] ??= { kind: T.objects[k].kind, n: T.objects[k].n, rows: T.objects[k].rows, geos: [] }; o.geos[lv] = T.objects[k].g; attachRows(T, o.geos[lv], o.kind); }
-    delete T.objects;
+    delete T.objects; delete T.tables;
     if (lv) redraw();
     return T;
   })();
@@ -74,6 +77,8 @@ export const LAYERS = {
   transport: { keys: ["motorways", "railways"], used: () => on("motorways") || on("railways"), indexIt: (L) => indexLines(L, ["motorways", "railways"]) },
   roads: { keys: ["roads"], used: () => on("motorways") && S.zoom >= ROAD_TIERS[0], indexIt: (L) => indexLines(L, ["roads"]) },
   pipelines: { keys: ["pipelines"], used: () => on("pipelines"), indexIt: (L) => indexLines(L, ["pipelines"]) },
+  timezones: { keys: ["zones", "zone_borders"], used: () => on("timezones"), indexIt: (L) => indexZones(L) },   // (zones.js; also read for a search like one: ui.js)
+  parks: { keys: ["parks"], used: () => on("monuments") && S.zoom >= PARK_ZOOM, indexIt: () => { } },   // (parks.js: the monuments' areas, found as their points)
   bio: { keys: ["realms", "biomes", "ecoregions"], read: () => loadBio(), used: () => mode() === "bio" || ["realms", "biomes", "ecoregions"].some(groupsOn) },
   history: { keys: ["hregions"], read: () => loadHistory(), used: () => mode() === "history" },
 };
@@ -114,6 +119,22 @@ export function releaseUnused() {
     else if (now - L.last > RELEASE_MS) letGo(name);
   }
 }
+// START WHERE THE VISITOR IS (no #at= link): the browser's position, asked once and used only to turn the view to it --
+// never sent anywhere, never kept -- at the full map's first step in from the small copy's (geom.js COPIES: the small
+// copy is drawn down to 4 km a pixel, view.js; a step in, twice as close, 2 km a pixel: a country round the visitor).
+// On a refusal, an error or no answer in HERE_MS the world view stays; once the map has been moved, zoomed or
+// something chosen, a late answer turns nothing.
+const HERE_MS = 5000;
+function startHere() {
+  if (!navigator.geolocation) return;
+  const r0 = [...S.rotate], z0 = S.zoom;
+  const untouched = () => S.rotate[0] === r0[0] && S.rotate[1] === r0[1] && S.zoom === z0 && !S.sel && !S.drag && !S.pinch;
+  navigator.geolocation.getCurrentPosition((p) => {
+    if (!untouched() || !S.proj) return;
+    const { longitude: lon, latitude: lat } = p.coords, km = COPIES[1].km / 1.25 / 2, base = S.proj.scale() / S.zoom;
+    S.rotate = [-lon, -lat, 0]; S.zoom = Math.min(MAX_ZOOM, R_KM / (km * base)); setup(); draw();
+  }, () => { }, { timeout: HERE_MS, maximumAge: 10 * 60 * 1000 });
+}
 export async function load() {
   const kept = await startOffline();
   await loadWasm();
@@ -146,8 +167,10 @@ export async function load() {
   setup(); draw();
   if (h.get("at") && !h.get("find")) {                          // (#at=lat,lon[,zoom]: what is at that spot)
     const [lat, lon, z] = h.get("at").split(",").map(Number);
-    S.rotate = [-lon, -lat, 0]; S.zoom = Math.min(MAX_ZOOM, z || 4); setup(); draw(); identifyAt([lon, lat], S.proj([lon, lat]));
-  }
+    S.rotate = [-lon, -lat, 0]; S.zoom = Math.min(MAX_ZOOM, z || 4); setup();
+    if (z > MAX_ZOOM) { S.zoom = Math.min(zoomCap([lon, lat]), z); setup(); }   // (closer only in a city with a detail map: city.js)
+    draw(); identifyAt([lon, lat], S.proj([lon, lat]));
+  } else if (!h.get("find")) startHere();
   readCopy("world", 1); readCopy("world", 2);                     // (not waited for: the full file draws till then)
   await Promise.all([
     layerLoad("rivers"), layerLoad("transport"),

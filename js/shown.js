@@ -20,6 +20,8 @@ function needs(e) {
     case "river": return { boxes: ["rivers"] };
     case "line": return { boxes: [LINE_BOX[e.layer]].filter(Boolean) };
     case "point": return { boxes: e.src ? [e.src] : [] };
+    case "zone": return { boxes: ["timezones"] };                       // (a time zone, an offset: zones.js)
+    case "park": return { boxes: ["monuments"] };                       // (a park's area: parks.js)
     case "bio": return { mode: "bio", level: e.layer === "realms" ? null : e.layer, boxes: [] };
     default: return { boxes: [] };                                        // (a war: shown on the historical map it chooses itself)
   }

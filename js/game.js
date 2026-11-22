@@ -124,7 +124,7 @@ export function startGame() {
   const d = gameIndex(), C = S.src.cities.features;
   resetGame();
   Object.assign(game, { style: pickedStyle(), bare: $("g-style").value.endsWith(":bare"), where: gameRegion(whereValue()), km: +$("g-km").value || KM0[game.scope],
-                        rounds: Math.max(1, Math.min(100, +$("g-rounds").value || 10)) });
+                        rounds: Math.max(1, Math.min(1000, +$("g-rounds").value || 10)) });   // (up to 1000: a top 500 of cities -- 2026-11-22)
   $("g-setup").hidden = true; $("g-play").hidden = false;
   $("g-title").textContent = `${$("g-style").selectedOptions[0].textContent.split(":")[0]} · ${game.where.kind === "world" ? "the world" : game.where.name}` +
     (game.style === "outside" || game.style === "inside" ? ` · circles ${fmt(game.km)} km` : "");

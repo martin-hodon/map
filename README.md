@@ -6,7 +6,7 @@ applied, so any projection can draw it. `index.html` shows it in nine projection
 
 | # | layer | file · object | what |
 |---|---|---|---|
-| 1 | geographical | `full/world.topo.json` · `continents`, `islands`, `coastline`, `lakes` | the five continents (`name`: Eurasia, Americas, Africa, Antarctica, Australia -- every landmass of 5 million km² or more) and every other landmass of 1 km² or more as an island (named, `name`, `rank`, `wikidata`, `label`…, where layer 7 has it as one island: its row is here, not there), the coast as lines, lakes of 45 km² or more (Ammersee and up) |
+| 1 | geographical | `full/world.topo.json` · `continents`, `islands`, `coastline`, `lakes` | the five continents (`name`: Eurasia, Americas, Africa, Antarctica, Australia -- every landmass of 5 million km² or more) and every other landmass of 1 km² or more as an island (named, `name`, `rank`, `wikidata`, `label`…, where layer 7 has it as one island: its row is here, not there), the coast as lines, lakes of 45 km² or more (Ammersee and up), with the lagoons and limans of that size that OSM's coast cuts off at their mouth (`type` lagoon: the Dniester Liman, the Tuzly lagoons) |
 | 2 | national borders | `full/world.topo.json` · `countries`, `country_borders` | countries and dependencies as polygons, which reuse the coast, with `population` (Wikidata's latest, by ISO 3166-1 code, two significant digits), `area_km2`, `density`, `language` (`language_code`), `color` (0-6, no two neighbours alike), `label` (a point well inside: where its name is written) and `continent` (the continent area of layer 7 its label lies in, else the nearest); the land borders as lines (`a`, `b`, `disputed`) |
 | 3 | subnational | `full/world.topo.json` · `regions`, `region_borders` | states / provinces (ISO 3166-2; England has no such division in Overture: its nine regions, `STATE_PARTS` in `build/config.py`, put together from its counties, under codes of our own, `GB-ENG-LD`, and found as one, England, in the search) of the federations, of the countries whose divisions are big enough to see (8,500 km² on average -- Denmark's and Greece's are about the smallest -- two or more), of every country the size of North Macedonia (25,700 km²) or bigger whose divisions are 2,000 km² or more on average (Romania's 42 counties, Ireland's 26, Albania's 12; not Azerbaijan's 80 districts, Latvia's 42, Taiwan's 22, North Macedonia's 71 municipalities, Uganda's 135 districts), and of those of 40 million people or more (`build/config.py`; `build/topology.py` picks them), with `population` (by ISO 3166-2 code), `area_km2`, `density`, `language`, `label`, `continent` (its own: Russia's European oblasts are in Europe) |
 | 4 | rivers | `full/rivers.topo.json` · `rivers` | each river that is 50 m wide somewhere, from its source down to its end, as one line (or more at forks), 50 km or longer, big or known to Wikipedia: name (English), Wikidata id, width (median and max), `river` (its id), `river_km`, `wikipedias` |
@@ -21,18 +21,26 @@ applied, so any projection can draw it. `index.html` shows it in nine projection
 | 16 | tectonic plates | `data/plates.json` | Peter Bird's PB2002 model: 52 plates (`code`, `name`, `area_km2`, `label`, outline) and their boundaries in 1,688 runs, each of one class -- spreading ridge, continental rift, transform fault, collision zone, subduction zone (with the upper plate's side, from Bird's `A\B` / `A/B`) -- and the plates' relative speed there (opening, closing, sliding, mm a year), `build/plates.py`; read once, drawn on the main thread (js/plates.js) |
 | 13 | first-class roads | `full/roads.topo.json` · `roads` | what is one class below a motorway (OSM's trunk, without slip roads; beside a motorway they are that motorway; networks of 25 km+), one line per road, thinner and yellow under the motorways' orange: `ref`, `class`, `tier` (1-3: from 4x, 7x, 11x); below |
 | 10–12 | main lines | `full/transport.topo.json` · `motorways`, `railways`, `pipelines` | motorways and trunk roads signed 100 km/h+ (networks of 20 km+), main-line and high-speed railways (30 km+), oil and gas pipelines that are not distribution lines (networks of 100 km+, without the fields' and terminals' short loops and dead ends), one line per road or railway (its carriageways and tracks collapsed), meeting at its junctions exactly: `ref`, `class`, `highspeed`, `network`, `network_km`, `tier` (pipelines: `name`, `substance`, `operator`) (1-3: from what zoom it is drawn) |
+| 17 | city detail maps | `data/city/<wikidata>.txt`, `data/city/index.csv` | a few cities at street level, read only when the map is zoomed in on one: main streets and their bridges, districts, parks and woods, water, monuments' areas, S-Bahn, U-Bahn and main railways in their lines' colours, stations, the airport -- within the city's boundary (City detail maps, below) |
+| 18 | time zones | `full/timezones.topo.json` · `zones`, `zone_borders` | the IANA time zones over land and sea (timezone-boundary-builder with the oceans: a zone's waters, the open sea in 15° strips), one polygon each: `tzid` (Europe/Berlin; at sea Etc/GMT+5, POSIX's sign), `utc` (its offset in minutes), `dst` (its daylight-saving offset, where it has one), `abbr`, `dst_abbr`, `area_km2`, `label`; the borders between them (`same`: the same time on both sides all year) -- coloured by the offset (Time zones, below) |
+| 5a | parks' areas | `full/parks.topo.json` · `parks` | the outlines of layer 5's national parks and protected areas, from OSM: `name`, `wikidata` (the monument's), `kind`, `level`, `area_km2`, `osm` -- drawn with the monuments where more than a few pixels across (below) |
 
-Layers 1–4, 7, 10–14 are **TopoJSON**: every line is stored once. The coast bounds a continent or an island, a country, a state, a
+Layers 1–4, 7, 10–14, 18 (and the parks' areas) are **TopoJSON**: every line is stored once. The coast bounds a continent or an island, a country, a state, a
 sea and a peninsula with the same arcs (a sea has no holes for its islands: the map draws the land over it), and a national border is one arc shared by both countries. Coordinates are delta-encoded integers on
 the `transform` grid (1/400° = 278 m of latitude). The point layers (5, 6, 8, 9, 15) are CSV tables, one point a line under
 a header (`lon`, `lat` to 3 decimals, 111 m: finer than the 1/400° grid).
 
 `index.html` finds anything by name (the search box top middle: a country, state, city, monument, airport, river, lake, sea, range, peninsula,
 peak, motorway, pipeline…; a city with its country), highlights it and flies there; a click on the map lists what is
-at that spot; `#find=Alps` (with `&id=Q1286` or an iso code: that one of the namesakes) and `#at=46.5,10.5[,zoom]` link to one. It draws only what is in view (each layer in an
+at that spot; `#find=Alps` (with `&id=Q1286` or an iso code: that one of the namesakes) and `#at=46.5,10.5[,zoom]` link to one. Opened without
+`#at=` (or `#find=`) it asks the browser for the visitor's position and, if given within 5 s, starts there, 2 km a
+pixel (a step in from where the small copy ends: a country round the visitor) -- used only to turn the view, never sent
+or kept; refused, failing or late, or once the map has been moved, the world view stays (`js/data.js` startHere). A scale bar bottom left (`js/scale.js`) gives a round length -- 1, 2 or 5 times a power of ten -- as measured
+across the middle of the view, none while the whole world is in view. It draws only what is in view (each layer in an
 R-tree), from the coarsest of the layer's three copies still about as fine as a pixel (`data/`, `data/small/`, `data/xsmall/`: below);
 while the map moves from one about as fine as a few pixels, and without labels, once a frame at where it has got to (whole
-again once the movement pauses -- a pinch once its fingers are lifted); it zooms to 300x (100 m a pixel). Points come by zoom, in tiers (`TIERS`): at the whole globe only
+again once the movement pauses -- a pinch once its fingers are lifted; a pinch is drawn anew only at steps of √2 in zoom, the picture
+last drawn scaled with the fingers in between); it zooms to 300x (100 m a pixel). Points come by zoom, in tiers (`TIERS`): at the whole globe only
 the cities of 10 million (a capital counts three times its people), from 2.5x those of 3 million, 5x 1 million, 8x
 300,000, 14x all; the monuments of level 1 (by their visitors) from 5x (2 from 9x, 3 from 15x), the highest-ranked
 peaks and capes from 4x, the airports of level 1 (by their passengers) from 4x (2 from 7x, 3 from 11x), the day's 15
@@ -136,13 +144,18 @@ wanted (`RELEASE_MS`; its names stay, so it is still found). Every mode opened, 
 After changing what the page loads (`build/lite.py`, a point layer, `index.html`, `js/`, `lib/`): `python3 build/offline.py`
 writes `offline.json` (the file list and a hash of the files: the version), then commit and push.
 
+The city detail maps (`data/city/<wikidata>.txt`, below) are NOT in the package -- only their index, `data/city/index.csv`
+(`build/offline.py` LAZY): each is read only when the map is zoomed in on its city, and all of them together would be
+tens of MB for the few a visitor looks at. The service worker keeps a city's file the first time it is read, in the
+copy of the version in use (an update drops it, and it is read again on the next visit there).
+
 ## The code: js/ and wasm/
 
 `index.html` is the page alone; the script is ES modules in `js/` (`main.js` loads them in order and calls each
 module's `init()`; the shared mutable state is `S` in `state.js`): `style.js` the projections and colours, `geom.js`
 the lines in typed arrays and how a row is traced, `view.js` the frame (which copy to draw from, the R-trees, `drawMap`),
 `labels.js`, `data.js` the loading and letting go, `lite.js` the light-file reader, `history.js`, `search.js`,
-`select.js`, `groups.js`, `game.js`, `ui.js`, `offline.js`, `flags.js`; `welle.js` the notes naming the thing selected
+`select.js`, `groups.js`, `game.js`, `ui.js`, `offline.js`, `flags.js`; `city.js` the city detail maps (below); `welle.js` the notes naming the thing selected
 (../welle's data/back.json, listed in its panel as links into welle -- none without welle beside the map).
 
 **The geometry core runs in WebAssembly** (`wasm/`, Rust, built to `js/mapgeo.wasm`, 150 KB): d3-geo's projection
@@ -497,7 +510,11 @@ apart for 10 km (the Little Danube and the Moson Danube beside the Danube). A cu
 beside, an end within 0.6 km of a line -- or a free mouth within 5 km -- onto that line, and every line is cut into
 arcs at the junctions on it, so a tributary meets its river exactly at every level of detail. A mouth in the sea is
 cut where the river crosses the coast, one ending inland within 8 km of the coast (and not at a lake) is carried on to
-it, and that point is put into the coast's own line (`full/world.topo.json`; `build/lite.py` keeps it).
+it, and that point is put into the coast's own line (`full/world.topo.json`; `build/lite.py` keeps it). Before that, a
+free end short of the map's water (on land, no lake or line near) goes on along OSM's waterways, whatever their name,
+the shortest way up to 50 km to where they reach the sea, the coast or a lake (or another river, by a way of its own
+name): a river renamed for its last stretch (the Liri as the Garigliano), an estuary's channels (the Xi's), a mouth
+beyond a lagoon (`ONWARD_KM`).
 
 ## The main lines (layers 10-12)
 
@@ -529,6 +546,138 @@ by its STROKE, the way on through the junctions: at each, the two arcs that run 
 than 45 degrees, or 75 for the same road number) are one way, and its length ranks it. A motorway's stroke of 400 km
 or more is in the first tier, of 100 km the second; a railway's of 500 and 150 km; a high-speed line is in the first
 whatever its length; a pipeline is ranked by its network's length (1,000 and 200 km).
+
+## Time zones (layer 18) and the parks' areas
+
+`build/timezones.py` reads timezone-boundary-builder's zones WITH THE OCEANS (release 2026f, 444 zones, 8.3 M points):
+they cover the whole globe -- a land zone runs out over its territorial waters, the open sea is in the nautical zones,
+15° each, the date line between Etc/GMT-12 and +12 -- so none follows the map's coast, and none has to: they are drawn
+tinted over land and sea, with the map's lakes, coast and borders over them. A topology of their own: on the 1/400° grid
+a border is the same points in both zones, so each ring is cut where its neighbours change and each piece kept once;
+each arc simplified with its ends fixed (Douglas-Peucker on the sphere to 1.5 km, Visvalingam-Whyatt to 12 km², a point
+3 km off kept) -- 3.1 M points on the grid -> 62,000; a ring under 4 km² goes (the Vatican's zone, and Rome's hole for
+it). The north pole is moved a grid step south (the sea's strips met there: a ring through a pole is no ring to the
+globe's clip, it painted all the sphere). Offsets from Python's zoneinfo (the system's tzdata) over 2026: `utc` the one
+in force without daylight saving, `dst` the other (Morocco's: its Ramadan hour back). `data/timezones.txt` 0.57 MB
+(0.22 MB gzipped), small 0.39 (0.15), xsmall 0.16 (0.06); read when the layer is switched on (the panel's **zones**,
+off at first and with every map chosen), or a search looks like one ("UTC+5:30", "Europe/Berlin"). Each zone is
+coloured by its offset (`js/zones.js`): round the colour wheel once a day, every other hour lighter, a half- or
+three-quarter-hour zone darker and stronger in the hue between; the countries' own colours left out while it is on.
+Where the clock changes the border is drawn dark, between zones of one time (Germany / France) faint and only closer
+in. The offsets are written in the zones, the biggest first. A click lists the zone (its offset, daylight saving, the
+time there now -- the browser's clock and rules) and its offset with all its zones; each is found by name.
+
+`build/parks.py` gives the national parks and protected areas of layer 5 (424 rows) their outlines: the row's own OSM
+object (`osm`) or the relation tagged with its Wikidata item (a boundary=national_park / protected_area first), the
+shapes as QLever's OSM planet assembles them (`geo:asWKT`), 15 a request, each kept in `raw/parks/` (a failed request
+tried again after 10, 20, 40… s). Kept when a polygon (a trail is not), within 25 km of the row's point, 1 km² or more;
+simplified to 0.25 km (`build/lite.py` DETAIL: its own detail). 378 of 424 have one (315 of the 344 national parks):
+28 no OSM object, 6 no shape, 2 no area, 3 too far, 7 too small -- those stay points. `data/parks.txt` 0.33 MB (0.11
+gzipped), small 0.04 (0.02), xsmall 0.01 (0.003); read once the map is at 3x (`js/parks.js`), with the monuments on. A park more than
+4 px across is filled green and outlined; from 30 px its tree icon goes and its name stays (written at its point when
+its level would not show it yet). A click inside lists the park's area.
+
+## City detail maps (layer 17)
+
+Zoomed in on a city that has one (closer than 80 m a pixel, `CITY_KM` in `js/city.js`; there the map goes on down to
+4 m a pixel, `CITY_MAX_KM`, where elsewhere it stops at `MAX_ZOOM`), the map draws the city's own detail map within
+the city's boundary, and its own rivers, roads and railways outside it only. `build/citymaps.py` makes them from
+OpenStreetMap; a city is ONE entry in its `CITIES` list, by its Wikidata id, which `admin_level`s are its districts
+(`levels`; "6|8" two of OSM's as one, "place=suburb" a place boundary on no admin_level), and as needed `boundary` (the
+Wikidata id of the boundary to take instead), `drop` (districts left out of the outline) or `keep` (only these in it), `strip` (a regex cut from the
+districts' names, or a list of [regex, replacement] pairs: "Paris 18e Arrondissement" -> "18e arr.", "XI. kerület" -> "XI"),
+`tertiary` (a country whose main streets OSM tags tertiary -- Denmark, Sweden -- drawn as secondary) and `pbf` (the Geofabrik extract it is read from). Each entry's comment says why its outline is the
+one it is. Europe first, by international arrivals, then the world (the order: the comment over `CITIES`):
+
+| wikidata | city | outline | districts | airport | file | gzipped |
+|---|---|---|---|---|---|---|
+| Q84 | London | Greater London, 1,570 km² | 6\|8 (32 boroughs, the City) | LHR | 417 KB | 144 KB (x2.8) |
+| Q90 | Paris | the commune, 105 km² | 9 (arrondissements) | CDG | 126 KB | 47 KB |
+| Q406 | Istanbul | the province but Çatalca, Silivri, Şile, Arnavutköy | 6 (35 ilçe) | IST | 420 KB | 144 KB (x2.4) |
+| Q220 | Rome | the comune, 1,290 km² | 10 (15 municipi) | FCO | 278 KB | 99 KB |
+| Q1492 | Barcelona | the municipality, 101 km² | 9 (districtes), 10 (barris) | BCN | 112 KB | 43 KB |
+| Q727 | Amsterdam | the gemeente (Q9899), 219 km² | place=suburb (stadsdelen) | AMS | 148 KB | 56 KB |
+| Q1085 | Prague | the capital city, 496 km² | 5 (obvody Praha 1-10) | PRG | 155 KB | 59 KB |
+| Q2807 | Madrid | the municipality, 604 km² | 9 (21 distritos) | MAD | 160 KB | 57 KB |
+| Q1741 | Vienna | the city and state, 415 km² | 9 (23 Bezirke) | VIE | 176 KB | 65 KB |
+| Q490 | Milan | the comune, 182 km² | 10 (9 municipi) | MXP | 111 KB | 41 KB |
+| Q1524 | Athens | Attica (Q758056) but East and West Attica and the islands, 412 km² | 6 (regional units), 7 (~40 demoi) | ATH | 127 KB | 47 KB |
+| Q597 | Lisbon | the municipality, 100 km² | 8 (24 freguesias) | LIS | 61 KB | 23 KB |
+| Q1761 | Dublin | County Dublin (Q173500), 922 km² | 7 (4 councils) | DUB | 215 KB | 78 KB |
+| Q1781 | Budapest | the capital, 525 km² | 9 (23 kerület, by number) | BUD | 137 KB | 54 KB |
+| Q6487 | Antalya | the province's 5 urban ilçe (Q40249, `keep`), ~1,900 km² | 6 | AYT | 152 KB | 55 KB |
+| Q1748 | Copenhagen | the Capital Region's (Q26073) inner 10 kommuner, ~330 km² | 7 (kommuner) | CPH | 152 KB | 56 KB |
+| Q239 | Brussels | the Capital Region (Q240), 162 km² | 8 (19 communes, French names) | BRU | 97 KB | 35 KB |
+| Q64 | Berlin | the Land, 890 km² | 9 (Bezirke), 10 (Ortsteile) | BER | 307 KB | 112 KB |
+| Q1726 | Munich | the city, 310 km² | 9 (Stadtbezirke) | MUC | 116 KB | 44 KB |
+
+- **The city** is its boundary relation's area and nothing round it: everything is cut to that outline but the city's
+  airport (the busiest by passengers of `data/airports.csv` within 50 km, `AIRPORT_KM`: CDG not Orly, MXP not Linate),
+  drawn whole wherever it is, and the metro's and commuter lines, drawn on to their ends out of the city (within
+  `OUT_KM`, 60 km) with their stations (their route relations
+  whole: `Q_ROUTES`). The page cuts the map's own rivers, roads and railways out of the outline and the airport (the
+  file's `@clip`), so they end where the city's begin, and draws the map round them as it was. `data/city/index.csv`
+  (`wikidata`, `name`, `w`, `s`, `e`, `n`, `bytes`) gives the box of the outline and the airport: where a city's file
+  applies, known without reading it, and all the page reads until it is zoomed in on one.
+- **One line for one road**: the streets, and a railway's tracks of one kind and colour, go through the map's own
+  `build/roadnet.py` (collapse, gaps, joins: The main lines, above) at a city's scale (`SCALE`): a stretch within 50 m
+  of a street kept before (30 m for a track) is the same road -- a dual carriageway's other roadway, a canal's other
+  bank (Berlin's Lützowufer) -- dropped where it runs beside it for 150 m, its cut ends and every free end within 30 m
+  carried onto the line it meets. Each line is then simplified between its junctions, which stay where they are, so
+  the streets meet; a street is one line over its bridges (OSM's bridge ways are not cut out of it), and `@bridges`
+  are its stretches on one, drawn over it cased dark.
+- **What is in it**: streets (OSM motorway, trunk, primary, secondary; `name`, `ref`, `class`); commuter lines (`s`:
+  S-Bahn, RER and Transilien, Overground and the Elizabeth line, Cercanías, Rodalies, the FL and S lines, Esko, Marmaray
+  ... -- `COMMUTER_NET` on a route's network, operator or name, `COMMUTER_REF` on its ref), metros (`u`) and main
+  railways (`r`: the route relations' ways, and `usage=main/branch` tracks without `service`), with the
+  route's `colour` and `lines`; green (parks, gardens, meadows, grass, cemeteries, allotments 5 ha+; woods and heath
+  10 ha+; merged); water (lakes, rivers' and canals' own areas, 0.5 ha+); the named rivers and canals as lines; the
+  monuments of `data/monuments.csv` in the city that OSM maps as an area (by their `wikidata`: a closed way with an
+  area's tag or a multipolygon, not a site relation) of 60 m across or more (the square root of its area; up to
+  300 ha) -- filled and outlined, named, without their icon; a gate, a column, a church stays a point; the districts'
+  outlines (`level` 1 and 2; a district over half within the outline, not a neighbour's sliver) and their names at a
+  label point inside; the airport (`aeroway=aerodrome` with its IATA
+  code) as an outline; stations (`railway=station/halt`, a node or a station's area; not a car train's or goods'
+  station) within 600 m of one name one point -- one name in the other ("Hbf" or not), or the same name without the
+  town's and the words for a station ("Paris Austerlitz", "Gare d'Austerlitz"), or one's such words all in the other's
+  ("Wien Hauptbahnhof", "Südtiroler Platz – Hauptbahnhof") -- named as the one the most trains stop at (Saint-Lazare,
+  not its RER station next door); `kind` the lines there: `u`, `s`, `r`; `rank` 1 the city's busiest (its train
+  routes, commuter lines' too, counted at the nearest station of each stop: at least 6 and a quarter of the busiest's,
+  among the 10 busiest in the city; a long-distance route -- `service=long_distance/high_speed/international` -- counts
+  three, so an InterCity terminus outranks a commuter line's halts: Dublin Heuston) or a DB category 1-2 or a Hauptbahnhof, 2 at least 3 and a tenth, or two kinds of
+  line, 3 the rest; a station is kept only with a line of the map within
+  80 m, out of the city only an U- or S-Bahn's); the names of parks of 15 ha+ and lakes of 10 ha+.
+- **The format** is the light text format (`build/lite.py`, Light files above): a `grid`, `@arcs`, then `@streets line`,
+  `@bridges line`, `@rail line`, `@green polygon`, `@water polygon`, `@waterways line`, `@airport polygon`,
+  `@monuments polygon`, `@districts line`, `@clip polygon` (an object without rows left out: an empty one breaks the
+  page's trees), and the tables `@places`, `@parks`, `@stations` (CSV with
+  `lon`, `lat`). Simplified to 10 m (streets, rail), 12 m (water), 15 m (districts), 25 m (green), 20 m (airport), 5 m
+  (monuments, the clip), on a grid of 1/20,000 degree (5.5 m); a polygon is a row a piece, so the page fills only
+  those in view.
+- **Drawn** in the map's own pipeline (`js/city.js`, called from `js/view.js`): the fills and strokes go to the
+  painters like every other layer; a street is cased, widths grow with the zoom; secondary streets from 70 m a pixel;
+  the second district level dashed from 50 m. While the map moves the city's casings and bridges and the map's own
+  lines under it are left out, so a pinch keeps to the painters' chunks; the file is read only at rest (as
+  `roads.txt`) and let go 3 minutes after the map has left the city. Names by priority: main stations, districts,
+  main streets (along the line), the other stations, parks and lakes, Ortsteile, secondary streets, rivers. The
+  monuments and the airport show in a city map whatever their switches say; the city map itself does not follow the
+  layer switches (rivers, roads, rails).
+- **The sea**: a coastal city's sea is the outline's box cut by OSM's coastlines (the land on a coastline's left),
+  each face the side most of its coastline's segments say, drawn as water within 1.5 km of the outline (`SEA_KM`,
+  less than `PAD_KM`, the data's margin): the map's own land is coarser (Istanbul's Bosporus and Marmara shore,
+  Barcelona's port, Ostia). The districts' borders and their names' label points are cut by that sea too (no
+  border out in the Saronic Gulf off Piraeus).
+- **Sizes**: a city's file is kept to 150 KB gzipped (`BUDGET_KB`): over it, it is built again coarser -- the
+  simplify tolerances times f, the smallest areas times f² (`COARSER`: 1.25 to 4; the first step guessed from the
+  size, the step taken kept in `raw/city/<wikidata>_coarser.json` for the next build). London (x2.4) and Istanbul (x2.4)
+  needed it; the rest are 41-112 KB at x1. Green is the largest part.
+- **Where the data comes from**: a city with a `pbf` is read from Geofabrik's extract (`build/citypbf.py`, pyosmium,
+  four passes: the relations; the boundary's ways and nodes for its box; the nodes and ways with their places --
+  `flex_mem` under 400 MB, a node index on disk above it), downloaded once to `raw/city/pbf/` and deleted when no
+  other city needs it. Overpass (three servers in turn, retries with back-off, big boxes asked in tiles) is for the
+  others. Both write the same raw parts (`raw/city/<wikidata>_*.json.gz`: boundary, districts, lines, areas, routes,
+  stops, airport, monuments). An extract takes 1-4 minutes (England's, 1.7 GB: about 25); built again from the raw
+  parts, a city takes under a minute (London a few, with its coarser builds).
 
 ## How the detail was chosen
 
@@ -572,6 +721,8 @@ whatever its length; a pipeline is ranked by its network's length (1,000 and 200
 | historical events | Wikidata: what an event is (P31/P279), its date (P585, else P580, else P571, with precision and calendar), place (P625, else its location's, P276), what it is part of (P361), Wikipedia articles (via QLever), `build/events.py` | CC0 |
 | wars and campaigns; rivers' lengths, areas' areas | Wikidata: part of (P361), start and end (P580, P582), what it is (P31); length (P2043), area (P2046), normalised to SI (via QLever) | CC0 |
 | tectonic plates | P. Bird 2003, *An updated digital model of plate boundaries*, G³ 4(3):1027 (PB2002), as converted by H. Ahlenius ([fraxen/tectonicplates](https://github.com/fraxen/tectonicplates)), `build/fetch_plates.sh` | ODC-By 1.0 |
+| time zones | [timezone-boundary-builder](https://github.com/evansiroky/timezone-boundary-builder) 2026f (E. Siroky and contributors; OSM boundaries), with the oceans; offsets from the IANA tz database (tzdata 2026f) | ODbL; public domain |
+| parks' areas | OSM multipolygons via [QLever](https://qlever.dev/osm-planet) (osm2rdf) | ODbL |
 | areas, natural points, river names | [Natural Earth](https://www.naturalearthdata.com) 1:10m physical: marine polygons, geographic regions, elevation points, region points, rivers | public domain |
 
 The derived data is a database built from OSM, so it is ODbL:
@@ -591,7 +742,7 @@ at a time. (A running step's cap can be raised: `systemctl --user set-property -
 ```
 python3 -m venv .venv && .venv/bin/pip install shapely duckdb scipy requests ijson
 build/fetch_raw.sh                           # raw/: OSM land polygons, Overture divisions (~6 GB)
-.venv/bin/python build/fetch_water.py        # raw/water.parquet: rivers and big lakes (streams ~20 GB, ~1 h)
+.venv/bin/python build/fetch_water.py        # raw/water.parquet: rivers and big lakes (streams ~20 GB, ~1 h); raw/water_more.parquet: the other big water areas (lagoons)
 .venv/bin/python build/fetch_points.py       # raw/: OSM cities and towns, Wikidata visitors and fame, airports
 .venv/bin/python build/fetch_transport.py    # raw/transport/: main roads, railways, pipelines (Overpass, 10° tiles, resumes; ~6 h, 450 MB)
 build/fetch_ne.sh                            # raw/ne/: Natural Earth's geography layers and rivers (~15 MB)
@@ -600,6 +751,7 @@ build/fetch_plates.sh && .venv/bin/python build/plates.py   # raw/plates/ -> dat
 build/capped.sh .venv/bin/python build/coast.py      # stage 1: the coast, simplified, border ends found on it (~10 min, 1.9 GB)
 build/capped.sh .venv/bin/python build/topology.py   # stage 2: borders joined, simplified, faces labelled (~8 min, 1.5 GB)
 MEM=1800M build/capped.sh .venv/bin/python build/water.py   # stage 4: lakes (work/) and rivers as tracked (full/rivers.tracked.topo.json) (~40 min, 1.5 GB)
+MEM=2600M build/capped.sh .venv/bin/python build/water.py lagoons   # (only the lagoons, ~1 min, put after the lakes again: then write.py, rivernet.py, lite.py, small.py)
 build/capped.sh .venv/bin/python build/areas.py      # stage 6: areas on the topology (work/areas.pkl), data/natural_points.csv (~18 min, 1.4 GB)
 build/capped.sh .venv/bin/python build/areas.py islands   # stage 6b: + every other landmass Wikidata knows as an island (~10k; never leave it out)
 build/capped.sh .venv/bin/python build/write.py      # stage 3: full/world.topo.json (with the areas)
@@ -617,7 +769,11 @@ build/capped.sh .venv/bin/python build/history.py    # stage 10: full/history.to
 .venv/bin/python build/campaigns.py          # raw/wd_partof.json (QLever, ~1 min) -> data/campaigns.json (wars, moves)
 .venv/bin/python build/measures.py           # data/measures.json (QLever): rivers' lengths, areas' areas (rankings)
 .venv/bin/python build/lite.py               # data/*.txt: light copies of the line layers (~1 min)
+.venv/bin/python build/citymaps.py          # data/city/: the city detail maps (Overpass, raw/city/ caches; [Q64 ...] only those)
 .venv/bin/python build/small.py              # data/*.txt mended, data/small/, data/xsmall/: every layer for small maps (~3 min)
+.venv/bin/python build/timezones.py         # full/timezones.topo.json (raw/timezones/: the release's with-oceans GeoJSON, 56 MB zip; ~40 s, 0.4 GB)
+.venv/bin/python build/parks.py             # full/parks.topo.json (QLever's OSM planet; raw/parks/ caches)
+.venv/bin/python build/lite.py 1 25 timezones parks && .venv/bin/python build/small.py timezones parks   # their copies alone
 .venv/bin/python build/export_geojson.py     # optional: data/geojson/*.geojson
 ```
 

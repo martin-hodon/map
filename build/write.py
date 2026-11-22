@@ -425,7 +425,7 @@ def main():
         rings = []
         for r in L["rings"]:
             rings.append([a]); a += 1
-        lk.append({"type": "Polygon", "arcs": rings, "properties": {k: v for k, v in L.items() if k != "rings" and v is not None}})
+        lk.append({"type": "Polygon", "arcs": rings, "properties": {k: v for k, v in L.items() if k not in ("rings", "lagoon") and v is not None}})
     objects["lakes"] = {"type": "GeometryCollection", "geometries": lk}
 
     # ---- the areas (stage 6): faces of the coast and the lines across -- or, for a sea of no water of the map's own, lakes

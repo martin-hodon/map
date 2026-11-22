@@ -117,7 +117,7 @@ export function parseLite(text, base, known) {
     }
     pos = e + 1;                                                    // (uses ...)
   }
-  const T = { xy: xy.slice(0, 2 * np), at: at.slice(0, na + 1), objects };
+  const T = { xy: xy.slice(0, 2 * np), at: at.slice(0, na + 1), objects, tables: things };   // (tables: the objects without arcs -- a city map's points)
   for (const k in objects) objects[k].g.T = T;
   return T;
 }

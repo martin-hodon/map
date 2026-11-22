@@ -21,7 +21,8 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => event.waitUntil(self.clients.claim()));
 
 // every request the map makes: the kept copy if there is one (a query string ignored; the folder itself is its
-// index.html), else the network
+// index.html), else the network -- and a city's detail map (data/city/<wikidata>.txt: not in the package, read only when
+// the map is zoomed in on that city) is kept from the network into the newest copy, so a city once looked at opens offline
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
   if (event.request.method !== "GET" || url.origin !== location.origin) return;
@@ -33,6 +34,8 @@ self.addEventListener("fetch", (event) => {
       const hit = await (await caches.open(k)).match(req, { ignoreSearch: true });
       if (hit) return hit;
     }
-    return fetch(event.request);
+    const r = await fetch(event.request);
+    if (r.ok && /\/data\/city\/[^/]+\.txt$/.test(url.pathname) && keys.length) (await caches.open(keys[0])).put(req, r.clone()).catch(() => { });
+    return r;
   })());
 });

@@ -1,5 +1,5 @@
 """THE LIGHT FILES: smaller, readable copies of the line layers -- data/world.txt, rivers.txt, transport.txt (and
-roads.txt, pipelines.txt, bio.txt, history.txt) -- for a page that needs the shapes but not every bend. The originals (full/*.topo.json) stay as they are.
+roads.txt, pipelines.txt, bio.txt, history.txt, timezones.txt, parks.txt) -- for a page that needs the shapes but not every bend. The originals (full/*.topo.json) stay as they are.
 
     .venv/bin/python build/lite.py [HEIGHT_KM [TRI_KM2 [NAME ...]]]     # full/*.topo.json -> data/*.txt (defaults 1, 25, all); then build/small.py
 
@@ -37,10 +37,12 @@ import os, sys, csv, io, json, heapq, collections
 import numpy as np
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-FILES = ["world", "rivers", "transport", "roads", "bio", "history"]
+FILES = ["world", "rivers", "transport", "roads", "bio", "history", "timezones", "parks"]
 APART = {"transport": ["pipelines"]}     # (objects in a file of their own, with only their arcs: the page loads it when shown)
 SHARE = ["bio", "history"]               # (their lines run much of their way along the world's -- its coast, lake shores,
                                          #  borders: those stretches they take from world.txt's points, see share())
+DETAIL = {"parks": (0.3, 1.0)}           # (a file's own HEIGHT_KM, TRI_KM2: a park is drawn from a few pixels across -- its outline at
+                                         #  25 km2 triangles would be a box; build/parks.py has simplified it to 0.25 km)
 MIN_REF = 2                              # (a stretch of fewer of world.txt's points is cheaper written out)
 GROUP = {"rivers": "river", "motorways": "network", "railways": "network", "pipelines": "network"}   # (pieces of one thing)
 # the motorways, trunk roads and railways carry no name (2026-11-09): in OpenStreetMap a way is as often named after its tunnel,
@@ -335,6 +337,6 @@ if __name__ == "__main__":
     a = float(sys.argv[2]) if len(sys.argv) > 2 else 25.0
     world = None
     for f in sys.argv[3:] or FILES:                          # (only some: not one made of the world's lines without it)
-        r = lighten(f, h, a, ("world", *world) if f in SHARE and world else None)
+        r = lighten(f, *DETAIL.get(f, (h, a)), ("world", *world) if f in SHARE and world else None)
         if f == "world":
             world = r
