@@ -50,6 +50,9 @@ MIN_POP_BY = {"Europe": 70_000}   # ...or this many in these continents (by the 
 MIN_VISITORS = 100_000
 POP_STEP = 5_000
 URBAN_FACTOR = 3        # a place's urban population counts when it is at most this many times its municipal one
+URBAN_FACTOR_BIG = (200_000, 6)   # ...or this many, for a place of so many people or more (Paris: 2.0 million in the city, 11 in its urban area)
+URBAN_FACTOR_BIG_NOT = {"CN", "TW"}   # ...but not in these countries (a county-level city's "urban" is nearly its whole county; Taoyuan's, Taipei's)
+CITY_POPULATION = {"Q239": 1_250_000}   # (the population wanted, over OSM's, Wikidata's and Wikipedia's: Brussels -- OSM's node is the City of Brussels, a municipality of 200,000; its article gives the Region's 1.25 million and no urban figure)
 ALSO_MONUMENTS = {"Q857763": ("Caminito del Rey", "landform", -4.773, 36.916, 25, "relation/4678863")}   # (wanted all the same, though of no kind KINDS knows and with no count, by Wikidata item: its name, kind, lon, lat, Wikipedias, OSM -- a walkway in a gorge)
 MIN_HERITAGE_WIKIPEDIAS = 10   # a World Heritage Site's item is kept when this many Wikipedias write about it (not each part)
 CATALOGUE = re.compile(r"[A-Z]{1,4} ?\d+[A-Za-z]?")     # a name that is only a number in a list: the Valley of the
@@ -206,7 +209,7 @@ def wp_urban(qids):
     def read(text):
         m = re.search(r"\|\s*population_urban\s*=([^\n]*)", text)
         return infobox_number(m.group(1)) if m else None
-    return wp_infobox(qids, "wp_urban.json", read, "urban populations")
+    return wp_infobox(qids, "wp_urban2.json", read, "urban populations")   # (2026-11-22: refetched; wp_urban.json had Paris and Lyon without one)
 
 
 def wp_infobox(qids, cache, read, what):
@@ -398,13 +401,18 @@ def cities(where):
     cont = {g["properties"]["iso"]: g["properties"].get("continent") for o in ("countries", "regions") for g in T[o]["geometries"] if "iso" in g["properties"]}
     vs = list(seen.values())
     for r, c, g in zip(vs, *where(np.array([r["lon"] for r in vs]), np.array([r["lat"] for r in vs]))):
+        r["_cc"] = c
         r["_floor"] = 0 if r["wikidata"] in ALSO_CITIES or r["osm"] in ALSO_CITIES else MIN_POP_BY.get(cont.get(g) or cont.get(c), MIN_POP)
     seen = {k: r for k, r in seen.items() if r["population"] >= r["_floor"] / URBAN_FACTOR or r["capital"] == "country"}
     urban = wp_urban([r["wikidata"] for r in seen.values()])
     for r in seen.values():                                    # the urban population where Wikipedia gives one that is
         u = urban.get(r["wikidata"])                           # bigger (and not absurdly: a district's article can carry
-        if u and r["population_municipal"] < u <= URBAN_FACTOR * r["population_municipal"]:   # the whole city's)
+        m = r["population_municipal"]                          # the whole city's)
+        big = m >= URBAN_FACTOR_BIG[0] and r.pop("_cc", None) not in URBAN_FACTOR_BIG_NOT
+        if u and m < u <= (URBAN_FACTOR_BIG[1] if big else URBAN_FACTOR) * m:
             r["population"], r["population_source"], r["population_year"] = u, "wikipedia-urban", None
+        if r["wikidata"] in CITY_POPULATION:
+            r["population"], r["population_source"], r["population_year"] = CITY_POPULATION[r["wikidata"]], "set", None
     rows = sorted([r for r in seen.values() if r.pop("_floor") <= r["population"] or r["capital"] == "country"], key=lambda r: -r["population"])
     cc, rc = where(np.array([r["lon"] for r in rows]), np.array([r["lat"] for r in rows]))
     # the names: English (OSM's name:en, else Wikidata's English label, else its name), and the one in its country's

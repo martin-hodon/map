@@ -6,6 +6,7 @@ import { $, canvas, tilt, points, on, MAX_ZOOM, fmt, fmtPop, make } from "./stat
 import { setup } from "./geom.js";
 import { yearText, showDay, histDay, setDay, pxKm } from "./history.js";
 import { query, draw } from "./view.js";
+import { painter } from "./wasm.js";
 import { shown, visible } from "./labels.js";
 import { wanted, load } from "./data.js";
 import { search } from "./search.js";
@@ -36,12 +37,23 @@ export const searchNow = () => { clearTimeout(S.typing); S.typing = null; S.foun
 // ---- moving: drag turns the globe (every projection is rotated the same way), the wheel zooms about the place under the
 // cursor (about the centre with the cursor off the map, in space), a pinch about the centre. The map is drawn as it moves -- from a coarser copy, without labels -- once a frame, at where it has got to: a
 // draw that takes longer than a frame is followed, when it ends, by one at where the map has moved since (the moves
-// meanwhile are one draw, not many). Drawn whole (its labels, its own copy) once the movement pauses for 160 ms or ends.
-S.drag = null; S.idle = null; S.moved = 0; S.moving = false; S.frame = 0;
-export const still = () => { clearTimeout(S.idle); cancelAnimationFrame(S.frame); S.frame = 0; S.moving = false; draw(); };
+// meanwhile are one draw, not many: built only once the painters are free -- `behind` noted meanwhile, the newest view
+// built at painters-free -- not built every frame and thrown away, which kept the main thread from the bitmaps it waited
+// for). Drawn whole (its labels, its own copy) once the movement pauses for 160 ms or ends; a whole frame the map moves on
+// from is dropped, never composed (paint.js drop); and a PINCH is drawn whole only once its fingers are lifted (lift), not
+// at a pause -- on a phone a slow frame held the pointer events up for 160 ms, the pause was taken mid-pinch frame after
+// frame, and nothing was drawn until release (2026-11-22: paint.js THE PHONE PINCH).
+S.drag = null; S.idle = null; S.moved = 0; S.moving = false; S.frame = 0; S.behind = false;
+export const still = () => { clearTimeout(S.idle); cancelAnimationFrame(S.frame); S.frame = 0; S.moving = false; S.behind = false; draw(); };
+const moveFrame = () => {
+  S.frame = 0;
+  if (painter?.busy()) { S.behind = true; return; }
+  draw(true);
+};
 export const moveDraw = () => {
-  S.moving = true; S.frame ||= requestAnimationFrame(() => { S.frame = 0; draw(true); });
-  clearTimeout(S.idle); S.idle = setTimeout(still, 160);
+  S.moving = true; painter?.drop((f) => !f.fast);
+  S.frame ||= requestAnimationFrame(moveFrame);
+  clearTimeout(S.idle); if (!S.pinch) S.idle = setTimeout(still, 160);
 };
 // ZOOM (the wheel and a pinch alike)
 // `at` (a point on the screen): the place there stays there -- the globe turned after the zoom until it is back under it.
@@ -172,7 +184,10 @@ export function init() {
   $("q").addEventListener("blur", () => { S.found = []; showResults(); });
   canvas.addEventListener("pointerdown", (e) => {
     fingers.set(e.pointerId, [e.clientX, e.clientY]); canvas.setPointerCapture(e.pointerId);
-    if (fingers.size === 2) { S.drag = null; S.moved = 99; S.pinch = [Math.max(spread(), 1), S.zoom]; return; }   // (a second finger: a pinch, never a click)
+    if (fingers.size === 2) {                                       // (a second finger: a pinch, never a click -- and the whole frame still
+      painter?.drop((f) => !f.fast);                                //  coming dropped at once: its labels would hold the pinch up; lift draws whole)
+      S.drag = null; S.moved = 99; S.pinch = [Math.max(spread(), 1), S.zoom]; return;
+    }
     if (fingers.size > 2) return;
     S.drag = [e.clientX, e.clientY, ...S.rotate]; S.moved = 0; canvas.classList.add("dragging");
   });
@@ -207,6 +222,7 @@ export function init() {
   modeChanged(false);
   $("palette").onchange = () => { try { localStorage.palette = $("palette").value; } catch (e) { } draw(); };
   for (const c of document.querySelectorAll("[data-layer]")) c.onchange = () => { togglesShown(); wanted(); dropHidden(); draw(); };
+  canvas.addEventListener("painters-free", () => { if (!S.behind) return; S.behind = false; if (S.moving) S.frame ||= requestAnimationFrame(moveFrame); });
   addEventListener("resize", resized);
   new ResizeObserver(resized).observe(canvas);
   load();

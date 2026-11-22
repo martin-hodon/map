@@ -9,10 +9,18 @@
 // memory and the map froze). So a frame has `WATCH` ms to come back, a worker's error or a `fail` message counts at once,
 // and then the painters are given up: the workers ended, `onLost()` told, and the page paints on one thread (view.js: the
 // same pixels, slower) for the rest of the visit.
+// THE PHONE PINCH (2026-11-22): the map drew nothing while two fingers pinched, then all at once on release. A whole frame
+// (a pause of 160 ms, or the fingers lifted: ui.js still) cannot be stopped once in flight, and its labels are laid out
+// here at compose -- half a second to a second on a phone's main thread, the pointer events waiting too -- so every
+// moving frame of the next pinch waited behind it; and as each such frame held the pointer events up over 160 ms, the
+// idle timer fired again mid-pinch and started the next whole frame. Now a whole frame the map has moved on from is
+// DROPPED (`drop`: its bitmaps closed when they come, never composed, no labels laid out), a moving frame is built
+// only when the painters are free (`busy`, `onFree`: ui.js moveFrame) rather than every frame and thrown away while one
+// is in flight, and a pinch draws its whole frame only once the fingers are lifted.
 const WATCH = 6000;
 export class Painter {
-  constructor(module, n, onLost) {
-    this.n = n; this.lids = 0; this.pids = 0; this.frames = 0; this.inFlight = null; this.pending = null; this.onLost = onLost; this.dead = false; this.timer = 0;
+  constructor(module, n, onLost, onFree) {
+    this.n = n; this.lids = 0; this.pids = 0; this.frames = 0; this.inFlight = null; this.pending = null; this.onLost = onLost; this.onFree = onFree; this.dead = false; this.timer = 0;
     this.workers = Array.from({ length: n }, (_, k) => {
       const w = new Worker("js/worker.js"); w.postMessage({ t: "init", module }); w.onmessage = (e) => this.got(e.data);
       w.onerror = (e) => this.lost(`painter ${k} failed: ${e.message || e.type}`); w.onmessageerror = () => this.lost(`painter ${k}: a message could not be read`);
@@ -33,6 +41,9 @@ export class Painter {
   free(pids, lids) { if (pids.length || lids.length) this.post({ t: "free", pids, lids }); }
   // a frame: { proj, W, H, dpr, ops, done(frame) } -- an op { main: fn } runs here, any other { pid|lid, items (rows, or arcs with lid), costs (of each), cost, fill, color, width, alpha, dash }
   paint(frame) { if (this.dead) return; if (this.inFlight) this.pending = frame; else this.start(frame); }
+  busy() { return !!this.inFlight; }
+  // frames the map has moved on from (`which` says which): the one in flight painted on but never composed, a waiting one forgotten
+  drop(which) { if (this.inFlight && which(this.inFlight)) this.inFlight.dropped = true; if (this.pending && which(this.pending)) this.pending = null; }
   start(frame) {
     frame.id = ++this.frames; this.inFlight = frame;
     clearTimeout(this.timer); this.timer = setTimeout(() => this.lost(`frame ${frame.id} not painted in ${WATCH / 1000} s`), WATCH);
@@ -51,7 +62,12 @@ export class Painter {
     if (f.waiting === 1) f.tAll = performance.now();
     if (--f.waiting === 0) this.finish(f);
   }
-  finish(f) { clearTimeout(this.timer); this.timer = 0; this.inFlight = null; f.done(f); const p = this.pending; this.pending = null; if (p) this.start(p); }
+  finish(f) {
+    clearTimeout(this.timer); this.timer = 0; this.inFlight = null;
+    if (f.dropped) for (const c of f.chunks) c.bitmap?.close(); else f.done(f);
+    const p = this.pending; this.pending = null;
+    if (p) this.start(p); else this.onFree?.();                     // (free: the moving map's next frame is built now -- ui.js)
+  }
 }
 // the operations cut into about n contiguous chunks of equal weight (points to project); a main-thread step is a cut of
 // its own; an op too big for the room left is split (an opaque fill or stroke by rows, arcs always: two halves paint the

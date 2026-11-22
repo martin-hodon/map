@@ -195,7 +195,7 @@ export function drawMap(fast) {
   const G = game.open;                                            // (the game: no names but the cities named, nothing to go by but the map)
   if (on("pipelines") && L.pipelines.length && !G) { ctx.setLineDash([1.5, 2.5]); stroke(L.pipelines, tiered(L.pipelines, v("pipelines")), dk ? "#b58b5a" : "#8a5a2b", lw); ctx.setLineDash([]); }
   if (on("railways") && L.railways.length && !G) { ctx.setLineDash([4, 2]); stroke(L.railways, tiered(L.railways, v("railways")), dk ? "#c8ccd2" : "#4a4f57", 0.9 * lw); ctx.setLineDash([]); }
-  if (on("motorways") && S.zoom >= ROAD_TIERS[0] && !loads.roads) wanted();   // (their file: only once they would be drawn)
+  if (on("motorways") && S.zoom >= ROAD_TIERS[0] && !loads.roads && !fast) wanted();   // (their file: only once they would be drawn -- and the map at rest: read mid-pinch it held the frames up for seconds)
   if (on("motorways") && L.roads.length && !G) stroke(L.roads, v("roads").filter((i) => S.zoom >= ROAD_TIERS[L.roads[i].properties.tier - 1]), dk ? "#c9b45c" : "#b48c0a", 0.7 * lw);   // (under the motorways, thinner and yellow)
   if (on("motorways") && L.motorways.length && !G) stroke(L.motorways, tiered(L.motorways, v("motorways")), dk ? "#e0914a" : "#d9731f", 1.1 * lw);
   if (on("plates") && !G) main(drawPlates);                        // (the tectonic plates' boundaries: over the lines, under a chosen one)

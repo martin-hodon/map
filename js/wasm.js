@@ -21,6 +21,8 @@ export const workersWanted = () => {
 // the painters given up (paint.js: a worker lost, a frame never painted): the page draws on one thread from here on, and
 // the frame that was in flight is drawn again that way
 const paintersLost = () => { painter = null; canvas.dispatchEvent(new CustomEvent("painters-lost")); };
+// the painters free for a frame (none in flight or waiting): a moving map builds its next one then (ui.js moveFrame)
+const paintersFree = () => canvas.dispatchEvent(new CustomEvent("painters-free"));
 export async function loadWasm() {
   if (!wasmWanted() || typeof WebAssembly === "undefined") return false;
   try {
@@ -29,7 +31,7 @@ export async function loadWasm() {
     const module = await WebAssembly.compile(await r.arrayBuffer()), instance = await WebAssembly.instantiate(module, {});
     W = instance.exports;
     const n = workersWanted();
-    if (n >= 2 && typeof Worker !== "undefined" && typeof OffscreenCanvas !== "undefined") painter = new Painter(module, n, paintersLost);
+    if (n >= 2 && typeof Worker !== "undefined" && typeof OffscreenCanvas !== "undefined") painter = new Painter(module, n, paintersLost, paintersFree);
     return true;
   } catch (e) { console.warn("mapgeo.wasm not loaded, the JS geometry is used:", e.message); W = null; return false; }
 }
