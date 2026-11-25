@@ -1,7 +1,7 @@
 // view.js -- the frame: which copy of a layer to draw from, the R-trees and what of the globe is in view, drawMap
 // (split out of index.html's one script, 2026-11-09: split.js in the session's scratchpad; the names are the script's own)
 import { S } from "./state.js";
-import { PALETTES, palette, regionShades, shade, GEO, mode, densityColour, bioLayer, rankLanguages, bioColour } from "./style.js";
+import { palette, tone, geoColour, regionShades, shade, GEO, mode, densityColour, bioLayer, rankLanguages, bioColour } from "./style.js";
 import { $, canvas, ctx, css, trees, points, on, HOW, dark } from "./state.js";
 import { COPIES, RING, POLY, geoAt, traceAll, traceArcs, Map0, coastAt, B0, syncProj, viewNow } from "./geom.js";
 import { W, painter, projParams, treeOfRows, treeOfPoints, queryTree } from "./wasm.js";
@@ -130,7 +130,7 @@ export function drawMap(fast) {
     if (m === "language" && !Object.keys(S.langColour).length) rankLanguages();
     for (const i of v(name)) {
       const p = F[i].properties; if (!F[i].has(lv)) continue;
-      const c = m === "language" ? (p.language ? (S.langColour[p.language] || "#d8d8d8") : null) : (p.density != null ? densityColour(p.density) : null);
+      const c = m === "language" ? (p.language ? tone(S.langColour[p.language] || "#d8d8d8") : null) : (p.density != null ? tone(densityColour(p.density), true) : null);
       if (c) (by[c] ??= []).push(i);
     }
     for (const c in by) fillAll(F, by[c], c);
@@ -139,9 +139,7 @@ export function drawMap(fast) {
     const by = {};
     for (const i of v("areas")) { const p = L.areas[i].properties; if (p.mask === mask && GEO[p.kind] && L.areas[i].has(lv)) (by[p.kind] ??= []).push(i); }
     const order = Object.keys(by).sort((a, b) => Math.min(...by[a].map((i) => L.areas[i].properties.rank ?? 9)) - Math.min(...by[b].map((i) => L.areas[i].properties.rank ?? 9)));
-    if (dk) ctx.globalAlpha = 0.45;
-    for (const k of order) fillAll(L.areas, by[k].sort((i, j) => (L.areas[i].properties.rank ?? 9) - (L.areas[j].properties.rank ?? 9)), GEO[k]);
-    ctx.globalAlpha = 1;
+    for (const k of order) fillAll(L.areas, by[k].sort((i, j) => (L.areas[i].properties.rank ?? 9) - (L.areas[j].properties.rank ?? 9)), geoColour(k));
   };
   if (geo && on("areas")) geoFill("water");
   if (rk?.mask === "water") rankFill(dk ? 0.85 : 1);
@@ -151,14 +149,14 @@ export function drawMap(fast) {
   const B = m === "bio" && S.src.bio ? B0 : null, bl = bioLayer();
   if (B) {                                                          // (the land by realm, biome or ecoregion; paler under groups)
     const by = {}; for (const i of v(bl)) { const f = B[bl][i]; if (f.has(lv)) (by[bioColour(f.properties)] ??= []).push(i); }
-    ctx.globalAlpha = (dk ? 0.55 : 1) * (groupsOn(bl) ? 0.35 : 1); for (const c in by) fillAll(B[bl], by[c], c); ctx.globalAlpha = 1;
+    ctx.globalAlpha = groupsOn(bl) ? 0.35 : 1; for (const c in by) fillAll(B[bl], by[c], c); ctx.globalAlpha = 1;
   }
   const Hl = m === "history" && S.src.hist ? histLines(lv) : null;
   if (Hl) {                                                         // (the day's country-periods; a dependency paler, in its ruler's colour)
-    const now = histOn(), hp = palette() || PALETTES.pastel, by = {};
+    const now = histOn(), hp = palette(), by = {};
     for (const i of v("hregions")) { const pi = now.of[i]; if (pi < 0 || !S.H0.regions[i].has(lv)) continue; const p = S.H0.periods[pi];
       (by[`${now.colour.get(p.state) % hp.length}|${p.status === "culture" ? 2 : p.owner != null ? 1 : 0}`] ??= []).push(i); }
-    for (const k in by) { const [c, dep] = k.split("|"); ctx.globalAlpha = (dk ? 0.8 : 1) * [1, 0.55, 0.3][dep]; fillAll(S.H0.regions, by[k], hp[c]); }
+    for (const k in by) { const [c, dep] = k.split("|"); ctx.globalAlpha = [1, 0.55, 0.3][dep]; fillAll(S.H0.regions, by[k], hp[c]); }
     ctx.globalAlpha = 1;
   }
   if (political && on("countries") && pal) { const by = {}; for (const i of v("countries")) { const f = L.countries[i]; if (f.has(lv)) (by[f.properties.color % pal.length] ??= []).push(i); }
@@ -168,7 +166,7 @@ export function drawMap(fast) {
       for (const i of v("regions")) { const f = R[i], c = cls.get(f.properties.country); if (c != null && f.has(lv)) (rby[shade(pal[c % pal.length], sh[i])] ??= []).push(i); }
       for (const c in rby) fillAll(R, rby[c], c);
     } }
-  if (themed) { if (dk) ctx.globalAlpha = 0.6; themeFill("countries"); if (on("regions")) themeFill("regions"); ctx.globalAlpha = 1; }
+  if (themed) { themeFill("countries"); if (on("regions")) themeFill("regions"); }
   if (rk?.unit) rankFill(dk ? 0.9 : 1);
   if (geo && on("areas")) geoFill("land");
   if (rk?.mask === "land") rankFill(0.85);
@@ -209,7 +207,12 @@ export function drawMap(fast) {
   if (on("rivers") && L.rivers.length) {                           // (rivers even in a moving frame over a city, unclipped: thin, cheap, and
                                                                   //  a river that vanished while the map moved looked broken -- 2026-11-22)
     const min = S.zoom < 1.5 ? 600 : S.zoom < 3 ? 250 : S.zoom < 6 ? 100 : 0;    // (the long rivers first, the rest closer in)
-    stroke(L.rivers, v("rivers").filter((i) => (L.rivers[i].properties.river_km || 0) >= min), dk ? "#4d86b3" : "#5b95c7", 0.7);
+    // (three LEVELS, three widths -- build/riverlevels.py: 1 the great rivers into the sea, over 2,000 km; 2 over 500 km into
+    //  the sea or a great river's longest tributaries; 3 the rest. Levels 1 and 2 at every zoom, the rest by length)
+    const ids = v("rivers"), lvl = (i) => L.rivers[i].properties.lvl || 3, col = dk ? "#4d86b3" : "#5b95c7";
+    stroke(L.rivers, ids.filter((i) => lvl(i) === 3 && (L.rivers[i].properties.river_km || 0) >= min), col, 0.7);
+    stroke(L.rivers, ids.filter((i) => lvl(i) === 2), col, 1.25);
+    stroke(L.rivers, ids.filter((i) => lvl(i) === 1), col, 2);
   }
   if (rk?.lines) { const seen = new Set(v("rivers")); rk.by.forEach((ids, s) => stroke(L.rivers, ids.filter((i) => seen.has(i)), rampColour(s), 1.2 + 0.45 * s)); }
   // the main lines by tier (LINE_TIERS): none from afar, the main roads first, the rest closer in; a railway dashed, a pipeline dotted

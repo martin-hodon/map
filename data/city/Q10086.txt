@@ -1,0 +1,1054 @@
+# Mysuru: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 76.58140 12.23265
+@arcs
+1613 2523 -6 -47
+1607 2476 -6 -44 -6 -69
+1595 2363 -2 -6
+482 968 71 24 38 39
+591 1031 -44 26 -29 51 -26 33 -40 105 -19 58 -3 34 -10 29 -9 49 -1 28 -1 27 -4 8 -14 14 -21 8
+902 2376 15 1
+1117 419 22 3
+1139 422 43 6 17 6 70 47 47 39 32 14 161 51 65 1 92 -17 63 -58 39 -28 23 -8 32 -2 27 8 111 45 35 13 1 1 58 15 48 29 2 1 91 55 30 15
+2491 1031 -3 19
+2488 1050 -6 41 1 63 1 60
+2094 2125 -49 30 -6 4 -142 73 -87 43 -36 29 -63 13 -29 12 -29 5 -61 20 -2 1 -37 7 -34 -3 -66 -24 -16 -1 -21 3 -18 12
+1546 364 6 50
+1552 414 -4 21 -5 12 -23 30 -5 12 -8 54 2 42
+2094 2125 30 -16 141 -99 7 -7 20 -29 15 -51 20 -38 18 -34 21 -42 23 -84 12 -45 2 -39 19 -104 14 -38 45 -210 5 -74 -2 -1
+980 2397 21 7 26 0 22 -6 44 -17 37 -25 22 -9 18 -3 76 1
+2486 1215 14 -17 28 -7 14 -9
+1261 2349 30 12 44 10 1 0 46 -10 5 -5
+1463 2186 0 3 -11 57
+917 2377 36 14 14 2
+1261 2349 -15 -4
+1398 2349 -11 7
+980 2397 -13 -4
+593 1029 -2 2
+591 1031 2 2 0 -4
+1590 2355 0 3 0 -3
+1593 2357 -1 -3
+2575 1440 -151 3 -19 -6 -70 -1 -101 17
+2234 1453 -1 0 -44 14 -54 12 -68 12 -48 13 -25 2 -3 0 -82 2 -3 0 -90 -1 -93 6
+852 550 36 51 23 25 14 4 34 -7 69 28
+1028 651 67 50 18 22 46 96 18 144
+628 1833 82 -42 26 -14 55 -38 71 -32 35 -22 26 -6 50 -6 51 -20 15 -12 19 -28 83 -19
+628 1833 -24 12 -101 77 -18 10
+1509 585 16 106 12 68 8 137 9 41 0 144
+1524 1940 2 1 2 28 -3 71 2 71 4 36 -2 43 19 42 11 24 13 46 18 53
+1177 963 1 3 8 21 44 74
+2425 1275 -93 52 -59 -8 -18 6 -8 10 -8 33 -19 25
+1949 1332 -1 0 -120 -26 -31 1 -2 1 -91 5 -2 0
+1949 1332 3 1 125 30 118 27
+1240 1399 151 -19 41 -1 37 4 5 1
+1282 1958 -13 -32 -5 -41 13 -58 13 -30 37 -50
+1485 1995 -76 -3 -13 -1 -61 -6 -31 -12 -20 -14 -2 -1
+1575 1207 4 16 -6 22 4 14 8 10 95 27 22 17
+1505 1364 44 -105 1 -64
+1228 1325 3 -28 19 -48 1 -2 50 -76
+1240 1399 -2 4 9 72 10 64 5 27
+1694 1328 -50 71 -3 52
+1573 1494 -13 24 -9 21 -6 12 0 12 8 58 -1 2 2 2
+1452 2246 8 11 15 9 97 36
+1541 1850 -16 86 -1 4 -18 33
+1230 1061 3 2 12 26 16 40 40 42
+1573 1494 0 -1 -1 -8 -1 -10 -29 -55 -9 -14 -9 -8 -20 -11
+1551 1539 14 2 31 -10
+1463 2186 24 -115
+1596 1531 1 0 8 -1 45 -10 72 -7 1 0
+1554 1081 -4 112 0 2
+1157 1590 14 -3 90 -21 1 0
+1329 1648 -2 96 0 3
+1587 1802 8 -33 14 -35 1 -1 -1 -13 -2 0
+1554 1625 7 80
+1261 1566 0 2 9 46 6 32
+1641 1451 -22 2 -32 25 -15 7
+2425 1275 22 -14 28 -34
+1240 1399 -1 -3 -6 -24 -5 -44 0 -2 0 -1
+1541 1850 2 -1 2 -1 35 -26 6 -17 1 -3
+1561 1705 1 1 45 14
+1694 1328 10 -15
+1597 1531 -8 -21 -8 -12 -8 -4
+1575 1207 -4 -9 -5 -3
+1505 1364 -1 0 -30 20
+1496 1987 -3 3 2 6 1 0 5 -1 1 -6 -6 -2
+2220 1393 -2 0 -23 -3
+1141 1594 1 0 15 -4
+1550 1193 7 0
+1485 1995 10 1
+1301 1171 2 -1
+1493 1990 -8 5
+1328 1644 0 1 1 3
+1496 1996 2 4
+1949 1332 0 2 -1 -2
+1587 1802 -2 -1 2 1
+1504 1364 1 0
+1505 1364 -1 0
+369 1452 41 -8
+1952 1333 39 -55 39 -75 43 -84 38 -36 1 -6 -7 -20 3 -4 23 0 20 -13 34 9 14 7 11 1 75 -7 25 14 19 7 9 -14 0 -4 -12 -12 -16 -8 -16 -1 -8 -16 -23 -18 -26 -9 -20 4 -60 -15 -10 -13 -8 -31 -3 -7 -6 -5 -30 0 -21 -12 -21 8 -9 11 -8 10 -38 5 -25 10 -3 7 8 35
+1479 2475 -44 13 -22 9 -52 30
+1838 635 -21 13 -25 28 -49 28 -13 11 -30 32 -7 19 -23 23 -8 4 1 6 11 8 16 24 13 36 16 10 3 5 4 23 -2 15 2 15 4 11 17 4 18 8 35 6 11 -3 11 -8 16 -6 43 -8 16 4 15 16 15 1 19 14
+2077 1363 27 -15 15 -16 13 -24 12 -37 15 -21 61 -35 21 -26 10 0 36 -6 28 -12 21 -3 12 -5 8 -10 13 -36 -2 -21 9 -14 16 -11 -17 -31 1 -17 9 -30 -8 -42 1 -18 -6 -13 -4 -23
+1805 2482 -28 -20 -6 -9 -34 -84 -15 -24 -14 -11 8 -55 2 -47 -5 -58 -11 -39 -26 -44 -14 -26 -2 -13
+2105 585 -10 35 2 35 3 7 17 9 5 8 3 20 -1 16 6 65 -3 10 -23 20 -1 13 2 6 13 6 36 -3 25 15 3 15 5 6 6 3 16 -3 17 7 26 -12 38 -7 80 0
+1051 1852 -6 8 -5 13 0 1 -21 174 -35 170 -16 84 -15 79
+1158 1744 -17 6 -62 20 -112 33 -209 67 -60 -1 -67 -8
+1830 660 -3 16 9 16 7 4 26 -1 30 -5 13 7 0 18 5 4 45 11 32 -2 10 5 6 16 -3 6 -10 8 -21 10 -20 22 -13 8 -9 48 9 18 13 10 -1 14 20 10 16 19 20 2 21 -2 17 7
+2177 1957 16 -85 3 -31 5 -63 3 -25 2 -30 2 -59 8 -91 3 -18 4 -10 11 -12 4 -18 -4 -62
+581 1465 47 12 24 2 36 13 54 -1 93 17 9 -3 44 -28 26 -5 1 0 2 -1 149 17
+1726 935 -3 9 -9 6 0 3 8 6 27 6 10 9 46 7 40 -8 35 2 10 13 13 7 19 32 22 19 37 19 39 32 30 11 23 11
+786 597 13 54 17 32 10 50 6 140
+1110 1057 -7 -60 -7 -31 1 -16 -6 -53 -16 -51 -7 -69 -23 -28 -8 -18 -9 -50 -2 -20 2 -10
+704 1395 0 1 -31 244 -5 80 2 13 40 58
+1525 691 -146 1 -190 21 -76 10
+1348 534 0 -30 8 -27 -4 -37 10 -73
+2038 2379 -18 6 -30 1 -5 3 -19 28
+2423 1997 -19 2 -11 5 -24 3 -30 -7 -65 4
+2274 2004 -2 -1
+501 1830 -7 -78 -4 -34 2 -22 5 -49 11 -59 1 -3 11 -2 5 -21 30 -37 -1 -50
+1093 2381 0 85
+1319 1464 -12 -88 58 -268 3 -11
+2094 1607 -102 0 -56 1 -28 1 -8 5 -29 -10 -16 -1 -15 9 -92 13 -13 0 -7 0
+631 1861 0 2 -21 53 -25 42 -21 22 -33 22 -5 4
+2050 1108 -48 4 -17 -6 -11 -8 -14 6 -10 -7 -24 -6 -32 6 -31 32 -43 36 2 46 -27 13 -12 15
+2159 1948 -25 -15 -55 -13 -45 -21 -50 -17 -56 -32 -47 -24 -37 -27 -1 0
+1490 1517 2 9 3 19 10 94 14 73 5 28 4 20 10 72 5 17
+1412 2531 7 0
+948 1978 -7 -2 -28 -2 -43 4 -11 6 -6 8 -7 20 -1 17 9 72 3 27 9 36 13 24 15 14
+1010 1267 -11 -77 -25 -243
+1469 1383 -12 -29 -37 -234 -5 -43
+877 1080 233 -23 77 -7
+1207 1253 -66 9 -11 1 -67 8 -51 3 -64 0 -49 -4
+2221 1418 -223 8 -80 2
+794 1260 -303 -10
+1139 422 24 207 7 32 16 37 3 15
+718 1100 5 123 -19 172
+1733 555 -19 22 -103 67 -9 30 -20 20 -45 65
+1178 966 9 84 24 182 -4 21
+1733 555 3 -1 34 -1 30 -11 24 -1 15 4 10 6 19 -1 19 7 12 14 8 16 -1 9 -9 7 -39 10 -20 22
+1545 896 -49 -11 -20 8 -51 39 -9 20 -2 22 1 101 0 1 0 1
+2159 1948 0 1 -20 40 -10 7 -79 0 -140 32
+1552 414 57 -22 7 4 4 19 32 4 20 -1 4 -3 -1 -15 14 -6 5 -10 12 7 10 -2
+1946 974 -1 -43 -7 -16 -32 -8 -6 -12 -15 -6 -8 -16 -6 -5 -6 2 -6 16 -7 7 -7 0 -11 -4 -5 -7 -2 -15 -31 -15
+1610 1733 51 -6 3 -1 56 15 70 27 53 31 1 0
+908 2224 -29 3 -59 -1 -100 15
+1877 438 -17 19 -10 24
+675 2105 -5 -51 -2 -29 4 -73 19 -38 7 -45
+1463 1295 14 -4 31 1 176 25 18 -4
+699 2106 44 139 0 17
+1446 1575 1 24 21 139 -1 46 -5 26
+1579 1223 46 -31 11 -3 17 -1 25 3 105 48
+834 2332 42 -25 31 -5 61 0
+2177 1957 -4 19 2 50 -69 37 -74 33
+675 2105 -2 49 -7 34
+1186 987 62 -8 60 1 106 -6
+1721 1979 -166 -124 -10 -7
+2204 1753 -53 -13 -34 -3 -2 -28 1 -33 -14 -54 -8 -15
+1335 2371 1 7 4 3 22 4 30 -2 12 4 34 30 3 7 1 25 4 2 17 -4 14 5 5 23 -3 0
+1830 660 5 0 26 -18 66 -22 27 -16 9 -21 32 -43 1 -1
+1357 1234 -106 13
+1130 1263 1 -30 -21 -176
+888 1477 35 202
+917 1471 -5 -12 -9 -74 -15 -114
+2185 1049 29 25 38 -2 5 1 4 4 3 14 0 25 -10 48 -3 25
+1391 1660 -4 22 -4 123 -26 47
+704 1396 94 0 105 -11
+1524 1740 -197 7
+1420 1120 -9 5 -5 20 -2 70 3 58 0 1 0 -1
+1423 1807 -4 44 -10 141
+406 1726 2 8
+1407 1304 -179 22
+2389 1725 -183 -2
+2431 1116 -16 -15 -23 -30
+1024 1653 4 9 7 56 14 69 35 33
+854 2101 -155 4 -24 0
+410 1444 38 -7 78 26 27 2 28 0
+1247 1475 70 -11 2 0 75 -12 24 -4
+1429 1522 -12 1 -120 12 -38 4 -2 0
+1430 2070 -21 37 -10 10 -94 59 -1 1
+1236 1700 -4 14 -14 8 -60 22
+1141 1750 0 11 -32 34
+1463 2189 -110 -14 -48 11 -1 -9
+1072 1366 -158 17
+1153 1338 -3 -20 -1 -2 -8 -54
+2221 1418 72 -30 26 -16 36 -36
+1936 1355 -8 14 -6 21 -4 38 -3 48 -9 32
+718 1100 3 -2 11 -6 145 -12
+1396 1991 13 75 21 4 57 1
+974 947 -89 -37 -53 -37
+1452 2246 -49 -2 -42 -9 -61 3 -2 -1
+1819 1673 41 -3 49 -29 27 -6 0 -27
+2201 1778 76 9 46 27 -11 20
+1402 1637 84 -5 66 -9
+1485 1076 72 18 -3 -3 3 3
+1303 1170 40 40 14 24 14 24 23 13 13 2
+1063 1271 5 54 4 41 7 51
+2447 1261 2 3 -4 9 -19 25 -4 22 -3 5 -34 18 -30 -7
+1525 1936 -12 -24 -15 -42 -18 -21 -18 -26 0 -13
+531 2002 139 52
+888 1271 0 -2 -6 -35 -15 -33 -21 -30 -30 -25
+1413 1591 -30 -4 -33 4 -10 3 -70 20
+1928 1850 -42 76 -14 54
+1605 1530 32 29 24 19 31 27 16 20
+941 1976 3 -12 4 -6 73 -75 19 -9
+1910 2028 13 12 106 53 3 3
+593 1033 26 26 60 17 39 24
+2371 2076 -106 -66
+2030 1203 129 47
+1555 1855 -1 2 38 57 9 23 17 38
+1777 1439 20 -27 8 -24 -2 -54 -6 -27
+1284 1959 -3 5 1 21 19 108
+1899 2031 -40 -16 -17 -8 -30 -5 -42 -1
+1661 1578 -11 -58 -12 -37 3 -32
+1777 1439 -5 -3 -78 8 -34 2 -19 5
+2193 1872 14 1 50 -9 24 0 46 21
+1423 1807 -86 -4 -47 -6
+1581 1498 15 -10 115 -17
+1327 1744 15 -13 32 -42 13 -7
+862 1707 94 89
+625 1820 -3 -6 -5 -1 -60 1 -56 16
+704 1395 -49 -2 -57 3 0 20
+2265 2010 -86 -53 -20 -9
+1328 1645 0 -1 0 -42 -24 -25 -5 -18 -2 -24
+1299 1559 120 -24
+1586 1805 -92 6 -32 -1
+948 1978 15 7 14 12 8 16 4 25 30 10
+1429 1522 2 -5 2 -6 -15 -63 1 -14 14 -30
+1878 2116 8 72 11 44
+1819 1673 -26 -3 -16 -7 -28 -29 -1 -9
+2196 1841 83 -12 33 5
+1236 2279 -9 -1 -25 5 -11 -5 -6 1 -9 14 -12 9 -4 30
+1402 1637 -1 -1 -125 10
+816 1146 -1 2 -18 112 -3 0
+1401 1636 12 -45 18 -57 -2 -12
+596 2107 79 -2
+1661 1727 -23 34 -51 41
+1553 1621 10 0 24 -9 29 -19 14 -15 7 -19
+953 2391 -3 12
+1270 1614 -16 6 -16 18 -2 8 0 54
+1992 1607 2 -44 -3 -57
+1722 1513 -1 24 14 88
+2370 856 3 -36
+721 1098 94 50
+417 1765 26 -7 51 -6
+1791 475 -5 -40 -6 -30
+1109 1795 100 19
+1605 1108 -10 44 -24 46
+1165 1489 6 46 -3 17 3 35
+1548 2232 -79 15 -17 -1
+1340 1594 -16 -93
+1357 1852 -1 1 -43 86
+1112 1496 1 2 8 9 21 87
+1298 2237 -2 0 -55 -8 2 13 15 22
+2032 2096 -32 16 39 47
+1876 1711 -33 88
+1856 2026 5 26 14 39 3 25
+1150 1318 18 -2 48 -53
+1795 489 -30 20 -29 45
+794 1260 94 9
+2113 564 -10 20
+1303 1170 53 -63 9 1
+2039 2159 47 79
+1331 2283 0 47 4 5 1 36
+2023 508 1 0
+1946 974 1 14 22 24 20 -1 1 -7 -7 -8
+1165 1489 1 0 81 -14
+1305 2176 4 -43 -8 -40
+1723 1496 -2 2 2 -2 54 -57
+1068 1325 81 -9
+1161 1409 -80 8 -2 0
+1490 1517 9 -6 74 -18
+1166 1489 6 -34 -11 -45 0 -1
+1618 1975 0 2 8 40 7 39
+1479 2475 -2 10 -10 22 -19 25
+1109 1795 -2 1 -23 24 -33 32
+984 2218 -73 5 -3 1
+1407 1304 3 3 12 21 10 51
+1394 1452 23 71
+1331 2283 -47 -7 -19 -6 -4 -4 -3 -2
+1876 1711 -57 -38
+598 1416 -24 3 -8 6 -6 13 -7 27
+1239 1396 -6 0 -59 -40
+1209 1814 14 -7 54 20
+1087 1491 -6 -74
+1153 1338 75 -10
+461 1832 -19 5
+1492 1526 61 -11 7 3
+1161 1410 71 -9 6 2
+1153 1338 0 21 8 50
+1485 1076 -70 -1
+1216 1263 6 31 9 3
+1609 1734 -69 5
+1708 1625 -25 63
+1623 1712 57 -22 3 -2
+1006 1840 -39 -37
+1498 2000 15 4 46 -14
+2431 1116 25 21 27 17
+1961 526 9 -5 53 -13
+1357 1852 26 -3 36 2
+1850 481 -8 12 -18 0 -22 -5 -7 1
+1694 1444 17 27 12 25
+1539 2451 62 -19
+2218 1393 3 25 12 35
+2032 2096 13 59
+1790 1246 5 62
+1300 2238 5 -52
+2488 1050 11 0
+1495 1545 50 18
+1463 1295 -53 12
+1113 1498 52 -9
+1539 2451 -50 16
+1718 2006 -51 6
+1557 1094 48 14
+1490 1517 -10 -4 -29 5 -20 -1
+1006 1840 34 33
+1477 1401 47 -3
+1575 1978 17 -36 9 -5
+1996 1470 2 -44
+1477 1401 -44 3
+1680 1690 -4 16 -12 20
+1356 1853 -43 -3
+2368 897 2 -41
+1575 1978 43 -1
+1317 1464 7 37
+1519 1712 41 -6 2 0
+1277 1827 36 23
+1561 2473 22 4 24 -1
+501 1830 -40 2
+1378 1091 11 -8 24 -7 2 0
+1462 1810 -39 -3
+1718 2006 1 0 36 -5
+1107 1796 -28 -26
+1667 2012 -41 5
+1560 1706 -18 26 -2 7
+1994 1506 2 -36
+1261 1568 38 -9
+452 1246 39 4
+1561 2473 -21 -17 -1 -5
+1313 1939 -9 34
+1250 1249 -30 3
+1261 2266 -4 7 -21 6
+2312 1834 33 17
+1718 2006 -5 -16 8 -11
+911 2223 -3 -10 -14 -11
+1466 1563 7 2 1 -7 -7 -1 -1 6
+1872 1980 -1 2 -12 33
+1446 1575 -3 -27
+1540 1739 -2 15 -10 6
+1443 1548 3 -1 20 11 8 0
+1633 2056 27 -4
+1153 1359 21 -3
+1559 1990 16 -12
+1540 1739 -16 1
+1609 1720 14 -8
+1770 2001 -15 0
+1474 1558 12 -8
+903 1385 11 -2
+1486 1550 9 -5
+631 1861 1 -10
+1101 1494 11 2
+1413 1076 2 1
+1012 1274 -2 -7
+1905 2033 -6 -2
+1791 850 1 0 4 2
+1220 1252 -4 1 3 0 1 -1
+1313 1942 0 -3
+1905 2033 1 1 2 0 -3 -1
+1872 1980 -1 2
+1791 850 1 -2 0 2
+1909 1508 0 -3 0 3
+1298 2237 -2 0
+1313 1939 -1 2
+2274 2004 -2 -1
+1995 540 2 0
+1492 1526 -2 0 2 0
+631 1863 0 -2
+1719 2006 -1 0
+1554 1857 1 -2
+1259 1539 -2 0
+914 1472 1 0
+1113 723 -1 0 1 0
+2159 1948 0 1
+699 2105 0 1
+1312 1941 1 1
+1726 2352 -2 -4
+1965 1871 -4 -2
+1458 1356 -1 -2
+1036 1064 3 0
+2055 1996 -5 0
+1809 1779 3 2
+1593 1304 2 1
+1629 1309 2 1
+1328 979 4 0
+1482 2475 -2 0
+1388 2124 -2 1
+1304 2184 0 -3
+1917 1445 0 2
+1967 2062 2 1
+1878 2116 0 6
+1787 443 0 -3
+1428 1358 0 4
+2493 1050 6 0
+1872 1980 -1 2
+1559 1990 2 -2
+1767 2001 -3 0
+1872 1980 -1 2
+1527 1974 0 5
+1538 2210 3 6
+1533 1297 1 -3
+1690 1333 -1 3
+1514 1958 -1 2
+1265 1133 1 2
+1464 2183 1 -6
+1490 1373 -1 1
+1151 1592 6 -2
+1434 561 2 1
+1551 408 1 4
+1510 1668 -85 12 -51 9
+1409 1307 -1 6 1 50 0 4 3 10
+1430 1403 -18 1 -11 1 -17 5 -22 2 -20 1 -31 0
+1320 1479 69 -9
+1366 1493 3 18
+1412 1510 -29 0 -14 1 -35 6 -14 3 -25 3
+1275 1394 -11 -73
+1297 1534 -4 -29 -8 -56 -9 -54
+1356 1424 -33 3 -69 12 -11 0
+1257 1396 -12 -70
+1275 1508 -18 -111
+1318 1455 -60 10
+1395 1440 -1 -41 -3 -19
+1437 1633 1 -7 0 -7 -2 -6 1 -21
+1437 1634 2 20 0 25
+1484 1318 36 -1
+1638 1344 2 39
+1388 1380 -4 -51
+1430 1290 -6 -37 -10 -62
+1483 1303 -18 1 -49 11
+1516 1303 -33 1
+1655 1382 -4 -56
+1482 1291 4 56
+1204 1277 7 52 7 57
+1230 1301 93 2 18 3
+1506 1348 -33 -1
+1634 1384 -3 -32
+1190 1256 19 124
+1611 1460 -4 -9 -3 -10 -1 -9 1 -33 1 -9 2 -4 24 -34 7 -11 8 -17 10 -35
+1632 1392 -28 3
+1353 1228 16 -6 36 7
+1480 1632 1 21
+1668 1365 -4 -50
+1349 1221 19 -5
+1421 1237 41 -7
+1675 1354 -3 -38
+1656 1314 5 51
+1483 1310 41 -1
+1644 1335 3 48
+1305 1199 4 41
+1282 1319 5 -50
+1354 1161 15 58 1 7 -5 22 -20 41 -4 14 0 8
+1309 1240 0 75
+1372 1256 3 -6 1 -4 9 -44 -15 -60 -2 -2 -3 -2 -6 -2
+1404 1215 5 0 4 6 3 10 1 12 0 19 -1 4 -3 5 -5 4
+1338 1586 17 -6 22 -9 3 -2 1 -2 3 -2 14 -8 2 -3 3 -3
+1398 1588 13 -39 5 -12 3 -2
+1521 1625 -10 -58
+1383 1312 18 -2
+1420 1228 41 -7
+1466 1626 12 -2 25 -2
+1493 1671 -3 -40
+1474 1564 3 2 10 1 13 1 9 0 13 -4 23 -13
+1295 1377 23 -2 15 -2
+1316 1448 -58 9
+1250 1416 29 -4
+1392 1480 30 -5
+1418 1219 41 -7
+1345 1214 40 -9 48 -7
+1453 1185 -21 4 -43 6 -45 10
+1414 1589 12 3 20 0
+1500 1592 -17 3 -36 4
+1499 1585 -17 2 -20 5 -16 2
+1477 1566 8 39
+1446 1575 -27 -1
+1605 1390 27 -2
+1604 1408 29 -2
+1513 1335 -27 -1
+1261 1302 10 -56
+1355 1543 -5 1 1 5
+1233 1809 -8 27 -8 148 -2 38 -3 27 -11 24 -219 308 -19 29
+1043 447 1 24 91 759 -2 34 -24 149 0 27 25 107 12 33 10 12 16 10 38 5 20 6
+1462 2532 18 -34 7 -37 -7 -37 -16 -29 -29 -25 -151 -68 -29 -28 -15 -28
+1240 2246 -5 -18 -2 -22 1 -151 -12 -71 -5 0
+1233 1809 44 -55
+1215 2022 5 2 1 4 1 140 4 27 7 11
+1240 2246 -4 3 6 28 -4 23 -10 16 -15 11 -13 5 -69 6 -52 10 -52 13 -21 9 -18 13 -6 -2
+1277 1754 13 -28 1 -13 -3 -17 -33 -63 -13 -14 -12 -6
+1475 893 47 -12 19 9 -7 -82 -101 17 14 88 28 -20
+1391 831 21 128 7 -20 25 -25 -14 -90 -39 7
+1608 971 -7 -32 -27 0 24 -1 -8 -8 10 7 2 -5 2 8 -2 -20 -39 -4 0 10 -8 2 1 72 37 -3 0 -25 15 -1
+1486 1162 -16 1 1 25 -13 3 7 33 39 0 4 37 13 0 -1 -43 26 -1 1 -26 -28 0 -1 -40 31 -1 3 -55 -50 -12 5 39 -41 -20 -1 -26 -16 0 6 60 26 -3 5 29
+2187 1368 21 -31 -3 -26 -13 -13 -14 9 0 30 -44 -10 -13 11 -2 26 49 11 19 -7
+1872 1375 -10 -3 3 -10 -15 -5 -22 -47 -17 -1 -11 7 5 72 -9 30 -16 19 42 1 34 11 21 16 18 4 0 9 17 4 5 -65 -15 -6 -30 -36
+1803 1403 4 -24 -3 -60 9 -2 22 48 67 54 0 30 -22 10 -29 -21 -64 -6 9 -12 7 -17
+684 747 -5 1 -8 -31 4 -17 20 -23 -31 32 14 42 22 16 -4 18 -42 9 4 49 -9 8 14 16 -53 9 -9 -20 6 -30 -7 -19 -17 -3 3 -3 -3 4 16 3 -7 67 -10 12 -8 43 27 6 24 -6 14 -45 10 -2 -1 -6 51 -3 -7 -41 38 1 2 -40 -48 -47
+1050 1546 48 14 11 -7 -2 -10 11 -4 -9 -41 -173 -24 -46 4 25 147 108 4 4 -64 7 -15 16 -4
+921 1525 17 -15 -6 -20 6 -9 156 19 0 23 12 27 -8 6 -59 -23 -19 15 -1 77 -71 0 -6 -1 6 -40 -4 -31 -23 -28
+588 1596 1 -11 -49 -4 8 35 13 14 24 -1 6 -12 18 0 2 -19 -23 -2
+1283 1647 45 -4 -1 -37 -9 -4 -45 14 10 31
+1210 1989 -65 37 6 42 45 6 12 -29 2 -56
+1579 1064 -1 33 28 9 22 -9 1 -45 -27 2 2 9 -25 1
+1536 1407 10 21 27 -4 19 -118 -52 -6 -16 40 7 1 0 9 -12 3 -10 30 27 24
+1739 1388 -3 51 44 -7 19 -37 -60 -7
+1601 1528 41 -8 5 -6 -9 -30 -45 7 -4 10 12 27
+1806 1568 -78 -6 9 57 67 -4 2 -47
+1517 1943 4 -11 -24 -61 -38 -49 -21 20 -8 44 17 -3 12 52 58 8
+1493 2001 -60 -4 -1 71 53 0 8 -67
+1437 386 -5 42 -8 34 -11 12 -4 14 -15 15 2 26 65 14 1 -25 7 -3 10 -24 11 -13 5 -14 28 -15 -3 -11 5 -9 -1 -9 23 -10 -6 -46 -68 -2 -15 10 -9 2 -12 12
+1495 799 -10 -55 -30 5 10 55 30 -5
+1463 804 -10 -55 -29 5 10 55 29 -5
+1421 816 -11 -65 -28 5 11 65 28 -5
+610 876 53 -9 -14 -16 9 -8 -5 -20 1 -29 42 -9 4 -9 -1 -14 -11 -9 -10 -2 -14 -42 -81 95 17 3 7 19 -6 30 9 20
+394 1531 2 28 55 0 8 -25 7 -10 -29 2 -50 -9 5 6 2 8
+1019 1625 3 -24 -2 -53 10 -11 9 -4 59 23 8 -6 -12 -27 0 -23 -156 -19 -6 9 6 20 -17 18 16 13 1 11 6 1 4 31 -6 40 68 3 9 -2
+1854 837 7 1 4 -19 -12 -1 1 19
+2129 1159 5 -15 -10 -6 1 -5 -3 -3 -9 -1 -2 5 -4 -1 1 -5 -4 0 -8 10 14 12 19 9
+1669 1226 -7 -11 -6 3 3 12 -2 6 5 -3 1 6 2 -3 4 2 -3 -5 3 -7
+1902 1449 0 -30 -41 -36 -26 -18 -22 -48 -9 2 2 69 -10 32 -9 12 25 -1 39 7 14 7 15 14 17 -4 5 -6
+1821 2000 8 -12 -1 -6 -4 5 -9 -1 -1 -8 -13 -2 2 -10 -16 -4 1 -8 -10 5 1 5 -10 2 4 5 -2 27 50 2
+1992 2369 -10 16 36 -3 -6 -11 -9 -4 -11 2
+1357 2526 61 -35 43 -17 326 -108
+1434 1430 -2 11 -4 1 0 6 3 0 0 15 -2 0 4 14 2 -1 3 22 38 -6 2 7 1 0 0 -5 2 0 1 1 6 -2 0 5 2 0 -1 -7 30 -4 19 -4 21 -8 -1 -3 -2 1 -12 -18 -5 1 0 -3 -10 1 -2 -16 10 0 0 -2 -1 0 0 -2 -3 1 -7 -13 3 -1 -1 -2 -3 1 -5 -9 0 -3 2 -1 -1 -2 -3 1 0 2 -22 7 -2 -1 0 2 -23 1 0 2 -17 -1 -13 1 -6 4 -3 7 2 0
+2575 1420 -3 -53 -5 -53 -8 -53 -10 -52 -14 -51 -15 -51 -19 -51 -20 -49 -23 -48 -26 -47 -28 -46 -30 -44 -32 -43 -35 -41 -36 -39 -38 -38 -40 -36 -42 -34 -44 -31 -45 -30 -46 -27 -48 -25 -49 -23 -50 -21 -51 -17 -52 -16 -52 -13 -53 -10 -54 -8 -54 -5 -54 -3 -54 0 -54 3 -54 5 -54 8 -53 10 -52 13 -52 16 -51 17 -50 21 -49 23 -48 25 -46 27 -45 30 -44 31 -42 34 -40 36 -38 38 -36 39 -35 41 -32 43 -30 44 -28 46 -26 47 -23 48 -20 49 -19 51 -15 51 -14 51 -10 52 -8 53 -5 53 -3 53 0 54 3 53 5 53 8 53 10 52 14 51 15 51 19 51 20 49 23 48 26 47 28 46 30 44 32 43 35 41 36 39 38 38 40 36 42 34 44 31 45 30 46 27 48 25 49 23 50 21 51 17 52 16 52 13 53 10 54 8 54 5 54 3 54 0 54 -3 54 -5 54 -8 53 -10 52 -13 52 -16 51 -17 50 -21 49 -23 48 -25 46 -27 45 -30 44 -31 42 -34 40 -36 38 -38 36 -39 35 -41 32 -43 30 -44 28 -46 26 -47 23 -48 20 -49 19 -51 15 -51 14 -51 10 -52 8 -53 5 -53 3 -53 0 -54
+@streets line
+name,ref,class,arcs
+Bangalore - Mysore Expressway,,motorway,0;1
+Bangalore-Mysore Road,NH150A;NH275,motorway,2
+Ring Road,NH275K,trunk,3;4;5
+Ring Road,NH275K,trunk,6;7;8;9
+Ring Road,NH275K,trunk,10
+,NH766,trunk,11;12
+Ring Road,NH150A;NH275K,trunk,13
+Ring Road,NH275;NH275K,trunk,14
+Kozhikode - Kollegal Highway,,trunk,15
+Ring Road,NH275;NH275K,trunk,16
+Bannimantapa Road,,trunk,17
+Ring Road,NH275;NH275K,trunk,18
+Ring Road,NH275;NH275K,trunk,19
+Ring Road,NH275;NH275K,trunk,20
+Ring Road,NH275;NH275K,trunk,21
+,NH275K,trunk,22
+,NH275K,trunk,23
+,NH275,trunk,24
+,NH275,trunk,25
+Bannur Road,SH33,primary,26;27
+Madhwacharya Road,SH33,primary,28;29
+Hunsur Road,NH275,primary,30
+,,primary,31
+Ooty Road,,primary,32
+Bangalore Road,,primary,33
+Madhwacharya Road,,primary,34
+Kozhikode - Kollegal Highway,,primary,35
+Kozhikode - Kollegal Highway,,primary,36
+Kozhikode - Kollegal Highway,,primary,37
+Chamaraja Double Road,,primary,38
+Sayyaji Rao Road,,primary,39
+Nelson Mandela Road,,primary,40
+Kozhikode - Kollegal Highway,,primary,41
+,,primary,42
+Jhansi Lakshmibai Road,,primary,43
+Jhansi Lakshmibai Road,,primary,44
+,,primary,45
+Bangalore Nilgiri Road,,primary,46
+Bannimantapa Road,,primary,47
+Ashoka Road,,primary,48
+Mananthavady Road,SH33,primary,49
+,,primary,50
+Nazarabad Main Road,,primary,51
+Bannimantapa Road,,primary,52
+Nazarabad Main Road,,primary,53
+Ooty Road,,primary,54
+Hunusur Road,SH88,primary,55
+Seshadri Iyer Road,,primary,56
+,,primary,57
+Bangalore Nilgiri Road,,primary,58
+Jhansi Lakshmibai Road,,primary,59
+Lokaranjan Mahal Road,,primary,60
+Kozhikode - Kollegal Highway,,primary,61
+Jhansi Lakshmibai Road,,primary,62
+,,primary,63
+,,primary,64
+,,primary,65
+Guest House Road,,primary,66
+Kozhikode - Kollegal Highway,,primary,67
+,,primary,68
+T. N. Narasimhamurthy Circle,,primary,69
+Kozhikode - Kollegal Highway,,primary,70
+Hunsur Road,SH88,primary,71
+Kozhikode - Kollegal Highway,,primary,72
+Nelson Mandela Road,,primary,73
+M. A. Srinivasan Circle,,primary,74
+Nelson Mandela Road,,primary,75
+Seshadri Iyer Road,,primary,76
+,,primary,77
+Kozhikode - Kollegal Highway,,primary,78
+,,primary,79
+,,primary,80
+,,primary,81
+Gaddige Road,,secondary,82
+Chamundi Hill Road,,secondary,83
+,,secondary,84
+,,secondary,85
+Lalitadripura Road,,secondary,86
+Naguvanahalli Road,,secondary,87
+,,secondary,88
+Krishnaraja Sagara Road,,secondary,89
+Kalidasa Road,,secondary,90
+,,secondary,91
+Dr Rajkumar Road,,secondary,92
+Bogadi Road,,secondary,93
+Nandi Road,,secondary,94
+Vishvashanti Road,,secondary,95
+,,secondary,96
+Chaduranga Road,,secondary,97
+Link Road,,secondary,98
+,,secondary,99
+,,secondary,100
+,,secondary,101;102
+Vijayanagara Road,,secondary,103
+,,secondary,104
+Narayana Shastri Road,,secondary,105
+Main Road (Jyotinagara),,secondary,106
+General Thimmaiah Road,,secondary,107
+Maharana Pratap Road,,secondary,108
+,,secondary,109
+Ashoka Road,,secondary,110
+,,secondary,111
+Contour Road,,secondary,112
+Adichunchangiri Road,,secondary,113
+Ramanuja Road,,secondary,114
+Udayaravi Road,,secondary,115
+New Kantharaje Urs Road,,secondary,116
+Vinaya Marga,,secondary,117
+New Kantharaje Urs Road,,secondary,118
+,,secondary,119
+"Chaduranga Road, 13th Main Road",,secondary,120
+,,secondary,121
+Ambedkar Road,Ambedkar Road,secondary,122
+,,secondary,123
+Sewage Farm Road,,secondary,124
+,,secondary,125
+,,secondary,126
+Chamundi Hill Road,,secondary,127
+,,secondary,128
+Kumbara Koppalu Road,,secondary,129
+,,secondary,130
+"6th Main, Vijaynagar",,secondary,131
+Mahatma Gandhi Road,,secondary,132
+1st Main Road,,secondary,133
+Kalamma Temple Street,,secondary,134
+,,secondary,135
+1st Main Road,,secondary,136
+,,secondary,137
+Vijayanagara Main Road,,secondary,138
+,,secondary,139
+Shivaji Road,,secondary,140
+,,secondary,141
+,,secondary,142
+,,secondary,143
+,,secondary,144
+Jayanagar 1st Main,,secondary,145
+Open Air Theater Road,,secondary,146
+Vishvamanava Road,,secondary,147
+,,secondary,148
+Anegundi Road,,secondary,149
+Sahukar Chennaiah Road,,secondary,150
+Sawdey Road,,secondary,151
+Basaveshwara Road,,secondary,152
+,,secondary,153
+24th Cross Road,,secondary,154
+Vani Vilasa Road,,secondary,155
+,,secondary,156
+,,secondary,157
+Valmiki Road,,secondary,158
+High Tension Main Road,,secondary,159
+Bogadi Road,,secondary,160
+Ramavilas road,,secondary,161
+D. Devaraja Urs Road,,secondary,162
+,,secondary,163
+Krishnaraja Sagara Road,,secondary,164
+Krishnaraja Sagara Road,,secondary,165
+Main Road,,secondary,166
+Sarasvatipuram 5th Cross,,secondary,167
+Krishnaraja Boulevard,,secondary,168
+Main Road,,secondary,169
+Vihara Marga,,secondary,170
+Udayaravi Road,,secondary,171
+1st Main Road,,secondary,172
+Vishvamaitri Road,,secondary,173
+1st Main Road,,secondary,174
+,,secondary,175
+,,secondary,176
+Irwin Road,,secondary,177
+Nilgiri Road,J L B Road,secondary,178
+Madhwacharya Road,,secondary,179
+Kantharaje Urs Road,,secondary,180
+,,secondary,181
+,,secondary,182
+,,secondary,183
+Vishvamanava Road,,secondary,184
+Dhanvantri Road,,secondary,185
+Quba Masjid Road,,secondary,186
+Theobald Road,,secondary,187
+1st Main Road,,secondary,188
+,,secondary,189
+Vishvamanava Road,,secondary,190
+,,secondary,191
+,,secondary,192
+Rajendranagara Main Road,,secondary,193
+Karanji Tank Bund Road,,secondary,194
+,,secondary,195
+,,secondary,196
+Shalivahana Road,,secondary,197
+Lokaranjan Mahal Road,,secondary,198
+,,secondary,199
+,,secondary,200
+Mirza Road,,secondary,201
+Sayyaji Rao Road,,secondary,202
+Temple Road,,secondary,203
+Jayalakshmipuram Road,,secondary,204
+Sahukar Chennaiah Road,,secondary,205
+,,secondary,206
+,,secondary,207
+Vinoba Road,,secondary,208
+,,secondary,209
+,,secondary,210
+Sayyaji Rao Road,,secondary,211
+Syed Abdul Rahman Road,,secondary,212
+Kyathamaranahalli Road,,secondary,213
+,,secondary,214
+,,secondary,215
+Irwin Road,,secondary,216
+Paduvana Road,,secondary,217
+Sayyaji Rao Road,,secondary,218
+,,secondary,219
+Gandhi Nagara Road,,secondary,220
+,,secondary,221
+Krishnaraja Sagara Road,,secondary,222
+Krishnaraja Sagara Road,,secondary,223
+,,secondary,224
+Lokaranjan Mahal Road,,secondary,225
+,,secondary,226
+Vishvamanava Road,,secondary,227
+8th Main Road,,secondary,228
+,,secondary,229
+Narayana Guru Road,,secondary,230
+Chamappa Road,,secondary,231
+,,secondary,232
+Shiva Rameshwara Road,,secondary,233
+Narayana Shastri Road,,secondary,234
+,,secondary,235
+,,secondary,236
+,,secondary,237
+,,secondary,238
+,,secondary,239
+Quba Masjid Road,,secondary,240
+Narasaraja Road,,secondary,241
+,,secondary,242
+New Kantharaje Urs Road,,secondary,243
+,,secondary,244
+Jhansi Lakshmibai Road,,secondary,245
+,,secondary,246
+,,secondary,247
+,,secondary,248
+Chamundi Hill Road,,secondary,249
+Sita Vilasa Road,,secondary,250
+,,secondary,251
+,,secondary,252
+,,secondary,253
+Chamaraja Double Road,,secondary,254
+,,secondary,255
+Krishnaraja Boulevard,,secondary,256
+Rajendranagara Main Road,,secondary,257
+,,secondary,258
+Krishnaraja Sagara Road,,secondary,259
+Kumbara Koppalu Road,,secondary,260
+Sayyaji Rao Road,,secondary,261
+,,secondary,262
+Kaverinagara Road,,secondary,263
+Kyathamaranahalli Road,,secondary,264
+2nd Cross Road,,secondary,265
+Jayalakshmi Vilasa Road,,secondary,266
+,,secondary,267
+Kantharaje Urs Road,,secondary,268
+Vani Vilasa Road,,secondary,269
+1st Main Road,,secondary,270
+Sri Harsha Road,,secondary,271
+Chamaraja Double Road,,secondary,272
+Krishnaraja Boulevard,,secondary,273
+Nilgiri Road,J L B Road,secondary,274
+Ambedkar Road,Ambedkar Road,secondary,275
+,,secondary,276
+Theobald Road,,secondary,277
+Abba Road,,secondary,278
+Temple Road,,secondary,279
+Abdul Kalam Road,,secondary,280
+,,secondary,281
+,,secondary,282
+Omar Khayyam Road,,secondary,283
+,,secondary,284
+,,secondary,285
+Varuna Canal Service Road,,secondary,286
+T. Narasipura Road,,secondary,287
+,,secondary,288
+,,secondary,289
+,,secondary,290
+,,secondary,291
+Chandragupta Road,,secondary,292
+Mahatma Gandhi Road,,secondary,293
+Radhakrishnan Avenue,,secondary,294
+Varuna Canal Service Road,,secondary,295
+,,secondary,296
+,,secondary,297
+Albert Victor Road,,secondary,298
+Temple Road,,secondary,299
+,,secondary,300
+,,secondary,301
+,,secondary,302
+Harishchandra Road,,secondary,303
+Theobald Road,,secondary,304
+Omar Khayyam Road,,secondary,305
+,,secondary,306
+,,secondary,307
+Narayana Shastri Road,,secondary,308
+,,secondary,309
+Omar Khayyam Road,,secondary,310
+,,secondary,311
+,,secondary,312
+Jhansi Lakshmibai Road,,secondary,313
+,,secondary,314
+,,secondary,315
+,,secondary,316
+,,secondary,317
+,,secondary,318
+4th Cross Road,,secondary,319
+Vinoba Road,,secondary,320
+New Kantharaje Urs Road,,secondary,321
+Varuna Canal Service Road,,secondary,322
+,,secondary,323
+New Kantharaje Urs Road,,secondary,324
+,,secondary,325
+,,secondary,326
+12th Cross Road,,secondary,327
+Contour Road,,secondary,328
+Gandhi Square,,secondary,329
+Quba Masjid Road,,secondary,330
+Hanumantha Rao Street,,secondary,331
+,,secondary,332
+,,secondary,333
+,,secondary,334
+,,secondary,335
+,,secondary,336
+,,secondary,337
+Abba Road,,secondary,338
+,,secondary,339
+,,secondary,340
+Sarasvatipuram 5th Cross,,secondary,341
+,,secondary,342
+100 Foot Road,,secondary,343
+Bogadi Road,,secondary,344
+,,secondary,345
+Adichunchangiri Road,,secondary,346
+,,secondary,347
+Chamundi Hill Road,,secondary,348
+New Kantharaje Urs Road,,secondary,349
+,,secondary,350
+,,secondary,351
+,,secondary,352
+Chamundi Hill Road,,secondary,353
+,,secondary,354
+,,secondary,355
+,,secondary,356
+,,secondary,357
+,,secondary,358
+,,secondary,359
+,,secondary,360
+,,secondary,361
+,,secondary,362
+,,secondary,363
+,,secondary,364
+,,secondary,365
+,,secondary,366
+,,secondary,367
+,,secondary,368
+@bridges line
+class,arcs
+trunk,400
+trunk,401
+primary,391
+primary,392
+primary,393
+primary,394
+primary,395
+primary,396
+primary,397
+primary,398
+primary,399
+secondary,369
+secondary,370
+secondary,371
+secondary,372
+secondary,373
+secondary,374
+secondary,375
+secondary,376
+secondary,377
+secondary,378
+secondary,379
+secondary,380
+secondary,381
+secondary,382
+secondary,383
+secondary,384
+secondary,385
+secondary,386
+secondary,387
+secondary,388
+secondary,389
+secondary,390
+@lanes line
+name,arcs
+Kabir Road,402
+Tyagaraja Road,403
+Veeneseshanna Road,404
+Lakshmi Vilas Road,405
+Shivayana Mutt Road,406
+Bidar Krishnappa Road,407
+Diwan's Road,408
+Diwan's Road,409
+College Road,410
+D. Subbaiah Road,411
+D. Subbaiah Road,412
+M. N. Jois Street,413
+2nd Cross Road,414
+2nd Cross Road,415
+2nd Cross Road,416
+2nd Cross Road,417
+2nd Cross Road,418
+Renukacharya Temple Street,419
+4th Cross Road,420
+4th Cross Road,421
+4th Cross Road,422
+4th Cross Road,423
+Shankara Matha Road,424
+1st Cross Road,425
+1st Cross Road,426
+1st Cross Road,427
+1st Cross Road,428
+Gita Road,429
+Manasara Road,430
+3ನೆೇ ಕ್ರಾಸ್,431
+6th Cross Road,432
+6th Cross Road,433
+6th Cross Road,434
+7th Cross Road,435
+7th Cross Road,436
+7th Cross Road,437
+5th Cross Road,438
+3rd Cross Road,439
+3rd Cross Road,440
+Mysuru K. Vasudevacharya Road,441
+2nd Main Road,442
+2nd Main Road,443
+1st Main Road,444
+1st Main Road,445
+1st Main Road,446
+Seebaiah Road,447
+Ane Sarot Street,448
+Halladkeri main road,449
+8th Cross Road,450
+8th Cross Road,451
+8th Cross Road,452
+8th Cross Road,453
+Soji Street,454
+Sunnadakeri 1st cross,455
+Sonar Street,456
+Harsh Sharma,457
+Lakshmivilas Road,458
+9th Cross Road,459
+10th Cross Road,460
+11th Cross Road,461
+Gargeshvari Gadichauka Road,462
+Ashoka Road 5th West Cross Road,463
+Ashoka Road 4th West Cross Road,464
+Uma Theatre Road,465
+Old Bank Road,466
+4 ಕ್ರಾಸ್,467
+ಗರಡಿ ರಸ್ತೆ,468
+1st A Cross Road,469
+3rd Main Road,470
+South Cross 4,471
+@rail line
+kind,colour,lines,arcs
+r,,,472
+r,,,473
+r,,,474;475
+r,,,476
+r,,,477
+r,,,478
+r,,,479
+@green polygon
+kind,arcs
+wood,480
+wood,481
+wood,482
+wood,483
+wood,484
+wood,485;486
+park,487
+park,488;489
+park,490
+park,491
+park,492
+park,493
+park,494
+park,495
+park,496
+park,497
+park,498
+park,499
+@water polygon
+arcs
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+@waterways line
+name,kind,arcs
+Varuna Canal,canal,513
+@monuments polygon
+name,wikidata,arcs
+Mysore Palace,Q456575,514
+@clip polygon
+arcs
+515
+@places
+
+@parks
+name,kind,ha#,lon#,lat#
+ಲಿಂಗಾಂಬುದಿ ನಗರ ಉದ್ಯಾನವನ,park,50,76.61339,12.27439
+Kukkarahalli Kere,lake,45,76.63042,12.30916
+Dalavayi Kere,lake,45,76.65528,12.2535
+Lingambudhi Kere,lake,27,76.61268,12.27252
+Kukkarahalli Lake Park,park,25,76.62706,12.30753
+Karanji Kere,lake,20,76.67321,12.30249
+@stations
+name,kind,rank#,lon#,lat#
+Ashokapuram,r,3,76.63601,12.27409
+Chamarajapuram,r,3,76.63786,12.29815

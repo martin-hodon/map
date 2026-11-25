@@ -6,9 +6,9 @@
 <title>World layers</title>
 <style>
   :root { --bg: #dfe8ee; --sea: #c9dbe6; --land: #f4f1e8; --ink: #2a3440; --dim: #6b7682; --panel: #ffffffee; --line: #9aa6b2;
-          --hi: #e0552b; --hi-fill: #e0552b55; --game: #d7191c; --game-fill: #d7191c38; --ok-fill: #2e9d4a99; --miss-fill: #7a5cc299; --water-label: #3d6f96; --land-label: #7a5a3a; --field: #fff; }
+          --hi: #e0552b; --hi-fill: #e0552b55; --game: #d7191c; --game-fill: #d7191c38; --ok-fill: #2e9d4a99; --miss-fill: #7a5cc299; --last: #e08a00; --last-fill: #f0a020bb; --water-label: #3d6f96; --land-label: #7a5a3a; --field: #fff; }
   @media (prefers-color-scheme: dark) { :root { --bg: #11161b; --sea: #16222c; --land: #2a2d2a; --ink: #d9dee3; --dim: #8b949c; --panel: #1b2228ee; --line: #56616b;
-          --hi: #ffb347; --hi-fill: #ffb34755; --game: #ff4545; --game-fill: #ff454545; --ok-fill: #5fd27a88; --miss-fill: #b39ddb88; --water-label: #7fb0d6; --land-label: #d0b48e; --field: #11161b; } }
+          --hi: #ffb347; --hi-fill: #ffb34755; --game: #ff4545; --game-fill: #ff454545; --ok-fill: #5fd27a88; --miss-fill: #b39ddb88; --last: #ffb02e; --last-fill: #ffb02eaa; --water-label: #7fb0d6; --land-label: #d0b48e; --field: #11161b; } }
   html, body { margin: 0; height: 100%; overflow: hidden; overscroll-behavior: none; background: var(--bg); color: var(--ink); font: 13px/1.4 system-ui, sans-serif; }
   /* (the map's own gestures: a pinch zooms the map, not the page. Fixed to the viewport as it is now -- not 100vh, on a
      phone the height without the browser's bar, which the picture was stretched to whenever the bar came or went) */
@@ -198,7 +198,7 @@
   <select id="biolevel" aria-label="Biogeographic level" hidden><option value="realms">realms</option><option value="biomes">biomes</option><option value="ecoregions">ecoregions</option></select>
   <div id="histbox" hidden><input type="range" id="year" min="-2999" max="2019" step="1" aria-label="Year"><input type="text" id="day" size="11" aria-label="Day (1914-06-28, 1914, 700 BC)" title="a day (1914-06-28), a year (1914) or a year BC (700 BC)"><button id="wars-btn" title="Wars and campaigns: their battles and the moves between them">⚔</button></div>
   <div id="legend"></div>
-  <select id="palette" aria-label="Country colours"></select>
+  <select id="palette" aria-label="Colours"></select>
   <label><input type="checkbox" data-layer="land" checked> 1 land, coast, lakes</label>
   <label><input type="checkbox" data-layer="countries" checked> 2 countries, borders</label>
   <label><input type="checkbox" data-layer="regions" checked> 3 states, provinces</label>

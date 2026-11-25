@@ -1,0 +1,716 @@
+# Bukhara: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 64.34900 39.69570
+@arcs
+2993 828 2 3
+3233 2426 -1 24 -5 9 -20 20 -22 8 -255 22 -62 10 -63 16
+2805 2535 -72 24
+1637 2895 -238 -5 -52 -10 -41 -14 -176 -80 -40 -21 -179 -134 -58 -49
+654 1521 -15 -2
+1398 2257 -3 -3
+1349 2204 -145 -162 -52 -39
+1152 2003 -229 -167 -3 -2 -59 -43 -25 -30 -25 -57 -25 -60 -132 -123
+2197 1224 0 4 -18 109 -9 59 -41 249 -8 24 -17 27 -50 68 -106 150 -12 16 -34 29 -171 101 -155 91 -2 2 -176 104
+2197 1224 13 -14 80 -39 263 -129 2 -1 189 -92 249 -120 0 -1 25 -10
+1685 2473 19 49
+1398 2257 -136 81 -55 33 -84 49
+1104 2431 -4 3
+1090 2440 -19 12 -29 17
+1034 2473 0 1
+1576 2151 67 165 11 55 10 42 21 60
+657 1522 -1 0 -2 -1
+2063 1327 -7 32 -29 124 -20 58 -21 24 -53 28 -39 32 -56 44 -121 25 -57 11 -40 2 -1 0
+732 1528 8 12 158 108 44 16 137 46 5 2 17 4 155 7
+1105 1413 30 -25 45 -26 74 -22 4 0 311 -5 63 1
+1574 2153 -93 -130 -71 -86 -7 -17 0 -29 24 -130
+732 1528 55 6 72 8 123 10 99 8
+2063 1327 -54 -6 -36 -28 -144 -119 -1 -2
+1630 1412 -2 -74 64 -128
+1079 1710 -61 27 -55 76 -40 23
+1427 1761 6 -2 6 -2 59 0 21 -5 68 -40 30 -8 1 2 2 1
+1617 1704 15 -64 20 -85
+1081 1560 15 -132 9 -15
+2197 1228 -19 1 -92 45 -11 11 -12 41 0 1
+1272 1731 26 19 15 5 114 2 6 2
+1084 1712 3 -5 31 -14 46 -32 32 -14
+1196 1631 2 15 1 2 60 73 -3 2
+1829 1174 -76 17 -24 5 -16 13
+1194 1603 4 6 -2 22 -5 3 -20 -1 -9 -23 4 -6 25 -1
+1166 1604 -8 -9 -7 -27 -26 1 -42 -8 -2 -1
+1632 1490 -2 -78
+1632 1490 2 1 1 1 3 18 16 31 -1 13 -1 1
+656 1522 1 0 75 6
+1427 1761 0 -4
+1616 1707 1 -3
+1618 1706 1 1
+1630 1415 0 -3
+2063 1326 0 1
+1191 1603 3 0
+1828 1172 2 -1
+1199 1648 -3 -1
+1083 1561 -2 -1
+1196 1647 2 -1
+2828 627 -34 -45
+1963 728 -11 -4 -105 -35 -54 -12 -43 -3 -192 0 -567 145 -366 95 -29 14 -23 27
+605 1254 8 42
+624 1351 19 72 11 73
+2880 2145 -64 -28
+2816 2117 -78 -35 -129 -75 -170 -106 -131 -68 -197 -45 -57 -24
+991 819 56 141 36 93 16 27 36 57 44 70 73 124 2 9
+1105 540 15 -3
+991 819 -88 -239
+3515 2799 -25 -79 -3 -63 -6 -5 -34 -9 -20 -8
+3414 2625 -10 -7 -2 -8
+3402 2606 1 -58
+809 1703 2 1
+1610 605 158 -37
+2118 774 250 67 197 -89 263 -125 165 202
+1666 362 -56 243
+1610 605 -30 122
+1696 1201 27 -50 49 -85 122 -239
+2816 2099 0 18
+2887 2679 -33 -65 -49 -79
+918 1834 2 0
+2479 1431 -136 5 -56 -4 -22 -2 -82 16 -269 61 -67 15 -114 23 -74 11 -6 -2
+1099 1080 46 -13 94 -1 145 -3 334 -4 150 45
+2213 2159 17 25 311 99 72 48 127 111 57 85
+2479 1431 121 379 6 49 6 145 -3 3
+1501 920 7 3 26 -1 145 -3 97 -3 161 49 2 1 257 78 4 3
+1158 2726 7 0 9 -7 75 -36 229 -171 115 -80 71 -19
+1500 1417 0 -1 -7 -464 -4 -23
+2308 1833 7 -102 -50 -301
+1179 1207 517 -6
+1731 2060 2 -10 -3 -9 -58 -165 -12 -22 -53 -58 -5 -25 14 -64
+1207 2371 -1 -1
+2745 951 -1 -2
+1478 924 -97 2 -4 0 -145 4 -70 1 -115 29
+1713 1209 -5 10 66 86 1 1 26 34 12 9 47 62 14 22 40 66 0 8
+1262 2338 167 61 13 17 41 -5 10 -9 7 -3 29 0 125 -28
+2249 1108 -120 55 -16 13 -57 -12 -63 -22 -125 -38
+1403 1891 -26 -8 -100 -42 -90 -21 -23 -30 -63 -65 0 -9
+1948 1914 -151 -102 -20 -18 -11 -16 -22 -46 -27 -38
+1860 1411 -59 2 -171 2 -130 2
+1634 1491 -173 2
+2555 1041 -122 -178 -65 -22
+2009 1967 118 101 28 37 37 22 21 32
+882 1346 -12 -63 1 -7 31 -29 21 -9 103 -69 3 -16
+787 1534 -77 -108 -89 -93
+1939 966 -71 138 -34 65 -4 2
+978 1372 29 8 48 21 50 12 54 27 80 31
+2050 756 1 -2 -114 211
+2433 1316 -37 18 -64 25 -74 12 -88 25
+2553 1042 37 46 16 39 32 45 14 39 3 4 31 -11
+859 1542 -6 -19 33 -148 -4 -27 0 -2
+1580 727 -46 195
+1874 1433 -9 2 -35 23 -26 10 -135 21 -34 3
+2054 1764 -216 -95
+2433 1316 -143 -145
+1569 1335 4 176
+982 1552 25 -172
+2104 1696 95 38 59 -4 57 1
+1403 1891 111 20 68 -6 39 -9
+1272 1731 -12 5 -2 5 12 48 -1 47 -16 36 -11 13
+1632 1640 -23 -2 -35 13 -65 18 -77 10
+1643 2316 193 -57
+1973 1293 -42 31 -18 31 -23 43 -10 8 -20 5
+1679 919 2 -25 48 -120
+1464 1553 10 -3 35 1 43 -8 18 0 82 12
+1381 926 3 137
+1239 1066 -7 -136
+1152 2003 24 -46 33 -53 33 -19
+2118 774 -68 -18 -87 -28
+1729 774 -3 -3 -146 -44
+2433 1316 26 50 20 65
+1416 1562 9 26 6 59 -3 26 4 6
+1664 2413 142 -31
+1913 1355 38 10 96 -8 9 2
+1632 1336 88 -16 52 -14 2 -1
+1894 827 39 -66 19 -16 0 -21
+811 1704 35 -3 48 -12 32 -12 16 -13
+1894 1625 -15 -26 -32 -77
+1310 1442 -3 -12 -8 -11 -2 -3 -16 -16 -23 -52 0 -8
+1409 1418 -59 2 -49 -6 -4 2
+2179 1337 -80 -5 -36 -5
+1933 1593 -19 -86
+1135 1137 -106 16
+2200 1047 7 4 42 57
+1936 1930 35 6 38 31
+1409 1418 5 -1 86 -1
+1552 1512 21 -1 65 -1
+882 1348 79 19
+1239 1471 14 -8 57 -21
+1418 1451 18 0 9 6 16 36
+1549 1762 36 17 22 17
+1440 1735 -8 -56
+1660 1854 -39 42
+1416 1562 11 -6 37 -3
+1418 1451 0 -2 -4 -32
+1552 1543 0 -31
+1519 1752 16 8 14 2
+654 1496 3 26
+978 1372 -10 0 -7 -5
+1418 1451 0 -2
+1723 1151 3 1 -3 -1
+1753 1191 -1 -3 1 3
+1801 1413 0 -2 0 2
+1299 1419 -2 1 2 -1
+1632 1490 2 1
+2287 1432 0 -3 0 3
+1775 1306 -3 0
+1381 926 0 -1 0 1
+1799 678 -3 0
+574 953 -1 2
+2816 2117 -5 -2
+975 774 -2 -6
+2221 802 11 3
+2463 798 8 -3
+2565 752 8 -4
+2816 2113 0 4
+1703 1964 -1 -3
+1701 1960 0 -3
+1237 1888 5 -3
+3149 2491 -10 0
+857 2585 -4 -3
+1222 2062 -7 -8
+2625 1007 6 -3
+1044 2468 -2 1
+1198 1613 73 -1 70 3
+1401 1614 3 -3 6 -1 4 -3 24 0 42 -4 54 0 7 1 13 -1 12 -3 16 1 14 -2 44 7
+1608 1510 1 40
+1471 1549 -1 -8 -25 -25 -6 -10 -13 -14 -4 -6 -1 -5
+1083 1641 84 -15
+1414 1856 85 -22 30 -7 43 -13
+1088 1640 18 59
+951 1585 2 -4 0 -8 1 -2 14 3 50 3
+984 1566 35 1
+1018 1580 -1 4
+1018 1580 35 2 30 0
+1018 1577 0 3
+1019 1567 -1 10
+1020 1566 -1 1
+1020 1566 12 0 1 1 51 6
+1022 1557 -2 9
+1082 1590 1 -8
+1083 1582 1 -9
+1084 1573 1 -12
+1510 1848 -51 -77 -5 -10
+1593 1903 -19 -86 -9 -29 14 -12
+1357 1874 1 -114
+1271 1815 128 1 19 2
+1103 1728 -4 1 -5 0 -8 -2 -35 65 0 1 -1 4
+1087 1803 19 -72
+1105 1805 15 -60
+1121 1808 12 -43 2 -3
+1134 1809 9 -39
+999 1763 18 7
+1032 1748 -16 -8
+1017 1770 38 14
+1017 1770 15 -22
+1064 1767 -32 -19
+1032 1748 43 -19 7 -2 4 0
+1340 1449 26 -5 24 -6
+1090 1507 35 3 1 -6 109 0
+1235 1506 1 3 5 5 2 8 1 8 -3 7
+1299 1492 3 1 3 0 52 -10 3 1 13 -4 22 -3
+1220 1478 19 -7
+1125 1569 -2 -44
+1088 1521 35 4 32 1
+1383 1471 -2 -8
+1385 1478 -2 -7
+1383 1471 17 -1
+1143 1552 43 -1 -2 -12 -43 -1 2 14
+1335 1450 8 17 2 0 3 6 9 -3 2 5 -2 8
+1268 1547 -4 -6 0 -13 3 -7 6 -8
+1552 1512 -61 1
+1389 1554 -13 5 -3 -1 0 -2 1 -1 15 -1
+1389 1554 18 0
+1485 1549 -1 -14
+1522 1580 -8 0
+1515 1559 0 9 1 4
+1522 1580 -4 -8
+1526 1589 -4 -9
+1530 1603 -3 -13
+1588 1548 -1 6
+1568 1601 0 -16
+1579 1578 6 23
+1219 1670 17 2 27 5 18 4 22 4
+1239 1698 6 -3 15 0 11 -1 8 1 0 14
+1303 1685 1 8 2 4
+1303 1685 15 -1 2 1 1 1 3 6
+1488 1644 -28 4 -14 -2 -15 1
+1352 1617 -1 2 -1 0 1 4 0 12 -2 19 -8 23 -1 7 -3 4 -5 3
+1364 1570 -2 1 -6 22 -2 15
+1533 1586 1 17
+1013 1451 -3 31
+1337 1562 0 -4 3 -6 6 1 8 4 5 1 -1 4
+1191 1603 4 -3 8 -6
+1203 1594 -2 4 -3 11
+1203 1594 24 -24 8 -6 14 -7
+1249 1557 2 -2 17 -8 2 -2 29 -4 15 0 18 -6 19 -3 2 -2 12 1 8 2 43 7 30 2 6 1 17 6
+1259 1558 -10 -1
+1358 1513 -6 2
+1353 1530 0 4 1 5 -6 1 2 4 3 3 1 10
+1373 1538 19 1 -1 15
+1395 1418 -2 -11 -1 -23
+1408 1510 3 -5 8 -17 2 -7 -3 -30
+1463 1533 5 -3 13 -4
+1481 1526 2 3 1 6 10 0 5 -2 12 0
+1481 1526 12 -4 -2 -9
+1513 1549 1 -7 -3 -9
+1511 1533 -2 -5 16 -3 13 2
+1511 1533 19 -3
+1532 1545 -1 -5 -1 -14
+1543 1584 3 9 7 1 3 8
+1542 1584 0 -4 1 0
+1105 1637 11 40 2 4 9 7
+1128 1689 34 29 0 2
+1155 1636 3 17 9 7
+1133 1390 -47 -54 1 1
+1089 1338 46 50
+1405 1514 17 6 6 1
+1460 1531 -6 6 -2 6
+1411 1539 3 -14 -1 0 3 -7
+1432 1517 -2 -1 -2 5 -4 9 -1 10
+1504 1603 1 50
+1506 1588 -1 -14 -3 -8 -1 -7
+1504 1669 -1 -13 2 -3
+1509 1588 -1 9 -4 0 -1 1 1 5
+1509 1588 -3 0
+1527 1590 -18 -2
+1275 1631 8 0 5 1 16 7 12 3 5 0 11 0
+1330 1615 0 14 7 40
+1391 1615 0 5 8 1
+1399 1621 1 1 7 1 1 1 5 2
+1401 1614 -2 7
+1411 1648 2 -7 0 -15
+1413 1626 15 0
+1337 1669 -20 1 -5 2 -5 1 -3 -8 0 -11 -2 -5 0 -6 2 -4
+1435 1701 13 -2
+1436 1706 11 0 3 1 4 4 12 0
+1439 1729 5 0 13 -4 8 -1 1 -13
+1467 1693 -1 18
+1446 1693 40 0 45 -1
+988 1779 35 15 36 9 41 4 28 5 -1 5 -5 5 -1 3 22 15 36 31 28 30 2 3
+1483 1557 -1 12 5 0 2 -8 1 -3
+1247 1600 1 -14 -4 -3
+1293 1412 -20 17 -7 7 -4 2 -21 -16 -2 2 -2 0 -19 -10 -42 -47
+1256 1600 1 -6 -1 -8 2 -6 3 -3
+1402 1518 -9 -1 -5 1 -5 -3
+1454 1525 6 -3 5 1 5 6
+1417 1490 -27 -3 -6 0 -4 4
+1292 1510 -1 6 7 19 1 6
+1469 1659 -9 1 -5 -2 -24 -2
+1314 1444 73 -13 4 -1 18 -12
+1400 1445 -2 2 4 17 -3 8 0 4
+1310 1442 4 2 1 20 4 8 4 4 8 12 2 10 19 17 3 5 6 6 4 5
+1493 1821 -14 5 -5 2 -8 0
+1343 1467 -21 9
+1338 1457 6 -2 10 -2
+1354 1453 -3 -15
+1359 1467 -5 -14
+1360 1489 -5 6 -1 5 4 13
+1360 1484 2 17 5 -1 1 3 5 1 0 1 2 0 -1 8
+1360 1487 10 2 6 0 4 2
+1384 1511 -1 4 -16 -4 -9 2
+1383 1498 -1 7 2 6
+1384 1511 7 -12
+1408 1510 -5 -2 -4 -9 6 -12 -3 -4 -5 -1 -2 -5
+1401 1459 -42 8
+1395 1477 10 -1 7 4 9 1
+1366 1444 3 5 9 5 -7 9 -2 2
+1381 1601 7 1 2 6 15 0
+1465 1724 27 0 1 3 -4 1 -1 10 -3 7 0 6
+1324 1692 2 164 -1 5
+1241 1470 21 9 13 9 8 3 10 7
+1260 1721 8 0
+1357 1470 2 0 0 -3
+1666 364 -77 20 -51 18
+1474 431 -98 44 -110 38
+1266 513 -389 132 -86 36 -190 91
+1266 513 -11 -3 -326 65
+810 581 -58 -5 -59 -10
+2960 764 -243 155 -41 23 -513 222
+1530 877 -6 -21 23 -10 21 -90 -87 2 12 145 30 -1 3 -11 12 0 3 -13 -11 -1
+817 1227 13 0 8 22 31 -6 -3 -19 -18 -2 1 -28 -58 -7 26 40
+772 1275 36 1 -4 -27 12 -8 -4 -6 -17 1 -3 -15 -26 -3 9 15 -22 3 19 39
+1497 1345 -37 -4 9 74 29 -4 -1 -66
+1318 1393 72 17 -24 -59 -50 11 2 31
+1011 1656 48 0 0 -7 9 -1 -3 -19 15 -5 4 -11 57 -8 1 -12 -17 5 -4 -11 -12 -1 -1 -12 -13 1 -2 18 -12 2 -62 -8 -1 9 -45 -3 0 28 -32 2 2 28 19 0 10 12 39 -12 0 5
+1251 1831 -1 -28 -18 -1 0 6 -28 7 18 -16 1 -13 30 10 1 -31 -8 2 -10 -20 -24 4 -8 -18 -48 -6 -17 33 49 58 63 13
+2593 1336 -26 8 14 63 10 6 23 -10 -21 -67
+2604 1288 -12 -12 -29 8 17 44 16 -2 -3 -10 15 -2 44 190 27 -3 -75 -213
+2473 1433 -42 3 -19 27 19 33 64 -14 -22 -49
+2688 1605 8 -27 -16 -73 -26 4 23 99 11 -3
+2560 1557 34 56 19 -4 35 182 46 169 52 47 -4 21 20 7 18 -3 3 -96 -12 -10 -4 -21 14 -5 -3 -36 -56 -259 2 -18 -10 -11 -41 -176 11 -1 1 -7 -45 -170 -18 4 -48 -81 -22 4 18 62 -36 6 -24 14 2 24 12 -3 2 8 25 -6 11 27 45 -13 81 247 12 73 -6 17 -16 9 59 253 -15 2 -11 -12 5 -15 -97 -417 -8 -7 -19 3 -2 11 -42 6 3 12 16 -3 16 51 -35 7 12 52
+1624 2117 106 -64 -7 -18 -9 2 -5 -15 10 -5 -21 -56 -72 -42 -109 16 -57 -8 5 18 -25 4 16 24 -7 3 28 35 9 -4 14 20 53 -3 24 62 9 9 12 -7 26 29
+954 1644 54 -7 -3 -16 -58 3 7 20
+1928 1930 -204 43 -99 -56 -108 16 -89 -11 -42 1 -157 -39 -91 -72 -77 -10 -41 -11 -29 -14
+1705 528 -37 -145
+1450 3019 -123 -48
+984 2762 -42 -27 -136 -45
+800 2682 -32 -49
+2085 1712 -86 -46
+1156 1599 -5 -2 -29 7 -49 5 -43 0 -11 3 -14 9
+1216 1630 -3 9 -5 2 5 0 3 -5 2 -8 -2 -2 2 1 15 -1 0 -1 1 1 10 0 0 -2 1 3 16 11 -1 4 3 6 2 0 1 6 -2 2 -48 5 -3 -9 -2 -1 -1 -4 -2 -3 7 19 52 -5 2 -2 1 -2 -6 -19 -7 -2 0 -3 -9 -6 0 -2 -4 2 -7 0 -1 -1 -9 2 -11 -1 -1 3 1 3
+607 1265 48 240 1 12 -23 3 -5 14 41 6 114 103 4 6 45 108 7 10 24 27 171 126 164 118 114 128 84 87 -229 141 -399 239 39 59 139 47 73 44 22 -18 126 93 76 58 62 43 31 17 137 52 -2 -46 33 -18 68 -8 9 -14 -3 -25 50 1 9 -11 0 -14 -22 -118 -56 5 -1 -39 -23 -76 -35 -69 84 -6 2 -61 44 2 -1 -28 65 -7 9 26 23 -5 33 -1 7 8 35 -10 105 -6 7 18 70 5 82 0 0 -11 24 -6 92 16 -2 -8 61 -6 37 -9 135 -35 -1 -15 64 -37 92 85 16 -4 71 -34 29 -16 50 108 13 41 27 1 16 39 -3 2 20 45 25 -4 23 5 70 -19 16 -2 1 5 66 0 4 -3 41 9 21 -2 19 -8 59 -11 9 12 12 10 15 8 11 4 10 11 24 32 -5 8 3 7 66 79 9 23 43 -16 27 -13 27 -2 23 1 21 12 25 -5 45 -30 -15 -42 -9 -35 -3 -66 -10 -6 -10 -1 -44 -14 -19 -16 -4 -8 2 -59 -5 -12 -11 -7 -15 -1 -81 -23 -30 -21 -18 -17 -1 -24 -9 -9 -14 -110 -101 -9 -1 -8 -63 -7 -60 -3 -48 -4 -40 -49 -17 -45 0 -28 -5 -23 -15 -17 -20 -18 -11 -15 -7 -3 -18 2 -19 -263 -21 -137 -21 -93 -21 -247 -103 -353 390 -188 -59 -56 19 -11 10 -11 1 -13 -3 -15 -21 -28 -25 -44 -46 -28 -57 -64 -45 34 -43 -52 -32 7 -389 32 -204 3 -26 4 5 14 -23 1 -21 -2 -28 4 -31 -4 -26 -11 -24 27 -15 14 -10 -28 -60 10 -72 19 -27 -54 -27 -19 -35 -20 -36 -138 -3 -28 -56 13 -50 17 -178 80 -52 19 -41 12 -82 15 -301 62 -38 3 -49 -1 -26 -2 -147 -20 -149 -25 64 153 23 66 6 -1 17 28 -33 9 0 11 -54 15 -52 20 107 122 -18 22 50 285
+@streets line
+name,ref,class,arcs
+,80V001,trunk,0;1;2;3
+,M37,trunk,4
+,80V001,trunk,5;6;7
+Gazli shox ko'chasi,A380,trunk,8
+Beyneu - G'uzor Avtotrassasi,A380,trunk,9
+,M37,trunk,10
+G'uzor-Nukus avtoshossesi,A380,trunk,11;12;13;14
+G'ijduvon ko‘chasi,M37,trunk,15
+Mirdo'stim ko'chasi,,trunk,16
+Fayzobod ko'chasi,,primary,17
+Abu Ali ibn Sino shox ko'chasi,M37,primary,18
+Muhammad Iqbol ko'chasi,,primary,19
+G'ijduvon ko'chasi,M37,primary,20
+Mirdo'stim ko'chasi,D076t,primary,21
+Sanoatchilar ko'chasi,,primary,22
+Mustaqillik ko'chasi,80V002b,primary,23
+Marat Karimov ko'chasi,D178,primary,24
+Abu Ali ibn Sino shox ko'chasi,D154g,primary,25
+Islom Karimov ko'chasi,,primary,26
+Havzi Nav ko'chasi,,primary,27
+Sanoatchilar ko'chasi,,primary,28
+Abu Ali ibn Sino shox ko'chasi,M37,primary,29
+Marat Karimov ko'chasi,D076s,primary,30
+Abu Hayz Kabir ko'chasi,D076r,primary,31
+,,primary,32
+,D076r,primary,33
+Mirdo'stim ko'chasi,,primary,34
+Mustaqillik ko'chasi,80V002b,primary,35
+Mustaqillik ko'chasi,,primary,36
+Mirdo'stim ko'chasi,M37,primary,37
+G'ijduvon ko‘chasi,M37,primary,38
+,,primary,39
+Islom Karimov ko'chasi,D154g,primary,40
+Mustaqillik ko'chasi,,primary,41
+Sanoatchilar ko'chasi,,primary,42
+,,primary,43
+Xalqlar do'stligi ko'chasi,,primary,44
+Marat Karimov ko'chasi,,primary,45
+Mirdo'stim ko'chasi,D076t,primary,46
+Marat Karimov ko'chasi,,primary,47
+,80V175,secondary,48
+,80V001,secondary,49;50;51
+,D188,secondary,52;53
+Namozgoh ko'chasi,D177,secondary,54
+,80V128,secondary,55
+,D177,secondary,56
+,,secondary,57;58;59
+,80V131,secondary,60
+,80V128a,secondary,61
+,80V001,secondary,62
+,80V128,secondary,63;64
+Mustaqillik ko'chasi,80V002b,secondary,65
+,,secondary,66
+,,secondary,67
+,D178,secondary,68
+Bahovaddin Naqshband ko'chasi,,secondary,69
+Piridastgir ko'chasi,,secondary,70
+,,secondary,71
+,D188b,secondary,72
+Alpomish ko'chasi,,secondary,73
+,,secondary,74
+Alisher Navoiy shoh ko'chasi,,secondary,75
+Орифон,,secondary,76
+Qayum Murtazoyev ko'chasi,,secondary,77
+Choʻplon koʻchasi,D154g,secondary,78
+,80V127a,secondary,79
+Konchilar ko'chasi,,secondary,80
+Alpomish ko'chasi,,secondary,81
+Zulfiya ko'chasi,,secondary,82
+,D154h,secondary,83
+,,secondary,84
+Vobkent koʻchasi,,secondary,85
+Dilkusho ko'chasi,,secondary,86
+Ibrohim Mo'minov ko'chasi,,secondary,87
+Otaboy Eshonov ko'chasi,,secondary,88
+,80V002a,secondary,89
+Ruxshobod ko'chasi,,secondary,90
+,,secondary,91
+Baxt koʻchasi,80V129,secondary,92
+Xalqlar do'stligi ko'chasi,,secondary,93
+Jo'ybor ko'chasi,,secondary,94
+Xalqlar do'stligi ko'chasi,,secondary,95
+Shirbuddin ko'chasi,,secondary,96
+,,secondary,97
+Abdurahmon Mushfiqiy koʻchasi,,secondary,98
+Turdi Farog'iy ko'chasi,80V128,secondary,99
+Hofiz tanish al Buxoriy ko'chasi,,secondary,100
+Oqmasjid ko'chasi,D188a,secondary,101
+,D154f,secondary,102
+Xamza ko'chasi,,secondary,103
+Shaftolizor ko'chasi,,secondary,104
+,,secondary,105
+Vobkent koʻchasi,D076q,secondary,106
+Abu Hayz Kabir ko'chasi,D076s,secondary,107
+Rohat,,secondary,108
+,D076p,secondary,109
+Hofiz tanish al Buxoriy ko'chasi,,secondary,110
+Turdi Farog'iy ko'chasi,,secondary,111
+Bahovaddin Naqshband ko'chasi,,secondary,112
+Abdurahmon Jomiy ko'chasi,,secondary,113
+Abdulazim Somiy ko'chasi,,secondary,114
+,D076s,secondary,115
+,80V001,secondary,116
+Alpomish ko'chasi,,secondary,117
+,D154f,secondary,118
+Samarqand ko'chasi,,secondary,119
+улица Мохи-Хосса,D076o,secondary,120
+,,secondary,121
+,,secondary,122
+,80V002b,secondary,123
+Talija ko'chasi,80V131,secondary,124
+Bog'ishamol ko'chasi,,secondary,125
+Namozgoh ko'chasi,,secondary,126
+Abdulla To’qay ko’chasi,,secondary,127
+,,secondary,128
+Istiqlol ko'chasi,,secondary,129
+2121,,secondary,130
+Alpomish ko'chasi,,secondary,131
+,,secondary,132
+Abdulla To'qay ko'chasi,,secondary,133
+Jalol Ikromiy ko'chasi,,secondary,134
+Jo'ybor ko'chasi,,secondary,135
+Abdulla To'qay ko'chasi,,secondary,136
+Darvozai Sallohhona ko'chasi,,secondary,137
+Abu Ali ibn Sino shox ko'chasi,D154g,secondary,138
+Samarqand,,secondary,139
+,D076q,secondary,140
+Mehtar Anbar ko'chasi,,secondary,141
+,,secondary,142
+,,secondary,143
+,D154g,secondary,144
+,80V001,secondary,145
+Jo'ybor ko'chasi,,secondary,146
+,80V002b,secondary,147
+разворот в обе стороны,,secondary,148
+,,secondary,149
+,,secondary,150
+,,secondary,151
+,,secondary,152
+,,secondary,153
+Uyquruvchilar ko'chasi,,secondary,154
+,,secondary,155
+@bridges line
+class,arcs
+trunk,167
+trunk,168
+trunk,169
+trunk,170
+trunk,171
+secondary,156
+secondary,157
+secondary,158
+secondary,159
+secondary,160
+secondary,161
+secondary,162
+secondary,163
+secondary,164
+secondary,165
+secondary,166
+@lanes line
+name,arcs
+Xo'ja Nurobod ko'chasi,172
+Xo'ja Nurobod ko'chasi,173
+Naqqosh ko'chasi,174
+Eshoni pir ko'chasi,175
+Muxtor Ashrafiy ko'chasi,176
+Oxangaron ko'chasi,177
+Pistashikanon ko'chasi,178
+Havzi Bodom ko'chasi,179
+Havzi Bodom ko'chasi,180
+Havzi Bodom ko'chasi,181
+Havzi Bodom ko'chasi,182
+Havzi Bodom ko'chasi,183
+Havzi Bodom ko'chasi,184
+Havzi Bodom ko'chasi,185
+Havzi Bodom ko'chasi,186
+Havzi Bodom ko'chasi,187
+Havzi Bodom ko'chasi,188
+Havzi Bodom ko'chasi,189
+Havzi Bodom ko'chasi,190
+Mohitobon ko'chasi,191
+5,192
+Обод,193
+Iftixor,194
+Chorbakr ko'chasi,195
+Chorbakr ko'chasi,196
+Chorbakr ko'chasi,197
+Chorbakr ko'chasi,198
+Chorbakr ko'chasi,199
+M.Karimov Ko'chasi,200
+M.Karimov Ko'chasi,201
+M.Karimov Ko'chasi,202
+M.Karimov Ko'chasi,203
+M.Karimov Ko'chasi,204
+M.Karimov Ko'chasi,205
+Amirobod ko'chasi,206
+Masjidi baland ko'chasi,207
+Masjidi baland ko'chasi,208
+Turki Jandi ko'chasi,209
+Xo'ja Gulrez ko'chasi,210
+Tinchlik Ko'chasi,211
+T. Zaxidov ko'chasi,212
+Sirdaryo ko'chasi,213
+Sirdaryo ko'chasi,214
+Sirdaryo ko'chasi,215
+Usta shirin ko'chasi,216
+Koinot ko'chasi,217
+G'azzoliy ko'chasi,218
+Jalol Ikromiy ko'chasi,219
+Mehtar Anbar ko'chasi,220
+Mehtar Anbar ko'chasi,221
+Chit Bofon ko'chasi,222
+Xo'ja Tabband ko'chasi,223
+Xo'ja Tabband ko'chasi,224
+Xo'ja Tabband ko'chasi,225
+Xo'ja Tabband ko'chasi,226
+Xo'ja Tabband ko'chasi,227
+Hisor ko'chasi,228
+Chor Minor ko'chasi,229
+Chor Minor ko'chasi,230
+Mirza G'afur ko'chasi,231
+Mirza G'afur ko'chasi,232
+Mirza G'afur ko'chasi,233
+Mirza G'afur ko'chasi,234
+Shoh Axsiy ko'chasi,235
+Haqiqat ko'chasi,236
+Haqiqat ko'chasi,237
+Xo'ja Tabband,238
+Xalifa Xudoydod ko'chasi,239
+So'zangaron ko'chasi,240
+Bahovaddin Naqshband ko'chasi,241
+Bahovaddin Naqshband ko'chasi,242
+Bahovaddin Naqshband ko'chasi,243
+Bahovaddin Naqshband ko'chasi,244
+Bahovaddin Naqshband ko'chasi,245
+Gavkushon ko'chasi,246
+Gavkushon ko'chasi,247
+Gavkushon ko'chasi,248
+Arabon ko'chasi,249
+Arabon ko'chasi,250
+Xo'ja Bulg'or ko'chasi,251
+Xo'ja Bulg'or ko'chasi,252
+Xo'ja Bulg'or ko'chasi,253
+Xo'ja Bulg'or ko'chasi,254
+Xo'ja Bulg'or ko'chasi,255
+Xo'ja Bulg'or ko'chasi,256
+Kokuli Kalon ko'chasi,257
+Siyohkoron ko'chasi,258
+Hazrati Qo'chqor ko'chasi,259
+Chashmai Ayub ko'chasi,260
+Chashmai Ayub ko'chasi,261
+Darvozayi O'g'lon ko'chasi,262
+Ismat Buxoriy ko'chasi,263
+Ismat Buxoriy ko'chasi,264
+Levi Boboxonov ko'chasi,265
+Levi Boboxonov ko'chasi,266
+Sarrafon ko'chasi,267
+Sarrafon ko'chasi,268
+2,269
+Xo'ja Qo'chqor ko'chasi,270
+Dilkusho Durun,271
+Xazrati Qo'chqor ko'chasi,272
+Xazrati Qo'chqor ko'chasi,273
+Xazrati Qo'chqor ko'chasi,274
+Tagban Bofon ko'chasi,275
+Choykhonai Kozi Kalon улица,276
+Muhammad Payraviy ko'chasi,277
+Muhammad Payraviy ko'chasi,278
+Muhammad Payraviy ko'chasi,279
+Muhammad Payraviy ko'chasi,280
+Muhammad Payraviy ko'chasi,281
+Qozi Havzi Kalon,282
+Chorbaqoli ko'chasi,283
+Chorbaqoli ko'chasi,284
+Chorbaqoli ko'chasi,285
+Chorbaqoli ko'chasi,286
+Gulshan ko'chasi,287
+Qizilqum ko'chasi,288
+Xo'ja Porso ko'chasi,289
+Havzi Lesak ko'chasi,290
+Jo'ybor ko'chasi,291
+Zayniddin ko'chasi,292
+Xo'kja-Ro'shnoyi ko'chasi,293
+Halvopazon ko'chasi,294
+Barakiyon ko'chasi,295
+B. Amonova ko'chasi,296
+Toskent ko'chasi,297
+Abdulla To'qay ko'chasi,298
+Amudaryo ko'chasi,299
+Namozgoh ko'chasi,300
+Moxitobon ko'chasi,301
+Gulzor ko'chasi,302
+Maxdo'mi A'zam ko'chasi,303
+Maxdo'mi A'zam ko'chasi,304
+Maxdo'mi A'zam ko'chasi,305
+Maxdo'mi A'zam ko'chasi,306
+Po'stin do'zon ko'chasi,307
+Xoki Roh ko'chasi,308
+Islom ko'chasi,309
+Islom ko'chasi,310
+Islom ko'chasi,311
+Islom ko'chasi,312
+Boboyi-Porado'z ko'chasi,313
+Turkiy-jandi ko'chasi,314
+Bobiyi-Porado'z Muyulish ko'chasi,315
+Xorazm ko'chasi,316
+Samarqand ko'chasi,317
+Ahmad Yassaviy ko'chasi,318
+G'oziyon ko'chasi,319
+ABU HAFSI KABIR,320
+Maxdumi A'zam ko'chasi,321
+@rail line
+kind,colour,lines,arcs
+r,,,322;323;324
+r,,,325;326
+r,,,327
+@green polygon
+kind,arcs
+park,328
+park,329
+park,330
+park,331
+park,332
+park,333
+park,334
+park,335
+park,336
+park,337
+park,338
+park,339
+park,340
+@water polygon
+arcs
+341
+@waterways line
+name,kind,arcs
+Chor Bakr kanali,canal,342
+Foshun,canal,343
+Zakash,canal,344
+Zakash,canal,345
+Zakash,canal,346
+kanal,canal,347
+Шахруд,canal,348
+@monuments polygon
+name,wikidata,arcs
+Ark of Bukhara,Q4069358,349
+@clip polygon
+arcs
+350
+@places
+
+@parks
+name,kind,ha#,lon#,lat#
+Mirzo Ulugʻbek bogʻi,park,78,64.43043,39.79562
+Yangi Oʻzbekiston bogʻi,park,21,64.42509,39.73523
+Samoniylar istirohat bog'i. Mausolium,park,21,64.40033,39.77699
+@stations
+name,kind,rank#,lon#,lat#
+Buxoro 2,r,3,64.46354,39.75114

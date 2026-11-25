@@ -9,11 +9,17 @@ import { showDay } from "./history.js";
 //  the letters that do not decompose, Polish ł, Nordic ø and æ, ß, Croatian đ, Turkish ı, are folded by hand)
 export const FOLD = { "ł": "l", "ø": "o", "đ": "d", "ð": "d", "þ": "th", "æ": "ae", "œ": "oe", "ß": "ss", "ı": "i", "ħ": "h", "ŧ": "t", "ŋ": "n" };
 export const norm = (s) => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[łøđðþæœßıħŧŋ]/g, (c) => FOLD[c]);
+// THE FORGIVING KEY (the game's, and the search's second try): only letters and digits, no spaces; w = v, y = j = i, k = c,
+// ou = u, no h, a doubled consonant single -- "Ho Chi Min", "Marseile", "Kioto", "Kualalumpur", "Bucuresti" all find theirs
+// (doubled vowels are kept: Shanxi is not Shaanxi)
+const words = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+export const squash = (s) => s.replace(/ /g, "").replace(/ou/g, "u").replace(/w/g, "v").replace(/[yj]/g, "i").replace(/k/g, "c").replace(/h/g, "").replace(/([^aeiou])\1+/gu, "$1").replace(/i+/g, "i");
+export const fuzzyKey = (s) => squash(words(s));
 // (what a selection draws: the shape itself, not made anew each frame)
 export const frozen = (f) => f instanceof Thing ? { type: "Feature", properties: f.properties, geometry: f.geometry } : f;
 export const collect = (feats) => feats.length === 1 ? frozen(feats[0]) : { type: "FeatureCollection", features: feats.map(frozen) };
 export const addToIndex = (e) => {
-  e.keys = [...new Set([e.name, ...String(e.alt || "").split(" / ")].filter(Boolean).map(norm))]; e.at0 = index.length; index.push(e);
+  e.keys = [...new Set([e.name, ...String(e.alt || "").split(" / ")].filter(Boolean).map(norm))]; e.fkeys = [...new Set(e.keys.map(fuzzyKey))]; e.at0 = index.length; index.push(e);
   if (e.layer) for (const i of e.ids ?? []) { const k = e.layer + "|" + i; if (!PIECES.has(k)) PIECES.set(k, []); PIECES.get(k).push(e); }
 };
 // the entries drawn from these pieces of a layer, in the index's order -- a click's lookup (it was a filter of the whole
@@ -120,10 +126,13 @@ export function indexPoints(k) {
 // only among those (every match, not the 30 shown) -- the first letter scans the ~55,000 names, the rest a handful.
 // (The names stay in memory: a scan of them takes milliseconds; IndexedDB would make each one slower, not faster.)
 S.narrow = { n: null, size: -1, hits: null };
+// A name not found as typed is looked for by its FORGIVING KEY too (fuzzyKey, as the game matches): ranked after those
+// found as typed. (Narrowing stays sound: both the typed text and its key must only have grown.)
 export function search(q) {
-  const n = norm(q).trim();
-  if (!n) return [];
-  const pool = S.narrow.n !== null && n.startsWith(S.narrow.n) && S.narrow.size === index.length ? S.narrow.hits : index;   // (the index grows as bio and history load)
+  const n = norm(q).trim(), f = fuzzyKey(q), loose = f.length >= 3;
+  if (!n) return [];                                                // (loose: a key of three letters or more -- one or two, too loose to look for)
+  // (the last hits narrow only if they were looked for the same way: "cha" -- key "ca", too short -- kept no Khartoum, so "chart" must look anew)
+  const N = S.narrow, pool = N.n !== null && n.startsWith(N.n) && f.startsWith(N.f) && (N.loose || !loose) && N.size === index.length ? N.hits : index;   // (the index grows as bio and history load)
   const out = [], hits = [];
   for (const e of pool) {
     let s = 9;
@@ -132,9 +141,10 @@ export function search(q) {
       if (i < 0) continue;
       s = Math.min(s, k === n ? 0 : i === 0 ? 1 : /[\s\-'(]/.test(k[i - 1]) ? 2 : 3);
     }
+    if (s === 9 && loose) for (const k of e.fkeys) { const i = k.indexOf(f); if (i >= 0) s = Math.min(s, k === f ? 4 : i === 0 ? 5 : 6); }
     if (s < 9) { out.push([s, -e.weight, e]); hits.push(e); }
   }
-  S.narrow = { n, size: index.length, hits };
+  S.narrow = { n, f, loose, size: index.length, hits };
   out.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
   return out.slice(0, 30).map((r) => r[2]);
 }

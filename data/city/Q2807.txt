@@ -1124,6 +1124,928 @@ grid 5e-05 -3.91260 40.29390
 6450 3100 3 -1
 6513 3142 1 3
 6454 3102 -1 -3
+4165 2345 8 -7 16 -23 44 -49 18 -29
+4299 2648 -61 -27 -1 0
+4314 2655 -14 -6
+4204 2702 4 -8
+4227 2647 10 -26 2 -26 -1 -12 -5 -23 -14 -38
+4064 2660 164 -17
+4170 2655 -4 -17
+4233 2632 -2 -1 -166 17
+4218 2667 -91 16
+4134 2700 52 -6 22 0
+4173 2674 -1 -7
+4179 2706 -6 -31
+4181 2720 -2 -12
+4147 2663 1 2 9 45
+4158 2712 7 37
+4153 2686 22 -2
+4223 2656 -4 0 -40 4
+4215 2608 -4 1 -3 -6 0 -3 1 -1
+4241 2652 -16 43 0 3
+4437 2632 -4 -3 0 -4
+4440 2619 3 -1 4 1 3 4
+4450 2623 4 7
+4450 2623 2 8
+4300 2571 -10 -23 -6 -19
+4266 2670 -48 -3
+4242 2694 0 -2 13 -35
+4266 2684 2 0 43 -27 5 -4
+4292 2684 -5 -12
+4299 2664 10 16
+3964 2576 -5 -1 -14 8
+3964 2579 5 -2 8 -6 11 -10
+4016 2609 -48 -26
+3998 2590 -4 -4 -3 -6 -2 -17
+4028 2593 2 -2 0 -2 -33 -18 -6 -6
+4018 2610 -2 -1
+4016 2609 12 -16
+4028 2593 7 -4
+4030 2587 5 2
+4035 2589 1 1 -4 3
+4035 2589 1 0
+3979 2635 13 -9 7 3
+4177 2573 -33 24 -26 10 -14 1
+4126 2604 8 18 -2 13
+4047 2428 7 1 3 -5 0 -5
+4107 2352 -22 -3
+4082 2345 22 -8
+4107 2352 -1 10 -5 14
+4104 2337 1 5 2 1 0 9
+4144 2362 -37 -10
+4173 2367 12 -19
+4161 2364 12 -14 15 -9 7 -9 3 -5 4 0
+4168 2347 -15 16
+4219 2369 0 -17 -2 -9 8 -41
+4233 2292 -1 15 1 22 12 17 3 15 -1 8
+4282 2363 -10 -10
+4261 2369 2 -8 28 -26 15 -11 47 -24 2 2 8 -4 4 0 15 -6 2 -2 7 -4
+4263 2373 19 45 -2 2
+4339 2373 -69 16
+4261 2406 16 0
+4336 2437 -3 0 -20 -6 -1 9 2 3
+4329 2439 2 0 5 -2
+4359 2432 -4 0 -19 5
+4259 2454 3 -57
+4205 2425 20 -2
+4206 2409 0 47
+4183 2405 7 7 29 23 16 11 9 8
+4200 2438 1 -17
+4187 2439 19 -1
+4206 2444 12 0
+4260 2493 -32 -4 -21 -5 -7 0
+4209 2501 49 -1
+4202 2487 -11 3
+4205 2523 1 2 1 9 9 27 6 37
+4209 2599 -16 -61
+4166 2489 10 8 7 7 7 10 2 10
+4261 2479 -42 -12 -14 -4
+4280 2484 -3 0
+4562 2542 -48 -11 -2 -1
+4013 2258 -45 -25
+3976 2336 -4 -1
+3973 2333 3 0
+3952 2397 0 2
+3953 2395 1 1 -2 1
+3952 2397 0 -1 1 -1
+3956 2388 -1 1 0 1 0 1 -1 1 -1 3
+3957 2386 1 0
+3959 2386 -1 -1 1 0 -1 -1 2 0 -1 -1 1 0 -1 -1 1 0 0 -1 1 0 -1 -1 1 0 1 0 -1 -1 2 -3
+4139 2205 16 3 36 10 3 2 7 1 1 -1
+4384 2290 7 11
+4363 2298 8 13
+4154 2209 25 -34
+4187 2220 -2 -3 40 -52
+4344 2230 -67 -11 -57 -17
+4230 2205 9 -12
+4481 2546 52 -2 2 -1
+4483 2558 80 -3
+4617 2566 -132 7 -52 12 -4 0
+4053 2309 5 -1
+4099 2422 2 -13 -1 -3 1 -6 2 -6
+4036 2590 11 7
+4104 2609 -34 -1 -22 -10
+4070 2610 -17 11 -34 15
+4055 2620 -17 -11
+4065 2637 -12 -16
+4046 2625 9 14
+4046 2625 -28 -15
+4054 2679 -15 -34 -10 -13
+4021 2653 -10 -14
+4015 2621 -3 8
+4014 2620 0 1 1 0
+4016 2618 -1 3
+4049 2681 6 -2 72 4
+4008 2658 47 -19 11 -2
+4039 2572 2 0 21 -7 3 0
+4028 2586 3 -2 21 -32 6 -8 8 -8
+4000 2559 36 17
+4086 2529 -19 -9 -5 -6
+4066 2536 7 -3 11 -1
+4089 2527 -4 5 -1 0
+4084 2532 2 -3
+4086 2529 7 -9 -4 7
+4089 2527 -3 2
+4057 2491 9 11 2 3 0 6 -2 9
+4085 2532 31 9 26 19
+4065 2538 -2 -1 -17 1 -16 -1
+4027 2511 7 5 -5 4
+4368 2560 2 38
+4343 2613 -4 -54 0 -36 3 -23
+4324 2630 32 35
+4234 2533 53 -16 23 -4
+4258 2517 8 17
+4311 2616 -16 8 -17 15
+4306 2611 17 -6 20 8
+4300 2582 12 27
+4092 2444 1 -7
+4093 2445 11 14 6 12
+4137 2450 -3 14
+4136 2428 2 14 -1 8
+4135 2421 0 -1
+4142 2428 -6 0 -1 -7
+4135 2421 4 -1
+4139 2420 -3 -1
+4142 2428 -3 -8
+4139 2420 0 -3 3 -1 2 6 -2 1 1 4 -1 1
+4123 2430 6 8 9 4 12 7
+4168 2436 -2 19
+4168 2443 19 2
+4168 2428 -4 -9
+4168 2436 0 -8
+4178 2444 -10 -16
+4140 2422 13 -1 20 -4
+4089 2396 -13 -20 -12 -9 -24 -10 0 -5
+4041 2352 1 2 26 11 14 8 12 -9
+3956 2361 23 -3 21 -5 21 0
+4003 2394 6 -10 4 -4
+4013 2380 6 3 -1 11 1 5
+4021 2360 -8 20
+3989 2384 4 -13
+3996 2369 12 -9 12 4
+4025 2389 16 -2
+4101 2404 -13 -5
+4093 2242 -4 17 -18 -4 -2 0 -7 -7
+4311 2502 -3 21
+4479 2455 -3 0
+4479 2455 3 2 74 5
+4557 2459 -76 -5 -2 1
+4383 2226 -3 1 -32 2
+4060 2698 -41 -62
+4063 2698 10 18 1 3
+4128 2689 -68 -1
+4125 2672 -43 -2
+4116 2671 -2 -6 -18 -31
+4066 2637 39 -4
+4046 2661 13 -1
+4052 2640 7 20
+4097 2656 4 9 4 29
+4001 2648 -4 -6
+4000 2648 8 10
+4057 2465 -11 -6
+4036 2455 12 1 8 -1
+4034 2474 2 -19
+4025 2464 26 5 1 1
+3979 2358 18 12 16 10
+4018 2396 -15 -1
+3976 2382 -13 -6
+4003 2395 -2 -1 -7 -9 -2 -1 -14 -1
+4009 2393 8 -1
+3978 2381 1 0 17 -12
+3993 2375 7 4
+4000 2379 -6 6
+4002 2379 4 -3
+4116 2416 1 7
+4132 2429 -2 -7
+4128 2437 40 -1
+4125 2401 -2 16
+4065 2431 -3 7
+4065 2431 11 2
+4082 2429 -17 -4 -1 6 1 0
+4091 2422 0 -4
+4089 2416 2 2
+4290 2527 -2 -19
+4331 2475 -8 21
+4283 2472 27 2 30 1 28 -4
+4160 2457 3 1
+4160 2454 6 1
+4166 2455 0 3
+4166 2455 11 1
+4177 2456 9 0
+4182 2459 -5 -3
+4182 2459 -1 8
+4186 2456 -4 3
+4186 2456 12 1
+4188 2459 -2 -3
+4191 2462 1 0 1 1
+4198 2459 -3 0
+4198 2460 0 -1
+4198 2459 0 -2
+4198 2457 7 0
+4205 2463 -1 0
+4204 2463 -4 -2 5 -4
+4204 2463 1 -6
+4205 2457 1 -1
+4143 2486 6 -2 4 4
+4134 2470 6 11 -1 0 11 14
+4132 2464 2 6
+4134 2470 26 -4 21 9 10 15
+3975 2400 -3 -5 -8 -5 -7 -2 -26 -6 -4 -3 -1 -3 2 -3 4 -2 10 -2 5 -7
+3972 2622 -1 0 -41 47
+3971 2621 2 -1 20 -23
+3997 2608 2 2 -3 4 -1 0 -4 -1 0 -1 3 -4 3 0
+4002 2603 -5 5
+3908 2627 61 51
+3933 2605 0 -5 -4 -14 -7 -12 -4 -3 -5 1 -22 12 -19 5 -6 17 0 3 8 20 4 2 8 1
+4050 2597 1 -2 7 3 13 3
+4142 2560 24 21
+4156 2341 9 4 8 5
+4270 2482 -4 0 -2 1 -4 10 -3 13 1 11
+4155 2291 6 3 -8 10
+4188 2341 -15 -3
+3974 2369 -11 7
+3985 2362 -9 6
+3996 2387 -9 4
+4075 2533 -5 12 -5 20 0 3 3 1
+4104 2459 8 -2
+4279 2596 -17 5 -23 0
+4236 2573 6 -1 16 -6
+4123 2666 24 -3
+4225 2420 3 21
+4234 2331 -32 -4
+4207 2396 -6 -26
+4183 2372 12 29
+4173 2372 8 34
+4289 2359 -11 -12
+4257 2629 35 -12
+4234 2630 2 0 5 2 33 15 25 17
+4065 2425 2 -4
+4404 2643 12 92 4 22
+4376 2670 32 -1
+4317 2276 -2 -1 -62 -16
+4322 2277 23 28
+4138 2308 30 13
+4163 2329 -33 -13
+4236 2288 2 2 5 0 71 -12 3 -1
+4320 2275 5 -2
+4325 2273 -3 3
+4343 2264 -18 9
+4314 2608 19 14
+4208 2694 0 2 4 4
+4211 2465 -4 19
+3975 2665 -42 -48
+4162 2211 -1 3 4 13
+4012 2629 7 7 -8 3
+4219 2369 -1 6 3 16
+4257 2398 -7 -18
+4293 2668 -11 -7
+4194 2544 15 -3
+4229 2549 -15 5
+3827 2339 11 1 24 -1
+3862 2349 -2 -60
+3864 2401 -2 -52
+3862 2349 15 0
+3881 2364 -4 -10 0 -5
+3877 2349 12 -1
+3841 2317 2 84
+3826 2363 5 -1 58 2
+3829 2375 75 8 2 0
+3947 2283 -10 -14 -24 -4
+3942 2275 25 -13
+4031 2431 -3 13
+3984 2281 -42 22
+3934 2301 -19 28 -3 5 -1 12
+3936 2300 0 -1 36 -21 8 -4
+3946 2293 36 15
+4173 2313 -28 -12
+3843 2470 6 43
+3849 2513 -1 0
+3849 2513 2 8 1 2 3 2
+3851 2512 -2 1
+4235 2446 -7 2 -9 0
+4219 2435 0 21
+4238 2609 19 4 8 -2 25 3
+4251 2627 4 -14
+4062 2514 -17 -17
+4092 2521 -11 -4 -7 1 -7 -2
+4125 2572 19 25
+4114 2579 12 25
+4254 2538 5 11
+4268 2534 3 7 4 4
+4253 2560 36 -12 32 -3 18 -1
+4307 2324 -32 -27
+4249 2270 17 29 35 28
+4184 2296 29 13
+4191 2287 -23 -8
+4223 2301 -3 -1 -29 -14
+4311 2387 -1 -18
+4250 2462 24 0 9 2
+4431 2439 -9 0
+4459 2440 0 2 -2 1 -25 0 -1 -1 0 -3
+4431 2439 0 -4 1 0 27 0
+4459 2440 12 1
+4459 2435 0 5
+4459 2431 0 4
+4472 2422 -4 2 -15 -1 -6 2 -9 2 15 3 17 1 5 3
+4474 2391 -51 -1
+4475 2498 -33 2
+4443 2428 0 7
+4443 2426 2 -49
+4423 2400 2 1 48 1 3 2
+4043 2392 -6 -23 0 -6
+4013 2405 -11 3 -2 3
+4052 2470 0 10
+4138 2557 -12 8 -27 9
+4108 2543 11 10 4 6 3 6
+4097 2566 27 -4
+4155 2527 -1 -9 5 -5 5 -3
+4182 2525 1 -1 0 -1 -14 -18
+4141 2401 -1 17
+4123 2382 2 19
+3985 2453 -3 -9 -1 -18
+3983 2426 4 18 -2 9
+3987 2464 -2 -11
+3988 2561 7 -12 -4 -20 3 -16
+3995 2513 1 17
+4068 2569 2 1
+4070 2570 4 4 0 6 2 4 -1 5 -4 5
+4102 2590 -12 2 -9 0
+4071 2602 32 -1
+4077 2581 -3 -1
+4100 2577 -19 3 0 -1 -4 1
+4071 2594 1 1 -2 15
+3972 2335 -11 7 -13 18 -1 2
+3979 2358 20 -36
+3958 2346 -23 -9
+3958 2360 14 -21
+3995 2354 8 -12 13 -14
+4070 2331 -13 7 -13 -3
+4013 2325 15 -3 17 -1
+4041 2352 4 -24 0 -14 2 -12
+4037 2363 0 -2 1 -4 4 -3
+4023 2315 22 -1
+4023 2307 0 16
+3988 2317 28 11
+4021 2333 24 -5
+3976 2333 13 -18 22 -7 35 -2 3 -2
+3988 2296 -6 -7 -4 -2 -6 0
+3984 2281 7 12
+3992 2295 10 17 11 13
+4015 2290 -23 5
+4014 2287 -1 -6 5 -6 3 -2 -2 -3 3 -1
+4019 2308 -4 -18
+4021 2249 5 -1 2 -6
+4028 2242 0 7 1 2
+4028 2242 12 -56
+4088 2220 -58 15
+4093 2193 -8 47 -3 4
+4114 2220 -27 5
+4139 2217 -22 -3 -2 -2
+4141 2206 -3 26
+4080 2310 13 3 2 -5 -12 -4 -3 6
+4140 2306 -17 -11 -7 -3 -10 0
+4106 2304 10 0 15 11
+4083 2302 -22 -5 -10 -3
+4044 2298 6 -2
+4047 2302 3 -6
+4050 2296 19 -41
+4076 2278 -17 -2
+4026 2272 35 0
+4075 2300 -1 -14 7 -29
+4055 2285 19 1 32 6
+4073 2312 5 -12
+4075 2337 29 -9
+4276 2418 -4 8 3 27
+4298 2447 -3 -22
+4331 2439 10 19 0 1
+4335 2499 5 -23 2 -17
+4316 2458 3 5 -1 11
+4275 2453 8 0 2 3 57 3 21 -3
+4450 2682 -99 5
+4407 2659 17 -2
+4158 2544 20 -2 14 -3 4 -3 11 -2
+4175 2538 -18 2
+4158 2544 -3 -17
+4154 2500 10 10 9 14 2 18
+4178 2542 11 39
+4180 2567 -13 -11
+4180 2549 -20 10
+4144 2623 7 10 3 17
+4133 2620 16 -13
+4168 2631 0 -4 -6 -3 -43 -3
+4119 2625 -16 -1
+4119 2636 0 -27 0 -2
+4180 2629 -31 -22 -10 -8
+4187 2615 24 -6
+4237 2621 -2 0 -20 -13
+4239 2598 -2 0 -31 1
+4202 2594 -38 15
+4145 2597 45 30
+4176 2587 15 12 11 13
+4080 2477 -2 -15 1 -5
+4084 2451 -3 2 0 2 2 2 -4 0 1 -6 -1 -1
+4083 2457 23 28 -1 2
+4110 2471 9 13
+4139 2481 -5 3
+4077 2479 11 19 5 22
+4103 2495 7 -1
+4088 2498 17 6
+4093 2517 2 1
+4093 2520 2 -2
+4095 2518 8 -10 2 -4
+4088 2488 -5 -9 -3 -2
+4052 2480 11 0
+4057 2491 9 -1 3 1
+4063 2480 0 -2
+4071 2479 -8 1
+4423 2377 -1 36 0 5 -1 66
+4412 2451 -6 4
+4394 2468 78 1 3 3
+4433 2625 -1 -5 -48 -103 -6 -7 -1 -8
+4402 2513 1 4 7 16 35 79
+4445 2612 3 0
+4445 2612 2 7
+4415 2560 -76 1
+4400 2616 -28 6
+4375 2657 -32 -44
+4409 2632 -31 7 -49 23
+4356 2649 -13 -16
+4369 2583 22 0
+4276 2591 41 -15 23 -3
+3927 2618 6 -13 9 -1
+3933 2617 -1 -2
+3968 2583 -34 33
+4282 2760 3 -1 17 -46 7 -29 0 -2
+4288 2693 43 5
+4240 2709 83 7
+4327 2707 -44 -6
+4237 2722 5 -24 -1 -2
+4314 2396 -1 -9
+4373 2400 -33 -5 -42 2 -24 4
+4339 2373 0 22
+4334 2434 -4 2
+4334 2434 2 1
+4338 2409 -4 25
+4247 2425 25 1
+4281 2368 11 -1 68 8 13 -1
+4322 2386 -7 -40
+4304 2381 -4 -13
+4281 2368 -3 -3
+4289 2392 -8 -24
+4318 2355 11 0 63 -5
+4373 2374 3 -16 -1 -28 -4 -9
+4354 2375 3 -17 -4 -20 -5 -7
+4340 2334 -1 39
+4386 2315 0 36
+4396 2338 -57 9
+4340 2359 36 -1
+4219 2352 53 1
+4263 2344 -18 2
+4238 2337 25 0 19 6
+4262 2362 1 -34 11 -10
+4290 2336 -27 -20 -14 -14
+4263 2328 -3 -3 -6 -6 -10 1
+4245 2326 -3 -24
+4260 2325 -27 1
+4243 2290 1 1 48 43
+4337 2335 -6 -7 -7 -13
+4334 2310 14 21
+4294 2249 25 -39 3 -4
+4247 2270 44 12
+4264 2241 -31 51
+4176 2266 57 26
+4202 2231 -6 -1
+4202 2231 -1 -3
+4242 2277 -34 -44 -6 -2
+4225 2275 -20 -9
+4232 2304 -7 -2 -2 -1 10 -9
+4144 2362 16 -27 25 -40 20 -29 28 -35
+4189 2371 -1 -1 2 -11 12 -33 6 -11 5 -6 10 -8
+4105 2281 11 1 10 2 17 10 5 4
+4131 2251 -2 35
+4176 2266 -67 -22
+4158 2289 -28 -15
+4157 2260 -10 23
+4142 2280 1 -25
+4469 2525 -54 21
+4448 2533 13 22
+4409 2532 28 -4
+4432 2517 9 19
+4422 2570 8 -2 51 -22
+4452 2558 6 21
+4484 2566 -28 6
+4052 2375 -4 9
+4041 2383 5 1 28 8 4 5
+4084 2380 -4 2
+4086 2382 15 -4
+4000 2411 4 3 -1 6
+4074 2399 -9 4 -12 3
+4074 2397 0 2
+4078 2397 -4 2
+4053 2406 -3 -13
+4075 2440 1 -7
+4084 2413 -15 0
+4084 2413 -14 0 -1 0 3 -5 2 1 10 -1 0 5
+4091 2413 -7 0
+3996 2465 -3 -11
+4007 2427 4 9 3 22
+4020 2441 0 2 6 1 1 0 1 -4
+4028 2440 -8 1
+4028 2440 -8 1
+4029 2440 -1 0
+4014 2458 -1 1 -19 0
+4011 2437 18 1
+4030 2451 10 -9 2 -9
+4066 2459 3 -1 4 -5 3 -5
+4066 2459 1 -6 2 -6
+4030 2451 1 2 5 2
+4026 2458 5 -3 5 0 24 -11
+4060 2444 1 2 15 2
+3862 2576 -8 9 -4 11 -27 29 -29 35 -1 3 -1 3 4 6
+3897 2571 -19 -11
+3894 2547 13 16
+3974 2552 -34 19 -2 0
+3924 2560 17 -29
+4141 2728 40 -8 5 3 5 2
+4102 2753 -3 -22 1 -1 10 -1 3 24
+4196 2726 37 8
+4237 2722 -16 41
+4510 2530 -2 0 -1 2 13 96
+4348 2382 1 -8
+4299 2188 -3 1 -32 52
+4295 2270 -2 -19 1 -2
+4344 2230 -3 3 -13 26
+4233 2231 23 -33
+4218 2226 15 -20
+4228 2190 57 17
+3984 2432 4 1 2 -1 3 -8
+4013 2453 11 -3 3 0 3 1
+4112 2447 0 10
+4088 2488 -5 1
+4105 2487 -17 1
+4105 2504 13 2 11 -2
+4111 2517 -2 -7 1 -5
+4101 2487 4 17
+4232 2307 11 -1
+4475 2315 -61 -1 -4 -3
+4108 2196 15 -27
+4339 2561 -33 2 -9 2 -33 12 -26 6
+4340 2573 82 -3
+3960 2256 -22 14
+3936 2239 -10 28
+3892 2493 -5 -46
+3912 2501 -4 3 -6 9 -4 2 -3 0 -3 -1 -3 -1 -11 -14
+4162 2353 -19 -5 -36 -5
+4104 2337 0 -17 2 -1 -1 -41 5 -39
+4119 2330 13 6 24 5
+4353 2300 -24 -29
+4394 2884 -19 -227
+4147 2663 16 -1
+3947 2580 -2 -3 -21 -17 -5 0 -6 0 -4 2 -12 9 -14 7 -17 -1 -6 -2
+3945 2583 -6 -1 -11 -8 0 -1 3 -1 11 7 1 0
+3995 2513 32 -2
+3930 2602 3 1 1 -2 8 -3 0 -6 3 -9
+3941 2531 2 -2
+3967 2682 22 9
+3976 2617 14 6
+4473 2482 -77 3
+4400 2508 2 5
+4369 2583 -50 2
+4387 2572 8 20
+4364 2600 18 53
+4047 2597 -1 3 -8 9 -6 6 -2 1
+4445 2377 -22 0
+4474 2380 -3 -2 -26 -1
+4445 2377 4 0 22 0 4 1 2 3
+4375 2330 -22 8
+3870 2289 1 8 12 37 3 2
+3884 2338 2 -2
+3886 2336 3 1
+3932 2546 -36 0 -2 1
+3766 2652 86 -72 14 -8
+3862 2576 4 -4
+3866 2572 22 -23
+3888 2549 2 -4 -1 -13 -2 -2
+3891 2545 -3 4
+3891 2545 3 2
+3891 2531 0 14
+3889 2344 -2 0
+4025 2343 18 -3
+4013 2325 8 8 8 17
+4014 2285 -5 1 1 2
+4064 2241 14 -2 5 0
+4089 2259 -6 23 0 6 1 9 -1 7
+4162 2279 -20 -8 -11 -4 -42 -8
+4244 2454 3 -29 -1 -8 2 -4 2 -14
+4268 2301 29 -16 0 -4
+4313 2431 -45 -15 -23 -4 -19 -1
+4223 2405 -5 -12
+4223 2405 66 -13 50 -9
+4376 2377 -37 6
+4190 2412 33 -7 1 3 2 3
+4226 2411 -1 9
+4338 2395 0 14
+4393 2460 7 48
+4173 2631 14 74
+4107 2637 44 -4 22 -2 39 -10
+4111 2608 -3 -26
+4103 2600 7 -1
+4102 2586 34 -21 22 -21
+4196 2625 -37 -39 -23 -21
+4316 2577 6 20
+4322 2597 1 8
+3870 2289 35 -2
+4140 2544 -1 -16
+4443 2443 -1 73
+4324 2440 8 18
+4206 2456 38 -2
+4283 2451 2 1 0 4
+3930 2494 -6 -34 -6 -11 -4 -4 -7 -4 -9 -2 -9 0 -11 3 -3 1 -5 5 0 6 2 24 0 5 -12 15
+4093 2553 -9 -19 1 -2
+4191 2490 -14 5 -1 2
+4110 2494 2 -1 1 -1 -4 -4
+4115 2489 -1 -2
+4115 2489 -2 1 2 2 -2 3 7 -3 -1 -2 -4 -1
+4129 2485 -8 3 -5 -2
+4119 2485 4 1 6 -1
+4134 2484 -5 1
+4030 2537 -21 -3 -13 -4
+4016 2562 13 6
+4034 2516 31 19
+4065 2535 -2 2
+4065 2535 1 1
+4027 2511 16 -12 2 -3 12 -5
+4114 2477 -10 5
+4112 2457 4 1 3 9
+4063 2478 3 -15 0 -4
+4060 2444 4 -6
+4015 2464 -27 2 -1 -2
+4015 2464 2 12 2 2 0 1
+3993 2454 4 -4 3 -8 2 -16
+4028 2444 8 1
+4018 2437 0 4
+4020 2441 -20 1
+4007 2437 3 1 8 0 0 -2 -8 -1 -2 0 -1 2
+4088 2527 38 -1 4 2
+4079 2401 -4 4 -6 8 -1 4
+4069 2413 -5 0 0 -3 -2 0 -1 -6
+4046 2421 -2 -13
+4042 2421 -5 -1 -8 1
+4026 2415 3 6 2 10
+4024 2429 0 -3 -4 -9
+4021 2401 7 -1
+4028 2400 -2 4 0 2 9 5
+4037 2420 -1 -9
+4034 2396 0 2 -6 2 -1 -3
+4044 2408 -1 -7 5 -8
+4003 2420 1 1 4 1
+4008 2422 -1 5
+4053 2406 -9 2 -36 13 0 1
+4078 2441 15 4 57 7 10 2
+4112 2447 2 -6
+4115 2439 0 -1
+4150 2374 -2 -1 -4 -11
+4161 2402 -11 -28
+4304 2523 2 40 10 14
+4259 2549 4 8
+3979 2635 -1 1 -73 90
+3884 2397 0 -33
+4088 2578 2 14
+4071 2594 10 -2 1 -8 -5 0
+4062 2593 9 1
+4124 2534 21 13
+4193 2538 -1 -14
+4206 2599 -10 -13 -26 -18 -18 -17
+4239 2607 -24 1
+4411 2637 -17 -44
+4324 2630 -26 -29 -31 -46
+4397 2644 -4 -9
+4307 2598 44 -3
+4316 2653 36 -28
+4273 2663 3 1 2 -1 -4 4
+4273 2663 1 2 0 2
+4274 2667 -5 3 -2 9 -2 -4 1 -5 6 -5 1 -2
+4135 2402 -1 -10
+4140 2418 -4 1 -13 -2
+4169 2355 -7 -2
+4140 2347 5 -8
+4123 2325 8 3 29 7
+4082 2373 3 8 12 12
+4342 2322 -41 22
+4191 2466 28 55
+4076 2433 3 -3 5 -3 4 -9 3 -5
+4285 2456 -4 27
+4422 2370 11 -51
+4413 2369 11 -51
+4413 2369 12 1 25 -6
+4450 2364 1 -3
+4450 2364 7 -2
+4407 2341 41 5
+4452 2344 -3 2 0 1 1 2 4 1 5 -1 0 -2 -1 -2
+4452 2344 3 -5 -2 -3 1 -3
+4458 2345 -6 -1
+4452 2338 -1 -2 0 -2 1 -1 2 0
+4454 2333 3 0 2 1
+4458 2345 0 -4 1 -4 0 -3
+4459 2334 4 1
+4442 2366 9 -40 -14 -9
+4433 2368 10 -47
+4424 2370 12 -53
+4451 2326 13 7 -7 29
+4198 2801 23 -88 3 -2
+4413 2369 -1 2
+4315 2431 -3 -35
+4232 2304 35 -4
+4219 2352 -18 -1 -22 -5
+4369 2306 20 -9
+3979 2273 5 8
+3924 2234 19 7 17 15 3 2 11 12
+3977 2318 -41 -18
+4065 2390 3 -4 3 -6
+4207 2335 -7 -1
+4248 2361 -53 -1 -26 -5
+4104 2320 -3 -4 -8 -3
+4080 2310 -7 15 -4 5
+4046 2327 16 -6
+4150 2452 1 -1 -3 -13 -6 -10
+4030 2399 7 3 5 0
+4091 2413 -4 -17
+4055 2386 -2 2 -7 4
+4080 2400 3 8
+4074 2433 -2 7
+4136 2428 -17 2
+4205 2352 1 -16 4 -7
+4578 2403 -96 -3
+4219 2272 8 -14
+3947 2362 9 -1 4 14 3 1
+4057 2418 -1 -1
+4067 2419 -10 -1
+4057 2419 0 -1
+4067 2419 0 2
+4068 2417 -1 2
+4059 2660 4 9
+4063 2669 -3 24 3 5
+4070 2610 -7 59
+4166 2167 51 34 3 1
+4123 2417 -11 -2 -4 -5 -6 -2
+3888 2531 -27 -1 -8 2 -31 25 0 1 -4 3 -2 -1 -45 37
+4338 2674 -17 -22 -2 -1
+4352 2605 -28 25 -16 11
+4098 2717 -8 -47 -8 -35
+4186 2456 2 -29 -3 -11 0 -4 -4 -6
+4315 2523 -10 0 -77 22
+4056 2446 0 9 2 8 -6 7
+4173 2417 17 -5
+4041 2573 -2 -1
+4049 2581 -8 -8
+4041 2573 0 -1
+4407 2446 -1 9 -4 3 -4 2 -15 1
+4015 2290 -1 -3 -4 1 1 3
+4119 2425 16 -5
+4135 2420 5 2
+4135 2420 1 -1
+4384 2374 -11 0
+4382 2378 -6 -1
+4413 2369 -10 -1
+4472 2417 -50 0
+4403 2368 11 -51
+4499 2511 -5 2 -1 2 4 1 4 -2
+4501 2510 38 -16
+4503 2513 35 -14 4 -2
+3872 2481 19 -1
+3895 2480 1 0
+3918 2449 3 -6 -1 -4 -5 -4 -8 -2 -6 0 -17 3 -14 0 -8 3 -8 3 -3 3 -2 7 0 11 4 16 3 10 5 7
+3887 2451 4 0 4 1 8 6 2 3 2 10 -1 11
+3864 2502 -4 7 4 6 6 4 4 0 8 -1
+4080 2382 -18 -4 -12 -4 0 -5 -13 -6
+4076 2439 14 -4
+4128 2437 -10 -1
+4098 2445 2 -8
+4069 2491 21 15
+4052 2480 -12 -3 -23 -13 -2 0
+4073 2492 10 -3
+4278 2409 58 -1 4 2 17 10 4 0 5 -2
+4368 2432 -9 0
+4373 2423 5 3 3 3 -6 3 -4 1
+3889 2344 22 2
+4138 2652 -2 -11
+4197 2228 -25 45 -4 6 -37 36 -8 10 -14 14 -2 4
+4292 2334 15 16
+4164 2510 13 -11
+4040 2477 8 -21
+4030 2537 0 3 -16 26
+4320 2576 -1 -14
+4082 2670 -19 -1
+4441 2647 -4 -15
+4058 2308 20 5 13 10 5 7
+4262 2358 -15 0
+4058 2308 6 -22
+4182 2256 23 10
+3987 2479 7 0
+3997 2500 -8 1
+4016 2477 2 0 4 3 3 4 1 4 -1 6 -4 5 -2 0
+3821 2447 7 1 0 2
+3826 2404 1 26
+4014 2535 15 -15
+4315 2523 3 22
+4339 2523 -24 0
+4216 2561 -45 8
+4275 2545 12 24
+4239 2595 34 -8
+4028 2537 2 -1
+4031 2537 -1 -1
+4030 2536 14 -14
+3975 2328 4 1
+3982 2308 2 1
+4470 2347 1 -13 -1 -2 -24 -13 -6 0
+4468 2354 -1 2
+4470 2357 0 2 -1 1 -1 -2 0 -1
+4468 2354 0 3
+4468 2357 1 -1 1 1
+4470 2347 -2 7
+4470 2357 1 -7 -1 -3
+3931 2395 -11 -16 0 -4 3 -3 6 -2 15 -2
+4034 2589 4 -1 -2 2
+4130 2528 0 1
+4212 2156 -43 57
+4457 2342 3 0 0 -3 -8 -1 -2 1 1 3 6 0
+4453 2355 4 0 0 -2 -7 -2 -3 1 1 3 5 0
+3987 2649 29 -40
+3995 2623 6 3 -2 3
+4210 2610 9 46
+4073 2578 -17 9
+4057 2588 11 -7 6 0
+4011 2639 -17 14 -2 1
+3916 2506 3 -3 3 -7 -3 -21 -5 -13 1 -8 3 -5
+3916 2506 -1 4 3 5 3 1 7 1
+3983 2447 -3 2
+4192 2506 17 -6
+4354 2602 -7 -18
+4021 2496 1 1 -2 2 1 13
+4217 2516 68 -14 13 -1 3 3 2 0
+4027 2483 17 -5
+4029 2492 16 2
+4066 2520 -20 18 -19 34
+4298 2397 0 12
+4109 2410 2 -1 13 1
+4062 2396 -1 4
+3891 2451 2 -8 7 0 4 2 5 4 5 13 -4 14 -15 17
+3893 2499 2 16
+4076 2448 1 0
+4159 2412 -19 6
+4096 2555 23 -2
+4334 2258 40 10
+3930 2494 1 16 -3 7 -9 4 -11 2 -12 0 -12 -3 -22 -20 -2 -2
+4062 2593 -13 -12
+3985 2421 1 -12 -3 0
+4003 2712 56 -14 6 0 29 -2 20 5 7 0 13 -1
+4290 2686 -2 7 -21 42
+4183 2504 7 1 2 1 13 17
+4060 2563 -2 -3 9 -3
+3915 2660 49 -52
+3980 2590 -15 17 -2 0
+4421 2484 -1 27
+4120 2492 9 13 4 8
+4130 2515 -33 3
+4139 2512 32 -48
+4115 2468 -34 10 -10 1
+4115 2468 0 -1
+4163 2458 -48 10
+4149 2497 5 3
+4181 2467 -2 7 -6 8 -17 15 -14 18
+4129 2524 13 1
+4129 2525 2 0 -2 1
+4089 2543 -9 2 -10 -1
+4428 2283 16 -16
+3931 2418 -1 1 0 7 -8 1 -2 -1 0 -6 -2 -1
+4039 2432 3 -11 4 0 1 7 -1 6
+4178 2666 -14 2 -2 -11 16 -2
+4037 2362 -7 -1 -3 -1 -6 -1
+4021 2359 0 1
+4023 2350 -2 3 0 6
+4042 2722 -3 -19
+4161 2480 8 6
+4056 2417 -1 -12
+4445 2362 3 -1 1 1 -2 1 -2 -1
+4453 2331 2 -1 1 1 -1 1 -2 -1
+4499 2511 2 -1
+4501 2514 2 -1
+4165 2169 -26 36
+4189 2222 -2 -2
+4092 2444 -2 2
+4533 2417 -53 -1
+4236 2583 2 0
+4250 2465 0 -3
+4238 2455 2 2 2 1 10 13
+4009 2393 -7 1
+4009 2393 0 2
+4120 2423 -1 16 -30 -2 1 -16 30 2
+4013 2400 0 5
+3837 2499 16 -1
+3925 2430 -4 2 -6 0 -5 5 -3 1 0 3 -3 5 2 10
+3852 2498 0 1
+3852 2499 3 21 3 2 2 1 78 2
+4166 2581 10 6
 2699 1285 69 -29 42 -8 96 7 145 37 13 7 9 10 12 41 40 68 54 61 8 19 6 38 23 27 10 24 6 8 12 6 68 12 57 -21 19 -4 122 12 210 162 34 13 66 11 35 16 28 19
 2012 1027 217 210 17 21 18 80 1 202 12 28 31 32 281 207 56 36 53 24 11 9 9 14 3 15 -10 99 7 23 18 20 12 8 59 27 52 17 53 11 75 52 28 15 59 43 233 119 23 22 32 54 29 22 21 7 20 3 75 -1 142 14 31 8 39 14 18 1 63 -13 21 3 8 4 14 13 2 23 10 18 57 36 31 6 44 1 19 3 71 35 59 7 35 8 127 46 23 15 44 43 48 37 9 11 5 19 1 94 -16 45 7 30 7 59
 3719 2482 5 8 22 16 28 13 15 5 41 3 17 5 8 -1
@@ -2889,653 +3811,1577 @@ secondary,944
 secondary,945
 secondary,946
 secondary,947
+@lanes line
+name,arcs
+Calle del Amparo,1123
+Calle de San Mateo,1124
+Calle de San Mateo,1125
+Calle de Fuencarral,1126
+Calle de Fuencarral,1127
+Calle de la Palma,1128
+Calle del Dos de Mayo,1129
+Calle de San Vicente Ferrer,1130
+Calle del Divino Pastor,1131
+Calle de Manuela Malasaña,1132
+Calle de Ruiz,1133
+Calle de Ruiz,1134
+Calle de Ruiz,1135
+Calle de Monteleón,1136
+Calle de Monteleón,1137
+Calle de la Galería de Robles,1138
+Calle de Velarde,1139
+Plaza de San Ildefonso,1140
+Calle de Churruca,1141
+Plaza de Colón,1142
+Plaza de Colón,1143
+Plaza de Colón,1144
+Plaza de Colón,1145
+Calle de Barbieri,1146
+Calle de Apodaca,1147
+Calle de Larra,1148
+Calle de Serrano Anguita,1149
+Calle de Antonio Flores,1150
+Calle de los Hermanos Álvarez Quintero,1151
+Plaza de España,1152
+Plaza de España,1153
+Plaza de España,1154
+Plaza de España,1155
+Plaza de España,1156
+Plaza de España,1157
+Plaza de España,1158
+Plaza de España,1159
+Plaza de España,1160
+Plaza de España,1161
+Plaza de España,1162
+Calle de Santa María Micaela,1163
+Calle del Pez,1164
+Calle de Minas,1165
+Calle del Codo,1166
+Calle de San Millán,1167
+Calle de las Maldonadas,1168
+Calle de los Estudios,1169
+Plaza de Cascorro,1170
+Calle del Duque de Alba,1171
+Calle de San Pedro Mártir,1172
+Calle de Jesús y María,1173
+Calle de la Espada,1174
+Calle del Olivar,1175
+Calle del Ave María,1176
+Pasaje Doré,1177
+Calle de Santa Isabel,1178
+Calle del León,1179
+Calle de Santa María,1180
+Calle del Infante,1181
+Plaza de las Cortes,1182
+Plaza de las Cortes,1183
+Plaza de las Cortes,1184
+Calle de Echegaray,1185
+Calle de Álvarez Gato,1186
+Calle de Espoz y Mina,1187
+Calle de la Cruz,1188
+Calle de Barcelona,1189
+Calle de Cádiz,1190
+Pasaje de Mathéu,1191
+Calle de la Aduana,1192
+Calle de los Jardines,1193
+Calle de San Alberto,1194
+Calle de Valverde,1195
+Calle del Barco,1196
+Calle de la Salud,1197
+Calle de Alcalá,1198
+Calle de Alcalá,1199
+Calle de Alcalá,1200
+Paseo de los Pontones,1201
+Plaza de San Francisco,1202
+Plaza de San Francisco,1203
+Cuesta de los Ciegos,1204
+Cuesta de los Ciegos,1205
+Cuesta de los Ciegos,1206
+Cuesta de los Ciegos,1207
+Cuesta de los Ciegos,1208
+Cuesta de los Ciegos,1209
+Enlace Embajadores-Acacias,1210
+Calle del Doctor Drumen,1211
+Calle del Doctor Mata,1212
+Calle de las Peñuelas,1213
+Calle de Martín de Vargas,1214
+Calle de Sebastián Elcano,1215
+Calle de Alonso del Barco,1216
+Calle de Columela,1217
+Calle del Conde de Aranda,1218
+Calle de Villanueva,1219
+Calle de Toledo,1220
+Calle de Toledo,1221
+Calle de los Reyes,1222
+Calle de los Reyes,1223
+Calle de San Bernardino,1224
+Calle de los Dos Amigos,1225
+Calle de Ponciano,1226
+Calle de Juan de Dios,1227
+Calle de San Leonardo,1228
+Calle del Limón,1229
+Calle de Manuel,1230
+Calle del Duque de Osuna,1231
+Calle del Duque de Osuna,1232
+Calle del Duque de Osuna,1233
+Calle de Montserrat,1234
+Travesía del Conde Duque,1235
+Calle de la Flor Baja,1236
+Calle de Leganitos,1237
+Calle del Río,1238
+Plaza de Santo Domingo,1239
+Plaza de Santo Domingo,1240
+Plaza de Santo Domingo,1241
+Plaza de Santo Domingo,1242
+Plaza de Santo Domingo,1243
+Plaza de Santo Domingo,1244
+Calle de Campomanes,1245
+Calle de Silva,1246
+Calle de Torija,1247
+Plaza de la Encarnación,1248
+Calle del Conde de Xiquena,1249
+Calle del Barquillo,1250
+Calle de Campoamor,1251
+Calle de la Reina,1252
+Calle del Clavel,1253
+Travesía de San Mateo,1254
+Calle de Belén,1255
+Calle de San Gregorio,1256
+Calle del Siete de Julio,1257
+Calle de Bordadores,1258
+Travesía del Arenal,1259
+Calle de San Cristóbal,1260
+Plaza de Santa Cruz,1261
+Plaza de Santa Cruz,1262
+Plaza de Santa Cruz,1263
+Plaza de Santa Cruz,1264
+Plaza de Santa Cruz,1265
+Plaza de Santa Cruz,1266
+Calle de las Postas,1267
+Calle del Correo,1268
+Calle de San Ricardo,1269
+Calle de la Paz,1270
+Calle de la Paz,1271
+Calle de la Paz,1272
+Calle de la Bolsa,1273
+Calle de la Cava Baja,1274
+Calle de la Cava Alta,1275
+Calle de Don Pedro,1276
+Calle de Alfonso VI,1277
+Costanilla de San Andrés,1278
+Calle Costanilla de San Andrés,1279
+Calle de los Mancebos,1280
+Calle de los Mancebos,1281
+Calle del Príncipe de Anglona,1282
+Calle de Latoneros,1283
+Plaza del Campillo del Mundo Nuevo,1284
+Calle del Marqués de Valdeiglesias,1285
+Paseo de la Argentina,1286
+Paseo de la Argentina,1287
+Paseo de la Argentina,1288
+Calle de Murcia,1289
+Calle del Conde Duque,1290
+Calle del Conde Duque,1291
+Calle de San Hermenegildo,1292
+Calle de Quiñones,1293
+Calle del Norte,1294
+Calle de Noviciado,1295
+Calle de Cristo,1296
+Calle de Bernardo López García,1297
+Calle de San Dimas,1298
+Calle de las Negras,1299
+Calle de las Negras,1300
+Calle del Lazo,1301
+Calle del Conde de Lemos,1302
+Calle de Santa Clara,1303
+Calle de la Amnistía,1304
+Calle de la Redondilla,1305
+Calle del Alamillo,1306
+Calle de la Morería,1307
+Calle de la Morería,1308
+Calle del Toro,1309
+Calle Angosta de los Mancebos,1310
+Plaza del Granado,1311
+Calle del Granado,1312
+Calle del Granado,1313
+Calle Botoneras,1314
+Calle de la Fresa,1315
+Calle del Marqués Viudo de Pontejos,1316
+Calle de El Salvador,1317
+Plaza de San Miguel,1318
+Plaza de San Miguel,1319
+Plaza de San Miguel,1320
+Calle de la Escalerilla de Piedra,1321
+Calle de los Cuchilleros,1322
+Calle de Víctor Hugo,1323
+Calle del Marqués de Casa Riera,1324
+Calle de Los Madrazo,1325
+Plaza de la Puerta del Sol,1326
+Plaza de la Puerta del Sol,1327
+Plaza de la Puerta del Sol,1328
+Plaza de la Puerta del Sol,1329
+Plaza de la Puerta del Sol,1330
+Plaza de la Puerta del Sol,1331
+Plaza de la Puerta del Sol,1332
+Plaza de la Puerta del Sol,1333
+Plaza de la Puerta del Sol,1334
+Plaza de la Puerta del Sol,1335
+Plaza de la Puerta del Sol,1336
+Plaza de la Puerta del Sol,1337
+Plaza de la Puerta del Sol,1338
+Plaza de la Puerta del Sol,1339
+Plaza de la Puerta del Sol,1340
+Plaza de la Puerta del Sol,1341
+Plaza de la Puerta del Sol,1342
+Plaza de la Puerta del Sol,1343
+Plaza de la Puerta del Sol,1344
+Callejón de Preciados,1345
+Calle del Maestro Victoria,1346
+Plaza de Celenque,1347
+Calle de Tetuán,1348
+Calle de Beatriz Galindo,1349
+Calle de Martín de los Heros,1350
+Calle de Martín de los Heros,1351
+Plaza de José Moreno Villa,1352
+Plaza de José Moreno Villa,1353
+Calle de Evaristo San Miguel,1354
+Calle Profesor Martín Almagro Basch,1355
+Calle de San Ignacio de Loyola,1356
+Calle de San Roque,1357
+Calle de la Esgrima,1358
+Calle de la Virgen de los Peligros,1359
+Travesía de los Cabestreros,1360
+Travesía de la Comadre,1361
+Calle de Yeseros,1362
+Calle de Yeseros,1363
+Calle de los Caños Viejos,1364
+Calle de Isabel La Católica,1365
+Plaza de San Ginés,1366
+Calle de la Farmacia,1367
+Calle de Pérez Galdós,1368
+Calle de Daoíz,1369
+Calle de Núñez de Arce,1370
+Calle de San Carlos,1371
+Calle de Luis Vélez de Guevara,1372
+Calle de Relatores,1373
+Calle del Doctor Cortezo,1374
+Calle del Duque de Fernán Núñez,1375
+Calle de San Lorenzo,1376
+Calle de la Beneficencia,1377
+Calle Conde de Miranda,1378
+Calle del Monte Esquinza,1379
+Calle de Orfila,1380
+Calle del Doctor Fourquet,1381
+Calle del Doctor Fourquet,1382
+Calle del Oso,1383
+Calle de los Abades,1384
+Calle de Argumosa,1385
+Calle de Argumosa,1386
+Calle de Argumosa,1387
+Calle de Argumosa,1388
+Calle de Regueros,1389
+Glorieta de Bilbao,1390
+Pasaje de la Caja de Ahorros,1391
+Calle Luisa Fernanda,1392
+Calle de Santocildes,1393
+Plaza de Cristino Martos,1394
+Calle de los Cañizares,1395
+Plaza de Matute,1396
+Travesía de la Florida,1397
+Calle de Muñoz Torrero,1398
+Calle de San Onofre,1399
+Calle del Fósforo,1400
+Calle de Juan Duque,1401
+Calle de Juan Duque,1402
+Calle de Juan Duque,1403
+Calle de Juan Duque,1404
+Calle de Juan Duque,1405
+Calle de Linneo,1406
+Calle de Moreno Nieto,1407
+Calle de Manzanares,1408
+Calle de Gil Imón,1409
+Travesía de Gil Imón,1410
+Calle de Calderón de la Barca,1411
+Calle de la Ventosa,1412
+Cuesta de las Descargas,1413
+Cuesta de las Descargas,1414
+Calle de San Bernabé,1415
+Calle de los Cabestreros,1416
+Paseo de la Virgen del Puerto,1417
+Paseo de la Virgen del Puerto,1418
+Paseo de la Virgen del Puerto,1419
+Paseo de la Virgen del Puerto,1420
+Calle del Pozo,1421
+Calle de la Victoria,1422
+Calle de Santa Brígida,1423
+Calle de Santa Águeda,1424
+Cuesta de Santo Domingo,1425
+Cuesta de Santo Domingo,1426
+Calle de Pizarro,1427
+Calle de Andrés Borrego,1428
+Plaza de Pedro Zerolo,1429
+Plaza de Pedro Zerolo,1430
+Calle de San Marcos,1431
+Calle de San Cosme y San Damián,1432
+Calle del Salitre,1433
+Calle Caravaca,1434
+Calle de Sombrerete,1435
+Calle de Sombrerete,1436
+Calle de San José,1437
+Calle de Arlabán,1438
+Calle de Méndez Núñez,1439
+Calle de Méndez Núñez,1440
+Calle de Méndez Núñez,1441
+Calle de Méndez Núñez,1442
+Calle de Méndez Núñez,1443
+Calle de Méndez Núñez,1444
+Calle de Felipe IV,1445
+Calle Alberto Bosch,1446
+Calle de Valenzuela,1447
+Calle Moreto,1448
+Calle Moreto,1449
+Calle Casado del Alisal,1450
+Costanilla de San Pedro,1451
+Calle de la Villa,1452
+Calle de Independencia,1453
+Calle de la Estrella,1454
+Calle de los Libreros,1455
+Calle del Marqués de Leganés,1456
+Calle de la Abada,1457
+Calle de Chinchilla,1458
+Calle de Santo Tomás,1459
+Calle del Duque de Rivas,1460
+Calle de Bailén,1461
+Calle de Bailén,1462
+Calle de Bailén,1463
+Calle de Bailén,1464
+Calle de Bailén,1465
+Calle de García Molinas,1466
+Calle de García Molinas,1467
+Calle de Antonio Grilo,1468
+Calle de la Manzana,1469
+Travesía de la Parada,1470
+Travesía de la Parada,1471
+Calle del Álamo,1472
+Calle de San Buenaventura,1473
+Calle de San Isidro Labrador,1474
+Calle de Jerte,1475
+Travesía de las Vistillas,1476
+Calle de las Aguas,1477
+Calle de la Cebada,1478
+Calle del Mediodía Grande,1479
+Calle del Humilladero,1480
+Plaza del Humilladero,1481
+Calle de los Irlandeses,1482
+Calle del Mediodía Chica,1483
+Calle del Ángel,1484
+Calle de Luciente,1485
+Calle de Calatrava,1486
+Calle del Águila,1487
+Calle del Águila,1488
+Calle del Águila,1489
+Calle de Isabel Tintero,1490
+Calle de la Paloma,1491
+Calle de la Paloma,1492
+Paseo de los Olmos,1493
+Paseo de los Olmos,1494
+Paseo de los Olmos,1495
+Calle del Concejal Benito Martín Lozano,1496
+Calle del Gasómetro,1497
+Calle de las Cigarreras,1498
+Calle Villa de Arbancón,1499
+Calle Soria,1500
+Plaza General Vara del Rey,1501
+Calle Fray Ceferino González,1502
+Calle San Cayetano,1503
+Calle Mira el Río Alta,1504
+Calle de la Arganzuela,1505
+Calle de la Arganzuela,1506
+Calle de la Arganzuela,1507
+Callejón del Mellizo,1508
+Calle Capitán Salazar Martínez,1509
+Calle Mira el Río Baja,1510
+Calle del Carnero,1511
+Calle Rodrigo Guevara,1512
+Calle de la Ruda,1513
+Calle de Ventura de la Vega,1514
+Calle de Santa Catalina,1515
+Calle del Marqués de Cubas,1516
+Calle del Marqués de Cubas,1517
+Calle de Jovellanos,1518
+Calle de Zorrilla,1519
+Calle de Fernando El Santo,1520
+Calle de Alcalá Galiano,1521
+Calle del Desengaño,1522
+Travesía del Horno de la Mata,1523
+Calle de Concepción Arenal,1524
+Calle de Mesonero Romanos,1525
+Calle de la Ballesta,1526
+Calle de la Nao,1527
+Calle de Loreto Prado y Enrique Chicote,1528
+Calle de Santa Lucía,1529
+Calle de Casto Plasencia,1530
+Calle del Tesoro,1531
+Travesía de las Pozas,1532
+Calle de Pozas,1533
+Calle del Marqués de Santa Ana,1534
+Calle de Don Felipe,1535
+Calle de San Joaquín,1536
+Calle de Colón,1537
+Calle de El Escorial,1538
+Calle de Jesús del Valle,1539
+Calle del Molino de Viento,1540
+Calle de las Fuentes,1541
+Plaza de Herradores,1542
+Calle de las Hileras,1543
+Calle de San Martín,1544
+Calle de la Misericordia,1545
+Costanilla de los Ángeles,1546
+Travesía de los Trujillos,1547
+Calle de las Conchas,1548
+Calle de las Veneras,1549
+Calle de las Veneras,1550
+Calle de las Veneras,1551
+Calle de los Donados,1552
+Plaza de Isabel II,1553
+Plaza de Isabel II,1554
+Plaza de Isabel II,1555
+Plaza de Isabel II,1556
+Calle Ruiz de Alarcón,1557
+Calle de Antonio Maura,1558
+Calle Juan de Mena,1559
+Paseo de Recoletos,1560
+Paseo de Recoletos,1561
+Paseo de Recoletos,1562
+Paseo de Recoletos,1563
+Calle de Prim,1564
+Plaza de la Villa de París,1565
+Calle de Argensola,1566
+Calle de Orellana,1567
+Calle de Justiniano,1568
+Calle del Marqués de Monasterio,1569
+Calle de Gravina,1570
+Calle de Ferraz,1571
+Calle de Ferraz,1572
+Calle de Ferraz,1573
+Calle de Covarrubias,1574
+Calle de Manuel González Longoria,1575
+Calle de Nicasio Gallego,1576
+Calle de José Marañón,1577
+Calle de Eguilaz,1578
+Costanilla de las Trinitarias,1579
+Calle de Lope de Vega,1580
+Calle de Jesús,1581
+Calle del Duque de Medinaceli,1582
+Calle del Duque de Medinaceli,1583
+Calle del Duque de Medinaceli,1584
+Calle de Manuel Fernández y González,1585
+Calle de Moratín,1586
+Costanilla de los Desamparados,1587
+Calle Santa Polonia,1588
+Calle Amor de Dios,1589
+Calle Amor de Dios,1590
+Calle del Gobernador,1591
+Calle de la Alameda,1592
+Calle San Pedro,1593
+Calle de Fúcar,1594
+Calle del Cenicero,1595
+Calle Almadén,1596
+Calle de la Verónica,1597
+Calle del Olmo,1598
+Calle de San Simón,1599
+Calle de los Tres Peces,1600
+Calle de la Torrecilla del Leal,1601
+Calle de Buenavista,1602
+Calle de la Escuadra,1603
+Calle de la Primavera,1604
+Calle de la Esperanza,1605
+Calle de Zurita,1606
+Calle del Marqués de Toca,1607
+Calle de Santa Inés,1608
+Calle de José Antonio Armona,1609
+Calle de la Sombrerería,1610
+Calle de Valencia,1611
+Calle de Tribulete,1612
+Calle de Miguel Servet,1613
+Calle de Miguel Servet,1614
+Calle de Miguel Servet,1615
+Calle de las Provisiones,1616
+Plaza de Lavapiés,1617
+Calle del Mesón de Paredes,1618
+Calle de Lavapiés,1619
+Calle Rodas,1620
+Calle de Peña de Francia,1621
+Calle del Casino,1622
+Calle de la Huerta del Bayo,1623
+Calle de Santiago El Verde,1624
+Calle del Ventorrillo,1625
+Calle de Salustiano Olózaga,1626
+Calle de Villalar,1627
+Calle del Marqués del Duero,1628
+Calle de Pedro Muñoz Seca,1629
+Calle de Recoletos,1630
+Calle del Cid,1631
+Calle de Gil de Santivañes,1632
+Pretil de Santiesteban,1633
+Calle del Nuncio,1634
+Calle de San Bruno,1635
+Calle de San Bruno,1636
+Calle del Pretil de los Consejos,1637
+Calle de San Justo,1638
+Calle de San Justo,1639
+Calle de San Justo,1640
+Calle Doctor Letamendi,1641
+Travesía de Bringas,1642
+Plaza del Conde de Barajas,1643
+Plaza del Conde de Barajas,1644
+Calle del Maestro Villa,1645
+Calle de Rebeque,1646
+Calle de San Nicolás,1647
+Plaza del Biombo,1648
+Plaza del Biombo,1649
+Plaza del Biombo,1650
+Plaza del Biombo,1651
+Calle de Noblejas,1652
+Calle Juan de Herrera,1653
+Calle de los Señores de Luzón,1654
+Calle del Bonetillo,1655
+Calle del Mesón de Paños,1656
+Plaza de Santiago,1657
+Calle de Santiago,1658
+Costanilla de Santiago,1659
+Calle de la Rosaleda,1660
+Calle de Eduardo Benot,1661
+Calle de Estanislao Figueras,1662
+Calle Cadarso,1663
+Calle de Arriaza,1664
+Calle de Sandoval,1665
+Plaza del Conde del Valle Suchil,1666
+Calle de Hartzenbusch,1667
+Calle de Palafox,1668
+Calle de Claudio Coello,1669
+Calle Berenjena,1670
+Calle Fray Luis de León,1671
+Calle Mallorca,1672
+Calle del Marqués de la Valdavia,1673
+Calle de Bernardino Obregón,1674
+Calle Alonso del Barco,1675
+Calle de Sebastián Herrera,1676
+Calle de la Almudena,1677
+Calle de la Cruzada,1678
+Calle de Coloreros,1679
+Plaza de Santa Catalina de los Donados,1680
+Calle de la Flora,1681
+Calle de las Navas de Tolosa,1682
+Calle de la Ternera,1683
+Calle de los Trujillos,1684
+Travesía de la Primavera,1685
+Cuesta de Moyano,1686
+Calle de la Ceiba,1687
+Calle de Augusto Figueroa,1688
+Calle del Almirante,1689
+Calle de Leonor de la Vega,1690
+Calle de Villoslada,1691
+Paseo de Damas,1692
+Paseo de Isabel II,1693
+Calle de Juanelo,1694
+Calle Ribera de Curtidores,1695
+Calle de la Encomienda,1696
+Calle de Hospital,1697
+Calle de Zurbano,1698
+Calle Daoíz,1699
+Calle de Irún,1700
+Calle de Irún,1701
+Calle de San Quintín,1702
+Vereda de Sor Juana Inés de la Cruz,1703
+Cuesta de San Vicente,1704
+Calle de Seminario de Nobles,1705
+Pasaje Martín de los Heros,1706
+Calle de Montalbán,1707
+Plaza de Cibeles,1708
+Calle de Piamonte,1709
+Calle de Tamayo y Baus,1710
+Calle del General Castaños,1711
+Calle del Maestro Guerrero,1712
+Calle Espalter,1713
+Calle Espalter,1714
+Calle Espalter,1715
+Calle de San Blas,1716
+Calle Santa María Real de Nieva,1717
+Calle Santa María Real de Nieva,1718
+Calle Santa María Real de Nieva,1719
+Calle de la Ilustración,1720
+Paseo del Rey,1721
+Paseo del Rey,1722
+Paseo del Rey,1723
+Paseo del Rey,1724
+Paseo del Rey,1725
+Paseo del Rey,1726
+Paseo del Rey,1727
+Calle Algeciras,1728
+Calle de Oriente,1729
+Calle de Tabernillas,1730
+Plaza Virgen de la Paloma,1731
+Paseo de Tilos asiáticos,1732
+Calle de Carlos Arniches,1733
+Calle de Mira el Sol,1734
+Calle del Príncipe,1735
+Calle del Doctor Piga,1736
+Calle del Prado,1737
+Calle de San Sebastián,1738
+Calle de las Huertas,1739
+Calle de las Huertas,1740
+Plaza del Ángel,1741
+Plaza de Santa Ana,1742
+Plaza de Jesús,1743
+Paseo del Prado,1744
+Calle de San Andrés,1745
+Calle del Espíritu Santo,1746
+Calle de la Cruz Verde,1747
+Travesía de la Cruz Verde,1748
+Calle de la Luna,1749
+Calle de la Madera,1750
+Calle Luis de Góngora,1751
+Travesía de Belén,1752
+Calle de Jemenuño,1753
+Calle de Miguel Moya,1754
+Calle de Alfonso XI,1755
+Calle de Fernanflor,1756
+Carrera de San Jerónimo,1757
+Carrera de San Jerónimo,1758
+Paseo de los Plátanos,1759
+Calle de San Bernardo,1760
+Plaza del Carmen,1761
+Plaza de San Martín,1762
+Plaza de San Martín,1763
+Plaza de San Martín,1764
+Plaza de las Descalzas,1765
+Plaza de las Descalzas,1766
+Plaza de las Descalzas,1767
+Plaza de la Marina Española,1768
+Travesía del Reloj,1769
+Calle de la Bola,1770
+Calle de la Bola,1771
+Calle de la Bola,1772
+Calle de Arrieta,1773
+Calle Francisco Piquer,1774
+Pasadizo de San Ginés,1775
+Calle de la Escalinata,1776
+Calle de los Milaneses,1777
+Calle de Requena,1778
+Calle de Lepanto,1779
+Calle del Factor,1780
+Travesía de los Señores de Luzón,1781
+Travesía del Biombo,1782
+Calle del Biombo,1783
+Plaza de San Nicolás,1784
+Calle de Jacometrezo,1785
+Calle de la Pasa,1786
+Pasadizo del Panecillo,1787
+Calle del Cordón,1788
+Calle de Madrid,1789
+Calle del Duque de Nájera,1790
+Calle de la Traviesa,1791
+Calle del Rollo,1792
+Calle del Rollo,1793
+Calle del Rollo,1794
+Travesía del Conde,1795
+Calle Cordón,1796
+Calle del Sacramento,1797
+Calle del Sacramento,1798
+Calle del Sacramento,1799
+Calle Mayor,1800
+Calle de Felipe III,1801
+Calle de Felipe III,1802
+Plaza de Tirso de Molina,1803
+Calle del Conde de Romanones,1804
+Calle de la Libertad,1805
+Costanilla de los Capuchinos,1806
+Calle de Tutor,1807
+Calle de Mazarredo,1808
+Travesía de las Beatas,1809
+Plaza de los Mostenses,1810
+Calle de las Beatas,1811
+Calle de los Tudescos,1812
+Calle Gonzalo Jiménez de Quesada,1813
+Corredera Baja de San Pablo,1814
+Calle de Santa Bárbara,1815
+Calle del Marqués de la Ensenada,1816
+Calle de Pelayo,1817
+Calle García Gutiérrez,1818
+Calle de San Lucas,1819
+Calle de Santa Teresa,1820
+Calle de Mejía Lequerica,1821
+Calle de Mejía Lequerica,1822
+Calle de Mejía Lequerica,1823
+Callejón de la Concepción Jerónima,1824
+Plaza de la Provincia,1825
+Calle de Soler y González,1826
+Travesía de la Encomienda,1827
+Calle de las Dos Hermanas,1828
+Calle de Grafal,1829
+Calle de San Ildefonso,1830
+Calle de la Montera,1831
+Calle de la Cava de San Miguel,1832
+Calle de Cedaceros,1833
+Paseo Bajo de Casimiro Gómez Ortega,1834
+Paseo de José Quer,1835
+Paseo de Simón de Rojas Clemente,1836
+Paseo de Simón de Rojas Clemente,1837
+Paseo de Simón de Rojas Clemente,1838
+Paseo de Carlos III,1839
+Paseo de Carlos III,1840
+Paseo de Carlos III,1841
+Paseo de Carlos III,1842
+Paseo de Carlos III,1843
+Paseo de Carlos III,1844
+Paseo de Carlos III,1845
+Paseo de Carlos III,1846
+Paseo de José Celestino Mutis,1847
+Paseo de Lagasca,1848
+Paseo Alto de Casimiro Gómez Ortega,1849
+Paseo de Félix Avellar Brotero,1850
+Calle del Cardenal Cisneros,1851
+paseo de Carlos III,1852
+Calle de San Agustín,1853
+Calle de la Fé,1854
+Calle del Calvario,1855
+Calle de Sánchez Bustillo,1856
+Ronda de Segovia,1857
+Calle de Muñopedro,1858
+Calle del Rosario,1859
+Travesía del Almendro,1860
+Calle Ministriles Chica,1861
+Calle de la Cabeza,1862
+Calle de las Amazonas,1863
+Calle de López Silva,1864
+Calle de la Sierpe,1865
+Calle de Esparteros,1866
+Calle del Conde,1867
+Calle de Cuchilleros,1868
+Travesía del Nuncio,1869
+Calle Gómez de Mora,1870
+Cava de San Miguel,1871
+Calle de Zaragoza,1872
+Calle Ministriles,1873
+Paseo del Marqués de Pontejos,1874
+Calle del Espino,1875
+Plaza Gabriel Miró,1876
+Plaza del Conde de Miranda,1877
+Plaza del Conde de Miranda,1878
+Plaza del Conde de Miranda,1879
+Plaza del Conde de Miranda,1880
+Plaza del Conde de Miranda,1881
+Calle de Amaniel,1882
+Calle de Amaniel,1883
+Calle de Amaniel,1884
+Calle de Moratines,1885
+Calle Imperial,1886
+GR-124 Senda Real,1887
+Plaza Santa Bárbara,1888
+Calle de Fernando VI,1889
+Calle del Acuerdo,1890
+Calle de Carretas,1891
+Calle de las Infantas,1892
+Calle del Espejo,1893
+Plaza de Jacinto Benavente,1894
+Calle del Doctor Carracido,1895
+Calle del Doctor Carracido,1896
+Calle del Doctor Carracido,1897
+Plaza de la Lealtad,1898
+Plaza de la Virgen de la Paloma,1899
+Calle de Gerona,1900
+Calle de Gerona,1901
+Calle de Gerona,1902
+Plaza de la Platería de Martínez,1903
+Plaza de la Platería de Martínez,1904
+Paseo de Juan de Minuart,1905
+Calle Academia,1906
+Paseo de Mariano Lagasca,1907
+Paseo de México,1908
+Paseo de México,1909
+Paseo de México,1910
+Paseo de los Civiles,1911
+Paseo de los Civiles,1912
+Paseo de Circunvalación,1913
+Paseo de los Mosquitos,1914
+Paseo de los Celindos,1915
+Calle del Almendro,1916
+Calle Ciudad Rodrigo,1917
+Calle de la Sal,1918
+Calle del Arco del Triunfo,1919
+Calle de Caños del Peral,1920
+Calle de Vergara,1921
+Calle de la Priora,1922
+Calle de Cervantes,1923
+Plaza de Cánovas del Castillo,1924
+Plaza de Cánovas del Castillo,1925
+Calle de Algeciras,1926
+Costanilla de San Vicente,1927
+Calle de Embajadores,1928
+Calle de San Eugenio,1929
+Calle Abada,1930
+Calle de la Unión,1931
+Calle del Reloj,1932
+Calle Válgame Dios,1933
+Plaza de las Comendadoras,1934
+Paseo de la Castellana,1935
+Calle de Santa Ana,1936
+Calle de la Rosa,1937
+Calle del Bastero,1938
+Calle de Provisiones,1939
+Plaza de Oriente,1940
+Plaza de Oriente,1941
+Plaza de Oriente,1942
+Paseo Bajo de la Virgen del Puerto,1943
+Paseo Bajo de la Virgen del Puerto,1944
+Calle de la Encarnación,1945
+Calle de Colmenares,1946
+Plaza del Rey,1947
+Calle de la Puebla,1948
+Calle de San Bartolomé,1949
+Calle de Hernán Cortés,1950
+Calle de Guillermo Rolland,1951
+Calle de Guillermo Rolland,1952
+Calle de Guillermo Rolland,1953
+Gran Vía de San Francisco,1954
+Gran Vía de San Francisco,1955
+Paseo de los Olivos,1956
+Paseo de los Olivos,1957
+Paseo de los Olivos,1958
+Paseo de los Olivos,1959
+Paseo de los Olivos,1960
+Paseo de los Olivos,1961
+Paseo de los Olivos,1962
+Cuesta de Javalquinto,1963
+Gran Vía,1964
+Gran Vía,1965
+Calle de Ercilla,1966
+Glorieta de los Plátanos,1967
+Glorieta de los Castaños,1968
+Calle de la Princesa,1969
+Calle de la Princesa,1970
+Corredera Alta de San Pablo,1971
+Calle de Ricardo León,1972
+Calle de Ricardo León,1973
+Calle del Duque de Liria,1974
+Paseo de las Minas,1975
+Paseo de los Durillos,1976
+Plaza de la Armería,1977
+Pasaje del Comercio,1978
+Calle de Santo Tomé,1979
+Calle de Pavía,1980
+Calle del Caballero de Gracia,1981
+Calle de Carlos III,1982
+Calle de Felipe V,1983
+Calle de Fomento,1984
+Calle de Quevedo,1985
+Calle de la Lechuga,1986
+Pasadizo del Obispo,1987
+Paseo de las Hayas,1988
+Paseo de Felipe V,1989
+Plaza del Comandante Las Morenas,1990
+Calle de Atocha,1991
+Calle de la Flor Alta,1992
+Ronda de Atocha,1993
+Paseo de Ali Ben Yusuf,1994
+Calle del General Mitre,1995
+Escalinata del Fotógrafo Alfonso,1996
+Calle de Santa Cruz de Marcenado,1997
+Calle de Manuel Silvela,1998
+Calle de las Tres Cruces,1999
+Calle del Recodo,2000
+Calle de Juan Álvarez Mendizábal,2001
+Calle de Juan Álvarez Mendizábal,2002
+Pasaje de Alarcón,2003
+Calle del Postigo de San Martín,2004
+Calle Preciados,2005
+Calle Preciados,2006
+Calle del Arenal,2007
+Calle del Arenal,2008
+Calle del Arenal,2009
+Calle Rompelanzas,2010
+Calle del Carmen,2011
+Plaza de Callao,2012
+Plaza de Callao,2013
+La Gran Galería,2014
+Plaza del Embarcadero de Atocha,2015
+Cuesta de la Vega,2016
+Plaza de la Villa,2017
+Plaza del Dos de Mayo,2018
+Plaza de los Carros,2019
+Plaza de los Carros,2020
+Plaza de los Carros,2021
+Calle de Baltasar Gracián,2022
+Calle de Galdo,2023
+Calle de Puñonrostro,2024
+Glorieta de los Tilos Norte,2025
+Glorieta de los Tilos,2026
+Avenida de Méjico,2027
+Avenida de Méjico,2028
+Calle del Laurel,2029
+Glorieta de Embajadores,2030
+Calle de San Felipe Neri,2031
+Paseo de Paraguay,2032
+Plaza de Raffaella Carrà,2033
+Calle de Sevilla,2034
+Calle Sevilla,2035
+Plaza del Alamillo,2036
+Plaza del Alamillo,2037
+Plaza Mayor,2038
+Plaza de la Cruz Verde,2039
+Túnel de Bonaparte,2040
+Paseo de los Niveles,2041
+Paseo perimetral,2042
+Paseo perimetral,2043
+Plaza de Carlos Cambronero,2044
 @rail line
 kind,colour,lines[],arcs
-u,#006400,L11,1123
-u,#015396,L10,1124
-u,#015396,L10,1125
-u,#015396,L10,1126
-u,#015396,L10,1127
-u,#015396,L10,1128
-u,#67c0dd,L1,1129
-u,#824100,L4,1130
-u,#939393,L6,1131
-u,#96bf0d,L5,1132
-u,#96bf0d,L5,1133
-u,#9c3293,L9,1134
-u,#a49a00,L12,1135
-u,#eba6c9,L8,1136
-u,#ed7b24,L7,1137
-u,#fb0f0c,L2,1138
-u,#ffdf00,L3,1139
-u,white,R,1140
-u,white,R,1141
-u,white,R,1142
-s,,C-2|C-7|C-8a|C-8b,1143
-s,,C-7|C-8a|C-8b,1144
-s,,C-7|C-10,1145
-s,,C-7|C-10,1146
-s,,C-10|C-8a|C-8b,1147
-s,,C-7|C-8a|C-8b,1148
-s,,C-2|C-8a|C-8b|C-2 (CIVIS),1149
-s,,C-3|C-4,1150
-s,,C-3|C-4,1151
-s,,C-3|C-4,1152
-s,,C-3|C-4,1153
-s,,C-3|C-4,1154
-s,,C-8b,1155
-s,,C-8b,1156
-s,,C-2|C-7|C-10|C-8a|C-8b,1157
-s,,C-8b,1158
-s,,C-8b,1159
-s,,C-2|C-7|C-10|C-8a|C-8b,1160
-s,,C-1|C-2 (CIVIS),1161
-s,,C-2|C-7|C-8a|C-8b,1162
-s,,C-2|C-7|C-8a|C-8b,1163
-s,,C-1|C-7|C-8a|C-8b,1164
-s,,C-2|C-8a|C-8b,1165
-s,,C-8a|C-8b,1166
-s,#00289c,C-4,1167
-s,#00289c,C-4,1168
-s,#00289c,C-4,1169
-s,#00289c,C-4,1170
-s,#00289c,C-4,1171
-s,#008a29,C-2 (CIVIS),1172
-s,#008a29,C-2 (CIVIS),1173
-s,#008a29,C-2 (CIVIS),1174
-s,#008a29,C-2,1175
-s,#008a29,C-2 (CIVIS),1176
-s,#008a29,C-2 (CIVIS),1177
-s,#009ad5,C-1,1178
-s,#009ad5,C-1,1179
-s,#009ad5,C-1,1180
-s,#009ad5,C-1,1181
-s,#4682b4,ML1,1182
-s,#660066,ML2,1183
-s,#660066,ML2,1184
-s,#76777a,C-8a,1185
-s,#76777a,C-8a|C-8b,1186
-s,#76777a,C-8b,1187
-s,#76777a,C-8b,1188
-s,#76777a,C-8b,1189
-s,#76777a,C-8a|C-8b,1190
-s,#8b039b,C-3,1191
-s,#8b039b,C-3,1192
-s,#8b039b,C-3,1193
-s,#8fbe00,C-10,1194
-s,#8fbe00,C-10,1195
-s,#8fbe00,C-10,1196
-s,#8fbe00,C-10,1197
-s,#8fbe00,C-10,1198
-s,#8fbe00,C-10,1199
-s,#8fbe00,C-10,1200
-s,#8fbe00,C-10,1201
-s,#8fbe00,C-10,1202
-s,#8fbe00,C-10,1203
-s,#a0a0a0,C-8a,1204
-s,#a0a0a0,C-8a|C-8b,1205
-s,#a0a0a0,C-8a|C-8b,1206
-s,#a0a0a0,C-8b,1207
-s,#a0a0a0,C-8b,1208
-s,#a0a0a0,C-8b,1209
-s,#a0a0a0,C-8a|C-8b,1210
-s,#de0118,C-7,1211
-s,#de0118,C-7,1212
-s,#de0118,C-7,1213
-s,#de0118,C-7,1214
-s,#de0118,C-7,1215
-s,#de0118,C-7,1216
-s,#fab700,C-5,1217
-s,#ff0000,ML3,1218
-s,#ff0000,ML3,1219
-r,,,1220;1221;1222
-r,,,1223
-r,,,1224
-r,,,1225
-r,,,1226
-r,,,1227
-r,,,1228
-r,,,1229
-r,,,1230
-r,,,1231
-r,,,1232
-r,,,1233
-r,,,1234
-r,,,1235;1236
-r,,,1237;1238
-r,,,1239
-r,,,1240
-r,,,1241
-r,,,1242
-r,,,1243
-r,,,1244
-r,,,1245
-r,,,1246
-r,,,1247
-r,,,1248
-r,,,1249
-r,,,1250
-r,,,1251
-r,,,1252
-r,,,1253
-r,,,1254
-r,,,1255
-r,,,1256
-r,,,1257
-r,,,1258
-r,,,1259
-r,,,1260
-r,,,1261
-r,,,1262
-r,,,1263
-r,,,1264
-r,,,1265
-r,,,1266
-r,,,1267
-r,,,1268
-r,,,1269
-r,,,1270
-r,,,1271
-r,,,1272
-r,,,1273
-r,,,1274
-r,,,1275
-r,,,1276
-r,,,1277
-r,,,1278
-r,,,1279
-r,,,1280
-r,#e50a70,,1281
-r,red,,1282;1283
-r,red,,1284
-r,red,,1285
-r,red,,1286
+u,#006400,L11,2045
+u,#015396,L10,2046
+u,#015396,L10,2047
+u,#015396,L10,2048
+u,#015396,L10,2049
+u,#015396,L10,2050
+u,#67c0dd,L1,2051
+u,#824100,L4,2052
+u,#939393,L6,2053
+u,#96bf0d,L5,2054
+u,#96bf0d,L5,2055
+u,#9c3293,L9,2056
+u,#a49a00,L12,2057
+u,#eba6c9,L8,2058
+u,#ed7b24,L7,2059
+u,#fb0f0c,L2,2060
+u,#ffdf00,L3,2061
+u,white,R,2062
+u,white,R,2063
+u,white,R,2064
+s,,C-2|C-7|C-8a|C-8b,2065
+s,,C-7|C-8a|C-8b,2066
+s,,C-7|C-10,2067
+s,,C-7|C-10,2068
+s,,C-10|C-8a|C-8b,2069
+s,,C-7|C-8a|C-8b,2070
+s,,C-2|C-8a|C-8b|C-2 (CIVIS),2071
+s,,C-3|C-4,2072
+s,,C-3|C-4,2073
+s,,C-3|C-4,2074
+s,,C-3|C-4,2075
+s,,C-3|C-4,2076
+s,,C-8b,2077
+s,,C-8b,2078
+s,,C-2|C-7|C-10|C-8a|C-8b,2079
+s,,C-8b,2080
+s,,C-8b,2081
+s,,C-2|C-7|C-10|C-8a|C-8b,2082
+s,,C-1|C-2 (CIVIS),2083
+s,,C-2|C-7|C-8a|C-8b,2084
+s,,C-2|C-7|C-8a|C-8b,2085
+s,,C-1|C-7|C-8a|C-8b,2086
+s,,C-2|C-8a|C-8b,2087
+s,,C-8a|C-8b,2088
+s,#00289c,C-4,2089
+s,#00289c,C-4,2090
+s,#00289c,C-4,2091
+s,#00289c,C-4,2092
+s,#00289c,C-4,2093
+s,#008a29,C-2 (CIVIS),2094
+s,#008a29,C-2 (CIVIS),2095
+s,#008a29,C-2 (CIVIS),2096
+s,#008a29,C-2,2097
+s,#008a29,C-2 (CIVIS),2098
+s,#008a29,C-2 (CIVIS),2099
+s,#009ad5,C-1,2100
+s,#009ad5,C-1,2101
+s,#009ad5,C-1,2102
+s,#009ad5,C-1,2103
+s,#4682b4,ML1,2104
+s,#660066,ML2,2105
+s,#660066,ML2,2106
+s,#76777a,C-8a,2107
+s,#76777a,C-8a|C-8b,2108
+s,#76777a,C-8b,2109
+s,#76777a,C-8b,2110
+s,#76777a,C-8b,2111
+s,#76777a,C-8a|C-8b,2112
+s,#8b039b,C-3,2113
+s,#8b039b,C-3,2114
+s,#8b039b,C-3,2115
+s,#8fbe00,C-10,2116
+s,#8fbe00,C-10,2117
+s,#8fbe00,C-10,2118
+s,#8fbe00,C-10,2119
+s,#8fbe00,C-10,2120
+s,#8fbe00,C-10,2121
+s,#8fbe00,C-10,2122
+s,#8fbe00,C-10,2123
+s,#8fbe00,C-10,2124
+s,#8fbe00,C-10,2125
+s,#a0a0a0,C-8a,2126
+s,#a0a0a0,C-8a|C-8b,2127
+s,#a0a0a0,C-8a|C-8b,2128
+s,#a0a0a0,C-8b,2129
+s,#a0a0a0,C-8b,2130
+s,#a0a0a0,C-8b,2131
+s,#a0a0a0,C-8a|C-8b,2132
+s,#de0118,C-7,2133
+s,#de0118,C-7,2134
+s,#de0118,C-7,2135
+s,#de0118,C-7,2136
+s,#de0118,C-7,2137
+s,#de0118,C-7,2138
+s,#fab700,C-5,2139
+s,#ff0000,ML3,2140
+s,#ff0000,ML3,2141
+r,,,2142;2143;2144
+r,,,2145
+r,,,2146
+r,,,2147
+r,,,2148
+r,,,2149
+r,,,2150
+r,,,2151
+r,,,2152
+r,,,2153
+r,,,2154
+r,,,2155
+r,,,2156
+r,,,2157;2158
+r,,,2159;2160
+r,,,2161
+r,,,2162
+r,,,2163
+r,,,2164
+r,,,2165
+r,,,2166
+r,,,2167
+r,,,2168
+r,,,2169
+r,,,2170
+r,,,2171
+r,,,2172
+r,,,2173
+r,,,2174
+r,,,2175
+r,,,2176
+r,,,2177
+r,,,2178
+r,,,2179
+r,,,2180
+r,,,2181
+r,,,2182
+r,,,2183
+r,,,2184
+r,,,2185
+r,,,2186
+r,,,2187
+r,,,2188
+r,,,2189
+r,,,2190
+r,,,2191
+r,,,2192
+r,,,2193
+r,,,2194
+r,,,2195
+r,,,2196
+r,,,2197
+r,,,2198
+r,,,2199
+r,,,2200
+r,,,2201
+r,,,2202
+r,#e50a70,,2203
+r,red,,2204;2205
+r,red,,2206
+r,red,,2207
+r,red,,2208
 @green polygon
 kind,arcs
-wood,1287
-wood,1288
-wood,1289
-wood,1290
-wood,1291;1292;1293;1294;1295
-wood,1296
-wood,1297
-wood,1298
-wood,1299;1300;1301;1302
-wood,1303
-wood,1304
-wood,1305
-wood,1306
-wood,1307
-wood,1308
-wood,1309
-wood,1310
-wood,1311
-wood,1312
-wood,1313
-wood,1314
-wood,1315
-wood,1316
-wood,1317
-wood,1318
-wood,1319
-wood,1320
-wood,1321
-wood,1322
-wood,1323
-wood,1324
-wood,1325
-wood,1326
-wood,1327
-wood,1328
-wood,1329
-wood,1330
-wood,1331
-wood,1332
-wood,1333
-wood,1334
-park,1335
-park,1336
-park,1337
-park,1338
-park,1339
-park,1340
-park,1341
-park,1342
-park,1343
-park,1344
-park,1345
-park,1346
-park,1347
-park,1348
-park,1349
-park,1350
-park,1351
-park,1352
-park,1353
-park,1354
-park,1355
-park,1356
-park,1357
-park,1358
-park,1359
-park,1360
-park,1361
-park,1362
-park,1363
-park,1364
-park,1365
-park,1366
-park,1367
-park,1368
-park,1369
-park,1370
-park,1371
-park,1372
-park,1373
-park,1374
-park,1375
-park,1376
-park,1377
-park,1378
-park,1379
-park,1380
-park,1381
-park,1382
-park,1383
-park,1384
-park,1385
-park,1386
-park,1387
-park,1388
-park,1389
-park,1390
-park,1391
-park,1392
-park,1393
-park,1394
-park,1395
-park,1396
-park,1397
-park,1398
-park,1399
-park,1400
-park,1401
-park,1402
-park,1403
-park,1404
-park,1405
-park,1406
-park,1407
-park,1408
-park,1409
-park,1410
-park,1411
-park,1412
-park,1413
-park,1414
-park,1415
-park,1416
-park,1417
-park,1418
-park,1419
-park,1420
-park,1421
-park,1422
-park,1423
-park,1424
-park,1425
-park,1426
-park,1427
-park,1428
-park,1429
-park,1430
-park,1431
-park,1432
-park,1433
-park,1434
-park,1435
-park,1436
-park,1437
-park,1438
-park,1439
-park,1440
-park,1441
-park,1442
-park,1443
-park,1444
-park,1445
-park,1446
-park,1447
-park,1448
-park,1449
-park,1450
-park,1451
-park,1452
-park,1453
-park,1454
-park,1455
-park,1456
-park,1457
-park,1458
-park,1459
-park,1460
-park,1461;1462
-park,1463
-park,1464
-park,1465
-park,1466
-park,1467
-park,1468
-park,1469
-park,1470
-park,1471
-park,1472
-park,1473
-park,1474
-park,1475
-park,1476
-park,1477
-park,1478
-park,1479
-park,1480
-park,1481
-park,1482
-park,1483
-park,1484
-park,1485
-park,1486
-park,1487
-park,1488
-park,1489
-park,1490
-park,1491
-park,1492
-park,1493
-park,1494
-park,1495
-park,1496
-park,1497
-park,1498
-park,1499
-park,1500
+wood,2209
+wood,2210
+wood,2211
+wood,2212
+wood,2213;2214;2215;2216;2217
+wood,2218
+wood,2219
+wood,2220
+wood,2221;2222;2223;2224
+wood,2225
+wood,2226
+wood,2227
+wood,2228
+wood,2229
+wood,2230
+wood,2231
+wood,2232
+wood,2233
+wood,2234
+wood,2235
+wood,2236
+wood,2237
+wood,2238
+wood,2239
+wood,2240
+wood,2241
+wood,2242
+wood,2243
+wood,2244
+wood,2245
+wood,2246
+wood,2247
+wood,2248
+wood,2249
+wood,2250
+wood,2251
+wood,2252
+wood,2253
+wood,2254
+wood,2255
+wood,2256
+park,2257
+park,2258
+park,2259
+park,2260
+park,2261
+park,2262
+park,2263
+park,2264
+park,2265
+park,2266
+park,2267
+park,2268
+park,2269
+park,2270
+park,2271
+park,2272
+park,2273
+park,2274
+park,2275
+park,2276
+park,2277
+park,2278
+park,2279
+park,2280
+park,2281
+park,2282
+park,2283
+park,2284
+park,2285
+park,2286
+park,2287
+park,2288
+park,2289
+park,2290
+park,2291
+park,2292
+park,2293
+park,2294
+park,2295
+park,2296
+park,2297
+park,2298
+park,2299
+park,2300
+park,2301
+park,2302
+park,2303
+park,2304
+park,2305
+park,2306
+park,2307
+park,2308
+park,2309
+park,2310
+park,2311
+park,2312
+park,2313
+park,2314
+park,2315
+park,2316
+park,2317
+park,2318
+park,2319
+park,2320
+park,2321
+park,2322
+park,2323
+park,2324
+park,2325
+park,2326
+park,2327
+park,2328
+park,2329
+park,2330
+park,2331
+park,2332
+park,2333
+park,2334
+park,2335
+park,2336
+park,2337
+park,2338
+park,2339
+park,2340
+park,2341
+park,2342
+park,2343
+park,2344
+park,2345
+park,2346
+park,2347
+park,2348
+park,2349
+park,2350
+park,2351
+park,2352
+park,2353
+park,2354
+park,2355
+park,2356
+park,2357
+park,2358
+park,2359
+park,2360
+park,2361
+park,2362
+park,2363
+park,2364
+park,2365
+park,2366
+park,2367
+park,2368
+park,2369
+park,2370
+park,2371
+park,2372
+park,2373
+park,2374
+park,2375
+park,2376
+park,2377
+park,2378
+park,2379
+park,2380
+park,2381
+park,2382
+park,2383;2384
+park,2385
+park,2386
+park,2387
+park,2388
+park,2389
+park,2390
+park,2391
+park,2392
+park,2393
+park,2394
+park,2395
+park,2396
+park,2397
+park,2398
+park,2399
+park,2400
+park,2401
+park,2402
+park,2403
+park,2404
+park,2405
+park,2406
+park,2407
+park,2408
+park,2409
+park,2410
+park,2411
+park,2412
+park,2413
+park,2414
+park,2415
+park,2416
+park,2417
+park,2418
+park,2419
+park,2420
+park,2421
+park,2422
 @water polygon
 arcs
-1501
-1502;1503
-1504
-1505
-1506
-1507
-1508
-1509
-1510
-1511
-1512
-1513
-1514
-1515
-1516;1517
-1518
-1519
-1520
-1521
-1522
-1523
-1524
-1525
-1526
-1527
-1528
-1529
-1530
-1531
-1532
-1533
-1534
-1535
-1536
-1537
-1538
-1539
-1540
-1541
-1542
-1543
-1544
+2423
+2424;2425
+2426
+2427
+2428
+2429
+2430
+2431
+2432
+2433
+2434
+2435
+2436
+2437
+2438;2439
+2440
+2441
+2442
+2443
+2444
+2445
+2446
+2447
+2448
+2449
+2450
+2451
+2452
+2453
+2454
+2455
+2456
+2457
+2458
+2459
+2460
+2461
+2462
+2463
+2464
+2465
+2466
 @waterways line
 name,kind,arcs
-Arroyo de Valdebebas,canal,1545
-Canal Bajo,canal,1546
-Canal Bajo de Madrid,canal,1547
-Canal Bajo de Madrid,canal,1548
-Canal del Manzanares,canal,1549
-Los Rápidos,canal,1550
-Río Jarama,river,1551
-Río Jarama,river,1552
-Río Manzanares,river,1553
-Río Manzanares,river,1554
-Río Manzanares,river,1555
-Río Manzanares,river,1556
+Arroyo de Valdebebas,canal,2467
+Canal Bajo,canal,2468
+Canal Bajo de Madrid,canal,2469
+Canal Bajo de Madrid,canal,2470
+Canal del Manzanares,canal,2471
+Los Rápidos,canal,2472
+Río Jarama,river,2473
+Río Jarama,river,2474
+Río Manzanares,river,2475
+Río Manzanares,river,2476
+Río Manzanares,river,2477
+Río Manzanares,river,2478
 @airport polygon
 name,iata,arcs
-Adolfo Suárez Madrid-Barajas Airport,MAD,1557
+Adolfo Suárez Madrid-Barajas Airport,MAD,2479
 @monuments polygon
 name,wikidata,arcs
-El Retiro Park,Q1131807,1558
-Museo Nacional Centro de Arte Reina Sofía,Q460889,1559
-Royal Palace of Madrid,Q171517,1560;1561;1562
-Palacio de Cibeles,Q1849031,1563
-Almudena Cathedral,Q849711,1564;1565;1566
-Teatro Real,Q211250,1567
-Royal Palace of El Pardo,Q1368571,1568;1569;1570
-Bridge of Segovia,Q2838423,1571
+El Retiro Park,Q1131807,2480
+Museo Nacional Centro de Arte Reina Sofía,Q460889,2481
+Royal Palace of Madrid,Q171517,2482;2483;2484
+Palacio de Cibeles,Q1849031,2485
+Almudena Cathedral,Q849711,2486;2487;2488
+Teatro Real,Q211250,2489
+Royal Palace of El Pardo,Q1368571,2490;2491;2492
+Bridge of Segovia,Q2838423,2493
 @districts line
 level#,arcs
-1,1572
-1,1573
-1,1574
-1,1575
-1,1576
-1,1577
-1,1578
-1,1579
-1,1580
-1,1581
-1,1582
-1,1583
-1,1584
-1,1585
-1,1586
-1,1587
-1,1588
-1,1589
-1,1590
-1,1591
-1,1592
-1,1593
-1,1594
-1,1595
-1,1596
-1,1597
-1,1598
-1,1599
-1,1600
-1,1601
-1,1602
-1,1603
-1,1604
-1,1605
-1,1606
-1,1607
-1,1608
-1,1609
-1,1610
-1,1611
-1,1612
-1,1613
-1,1614
-1,1615
-1,1616
-1,1617
-1,1618
-1,1619
-1,1620
-1,1621
-1,1622
-1,1623
-1,1624
-1,1625
-1,1626
-1,1627
-1,1628
-1,1629
-1,1630
-1,1631
-1,1632
-1,1633
-1,1634
-1,1635
-1,1636
-1,1637
-1,1638
-1,1639
-1,1640
-1,1641
-1,1642
-1,1643
-1,1644
-1,1645
-1,1646
-1,1647
-1,1648
-1,1649
-1,1650
-1,1651
-1,1652
-1,1653
-1,1654
-1,1655
-1,1656
-1,1657
-1,1658
-1,1659
-1,1660
-1,1661
-1,1662
-1,1663
-1,1664
-1,1665
-1,1666
-1,1667
-1,1668
-1,1669
-1,1670
-1,1671
-1,1672
-1,1673
-1,1674
-1,1675
-1,1676
-1,1677
-1,1678
-1,1679
-1,1680
-1,1681
-1,1682
-1,1683
-1,1684
-1,1685
-1,1686
-1,1687
-1,1688
-1,1689
-1,1690
-1,1691
-1,1692
-1,1693
-1,1694
-1,1695
-1,1696
-1,1697
-1,1698
-1,1699
-1,1700
-1,1701
-1,1702
-1,1703
-1,1704
-1,1705
-1,1706
-1,1707
-1,1708
-1,1709
-1,1710
-1,1711
-1,1712
-1,1713
-1,1714
-1,1715
-1,1716
-1,1717
-1,1718
-1,1719
-1,1720
-1,1721
-1,1722
-1,1723
-1,1724
-1,1725
-1,1726
-1,1727
-1,1728
-1,1729
-1,1730
-1,1731
-1,1732
-1,1733
-1,1734
-1,1735
-1,1736
-1,1737
-1,1738
-1,1739
-1,1740
-1,1741
-1,1742
-1,1743
-1,1744
-1,1745
-1,1746
-1,1747
-1,1748
-1,1749
-1,1750
-1,1751
-1,1752
-1,1753
-1,1754
-1,1755
-1,1756
-1,1757
-1,1758
-1,1759
-1,1760
-1,1761
-1,1762
-1,1763
-1,1764
-1,1765
-1,1766
-1,1767
-1,1768
-1,1769
-1,1770
-1,1771
-1,1772
-1,1773
+1,2494
+1,2495
+1,2496
+1,2497
+1,2498
+1,2499
+1,2500
+1,2501
+1,2502
+1,2503
+1,2504
+1,2505
+1,2506
+1,2507
+1,2508
+1,2509
+1,2510
+1,2511
+1,2512
+1,2513
+1,2514
+1,2515
+1,2516
+1,2517
+1,2518
+1,2519
+1,2520
+1,2521
+1,2522
+1,2523
+1,2524
+1,2525
+1,2526
+1,2527
+1,2528
+1,2529
+1,2530
+1,2531
+1,2532
+1,2533
+1,2534
+1,2535
+1,2536
+1,2537
+1,2538
+1,2539
+1,2540
+1,2541
+1,2542
+1,2543
+1,2544
+1,2545
+1,2546
+1,2547
+1,2548
+1,2549
+1,2550
+1,2551
+1,2552
+1,2553
+1,2554
+1,2555
+1,2556
+1,2557
+1,2558
+1,2559
+1,2560
+1,2561
+1,2562
+1,2563
+1,2564
+1,2565
+1,2566
+1,2567
+1,2568
+1,2569
+1,2570
+1,2571
+1,2572
+1,2573
+1,2574
+1,2575
+1,2576
+1,2577
+1,2578
+1,2579
+1,2580
+1,2581
+1,2582
+1,2583
+1,2584
+1,2585
+1,2586
+1,2587
+1,2588
+1,2589
+1,2590
+1,2591
+1,2592
+1,2593
+1,2594
+1,2595
+1,2596
+1,2597
+1,2598
+1,2599
+1,2600
+1,2601
+1,2602
+1,2603
+1,2604
+1,2605
+1,2606
+1,2607
+1,2608
+1,2609
+1,2610
+1,2611
+1,2612
+1,2613
+1,2614
+1,2615
+1,2616
+1,2617
+1,2618
+1,2619
+1,2620
+1,2621
+1,2622
+1,2623
+1,2624
+1,2625
+1,2626
+1,2627
+1,2628
+1,2629
+1,2630
+1,2631
+1,2632
+1,2633
+1,2634
+1,2635
+1,2636
+1,2637
+1,2638
+1,2639
+1,2640
+1,2641
+1,2642
+1,2643
+1,2644
+1,2645
+1,2646
+1,2647
+1,2648
+1,2649
+1,2650
+1,2651
+1,2652
+1,2653
+1,2654
+1,2655
+1,2656
+1,2657
+1,2658
+1,2659
+1,2660
+1,2661
+1,2662
+1,2663
+1,2664
+1,2665
+1,2666
+1,2667
+1,2668
+1,2669
+1,2670
+1,2671
+1,2672
+1,2673
+1,2674
+1,2675
+1,2676
+1,2677
+1,2678
+1,2679
+1,2680
+1,2681
+1,2682
+1,2683
+1,2684
+1,2685
+1,2686
+1,2687
+1,2688
+1,2689
+1,2690
+1,2691
+1,2692
+1,2693
+1,2694
+1,2695
 @clip polygon
 arcs
-1774
+2696
 @places
 name,level#,lon#,lat#
 Usera,1,-3.70372,40.37596

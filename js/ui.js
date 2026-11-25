@@ -180,7 +180,6 @@ export const levelShown = () => { quickShown(); legend(); renderGroups(); };   /
 const dropHidden = () => { if (S.sel && !isShown(S.sel)) clearSel(); };
 export function modeChanged(redraw = true) {
   quickShown(); toggleDefaults();
-  $("palette").disabled = mode() !== "political" && mode() !== "history";
   $("biolevel").hidden = mode() !== "bio";
   $("histbox").hidden = mode() !== "history";
   legend(); renderGroups(); wanted();
@@ -242,7 +241,8 @@ export function init() {
   $("wars-btn").onclick = showWars;
   $("day").onchange = () => { setDay($("day").value); $("day").value = showDay(histDay()); draw(); };
   modeChanged(false);
-  $("palette").onchange = () => { try { localStorage.palette = $("palette").value; } catch (e) { } draw(); };
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => legend());   // (the legend's swatches: the other scheme's)
+  $("palette").onchange = () => { try { localStorage.palette = $("palette").value; } catch (e) { } legend(); draw(); };
   for (const c of document.querySelectorAll("[data-layer]")) c.onchange = () => { togglesShown(); wanted(); dropHidden(); draw(); };
   canvas.addEventListener("painters-free", () => { if (!S.behind) return; S.behind = false; if (S.moving) S.frame ||= requestAnimationFrame(moveFrame); });
   addEventListener("resize", resized);

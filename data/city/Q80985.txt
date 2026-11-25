@@ -1,0 +1,1311 @@
+# Fez: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 -5.09990 33.95830
+@arcs
+2054 599 -34 -86
+2054 599 63 13 32 13 20 14 97 86 100 73 45 31 103 55 0 1 2 0 -2 -1
+1506 625 2 2 9 24 1 2 3 35 -17 98 42 137 0 1
+1482 579 -46 -96
+2618 766 -83 106 -9 16
+2618 766 0 -1 0 -1 1 -5 90 -98
+1583 1050 -38 -118 1 -8
+1618 1173 -9 -42 -24 -75 -2 -6
+2643 953 -113 -57 -4 -8
+1924 605 -126 4
+2054 599 -3 2 -127 4
+1691 649 55 -35 23 -6 27 0 1 0 1 1
+1686 657 -32 4 -83 -4
+1517 651 -37 10 -45 33
+1618 1173 8 -3 8 2 3 9 -10 6 -10 -6 1 -8
+2643 953 57 27
+1508 627 -2 -2 -24 -46
+2700 980 50 25
+1552 652 -34 1
+2618 766 -4 -2 4 1
+1482 579 4 -1 -4 1
+2618 764 0 2
+1583 1050 2 -1 -2 1
+1798 609 -2 -1
+1585 1056 2 -1 -2 1
+1797 608 1 1
+1546 923 -3 1 3 0
+2067 1139 -5 -62 5 -27 69 -112 54 -65 6 -16 2 -14 -3 -15 -10 -21 -83 -99 -41 -97 -10 -10
+2537 1910 -13 -7 -14 0 -11 4 -9 12 -17 18 -14 4 -12 -1 -15 -7 -15 -19 -12 -9 -44 -15 -38 -24 -14 -3 -76 1 -18 -4 -31 -13 -3 -1
+3106 1065 -185 8 -31 -1 -31 -9 -95 -49
+2806 2090 -47 -13 -9 -8 -16 -25 -17 -10 -8 -2 -5 -5 -1 0 -37 -17 -26 -25 -68 -23 -10 -10 -25 -42
+881 1341 -90 207 -7 28 -9 7
+1183 1813 -41 -15 -83 -17 -146 -38
+3187 2055 -132 -23
+2067 1139 1 1 0 1 3 60 -2 58 -28 97
+1118 643 -10 12 -4 15 16 46 5 39 7 18 3 39 4 9 -7 10 1 11
+2265 1224 -107 178
+2134 2034 -224 -32
+2480 2245 -12 4 -10 -5 2 -15 -4 -8 -34 -13 -32 -3 -16 -6 -10 -9 -18 -28 -11 -9
+1512 1612 -91 28 -18 0 -59 -9 -30 8
+1512 1612 13 -4 25 1 22 8 65 32 28 4 37 -1
+1910 2000 0 2
+2685 2176 -2 7 7 42 -5 6 -30 16
+2612 2223 -1 -1
+2414 1024 96 -125 4 -15
+1793 1977 -1 0 -89 -18 -87 -23 -1 0
+1295 1850 95 27 77 17
+1435 694 -24 6 -17 0 -123 -37
+1132 860 -50 137
+739 1693 1 1 154 43
+2265 1224 1 -6 88 -116 1 0
+986 1126 87 -111 0 -2
+1259 1756 6 -3 27 -90 10 -23 1 -1
+1615 1936 -141 -38 -7 -4
+739 1693 -9 0
+2949 2060 -88 28 -50 2 -5 0
+2044 1469 -5 -14 -10 -27 -3 -17 3 -20 12 -35
+1937 1582 -17 6 -94 51
+1132 632 43 2 22 6
+775 1583 -7 14 14 24 -1 3 -40 60 -2 9
+2048 1518 -88 48 -14 11 -9 5
+1826 1639 -20 11 -12 3 -81 1 -11 -2
+2414 1024 0 5 -56 72 -3 1 -1 0
+1295 1850 -1 0 -10 1 -100 -38 -1 0
+2949 2060 10 -8 50 -18 27 -4 19 2
+1793 1977 14 0 101 21
+2158 1402 -33 58 -15 16
+2066 1642 -4 82
+2543 2256 5 -6
+2553 2240 49 -28 8 1 1 9
+2062 1724 1 1 6 8 46 57 1 5
+916 1261 -28 66 0 1
+2543 2256 -4 9
+2524 2262 -10 -3
+2498 2259 -4 -1
+2489 2254 14 -9 0 -7
+986 1126 0 1 -29 42 -9 20 0 1
+948 1190 -2 3 -30 68
+2685 2176 1 -4 12 -4 10 2 17 10 36 -8
+1184 1813 1 -2 8 -6 41 -16 16 -13 1 -4
+2048 1518 -7 62
+2239 2043 -2 0 -16 -4 -51 2
+2335 2153 -2 -1 -37 -29 -15 -8
+2811 2090 -46 24 -8 6
+2757 2120 -1 3 -2 14 11 31 -2 3 -2 1
+2239 2043 1 0 5 0 14 18 8 24
+2102 1490 -6 -2 1 -13 13 1 -2 11 -6 3
+2044 1469 3 1 7 17 -4 27 -2 4
+2082 1827 -12 -48
+2050 1514 46 -26
+2070 1779 -8 -39 7 -7
+1237 652 -40 -12
+1265 1753 11 10 0 10 -10 6 -16 -3
+2101 1817 -7 5
+1251 1772 -1 -8 9 -8
+2041 1593 13 24
+1133 842 -1 18
+1271 663 -18 -6
+1963 1836 -1 -3 3 3
+2281 2115 -9 -10
+2061 1631 -6 -11
+2139 2034 -2 1 -3 -1
+1082 997 1 12
+888 1328 -2 7
+1960 1839 -3 -2
+2272 2105 1 -2 4 0 -5 2
+2704 2027 3 -4 -4 4
+1302 1640 6 2 -5 -3
+2142 2034 -3 0
+2717 2034 2 -4 -2 4
+1073 1015 5 1 -5 -3
+2949 2060 -2 -4
+886 1335 -2 0 -3 -1 5 1
+2064 1639 -3 -8
+1132 632 2 4
+899 1738 2 -1 0 2
+888 1327 -5 0 5 1
+739 1693 0 2 -1 1
+738 1696 1 -1 1 -1
+1131 636 -2 -2 3 -2
+2757 2122 -5 0 4 1
+2757 2120 -4 -2 3 1 1 1
+2041 1593 -3 -3 3 3
+1295 1850 -1 4 0 -4
+2134 2034 -1 -1
+2134 2033 0 1
+2066 1642 -2 -3
+3055 2029 0 3
+2059 1726 3 -2
+2503 2238 3 -2 -2 2 -1 0
+2480 2245 -2 -2 2 2
+948 1189 -3 0 3 1
+914 1258 3 1
+2239 2043 -1 -1
+2238 2042 -1 1
+2947 2056 2 -1 1 -1 -3 2
+986 1126 3 1
+1793 1977 0 -2 -1 2
+2480 2245 2 -2 0 1 -2 1
+1616 1936 0 -2 -1 2
+914 1258 -1 2 0 -1 1 -1
+2335 2153 2 -1 0 1 -2 0
+1467 1894 -1 2 1 -2
+1183 1813 2 -2
+2264 2085 3 0
+2158 1402 -3 -1 2 0 1 1
+2062 1724 1 1
+2335 2153 -2 -1
+3055 2029 -3 -1 2 0 1 1
+2054 1617 0 2 1 1
+2761 2172 1 2 -1 -1 0 -1
+1134 636 -3 0
+917 1259 -1 2
+2761 2172 2 -1
+2503 2238 -1 -1 -1 -1 2 2
+2757 2120 0 2
+2264 2085 1 1 -1 0 0 -1
+2240 2043 -1 0
+2055 1620 -1 -1
+2267 2085 0 1 0 -1
+986 1127 0 -1
+989 1127 -1 0 0 1 1 -1
+930 1188 -204 16 -180 -147
+1631 2298 35 -18 27 -1 17 -10 25 -8
+2468 2249 -31 22 -27 4 -3 12 -11 12 -42 24 -32 5 -3 -3 2 -5 12 -2 28 -20 2 -10 11 -13 -5 -13 8 -16 -1 -4 -36 -11 -10 -8 -12 -22 -29 -9 -45 -31 -68 -32 -59 -21
+1947 1392 -12 -14 -24 -17 -52 -89 9 -65 -17 -69
+2511 1945 -34 1 -17 10 -29 4 -4 0 0 2 4 -2
+2431 1960 4 4 32 12 2 0 1 1 -3 -1
+2467 1976 -3 2 -52 -2 -21 1 -29 -35 -41 20
+1314 1623 125 -233
+2615 1680 0 16 10 30 -1 18 -8 16 -35 44 -16 39 -14 57
+1947 2162 -1 1 -90 37 -119 63
+2504 1382 27 34 23 57 4 22 -1 47 5 16
+2068 1140 76 24 85 20 37 34
+2059 1726 -14 -9 -108 -135
+1149 1220 -53 13 -11 0 -139 -40
+2321 1962 -3 0
+2183 1849 1 -2
+1434 1376 2 2 -2 -2 -39 -2 -17 -4 -81 -34 -38 -28
+2383 1257 121 125
+1434 1376 5 -8 18 -79 18 -20 37 -30
+1835 1460 37 25 74 92
+1800 976 13 54 28 75
+2562 1558 11 14 32 23 16 25 -6 60
+2068 1141 -57 -11 -74 -18
+1634 1172 113 -36 1 -1
+1512 1239 39 -26 34 -14 32 -18
+1741 827 -10 -13 -20 -80
+2039 1455 -17 -3 -21 -18 -29 -17 -25 -25
+1678 1310 -39 -83
+2315 1965 -18 25 -21 16
+2273 2011 -16 16
+1149 1220 1 0 36 37 5 24 9 11
+1835 1460 -2 1 -9 3 -99 -3
+1573 1364 78 42
+1748 1135 93 -30
+2349 1256 -84 -32
+1725 1461 -15 -5 -57 -46 -2 -4
+1686 657 10 10 15 53 0 14
+1841 1105 4 0 49 -3 36 4 7 6
+1780 1399 10 20 43 42
+2137 2035 -29 64
+1716 1359 28 20 28 12 8 8
+2058 2113 -15 5 -15 12 -14 10 -17 4
+1225 1253 -1 0 1 0 32 47 2 8
+1516 1361 -67 17
+1993 2132 9 -3 26 1
+1790 936 -11 -52
+1716 1359 -7 -4 -19 -32 -12 -13
+1741 827 9 5 30 39
+1639 1227 -16 -21 6 -13 -2 -6
+1516 1361 6 -3 24 0 27 6
+1997 2144 -50 18
+1225 1253 -24 38 -1 1
+2108 2099 -9 6 -41 8
+1790 936 10 40
+1845 1105 6 33
+2511 1945 -7 -18 -14 -8
+2373 1252 -2 1 -4 -2 2 -4
+2369 1247 4 1 0 4
+2383 1257 -12 -4
+2102 2097 6 2
+1747 1136 1 3 0 -4
+2061 2112 -3 1
+1736 2261 1 2
+2562 1558 -3 1 1 -1 2 0
+1149 1220 -1 -3 1 3
+2058 2113 -1 -2 1 2
+1947 2162 -1 1
+1200 1292 -2 2 1 -1 1 -1
+1200 1292 1 -1
+2061 2112 0 -2 0 1 0 1
+1737 2263 -1 0 -1 0 2 0
+2102 2097 -1 1 0 -1 1 0
+1735 2261 1 0
+1150 1220 -1 0
+1517 649 0 2 1 2
+1517 651 -5 1
+1523 652 -5 1
+1133 781 0 3
+1512 1612 -10 3
+1268 1743 1 -4
+774 1635 -5 8
+2601 2213 1 -1 8 1
+2505 1945 -3 0
+1388 1485 2 -4
+1151 1220 3 3
+2267 2064 -8 1
+2357 2051 -14 -2 -6 0 -22 18 -5 3 -9 -2 -18 -6 -15 2
+2321 1965 21 19 8 9 4 6 3 14 3 6
+2360 2019 6 7
+2363 2028 -3 -9
+2364 2029 -4 13
+2295 1992 7 4 17 -1 5 2 1 3 -5 22
+2368 2028 5 1 4 -1 9 -6 13 -3 2 -3 5 -15 2 -18 -2 -1 -4 -1 -7 -3
+2500 2001 -3 9 -1 7
+2500 1945 -1 4 3 3 12 6 -1 3 -5 5 -1 1 13 18 1 3 -1 7 -11 1 -1 2
+2267 2085 4 0 6 1 2 -4 4 -2 17 -5 10 -3 20 2 5 2 8 7 19 16 3 5 22 11 17 7 7 1 2 -2 9 3 7 5 23 8 13 -1 19 3 16 0 6 0 11 -2
+2328 2067 22 8 8 1 17 -4 21 7 26 15 6 5 24 8 0 3 4 5 10 9 5 10 1 3
+2686 2038 -5 4 -4 6 -8 6 -17 8 -11 6
+2732 2123 -1 -16 1 -20 3 -4 1 -1 5 -1 5 0
+2720 2118 12 0
+2589 2140 11 0 4 1 19 1
+2518 1983 10 -4 -15 -18
+2550 2097 -5 0
+2598 2118 8 9 2 1
+2522 2135 6 0 11 2 6 -13
+2566 2128 -3 -3 -5 -2 -3 -3 -12 0
+2555 2098 13 3 10 6
+2582 2125 -5 2
+2551 2106 -3 0
+2551 2106 2 6 1 1 9 1
+2563 2114 4 0
+2563 2114 1 -3
+2567 2114 0 2
+2567 2114 2 1 1 -2
+2545 2124 -5 -8
+2543 2110 0 6 -3 0
+2578 2107 2 0 7 2 1 4 2 4 5 1 3 0
+2577 2127 -2 1 -4 -5 -5 5 3 11 0 20 2 7 -8 8 -4 -1 -19 -2 -14 -8 -1 -24 -2 0 -1 -3
+2643 2120 -4 -9 -3 -7 9 -8
+2566 2085 6 -2 1 3 1 0 1 1 1 -1
+2578 2079 -2 1 -1 -2
+2576 2086 7 7 5 -2 2 -3 15 -11
+2576 2086 3 -2
+2579 2084 3 -2 -4 -3
+2578 2079 2 -3 4 0
+2579 2084 4 3
+2586 2067 -5 1 -1 3 -5 1 -1 -4 -7 -1
+2586 2067 -1 -3
+2597 2068 -2 1 -1 -2 -2 0 -2 -1 -4 1
+2587 2109 3 0
+2597 2111 6 -5 8 -9
+2590 2156 -3 -6
+2587 2150 -3 -12 -1 -1 -1 1 1 7 4 5
+2571 2102 4 -3 4 -1
+2579 2098 2 6
+2579 2098 3 0
+2580 2107 0 -2 1 -1
+2581 2104 2 0
+2582 2098 1 6
+2582 2098 4 -1 3 -1
+2583 2104 4 -1 -1 6
+2589 2096 7 9 5 3
+2589 2096 4 -3
+2593 2093 6 6 -3 2
+2593 2093 3 -1
+2575 2034 -2 -1
+2575 2047 0 -5 1 -6 -1 -2
+2575 2034 6 -3
+2349 2078 5 1 6 1 4 -1 0 1 6 0
+2350 2075 -2 5 -4 3
+2328 2067 -3 4 -10 -4
+2340 2071 6 -8 5 -9
+2419 2091 13 -20 3 -6 -1 -7 -2 -2 3 -5 -10 -10
+2331 2068 15 -13 8 -1 3 -3
+2460 2136 -3 13
+2428 2088 -3 6 -2 0
+2428 2088 -4 -1
+2428 2088 3 1
+2429 2084 -1 4
+2429 2084 6 0 3 2
+2440 2079 -7 1 -3 1 -1 3
+2435 2089 3 -3
+2438 2086 2 -2
+2424 2125 5 -4 1 -4 0 -4 -2 -8
+2411 2087 -8 8 -7 13 -4 -2 -5 9
+2531 2177 8 4 19 12 10 1 3 1 10 14
+2583 2223 -1 -11 -1 -3
+2581 2209 5 -1 5 5
+2368 2029 1 2 0 5 9 4 7 9
+2415 2046 -19 -17 -5 -9
+2425 2041 -12 -9 -5 4 -3 -16
+2454 1996 27 3 5 -6 3 0 1 -3 2 -1 3 1 0 6
+2385 2049 12 2 14 -3 14 -7
+2425 2041 7 -6 7 -9 2 -2 -1 -8 4 1 9 -7 15 -3
+2435 2065 1 -2 6 -2 4 -6 2 -7 7 0 -1 -3 4 -1 0 2 8 0 4 -10 -1 -1 3 -3 6 -2 14 -11 4 -2
+2503 2023 0 4 11 10
+2389 2063 -4 5 -3 6
+2385 2049 0 2 8 5 -4 5 1 1 -1 1
+2433 2070 -4 -1 -8 2 -7 -2 -1 -7 -7 3 -11 -3 -1 3 -5 -2
+2407 2085 2 -4
+2376 2084 1 0 3 -3 2 1
+2382 2082 -1 2 2 1 -3 4
+2382 2082 1 1 1 -1 5 2
+2400 2094 -1 2 -14 -5 0 1
+2400 2094 -13 -7 3 -3 -1 0
+2391 2081 -2 3
+2391 2081 3 2
+2394 2078 -3 3
+2403 2095 -3 -1
+2355 2076 2 -5
+2372 2073 4 -8
+2358 2076 3 -7 5 -7
+2379 2051 -6 -4 0 -3 -13 -3
+2394 2091 5 -7
+2399 2084 4 1
+2399 2084 -1 -1 2 -2
+2468 2127 -9 1
+2442 2103 5 -6 0 -4 2 -2 9 -4
+2431 2101 1 -4 1 -2 4 -2 2 -1
+2319 2087 -4 1 -7 5 -4 -4 -6 -3 -4 2 -1 0
+2329 2088 2 4 12 -9
+2531 2177 -3 1 -22 -9 -7 -5
+2525 2149 10 1 12 2 6 2 4 -6
+2751 2119 -17 4 -18 -1 -8 -2 -36 -11
+2526 2162 -9 0 -2 0 -3 -3 -1 -3 3 -7 -1 -11
+2479 2175 -5 7 -15 -8 -11 -3 -5 -3 -13 -2 -5 -5 -7 -3 0 -9 1 -5
+2511 1945 6 6 10 3 4 2 11 14 0 3 -3 9 -6 12 16 39
+2539 2070 -8 -8 -1 -2 1 -3 2 -3 17 -10
+2542 2080 1 1
+2550 2044 -1 -4
+2552 2040 0 2 -2 2
+2370 2080 0 -1 6 0
+2320 2022 37 -9
+2347 2086 -18 11
+2401 2121 -3 3 2 8 1 7 1 3 2 2 4 1 7 0 4 -1
+2358 2124 8 9
+2373 2114 4 -4
+2389 2149 14 0
+2511 2156 -7 -3 0 -4
+2345 2106 -1 1
+2346 2107 -1 -1
+2357 2094 -5 7 -7 5
+2413 2082 -2 5
+2423 2094 -3 6 26 15 13 13
+2525 2087 0 -7 -5 0
+2341 2072 -2 3 -4 1
+2347 2081 10 2 7 3 1 -1 6 3
+2353 2091 -7 4
+2356 2093 1 -1
+2429 2121 1 1 4 0 3 5
+2419 2144 5 1 11 -1 5 1 12 5
+2678 2092 10 2
+2693 2051 11 1
+2686 2075 8 2 15 0
+2690 2064 7 0 5 -1 8 -6
+2663 2096 10 -2 5 0
+2645 2184 2 2 1 4 -2 24 5 6 12 1 10 -6 2 -6 -3 -9 -9 -21 -6 -9 -10 -17 0 -4
+2532 2096 -10 0 -7 -2
+2459 2106 -1 1 -4 5
+2490 2139 5 14 2 2 0 1
+2292 2081 -1 1
+2296 2087 -4 -6
+2292 2081 2 -1
+2294 2080 0 1
+2294 2080 3 -1
+2297 2079 1 1 1 0
+2297 2079 1 0
+2563 2014 8 -9 5 -2
+2293 2088 -5 -4 -3 -5
+2322 2073 0 7 1 4
+2325 2084 5 -10
+2294 2088 7 7 18 11
+2308 2093 4 2
+2307 2078 -1 -2 -3 0
+2309 2084 -4 1
+2306 2085 1 1
+2309 2084 1 2
+2315 2083 -6 1
+2321 2092 -1 -4 -1 0 0 -1
+2321 2092 -1 0
+2320 2095 2 0
+2322 2095 -1 -3
+2322 2095 1 0
+2400 2081 3 -4 1 0 2 -3
+2320 2073 2 -3
+2312 2090 4 3 2 3
+2411 2123 -1 5 13 8 3 1 -1 1
+2457 2149 10 1
+2406 2100 -4 -3
+2420 2100 -10 2 -3 -1
+2350 2088 -7 5
+2350 2089 2 -2 -2 -1
+2352 2090 2 -1
+2357 2104 4 -6
+2363 2101 4 -4 7 3
+2359 2096 2 -2
+2332 2081 2 2 5 -4
+2337 2078 4 -3 2 -2
+2457 2145 -10 -2
+2446 2135 -3 5 -5 5
+2437 2138 3 -4 -1 0 1 -2
+2450 2152 7 -7
+2439 2158 7 -4 2 -3 2 1
+2442 2148 -6 2
+2417 2142 2 -3 4 -3
+2456 2173 -2 9
+2467 2152 -6 5 -1 3 -6 5 -2 7
+2467 2150 0 2
+2467 2150 9 -12
+2469 2147 -5 0
+2517 2184 -3 -3 4 -7
+2508 2192 3 -3 -1 0 7 -5
+2517 2184 7 -3 2 -4
+2493 2183 -12 -7 -5 -2
+2530 2204 12 6 4 4
+2530 2204 -7 -2 -7 -3 -7 -7
+2509 2192 -8 -5 -8 -4
+2519 2220 15 6
+2523 2202 7 -7
+2526 2209 17 10
+2545 2124 3 2 4 0 0 3 3 1 -1 1 3 2 -1 2 3 2
+2541 2132 10 4 1 1 0 1 2 1 0 1
+2525 2142 12 0 13 1
+2556 2177 1 -4
+2517 2184 7 6
+2526 2157 6 -1 4 2 2 -3 3 1
+2532 2171 2 -3
+2529 2165 -2 1 -3 4 -2 0 -2 5
+2504 2160 -7 -2
+2511 2156 5 0 2 -2 0 -4 7 -1
+2517 2162 0 4 -4 6
+2549 2180 -2 0 1 -4 -8 -2
+2582 2175 -1 -5 1 -7
+2568 2169 -2 -4 0 -4 -1 0
+2554 2149 8 4
+2553 2155 8 3
+2548 2162 5 -8
+2549 2174 1 0 3 -8
+2559 2173 -2 -5 5 -3 -1 -1
+2525 2142 -11 2
+2457 2141 0 -1 -2 0 0 -3
+2435 2131 -1 1
+2428 2128 2 -3
+2435 2134 2 -3
+2420 2125 1 -1
+2325 2065 -4 -3
+2463 2086 1 -2 2 0 4 1 2 2
+2468 2084 4 -5
+2472 2069 -8 -7
+2472 2079 -3 -2
+2473 2079 -1 0
+2488 2085 0 -1 -12 -5 -3 -1 -1 1
+2499 2098 5 3 3 4
+2491 2105 8 -7
+2459 2106 1 -3 7 -11
+2484 2105 -2 -4 -3 -3 -12 -6
+2467 2092 -2 -1 1 -1 -3 -1 1 -2 -2 0 1 -1 -1 0 -4 1
+2461 2101 -7 -3
+2465 2112 6 1 2 -4
+2473 2109 -1 0
+2477 2109 -4 0
+2459 2128 1 6 0 2
+2486 2130 2 6
+2487 2136 0 3
+2485 2137 -1 -7
+2471 2134 0 -2 12 -1
+2499 2098 1 -2 0 -4 -4 -2 -10 -2
+2449 2074 11 -5
+2449 2074 -5 2
+2458 2087 -7 -5 1 -1 -3 -3 0 -4
+2435 2065 4 0 3 2 4 3 3 4
+2521 2129 -12 -6
+2498 2128 -4 0
+2499 2128 -1 0
+2508 2128 -9 -2 -1 2
+2494 2128 -6 -1
+2526 2121 -2 -3
+2462 2045 0 -9 -2 -3 2 0
+2523 2096 -3 7 -13 2
+2507 2105 9 -11
+2503 2135 -5 -1 0 -5
+2516 2080 3 6 6 1
+2566 2042 -4 -15 -4 -7 5 -6
+2472 2069 2 -3 4 -3 3 -1 4 1
+2598 2118 3 0 11 -6
+2392 2069 2 -4
+2416 2003 15 3
+2471 2190 -5 8
+2469 2190 1 -4
+2307 2061 6 -5 1 1 13 -6
+2431 2047 6 -13
+2384 2127 8 -10
+2600 1994 -13 -7 -9 1 -4 2 -4 5 -28 21
+2287 2090 1 0
+2288 2090 1 1
+2288 2090 2 -1
+2291 2089 -2 2
+2290 2089 1 0
+2290 2089 2 -1
+2291 2089 1 0
+2318 2087 0 -1 1 -1
+2315 2081 3 0
+2312 2077 0 -1
+2308 2078 1 1 3 0 0 -2
+2335 2076 -3 3
+2379 2073 -1 3 3 1
+2403 2083 4 -4
+2447 2116 -1 1 1 1
+2472 2137 6 -1 -1 -4
+2467 2150 30 6 0 3
+2467 2152 0 2 5 2
+2472 2156 -1 2
+2472 2156 1 0 0 -1 2 0
+2450 2132 -2 0 0 -3
+2450 2132 1 -2
+2455 2137 -1 -5 -4 0
+2448 2136 -1 4
+2434 2122 2 -2
+2436 2124 4 0 0 1
+2438 2131 -1 -4 2 0
+2435 2128 -1 0
+2435 2128 0 3
+2435 2126 0 2
+2516 2080 -3 1 -5 -1 0 -1 -3 0 -15 -2 0 1 -2 0 -1 1 -3 0 -1 3
+2360 2042 -3 9
+2453 2170 -4 -1
+2459 2161 2 2
+2351 2089 -2 2
+2422 2124 1 -2
+2376 2073 3 -6
+2373 2108 4 -5
+2513 2153 -4 -1
+2505 2016 -9 -1
+2503 2023 -4 -3 1 0 -4 -3
+2550 2004 12 -9 5 3
+2436 2090 -1 -1
+2556 2179 0 -2
+1940 1804 -27 -11 -205 -66 -121 -62 -54 -34 -49 -42 -272 -309 -74 -102 -31 -32 -34 -23 -24 -12 -43 -16 -200 -40 -215 -67
+3218 1988 -34 15 -48 8 -34 -3 -73 -19 -27 1 -16 5 -19 11 -43 34 -20 11 -81 25 -35 0 -22 -5 -14 -10 -10 -14 -23 -23 -116 -75 -26 -21 -16 -26 1 -33 7 -29 13 -28 39 -52 10 -21 2 -13 -2 -21 -12 -20 -17 -13 -31 -10 -377 -28 -26 2 -20 8 -15 11 -30 35 -15 28 -11 55 -24 27 -26 13 -30 5 -21 -3 -36 -11
+2331 1737 -22 46 -64 -21 -27 -31 -19 -5 -4 44 14 13 10 0 13 21 -4 14 26 6 17 -3 -22 -13 6 -6 19 -2 8 9 10 -8 47 42 1 9 41 8 13 -6 34 10 8 -29 11 -5 -17 -32 -54 -50 -28 -9 -1 -14 -16 12
+2623 1975 -2 -25 5 -29 -32 3 -10 -8 46 -48 6 -18 -23 -7 -16 18 -14 -14 4 -12 -6 -10 -7 26 -7 -1 -7 50 5 -48 18 -50 -19 48 -16 70 27 39 48 16
+2373 2249 -46 39 -16 -4 -71 9 1 12 -17 10 -45 0 9 9 -10 20 68 -4 40 -11 11 8 40 -3 32 -14 -11 -21 28 -28 -12 6 -1 -28
+1491 672 -38 23 -7 34 -19 13 -1 22 15 13 -4 14 64 -29 5 -25 -39 -23 8 -20 21 -11 17 8 2 -7 -24 -12
+619 1314 16 16 -9 3 -8 -12 -17 2 -73 46 54 50 69 -95 22 -11 -1 -15 -53 16
+1571 1367 -17 17 -7 34 40 1 59 -11 -75 -41
+1251 1357 -20 29 -18 -2 -1 44 9 2 -1 22 8 3 6 -46 43 -48 -9 -11 -11 11 -6 -4
+1393 1376 -56 -21 -32 27 84 94 47 -91 -4 -8 -39 -1
+1247 1446 -14 60 91 -92 -24 -27 -53 59
+1322 1500 -4 28 32 21 35 -67 -23 -25 -13 14 -36 -32 -29 29 38 32
+1425 1838 55 14 12 -38 -57 -11 -10 35
+2494 1526 56 9 -8 -74 -37 10 -11 55
+1802 1543 -46 -47 -28 28 18 28 38 18 18 -27
+1899 1930 -16 24 -23 -6 -7 18 23 7 -5 16 28 5 22 -49 -22 -15
+2732 2035 28 5 48 -11 -17 -23 5 -15 -25 -9 -1 -8 11 -7 -26 -8 -24 -30 -23 -2 2 -8 15 1 -2 -11 -17 -1 0 -9 -21 18 5 16 -29 12 -19 -3 -1 17 18 11 -5 -3 -10 15 24 24 34 10 30 19
+2085 2091 35 -40 -1 -15 -59 -3 -116 20 -3 15 144 23
+2154 2042 72 28 -13 26 49 -14 -9 -26 -14 -11 -85 -3
+2830 2261 11 -29 61 -29 -23 -12 -42 7 -24 17 -10 25 8 27 19 -6
+2436 2269 25 -18 -4 -15 -24 5 -7 -5 -10 11 -27 5 9 -8 -14 -3 -12 21 2 15 15 -4 10 18 11 -18 26 -4
+3061 1106 -14 16 -13 8 -49 3 -60 23 -28 16 -14 1 -15 22 17 16 36 -23 81 -39 43 -15 31 -24 19 -22 -12 3 -12 13 -10 2
+775 1644 58 26 62 18 67 10 22 10 -4 -6 -37 -11 -6 -7 -4 5 -18 -2 -53 -13 -35 -24 -53 -11 1 5
+1757 1826 -7 -16 -19 2 -20 -6 -13 1 16 2 43 17
+1621 1814 55 13 29 -1 23 16 3 13 6 -6 7 5 7 -1 -7 -5 1 -6 -19 -4 -8 -12 -42 -1 -45 -14 -25 6 -28 -12 -9 -10 -16 1 -4 3 2 13 8 4 11 -3 23 2 12 4 16 -5
+1810 1879 -9 -10 -27 -16 6 7 3 20 11 14 22 6 5 7 16 1 13 10 17 3 10 9 10 3 6 -4 -12 -3 -4 -8 -9 -4 -3 -10 -25 -2 -1 -6 -29 -17
+996 1455 0 7 -38 86 -19 61 -8 64 7 20
+1083 1262 -41 21 -18 14 5 27 -6 42 -14 39 -14 12 0 35
+1169 1212 -58 27 -26 22
+1198 1130 -13 19 -15 53
+1314 1076 -24 28 -19 33 -11 10 -5 1 -33 -12
+1370 972 -35 71
+1515 690 -26 -10 -19 15 -7 19 -1 61 -30 17 -40 39 -4 13 22 61 1 16 -37 45
+1610 660 -57 11 -11 13 -19 7
+2516 1953 14 5 12 15 -8 24 17 44 -21 17 15 35
+2545 2093 8 20 23 8 5 25 9 12
+1692 2317 -423 -123 -160 -61 -148 -89 -116 -75 38 -73 2 -50 28 -104
+2490 2254 -59 27 -36 29 -58 24 -161 10 -252 -3 -232 -24
+2241 2042 17 19 12 38 70 56 33 41 10 6 35 4 39 13 4 7 -2 16 6 6 29 -13 10 1 -2 9 -12 9
+1907 1999 229 34 30 9 60 -4 15 4
+1152 1800 133 50 96 26 340 86 186 37
+1152 1800 -95 -20 -144 -38
+1907 1999 40 -110 14 -53 116 -8 23 -8 17 -26 23 25 39 24
+2179 1843 45 19 87 1 18 4 34 24 50 17 18 22 23 11 26 -7 17 -24 11 -6 20 0 16 13
+2544 1917 40 -112 36 -46 9 -19 -7 -41 2 -25
+2624 1674 4 -56 -16 -21 -47 -39 -3 -78 -28 -62
+2534 1418 -9 -16 -149 -154 -16 3 -26 -3 -70 -27 19 -24 -5 -4 -215 -56 -3 -37 -134 6 -39 -8 -45 7
+1842 1105 -196 61 -65 39 -48 20 -63 54 -13 20 -12 78 -52 104 -84 144 -46 142 -18 20 -51 16 -42 -3
+1744 1172 7 -6 -11 -9 -7 6 11 9
+2534 1418 97 -67 59 -32 85 -38 146 -93 81 -39 43 -15 31 -24 24 -27 35 -125 1 -43 -25 -31 -59 -8 -55 -43 -92 -51 -141 -96 -52 -23
+1842 1105 -27 -73 -35 -156 -46 -61 -36 -136 -22 -66
+1676 613 66 -4 27 -76 39 -23 107 3
+2712 663 -37 -13 -75 17 -58 -1 -65 -19 -98 -44 -143 -96 -139 16 -123 -16 -59 6
+913 1742 -182 -48 -2 -11 38 -67 -43 -38 1 -40 -43 -27 -155 -139 -81 -8
+446 1364 11 -49 -23 -104 195 -273 -43 -37 7 -115 17 -73 87 -154 253 -196 130 87 98 47 129 14 244 -54 6 28 7 130 51 2 61 -4
+2544 1917 31 45 63 21 28 25 59 27 41 44 45 10 -50 25 -10 18 10 36 -3 4 -30 6 -23 -11 -18 4 -5 7 7 47 -37 21
+2905 1688 -141 12 -140 -26
+3178 1715 -119 -31 -154 4
+3178 1715 -4 89 70 112 -17 54 -34 65 -30 105 54 81 20 72 -29 31
+3208 2324 -85 -91 -23 -40 -61 -34 -27 -30 -60 32 -52 16 10 23 -69 32 -16 59 -55 4 -67 -25 -51 -24
+2179 1843 36 35 46 18 33 49 25 18 -21 26 -17 10 -40 43
+2652 2246 -25 13 -6 -1 -4 -4 -1 -30 -20 -8 -47 26 -3 23 -35 -7 -16 1 -5 -5
+527 1372 92 80 37 37 26 22 43 27 -1 40 43 38 -38 67 2 11 182 48 -28 104 -2 50 -38 73 116 75 148 89 160 61 295 84 128 39 232 24 252 3 161 -10 58 -24 36 -29 59 -27 5 5 16 -1 20 6 15 1 3 -23 47 -26 20 8 1 30 4 4 6 1 25 -13 22 8 29 16 67 25 55 -4 16 -59 69 -32 -10 -23 52 -16 60 -32 27 30 61 34 23 40 38 42 47 49 29 -31 -20 -72 -54 -81 30 -105 34 -65 17 -54 -70 -112 4 -89 -119 -31 -180 4 -115 12 -140 -26 4 -56 -16 -21 -47 -39 -3 -78 -28 -62 97 -67 59 -32 85 -38 43 -30 84 -50 19 -13 81 -39 43 -15 31 -24 24 -27 19 -62 16 -63 1 -43 -25 -31 -59 -8 -55 -43 -92 -51 -141 -96 -61 -27 -28 -9 -75 17 -58 -1 -65 -19 -98 -44 -143 -96 -139 16 -123 -16 -59 6 -107 -3 -39 23 -27 76 -127 8 -51 -2 -7 -130 -6 -28 -244 54 -129 -14 -98 -47 -130 -87 -253 196 -87 154 -17 73 -7 115 43 37 -29 37 -57 88 -109 148 7 40 16 64 -11 49 81 8
+1907 1999 40 -110 14 -53 116 -8 23 -8 10 -22 7 -4 14 17 9 8 16 12 23 12 9 11 27 24 42 14 4 4 33 49 25 18 -7 5 -14 21 -17 10 -6 10 -34 33 -15 -4 -60 4 -30 -9 -183 -26 -46 -8
+@streets line
+name,ref,class,arcs
+,RN8,trunk,0
+Rocade Sud,RP5006,trunk,1
+,,trunk,2
+,RP5055,trunk,3
+,RN4,trunk,4
+,RN4,trunk,5
+,,trunk,6
+,,trunk,7
+Rocade Sud,RP5006,trunk,8
+Rocade Sud,RP5006,trunk,9
+Rocade Sud,RP5006,trunk,10
+Rocade Sud,RP5006,trunk,11
+Rocade Sud,RP5006,trunk,12
+Rocade Sud,RP5006,trunk,13
+Rond-Point Ain Smen,,trunk,14
+Route du Parc Fes-Shore,RP5006,trunk,15
+,RP5055,trunk,16
+Route du Parc Fes-Shore,RP5006,trunk,17
+Rocade Sud,RP5006,trunk,18
+,RN4,trunk,19
+,RP5055,trunk,20
+,RN4,trunk,21
+,,trunk,22
+Rocade Sud,RP5006,trunk,23
+,,trunk,24
+Rocade Sud,RP5006,trunk,25
+,,trunk,26
+Avenue Moulay Abdellah,RN8,primary,27
+Boulevard Allal El Fassi,RN6;RN8,primary,28
+,RP5006,primary,29
+Boulevard Allal El Fassi,RN6;RN8,primary,30
+,RP5006,primary,31
+,RN6;RN4,primary,32
+,RN6;RN8,primary,33
+Avenue Roi Houssaine,RN8,primary,34
+,RP5006,primary,35
+Boulevard Moulay Rachid,RN4,primary,36
+,RR501,primary,37
+,,primary,38
+Route de Meknès,,primary,39
+Avenue des Forces Armées Royales,,primary,40
+,RN6;RN4,primary,41
+Boulevard des Merinides,,primary,42;43
+Avenue Moulay Rachid,RN4,primary,44
+,RN6;RN4,primary,45
+,RN6;RN4,primary,46
+Rocade Sud,RP5006,primary,47
+,RP5006,primary,48
+,RN6;RN4,primary,49
+Boulevard Moulay Rachid,RN4,primary,50
+,RP5006,primary,51
+,,primary,52
+,RN6;RN4,primary,53
+,RN6;RN4,primary,54
+,RN6;RN8,primary,55
+Avenue Roi Houssaine,RN8,primary,56
+Avenue des Forces Armées Royales,,primary,57
+,RP5006,primary,58
+,RP5006,primary,59
+Avenue des Forces Armées Royales,,primary,60
+Avenue des Forces Armées Royales,,primary,61
+Route Sefrou,RN4,primary,62
+,RN6;RN4,primary,63
+,RN6;RN8,primary,64
+,RN6;RN4,primary,65
+Boulevard Moulay Rachid,RN4,primary,66
+Avenue Abdallah Chefchaouni,RN4;RN8,primary,67
+,,primary,68;69
+Boulevard Allal El Fassi,RN4;RN8,primary,70
+,RP5006,primary,71
+,,primary,72;73;74;75
+,RP5006,primary,76
+,RP5006,primary,77
+,,primary,78
+,,primary,79
+Boulevard Mohammed V,RN4;RN8,primary,80
+,,primary,81
+,,primary,82
+,,primary,83
+,,primary,84
+,,primary,85
+Place Allal Al Fassi,RN4,primary,86
+Avenue Moulay Abdellah,RN8,primary,87
+Avenue Moulay Youssef,,primary,88
+Avenue Youssef Ben Tachfine,RN4,primary,89
+Avenue Moulay Youssef,,primary,90
+Rocade Sud,RP5006,primary,91
+,,primary,92
+,RN6;RN4,primary,93
+,,primary,94
+Avenue Hassan Wazani,RN4;RN8,primary,95
+,RP5006,primary,96
+Rocade Sud,RP5006,primary,97
+,RN6;RN4,primary,98
+,,primary,99
+Avenue Hassan Wazani,RN4;RN8,primary,100
+,RR501,primary,101
+,RP5006,primary,102
+,RP5006,primary,103
+,RN6;RN4,primary,104
+,,primary,105
+,,primary,106
+,,primary,107
+,,primary,108
+,,primary,109
+,RP5006,primary,110
+,RN6;RN8,primary,111
+,RP5006,primary,112
+Avenue Hassan Wazani,RN4;RN8,primary,113
+,RP5006,primary,114
+,RN6;RN4,primary,115
+,RP5006,primary,116
+,RN6;RN4,primary,117;118
+,RP5006,primary,119
+,,primary,120
+,,primary,121
+Avenue Hassan Wazani,RN4;RN8,primary,122
+,RN6;RN4,primary,123
+,RR501,primary,124;125
+Avenue Abdallah Chefchaouni,RN4;RN8,primary,126
+,RN6;RN8,primary,127
+Avenue Abdallah Chefchaouni,RN4;RN8,primary,128
+,,primary,129
+,,primary,130
+,RP5006,primary,131
+,RP5006,primary,132
+,,primary,133;134
+,RN6;RN8,primary,135
+,RP5006,primary,136
+,RN6;RN4,primary,137
+,,primary,138
+,RN6;RN4,primary,139
+,RP5006,primary,140
+,,primary,141
+,RN6;RN4,primary,142
+,RN6;RN4,primary,143
+,,primary,144
+Boulevard Moulay Rachid,RN4,primary,145
+Avenue Abdallah Chefchaouni,RN4;RN8,primary,146
+,,primary,147
+,RN6;RN8,primary,148
+Avenue Hassan Wazani,RN4;RN8,primary,149
+,,primary,150
+,RP5006,primary,151
+,RP5006,primary,152
+,,primary,153
+,,primary,154
+,,primary,155
+,,primary,156
+,,primary,157
+Avenue Hassan Wazani,RN4;RN8,primary,158
+,,primary,159
+,RP5006,primary,160
+,RP5006,primary,161
+,RR716,secondary,162
+,RR501,secondary,163
+Avenue des Mérinides,,secondary,164
+Route Aïn Chkef,,secondary,165
+Avenue de l'Unesco,,secondary,166
+Avenue de l'Unesco,,secondary,167
+Avenue de l'Unesco,,secondary,168
+,,secondary,169
+,,secondary,170
+,RR501,secondary,171
+,,secondary,172
+Boulevard Abu Houriya,,secondary,173
+Avenue Hassan II,,secondary,174
+,,secondary,175
+Avenue de la Liberté,,secondary,176;177
+زواغة طريق بنسودة,,secondary,178
+Avenue Zohor,,secondary,179
+Boulevard Mohamed VI,,secondary,180
+Avenue Allal Ben Abdallah,,secondary,181
+Route Aïn Chkef,,secondary,182
+,,secondary,183
+Boulevard Abu Houriya,,secondary,184
+Avenue Mohammed El Fassi,,secondary,185
+Boulevard Mohamed VI,,secondary,186
+Route Aïn Chkef,,secondary,187
+Avenue Saint-Louis,,secondary,188
+Route Aïn Smen,,secondary,189
+Avenue de l'Unesco,,secondary,190;191
+,,secondary,192
+Avenue Allal Ben Abdellah,,secondary,193
+Avenue du Prince Heritier,,secondary,194
+Avenue Mohammed El Fassi,,secondary,195
+شارع القيروان,,secondary,196
+Avenue du Prince Heritier,,secondary,197
+Route Aïn Chkef,,secondary,198
+Boulevard Abu Houriya,,secondary,199
+Avenue Mahmoud Al Aqqad,,secondary,200
+,RR501,secondary,201
+Route Aïn Smen,,secondary,202
+,RR501,secondary,203
+,,secondary,204
+شارع الأمير ولي العهد,,secondary,205
+,RR501,secondary,206
+Route Aïn Chkef,,secondary,207
+Route Aïn Smen,,secondary,208
+Route Aïn Chkef,,secondary,209
+Route Aïn Smen,,secondary,210
+شارع الأمير ولي العهد,,secondary,211
+,RR501,secondary,212
+,,secondary,213
+,RR501,secondary,214
+Route Aïn Chkef,,secondary,215
+Route Aïn Chkef,,secondary,216
+Boulevard Ahmed Ben Mohamed,,secondary,217
+,,secondary,218
+,,secondary,219
+Avenue Zohor,,secondary,220
+,RR501,secondary,221
+Avenue Mohammed El Fassi,,secondary,222
+,RR501,secondary,223
+,RR501,secondary,224
+,,secondary,225
+,,secondary,226
+,RR501,secondary,227
+,RR501,secondary,228
+,,secondary,229
+,,secondary,230
+,RR501,secondary,231
+,RR501,secondary,232
+,RR501,secondary,233
+,RR501,secondary,234
+,,secondary,235
+@bridges line
+class,arcs
+trunk,236
+trunk,237
+trunk,238
+primary,239
+primary,240
+primary,241
+primary,242
+primary,243
+secondary,244
+secondary,245
+secondary,246
+@lanes line
+name,arcs
+Avenue Batha,247
+Avenue Batha,248
+Avenue Batha,249
+Avenue Batha,250
+Avenue Batha,251
+Avenue Batha,252
+Rue Alecso,253
+Boulevard Ahmed Mekouar,254
+Rue Bab Jdid,255
+Rue Bab Jdid,256
+Rue Talaâ Kbira,257
+Rue Talâa Saghira,258
+Rue Sidi Ali Boughaleb,259
+Rue Lakhbir Benzidane,260
+Rue Lmahdi Louazzani,261
+Derb Rmila,262
+bouajjara,263
+Qantrat Tarrafine,264
+Derb Lamte,265
+Boutouil,266
+Mechatene,267
+Nekhaline,268
+Qantrat Bine-Lamdoun,269
+Qantrat Kharchfiyine,270
+Qzam Benzekoum,271
+Qzam Benzekoum,272
+Qzam Benzekoum,273
+Qzam Benzekoum,274
+Qzam Benzekoum,275
+Seffarine,276
+Seffarine,277
+Sidi Youssef,278
+Rue Smmat Laadoul,279
+Jamâa Andalous,280
+Derb Gzira,281
+Derb Gzira,282
+Derb Gzira,283
+Derb Gzira,284
+Derb Gzira,285
+Derb Gzira,286
+Derb Gzira,287
+Derb Khattar,288
+Derb Khattar,289
+Derb Khattar,290
+Derb L'Mdersa,291
+Derb L'Mdersa,292
+Derb Lahbiyel,293
+Derb Lahbiyel,294
+Derb Qouas,295
+Derb Qouas,296
+Derb Qouas,297
+Derb Qouas,298
+Derb Qouas,299
+Derb Qouas,300
+Derb Qouas,301
+Derb Qouas,302
+Derb Qouas,303
+Derb Qouas,304
+Derb Qouas,305
+Derb Qouas,306
+Derb Ourbia,307
+Derb Ourbia,308
+Derb Ourbia,309
+Derb Tariana Sghira,310
+Derb Tariana,311
+Bab Boujloud,312
+Derb Sarraj,313
+Derb Sidi Mohammed L'Haj,314
+Rue de la poste,315
+Rue Bouâaqda,316
+Souiket Sidi Safi,317
+Souiket Sidi Safi,318
+Souiket Sidi Safi,319
+Souiket Sidi Safi,320
+Souiket Sidi Safi,321
+Souiket Sidi Safi,322
+Souiket Sidi Safi,323
+Souiket Sidi Safi,324
+Derb Zqaq Lma,325
+Derb El Houra,326
+Oued Zhoun,327
+Oued Zhoun,328
+Oued Zhoun,329
+Rue Sidi El Khiyat,330
+Derb El Guebbas,331
+Rue Skallia,332
+Derb Mokri,333
+Rue Douh,334
+Rue El-Hamia,335
+Rue Oued Souafine,336
+Derb Ras Rhi,337
+Rue Zarbtana,338
+Rue Zarbtana,339
+Rue Zarbtana,340
+Derb Lâayachi,341
+Derb Ahl Tadla,342
+Derb Ahl Tadla,343
+Derb Ahl Tadla,344
+Derb Ahl Tadla,345
+Derb Ahl Tadla,346
+Derb Ahl Tadla,347
+Derb Ahl Tadla,348
+Derb Ahl Tadla,349
+Derb Ahl Tadla,350
+Derb Bnaaiche,351
+Derb Aguoual El Fouqi,352
+Derb Agoual L'Fouki,353
+Derb Salaj,354
+Derb Sidi Qjih,355
+Derb Sidi Qjih,356
+Derb Sidi Qjih,357
+Rue Lmasrouqa,358
+Derb Errom,359
+Derb Mhirou,360
+Derb Jamaâ,361
+Derb Moulay Abdelmalek,362
+Rue Sidi Deras,363
+Derb Touil,364
+Avenue Bab Khoukha,365
+Diwane,366
+Derb Âmer,367
+Boulevard Ahmed Ben Mohamed,368
+Boulevard Ahmed Ben Mohamed,369
+Boulevard Ahmed Ben Mohamed,370
+Boulevard Ahmed Ben Mohamed,371
+Boulevard Ahmed Ben Mohamed,372
+Tariana,373
+Rue Oued Fejjaline,374
+Derb Bensalem,375
+Derb Bouhaj,376
+Derb El Miter,377
+Derb El Miter,378
+درب عين أزليطن,379
+Derb Bouayad,380
+Derb Sidi Yaâla,381
+Derb Sidi Yaâla,382
+Derb Sidi Yaâla,383
+Derb Sett Oujouh,384
+Derb Zqaq Rouah,385
+Derb Sayour,386
+Derb Lmzdaâ Lfouqi,387
+Derb Tariana Lkibra,388
+Derb Sidi Hamamouch,389
+Derb Jammala,390
+Rue Rha,391
+Seqait Demnati,392
+Derb Lâassa,393
+Derb Lgara,394
+Derb Lhoussine,395
+Derb Sid Lihri,396
+Derb Jamâa Jdid,397
+Derb Sidi Boujida,398
+Zkak El Bghal,399
+Rue Guerniz,400
+Guezzarine Jouteya,401
+Derb Lfarrane,402
+Derb Lfarrane,403
+Derb Lfarrane,404
+Derb Lfarrane,405
+Derb Lfarrane,406
+Derb Lfarrane,407
+Derb Lfarrane,408
+Derb Lfarrane,409
+Qasbat Nouar,410
+Derb Rahba,411
+Derb Rahba,412
+Derb Oued Ouilane,413
+Derb Steli,414
+Derb La'arsa,415
+Derb La'arsa,416
+Derb La'arsa,417
+Derb La'arsa,418
+Derb La'arsa,419
+Derb Moulay Ismail,420
+Derb Moulay Ismail,421
+Derb Moulay Ismail,422
+Derb Moulay Ismail,423
+Derb Moulay Ismail,424
+Derb Moulay Ismail,425
+Rue Serrajine,426
+Derb Zagouda,427
+Derb Farrane,428
+Rue Âqibt Ben Dabbouz,429
+Derb El Houra درب الحرة,430
+Derb Labchara,431
+Derb Sidi Hmamouch,432
+Derb Lkram,433
+Derb Lkarkoure,434
+Derb El Farne,435
+Derb Rhat Chams Lfouqia,436
+Derb Ben Aazaouhn,437
+Derb Magana,438
+Derb Lmzdaâ Tahti,439
+Derb Zouiyer,440
+Zkak Rouah,441
+Derb Lmastari,442
+Majmaâ Laryah,443
+Derb Qattana,444
+Derb Lamqaouas,445
+Derb Couïcha,446
+Derb Sidi Mchich,447
+Rue Zqaq Romane,448
+Zqaq Rommane,449
+Rue Aïn Lkhil,450
+Derb Laâqiba,451
+Derb Ezawiat,452
+Derb Sid El Makkoudi,453
+Derb Oukbat Mimoune,454
+Derb El Machrom,455
+Derb Miter Zenjfor,456
+Derb Zenifor,457
+Derb FundoukLihoudi,458
+Derb Ejjare,459
+Derb El Jamai,460
+Derb El Mitre,461
+Derb Sbaa Louyate,462
+Rue Ben Hayoun,463
+Zenqat Hajama,464
+Derb Lmiter,465
+Derb Mattah,466
+Derb Jeniyara,467
+Derb Rami,468
+Derb Jjafe,469
+Derb Sagha,470
+Riad Jha,471
+Souk Laghzai,472
+Derb Hassan,473
+Derb Sidi Bouazza,474
+Derb Essifere,475
+Derb Jamaa,476
+Derb Essefaha,477
+Derb Boudlama,478
+Derb Ain Anasse,479
+Derb Nwala,480
+Derb Diwane,481
+Derb Lijazouli,482
+Derb Sanhaji,483
+Derb Zhrana,484
+Derb Tahri Sefli,485
+Derb Tanibou,486
+Derb Al Idrissi,487
+Derb Rtaouna,488
+Derb Sidi Nali,489
+Derb Lemkeri,490
+Derb Zkak Labghal,491
+Derb Zkak Labghal,492
+Derb Zkak Labghal,493
+Rue El Quettanine,494
+Derb Laakiba Kettanine,495
+Derb Farran Chetta,496
+Rue El Hammam,497
+Rue Oued Rachach,498
+Derb Laamrani,499
+Derb Ghourba,500
+Derb Ghourba,501
+Derb Ghourba,502
+Rue Zqaq,503
+Derb Lfechachin,504
+Derb Lfechachin,505
+Derb Najjarine,506
+Rue Darmami,507
+Derb Zokak Lebghel,508
+Derb Sidi Ahmed Chaoui,509
+Derb Idrissi,510
+Sidi Mohamed Belhaj,511
+Derb Siaj,512
+Derb Chemmaine,513
+Derb Haram Idrisi,514
+Derb Haram Idrisi,515
+Derb Haram Idrisi,516
+Derb Moulay Driss,517
+Derb Lamdrassa,518
+Derb Aarsat Bensouda,519
+'Aqebt Zarqa,520
+Derb Bennis,521
+Laram Al Idrissi,522
+Akbat Sayour,523
+Derb Makhfiya,524
+Derb Benabdejlil,525
+Derb Bellamti,526
+Derb Ben Daoud,527
+Derb Beniss,528
+Derb Sidi Jaloule,529
+Rue Sidi Haja,530
+Derb El Kasbah,531
+Derb Cherqaoui,532
+Derb Dra,533
+Derb Quantra,534
+Derb Saha,535
+Derb Saha,536
+Derb Saha,537
+Derb Saha,538
+Derb Saha,539
+Derb Saha,540
+Derb Saha,541
+Derb Tazgzout,542
+Derb Darbida,543
+Derb Tamou,544
+Derb Lkhlifa,545
+Derb Lmansoura,546
+Derb Rkhami,547
+Derb Lfahham,548
+Derb Loued,549
+Rue Dallaline,550
+Rue Nouaâriyine,551
+Derb Lbane,552
+Derb Lbane,553
+Derb Lbane,554
+Rue Adbelkrim,555
+Rue Adbelkrim,556
+Rue Adbelkrim,557
+Rue Afouah,558
+Rue Rha زنقة الرحى,559
+Rue Rha زنقة الرحى,560
+Rue Rha زنقة الرحى,561
+Derb Bennani,562
+Derb Bennani,563
+Derb Bennani,564
+'Aqebt Ben Sowal,565
+Place Batha,566
+Rue lahnaeh,567
+Derb Lkateb,568
+Derb Al Ouazane,569
+Derb El Balbi,570
+Derb Aguoual Sfli,571
+Derb Ktami,572
+Derb Jama,573
+Rue Ras Jnane,574
+Derb Rous Rhi,575
+Aarsat Tahriyine,576
+Derb Sidi Safi,577
+Derb El Mitter,578
+@rail line
+kind,colour,lines,arcs
+r,,,579
+r,,,580
+@green polygon
+kind,arcs
+wood,581
+wood,582
+wood,583
+park,584
+park,585
+park,586
+park,587
+park,588
+park,589
+park,590
+park,591
+park,592
+park,593
+park,594
+park,595
+park,596
+park,597
+park,598
+park,599
+@water polygon
+arcs
+600
+601
+602
+603
+604
+@waterways line
+name,kind,arcs
+Oued Aïn Chkef,river,605
+Oued Aïn Chkef,river,606
+Oued Aïn Chkef,river,607
+Oued Aïn Chkef,river,608
+Oued Aïn Chkef,river,609
+Oued Aïn Chkef,river,610
+Oued Aïn Chkef,river,611
+Oued Aïn Chkef,river,612
+Oued Boukrareb,canal,613
+Oued Boukrareb,river,614
+@districts line
+level#,arcs
+1,615
+1,616
+1,617
+1,618
+1,619
+1,620
+1,621
+1,622
+1,623
+1,624
+1,625
+1,626
+1,627
+1,628
+1,629
+1,630
+1,631
+1,632
+1,633
+1,634
+1,635
+1,636
+1,637
+1,638
+1,639
+1,640
+@clip polygon
+arcs
+641;642
+@places
+name,level#,lon#,lat#
+Arrondissement d'El Mariniyine,1,-5.01341,34.06546
+Arrondissement d'Agdal,1,-5.00234,34.03199
+Arrondissement de Saiss,1,-4.97021,34.0076
+Arrondissement de Zouagha,1,-5.04239,34.00492
+Arrondissement de Jnan El Ouard,1,-4.95262,34.05354
+Arrondissement de Fès-Médina,1,-4.97565,34.06225
+@parks
+name,kind,ha#,lon#,lat#
+Barrage Al Gaada,lake,12,-4.95528,34.01771
+@stations
+name,kind,rank#,lon#,lat#
+Fès-Ville,r,2,-5.00527,34.04723
+Fès-Médina,r,3,-4.95805,34.06197

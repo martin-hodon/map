@@ -66,10 +66,11 @@ def is_area(t):
     return any(t.get(k) in v for k, v in AREA.items())
 
 
-def extract(pbf, raw, *, bq, lon0, lat0, levels, monuments, airport, commuter, out_km, pad_km, streets=STREETS):
+def extract(pbf, raw, *, bq, lon0, lat0, levels, monuments, airport, commuter, out_km, pad_km, streets=STREETS, core=None):
     """the raw parts (raw(part) -> path) of a city from the extract `pbf`: bq the boundary's wikidata, levels the
     districts' admin_levels, monuments the wikidata ids wanted as areas, airport (iata, lon, lat) or None, commuter(tags)
-    -> a route is a metro's or commuter line's (drawn whole), out_km how far those run out, streets the highway classes"""
+    -> a route is a metro's or commuter line's (drawn whole), out_km how far those run out, streets the highway classes;
+    core (lon, lat, km, classes): the old town's named lanes within km of there, part "lanes" (else asked of Overpass)"""
     t0 = time.time()
     levels = {x for lv in levels for x in str(lv).split("|")}
     kx, ky = 111.32 * math.cos(math.radians(lat0)), 110.574
@@ -77,13 +78,15 @@ def extract(pbf, raw, *, bq, lon0, lat0, levels, monuments, airport, commuter, o
     bound, admins, routes, areas, mons = [], [], [], [], []
     for r in osmium.FileProcessor(pbf, RELATION):
         t = tags_of(r)
-        if t.get("boundary") == "administrative":
-            if t.get("wikidata") == bq:
-                bound.append((r.id, t, members_of(r)))
-            elif t.get("admin_level") in levels and t.get("name"):
+        if t.get("boundary") in ("administrative", "place") and (t.get("wikidata") in bq.split("|") or f"r{r.id}" in bq.split("|")):
+            bound.append((r.id, t, members_of(r)))        # (a place boundary for a town with no council of its own: Bath)
+        elif t.get("boundary") == "administrative":
+            if t.get("admin_level") in levels and t.get("name"):
                 admins.append((r.id, t, members_of(r)))
         elif t.get("boundary") == "place" and f"place={t.get('place')}" in levels and t.get("name"):
             admins.append((r.id, t, members_of(r)))       # (districts on no admin_level: Amsterdam's stadsdelen)
+        elif t.get("boundary") == "political" and f"ward={t.get('political_division')}" in levels and t.get("name"):
+            admins.append((r.id, t, members_of(r)))       # (England's electoral wards: Manchester's, Birmingham's)
         if t.get("route") in ("subway", "light_rail", "train"):
             routes.append((r.id, t, members_of(r)))
         if t.get("type") == "multipolygon":
@@ -130,7 +133,8 @@ def extract(pbf, raw, *, bq, lon0, lat0, levels, monuments, airport, commuter, o
     fp.with_filter(KeyFilter("railway", "public_transport").enable_for(NODE))
     geo, wtags = {}, {}                                   # (way id -> [(lon, lat)], tags)
     stations, stops = [], {}
-    lines_ways, area_ways, river_ways, mon_ways, aero_ways, coast_ways = [], [], [], [], [], []
+    lines_ways, area_ways, river_ways, mon_ways, aero_ways, coast_ways, lane_ways = [], [], [], [], [], [], []
+    near = (lambda pts: any(math.hypot((x - core[0]) * kx, (y - core[1]) * ky) <= core[2] for x, y in pts)) if core else None
     def inbox(pts, b):
         x0 = min(p[0] for p in pts); x1 = max(p[0] for p in pts); y0 = min(p[1] for p in pts); y1 = max(p[1] for p in pts)
         return x1 >= b[0] and x0 <= b[2] and y1 >= b[1] and y0 <= b[3]
@@ -150,7 +154,8 @@ def extract(pbf, raw, *, bq, lon0, lat0, levels, monuments, airport, commuter, o
         hw, rw, ww = t.get("highway"), t.get("railway"), t.get("waterway")
         area = is_area(t) or (t.get("wikidata") in monuments)
         coast = t.get("natural") == "coastline"
-        if not (why or hw in streets or rw or ww in ("river", "canal") or area or coast):
+        lane = bool(core) and hw in core[3] and "name" in t
+        if not (why or hw in streets or lane or rw or ww in ("river", "canal") or area or coast):
             continue
         pts = [(n.lon, n.lat) for n in o.nodes if n.location.valid()]
         if len(pts) < 2 or not (inbox(pts, reach) or why and why & 2 and inbox(pts, wide)):
@@ -159,6 +164,8 @@ def extract(pbf, raw, *, bq, lon0, lat0, levels, monuments, airport, commuter, o
         keep = False
         if why and (why & 1 or inbox(pts, wide)):
             keep = True
+        if lane and near(pts):
+            lane_ways.append(o.id); keep = True
         if inbox(pts, box):
             if hw in streets:
                 lines_ways.append(o.id); keep = True
@@ -216,7 +223,7 @@ def extract(pbf, raw, *, bq, lon0, lat0, levels, monuments, airport, commuter, o
     lw = set(lines_ways)
     line_els = [way_el(i) for i in dict.fromkeys(lines_ways)]
     line_els += [{"type": "relation", "id": rid, "tags": t, "members": ms} for rid, t, ms in in_box_routes]
-    line_els += [way_el(i) for i in rail_member if i in geo and wtags[i].get("railway") in ("rail", "subway", "light_rail")
+    line_els += [way_el(i) for i in rail_member if i in geo and wtags[i].get("railway") in ("rail", "subway", "light_rail", "narrow_gauge")
                  and inbox(geo[i], box) and i not in lw]
     line_els += [s for s in stations if box[0] <= s["lon"] <= box[2] and box[1] <= s["lat"] <= box[3]]
     line_els += [way_el(i) for i in river_ways]
@@ -225,9 +232,42 @@ def extract(pbf, raw, *, bq, lon0, lat0, levels, monuments, airport, commuter, o
     whole = [r for r in in_box_routes if commuter(r[1])]
     tracks = {m["ref"] for _, _, ms in whole for m in ms if m["type"] == "way"}
     dump("routes", [{"type": "relation", "id": rid, "tags": t, "members": ms} for rid, t, ms in whole]
-         + [way_el(i) for i in tracks if i in geo and wtags[i].get("railway") in ("rail", "subway", "light_rail")] + stations)
+         + [way_el(i) for i in tracks if i in geo and wtags[i].get("railway") in ("rail", "subway", "light_rail", "narrow_gauge")] + stations)
     dump("stops", [{"type": "node", "id": i, "lat": y, "lon": x} for i, (x, y) in stops.items()])
     dump("airport", [way_el(i) for i in aero_ways]
          + ([rel_geom(*r) for r in areas if airport and r[1].get("aeroway") == "aerodrome" and r[1].get("iata") == airport[0]]))
+    if core:
+        dump("lanes", [way_el(i) for i in lane_ways])
     dump("monuments", [way_el(i) for i in mon_ways] + [rel_geom(*r) for r in mons if touches(r[2], box)])
     print(f"  pbf: done in {time.time() - t0:.0f} s")
+
+
+def lanes_only(pbf, raw, core):
+    """part "lanes" alone, the other parts kept as they are: core (lon, lat, km, classes) as extract's -- a city built
+    before the lanes, its old town's named lanes added from its extract (Overpass busy)"""
+    t0 = time.time()
+    kx, ky = 111.32 * math.cos(math.radians(core[1])), 110.574
+    b = (core[0] - core[2] / kx, core[1] - core[2] / ky, core[0] + core[2] / kx, core[1] + core[2] / ky)
+    size = os.path.getsize(pbf)
+    idx = "flex_mem" if size < 400e6 else "sparse_file_array," + pbf + ".nodes"
+    fp = osmium.FileProcessor(pbf, NODE | WAY).with_locations(idx).with_filter(KeyFilter("highway").enable_for(WAY))
+    els = []
+    for o in fp:
+        if o.is_node():
+            continue
+        t = o.tags
+        if t.get("highway") not in core[3] or "name" not in t:
+            continue
+        pts = [(n.lon, n.lat) for n in o.nodes if n.location.valid()]
+        if len(pts) < 2 or not any(b[0] <= x <= b[2] and b[1] <= y <= b[3] for x, y in pts):
+            continue
+        if any(math.hypot((x - core[0]) * kx, (y - core[1]) * ky) <= core[2] for x, y in pts):
+            els.append({"type": "way", "id": o.id, "geometry": [{"lat": y, "lon": x} for x, y in pts], "tags": tags_of(o)})
+    del fp
+    if idx.startswith("sparse_file_array"):
+        os.remove(pbf + ".nodes")
+    path = raw("lanes")
+    with gzip.open(path + ".part", "wt", encoding="utf-8") as f:
+        json.dump({"elements": els, "source": os.path.basename(pbf)}, f)
+    os.replace(path + ".part", path)
+    print(f"  {os.path.basename(path)}: {len(els)} elements (pbf, lanes only, {time.time() - t0:.0f} s)")

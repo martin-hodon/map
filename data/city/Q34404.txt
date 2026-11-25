@@ -1,0 +1,1222 @@
+# New Orleans: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 -90.16070 29.88230
+@arcs
+2943 2656 7 -77 -1 -18 -12 -28 -25 -24 -36 -14 -236 -54
+2640 2441 -155 -33 -31 -11 -44 -22 -48 -34 -31 -27 -119 -131 -32 -36 -12 -20 -17 -65 -16 -29 -21 -21 -89 -73 -33 -28 -81 -89 -224 -251 -70 -79 -1 -1 -19 -21 -19 -13 -25 -10 -22 -4 -17 -2 -23 0 -54 10 -12 2 -22 9 -49 36 -80 54
+1354 1498 -2 -13 16 -15 29 -14 6 6
+1514 1441 18 -12 26 1 5 1 15 13 0 13
+2427 886 5 10
+2432 896 21 43 9 27 7 47 -2 42 -20 32 -30 22 -27 11 -22 3 -178 10
+2191 1110 19 0 154 1 28 -5 16 -6 19 -15 19 -28 5 -33 -5 -58 -1 -7 8 -20
+744 2272 64 -8
+808 2264 46 -2 86 3 176 -16 90 -2 118 -19 210 -18 131 2 117 -41 26 -5 396 23 8 -6
+808 2264 1 -9 42 -22 16 -15 12 -17 8 -28 0 -47 4 -30 45 -120 1 -2 43 -105 20 -60 27 -55 18 -30 63 -59 141 -101 25 -12
+1977 1132 -65 0 -41 10 -18 5 -23 9 -139 76 -15 8 -23 12 -17 9 -46 27 -54 38 -8 10 -36 62 -58 38 -9 17
+644 1702 53 -37
+697 1665 2 1
+1853 1147 13 -15 4 -5 15 -7 30 -9 50 -3
+2190 1133 -20 -2
+2048 1130 -71 2
+1965 1108 83 1
+2189 1110 2 0
+694 1796 142 -11
+836 1785 75 -4 33 -6 83 -21
+2297 2407 65 6 53 18 73 28 100 39 143 35 93 21 228 25
+602 1630 275 -220 77 -185 12 -12 58 -34
+1024 1179 42 -24 15 -4 155 12 29 8 24 10 102 57 49 33 56 77 38 45 22 24 2 13
+979 1988 11 -1 212 -145 125 -85 9 -6 128 -86 3 -2 99 -67 3 -3 69 -46 104 -71 17 -11 72 -49 40 -28 22 -15 34 -23 7 -1
+3133 1612 -1 1 -146 53 -201 45 -97 28 -43 1 -32 11 -375 85 -165 -10 -6 0 -69 -5
+3132 1613 1 -1 1 0
+755 2355 -3 1
+793 1640 62 -28 70 -46 54 -24 91 -49 35 -4 76 14 26 -4 317 -177 12 4
+1467 1663 207 237 183 204 17 19 2 2 18 21
+2854 577 -5 -74 0 -11
+2866 802 16 -6 38 -23 46 -29 78 -61 87 -44 103 -66
+3241 581 -81 53 -79 44 -34 26
+3047 704 -44 23 -39 33 -34 22 -56 32
+2097 1808 128 7 390 -87
+2297 2407 -46 8 -117 -5 -48 -19 -58 -43 -5 -5 -63 -75 -63 -39 -21 -13
+2874 814 -73 39 -13 6 -152 64 -36 18 -21 8 -16 2 -36 10 -38 3 -27 2
+2446 966 -28 1
+2563 951 0 -9 4 -3 10 -7 33 -9 173 -73 50 -25 19 -16 14 -7
+1934 1318 -15 3 -23 5 -183 41 -51 16 -42 18 -52 24 -5 6
+1403 1590 -3 2 -326 148 -47 14
+1403 1590 7 -5 206 -94
+1267 1421 85 111 51 58
+2860 629 5 76 13 33 -2 5 -8 8 -2 10 3 44 5 9
+755 2355 18 -4 116 -6 24 9
+2920 773 -44 -30
+1464 1665 -64 -73
+1876 2216 -2 -9 5 -61 -3 -21
+2073 1826 1 -2 2 -7 13 -8 8 -1
+793 1640 -4 4 -29 9 -61 13 -2 -1
+1894 2146 7 16 -4 67
+2854 577 6 52
+979 1988 -43 -12
+2615 1728 11 1
+2418 967 0 -3
+3163 2485 -214 -45 -150 9
+1871 1388 -7 -10 -65 -220 -48 -161 -30 -23 -82 -54 -170 -93 -56 -22 -64 -18 -34 -7 -264 -20 -89 3 -49 8 -107 20 -48 14 -72 29 -110 55 -34 20
+638 745 79 -32 56 -16 74 -15 43 1 160 2 139 12 293 25 43 6 54 16 156 52 51 24 48 31 28 22 35 119 -6 43 -3 21 -8 56 5 8
+519 1223 12 -10 145 -115 189 -132 179 -86 21 -5 221 15 49 9 93 35 174 100 1 1 37 24 23 19 43 56 41 56 18 22
+1622 2893 -13 -4 -26 -2 -6 -4 3 -36 3 -38 -13 -61 7 -144 -12 -32 -5 -58 10 -126 20 -42 0 -1 68 -117 56 -100 46 -77 116 -202 34 -53
+2779 2723 33 9
+2241 2020 -39 509 -8 89 -16 189 -9 122
+3091 1518 -99 36
+2992 1554 -37 13 -56 13 -516 117 -18 4 -153 35 -133 -8
+3460 888 -75 41
+3385 929 -79 47 -20 8 -17 12 -18 6 -92 64 -45 21 -18 17 -109 60 -34 25 -124 65 -14 12 -44 20
+1661 1699 195 216 410 25 363 -82
+1178 2189 -18 -155 483 -324 18 -11 1 -1 125 -85 12 -28 13 -18 -2 -15
+1083 2725 -61 -510 -1 -35 -20 -130 -2 -55
+531 1213 91 85 216 204 30 29 167 154 167 157
+1760 2051 3 5 -23 300 -36 455 -5 17 -19 25 -37 35
+1113 2741 257 -20 48 8 80 33 43 5
+1541 2767 32 0 144 9 78 6
+1417 2032 1 2 10 39 21 26 0 21 7 16 41 150 -8 201 3 82 20 127 10 33 19 38
+2077 1579 -237 167 -422 288
+2252 1869 9 25 20 65 31 104 26 40 3 12 -2 29 5 23 41 129 8 24 10 18 12 13 18 13 23 12 49 18 69 17 69 11
+1687 1571 -639 433
+1206 2247 29 120 2 59 -3 58 15 98 28 113 6 48 -2 22 -14 46
+2278 2913 -4 -3
+2274 2910 -19 -12 -22 -5 -107 -20 -90 -12 -65 -4 -28 -8 -35 -16 -86 -6 -30 -6 -15 -5 -30 -16 -25 -17 -5 -7
+2274 2910 9 -5 8 6
+1137 1334 -1 3 -5 -3 -2 -2 -3 -10 63 -625
+2702 1190 61 -26 195 -86 114 -50 296 -130
+2849 503 11 -4 19 -12 62 -46 50 -46 25 -13
+1977 2941 46 -568 2 -20 3 -5
+2403 2338 -12 2 -13 -17 -2 -20 9 -7
+2768 2755 11 -32
+2779 2723 19 -185 -9 -4 12 -20 3 -17
+2415 2431 -29 61 -19 101 -6 31 0 24 8 54 -4 12 -19 25 -7 20 3 35 -4 54 13 32 -3 8 -16 15
+2023 2343 3 -7 20 -229 7 -81 -3 -61 5 -19 5 -19 7 -101
+1190 2436 -18 4 -274 26
+3360 769 -26 2 -160 55 -141 8 -34 8 -177 7 -21 4
+2626 1997 -9 11 -12 14 -5 16 1 14 29 102 -20 225 5 20 21 49 1 13 -4 15 -1 4
+542 909 0 22 -1 115 -22 177 -22 168 -2 10
+2030 2519 -108 -5 -433 -27
+2731 2533 -51 158 -46 123
+1249 1389 102 -57 355 -198
+2588 2008 -104 24 -3 0 -15 3 -155 36 -20 -7 -223 -14
+2474 927 1 0 9 -5 355 -287 21 -6
+2608 2536 -95 297 -11 27
+1998 1821 -70 -4 -17 5
+1024 1179 -6 -12 -105 -396
+2702 1190 -35 16 -80 30 -40 15 -70 2
+2481 2032 0 5 -6 11 0 11 49 166 -15 161 -4 8
+909 2618 0 -3
+909 2615 -11 -149 -9 -121
+2650 1989 36 126 -22 98 -18 179
+3234 1830 -94 34
+3140 1864 -80 29 -54 13 -194 44 -12 7
+939 1432 -1 0 -262 -334
+913 2354 21 281
+1042 1642 -6 6 0 11 -264 212 -54 6 -12 6
+1506 2873 -30 6
+1659 1934 32 147 18 30 152 93 13 3
+2281 1959 -15 2 -211 -15
+2025 1939 -13 6 -168 -10
+2527 961 -35 94 -7 18 -12 29 -10 10 -10 3 -26 1 -4 0 -6 -7
+2485 1073 -9 -6 6 -13 10 1
+2951 1022 -130 10 -122 6 -22 -3 -15 -5 -27 -18 -26 -36 -17 -16 -15 -28
+2662 1030 -4 8 9 168
+2600 941 16 28 -7 7
+1603 1035 -253 294 1 3
+1482 722 -161 332
+999 1995 45 15 97 25 30 -2 209 -19 3 -3
+1216 1342 -84 169 -44 90 -46 41
+2383 1697 101 335
+2466 2035 -101 -334
+3358 723 2 46
+3360 769 8 129
+2992 1554 148 310
+2899 1580 107 326
+2779 1824 40 -9 201 -46 122 -45
+2561 1579 6 6 57 197 -7 33 12 43 -1 21 -6 18
+3047 704 3 6 17 307 5 11
+1824 2592 181 9 20 3 34 10 135 4
+2377 934 1 1 11 159 3 12
+2390 1120 5 19 0 49 5 69
+2178 2807 -317 -19 -49 -5
+3044 683 -1 -39 18 -60 -11 -176
+838 1502 67 -56 40 -24 4 -11 5 -4 60 -27 51 -14 64 -34
+1132 1511 16 19 24 31 15 28 38 45 16 12 95 105
+2217 1623 335 -76
+1466 2579 59 -7 284 19
+2567 939 4 5 16 292
+2930 782 5 19 12 199 4 22 2 39 5 17
+1759 1465 209 234
+2430 921 -6 -20 8 -5
+2212 1736 40 133
+2261 1894 -10 4 -10 122
+1844 1935 -201 -225
+1919 1321 4 -136 8 -77 -3 -15 1 -40 0 -2 -1 2
+1602 1034 184 -214
+1893 1373 -8 -11 -8 -22 -10 -47 -4 -72 10 -67 -2 -12
+1202 1842 181 169 34 21
+1876 1849 3 4 -2 22 -20 229
+2221 1202 3 42 2 21 11 178 0 13
+2186 1454 17 -125 11 -85 10 0
+2594 2469 -51 -13 -44 -21 -54 -25 -18 -2 -62 -4 -3 9
+2482 1318 -231 12 -48 -1
+1327 1757 -91 -101 -2 -3 7 -7
+2226 1265 170 -8 4 0 77 -4
+1716 1448 -2 -3 -16 -47 -1 -26 -13 -48 -14 -46 -8 -16 -9 -10
+1714 2128 -239 10
+1249 2582 -266 25
+1446 1132 17 5 27 -6 21 0 42 26 67 90 16 14
+2405 1432 5 0 -5 1 -68 14 -57 7 -43 2 -51 -2 -27 -5
+715 1939 14 -1 43 10
+772 1948 145 21 20 5
+1286 1145 7 17 -2 28 -75 152
+542 931 3 1 131 166
+1171 2033 19 159 13 25 2 20
+2482 1318 -5 -65 -8 -126 -6 -15
+1831 1416 -14 -19 -50 -168
+1566 1596 -7 -8 -13 -14 -10 -11 0 -1 -99 -111
+1466 2579 -20 4 -36 14 -20 3 -21 -2 -59 -18 -49 2
+1531 1443 -75 33 -45 28 -59 28
+2788 859 21 36 5 16 -1 37 8 84
+2068 2050 -8 1 -8 6 -178 66
+2405 1433 0 -1 -9 -175
+622 1298 -120 97 -7 6 -18 14
+2395 1188 -48 3 -27 6 -99 5 -23 -1
+1691 1232 -1 -11 57 -31
+2205 1100 0 -7
+1131 1334 6 0 88 49 24 6 5 6 1 10 12 16
+2790 2396 -3 38 -6 9 -25 17 -16 50 -9 23
+2030 2519 172 10
+2646 2392 -3 30 -3 19
+2632 2480 -24 56
+1190 2436 80 -5 21 -7 51 -27
+2169 1597 43 139
+1799 1158 57 -30 10 4
+937 2240 1 0 155 -13
+2079 1728 -3 -18 8 -119 0 -2 0 2
+1569 1593 93 105
+1316 1064 -2 0 2 0 30 12 100 56
+1774 1218 149 -33
+1891 1035 -4 -3 -35 -123
+1590 2346 150 10
+2378 935 -1 -1 0 -1
+2771 1286 -8 -122
+3368 898 78 -36
+2116 1397 18 11 54 34 49 1
+2348 960 1 0
+2785 1711 34 104
+1469 2342 17 -3 104 6
+1968 1699 -3 2 -55 95
+1992 1526 85 53
+1506 2873 120 2
+2209 1600 -40 -3 -85 -6
+2622 1897 -2 17 13 54 0 14 -7 15
+1778 1509 -91 62
+2079 1728 -5 96
+1617 1492 97 -47
+1286 1145 -10 3 -11 23
+1162 1565 -21 -29 7 -6
+1810 1552 -68 -76
+1375 2379 53 -28 16 -5 25 -4
+890 683 23 88
+1929 1457 63 69
+1767 1229 -12 0 -61 39 -24 10
+1316 1064 -30 69
+1620 1334 -23 8 -39 15 -19 8
+2617 2008 -10 -5 -19 5
+850 1834 56 -44 5 -9
+930 1480 -62 51
+2210 1110 -6 75
+1645 2909 6 8
+1548 1337 11 -10 24 -9 14 24
+2079 1728 -73 -8
+2418 967 -41 1 -26 -5 -2 -3
+1620 1334 25 -1 39 -9
+2594 2469 39 7
+2800 1957 -9 10 -31 4 -22 -1
+2809 2338 -19 58
+983 2607 -13 4 -61 4
+2738 1970 -66 14
+1896 1326 -1 23 -10 13
+1580 2847 9 9 40 16 -3 3
+1897 1388 21 46
+2159 1449 -38 -24 -8 -5
+938 1432 1 0 3 8 -17 31
+2418 964 0 -13 10 -21 2 -9
+2775 2491 -10 6 -10 13 -15 0
+2006 1720 -22 -5 -19 -14
+1742 1476 -26 -28
+1694 1268 -18 -28
+1929 1053 -1 0 -17 -1 -23 4
+2475 927 12 17 2 20
+3385 929 -17 -31
+1659 1934 -1 -8 16 -26
+2552 1547 9 32
+2488 2459 11 -24
+2775 2491 29 6
+2415 2431 12 -23
+1534 1393 6 -11 -3 -10 2 -7
+2209 1600 8 23
+1035 1685 -24 19
+2113 1420 3 -23
+2204 1185 17 17
+1548 1337 10 20
+1623 1530 15 17
+2134 1408 -13 17
+1918 1434 11 23
+843 1799 -7 -6 0 -8
+1645 2909 -14 -10
+1342 2397 12 -11
+1812 2783 -17 -1
+1824 2592 -15 -1
+1948 1351 -14 -2
+1774 1162 14 1
+638 745 -4 5 -1 6
+1286 1133 0 12
+2460 926 14 1
+1375 2379 -7 8
+2788 859 -5 -9
+1757 1215 8 -3
+1048 2004 -4 6
+497 1391 5 4
+2344 2167 -6 1 6 -1
+1456 2136 -4 2 4 -2
+938 2240 0 4 -1 -4
+1093 2227 1 4 -1 -4
+1559 1588 4 -2 -4 2
+1546 1574 4 -2 -4 2
+1536 1563 4 -3 -4 2
+1638 1547 1 2 1 1 -2 -3
+2899 1580 -1 -3 0 2 1 1
+1658 2228 3 1 -3 -1
+2798 2538 3 0 -3 0
+868 1531 -2 1 2 -1
+1475 2138 -3 0 3 0
+1321 1054 -2 -1 2 1
+2948 2606 2 -27 -1 -18 -10 -22
+2876 2495 -101 -23
+2775 2472 -135 -31
+2640 2441 -155 -33 -20 -7
+2349 2330 -18 -16 -119 -131 -32 -36 -12 -20 -17 -65 -16 -29 -21 -21 -31 -26
+2083 1986 -58 -47 -33 -28 -81 -89 -224 -251 -49 -56
+1638 1515 -21 -23 -1 -1 -19 -21 -19 -13 -25 -10 -22 -4 -17 -2 -23 0
+1491 1441 -54 10 -12 2 -22 9 -49 36 -15 10
+1354 1498 -2 -13 16 -15 29 -14 6 6
+1514 1441 3 -2
+1527 1432 5 -3 26 1 5 1 15 13 0 3
+1578 1455 0 2
+2427 886 5 10
+2432 896 21 43 9 27 7 47
+2451 1080 -4 7 -30 22 -27 11 -22 3 -178 10
+2191 1110 19 0 154 1 28 -5 16 -6 19 -15
+2427 1085 19 -28 5 -33 -5 -58 -1 -7
+2445 959 2 -5
+2449 950 4 -11
+744 2272 64 -8
+808 2264 20 0
+994 2260 76 -7
+1142 2249 64 -2 34 -5
+1324 2228 68 -6
+1484 2214 13 -1
+1631 2212 34 0 117 -41 26 -5 173 10
+1981 2176 127 7
+2108 2183 4 1
+2112 2184 92 5
+2204 2189 3 -2
+2210 2185 2 -2
+808 2264 0 -2
+919 2022 17 -46 1 -2 11 -26
+992 1831 8 -22 27 -55 18 -30 63 -59 56 -39
+1977 1132 -65 0 -41 10 -18 5 -23 9 -92 50
+1738 1206 -47 26 -15 8 -23 12 -17 9 -46 27 -54 38 -8 10 -2 2
+1526 1338 -34 60 -58 38
+1428 1447 -2 5
+644 1702 25 -17
+1853 1147 2 -3
+1861 1138 5 -6 4 -5 15 -7 30 -9 50 -3
+2190 1133 -20 -2
+2048 1130 -71 2
+1965 1108 83 1
+2189 1110 2 0
+2569 2491 19 7 77 19
+2665 2517 66 16 51 11
+1464 1303 32 45 38 45 22 24 0 4
+1557 1423 1 7
+2772 1715 -84 24 -43 1 -18 6
+2356 1809 -90 21
+755 2355 -3 1
+1141 1495 6 1
+1286 1455 6 -3
+1487 1343 6 -4
+2849 498 0 -6
+2918 789 -6 3
+2260 1807 87 -19
+1567 1426 -3 3
+1063 1743 -36 11
+1280 1438 22 28
+1302 1466 50 66 13 15
+871 1783 10 0
+979 1766 47 -12
+1577 2881 1 -9
+2240 2031 -6 88
+2689 1628 -4 1
+2670 1632 -9 2
+2642 1638 -4 1
+2297 1933 86 -19
+1403 1871 5 -3
+1014 1666 4 4
+1241 2731 12 -1
+1550 2767 3 0
+1463 2163 25 89
+1431 2025 -8 5
+2303 2036 9 27 26 40 3 12 -2 24
+2618 2418 9 1
+1804 2823 -12 -2
+2928 451 8 -6
+2046 2107 6 -77
+2626 1997 -9 11 -12 14 -5 16 1 14 5 18
+2610 2379 5 20 21 49 1 13 -2 8
+1829 2508 -13 -1
+1513 2488 -10 0
+2317 2069 -6 2 -1 -1
+2239 2061 -7 -1
+1036 1650 0 8
+933 1742 -79 63
+711 1880 -5 3
+1841 2192 17 10
+2934 1023 -4 1
+1132 1511 -1 3
+1129 1518 -1 2
+1132 1511 6 7
+1187 1589 34 40
+1509 2574 7 -1
+1236 2583 -28 3
+715 1939 3 0
+2056 2054 -4 3 -4 2
+2789 2414 -2 20 -6 9 -25 17 -11 35
+1207 2435 12 -1
+1285 2426 6 -2
+1317 2411 5 -3
+1503 2340 11 1
+1539 2873 50 1
+2633 1968 0 14 -7 15
+1422 2355 6 -4
+2617 2008 -5 -2
+2788 1967 -28 4
+1812 2783 -17 -1
+1824 2592 -15 -1
+2010 1648 1 1 0 12 -12 154
+1678 1525 56 62
+1914 1789 -159 -179
+1720 1444 10 -5 4 -4
+1736 1437 -5 4 -9 4
+1830 1354 16 -4 49 -15
+1722 1490 -15 -17
+1933 1380 -5 -21 1 -4
+1960 1527 20 -14
+1730 1484 3 0 2 2 29 32
+1792 1549 15 17 5 3
+1943 1507 -19 13
+1926 1522 -75 51
+1938 1700 17 -12 39 -27
+2010 1648 36 -25
+1710 1457 22 26
+1849 1404 88 98 2 1 12 14 1 2 94 104 36 3
+1811 1375 -49 14 -36 13
+1947 1512 -18 13
+1813 1428 197 220
+1739 1510 -14 -17
+1781 1556 -14 -14
+1805 1584 4 3 16 18
+1854 1638 54 60
+1749 1430 27 23
+1906 1423 -11 -18
+1930 1494 21 -14
+1944 1401 -9 2 -157 106
+2023 1546 -201 140
+1709 1531 -15 -17
+1737 1563 13 14
+1778 1608 142 159
+1808 1642 -123 84
+1992 1518 -118 80
+1928 1508 5 6
+1938 1425 -8 -19
+1778 1608 -31 21
+1795 1605 -3 -1
+1958 1488 -114 76 -34 24
+1776 1453 5 4 43 47 137 154
+2078 1685 -94 -6 -6 -2 -15 -17
+1929 1457 -57 -63
+2215 1614 -152 -9 -71 -79
+1798 1444 -27 -24 -19 -65
+1846 1371 -6 -19
+1709 1504 43 48
+1765 1566 12 15
+1895 1704 -25 -19 -8 -11 -23 -25
+2060 1568 -1 3 -177 123
+1798 1444 193 215 3 2 90 5
+1612 1647 326 -222
+2051 1723 11 -130 -1 -1 -2 -2
+1870 1627 27 31 1 3 58 56
+1887 1367 -37 16 -114 54
+1777 1581 -47 30
+1811 1545 7 4 9 0 5 -2 112 -75
+1756 1466 -20 -23 -2 -11 -4 -16
+1736 1437 2 5 21 23
+1730 1416 129 -50 36 -17
+1821 1721 4 -4 95 -75 116 -80
+1835 1571 -13 -15 -3 0 -7 0
+1756 1652 38 -26
+1860 1582 112 -76
+1671 1557 93 -64
+1774 1486 159 -106
+1947 1354 16 2 -3 30 -1 30 5 25 -9 2 1 5 11 22 3 5 47 51
+1939 1375 -7 1
+1938 1376 -6 1
+1938 1376 -2 2 -4 0
+1934 1349 3 2 3 13 -1 11
+1939 1375 -1 1
+1991 1518 5 6 11 7
+1872 1446 14 15
+1783 1369 24 -5
+2081 1646 -46 -3 -201 -223
+1929 1457 -217 145
+1644 1515 87 -59
+1778 1353 12 40 6 15 17 20
+1718 1732 263 -181 23 -17 3 -3
+1729 1363 16 55 3 10 1 2
+1827 1342 14 46 6 14 2 2
+2073 1579 -10 -7 -4 -1
+1738 1620 49 -28 15 -12
+1808 1367 25 -5
+1984 1712 3 -32
+1753 1803 321 -222
+2029 1721 6 -78
+2649 2003 82 -19 25 -11 71 -11 259 -59 159 -57 19 -10 16 -16
+1466 711 66 16 205 67 66 32 35 24 52 43 38 39 12 23 10 34 18 40 7 36 0 90 -8 70 -17 96 -9 70 8 58 9 17 61 67 64 44 21 6
+1059 2197 19 10 49 24 32 5 395 -35 98 1 378 -131 24 -3 40 2
+494 1381 44 -331 1 -228 9 -38 11 -20 24 -31 58 -43 18 -8 61 -17 60 -1
+2127 1587 102 13 9 5 5 6 22 84 70 219 7 50 -6 77 -7 88
+780 664 176 3 90 5 62 -4 358 43
+2649 2003 -26 -86 0 -17 6 -10 13 -10 39 -10 9 -5 10 -13 2 -11 -24 -77 -8 -48 -17 -50 -18 -41 -10 -11 -105 -56 -17 -3 -25 5
+971 2153 -41 -25 -12 -14 -7 -15 -2 -14 2 -16 127 -332 15 -19 3 -3
+2709 2448 35 4 28 -8 150 -10 15 -4 11 -8 6 -9 17 -58 11 -10 14 -5 28 0 43 5 14 6 44 28 12 4 17 0
+1053 1718 -57 29 -54 20 -39 10 -181 12 -19 -2 -17 -7
+2647 2411 0 4 -7 55 -16 34 -80 249
+2229 1600 20 -6 64 -9 111 -12 54 -13
+1056 1715 290 -205
+746 2106 160 20 18 5 6 -3
+971 2153 88 44 19 10
+2645 2380 -3 -50 8 -88 29 -111
+2650 2242 6 3 -8 80 -6 5
+2642 2004 -261 60 -10 2
+1346 1510 16 -15 10 -17 24 -40 54 -41 76 -54
+1316 1453 3 -1 131 -55
+488 1428 6 -47
+2649 2003 32 105 -2 23
+1372 1478 -20 -24 -18 -5 -15 3
+1636 1280 -87 49
+2381 2064 -10 2 -15 0 -11 -5 -6 -7 -3 -13
+2647 2415 7 15 18 10
+2645 2380 2 31
+746 2106 -16 -1
+2104 1583 23 4
+1543 1333 -17 10
+1549 1329 -6 4
+2642 2004 7 -1
+1316 1453 -1 0 1 0
+2329 2118 -58 718 0 18 6 20 10 19 15 16
+2094 2071 197 10
+2291 2081 17 1 13 7 8 12 0 17
+2094 2070 33 4 20 10 207 231 45 37 55 31 31 13 46 13 575 126
+2675 699 -6 -6 10 -8 3 -21 54 52 93 -75 -67 -61 -121 114 19 17 15 -12
+1835 2277 -53 44 -7 92 9 -30 41 2 10 -108
+3217 2397 -163 -14 -18 67 134 28 39 -38 8 -43
+538 849 1 -41 18 -49 57 -65 -19 -30 -83 116 -3 29 29 40
+661 1022 44 55 78 -55 -98 -186 -111 55 92 128 -5 3
+1729 1624 -18 -20 -82 55 13 14 87 -49
+933 1977 -163 -27 13 158 90 10 60 -141
+998 1997 -52 -18 -33 84 -3 30 15 30 28 -3 -2 -17 28 -2 0 -49 22 -2 -3 -53
+1454 2012 40 114 27 0 -47 -127 -20 13
+876 2122 -62 -5 6 55 55 -4 1 -46
+1251 2728 109 -7 58 8 6 -34 20 -4 -5 -38 59 -15 -12 -67 -2 -91 9 -189 -46 -166 -1 -26 -41 -69 -25 -12 -218 20 20 180 16 14 53 496
+1363 2101 -12 24 -31 24 4 24 21 17 -5 13 -5 -15 -23 -17 3 -9 -16 -10 48 -36 -33 -40 10 -8 -6 -14 -11 -5 -49 6 -16 -7 -18 3 -4 -7 -2 7 -29 0 -10 -9 34 -3 40 6 5 -5 8 6 47 3 54 -14 16 -13 3 9 -28 18 -16 -2 -18 11 3 11 -7 7 33 27 13 -8 -3 -11 7 -7 27 -3 25 10 -36 22 -23 -5
+1316 2466 -21 -6 -3 -31 -33 -43 5 -51 11 -27 53 -51 15 -4 4 -12 16 22 43 11 3 15 -3 25 19 18 2 22 30 31 9 58 -8 0 -4 -18 -4 25 -8 11 -5 -3 14 -54 -13 -20 -8 3 -8 -53 -14 -8 -5 -14 0 -34 -57 -11 -22 5 -43 41 4 7 25 6 27 40 -24 29 11 27 -12 19 2 8 60 50 -62 1 -30 -9 -12 -22 21 -6 -5 18 30 14 10 -6 -10 -23
+890 2350 21 269 22 15 -21 -275 -22 -9
+3019 385 -87 67 9 129 119 -6 -2 -41 -13 -12 -6 -122 -20 -15
+2939 679 -10 -223 -74 57 10 168 74 -2
+2587 1083 10 146 58 -21 -4 -89 -25 1 -2 -39 -37 2
+2119 1185 -12 40 -7 72 18 31 13 -133 9 -26 9 -2 0 -14 -30 32
+2310 1326 3 43 45 -2 -3 -43 -45 2
+1961 1390 11 -84 -3 15 -16 0 -10 56 11 78 23 31 -6 5 9 -2 29 38 73 46 6 -11 -62 -39 -5 6 -53 -59 -13 -27 9 -1 -3 -52
+2353 1569 -6 -5 -48 17 -77 11 -100 -18 -2 10 107 11 175 -20 77 -18 -126 12
+1824 1560 -35 58 35 39 62 -43 -43 -47 -8 5 -11 -12
+2446 2876 2 -52 35 -56 2 -29 -27 -30 -37 -8 -28 1 -31 16 -21 30 -3 100 13 30 -16 22 111 -24
+1274 2352 -4 40 33 46 17 -19 -12 -25 23 -25 -13 -7 2 -18 -46 8
+612 917 9 1 13 11 18 0 4 -3 -19 -11 -13 -1 -21 -8 9 11
+706 936 -9 -4 -9 7 6 5 3 -1 6 12 3 -19
+674 951 -8 -5 -6 2 -7 -5 -8 9 0 6 8 5 5 -11 7 0 8 18 4 2 -3 -21
+716 1040 33 -16 6 -10 1 -10 -7 -15 -17 -14 -6 -40 -19 -23 2 -6 -6 -13 -13 -10 -23 10 4 9 8 1 12 -11 9 4 3 21 14 17 -1 15 13 29 19 14 4 9 -2 14 -8 7 -11 0 -13 14 -5 -8 -5 0 2 6 -3 5 9 1
+472 1356 1 -20 17 -73 1 -61 5 -38 6 -21 6 -7 2 -224 -5 -19 3 -26 -3 -28 7 -61 -58 97 -38 78 2 378 39 57 15 -32
+718 1940 -8 -45 1 -17 4 -4 -8 2 3 -33 -5 34 10 56 13 155 10 0 -10 -17 -10 -131
+1366 2100 20 6 6 -5 11 -4 3 2 16 -15 -4 -6 -10 3 -11 -7 -27 3 -7 7 3 11 -13 8 -16 -9 -17 -18 7 -7 -3 -11 11 -2 7 -9 16 2 9 -11 19 -7 1 -5 -4 -4 -15 7 -1 6 -13 -1 0 6 -17 6 -24 3 -47 -3 -3 -4 -5 -2 -5 5 -40 -6 -34 3 4 3 -3 2 9 4 21 -3 8 3 -4 -2 6 -5 4 7 18 -3 16 7 10 0 3 -3 28 1 8 -4 11 5 6 14 -9 4 -1 4 7 4 -1 7 9 3 9 9 9 17 -4 7 -30 20 -14 4 0 5 6 7 10 3 -3 9 23 17 5 15 5 -5 0 -8 -21 -17 3 -8 -7 -16 19 -20 12 -4 6 -19 9 -6
+769 2507 -35 -385 1 -19 4 -6 -10 2 35 403 5 5
+1308 2460 13 14 5 15 -10 6 -17 -12 -13 -2 -2 -4 7 -14 -4 3 -17 3 8 20 34 11 20 -5 17 8 25 -4 -40 -28 -20 -22 -2 -8 12 -19 -11 -27 22 -20 2 -9 -12 -9 -2 -17 -13 -14 -25 -6 -4 -7 17 -21 26 -20 22 -5 18 4 18 -1 21 8 3 8 -3 26 5 14 14 8 0 18 8 35 8 -3 13 20 -14 54 5 3 8 -11 4 -25 5 8 -1 10 8 0 -9 -33 3 -16 -3 -9 -30 -31 -2 -22 -19 -18 3 -25 -3 -15 -12 -6 -22 -1 -9 -4 -13 -12 -3 -10 -4 12 -15 4 -53 51 -7 11 -7 31 -2 36 5 12 28 31 -2 12 8 13 -3 6 13 0
+1285 2346 -9 -4 13 -18 15 4 2 6 -10 11 -11 1
+1278 2349 11 2 12 -6 19 -1 -2 18 2 5 11 2 -1 6 -22 19 12 25 -4 10 -13 9 -12 -11 -21 -35 0 -30 8 -13
+1269 2579 -19 -92 3 -4 13 -2 1 -7 -8 -8 -13 13 -3 10 13 91 13 -1
+1259 2772 -62 -529 -9 0 61 529 -7 14 -1 14 14 6 -4 -13 8 -21
+1288 2548 -8 19 3 0 16 -11 37 -17 8 -9 -23 -3 -14 12 -19 9
+1259 2604 28 110 6 4 4 -5 -1 -19 -9 -35 -13 -28 -4 -48 -13 2 2 19
+1322 2681 11 -7 -6 -2 1 -13 -10 -12 -3 13 2 13 -6 6 11 2
+1251 627 31 6 -1 8 21 2 91 28 3 -8 95 27 -3 8 7 2 4 -7 4 1 182 65 -1 4 25 12 3 -2 6 3 3 -7 71 34 -3 5 8 5 4 -4 21 14 86 66 42 46 29 60 17 84 -3 87 -8 66 -18 114 -4 1 0 6 -3 65 5 24 -8 1 11 26 54 59 4 -5 62 39 35 13 64 7 -1 8 57 0 75 -14 -2 -9 32 -5 1 7 14 1 76 -13 -2 -5 4 -3 163 -43 5 12 32 -9 2 4 -22 34 1 14 18 42 -1 5 12 24 10 -2 2 7 5 -1 -3 -7 11 -3 -18 -60 2 -17 3 -14 23 -40 138 -59 184 -96 -32 -73 382 -240 134 -75 -24 -50 -81 39 -110 63 -80 55 -65 34 -119 71 -46 34 -63 40 -81 42 -7 0 -119 56 -86 32 -13 10 -52 16 -57 26 -140 44 -75 12 -33 -2 -55 -9 -65 -1 -19 -16 0 -42 -7 -38 8 -31 -3 -40 5 -68 11 -22 3 -22 -73 79 2 -160 -29 -142 -72 -112 -166 -110 -590 -179 -338 -23 -157 29 -26 11 -64 73 31 -18 199 -39 235 -4 182 25 -2 12
+1831 1608 9 7 2 -3 3 2 -8 4 5 1 2 6 9 7 2 -4 -9 -3 2 -10 4 -3 15 7 11 -6 -13 -15 -5 0 -12 2 -5 10 -4 -4 -8 2
+1851 1603 12 -3 9 13 -5 3 -4 -1 -10 -5 -2 -7
+2706 1983 -380 88 384 -86 -4 -2
+1504 2485 0 4 -7 6 -3 46 3 29 11 2 1 3 -1 4 -10 2 0 6 7 22 12 88 11 39 27 40 -2 -14 -16 -31 5 -37 -5 -23 4 -13 -3 -16 6 -33 -19 -28 -8 -4 -1 -6 12 -11 -9 -55 7 -12 -15 -4 1 -4 19 -1 3 -6 -20 -42 0 -7 14 -18 15 -8 16 -33 -18 -14 -15 -2 -14 -10 12 -60 -20 -28 -6 -35 -9 -14 -2 -19 -11 -22 -4 -24 -10 -24 4 -16 -2 -9 -21 -24 -8 -35 -8 -16 -14 -13 13 -17 41 -28 2 -6 -16 -29 -39 -40 -23 -66 -5 2 23 69 9 12 23 20 13 27 -3 9 -47 37 -8 17 28 18 7 40 23 28 -2 23 7 14 6 3 3 25 13 31 0 11 4 1 7 40 14 39 -5 30 0 23 4 4 -6 3 -1 13 -2 76 1 47 7 4
+1514 2353 22 7 14 9 0 7 -9 21 -21 13 -10 13 4 -70
+1419 2478 0 -5 -6 -6 -24 12 -14 14 1 8 12 -2 19 -17 12 -4
+1452 2510 19 -18 -2 -7 6 -16 -9 -23 -5 10 5 29 -15 14 -8 12 -2 11 4 9 3 -1 4 -20
+1739 2900 1 7 -8 -2 -5 3 -2 9 11 11 18 2 5 -14 -12 -4 2 -4 12 2 15 -14 11 -34 17 -33 7 -151 4 -1 21 -305 20 -233 5 -12 -5 -3 -5 0 -5 107 -10 55 -40 530 -19 35 -10 31 -28 18
+1386 2586 -7 -66 -3 0 -12 19 8 19 7 -1 3 4 4 25
+1387 2627 -6 1 -15 -6 5 4 2 16 7 5 0 -11 5 -2 7 3 2 -2 -4 -21 -3 13
+2433 2739 7 37 4 -1 20 -22 1 -7 -32 -7
+2354 2787 13 -12 5 -14 -18 11 -6 12 6 3
+2352 2842 3 -1 4 -21 15 17 15 -4 9 18 4 1 3 -5 -6 -20 -20 -7 -7 5 -20 -15 0 -6 -4 -2 -5 18 12 -2 -6 17 3 7
+2986 361 -40 39 2 2 41 -39 -3 -2
+3095 470 18 0 1 -6 -12 -10 -16 4 -3 5 12 7
+3132 503 -1 -14 -7 -3 -4 25 5 2 7 -10
+3007 496 -5 -33 -9 -1 -17 8 -4 7 -9 1 -3 5 4 7 3 -6 7 -3 8 4 18 -5 3 2 -7 19 4 3 8 -2 3 11 -16 13 -3 11 12 3 20 -10 -7 -24 -10 -10
+2906 598 -12 -27 -3 -26 1 -16 -3 -5 -12 -5 7 10 2 32 5 15 -7 16 12 12 -8 16 13 4 1 18 7 -11 -4 -12 1 -21
+2952 750 -3 -25 -17 -273 -3 2 14 228 6 68 3 0
+2886 614 -6 -9 1 -10 -4 -1 -7 11 1 9 14 6 1 -6
+3055 643 -1 26 6 -1 1 -8 5 0 2 4 6 -1 -4 -14 -10 -1 -5 -5
+2785 1884 -22 -47 -4 9 3 15 22 50 1 -27
+3248 1889 -13 -26 2 -5 11 14 5 15 5 1 -17 -33 -149 54 -242 57 3 9 7 5 163 37 16 7 1 5 -114 -28 -73 -14 -5 -4 -9 -23 -3 7 -7 -2 13 20 8 6 361 86 46 18 56 47 16 2 19 -4 87 6 3 -6 -10 3 -2 -5 -108 -3 -57 -42 21 14 31 14 28 -6 9 3 9 11 57 3 -104 -215 -7 -11 -6 -3 1 -3 8 -3 -3 -7 -19 4 31 63 -2 6 -47 18 -7 -4 -18 -37 -8 2 -8 -8 -8 0 -3 -13 7 -7 3 -9 12 -10 -2 -11 6 8 6 -3
+3059 2032 23 0 90 25 29 -4 11 4 13 16 29 15 -31 -12 -178 -46 1 -2 13 4
+2577 2778 -19 58 -7 -3 -11 -19 -7 -1 -1 7 16 25 47 -17 11 -22 22 -96 5 -6 19 -4 -4 -4 -13 2 -3 -3 2 -6 12 -8 8 -20 3 -15 -4 -4 7 -30 25 -72 1 -16 7 -11 13 -46 -4 -22 17 -10 37 -121 8 -2 10 14 7 -3 -16 -35 10 -27 13 -9 9 -18 20 8 16 1 29 18 2 -3 79 34 -4 9 4 6 30 5 19 7 52 8 103 5 31 -2 94 9 24 6 38 -49 -189 -10 -97 -13 -44 -17 -2 2 -23 -13 -29 -23 -12 -19 -14 -9 -9 -2 -24 -33 -19 -13 -3 -12 -38 -57 -14 -32 19 2 1 -4 -19 -6 -8 -8 -17 -52 -5 -2 -2 -13 8 -5 -2 -6 7 -8 -10 -5 3 -3 -5 -2 -11 -40 -13 -21 -6 -26 5 -12 -9 -3 -3 -5 -2 -27 -5 -3 -5 -15 -1 -5 6 -6 -2 -6 -14 -26 -14 -12 -9 -15 -13 -30 -7 2 -14 -41 -3 0 -2 2 14 40 -8 3 17 47 9 44 34 100 -5 9 -36 7 23 58 -6 4 51 -6 9 32 -11 15 9 0 14 43 -6 1 12 40 -8 21 6 1 -36 123 5 2 -2 7 -9 -2 -3 8 -3 19 3 12 -17 45 -32 -42 -6 0 2 2 -7 4 36 65 -14 40 -7 0 -23 -33 -8 5 22 37 5 15 -1 23 4 9 -7 10 2 5 -24 69 -6 6 -21 67 -12 1 -2 10 9 7 -8 25 -10 5 -3 32 -9 15 1 9 -17 61 -6 2 -5 -7 -5 3 8 16
+2984 2294 -34 -10 -27 -14 -33 -27 -18 -26 46 41 63 33 3 3
+3252 2395 -201 -18 -68 2 -18 15 -10 37 3 1 16 -40 17 -8 71 -1 186 17 4 -5
+2758 2672 5 0 1 -14 -9 4 -1 19 8 6 1 -12 -5 -3
+2838 1961 6 20 12 9 360 86 34 14 46 30 16 17 8 2 35 -2 73 5
+1390 1821 21 68 41 40 10 24 -4 7 -43 31 -11 16 21 17 14 50 21 21 -2 27 9 12 5 32 11 22 17 70 15 28 -5 20 -7 114 7 34 -2 86 11 70 12 116 6 19 22 38 -2 63 7 23 -2 31
+1507 2345 17 11 13 1 12 7 6 10 -12 24 -24 17 -14 22
+1880 2121 172 -61 257 14 400 -90
+2642 1414 17 60 0 32 -14 33 -4 18 3 17 165 515 -237 748
+1232 1403 -59 34 -84 170 -49 44 -268 217 -57 6
+418 1316 16 -42 3 -366
+2046 1234 -28 151 3 58 24 42 38 28 43 23 64 7 55 -3 63 -11 202 -63 428 -169 40 -25
+2809 2089 63 108 51 51 55 33 66 19 271 21
+609 1638 79 142
+418 1331 49 72 21 24 57 107 40 70 29 44 48 84 41 81 4 18 -2 46 7 47 3 9 49 569 76 64 93 69 66 42 102 58 71 35 110 47 113 39 77 23 119 27 79 14 81 10 81 7 81 4 82 0 81 -4 81 -7 81 -10 119 -22 117 -30 77 -24 75 -27 110 -47 71 -35 69 -38 99 -62 63 -45 60 -48 85 -76 53 -54 50 -56 47 -58 44 -60 40 -62 21 -36 -10 3 -12 -39 -25 -58 -24 -45 7 -35 -73 -152 -65 20 -260 -567 382 -240 134 -75 -38 -77 -57 -94 -41 -61 -70 -88 -76 -83 -55 -53 -87 -74 -82 -61 -44 43 1 24 -36 9 -706 660 -155 167 2 -160 -29 -142 -54 -81 -18 -31 -166 -110 -590 -179 -338 -23 -157 29 -26 11 -72 83 -46 59 -41 61 -39 62 -35 65 -21 45 2 378
+@streets line
+name,ref,class,arcs
+,I 10,motorway,0;1
+,I 10,motorway,2
+,I 10,motorway,3
+Westbank Expressway,US 90 BUS,motorway,4;5
+Westbank Expressway,US 90 BUS,motorway,6
+,I 610,motorway,7;8
+Pontchartrain Expressway,I 10,motorway,9
+Pontchartrain Expressway,US 90 BUS,motorway,10
+Earhart Expressway,LA 3139,motorway,11;12
+Pontchartrain Expressway,US 90 BUS,motorway,13
+Crescent City Connection Bridge,,motorway,14;15
+Crescent City Connection,US 90 BUS,motorway,16;17
+Airline Drive,US 61,trunk,18;19
+Chef Menteur Highway,US 90,primary,20
+South Claiborne Avenue,US 90,primary,21;22
+Canal Street,,primary,23
+North Claiborne Avenue,LA 39,primary,24
+West Judge Perez Drive,LA 39,primary,25
+Veterans Memorial Boulevard,,primary,26
+Earhart Boulevard,,primary,27
+North Broad Street,US 90,primary,28
+Behrman Highway,LA 428,primary,29
+General de Gaulle Drive,,primary,30
+General de Gaulle Drive,,primary,31;32
+North Robertson Street,LA 39,primary,33
+Gentilly Boulevard,US 90,primary,34
+General de Gaulle Drive,LA 428,primary,35
+General de Gaulle Drive,LA 428,primary,36
+General de Gaulle Drive,LA 428,primary,37
+Poydras Street,,primary,38
+Tulane Avenue,US 61,primary,39
+Tulane Avenue,US 90,primary,40
+South Broad Street,,primary,41
+Behrman Place,LA 428,primary,42
+Veterans Boulevard,LA 3019,primary,43
+Holiday Drive,,primary,44
+South Broad Street,US 90,primary,45
+New Orleans Street,US 90,primary,46
+North Claiborne Avenue,LA 39,primary,47
+Earhart Boulevard,LA 3139,primary,48
+Allen Street,US 90,primary,49
+Behrman Highway,LA 428,primary,50
+City Park Avenue,,primary,51
+,LA 39,primary,52
+Hendee Street,,primary,53
+Almonaster Avenue,,secondary,54
+Magazine Street,,secondary,55
+Tchoupitoulas Street,,secondary,56
+Saint Charles Avenue,,secondary,57
+Saint Bernard Avenue,,secondary,58
+Dwyer Road,,secondary,59
+Franklin Avenue,,secondary,60
+Saint Claude Avenue,LA 46,secondary,61;62
+Patterson Drive,,secondary,63;64
+North Galvez Street,,secondary,65
+Orleans Avenue,,secondary,66
+Canal Boulevard,,secondary,67
+South Carrollton Avenue,,secondary,68
+Paris Avenue,,secondary,69
+Allen Toussaint Boulevard,,secondary,70;71
+Wisner Boulevard,,secondary,72
+Esplanade Avenue,,secondary,73
+Almonaster Avenue,,secondary,74
+Bienville Street,,secondary,75
+Marconi Drive,,secondary,76
+Leon C. Simon Drive,,secondary,77;78
+Leon C. Simon Drive,,secondary,79
+Napoleon Avenue,,secondary,80
+General Meyer Avenue,LA 428,secondary,81
+Tullis Drive,,secondary,82
+Elysian Fields Avenue,,secondary,83
+Almonaster Avenue,,secondary,84
+Downman Road,,secondary,85;86
+Press Drive,,secondary,87
+Elysian Fields Avenue,LA 3021,secondary,88
+Harrison Avenue,,secondary,89
+Macarthur Boulevard,,secondary,90
+Alvar Street,,secondary,91
+Leake Avenue,,secondary,92
+Mirabeau Avenue,,secondary,93
+Jourdan Road,,secondary,94
+Martin Luther King Jr Boulevard,,secondary,95
+Florida Avenue,,secondary,96
+Behrman Highway,,secondary,97
+France Road,,secondary,98
+North Claiborne Avenue,,secondary,99
+Jefferson Avenue,,secondary,100
+General Meyer Avenue,LA 428,secondary,101
+Johnny Jackson Jr Boulevard,,secondary,102
+Pontchartrain Boulevard,,secondary,103;104
+France Road,,secondary,105
+Florida Avenue,,secondary,106;107
+Broadway Street,,secondary,108
+West End Boulevard,,secondary,109
+Palmetto Street,,secondary,110
+Lakeshore Drive,,secondary,111
+Gentilly Boulevard,,secondary,112
+North Miro Street,,secondary,113
+North Miro Street,,secondary,114
+Mardi Gras Boulevard,,secondary,115
+Mardi Gras Boulevard,,secondary,116
+Wall Boulevard,,secondary,117
+Pace Boulevard,,secondary,118
+Wall Boulevard,,secondary,119
+Jackson Avenue,,secondary,120
+Louisiana Avenue,,secondary,121
+City Park Avenue,,secondary,122
+Washington Avenue,,secondary,123
+Piety Street,,secondary,124
+Louisa Street,,secondary,125
+Woodland Drive,LA 407,secondary,126;127
+Tupelo Street,,secondary,128
+Fats Domino Avenue,,secondary,129
+North Galvez Street,,secondary,130
+Poland Avenue,,secondary,131
+Kabel Drive,,secondary,132
+Filmore Avenue,,secondary,133
+L. B. Landry Avenue,,secondary,134
+L. B. Landry Avenue,,secondary,135
+Allen Toussaint Boulevard,,secondary,136
+Lennox Boulevard,,secondary,137
+Fontainebleau Drive,,secondary,138
+South Norman C. Francis Parkway,,secondary,139
+Chartres Street,,secondary,140
+Filmore Avenue,,secondary,141
+Shirley Drive,,secondary,142
+Holiday Drive,,secondary,143
+North Rampart Street,,secondary,144
+Westbank Expressway,,secondary,145
+Franklin Avenue,,secondary,146
+Franklin Avenue,,secondary,147
+North Miro Street,,secondary,148
+Convention Center Boulevard,,secondary,149
+Jackson Avenue,,secondary,150
+Tchoupitoulas Street,,secondary,151
+North Carrollton Avenue,,secondary,152
+A. P. Tureaud Avenue,,secondary,153
+Vallette Street,,secondary,154
+Verret Street,,secondary,155
+Old Gentilly Road,,secondary,156
+Opelousas Avenue,,secondary,157
+South Norman C. Francis Parkway,,secondary,158
+Newton Street,,secondary,159
+Loyola Avenue,,secondary,160
+Desaix Boulevard,,secondary,161
+Filmore Avenue,,secondary,162
+Simon Bolivar Avenue,,secondary,163
+Patterson Drive,,secondary,164
+Metairie Road,LA 611-9,secondary,165;166
+Toledano Street,,secondary,167
+Broadway Street,,secondary,168
+Marconi Drive,,secondary,169
+Behrman Avenue,,secondary,170
+Saint Charles Avenue,,secondary,171
+South Galvez Street,,secondary,172
+Filmore Avenue,,secondary,173
+Poydras Street,,secondary,174
+Westbend Parkway,,secondary,175
+Florida Avenue,,secondary,176
+Whitney Avenue,,secondary,177
+Oak Street,,secondary,178
+Lamarque Street,,secondary,179
+Calliope Street,,secondary,180
+Franklin Avenue,LA 428,secondary,181
+South Broad Street,,secondary,182
+Jourdan Road,,secondary,183
+Mirabeau Avenue,,secondary,184
+France Road,,secondary,185
+France Road,,secondary,186
+Harrison Avenue,,secondary,187
+Franklin Avenue,,secondary,188
+Calliope Street,,secondary,189
+Florida Boulevard,,secondary,190
+Elysian Fields Avenue,,secondary,191
+North Galvez Street,,secondary,192
+La Salle Street,,secondary,193
+Andrew Higgins Street,,secondary,194
+Religious Street,,secondary,195
+Harrison Avenue,,secondary,196
+Whitney Avenue,,secondary,197
+Odeon Street,,secondary,198
+General Meyer Avenue,,secondary,199
+Delaronde Street,,secondary,200
+Burmaster Street,LA 428,secondary,201
+Tennessee Street,,secondary,202
+Harrison Avenue,,secondary,203
+Saint Bernard Avenue,,secondary,204
+North Peters Street,,secondary,205
+Lakeshore Drive,,secondary,206
+North Peters Street,,secondary,207
+France Street,,secondary,208
+Bienville Street,,secondary,209
+Elysian Fields Avenue,LA 46;LA 3021,secondary,210
+Tulane Avenue,,secondary,211
+Louisiana Avenue,,secondary,212
+South Norman C. Francis Parkway,,secondary,213
+Basin Street,,secondary,214
+Harrison Avenue,,secondary,215
+Jefferson Avenue,,secondary,216
+Decatur Street,,secondary,217
+Howard Avenue,,secondary,218
+Louisiana Avenue,,secondary,219
+Dave Dixon Drive,,secondary,220
+Florida Avenue,,secondary,221
+Dixon Street,,secondary,222
+Walmsley Avenue,,secondary,223
+Nunez Street,LA 428,secondary,224
+Lakeshore Drive,,secondary,225
+,,secondary,226
+Saint Claude Avenue,,secondary,227
+General de Gaulle Drive,LA 428,secondary,228
+Girod Street,,secondary,229
+Old Gentilly Road,,secondary,230
+Florida Avenue,,secondary,231
+Jourdan Road,,secondary,232
+Filmore Avenue,,secondary,233
+Florida Avenue,,secondary,234
+South Peters Street,,secondary,235
+Oriole Street,,secondary,236
+North Peters Street,,secondary,237
+Morgan Street,,secondary,238
+Broad Place,,secondary,239
+Hendee Street,,secondary,240
+,,secondary,241
+Joseph Guillaume Place,,secondary,242
+Elk Place,,secondary,243
+Oretha C Haley Boulevard,,secondary,244
+Henderson Street,,secondary,245
+Mar Avenue,,secondary,246
+Woodland Place,,secondary,247
+Bayou Road,,secondary,248
+Poland Avenue,,secondary,249
+Johnny Jackson Jr Boulevard,,secondary,250
+Old Gentilly Road,,secondary,251
+Press Drive,,secondary,252
+West Stadium Drive,,secondary,253
+St Ferdinand Street,,secondary,254
+Dixon Street,,secondary,255
+Bouny Street,,secondary,256
+,LA 428,secondary,257
+,,secondary,258
+South Derbigny Street,,secondary,259
+Seguin Street,,secondary,260
+North Peters Street,,secondary,261
+Hamilton Street,,secondary,262
+Lakeshore Drive,,secondary,263
+Harrison Avenue,,secondary,264
+Allen Toussaint Boulevard,,secondary,265
+Filmore Avenue,,secondary,266
+Canal Street,,secondary,267
+Calliope Street,,secondary,268
+Tchoupitoulas Street,,secondary,269
+Louisiana Avenue,,secondary,270
+Behrman Avenue,,secondary,271
+Harrison Avenue,,secondary,272
+Westbend Parkway,,secondary,273
+Saint Charles Avenue,,secondary,274
+Bienville Street,,secondary,275
+Eagle Street,,secondary,276
+,,secondary,277
+,,secondary,278
+Milne Boulevard,,secondary,279
+General Diaz Street,,secondary,280
+,,secondary,281
+,,secondary,282
+,,secondary,283
+North Derbigny Street,,secondary,284
+Fats Domino Avenue,,secondary,285
+Sere Street,,secondary,286
+Carnot Street,,secondary,287
+Apricot Street,,secondary,288
+Desaix Boulevard,,secondary,289
+Louisiana Avenue,,secondary,290
+@bridges line
+class,arcs
+motorway,291
+motorway,292
+motorway,293
+motorway,294
+motorway,295
+motorway,296
+motorway,297
+motorway,298
+motorway,299
+motorway,300
+motorway,301
+motorway,302
+motorway,303
+motorway,304
+motorway,305
+motorway,306
+motorway,307
+motorway,308
+motorway,309
+motorway,310
+motorway,311
+motorway,312
+motorway,313
+motorway,314
+motorway,315
+motorway,316
+motorway,317
+motorway,318
+motorway,319
+motorway,320
+motorway,321
+motorway,322
+motorway,323
+motorway,324
+motorway,325
+motorway,326
+motorway,327
+motorway,328
+motorway,329
+motorway,330
+motorway,331
+motorway,332
+motorway,333
+motorway,334
+motorway,335
+trunk,353
+trunk,354
+primary,336
+primary,337
+primary,338
+primary,339
+primary,340
+primary,341
+primary,342
+primary,343
+primary,344
+primary,345
+primary,346
+primary,347
+primary,348
+primary,349
+primary,350
+primary,351
+primary,352
+secondary,355
+secondary,356
+secondary,357
+secondary,358
+secondary,359
+secondary,360
+secondary,361
+secondary,362
+secondary,363
+secondary,364
+secondary,365
+secondary,366
+secondary,367
+secondary,368
+secondary,369
+secondary,370
+secondary,371
+secondary,372
+secondary,373
+secondary,374
+secondary,375
+secondary,376
+secondary,377
+secondary,378
+secondary,379
+secondary,380
+secondary,381
+secondary,382
+secondary,383
+secondary,384
+secondary,385
+secondary,386
+secondary,387
+secondary,388
+secondary,389
+secondary,390
+secondary,391
+secondary,392
+secondary,393
+secondary,394
+secondary,395
+secondary,396
+secondary,397
+secondary,398
+secondary,399
+secondary,400
+secondary,401
+secondary,402
+@lanes line
+name,arcs
+Pauger Street,403
+North Robertson Street,404
+North Robertson Street,405
+Tulane Avenue,406
+Tulane Avenue,407
+Natchez Street,408
+South Liberty Street,409
+West Badine Street,410
+Madison Avenue,411
+Crozat Street,412
+Crozat Street,413
+Pirate Alley,414
+Orleans Street,415
+Kerlerec Street,416
+Kerlerec Street,417
+South Saratoga Street,418
+Chartres Street,419
+Union Street,420
+Pere Antoine Alley,421
+Bourbon Street,422
+Treme Street,423
+Treme Street,424
+Treme Street,425
+Treme Street,426
+Roosevelt Way,427
+Clinton Street,428
+Wilkinson Street,429
+Bienville Street,430
+Ursulines Avenue,431
+North Villere Street,432
+North Villere Street,433
+North Villere Street,434
+Dumaine Street,435
+Dumaine Street,436
+Cabildo Alley,437
+North Front Boulevard,438
+Saint Peter Street,439
+Saint Peter Street,440
+Saint Peter Street,441
+Burgundy Street,442
+Burgundy Street,443
+Decatur Street,444
+Decatur Street,445
+Baronne Street,446
+Picayune Place,447
+Marais Street,448
+Marais Street,449
+Marais Street,450
+Barracks Street,451
+Dauphine Street,452
+Conti Street,453
+Frenchmen Street,454
+Henriette DeLille,455
+Common Street,456
+Toulouse Street,457
+Toulouse Street,458
+South Rampart Street,459
+South Rampart Street,460
+Gravier Street,461
+Governor Nicholls Street,462
+Basin Street,463
+Saint Ann Street,464
+Saint Ann Street,465
+Iberville Street,466
+Iberville Street,467
+Moonwalk,468
+East Badine Street,469
+East Badine Street,470
+East Badine Street,471
+East Badine Street,472
+East Badine Street,473
+Dutch Alley,474
+Exchange Place,475
+Perdido Street,476
+Royal Street,477
+Saint Louis Street,478
+Cleveland Avenue,479
+Carondelet Street,480
+Saint Philip Street,481
+O'Keefe Avenue,482
+Camp Street,483
+North Peters Street,484
+Lafitte Street,485
+Commercial Place,486
+Saint Anthony Street,487
+Esplanade Ave. Path,488
+Touro Street,489
+@rail line
+kind,colour,lines,arcs
+r,,,490
+r,,,491
+r,,,492
+r,,,493
+r,,,494
+r,,,495
+r,,,496
+r,,,497
+r,,,498
+r,,,499
+r,,,500
+r,,,501
+r,,,502
+r,,,503
+r,,,504
+r,,,505
+r,,,506
+r,,,507
+r,,,508
+r,,,509
+r,,,510
+r,,,511
+r,,,512
+r,,,513
+r,,,514
+r,,,515
+r,,,516
+r,,,517
+r,,,518
+r,,,519
+r,,,520
+r,,,521
+r,,,522
+r,#000099,,523
+r,#000099,,524
+r,#000099,,525
+r,#333399,,526
+@green polygon
+kind,arcs
+wood,527
+wood,528
+wood,529
+park,530
+park,531
+park,532
+park,533
+park,534
+park,535
+park,536
+park,537;538;539
+park,540
+park,541
+park,542
+park,543
+park,544
+park,545
+park,546
+park,547
+park,548
+park,549
+park,550
+@water polygon
+arcs
+551
+552
+553
+554
+555
+556
+557
+558
+559;560;561
+562
+563
+564
+565
+566
+567
+568;569
+570
+571;572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590;591
+592;593
+594
+595
+@waterways line
+name,kind,arcs
+Bayou Bienvenue,canal,596
+Bayou Saint John,river,597
+Bayou St John,river,598
+Florida Avenue Canal,canal,599
+Inner Harbor Navigation Canal,canal,600
+Metarie Relief Canal,canal,601
+Mississippi River,river,602
+Mississippi River,river,603
+Mississippi River-Gulf Outlet,canal,604
+Monticello Canal,canal,605
+@clip polygon
+arcs
+606
+@places
+
+@parks
+name,kind,ha#,lon#,lat#
+City Park,park,487,-90.0934,29.99668
+Audubon Park,park,64,-90.12773,29.92797
+Pontchartrain Park,park,58,-90.04034,30.02061
+Brechtel Park,park,50,-90.01125,29.90675
+Morris F.X. Jeff Park,park,20,-90.02956,29.94051
+London Avenue Canal,lake,17,-90.07286,30.02724
+New Basin Canal Park,park,15,-90.11527,30.0049
+Orleans Avenue Canal,lake,14,-90.09841,30.02206
+@stations
+name,kind,rank#,lon#,lat#
+New Orleans,r,1,-90.07844,29.94617

@@ -6,15 +6,18 @@ import { setup, COPIES, geoAt, Thing, trace, neighbors, merged, Map0 } from "./g
 import { pxKm } from "./history.js";
 import { pick, draw } from "./view.js";
 import { writeName, cityDots, cityLabels, visible } from "./labels.js";
-import { norm, collect } from "./search.js";
+import { norm, collect, squash, fuzzyKey } from "./search.js";
 import { flagSvg } from "./flags.js";
 import { clearSel, fly } from "./select.js";
 import { idOf, game, bareGame, pickedStyle } from "./groups.js";
 import { RANKED, startRank, rankGuess, rankGiveUp, rankScore, drawRank, rankNames, rankSetup, rankWhere, init as rankInit } from "./rankgame.js";
 
 export const SHAPES = new Set(["which", "flag", "all", "chain", "route"]);          // (the games of countries, or of a country's states)
-// (a name as typed: no accents, case or punctuation -- and w as v, y as i, k as c: "Cracow" for Kraków, "Kioto" for Kyoto)
-export const nameKey = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/w/g, "v").replace(/y/g, "i").replace(/k/g, "c");
+// (a name as typed, forgiving how a foreigner spells it: no accents, case, punctuation or spaces ("Guinea-Bissau",
+//  "N'Djamena", "Kualalumpur"); w as v, y and j as i, k as c ("Cracow" for Kraków, "Kioto" for Kyoto, "Rijeka" as "Rieka");
+//  no h ("Ho Chi Min"); a doubled consonant as one ("Talin" for Tallinn -- not a vowel: Shaanxi is not Shanxi) -- 2026-11-23)
+const words = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+export const nameKey = fuzzyKey;                                       // (the forgiving key: search.js)
 S.gameData = null;                                                // (cities by name, each one's continent; built once)
 export function gameIndex() {
   if (S.gameData) return S.gameData;
@@ -26,7 +29,8 @@ export function gameIndex() {
   S.src.cities.features.forEach((f, i) => {
     const p = f.properties;
     cont[i] = contOf.get(p.region) || contOf.get(p.country);
-    for (const k of new Set([p.name, p.name_local].filter(Boolean).map(key))) { if (!byName.has(k)) byName.set(k, []); byName.get(k).push(i); }
+    for (const k of new Set([p.name, p.name_local, p.name?.replace(/ City$/, "")].filter(Boolean).map(key)))   // ("Ho Chi Minh" for Ho Chi Minh City)
+      { if (!byName.has(k)) byName.set(k, []); byName.get(k).push(i); }
   });
   // a continent's people: each country's, shared out among the continents by its states' people (Russia's European
   // oblasts' to Europe)
@@ -91,7 +95,7 @@ export function flyWhere() {
 }
 export function resetGame() {                                              // (nothing played: the map shows only where)
   clearInterval(game.clock);
-  Object.assign(game, { named: [], finds: [], ask: null, units: null, over: false, start: null, goal: null, way: null, rk: null, pair: null, missed: [] });
+  Object.assign(game, { named: [], finds: [], ask: null, lastU: null, units: null, over: false, start: null, goal: null, way: null, rk: null, pair: null, missed: [] });
   $("g-flag").innerHTML = ""; $("g-stage").innerHTML = "";
 }
 export function previewGame() {
@@ -212,7 +216,7 @@ export const ALSO = { US: "USA / United States of America / America", GB: "UK / 
   FM: "Micronesia", MM: "Burma", MK: "Macedonia", SZ: "Swaziland", TL: "Timor-Leste", VA: "Vatican / Holy See", BA: "Bosnia", AE: "UAE / Emirates",
   TR: "Türkiye", ST: "São Tomé", NL: "Holland", RU: "Russian Federation", LA: "Lao", CF: "CAR", AG: "Antigua", TT: "Trinidad", KN: "Saint Kitts",
   VC: "Saint Vincent", PG: "Papua", IR: "Persia" };
-export const unitKey = (s) => nameKey(s).replace(/^the /, "").replace(/\bst\b/g, "saint");   // (The Gambia: Gambia; St Lucia: Saint Lucia)
+export const unitKey = (s) => squash(words(s).replace(/^the /, "").replace(/\bst\b/g, "saint"));   // (The Gambia: Gambia; St Lucia: Saint Lucia)
 export function gameUnits(w) {
   const states = w.kind === "country", layer = states ? "regions" : "countries", G = Map0[layer], nb = neighbors(G);
   // (a continent's: those of it, and those with a state in it -- Russia, Turkey and Kazakhstan are Europe's too)
@@ -245,7 +249,7 @@ export const into = () => game.where.kind === "world" ? "the world" : game.where
 export const clock = () => { const s = Math.round(((game.t1 ?? performance.now()) - game.t0) / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
 export function startUnits() {
   const w = game.where, U = gameUnits(w), n = U.units.length, all = U.units.map((_, i) => i), linked = all.filter((i) => U.units[i].nb.size);
-  Object.assign(game, { units: U, done: new Set(), order: [], missed: [], way: null, over: false, start: null, goal: null, t0: performance.now(), t1: null });
+  Object.assign(game, { units: U, done: new Set(), order: [], missed: [], lastU: null, way: null, over: false, start: null, goal: null, t0: performance.now(), t1: null });
   $("g-list").innerHTML = ""; say(""); $("g-name").hidden = false; $("g-name").value = ""; $("g-name").placeholder = `a ${U.word}, then Enter`;
   const fail = (t) => { game.over = true; $("g-ask").textContent = t; unitScore(); draw(); };
   if (game.style === "which" || game.style === "flag") {
@@ -305,24 +309,24 @@ export function unitGuess(text) {                                          // a 
   $("g-name").value = "";
   if (game.style === "which" || game.style === "flag") {
     const a = game.ask, ok = u === a;
-    game.finds.push({ u: a, ok });
+    game.finds.push({ u: a, ok }); game.lastU = a;
     say(ok ? `✓ ${n}` : `✗ That is ${U.units[a].name}, not ${n}.`, !ok); gameLi(U.units[a].name, ok ? "✓" : `✗ ${n}`);
     unitScore(); return nextUnit();
   }
   if (game.style === "all") {
     if (game.done.has(u)) return say(`${n} is named already.`, true);
-    game.done.add(u); say(`✓ ${n}`); gameLi(n);
+    game.done.add(u); game.lastU = u; say(`✓ ${n}`); gameLi(n);
     if (game.done.size === U.units.length) finish(`All ${U.units.length} named, in ${clock()}.`);
   } else if (game.style === "chain") {
     const last = game.order.at(-1);
     if (game.order.includes(u)) return say(`${n} is in the chain already.`, true);
     if (!U.units[last].nb.has(u)) return say(`${n} does not border ${U.units[last].name}.`, true);
-    game.order.push(u); say(`✓ ${n}`); gameLi(n, String(game.order.length - 1));
+    game.order.push(u); game.lastU = u; say(`✓ ${n}`); gameLi(n, String(game.order.length - 1));
     if (![...U.units[u].nb].some((b) => !game.order.includes(b))) finish(`No neighbour of ${n} is left: a chain of ${game.order.length - 1}.`); else askChain();
   } else {
     if (game.done.has(u)) return say(`${n} is named already.`, true);
     if (![...game.done].some((b) => U.units[b].nb.has(u))) return say(`${n} borders none of those named yet.`, true);
-    game.done.add(u); game.order.push(u); gameLi(n);
+    game.done.add(u); game.order.push(u); game.lastU = u; gameLi(n);
     if (u === game.goal || U.units[u].nb.has(game.goal)) {
       if (u !== game.goal) { game.done.add(game.goal); game.order.push(game.goal); }
       const named = game.order.length - 2, best = reach(game.start).get(game.goal)[0] - 1;
@@ -367,19 +371,20 @@ export function drawUnits() {
     ctx.fillStyle = fill; ctx.fill();
     if (line) { ctx.strokeStyle = hi; ctx.lineWidth = line; ctx.stroke(); }
   };
-  const ok = css("--ok-fill"), miss = css("--miss-fill"), cur = css("--game-fill");
+  const ok = css("--ok-fill"), miss = css("--miss-fill"), cur = css("--game-fill"), last = css("--last-fill");
   if (game.style === "which" || game.style === "flag") {
     paint(game.finds.filter((f) => f.ok).map((f) => f.u), ok); paint(game.finds.filter((f) => !f.ok).map((f) => f.u), miss);
     if (game.ask != null && game.style === "which") paint([game.ask], cur, 2);   // (the flag game: the map does not give it away)
   } else if (game.style === "all") { paint([...game.done], ok); paint(game.missed, miss); }
   else if (game.style === "chain") {
-    paint(game.order.slice(0, -1), ok); paint(game.order.slice(-1), cur, 2);
+    paint(game.order.slice(0, -1), ok); paint(game.order.slice(-1), game.order.length > 1 ? last : cur, 2);
     if (game.order.length > 1) { ctx.beginPath(); S.path({ type: "LineString", coordinates: game.order.map((u) => U.units[u].label) });
       ctx.setLineDash([4, 3]); ctx.strokeStyle = hi; ctx.lineWidth = 1.2; ctx.stroke(); ctx.setLineDash([]); }
   } else if (game.start != null) {
     paint([...game.done].filter((u) => u !== game.start && u !== game.goal), ok); paint(game.way || [], miss);
     paint([game.start], cur, 1.5); paint([game.goal], cur, 2.5);
   }
+  if (game.lastU != null && game.style !== "chain" && (game.done.has(game.lastU) || game.finds.some((f) => f.u === game.lastU)) && !game.missed.includes(game.lastU)) paint([game.lastU], last, 2);   // (the LATEST guess: in a colour of its own)
 }
 export function gameUnitNames(boxes) {                                     // (the names of those named, shown or given -- never the one asked)
   const U = game.units;
@@ -411,21 +416,21 @@ export function drawGame(fast) {
   if (where) { ctx.beginPath(); outline(where, lv); ctx.strokeStyle = hi; ctx.lineWidth = 2; ctx.stroke(); }
   if (RANKED.has(game.style)) return drawRank();
   if (SHAPES.has(game.style)) return drawUnits();
-  const ring = (center, km, fill) => { ctx.beginPath(); S.path(d3.geoCircle().center(center).radius(deg(km)).precision(km > 300 ? 2 : 0.5)());
-    if (fill) { ctx.fillStyle = css("--game-fill"); ctx.fill(); } ctx.strokeStyle = hi; ctx.lineWidth = 2; ctx.stroke(); };
+  const ring = (center, km, fill, col = hi) => { ctx.beginPath(); S.path(d3.geoCircle().center(center).radius(deg(km)).precision(km > 300 ? 2 : 0.5)());
+    if (fill) { ctx.fillStyle = css("--game-fill"); ctx.fill(); } ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.stroke(); };
   if (game.style === "outside" || game.style === "inside") for (const i of game.named) ring(C[i].geometry.coordinates, game.km / 2, true);
   if (game.style === "place") game.finds.forEach((f, n) => {
     const last = n === game.finds.length - 1, c = C[f.i].geometry.coordinates;
-    ctx.globalAlpha = last ? 1 : 0.35;
-    if (f.km > 1) ring(c, f.km, false);
+    ctx.globalAlpha = last ? 1 : 0.35; ctx.strokeStyle = last ? css("--last") : hi;
+    if (f.km > 1) ring(c, f.km, false, ctx.strokeStyle);
     ctx.beginPath(); S.path({ type: "LineString", coordinates: [f.at, c] }); ctx.setLineDash([3, 3]); ctx.stroke(); ctx.setLineDash([]);
     if (visible(f.at)) { const [x, y] = S.proj(f.at); ctx.beginPath(); ctx.moveTo(x - 4, y - 4); ctx.lineTo(x + 4, y + 4); ctx.moveTo(x + 4, y - 4); ctx.lineTo(x - 4, y + 4); ctx.lineWidth = 2; ctx.stroke(); }
     ctx.globalAlpha = 1;
   });
   cityDots(game.shown());
-  if (!fast && game.style !== "place" && game.named.length) {          // (the last one named: ringed)
+  if (!fast && game.style !== "place" && game.named.length) {          // (the last one named: ringed and filled in the latest guess's colour)
     const c = C[game.named[game.named.length - 1]].geometry.coordinates;
-    if (visible(c)) { const [x, y] = S.proj(c); ctx.beginPath(); ctx.arc(x, y, 7, 0, 7); ctx.strokeStyle = hi; ctx.lineWidth = 2.5; ctx.stroke(); }
+    if (visible(c)) { const [x, y] = S.proj(c); ctx.beginPath(); ctx.arc(x, y, 7, 0, 7); ctx.fillStyle = css("--last-fill"); ctx.fill(); ctx.strokeStyle = css("--last"); ctx.lineWidth = 2.5; ctx.stroke(); }
   }
 }
 

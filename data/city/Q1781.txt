@@ -604,6 +604,648 @@ grid 5e-05 18.89845 47.33160
 1424 1341 -11 -9 -5 -11
 1225 1087 -22 -16 -5 -4
 1163 1025 -6 -7
+3050 3289 14 -15 12 -15 14 -26 9 -14
+3099 3216 -13 18
+3191 3116 -52 52 -26 28 -11 19
+3206 3288 41 36
+3253 3330 -43 28
+3172 3339 22 -13 47 -24 1 -3
+3191 3310 -37 18
+3128 3351 7 1 41 19 53 37
+3129 3427 6 1 58 40
+3246 3488 -40 -29 -69 -45 -8 0
+3192 3437 -63 -41
+3179 3429 20 -16 16 -14
+3128 3376 4 1 62 39
+3128 3389 20 -1
+3197 3352 -20 19 -25 19
+3166 3399 10 -7
+3189 3400 40 -31
+3059 3347 -17 77
+3051 3490 -6 27 3 19 11 35
+2989 3512 34 4 3 -1
+3026 3515 -2 -2 -35 -3
+3026 3515 89 9
+2775 3209 -26 -17 8 -25 2 -2
+2995 3474 0 -5 8 -39 5 -5 18 -81
+3021 3458 -86 -8
+3131 3497 -53 -6 -7 1 -59 -6
+2990 3484 16 0
+2990 3484 5 -10 8 4
+2990 3484 13 -6
+3012 3487 -21 -2
+3006 3484 -3 -6
+3012 3486 -6 -2
+3048 3469 19 16
+3062 3491 2 -4 3 -2
+3067 3485 9 -1
+3032 3299 -21 -8
+3019 3278 24 9
+3108 3314 -55 -22
+3086 3234 -2 1 -19 -6
+3088 3236 -1 -1
+3193 3222 -13 19
+2523 3478 4 -1 20 -18 30 -34 11 -9 135 -100
+2668 3358 28 -9 13 -8 3 -4 3 0 3 0
+2590 3439 12 6 -4 4 15 7
+2603 3468 12 -13 29 -24 31 -20 20 -10
+2682 3429 -40 27
+2744 3419 -2 1 -2 0 -3 -2 7 -14 -2 -19 4 -6 17 -15 4 -5 0 -6 -5 -5
+2746 3414 -2 5
+2746 3414 0 3 -2 2
+2825 3332 -14 22 -10 10 -31 16 -14 9 -4 5 -3 5 -3 15
+2789 3425 -8 -9 -1 -22 -5 -17
+2724 3500 25 -23 3 -5 8 -18 0 -12 5 -5 9 -7 0 -3 -5 -5 -3 -6 -1 -9 1 -9 -6 -6 -4 -2
+2765 3407 -27 59 -23 26 -6 5 -21 4 -21 3 -57 4
+2642 3477 -1 2 -42 38 4 11
+2640 3476 23 4 7 1 12 -2 26 -8 6 -10
+2614 3489 11 5 69 -5 13 -5 7 -6 10 -16 19 -36 5 -11 0 -2 -2 0
+2760 3454 37 7
+2817 3464 -20 -2
+2932 3477 2 0
+2932 3468 2 0
+2934 3468 -1 -2
+2933 3466 -2 -3 3 1
+2933 3466 1 -2
+2934 3477 0 -9
+2962 3483 -27 -2 -1 -4
+2934 3464 19 1 0 1
+2934 3464 19 2
+2941 3545 2 0
+2948 3557 -3 2 -2 -14
+2943 3545 -2 -3 0 -4 17 -1 2 1
+2943 3545 16 -1
+2949 3559 -1 -2
+2948 3557 15 -2 1 -2
+2953 3466 3 12 7 1
+2962 3541 -3 -2
+2959 3544 0 -5
+2960 3538 -1 1
+2959 3544 3 -3
+2971 3537 -11 1
+2982 3486 -20 -3
+2962 3483 2 13
+2963 3479 -1 4
+2964 3553 -2 -12
+2962 3541 9 -1
+2963 3495 1 1
+2963 3479 26 3 1 2
+2965 3554 -1 -1
+2964 3496 0 3 3 2
+2968 3508 -1 0
+2967 3501 1 7
+2981 3500 -14 1
+2969 3533 -1 -9
+2968 3524 -1 -5 2 -3
+2968 3508 1 8
+2969 3516 11 -1
+2971 3537 -2 -4
+2969 3533 11 -1
+2971 3540 0 -3
+2980 3536 -9 1
+2971 3540 16 -1 1 -1 0 -3
+2980 3536 0 -4
+2980 3532 0 -17
+2988 3535 -5 0 -3 1
+2980 3515 1 -15
+2980 3515 9 0
+2981 3500 1 -14
+2990 3499 -9 1
+2982 3486 8 -2
+2989 3515 -1 20
+2989 3515 1 -16
+2990 3499 1 -14 -1 -1
+2938 3434 63 7
+2942 3420 64 7
+3015 3392 -42 -5
+2947 3402 167 17
+2644 3468 1 -4
+2645 3464 -4 0 -9 -2 10 -6 3 8
+2661 3511 -33 1 -18 -4 -70 -21
+2662 3514 1 -2 -2 -1
+2661 3511 7 -1
+2676 3433 -10 -5 -7 -6
+2774 3484 -3 54
+2772 3551 0 19
+2793 3484 -19 0 -1 -1
+2819 3452 -20 -1
+2802 3434 19 4
+2782 3448 17 3
+2815 3368 -4 9 -7 9 -3 12
+2805 3365 -2 0
+2805 3365 -1 1 1 -1
+2805 3365 1 0 -1 0
+2805 3365 22 5
+2811 3354 21 3
+2756 3390 -6 -4 -1 -2 9 -14 8 -7 3 -5
+2587 3487 -44 -20 -1 -2 3 -4
+3072 3380 -91 -9
+2988 3354 4 2 63 6
+3079 3349 -17 77
+2988 3406 -4 18
+3110 3437 -13 85
+3074 3532 -51 8 -35 -1
+2951 3571 103 -16
+2990 3539 -1 24 11 34
+3110 3437 -29 -2
+3027 3429 -21 -2
+3009 3421 33 3
+3030 3459 -9 -1
+3023 3465 -2 -2 0 -5
+3021 3458 2 -11 3 -1 1 -5 -2 -2 2 -10
+3025 3467 -2 -2
+3025 3468 -2 -3
+3025 3467 0 1
+3032 3463 -7 4
+3035 3471 -6 -1 -4 -2
+3038 3430 -11 -1
+3030 3459 2 4
+3034 3455 -4 4
+3032 3463 4 2
+3038 3430 -5 24 1 1
+3045 3461 0 -4 -4 -2 -7 0
+3048 3469 -5 2 -8 0
+3036 3465 -1 6
+3036 3465 6 -1
+3050 3431 -12 -1
+3038 3430 3 -1 1 -5
+3042 3424 20 2
+3042 3464 6 5
+3042 3464 3 -3
+3045 3455 5 -24
+3045 3461 8 0
+3048 3469 7 -7 3 -15
+3061 3432 -11 -1
+3050 3431 0 -1
+3061 3432 -4 15
+3081 3435 -20 -3
+3062 3426 -1 6
+3062 3426 20 1
+3130 3463 -49 -4
+3010 3514 0 1
+3100 3350 -19 85
+3105 3320 -1 3
+3108 3314 -2 1 -1 5
+3105 3320 14 -3
+3119 3317 -11 -3
+3113 3306 -3 3 -2 5
+3113 3306 0 -1
+3119 3317 0 -3 -6 -8
+3120 3325 -1 -8
+3119 3317 12 -5
+3127 3316 -8 1
+2969 3584 -10 2 -4 0 0 1 -4 0
+3055 3462 25 2
+3083 3450 -26 -3
+3072 3380 24 3
+3129 3396 -5 -1 -34 -3
+3095 3373 33 3
+2934 3464 -1 -3 1 -6 8 -35 9 -32 4 -3
+2957 3605 -7 -33 1 -1
+3130 3439 -20 -2 4 -18 15 2
+3047 3349 1 -3
+2939 3552 2 2 4 16 6 1
+2973 3387 -8 17 -12 47 0 14
+3087 3319 2 -12
+3086 3276 -9 7 -7 15 -4 19
+3100 3278 -8 -7 -6 5
+2977 3321 19 -35 15 -23 29 -39
+2996 3286 15 5 8 -13 -14 -5
+2989 3323 22 -32
+3019 3278 8 -10 12 -24
+2998 3341 22 -27 10 -10
+3066 3317 -21 -2
+3026 3344 1 -2 4 -22 12 1
+3043 3321 -6 24
+3045 3315 -1 1 -1 5
+3031 3320 -10 -5 -2 -4 -32 -9
+2950 3386 2 -4
+2955 3385 5 -10 3 -2
+2978 3376 -5 11
+2794 3522 21 0
+2815 3523 -20 0
+3113 3305 -3 -7
+2979 3601 -11 -33 -3 -14
+3003 3478 13 -7
+3167 3212 54 20
+3039 3244 10 -29
+3040 3224 3 -2 3 0
+3049 3215 -3 -3 -2 0
+3049 3215 -1 -6
+3167 3212 -23 20
+3091 3202 8 -11
+3130 3154 -15 -10
+3144 3163 -15 -8
+3162 3208 2 -23
+3110 3170 19 7 28 8
+3151 3132 -11 14 -53 42 -8 10
+3161 3237 -7 14 -5 7 -49 20
+3059 3280 -32 -12
+3098 3266 -20 -7 -4 0 -35 -15
+3087 3239 27 15 18 11
+3145 3260 -22 -13
+3091 3225 24 4
+3177 3295 -26 -28 -1 -4
+3164 3281 16 -7 10 -5 18 -20
+3180 3274 -30 -11
+3062 3254 -15 22
+3123 3247 -15 -8 -14 -5
+3094 3234 -3 -1 -1 0 1 0 3 1
+3065 3229 -15 20
+3065 3229 -19 -5
+3069 3207 -14 17 -7 -2
+3194 3264 -40 -13
+3102 3293 -24 -11
+3154 3223 -23 -10
+3126 3218 38 -40
+3150 3194 14 3
+2754 3504 12 -14 7 -7 0 -7 5 -17 11 -34
+3126 3218 -17 -11 -2 0
+2624 3485 -15 6 -23 10 -20 18
+2624 3485 2 -2
+2624 3485 6 -3 10 -6 4 -8
+2629 3443 3 2 11 10
+2645 3464 6 -3 19 -7 6 -4
+2676 3450 4 5
+2676 3450 12 -20
+2632 3462 -19 -6
+2639 3519 1 7
+2696 3594 7 -34 0 -5 -13 -19 -5 -12 -9 -13
+2739 3589 1 -5 6 -18 0 -11 -4 -32
+2812 3406 14 3
+2826 3409 6 0 1 1 -5 0 -2 -1
+2777 3394 -17 -2
+2779 3394 -1 1 -1 -1
+2777 3394 2 0
+2779 3394 35 7
+2719 3550 26 -2
+2745 3551 27 0
+2799 3550 16 -1
+2703 3559 18 2
+2722 3565 29 1 21 4 26 1
+2798 3573 3 -1 14 2
+2739 3589 21 1 21 -1
+2796 3586 -15 0
+2797 3587 19 2
+2742 3523 -9 -20
+2771 3589 0 15
+2798 3537 -27 1 1 11 0 2 27 -1
+2631 3527 4 21 -7 23
+2695 3543 -27 2
+2809 3047 -78 39 -17 5 -5 3 -23 1 -11 4 -3 5 0 4 3 5 -2 3
+2731 3086 13 1 28 -4 58 -5 6 1
+2575 3131 -10 -6
+2566 3106 63 4 22 5
+2581 3131 3 -25
+2620 3109 -13 24
+2556 3522 4 0 6 -3 13 9
+2599 3542 -14 -11
+2664 3092 5 -6 10 -7 34 -15 9 -9
+2733 3098 30 3
+2806 3090 -5 2 -16 13 -5 2 -6 1 -5 -1 -3 -1 -3 -5 4 -5 5 -3 34 -3
+2806 3090 28 -2
+2765 3125 -25 31
+2835 3084 9 -2 4 -1 7 1 6 2 8 5 13 17 17 6
+2791 3082 0 -2 40 -26 2 -3 1 -11 -1 -3
+3065 3319 1 -2 5 0
+3104 3323 1 4 -4 21 -2 1
+3149 3409 -12 5
+3216 3418 -33 26 -48 40 -4 2
+2714 3506 -1 5 1 10 7 40
+2508 3418 -28 26 -19 23
+3190 3328 -5 -1 -11 -9
+3204 3334 -7 0 -9 -4
+3191 3328 13 6
+3204 3334 6 1 7 5 6 2 19 11 -1 1 4 2
+3223 3284 -3 -2
+3231 3290 -8 -6
+3223 3284 1 -2
+2508 3355 -35 6 -38 10 -7 4
+2782 3107 18 5 6 4
+2598 3302 -35 -27
+2885 3220 -15 0
+2728 3313 32 -23 69 -42 34 -16 9 -2 4 1
+2876 3231 7 6
+2876 3231 11 -8 1 -2 -3 -1
+2769 3254 10 8 9 0 8 -2
+2794 3240 9 8
+2796 3260 5 -3
+2796 3260 3 0 2 -3
+2801 3257 2 -4 -2 -4
+2699 3354 -5 3 -2 0 -1 -1 1 -2 21 -13
+2699 3354 4 -2 12 -5
+2715 3347 -16 7
+2715 3347 -10 6 -6 1
+2713 3341 6 -7 6 -4
+2725 3330 -12 11
+2715 3347 22 -8 7 -2 9 2 4 3 2 3
+2725 3330 43 -34 30 -20 20 -16 -2 -1 -2 0 -19 12 -4 0 -2 -1 0 -2 7 -5 3 -3
+2666 3310 21 17
+2638 3340 55 -30 2 -3
+2765 3351 9 -6 7 -14
+2817 3285 -35 26 -11 12 -14 19
+2848 3318 -6 -1 18 -29
+2912 3190 -4 -4 -10 -2 -12 1 -2 2
+2873 3207 -23 -10 -14 -3 -18 -4 -15 -6
+2775 3209 -3 4 -1 5 -1 12 -1 6 -6 9 -6 5 -98 50
+2526 3153 32 29 10 10 1 2 -1 53 -2 5 -11 22
+2558 3182 52 -4 3 1
+2585 3220 -17 -2
+2569 3195 27 6
+2644 3158 51 3
+2695 3161 -13 3
+2695 3161 23 -3 15 0 24 9
+2667 3285 -17 -15 -4 -18 6 -15 12 -21 34 -17 43 -25 9 -10
+2693 3225 23 -15 33 -18
+2652 3237 23 -4
+2670 3159 11 -16
+2682 3164 -29 21 -5 6 -2 0 -7 2
+2710 3191 -28 -27 -2 -4
+2610 3260 38 0
+2626 3231 26 6
+2640 3208 25 7 13 9
+2710 3249 17 15 8 5
+2668 3175 30 24 42 25
+2699 3161 25 22
+2714 3147 11 -17 7 -17 2 -1
+2907 3142 -38 -9 -17 -4 -5 -3 -3 -4 -4 -19 -8 -11
+2790 3140 29 4 44 8 45 2
+2819 3144 3 -19 2 -1 3 -2
+2851 3150 18 -17
+2929 3204 -6 -2 -3 0 -18 12 -5 2
+2591 3346 -22 -19
+2615 3283 -34 -18
+2615 3283 9 4
+2621 3280 -6 3
+2556 3293 25 19 28 25
+2563 3275 -7 18
+2484 3209 0 -13
+2484 3196 13 0
+2497 3196 0 13
+2422 3214 4 1 25 18 7 4 47 9
+2566 3252 -57 -5
+2473 3240 -4 3 -31 18 -1 2 2 1
+2570 3458 44 -41 19 -11 22 -16 26 -13 33 -24 34 -12 3 0 8 4
+2570 3458 13 6 21 7 23 2 10 0 2 -1 1 -3
+2645 3469 8 1 5 -1 27 -7
+2673 3465 -8 -9
+2688 3423 -6 6
+2688 3423 4 2
+2701 3413 -13 10
+2688 3430 4 -5
+2701 3413 -9 12
+2703 3409 -2 4
+2688 3431 13 4
+2665 3361 10 13 2 0
+2678 3376 -5 3
+2610 3384 7 5 0 2 3 2
+2621 3392 10 6
+2911 3242 35 -43
+2946 3199 0 -2 -3 -3
+2951 3193 -5 6
+2927 3208 9 3
+2915 3211 -2 2 6 3
+2722 3463 -18 -5
+2761 3414 0 -2 -13 -2
+2799 3414 -1 -2 -3 -1
+2795 3411 -6 14 3 -2 3 -7 2 -2 2 0
+2799 3414 9 1
+2864 3086 9 -14 5 -5 7 -2
+2945 3082 -4 -2
+2949 3083 -2 0
+2953 3083 -4 0
+3021 3086 -29 -5 -20 -2 -19 4
+2815 3053 15 24
+2785 3437 -13 -2 -2 -2
+2725 3463 28 7 21 2
+2673 3116 -9 4 1 9 -3 8
+3145 3260 5 3
+2818 3260 1 -1
+2836 3250 12 -6 10 -3 7 0 4 2 3 6 -2 12 2 3 -4 8
+2777 3316 11 5
+2781 3331 7 -10
+2788 3321 3 -2 3 -1
+2794 3318 7 3
+2794 3318 10 -3 0 3
+2804 3318 -10 0
+2805 3321 -1 -3
+2807 3318 -3 0
+2472 3172 39 -3
+2518 3175 -2 -3 -5 -3
+2511 3169 30 -2 83 -6
+2479 3370 30 -5
+2508 3347 -43 3
+2508 3418 -10 -18
+2721 3561 -1 33
+2779 3590 17 -2
+2663 3491 -20 -13 -1 -1
+2668 3510 -3 -18
+2695 3488 -14 -8
+2719 3502 -21 -12
+2709 3434 -5 7 0 4 -3 11 2 2 1 0
+2709 3434 -2 -1 0 -1 2 -1 2 0
+2712 3432 0 1 -3 1
+2711 3431 1 1
+2711 3431 5 -2
+2716 3429 -4 3
+2716 3429 6 -1 7 3 4 0 5 -4 2 -4
+2740 3423 -1 -3
+2743 3420 -3 3
+2724 3416 3 -3
+2733 3414 -6 -1
+2729 3409 -2 4
+2735 3415 -2 2 -1 0 1 -3
+2735 3415 1 -3 -1 -1 -2 3
+2735 3415 -1 -1
+2736 3415 -1 0
+2533 3487 -16 9
+2533 3487 -2 5
+2635 3479 -15 5 -12 3 -75 0
+2950 3115 20 0 19 -7 1 -2 -1 -4 -5 -2 -9 2 -12 -1 -8 2 -20 -2
+2709 3094 24 4 1 2 -6 7 1 1 4 1 2 4 2 1 21 8 9 5
+2636 3135 -17 38 -17 17 -30 53 -4 4
+2809 3345 -5 5 -8 5 -6 3 -10 2 -11 -2
+2809 3345 2 -14 -2 0
+2820 3338 -11 7
+2817 3285 2 -2
+2473 3240 3 -5 4 -26
+2760 3442 -11 -1
+2531 3453 13 6 18 0
+2565 3439 2 0
+2566 3438 1 1
+2567 3439 7 3
+2574 3442 2 0
+2574 3442 0 2
+2795 3473 21 2
+2599 3542 8 2 96 15
+3186 3202 -19 10
+3086 3435 -17 82 1 2
+3038 3591 -17 -53 14 -67
+2542 3371 3 2
+2542 3371 -1 3 1 1
+2542 3371 16 -40 4 -6 5 -4 14 -9 46 -26
+2745 3423 8 -2 5 0
+3134 3315 -5 -7 -8 -6 -21 -24
+2775 3209 26 17
+2803 3315 1 0
+2806 3315 1 2 -3 -2
+3144 3232 -24 17 -28 22
+2795 3503 3 -1 14 0 3 2
+2603 3552 6 -8
+2498 3400 -33 -50 -18 -17 -5 -4
+2781 3374 9 4 29 8
+2833 3389 -13 -3
+2777 3383 13 -5
+2693 3402 10 7 2 -7 -1 -4
+2695 3401 9 -3
+2704 3398 4 1
+2705 3410 3 -7 0 -4
+2708 3399 19 5
+2722 3415 -8 -3
+2724 3416 -1 0 -1 -1
+2727 3404 -1 8 -4 3
+2727 3404 2 5
+2729 3402 -2 2
+2725 3360 19 -6
+2735 3364 12 -7
+2747 3357 -3 -3
+2744 3354 15 -9 3 3 -15 9
+2767 3372 -6 1 -4 -1
+2704 3398 3 -4 5 -9 5 -6 10 -9 8 -6
+3131 3500 4 4 5 0
+2910 3171 -40 1 -6 -1 -9 -8 -6 -3 -1 -4 3 -6
+2768 3254 -15 -12 0 -3 -1 -1
+3009 3512 3 -26
+2504 3257 -53 -4
+3081 3222 10 3
+2897 3237 -14 0
+2650 3270 -27 13
+2826 3329 -1 3
+2829 3327 -3 2
+2826 3329 2 0
+2829 3327 -2 -1
+2828 3331 0 -1
+2828 3330 0 -1
+2829 3329 -1 1
+2828 3329 1 -2
+2828 3329 1 0
+2830 3326 -1 1
+2831 3328 -2 1
+2829 3329 4 0
+2831 3328 -2 -1
+2829 3327 1 -1
+2830 3326 0 -3
+2833 3329 -2 -1
+2832 3327 -1 1
+2833 3329 4 1
+2833 3331 0 -2
+3195 3351 36 -21
+2675 3233 -1 -3 1 -3 3 -3 5 -1 8 1 5 4 -1 5 -6 4 -4 1 -4 -1 -4 -2 -2 -2
+2652 3237 3 1 33 27
+2753 3235 -57 -4
+2693 3236 17 13
+2667 3285 5 -7 38 -29 19 -16 34 -32
+2651 3298 16 -13 85 -47 15 -21 5 -4
+2803 3184 -1 0 -27 25
+2551 3349 20 5
+2648 3191 -5 7 -3 10 -28 48 -2 7 0 9
+2607 3423 10 5
+2618 3328 35 21 2 3 10 7
+2497 3194 -27 0 0 -20
+2701 3353 1 3 -25 18 -29 13 -40 26 -36 33 -10 8 0 5 5 5 25 13 4 1 23 -1
+3025 3099 -7 6 -1 3 -6 3 -7 1 -1 1 -4 6 -4 1 -3 2 -1 4 -3 2 -3 5
+2687 3328 10 7 12 6
+2656 3564 -24 -3
+2617 3552 2 -6
+2704 3398 -4 0 -25 -18
+2602 3445 15 -17 10 -8 13 -7 15 -11 28 -14 21 -13 21 -15
+2483 3440 -16 -13 -7 -4
+3071 3182 14 5 30 9 30 5 17 7 5 4
+2667 3091 3 -2 1 0
+2772 3419 1 5 -2 0
+2921 3230 -11 -4
+2759 3289 -12 -7
+2705 3440 -5 -2 1 -3
+2772 3570 -1 19
+2896 3235 5 0 1 1
+2902 3236 0 2
+2902 3236 2 -2 5 -8 20 -22 6 -9 0 -3
+2949 3163 -1 -1
+3030 3304 4 -3
+3032 3299 2 2
+3034 3301 15 7
+3034 3301 10 -11 6 0
+3043 3287 7 3
+3049 3308 -1 7
+3049 3308 4 -16 -3 -2
+3050 3290 0 -1
+3164 3308 10 10
+3165 3335 -16 16 -1 3 -3 3
+2722 3373 -8 -5
+2715 3381 -11 -6
+2725 3360 -11 -7
+2647 3408 17 10
+2664 3397 -9 -7
+2769 3268 8 6
+2743 3396 -6 4 -3 3 -4 -2 -1 1
+2753 3390 -8 5
+2711 3387 -15 -7
+3060 3278 18 4
+2576 3409 23 13
+3010 3498 121 12
+2468 3210 48 0
+3159 3184 28 4
+3105 3329 5 -12
+3068 3184 3 -2 10 -13 39 -29
+2709 3094 -3 11 -17 11
+2871 3292 -11 -4
+2809 3354 1 -8 -1 -1
+2819 3283 14 -12
+2988 3120 7 -7 2 -5 12 -3 5 -5
+2724 3500 -7 6
+2665 3575 5 -22 -11 -38
+3070 3519 11 32
+2679 3584 6 -28
+2976 3319 -1 -1 1 -2 2 0
+2977 3319 1 -3
+2980 3076 -8 2
+2875 3276 -12 -4 -1 -4
+2826 3300 6 -5
+2832 3295 -3 -1
+2832 3295 13 -10
+2845 3285 2 -1
+2845 3285 2 -1
+3000 3273 2 0 1 -1
+2687 3508 0 -18
+2867 3273 1 2 -8 13
+3228 3368 -46 -24 -45 -24
+2619 3477 12 -1 4 3
+2451 3406 40 -16
+2472 3485 40 -43
+2515 3187 6 1
+2830 3323 10 -13
+2854 3286 9 -15
+3133 3271 12 13
+2771 3580 -18 -3 -2 11
+2897 3239 5 -1 9 4
+2993 3283 2 1 0 2
+2781 3331 15 4
+2808 3282 3 1 -2 1 2 0
+2977 3321 -2 4 1 6 5 2
+2979 3336 2 -2
+2981 3334 2 4
+2981 3334 8 -11
+2559 3517 9 0
+2953 3465 42 4
+2773 3378 -6 -6
+2654 3079 8 15 2 1
+2815 3540 -17 0
+2742 3317 5 1
+2794 3282 3 -1 2 0 3 2 -1 3 -16 8 -6 1 -5 3
+2598 3542 -17 -5
+3178 3477 -48 -33
+3097 3522 7 25
+3005 3263 3 1 1 -1
 3859 4573 -74 8 -65 -1 -30 -7 -80 -28 -43 -25 -67 -160 -63 -171 -222 -518 -90 -123 -14 -261 7 -25 19 -24 54 -47 143 -57 73 -43 129 -45 187 -56 70 -27 58 -27 193 -68 134 -53 54 -25 218 -80 153 -39 34 -6 35 -1 96 12 116 -6 40 -7 83 -26
 4672 2664 -4 6 -65 1
 3118 3262 7 4 -6 21 -8 0
@@ -734,7 +1376,6 @@ grid 5e-05 18.89845 47.33160
 6308 2229 38 -23
 4782 3211 48 5
 3834 3379 32 -2
-3748 4924 18 16
 2566 3261 6 -12
 2448 2574 0 -8
 4324 2890 53 54 19 32 19 101 -4 16 -13 17 -25 15 -42 11 -31 3 -60 -7 -29 2 -25 4 -38 15 -26 15 -26 24 -88 142 -25 26 -22 10 -27 6 -100 2
@@ -2772,1112 +3413,1114 @@ secondary,502
 secondary,503
 secondary,504
 secondary,505
+@lanes line
+name,arcs
+Váci utca,603
+Váci utca,604
+Váci utca,605
+Dob utca,606
+Holló utca,607
+Rumbach Sebestyén utca,608
+Asbóth utca,609
+Paulay Ede utca,610
+Zichy Jenő utca,611
+Ó utca,612
+Lázár utca,613
+Dalszínház utca,614
+Révay utca,615
+Révay köz,616
+Káldy Gyula utca,617
+Dobó utca,618
+Székely Mihály utca,619
+Október 6. utca,620
+Szemere utca,621
+Alkotmány utca,622
+Alkotmány utca,623
+Alkotmány utca,624
+Czakó utca,625
+Nádor utca,626
+Zoltán utca,627
+Báthory utca,628
+Vértanúk tere,629
+Vértanúk tere,630
+Vértanúk tere,631
+Vértanúk tere,632
+Vértanúk tere,633
+Vértanúk tere,634
+Aulich utca,635
+Aulich utca,636
+Aulich utca,637
+Vigadó utca,638
+Deák Ferenc utca,639
+Deák Ferenc utca,640
+Piarista utca,641
+Piarista utca,642
+Szép utca,643
+Logodi utca,644
+Tábor utca,645
+Kapisztrán tér,646
+Országház utca,647
+Fortuna utca,648
+Hunyadi János út,649
+Hunyadi János út,650
+Hunyadi János út,651
+Hunyadi János út,652
+Szalag utca,653
+Donáti utca,654
+Toldy Ferenc utca,655
+Fiáth János utca,656
+Hunfalvy utca,657
+Szabó Ilonka utca,658
+Vám utca,659
+Vám utca,660
+Kossuth Lajos tér,661
+Kossuth Lajos tér,662
+Kossuth Lajos tér,663
+Kossuth Lajos tér,664
+Kossuth Lajos tér,665
+Kossuth Lajos tér,666
+Kossuth Lajos tér,667
+Kossuth Lajos tér,668
+Kossuth Lajos tér,669
+Kossuth Lajos tér,670
+Kossuth Lajos tér,671
+Kossuth Lajos tér,672
+Kossuth Lajos tér,673
+Kossuth Lajos tér,674
+Kossuth Lajos tér,675
+Kossuth Lajos tér,676
+Kossuth Lajos tér,677
+Kossuth Lajos tér,678
+Kossuth Lajos tér,679
+Kossuth Lajos tér,680
+Kossuth Lajos tér,681
+Kossuth Lajos tér,682
+Kossuth Lajos tér,683
+Kossuth Lajos tér,684
+Kossuth Lajos tér,685
+Kossuth Lajos tér,686
+Kossuth Lajos tér,687
+Kossuth Lajos tér,688
+Kossuth Lajos tér,689
+Kossuth Lajos tér,690
+Kossuth Lajos tér,691
+Kossuth Lajos tér,692
+Kossuth Lajos tér,693
+Kossuth Lajos tér,694
+Kossuth Lajos tér,695
+Kossuth Lajos tér,696
+Kossuth Lajos tér,697
+Kossuth Lajos tér,698
+Kossuth Lajos tér,699
+Kossuth Lajos tér,700
+Kossuth Lajos tér,701
+Kossuth Lajos tér,702
+Kossuth Lajos tér,703
+Kossuth Lajos tér,704
+Kossuth Lajos tér,705
+Kossuth Lajos tér,706
+Kossuth Lajos tér,707
+Kossuth Lajos tér,708
+Kossuth Lajos tér,709
+Kossuth Lajos tér,710
+Kossuth Lajos tér,711
+Kossuth Lajos tér,712
+Kossuth Lajos tér,713
+Steindl Imre utca,714
+Széchenyi utca,715
+Vigyázó Ferenc utca,716
+Arany János utca,717
+Bécsi kapu tér,718
+Bécsi kapu tér,719
+Batthyány utca,720
+Batthyány utca,721
+Batthyány utca,722
+Fortuna köz,723
+Gyorskocsi utca,724
+Gyorskocsi utca,725
+Markovits Iván utca,726
+Szilágyi Dezső tér,727
+Szilágyi Dezső tér,728
+Székely utca,729
+Kapucinus utca,730
+Jégverem utca,731
+Jégverem utca,732
+Jégverem utca,733
+Jégverem utca,734
+Apor Péter utca,735
+Csónak utca,736
+Mátray utca,737
+Zrínyi utca,738
+Mérleg utca,739
+Sas utca,740
+Tüköry utca,741
+Vadász utca,742
+Szalay utca,743
+Markó utca,744
+Falk Miksa utca,745
+Bank utca,746
+Szabadság tér,747
+Szabadság tér,748
+Szabadság tér,749
+Szabadság tér,750
+Szabadság tér,751
+Szabadság tér,752
+Szabadság tér,753
+Szabadság tér,754
+Szabadság tér,755
+Szabadság tér,756
+Szabadság tér,757
+Szabadság tér,758
+Szabadság tér,759
+Szabadság tér,760
+Szabadság tér,761
+Szabadság tér,762
+Szabadság tér,763
+Szabadság tér,764
+Szabadság tér,765
+Szabadság tér,766
+Szabadság tér,767
+Szabadság tér,768
+Szabadság tér,769
+Szabadság tér,770
+Szabadság tér,771
+Szabadság tér,772
+Szabadság tér,773
+Szabadság tér,774
+Szabadság tér,775
+Szabadság tér,776
+Szabadság tér,777
+Szabadság tér,778
+Szabadság tér,779
+Nagysándor József utca,780
+Vajkay utca,781
+Hercegprímás utca,782
+Deák Ferenc tér,783
+Deák Ferenc tér,784
+Deák Ferenc tér,785
+Deák Ferenc tér,786
+Deák Ferenc tér,787
+Deák Ferenc tér,788
+Deák Ferenc tér,789
+Deák Ferenc tér,790
+Deák Ferenc tér,791
+Deák Ferenc tér,792
+Olimpia park,793
+Perczel Mór utca,794
+Kiss Ernő utca,795
+Szent István tér,796
+Szent István tér,797
+Szent István tér,798
+Széchenyi rakpart,799
+Széchenyi rakpart,800
+Podmaniczky Frigyes tér,801
+Hild tér,802
+Id. Antall József rakpart,803
+Akadémia utca,804
+Miatyánk utca,805
+Bécsi utca,806
+Szervita tér,807
+Dunakorzó,808
+Vigadó tér,809
+Apáczai Csere János utca,810
+Apáczai Csere János utca,811
+Dorottya utca,812
+Harmincad utca,813
+József nádor tér,814
+József nádor tér,815
+József nádor tér,816
+Wekerle Sándor utca,817
+Széchenyi István tér,818
+Széchenyi István tér,819
+Széchenyi István tér,820
+Csalogány utca,821
+Csalogány utca,822
+Sütő utca,823
+Balassi Bálint utca,824
+Vécsey utca,825
+Reáltanoda utca,826
+Petőfi tér,827
+Petőfi tér,828
+Petőfi tér,829
+Petőfi tér,830
+Ferenciek tere,831
+Kéményseprő utca,832
+Sörház utca,833
+Sörház utca,834
+Cukor utca,835
+Nyáry Pál utca,836
+Molnár utca,837
+Városház utca,838
+Türr István utca,839
+Régi posta utca,840
+Párizsi utca,841
+Pilvax köz,842
+Kígyó utca,843
+Gerlóczy utca,844
+Semmelweis utca,845
+Vitkovics Mihály utca,846
+Aranykéz utca,847
+Haris köz,848
+Haris köz,849
+Galamb utca,850
+Március 15. tér,851
+Március 15. tér,852
+Vármegye utca,853
+Fehér Hajó utca,854
+Curia utca,855
+Veres Pálné utca,856
+Pilinszky János köz,857
+Iskola utca,858
+Duna utca,859
+Ostrom utca,860
+Ostrom utca,861
+Ostrom utca,862
+Kard utca,863
+Táncsics Mihály utca,864
+Táncsics Mihály utca,865
+Táncsics Mihály utca,866
+Nándor utca,867
+Vándor utca,868
+Kapás utca,869
+Medve utca,870
+Halász utca,871
+Halász utca,872
+Ponty utca,873
+Ponty utca,874
+Ponty utca,875
+Ponty utca,876
+Vitéz utca,877
+Vitéz utca,878
+Vitéz utca,879
+Kacsa utca,880
+Kacsa utca,881
+Kacsa utca,882
+Ganz utca,883
+Ganz utca,884
+Ganz utca,885
+Málna utca,886
+Kandó Kálmán utca,887
+Nagy Imre tér,888
+Jurányi utca,889
+Csapláros utca,890
+Somlói út,891
+Kelenhegyi út,892
+Otthon utca,893
+Otthon utca,894
+Társ utca,895
+Szittya utca,896
+Széna tér,897
+Széna tér,898
+Gombocz Zoltán utca,899
+Gyula utca,900
+Számadó utca,901
+Számadó utca,902
+Szirtes út,903
+Szirtes út,904
+Iglói utca,905
+Erzsébet tér,906
+Erzsébet tér,907
+Bajcsy-Zsilinszky köz,908
+Hajós utca,909
+Fazekas utca,910
+Maros utca,911
+Madách Imre út,912
+Madách Imre út,913
+Madách Imre út,914
+Madách Imre út,915
+Wesselényi utca,916
+Wesselényi utca,917
+Wesselényi utca,918
+Ráth György utca,919
+Tündérlaki mélyút,920
+Márvány utca,921
+Szarvas tér,922
+Váralja utca,923
+Váralja utca,924
+Váralja utca,925
+Dózsa György tér,926
+Dózsa György tér,927
+Dózsa György tér,928
+Dózsa György tér,929
+Dózsa György tér,930
+Palota út,931
+Palota út,932
+Palota út,933
+Palota út,934
+Palota út,935
+Palota út,936
+Palota út,937
+Palota út,938
+Roham utca,939
+Pauler utca,940
+Színház utca,941
+Szent György utca,942
+Öntőház utca,943
+Hadnagy utca,944
+Kereszt utca,945
+Gellérthegy utca,946
+Győri út,947
+Táltos utca,948
+Kapitány utca,949
+Bán utca,950
+Aladár utca,951
+Aladár utca,952
+Aladár utca,953
+Tigris utca,954
+Dezső utca,955
+Párduc utca,956
+Csap utca,957
+Zsolt utca,958
+Piroska utca,959
+Róka utca,960
+Nyárs utca,961
+Tibor utca,962
+Orvos lépcső,963
+Derék utca,964
+Galeotti utca,965
+Berényi utca,966
+Bérc utca,967
+Orom utca,968
+Szirom utca,969
+Antal utca,970
+Attila út,971
+Feszty Árpád utca,972
+Pálya utca,973
+Pálya utca,974
+Pálya utca,975
+Kuny Domokos utca,976
+Győző utca,977
+Derkovits utca,978
+Kernstok Károly tér,979
+Beck Ö. Fülöp utca,980
+Kiss János altábornagy utca,981
+Kiss János altábornagy utca,982
+Ugocsa utca,983
+Tóth Árpád sétány,984
+Anjou bástya,985
+Babits Mihály sétány,986
+Babits Mihály köz,987
+Hess András tér,988
+Hess András tér,989
+Hess András tér,990
+Hess András tér,991
+Hess András tér,992
+Hess András tér,993
+Boldog XI. Ince pápa utca,994
+Gránit lépcső,995
+Gránit lépcső,996
+Bugát utca,997
+Bugát utca,998
+Várkert rakpart,999
+Várkert rakpart,1000
+Várkert rakpart,1001
+Fátyol utca,1002
+Hegedűs köz,1003
+Ilona lépcső,1004
+Szeder lépcső,1005
+Corvin tér,1006
+Corvin tér,1007
+Corvin tér,1008
+Papp László sétány,1009
+Szabó Dezső sétány,1010
+Szabó Dezső sétány,1011
+Szabó Dezső sétány,1012
+Szabó Dezső sétány,1013
+Citadella út,1014
+Donáti lépcső,1015
+Franklin utca,1016
+Harkály utca,1017
+Kamermayer Károly tér,1018
+Kemal Atatürk sétaút,1019
+Kemal Atatürk sétaút,1020
+Szent György tér,1021
+Szent György tér,1022
+Szent György tér,1023
+Szent György tér,1024
+Szent György tér,1025
+Szent György tér,1026
+Szent György tér,1027
+Szent György tér,1028
+Csörsz utca,1029
+Csörsz utca,1030
+Csörsz utca,1031
+Schwartzer Ferenc utca,1032
+Greguss utca,1033
+Magyar jakobinusok tere,1034
+Horvát utca,1035
+Tarasz Sevcsenko tér,1036
+Linzi lépcső,1037
+Linzi lépcső,1038
+Kagyló utca,1039
+Kagyló utca,1040
+Gimnázium utca,1041
+Gimnázium utca,1042
+Gimnázium utca,1043
+Gimnázium utca,1044
+Gimnázium utca,1045
+Gimnázium utca,1046
+Gimnázium utca,1047
+Gimnázium utca,1048
+Gimnázium utca,1049
+Schulek Frigyes lépcső,1050
+Schulek Frigyes lépcső,1051
+Schulek Frigyes lépcső,1052
+Schulek Frigyes lépcső,1053
+Schulek Frigyes lépcső,1054
+Schulek Frigyes lépcső,1055
+Schulek Frigyes lépcső,1056
+Várfok utca,1057
+Várfok utca,1058
+Várfok utca,1059
+Citadella sétány,1060
+Mihály utca,1061
+Avar utca,1062
+Király lépcső,1063
+Király lépcső,1064
+Király lépcső,1065
+Oroszlános kapu,1066
+Kléh István utca,1067
+Toldy lépcső,1068
+Körmöci utca,1069
+Jávorka Sándor lépcső,1070
+Jávorka Sándor lépcső,1071
+Jávorka Sándor lépcső,1072
+Jávorka Sándor lépcső,1073
+Jávorka Sándor lépcső,1074
+Aranyhal utca,1075
+Varsányi Irén utca,1076
+Károlyi utca,1077
+Hold utca,1078
+Honvéd utca,1079
+Kosciuszkó Tádé utca,1080
+Kosciuszkó Tádé utca,1081
+Kosciuszkó Tádé utca,1082
+Glücklich Vilma lépcső,1083
+Bárczy István utca,1084
+Kőműves lépcső,1085
+Habsburg lépcső,1086
+Habsburg lépcső,1087
+Petőfi Sándor utca,1088
+Batthyány tér,1089
+Bakfark Bálint utca,1090
+Kék Golyó utca,1091
+Pala utca,1092
+Pala utca,1093
+Szőnyeg utca,1094
+Szentháromság tér,1095
+Szentháromság tér,1096
+Szentháromság tér,1097
+Szentháromság tér,1098
+Szentháromság tér,1099
+Szentháromság tér,1100
+Szentháromság tér,1101
+Szentháromság tér,1102
+Szentháromság tér,1103
+Szentháromság tér,1104
+Dísz tér,1105
+Dísz tér,1106
+Dísz tér,1107
+Dísz tér,1108
+Magas utca,1109
+Tárnok utca,1110
+Nagymező utca,1111
+Antal lépcső,1112
+Pásztor lépcső,1113
+Kozma Ferenc utca,1114
+Hertelendy utca,1115
+Piarista köz,1116
+Sándor Móric lépcső,1117
+Ág utca,1118
+Clark Ádám tér,1119
+Clark Ádám tér,1120
+Clark Ádám tér,1121
+Clark Ádám tér,1122
+Clark Ádám tér,1123
+Clark Ádám tér,1124
+Clark Ádám tér,1125
+Clark Ádám tér,1126
+Clark Ádám tér,1127
+Clark Ádám tér,1128
+Clark Ádám tér,1129
+Clark Ádám tér,1130
+Clark Ádám tér,1131
+Clark Ádám tér,1132
+Clark Ádám tér,1133
+Clark Ádám tér,1134
+Clark Ádám tér,1135
+Clark Ádám tér,1136
+Clark Ádám tér,1137
+Gozsdu udvar,1138
+Naphegy tér,1139
+Fenyő utca,1140
+Fém utca,1141
+Orvos utca,1142
+Lisznyai utca,1143
+Naphegy utca,1144
+Naphegy utca,1145
+Koronaőr köz,1146
+Mészáros utca,1147
+Lant utca,1148
+Mikó utca,1149
+Lisszabon sétány,1150
+Lovas út,1151
+Szabadság sétány,1152
+Zerge lépcső,1153
+Bajvívó utca,1154
+Varsányi udvar,1155
+Szentháromság utca,1156
+Úri utca,1157
+Maros passage,1158
+Irányi utca,1159
+Alsóhegy lépcső,1160
+Donáti köz,1161
+Fogas utca,1162
+Sarló utca,1163
+Iskola lépcső,1164
+Királyfürdő utca,1165
+Döbrentei utca,1166
+Döbrentei utca,1167
+Döbrentei utca,1168
+Szent Gellért lépcső,1169
+Vörösmarty tér,1170
+Vörösmarty tér,1171
+Vörösmarty tér,1172
+Vörösmarty tér,1173
+Vörösmarty tér,1174
+Vörösmarty tér,1175
+Vörösmarty tér,1176
+Vörösmarty tér,1177
+Madách Imre tér,1178
+Central Passage,1179
+Hajadon utca,1180
+Anna utca,1181
+Móra Ferenc utca,1182
+Dárda utca,1183
+Nőegylet utca,1184
+Attila köz,1185
+Jezsuita lépcső,1186
+Jezsuita lépcső,1187
+Balta köz,1188
+Kristóf tér,1189
+Korlát utca,1190
+Kálmán Imre utca,1191
+Tartsay Vilmos utca,1192
+Papnövelde utca,1193
+M2,1194
+Belgrád rakpart,1195
+Szent Sebestyén köz,1196
+Öntőház lépcső,1197
+Hunyadi László lépcső,1198
+Oroszlános udvar,1199
+Citadella lejtő,1200
+Mária tér,1201
+Erőd utca,1202
+Nagy Ignác utca,1203
+Szász Károly utca,1204
+Eötvös lépcső,1205
+Eötvös lépcső,1206
+Verejték utca,1207
+Vízhordó lépcső,1208
+Savoyai terasz,1209
+Savoyai terasz,1210
+Savoyai terasz,1211
+Savoyai terasz,1212
+Savoyai terasz,1213
+Kikötő lépcső,1214
+Jácint lépcső,1215
+Öntőház udvar,1216
+Király utca,1217
+Lotharingiai Károly park,1218
+Gyógyfű utca,1219
+Hajnóczy József utca,1220
+Alkotás utca,1221
+Sikló utca,1222
+Sikló utca,1223
+Városháza passzázs,1224
+Nemes Nagy Ágnes korzó,1225
+Ybl Miklós tér,1226
+Csillag Illés lépcső,1227
+Színház köz,1228
+Stöckl-lépcső,1229
+Eötvös tér,1230
+Eötvös tér,1231
+Eötvös tér,1232
+Eötvös tér,1233
+Vérmező út,1234
+Garibaldi utca,1235
+Szalag lépcső,1236
+Csukló utca,1237
+Psota Irén utca,1238
+Lovarda utca,1239
+Lovarda utca,1240
+Emlékek útvesztője,1241
+Dessewffy utca,1242
+Bihari János utca,1243
+Strand lépcső,1244
 @rail line
 kind,colour,lines[],arcs
-u,#005ca5,M3,603
-u,#005ca5,M3,604
-u,#005ca5,M3,605
-u,#4ca22f,M4,606
-u,#e41f18,M2,607
-u,#e41f18,M2,608
-u,#e41f18,M2,609
-u,#ffd800,M1,610
-s,#00a0e3,S10|S12,611
-s,#00a0e3,S60,612
-s,#00a0e3,S71,613
-s,#00a0e3,S80,614
-s,#00a0e3,S70,615
-s,#00a0e3,S21,616
-s,#00a0e3,S21,617
-s,#00a0e3,S50,618
-s,#00a0e3,S80,619
-s,#00a0e3,S42,620
-s,#00a0e3,S30,621
-s,#00a0e3,S70,622
-s,#00a0e3,S50,623
-s,#00a0e3,S40|S42,624
-s,#00a0e3,S40|S42,625
-s,#00a0e3,S40|S42,626
-s,#00a0e3,S30|S36,627
-s,#00a0e3,S30|S36,628
-s,#00a0e3,S30|S36,629
-s,#00a0e3,S30|S36,630
-s,#00a0e3,S40,631
-s,#00a0e3,S12,632
-s,#00a0e3,S10,633
-s,#00a0e3,S72|S76,634
-s,#00a0e3,S72,635
-s,#00a0e3,S80,636
-s,#00a0e3,S21|S50,637
-s,#00a0e3,S60|S80,638
-s,#00a0e3,S71,639
-s,#00a0e3,S72,640
-s,#00a0e3,S76,641
-s,#00a0e3,S70|S71,642
-s,#00a0e3,S60|S80,643
-s,#00a0e3,S60|S80,644
-s,#00a0e3,S72,645
-s,#00a0e3,S36,646
-s,#00a0e3,S10|S12|S30|S40|S42,647
-s,#00a0e3,S36,648
-s,#00a0e3,S60,649
-s,#00a0e3,S80,650
-s,#00a0e3,S72,651
-s,#00a0e3,S72|S76,652
-s,#00a0e3,S36,653
-s,#00a0e3,S72|S76,654
-s,#00a0e3,S72,655
-s,#00a0e3,S30,656
-s,#00a0e3,S30,657
-s,#00a0e3,S40,658
-s,#00a0e3,S76,659
-s,#00a0e3,S76,660
-s,#00a0e3,S72,661
-s,#00a0e3,S36,662
-s,#00a0e3,S36,663
-s,#00a0e3,S40,664
-s,#00a0e3,S72,665
-s,#00a0e3,S70,666
-s,#00a0e3,S72,667
-s,#00a0e3,S21,668
-s,#00a0e3,S42,669
-s,#00a0e3,S71,670
-s,#00a0e3,S71|S72,671
-s,#00a0e3,S50,672
-s,#00a0e3,S36,673
-s,#00a0e3,S72,674
-s,#00a0e3,S40|S42,675
-s,#00a0e3,S70,676
-s,#00a0e3,S40|S42,677
-s,#7b4400,H6,678
-s,#7b4400,H6,679
-s,#7b4400,H6,680
-s,#7b4400,H6,681
-s,#7b4400,H6,682
-s,#7b4400,H6,683
-s,#8a236c,H5,684
-s,#8a236c,H5,685
-s,#8a236c,H5,686
-s,#ed6e86,H8,687
-s,#ed6e86,H8|H9,688
-s,#ed6e86,H9,689
-s,#ed6e86,H8|H9,690
-s,#ed6e86,H8,691
-s,#ee7101,H7,692
-s,#ee7101,H7,693
-s,#ee7101,H7,694
-r,,,695
-r,,,696
-r,,,697
-r,,,698
-r,,,699
-r,,,700
-r,,,701
-r,,,702
-r,,,703
-r,,,704
-r,,,705
-r,,,706
-r,,,707
-r,,,708
-r,,,709
-r,,,710
-r,,,711
-r,,,712
-r,,,713
-r,,,714
-r,,,715
-r,,,716
-r,,,717
-r,,,718
-r,,,719
-r,,,720
-r,,,721
-r,,,722
-r,,,723
-r,,,724
-r,,,725
-r,,,726
-r,,,727
-r,,,728
-r,,,729
-r,,,730
-r,,,731
-r,,,732
-r,,,733
-r,,,734
-r,,,735
-r,#0050ff,,736
-r,#0050ff,,737
-r,#3ea5f4,,738
-r,#3ea5f4,,739
-r,#3ea5f4,,740
-r,#3ea5f4,,741
-r,#3ea5f4,,742
-r,#3ea5f4,,743
-r,#3ea5f4,,744
-r,#9d9d9d,,745
-r,#9d9d9d,,746
-r,#9d9d9d,,747
-r,#9d9d9d,,748
-r,#b0cb1f,,749
-r,#b0cb1f,,750
-r,#fecc00,,751
-r,#fecc00,,752
+u,#005ca5,M3,1245
+u,#005ca5,M3,1246
+u,#005ca5,M3,1247
+u,#4ca22f,M4,1248
+u,#e41f18,M2,1249
+u,#e41f18,M2,1250
+u,#e41f18,M2,1251
+u,#ffd800,M1,1252
+s,#00a0e3,S10|S12,1253
+s,#00a0e3,S60,1254
+s,#00a0e3,S71,1255
+s,#00a0e3,S80,1256
+s,#00a0e3,S70,1257
+s,#00a0e3,S21,1258
+s,#00a0e3,S21,1259
+s,#00a0e3,S50,1260
+s,#00a0e3,S80,1261
+s,#00a0e3,S42,1262
+s,#00a0e3,S30,1263
+s,#00a0e3,S70,1264
+s,#00a0e3,S50,1265
+s,#00a0e3,S40|S42,1266
+s,#00a0e3,S40|S42,1267
+s,#00a0e3,S40|S42,1268
+s,#00a0e3,S30|S36,1269
+s,#00a0e3,S30|S36,1270
+s,#00a0e3,S30|S36,1271
+s,#00a0e3,S30|S36,1272
+s,#00a0e3,S40,1273
+s,#00a0e3,S12,1274
+s,#00a0e3,S10,1275
+s,#00a0e3,S72|S76,1276
+s,#00a0e3,S72,1277
+s,#00a0e3,S80,1278
+s,#00a0e3,S21|S50,1279
+s,#00a0e3,S60|S80,1280
+s,#00a0e3,S71,1281
+s,#00a0e3,S72,1282
+s,#00a0e3,S76,1283
+s,#00a0e3,S70|S71,1284
+s,#00a0e3,S60|S80,1285
+s,#00a0e3,S60|S80,1286
+s,#00a0e3,S72,1287
+s,#00a0e3,S36,1288
+s,#00a0e3,S10|S12|S30|S40|S42,1289
+s,#00a0e3,S36,1290
+s,#00a0e3,S60,1291
+s,#00a0e3,S80,1292
+s,#00a0e3,S72,1293
+s,#00a0e3,S72|S76,1294
+s,#00a0e3,S36,1295
+s,#00a0e3,S72|S76,1296
+s,#00a0e3,S72,1297
+s,#00a0e3,S30,1298
+s,#00a0e3,S30,1299
+s,#00a0e3,S40,1300
+s,#00a0e3,S76,1301
+s,#00a0e3,S76,1302
+s,#00a0e3,S72,1303
+s,#00a0e3,S36,1304
+s,#00a0e3,S36,1305
+s,#00a0e3,S40,1306
+s,#00a0e3,S72,1307
+s,#00a0e3,S70,1308
+s,#00a0e3,S72,1309
+s,#00a0e3,S21,1310
+s,#00a0e3,S42,1311
+s,#00a0e3,S71,1312
+s,#00a0e3,S71|S72,1313
+s,#00a0e3,S50,1314
+s,#00a0e3,S36,1315
+s,#00a0e3,S72,1316
+s,#00a0e3,S40|S42,1317
+s,#00a0e3,S70,1318
+s,#00a0e3,S40|S42,1319
+s,#7b4400,H6,1320
+s,#7b4400,H6,1321
+s,#7b4400,H6,1322
+s,#7b4400,H6,1323
+s,#7b4400,H6,1324
+s,#7b4400,H6,1325
+s,#8a236c,H5,1326
+s,#8a236c,H5,1327
+s,#8a236c,H5,1328
+s,#ed6e86,H8,1329
+s,#ed6e86,H8|H9,1330
+s,#ed6e86,H9,1331
+s,#ed6e86,H8|H9,1332
+s,#ed6e86,H8,1333
+s,#ee7101,H7,1334
+s,#ee7101,H7,1335
+s,#ee7101,H7,1336
+r,,,1337
+r,,,1338
+r,,,1339
+r,,,1340
+r,,,1341
+r,,,1342
+r,,,1343
+r,,,1344
+r,,,1345
+r,,,1346
+r,,,1347
+r,,,1348
+r,,,1349
+r,,,1350
+r,,,1351
+r,,,1352
+r,,,1353
+r,,,1354
+r,,,1355
+r,,,1356
+r,,,1357
+r,,,1358
+r,,,1359
+r,,,1360
+r,,,1361
+r,,,1362
+r,,,1363
+r,,,1364
+r,,,1365
+r,,,1366
+r,,,1367
+r,,,1368
+r,,,1369
+r,,,1370
+r,,,1371
+r,,,1372
+r,,,1373
+r,,,1374
+r,,,1375
+r,,,1376
+r,#0050ff,,1377
+r,#0050ff,,1378
+r,#3ea5f4,,1379
+r,#3ea5f4,,1380
+r,#3ea5f4,,1381
+r,#3ea5f4,,1382
+r,#3ea5f4,,1383
+r,#3ea5f4,,1384
+r,#3ea5f4,,1385
+r,#9d9d9d,,1386
+r,#9d9d9d,,1387
+r,#9d9d9d,,1388
+r,#9d9d9d,,1389
+r,#b0cb1f,,1390
+r,#b0cb1f,,1391
+r,#fecc00,,1392
+r,#fecc00,,1393
 @green polygon
 kind,arcs
-wood,753
-wood,754
-wood,755
-wood,756
-wood,757
-wood,758
-wood,759;760;761;762
-wood,763
-wood,764
-wood,765;766;767
-wood,768
-wood,769
-wood,770
-wood,771
-wood,772
-wood,773
-wood,774
-wood,775
-wood,776
-wood,777
-wood,778
-wood,779
-wood,780
-wood,781
-wood,782
-wood,783
-wood,784
-wood,785
-wood,786
-wood,787
-wood,788
-wood,789
-wood,790
-wood,791
-wood,792
-wood,793
-wood,794
-wood,795
-wood,796
-wood,797
-wood,798
-wood,799
-wood,800
-wood,801
-wood,802
-wood,803
-wood,804
-wood,805
-wood,806
-wood,807
-wood,808
-wood,809;810
-wood,811
-wood,812
-wood,813
-wood,814
-wood,815
-wood,816
-wood,817
-wood,818
-wood,819
-wood,820;821
-wood,822
-wood,823;824
-wood,825
-wood,826
-wood,827
-wood,828
-wood,829
-wood,830
-wood,831
-wood,832
-wood,833
-wood,834
-wood,835;836
-wood,837
-wood,838
-park,839
-park,840
-park,841
-park,842
-park,843
-park,844
-park,845
-park,846
-park,847
-park,848
-park,849
-park,850
-park,851
-park,852
-park,853
-park,854
-park,855
-park,856
-park,857
-park,858
-park,859
-park,860
-park,861
-park,862
-park,863
-park,864
-park,865
-park,866
-park,867
-park,868
-park,869
-park,870
-park,871
-park,872
-park,873
-park,874
-park,875
-park,876
-park,877
-park,878
-park,879
-park,880
-park,881
-park,882
-park,883
-park,884
-park,885
-park,886
-park,887
-park,888
-park,889
-park,890
-park,891
-park,892
-park,893
-park,894
-park,895
-park,896
-park,897;898
-park,899
-park,900
-park,901
-park,902
-park,903
-park,904
-park,905
-park,906
-park,907
-park,908;909
-park,910
-park,911
-park,912
-park,913
-park,914
-park,915
-park,916
-park,917;918
-park,919
-park,920
-park,921;922
-park,923
-park,924
-park,925
-park,926
-park,927
-park,928
-park,929
-park,930
-park,931
-park,932
-park,933
-park,934
-park,935
-park,936
-park,937
-park,938
-park,939
-park,940
-park,941
-park,942
-park,943
-park,944
-park,945
-park,946
-park,947
-park,948;949;950;951;952;953;954
-park,955
-park,956
-park,957
-park,958
-park,959
-park,960
-park,961
-park,962
-park,963
-park,964
-park,965
-park,966
-park,967
-park,968
-park,969
-park,970
-park,971
-park,972
-park,973
-park,974
-park,975
-park,976
-park,977
-park,978
-park,979
-park,980
-park,981
-park,982
-park,983
-park,984
-park,985
-park,986
-park,987
-park,988
-park,989
-park,990
-park,991
-park,992
-park,993
-park,994
-park,995
-park,996
-park,997
-park,998
-park,999
-park,1000
-park,1001
-park,1002
-park,1003
-park,1004
-park,1005
-park,1006
-park,1007
-park,1008;1009
-park,1010
-park,1011
-park,1012
-park,1013
-park,1014
-park,1015
-park,1016;1017
-park,1018
+wood,1394
+wood,1395
+wood,1396
+wood,1397
+wood,1398
+wood,1399
+wood,1400;1401;1402;1403
+wood,1404
+wood,1405
+wood,1406;1407;1408
+wood,1409
+wood,1410
+wood,1411
+wood,1412
+wood,1413
+wood,1414
+wood,1415
+wood,1416
+wood,1417
+wood,1418
+wood,1419
+wood,1420
+wood,1421
+wood,1422
+wood,1423
+wood,1424
+wood,1425
+wood,1426
+wood,1427
+wood,1428
+wood,1429
+wood,1430
+wood,1431
+wood,1432
+wood,1433
+wood,1434
+wood,1435
+wood,1436
+wood,1437
+wood,1438
+wood,1439
+wood,1440
+wood,1441
+wood,1442
+wood,1443
+wood,1444
+wood,1445
+wood,1446
+wood,1447
+wood,1448
+wood,1449
+wood,1450;1451
+wood,1452
+wood,1453
+wood,1454
+wood,1455
+wood,1456
+wood,1457
+wood,1458
+wood,1459
+wood,1460
+wood,1461;1462
+wood,1463
+wood,1464;1465
+wood,1466
+wood,1467
+wood,1468
+wood,1469
+wood,1470
+wood,1471
+wood,1472
+wood,1473
+wood,1474
+wood,1475
+wood,1476;1477
+wood,1478
+wood,1479
+park,1480
+park,1481
+park,1482
+park,1483
+park,1484
+park,1485
+park,1486
+park,1487
+park,1488
+park,1489
+park,1490
+park,1491
+park,1492
+park,1493
+park,1494
+park,1495
+park,1496
+park,1497
+park,1498
+park,1499
+park,1500
+park,1501
+park,1502
+park,1503
+park,1504
+park,1505
+park,1506
+park,1507
+park,1508
+park,1509
+park,1510
+park,1511
+park,1512
+park,1513
+park,1514
+park,1515
+park,1516
+park,1517
+park,1518
+park,1519
+park,1520
+park,1521
+park,1522
+park,1523
+park,1524
+park,1525
+park,1526
+park,1527
+park,1528
+park,1529
+park,1530
+park,1531
+park,1532
+park,1533
+park,1534
+park,1535
+park,1536
+park,1537
+park,1538;1539
+park,1540
+park,1541
+park,1542
+park,1543
+park,1544
+park,1545
+park,1546
+park,1547
+park,1548
+park,1549;1550
+park,1551
+park,1552
+park,1553
+park,1554
+park,1555
+park,1556
+park,1557
+park,1558;1559
+park,1560
+park,1561
+park,1562;1563
+park,1564
+park,1565
+park,1566
+park,1567
+park,1568
+park,1569
+park,1570
+park,1571
+park,1572
+park,1573
+park,1574
+park,1575
+park,1576
+park,1577
+park,1578
+park,1579
+park,1580
+park,1581
+park,1582
+park,1583
+park,1584
+park,1585
+park,1586
+park,1587
+park,1588
+park,1589;1590;1591;1592;1593;1594;1595
+park,1596
+park,1597
+park,1598
+park,1599
+park,1600
+park,1601
+park,1602
+park,1603
+park,1604
+park,1605
+park,1606
+park,1607
+park,1608
+park,1609
+park,1610
+park,1611
+park,1612
+park,1613
+park,1614
+park,1615
+park,1616
+park,1617
+park,1618
+park,1619
+park,1620
+park,1621
+park,1622
+park,1623
+park,1624
+park,1625
+park,1626
+park,1627
+park,1628
+park,1629
+park,1630
+park,1631
+park,1632
+park,1633
+park,1634
+park,1635
+park,1636
+park,1637
+park,1638
+park,1639
+park,1640
+park,1641
+park,1642
+park,1643
+park,1644
+park,1645
+park,1646
+park,1647
+park,1648
+park,1649;1650
+park,1651
+park,1652
+park,1653
+park,1654
+park,1655
+park,1656
+park,1657;1658
+park,1659
 @water polygon
 arcs
-1019
-1020
-1021;1022;1023;1024;1025;1026;1027
-1028
-1029
-1030;1031
-1032
-1033
-1034
-1035;1036
-1037
-1038
-1039
-1040
-1041
-1042
-1043
-1044
-1045
-1046
-1047
-1048
+1660
+1661
+1662;1663;1664;1665;1666;1667;1668
+1669
+1670
+1671;1672
+1673
+1674
+1675
+1676;1677
+1678
+1679
+1680
+1681
+1682
+1683
+1684
+1685
+1686
+1687
+1688
+1689
 @waterways line
 name,kind,arcs
-Duna,river,1049
-Duna,river,1050
-Duna,river,1051
-Duna,river,1052
-Duna,river,1053
-Duna,river,1054
-Duna,river,1055
-Duna,river,1056
-Duna,river,1057
-Duna,river,1058
-Duna,river,1059
-Duna,river,1060
-Duna,river,1061
-Duna,river,1062
-Duna,river,1063
-Molnársziget mellékág,canal,1064
-Ráckevei (Soroksári)-Duna,river,1065
-Ráckevei (Soroksári)-Duna,river,1066
-Ráckevei (Soroksári)-Duna,river,1067
-Szentendrei-Duna,river,1068
-Szentendrei-Duna,river,1069
-Szentendrei-Duna,river,1070
+Duna,river,1690
+Duna,river,1691
+Duna,river,1692
+Duna,river,1693
+Duna,river,1694
+Duna,river,1695
+Duna,river,1696
+Duna,river,1697
+Duna,river,1698
+Duna,river,1699
+Duna,river,1700
+Duna,river,1701
+Duna,river,1702
+Duna,river,1703
+Duna,river,1704
+Molnársziget mellékág,canal,1705
+Ráckevei (Soroksári)-Duna,river,1706
+Ráckevei (Soroksári)-Duna,river,1707
+Ráckevei (Soroksári)-Duna,river,1708
+Szentendrei-Duna,river,1709
+Szentendrei-Duna,river,1710
+Szentendrei-Duna,river,1711
 @airport polygon
 name,iata,arcs
-Budapest Liszt Ferenc International Airport,BUD,1071
+Budapest Liszt Ferenc International Airport,BUD,1712
 @monuments polygon
 name,wikidata,arcs
-Árpád Bridge,Q252452,1072
-Margaret Bridge,Q916120,1073|1074
-Petőfi Bridge,Q781659,1075
-Buda Castle,Q46313,1076;1077
-Megyeri Bridge,Q777301,1078
-Rákóczi Bridge,Q787108,1079
-Elisabeth Bridge,Q699098,1080
-Citadella,Q206170,1081
-Széchenyi Chain Bridge,Q465534,1082
-Liberty Bridge,Q915195,1083
-St. Stephen's Basilica,Q338665,1084
+Árpád Bridge,Q252452,1713
+Margaret Bridge,Q916120,1714|1715
+Petőfi Bridge,Q781659,1716
+Buda Castle,Q46313,1717;1718
+Megyeri Bridge,Q777301,1719
+Rákóczi Bridge,Q787108,1720
+Elisabeth Bridge,Q699098,1721
+Citadella,Q206170,1722
+Széchenyi Chain Bridge,Q465534,1723
+Liberty Bridge,Q915195,1724
+St. Stephen's Basilica,Q338665,1725
 @districts line
 level#,arcs
-1,1085
-1,1086
-1,1087
-1,1088
-1,1089
-1,1090
-1,1091
-1,1092
-1,1093
-1,1094
-1,1095
-1,1096
-1,1097
-1,1098
-1,1099
-1,1100
-1,1101
-1,1102
-1,1103
-1,1104
-1,1105
-1,1106
-1,1107
-1,1108
-1,1109
-1,1110
-1,1111
-1,1112
-1,1113
-1,1114
-1,1115
-1,1116
-1,1117
-1,1118
-1,1119
-1,1120
-1,1121
-1,1122
-1,1123
-1,1124
-1,1125
-1,1126
-1,1127
-1,1128
-1,1129
-1,1130
-1,1131
-1,1132
-1,1133
-1,1134
-1,1135
-1,1136
-1,1137
-1,1138
-1,1139
-1,1140
-1,1141
-1,1142
-1,1143
-1,1144
-1,1145
-1,1146
-1,1147
-1,1148
-1,1149
-1,1150
-1,1151
-1,1152
-1,1153
-1,1154
-1,1155
-1,1156
-1,1157
-1,1158
-1,1159
-1,1160
-1,1161
-1,1162
-1,1163
-1,1164
-1,1165
-1,1166
-1,1167
-1,1168
-1,1169
-1,1170
-1,1171
-1,1172
-1,1173
-1,1174
-1,1175
-1,1176
-1,1177
-1,1178
-1,1179
-1,1180
-1,1181
-1,1182
-1,1183
-1,1184
-1,1185
-1,1186
-1,1187
-1,1188
-1,1189
-1,1190
-1,1191
-1,1192
-1,1193
-1,1194
-1,1195
-1,1196
-1,1197
-1,1198
-1,1199
-1,1200
-1,1201
-1,1202
-1,1203
-1,1204
-1,1205
-1,1206
-1,1207
-1,1208
-1,1209
-1,1210
-1,1211
-1,1212
-1,1213
-1,1214
-1,1215
-1,1216
-1,1217
-1,1218
-1,1219
-1,1220
-1,1221
-1,1222
-1,1223
-1,1224
-1,1225
-1,1226
-1,1227
-1,1228
-1,1229
-1,1230
-1,1231
-1,1232
-1,1233
-1,1234
-1,1235
-1,1236
-1,1237
-1,1238
-1,1239
-1,1240
-1,1241
-1,1242
-1,1243
-1,1244
-1,1245
-1,1246
-1,1247
-1,1248
-1,1249
-1,1250
-1,1251
-1,1252
-1,1253
-1,1254
-1,1255
-1,1256
-1,1257
-1,1258
-1,1259
-1,1260
-1,1261
-1,1262
-1,1263
-1,1264
-1,1265
-1,1266
-1,1267
-1,1268
-1,1269
-1,1270
-1,1271
-1,1272
-1,1273
-1,1274
-1,1275
-1,1276
-1,1277
-1,1278
-1,1279
-1,1280
-1,1281
-1,1282
-1,1283
-1,1284
-1,1285
-1,1286
-1,1287
-1,1288
-1,1289
-1,1290
-1,1291
-1,1292
-1,1293
-1,1294
-1,1295
-1,1296
-1,1297
-1,1298
-1,1299
-1,1300
-1,1301
-1,1302
-1,1303
-1,1304
-1,1305
-1,1306
-1,1307
-1,1308
-1,1309
-1,1310
-1,1311
-1,1312
-1,1313
-1,1314
-1,1315
-1,1316
-1,1317
-1,1318
-1,1319
-1,1320
-1,1321
-1,1322
-1,1323
-1,1324
-1,1325
-1,1326
-1,1327
-1,1328
-1,1329
-1,1330
-1,1331
-1,1332
-1,1333
-1,1334
-1,1335
-1,1336
-1,1337
-1,1338
-1,1339
-1,1340
-1,1341
-1,1342
-1,1343
-1,1344
-1,1345
-1,1346
-1,1347
-1,1348
-1,1349
-1,1350
-1,1351
-1,1352
-1,1353
-1,1354
-1,1355
-1,1356
-1,1357
-1,1358
-1,1359
-1,1360
-1,1361
-1,1362
-1,1363
-1,1364
-1,1365
-1,1366
-1,1367
-1,1368
-1,1369
-1,1370
-1,1371
-1,1372
-1,1373
-1,1374
-1,1375
-1,1376
-1,1377
-1,1378
-1,1379
-1,1380
-1,1381
-1,1382
-1,1383
-1,1384
-1,1385
-1,1386
-1,1387
-1,1388
-1,1389
-1,1390
-1,1391
-1,1392
-1,1393
-1,1394
-1,1395
-1,1396
-1,1397
-1,1398
-1,1399
-1,1400
-1,1401
-1,1402
-1,1403
-1,1404
-1,1405
-1,1406
-1,1407
-1,1408
-1,1409
-1,1410
-1,1411
-1,1412
-1,1413
-1,1414
-1,1415
-1,1416
-1,1417
-1,1418
-1,1419
-1,1420
-1,1421
-1,1422
-1,1423
-1,1424
-1,1425
-1,1426
-1,1427
-1,1428
-1,1429
-1,1430
-1,1431
-1,1432
-1,1433
-1,1434
-1,1435
-1,1436
-1,1437
-1,1438
-1,1439
-1,1440
-1,1441
-1,1442
-1,1443
-1,1444
-1,1445
-1,1446
-1,1447
-1,1448
-1,1449
-1,1450
-1,1451
-1,1452
-1,1453
-1,1454
-1,1455
-1,1456
-1,1457
-1,1458
-1,1459
-1,1460
-1,1461
-1,1462
-1,1463
-1,1464
-1,1465
-1,1466
-1,1467
-1,1468
-1,1469
-1,1470
-1,1471
-1,1472
-1,1473
-1,1474
-1,1475
-1,1476
-1,1477
-1,1478
-1,1479
-1,1480
-1,1481
-1,1482
-1,1483
-1,1484
-1,1485
-1,1486
-1,1487
-1,1488
-1,1489
-1,1490
-1,1491
-1,1492
-1,1493
-1,1494
-1,1495
-1,1496
-1,1497
-1,1498
-1,1499
-1,1500
-1,1501
-1,1502
-1,1503
-1,1504
-1,1505
-1,1506
-1,1507
-1,1508
-1,1509
-1,1510
-1,1511
-1,1512
-1,1513
-1,1514
-1,1515
-1,1516
-1,1517
-1,1518
-1,1519
-1,1520
-1,1521
-1,1522
-1,1523
-1,1524
-1,1525
-1,1526
-1,1527
-1,1528
-1,1529
-1,1530
-1,1531
-1,1532
-1,1533
-1,1534
-1,1535
-1,1536
-1,1537
-1,1538
-1,1539
-1,1540
-1,1541
-1,1542
-1,1543
-1,1544
-1,1545
-1,1546
-1,1547
-1,1548
-1,1549
-1,1550
-1,1551
-1,1552
-1,1553
-1,1554
-1,1555
-1,1556
-1,1557
-1,1558
-1,1559
-1,1560
-1,1561
-1,1562
-1,1563
-1,1564
-1,1565
-1,1566
-1,1567
-1,1568
-1,1569
-1,1570
-1,1571
-1,1572
-1,1573
-1,1574
-1,1575
-1,1576
-1,1577
-1,1578
-1,1579
-1,1580
-1,1581
-1,1582
-1,1583
-1,1584
-1,1585
-1,1586
-1,1587
-1,1588
-1,1589
-1,1590
-1,1591
-1,1592
-1,1593
-1,1594
-1,1595
-1,1596
-1,1597
-1,1598
-1,1599
-1,1600
-1,1601
-1,1602
-1,1603
-1,1604
-1,1605
-1,1606
-1,1607
-1,1608
-1,1609
-1,1610
-1,1611
-1,1612
-1,1613
-1,1614
-1,1615
-1,1616
-1,1617
-1,1618
-1,1619
-1,1620
-1,1621
-1,1622
-1,1623
-1,1624
-1,1625
-1,1626
-1,1627
-1,1628
-1,1629
-1,1630
-1,1631
-1,1632
-1,1633
-1,1634
-1,1635
-1,1636
-1,1637
-1,1638
-1,1639
-1,1640
-1,1641
-1,1642
-1,1643
-1,1644
-1,1645
-1,1646
-1,1647
-1,1648
-1,1649
-1,1650
-1,1651
-1,1652
-1,1653
-1,1654
-1,1655
-1,1656
-1,1657
-1,1658
-1,1659
-1,1660
-1,1661
-1,1662
-1,1663
-1,1664
-1,1665
-1,1666
-1,1667
-1,1668
-1,1669
-1,1670
-1,1671
-1,1672
-1,1673
-1,1674
-1,1675
-1,1676
-1,1677
-1,1678
-1,1679
-1,1680
-1,1681
-1,1682
-1,1683
-1,1684
-1,1685
-1,1686
-1,1687
-1,1688
-1,1689
-1,1690
-1,1691
-1,1692
-1,1693
-1,1694
-1,1695
-1,1696
-1,1697
-1,1698
-1,1699
-1,1700
-1,1701
-1,1702
-1,1703
-1,1704
-1,1705
-1,1706
-1,1707
-1,1708
-1,1709
-1,1710
-1,1711
-1,1712
-1,1713
-1,1714
-1,1715
-1,1716
-1,1717
-1,1718
-1,1719
-1,1720
-1,1721
-1,1722
-1,1723
-1,1724
-1,1725
 1,1726
 1,1727
 1,1728
@@ -4326,9 +4969,650 @@ level#,arcs
 1,2171
 1,2172
 1,2173
+1,2174
+1,2175
+1,2176
+1,2177
+1,2178
+1,2179
+1,2180
+1,2181
+1,2182
+1,2183
+1,2184
+1,2185
+1,2186
+1,2187
+1,2188
+1,2189
+1,2190
+1,2191
+1,2192
+1,2193
+1,2194
+1,2195
+1,2196
+1,2197
+1,2198
+1,2199
+1,2200
+1,2201
+1,2202
+1,2203
+1,2204
+1,2205
+1,2206
+1,2207
+1,2208
+1,2209
+1,2210
+1,2211
+1,2212
+1,2213
+1,2214
+1,2215
+1,2216
+1,2217
+1,2218
+1,2219
+1,2220
+1,2221
+1,2222
+1,2223
+1,2224
+1,2225
+1,2226
+1,2227
+1,2228
+1,2229
+1,2230
+1,2231
+1,2232
+1,2233
+1,2234
+1,2235
+1,2236
+1,2237
+1,2238
+1,2239
+1,2240
+1,2241
+1,2242
+1,2243
+1,2244
+1,2245
+1,2246
+1,2247
+1,2248
+1,2249
+1,2250
+1,2251
+1,2252
+1,2253
+1,2254
+1,2255
+1,2256
+1,2257
+1,2258
+1,2259
+1,2260
+1,2261
+1,2262
+1,2263
+1,2264
+1,2265
+1,2266
+1,2267
+1,2268
+1,2269
+1,2270
+1,2271
+1,2272
+1,2273
+1,2274
+1,2275
+1,2276
+1,2277
+1,2278
+1,2279
+1,2280
+1,2281
+1,2282
+1,2283
+1,2284
+1,2285
+1,2286
+1,2287
+1,2288
+1,2289
+1,2290
+1,2291
+1,2292
+1,2293
+1,2294
+1,2295
+1,2296
+1,2297
+1,2298
+1,2299
+1,2300
+1,2301
+1,2302
+1,2303
+1,2304
+1,2305
+1,2306
+1,2307
+1,2308
+1,2309
+1,2310
+1,2311
+1,2312
+1,2313
+1,2314
+1,2315
+1,2316
+1,2317
+1,2318
+1,2319
+1,2320
+1,2321
+1,2322
+1,2323
+1,2324
+1,2325
+1,2326
+1,2327
+1,2328
+1,2329
+1,2330
+1,2331
+1,2332
+1,2333
+1,2334
+1,2335
+1,2336
+1,2337
+1,2338
+1,2339
+1,2340
+1,2341
+1,2342
+1,2343
+1,2344
+1,2345
+1,2346
+1,2347
+1,2348
+1,2349
+1,2350
+1,2351
+1,2352
+1,2353
+1,2354
+1,2355
+1,2356
+1,2357
+1,2358
+1,2359
+1,2360
+1,2361
+1,2362
+1,2363
+1,2364
+1,2365
+1,2366
+1,2367
+1,2368
+1,2369
+1,2370
+1,2371
+1,2372
+1,2373
+1,2374
+1,2375
+1,2376
+1,2377
+1,2378
+1,2379
+1,2380
+1,2381
+1,2382
+1,2383
+1,2384
+1,2385
+1,2386
+1,2387
+1,2388
+1,2389
+1,2390
+1,2391
+1,2392
+1,2393
+1,2394
+1,2395
+1,2396
+1,2397
+1,2398
+1,2399
+1,2400
+1,2401
+1,2402
+1,2403
+1,2404
+1,2405
+1,2406
+1,2407
+1,2408
+1,2409
+1,2410
+1,2411
+1,2412
+1,2413
+1,2414
+1,2415
+1,2416
+1,2417
+1,2418
+1,2419
+1,2420
+1,2421
+1,2422
+1,2423
+1,2424
+1,2425
+1,2426
+1,2427
+1,2428
+1,2429
+1,2430
+1,2431
+1,2432
+1,2433
+1,2434
+1,2435
+1,2436
+1,2437
+1,2438
+1,2439
+1,2440
+1,2441
+1,2442
+1,2443
+1,2444
+1,2445
+1,2446
+1,2447
+1,2448
+1,2449
+1,2450
+1,2451
+1,2452
+1,2453
+1,2454
+1,2455
+1,2456
+1,2457
+1,2458
+1,2459
+1,2460
+1,2461
+1,2462
+1,2463
+1,2464
+1,2465
+1,2466
+1,2467
+1,2468
+1,2469
+1,2470
+1,2471
+1,2472
+1,2473
+1,2474
+1,2475
+1,2476
+1,2477
+1,2478
+1,2479
+1,2480
+1,2481
+1,2482
+1,2483
+1,2484
+1,2485
+1,2486
+1,2487
+1,2488
+1,2489
+1,2490
+1,2491
+1,2492
+1,2493
+1,2494
+1,2495
+1,2496
+1,2497
+1,2498
+1,2499
+1,2500
+1,2501
+1,2502
+1,2503
+1,2504
+1,2505
+1,2506
+1,2507
+1,2508
+1,2509
+1,2510
+1,2511
+1,2512
+1,2513
+1,2514
+1,2515
+1,2516
+1,2517
+1,2518
+1,2519
+1,2520
+1,2521
+1,2522
+1,2523
+1,2524
+1,2525
+1,2526
+1,2527
+1,2528
+1,2529
+1,2530
+1,2531
+1,2532
+1,2533
+1,2534
+1,2535
+1,2536
+1,2537
+1,2538
+1,2539
+1,2540
+1,2541
+1,2542
+1,2543
+1,2544
+1,2545
+1,2546
+1,2547
+1,2548
+1,2549
+1,2550
+1,2551
+1,2552
+1,2553
+1,2554
+1,2555
+1,2556
+1,2557
+1,2558
+1,2559
+1,2560
+1,2561
+1,2562
+1,2563
+1,2564
+1,2565
+1,2566
+1,2567
+1,2568
+1,2569
+1,2570
+1,2571
+1,2572
+1,2573
+1,2574
+1,2575
+1,2576
+1,2577
+1,2578
+1,2579
+1,2580
+1,2581
+1,2582
+1,2583
+1,2584
+1,2585
+1,2586
+1,2587
+1,2588
+1,2589
+1,2590
+1,2591
+1,2592
+1,2593
+1,2594
+1,2595
+1,2596
+1,2597
+1,2598
+1,2599
+1,2600
+1,2601
+1,2602
+1,2603
+1,2604
+1,2605
+1,2606
+1,2607
+1,2608
+1,2609
+1,2610
+1,2611
+1,2612
+1,2613
+1,2614
+1,2615
+1,2616
+1,2617
+1,2618
+1,2619
+1,2620
+1,2621
+1,2622
+1,2623
+1,2624
+1,2625
+1,2626
+1,2627
+1,2628
+1,2629
+1,2630
+1,2631
+1,2632
+1,2633
+1,2634
+1,2635
+1,2636
+1,2637
+1,2638
+1,2639
+1,2640
+1,2641
+1,2642
+1,2643
+1,2644
+1,2645
+1,2646
+1,2647
+1,2648
+1,2649
+1,2650
+1,2651
+1,2652
+1,2653
+1,2654
+1,2655
+1,2656
+1,2657
+1,2658
+1,2659
+1,2660
+1,2661
+1,2662
+1,2663
+1,2664
+1,2665
+1,2666
+1,2667
+1,2668
+1,2669
+1,2670
+1,2671
+1,2672
+1,2673
+1,2674
+1,2675
+1,2676
+1,2677
+1,2678
+1,2679
+1,2680
+1,2681
+1,2682
+1,2683
+1,2684
+1,2685
+1,2686
+1,2687
+1,2688
+1,2689
+1,2690
+1,2691
+1,2692
+1,2693
+1,2694
+1,2695
+1,2696
+1,2697
+1,2698
+1,2699
+1,2700
+1,2701
+1,2702
+1,2703
+1,2704
+1,2705
+1,2706
+1,2707
+1,2708
+1,2709
+1,2710
+1,2711
+1,2712
+1,2713
+1,2714
+1,2715
+1,2716
+1,2717
+1,2718
+1,2719
+1,2720
+1,2721
+1,2722
+1,2723
+1,2724
+1,2725
+1,2726
+1,2727
+1,2728
+1,2729
+1,2730
+1,2731
+1,2732
+1,2733
+1,2734
+1,2735
+1,2736
+1,2737
+1,2738
+1,2739
+1,2740
+1,2741
+1,2742
+1,2743
+1,2744
+1,2745
+1,2746
+1,2747
+1,2748
+1,2749
+1,2750
+1,2751
+1,2752
+1,2753
+1,2754
+1,2755
+1,2756
+1,2757
+1,2758
+1,2759
+1,2760
+1,2761
+1,2762
+1,2763
+1,2764
+1,2765
+1,2766
+1,2767
+1,2768
+1,2769
+1,2770
+1,2771
+1,2772
+1,2773
+1,2774
+1,2775
+1,2776
+1,2777
+1,2778
+1,2779
+1,2780
+1,2781
+1,2782
+1,2783
+1,2784
+1,2785
+1,2786
+1,2787
+1,2788
+1,2789
+1,2790
+1,2791
+1,2792
+1,2793
+1,2794
+1,2795
+1,2796
+1,2797
+1,2798
+1,2799
+1,2800
+1,2801
+1,2802
+1,2803
+1,2804
+1,2805
+1,2806
+1,2807
+1,2808
+1,2809
+1,2810
+1,2811
+1,2812
+1,2813
+1,2814
 @clip polygon
 arcs
-2174
+2815
 @places
 name,level#,lon#,lat#
 XXI,1,19.0693,47.42002

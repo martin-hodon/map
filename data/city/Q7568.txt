@@ -1,0 +1,1168 @@
+# Yogyakarta: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 110.32610 -7.85830
+@arcs
+1200 486 39 0
+1239 486 15 -9 13 -25 10 -9 16 -6 19 0 3 0 12 -1 2 0 54 -6
+708 1794 -2 -34
+1245 1568 -12 -61
+693 1510 4 90 5 108 2 29
+1302 1503 -64 2
+1238 1505 -5 2
+846 871 0 -2 -5 -80 -5 -64 -4 -46 0 -3 -5 -55
+1498 754 0 1 21 70 2 127 3 167 0 2
+1382 1123 -64 1 -58 2 -97 2 -54 2 -20 0 -11 0 -26 1
+851 1777 -19 -158
+568 648 12 68 16 98 0 4 2 69
+628 1377 -3 -38 -7 -14 -2 -20 -8 -90 -5 -71 0 -1
+517 1160 31 153 8 50 1 17
+864 1134 -1 0 -90 5
+864 1134 32 1
+1212 820 -1 0 -50 8 -5 0 -13 2 -60 9 -81 12
+862 1096 2 -5 2 -6 -5 -82 -9 -117
+1293 808 205 -53
+1233 1507 -4 -3 -166 2
+603 1144 4 -1 91 -1 21 -2 54 -1
+693 1510 -3 -2 -64 2 -94 22
+965 1432 21 -14 -9 -15 -7 -8 -13 0 -11 4 -4 6 -1 16 3 7 21 0 21 -10
+1521 952 3 0
+515 1146 0 -1 -1 0 -28 -136
+976 1506 4 23 18 112
+556 1408 -26 24 2 100
+1063 1506 -85 0 -2 0 -44 1
+819 1505 -11 -93 -3 -24 -2 -12
+860 1233 -1 27 -3 11 -22 17 -4 23 0 39
+942 1405 -2 3 -8 -1 -15 -3 -42 -28 -12 -3 -5 -3 -8 2 -5 -13 -7 0
+930 1134 10 0 98 -2 14 -1
+734 886 -115 15
+467 928 1 0 1 0 106 -16
+693 1510 0 -49 -16 -31 -5 -14
+863 1134 2 71 -3 25 -2 3
+734 886 93 -14
+720 1371 -9 3 -24 1 -58 4 -1 0 0 -2
+433 1148 -20 1
+1470 1121 -27 0 -61 2
+486 1009 -17 -81
+1211 820 82 -12
+802 1367 -1 0 -33 2 -22 -3 -26 5
+978 1506 -10 -57 -3 -17
+862 1096 1 38
+865 871 52 -8 24 -3
+628 1379 -43 -18 -29 2
+603 1143 -74 2
+628 1379 0 21 3 3 38 12 3 1
+1002 851 -61 9
+828 1584 -7 -58
+693 1510 60 -1
+487 1146 -54 2
+1470 1121 54 -2
+753 1509 50 -1
+803 1376 47 -4
+932 1507 -8 -1 -17 0 -19 1
+888 1507 -41 1
+532 1532 -38 8
+838 1359 -7 4 -29 4
+568 647 0 1
+556 1408 3 -7 -2 -21
+600 903 -5 3 -20 6
+487 1146 26 0 2 0
+819 1505 10 4 18 -1
+899 1136 31 -2
+828 1584 2 20
+846 871 10 2 9 -2
+619 901 -19 2
+846 869 -19 3
+529 1145 -14 0
+517 1160 -2 -14
+830 1350 8 9
+896 1135 3 1
+1524 1119 0 2
+629 1379 -1 -2
+830 1604 0 2
+628 1379 0 -2
+513 1146 2 0
+515 1145 -1 0
+947 657 1 -15
+592 1791 61 -46
+653 1745 49 -37
+1161 828 3 4 42 14 105 32 9 33 19 32 0 44 27 28 16 108
+1089 1130 39 -177 28 -125
+1382 1123 4 34 -30 8 -141 38 -37 10 -52 6
+468 928 -1 -2
+1002 851 30 182 20 98
+607 1143 -3 -59 -2 -8 -3 -82 -3 -71
+1080 571 -18 62 -15 37
+861 1003 61 3 1 -32 -13 -88 8 0 -1 -23
+941 860 0 -82 -2 -56 5 -36 3 -29
+1533 611 -3 -23 6 -22 -6 -19 -11 -14 -4 -15 1 -19 5 -13
+656 1786 -3 -41
+734 886 -12 -83 -9 -53 -8 -49 -2 -11
+1260 1126 -7 -57 -13 -25 -22 -110
+1370 621 3 29 8 23 8 38 36 11 66 -12
+1280 648 1 14 3 33 -2 2 -70 123
+1047 670 -51 127 6 54
+1128 953 90 -19 102 -23
+365 1027 107 -16
+467 928 -76 11
+830 1604 1 0 3 0 71 -7 9 29 16 27
+1051 1424 36 -10 31 9 72 4 27 -4
+1443 1121 4 -11 -13 -144 6 -10
+1331 1239 9 75 13 91
+1143 830 -37 -160
+1291 488 -1 0 -9 23 -6 67 5 70
+1202 1338 -34 7 -101 21 -22 0 -2 0
+1487 615 46 -4 45 -4
+1311 878 45 15 27 6 18 0 5 57
+506 820 90 -6
+1498 754 -7 -44 -4 -32 0 -63
+964 1643 -17 -43 -18 -69
+929 1531 -5 -25
+1524 1119 3 0
+1340 1314 -40 5 -53 9 -45 10
+1184 659 -58 5 -20 6 -23 0 -36 0
+1063 1506 2 43 11 55
+931 1229 1 40 9 28 18 57 -2 2
+957 1356 -20 1 0 3
+959 1354 10 3 67 5 7 4
+832 679 -129 11
+1215 1203 12 50 20 75
+1202 1338 -15 -76 -9 -49
+722 803 -126 15
+705 701 -125 15
+801 1367 -4 -36 -2 -18 -3 -27 -6 -47
+713 750 123 -25
+1118 1423 3 17 5 4 81 -3 16 5
+548 1313 -93 12
+1353 1405 25 9
+841 789 -119 14
+1126 1219 5 9 2 13 11 32
+1366 1232 6 34 3 48 -35 0
+1318 1124 13 115
+1487 615 -18 -5 -38 8 -61 3
+1406 956 34 0 81 -4
+832 676 112 10
+608 1215 113 -2
+1293 808 0 -2 -7 -90 -4 -19
+1036 1288 66 -4 42 -11
+1066 779 3 -42 14 -67
+719 1140 1 43 1 30 0 26 -3 6 -2 1
+1030 1220 6 68 0 35
+1047 670 -15 -2 -38 -11 -17 0
+949 658 -2 -1
+786 1239 -8 -63 -5 -37
+841 789 100 -11
+1030 1220 -99 9
+1281 662 62 -33 27 -8
+501 1007 98 -13
+1280 648 -47 9 -49 2
+940 1134 0 58 -3 13 -6 9 0 15
+1126 1219 -11 0 -38 -1 -47 2
+733 943 23 -4 -4 -22 -12 0 -12 3 5 23
+875 1376 -17 19 -9 22 4 21 15 16 2 1
+1218 934 -13 -53 1 -35
+1109 1130 3 70 3 19
+1217 1423 6 23 17 21 -2 38
+704 1296 -21 2 -67 7
+697 1600 2 0 27 -13 53 24
+856 1271 37 26 17 1 31 -1
+792 1286 -88 10
+635 1494 -6 -31 2 -60
+1163 1128 15 85
+742 1072 5 37 22 0 18 -2 4 -7
+797 1331 -85 4
+727 1403 2 -6 3 -1 73 -8
+689 1076 -85 8
+1051 1424 12 82
+808 1412 -77 10
+704 1296 8 39 8 36
+1038 1132 2 38 -5 8 2 28
+703 690 -8 -46
+1144 1273 24 72
+977 1403 12 -6 13 -2 19 2 25 9 1 0 -1 0
+786 1239 74 -6
+791 1100 73 -9
+1293 808 18 70
+1083 839 -8 -60 -9 0
+931 1229 -66 3 -3 -2
+679 1007 10 69
+786 1239 -68 6
+1083 1200 -5 -70
+599 994 48 0 5 3 3 14
+698 1142 -9 -66
+1366 1232 -1 -2 -9 -65
+910 1298 19 47 8 12
+1217 1423 14 -3 3 -16 -21 -9 -3 -11
+1300 1319 -10 -64
+685 1336 -60 3
+1133 1241 -7 8 -19 12 -5 11 0 12
+669 1415 3 -3 29 -7 26 -2
+1291 488 24 -51
+716 1246 -13 12 1 38
+689 1076 53 -4
+731 1422 -54 8
+1366 1232 28 23 13 2
+779 1611 6 2 45 -7
+873 1426 8 -9 12 -8 24 -5
+980 1529 -51 2
+720 1183 44 -3 14 -4
+1290 488 -51 -2
+906 1475 18 -43
+1210 1384 -8 -46
+1043 1366 -7 -43
+937 1360 2 8 14 6 4 21
+1331 1239 -21 4 -20 12
+1037 1206 3 1 40 -6 3 -1
+1315 428 -3 9
+1008 1426 18 -3 25 1
+1187 1262 40 -9
+870 1455 26 23 7 -2 3 -1
+687 1375 -2 -39
+685 1336 -2 -38
+795 1313 35 -2
+1331 1239 34 -9
+1046 1406 -1 -40
+1112 1200 -32 1
+903 1476 4 30
+769 1109 4 30
+986 1418 14 -4 8 12
+873 1426 -4 11 -1 17
+712 1335 -27 1
+655 1011 24 -4
+740 917 -6 -30
+596 923 -1 -17
+924 1432 1 -6
+1035 1209 5 -2
+1037 1206 -2 3
+834 1604 -3 0
+1327 436 2 0
+968 1449 -1 0 1 0
+1293 806 0 2
+697 1600 2 0
+734 886 0 1
+1233 486 2 0
+1377 430 6 0
+698 1617 0 4
+1363 790 13 -3
+626 1510 -10 3
+856 1370 -6 2
+516 920 11 -1
+1434 1121 -10 1
+617 1374 -12 -5
+576 1144 -5 0
+974 855 -7 1
+904 1506 -13 1
+899 1136 7 0
+1128 955 0 -1
+393 939 -2 0
+884 1599 9 -1
+1092 1361 -2 1
+1343 889 4 1
+1038 1363 4 3
+1081 1286 5 -1
+983 657 -4 0
+1349 627 3 -1
+550 1000 5 0
+1091 1218 -2 0
+871 1282 5 3
+883 1231 -6 0
+1401 1256 6 1
+1042 1366 -4 -30
+1045 1384 0 -10
+1088 1201 -2 0
+756 935 48 -6
+753 921 48 -6
+811 1098 0 -32 2 -27
+694 961 29 -5
+816 1008 19 0
+769 1032 11 0 13 6 20 1
+683 1032 41 -6 1 1 0 14
+797 884 45 -6
+834 1088 1 -49
+806 944 42 -4
+808 958 41 -4
+845 893 -46 6
+705 996 -7 -3
+698 1000 7 -4
+705 996 43 -6
+632 936 1 24 5 27 0 5
+729 923 -53 7
+606 1014 3 0
+606 1016 3 -2
+609 1014 28 -1
+605 974 30 -3
+604 961 29 -1
+666 1078 0 53 -1 11
+671 902 5 28
+603 926 71 -10
+936 1283 38 -2 28 -3
+983 1112 -52 1
+891 1231 1 -12 2 -17 6 -44 2 -6 8 -16
+932 1134 -1 -21 0 -14 1 -2 3 -2
+935 1095 50 -4
+698 993 -4 -32 -5 -32
+864 1158 -18 1
+864 1168 -17 1
+848 1179 17 0
+679 1007 18 -5 1 -2 0 -7
+865 1189 -17 1
+864 1150 -19 1
+783 1217 29 -1
+783 1028 -2 -26 -2 -3 -2 -13 -1 0 -7 0
+783 1028 -3 4
+784 1034 -1 -6
+731 934 -40 7
+854 1017 4 65 -1 2
+606 911 -2 1 -2 2 3 79
+530 1218 19 -3 -6 -38
+542 1216 -7 -38
+532 1226 -38 5
+537 1253 -42 13
+548 1313 27 -4 6 -2 15 0
+559 1284 -16 1
+522 1179 35 -4 -3 -30
+981 1133 5 -54
+582 1331 2 6 2 2 1 3 -3 10
+538 1262 -41 12
+799 899 -45 6
+801 915 45 -5
+804 929 43 -4
+676 930 -72 10
+813 1039 3 -31 -5 -24
+809 973 41 -4
+737 1041 -2 -1 -51 5
+769 986 5 -9 35 -4
+835 1055 -23 0
+797 884 -47 7 -14 5
+811 984 -14 -100
+757 920 -3 -15 -1 -14
+860 983 -49 1
+724 924 -4 -29
+674 916 48 -7
+783 1217 -53 12 -9 1
+721 1209 17 2 11 -3 1 -1 -4 -25
+671 902 -65 9
+743 1072 0 -7 -2 -1 1 8
+791 1100 -5 -38 -1 0 5 38
+605 993 3 79 0 2 3 1
+611 1075 77 -6
+841 1137 1 2 4 41
+848 1179 -4 -40 1 -3
+848 1190 -1 -10
+779 1185 69 -6
+727 1403 4 19
+769 986 -12 3
+813 1039 22 0 1 -55
+857 1084 -27 4 -14 2 -5 -1
+780 857 3 22
+780 932 1 14 25 -2
+775 966 0 -4 33 -4
+727 1403 39 -4
+766 1399 -1 -8
+766 1399 32 -2
+898 1015 -2 0 0 -3 -2 0
+898 1017 0 -2
+898 1015 1 -9
+894 1016 1 -11
+952 1327 59 -18
+925 1333 25 -9
+941 1297 27 0 36 -4 -3 -21
+974 1248 -4 1 -1 -4 -7 1 2 18 36 0 1 8
+1001 1272 33 -3
+938 1367 0 8 -30 -2 0 3 7 3
+990 1150 1 -1 0 -16
+904 1148 37 1
+902 1298 -1 -4 -3 0 -3 -2 1 -14 3 -37 6 -8 1 -2
+1014 1144 24 -1
+941 1176 -44 1
+941 1149 49 1
+812 1216 3 20
+843 1234 -3 -18 -28 0
+866 1087 35 -3 1 24
+986 1079 26 -2 28 -3
+523 1185 -27 2 -15 4
+496 1187 1 8 3 9 3 3 2 4 12 11 3 6
+856 929 15 -2 43 -7
+857 936 13 0
+882 936 34 -5
+960 1044 10 -1
+970 1043 5 1
+985 1065 -16 1 -2 -1 1 -12 2 -10
+914 922 41 -5
+941 951 -3 -32
+867 919 16 -2 3 19
+780 1368 1 -18 -1 -18
+672 974 3 11 -3 0
+537 1003 8 70
+492 1033 48 -6
+699 890 -2 -32 3 -1 0 -2 4 0
+776 1063 -2 -18 -3 -5
+637 1080 0 12
+496 1055 47 -5
+983 1191 -43 1
+748 1243 -7 -33
+741 1244 -4 -17
+737 1227 -1 -5 2 -11
+736 896 -1 -6
+1010 1056 -25 4
+1010 1056 2 21
+1036 1054 -26 2
+1032 1033 -46 9
+981 1000 2 0
+981 1000 -1 7 -18 -1 0 -8 2 -8 21 3 -1 6
+984 999 -3 0 0 1
+984 999 -1 1
+983 1000 1 0
+984 1000 0 -1
+1027 1001 -29 1 -14 -2
+907 974 -11 -1 -3 -17
+923 974 -16 0 -1 -27 -3 -25
+771 863 2 17
+981 1280 -1 -16
+987 1246 -3 -16 -3 -5
+982 1264 0 -3 3 -2 1 -4 1 -8
+1044 1090 29 -5
+1077 1151 -38 0
+916 933 29 -2
+1035 1184 33 -2
+955 1338 16 -4
+971 1334 0 3
+971 1334 8 -2
+984 1318 -1 -6 -3 -3 0 -3 8 -1 2 2 2 8
+1014 1205 1 -27 -1 -34
+983 1150 0 57
+1014 1144 -23 0
+736 896 -13 -2 -52 8
+818 1505 -16 -127 1 -2
+744 1334 0 7
+758 1333 5 35
+718 1334 -2 -28
+792 1291 42 -2
+779 1287 2 23
+609 1236 23 -1
+643 1215 1 24 1 3 2 5
+609 1241 16 0 0 1 2 1 3 0 1 3
+612 1272 17 0
+638 1143 -2 25
+864 1156 24 0
+865 1174 27 1
+894 1175 3 1
+940 1192 -14 -2 -8 2
+510 1120 25 -1
+703 1100 5 41
+665 1122 30 -1
+613 1102 0 28 53 1
+662 1143 1 19 -4 0 0 8
+505 1099 32 -3
+693 1103 6 -1 0 -1 22 -2
+699 1075 4 25
+865 1057 16 -1 11 0 25 2 4 -3 25 0 15 -1
+824 1431 -1 -3 7 -38 -1 -17
+912 1057 0 -22 2 -28
+882 870 2 16 3 5 1 10
+535 1241 20 -4 12 -3
+721 1223 -15 0
+813 995 23 1
+747 1209 7 34
+1006 1234 -2 -11
+610 1244 -23 3
+557 1175 10 -1 -1 -8 -1 -9 -10 0
+540 1269 -21 6
+487 1122 21 -1
+537 1253 14 -5 10 -4 3 6 -10 4
+517 1160 -21 3
+588 1144 2 12 2 0 3 16 10 -1
+525 1196 -11 2 -16 0
+545 1073 -44 4
+986 1042 0 -21
+869 896 12 -1 1 7 6 -1
+920 954 21 -3
+923 995 31 2
+858 962 5 0 1 2 11 0 1 -5 9 -1
+648 1269 0 11 -2 20
+855 1040 -20 -1
+741 1064 -4 -23
+851 983 3 34
+842 878 2 2 7 103
+721 1140 1 -40
+829 1216 -2 -15
+829 1216 3 19
+809 1195 3 21
+865 1068 15 1
+863 1109 19 0 2 0 2 2
+892 1110 -2 -12
+857 1397 21 17 3 1 -2 -3 -21 -17
+923 982 18 -1 -1 -7
+595 976 -6 0 -1 -1 0 -5 -1 0 -18 0 -9 2
+1037 1201 -23 4 -80 4
+1055 1198 -18 3
+1002 1144 0 -11
+532 1226 36 -4 10 2 2 -8 -1 -3 -4 -6
+630 1183 0 7 -2 1 1 14 -2 0 0 2 -1 0 0 8
+637 1204 1 11
+706 1223 0 -9
+793 1183 1 14
+841 1281 -4 -2 -44 2
+619 1292 1 -20
+659 1377 -12 -5 -7 -6 -5 -6 -2 -6 -6 -15
+578 1323 -21 2
+997 1086 0 25
+997 1111 51 0
+997 1111 0 22
+986 1021 7 0 1 -10 23 0
+669 1289 1 11
+862 1127 -50 4
+858 1365 1 -1 8 -3 9 -6 20 -6 32 -6
+677 1142 1 34 1 4
+683 1206 0 8
+545 1118 2 12 2 0 1 15
+541 1145 -1 -14 -3 -1 -2 -11
+510 1216 10 -5 8 -2
+941 1163 14 0
+964 1233 -1 -6
+790 1331 1 9
+822 1216 1 5
+956 1246 -1 -19
+656 1247 0 -32
+648 1269 -17 0 -2 3
+656 1247 12 0
+558 1335 19 -2 5 -2
+909 1298 0 -6
+1040 1160 12 -1 -1 7 3 0 0 5
+733 1341 2 26
+983 1174 -8 1
+949 986 -4 0
+602 1223 0 -1 -4 -1 0 -5
+683 1030 -22 1
+661 1031 -1 -16 3 -1 0 -4
+605 1173 3 0
+1041 1141 16 0
+594 1113 2 31
+865 1214 4 0 -1 2
+859 1253 5 0
+843 1241 0 -6
+729 1182 1 5
+730 1187 1 9 -1 0 1 14
+730 1187 5 0 0 3
+986 1021 -9 -1
+724 953 3 3 6 -2 4 16
+650 1392 -298 17 -48 0 -783 -141 -292 -6 -73 -19 -415 -134 -323 -26 -35 -7 -25 -10 -37 -24 -25 -26 -49 -85 -24 -31 -39 -27 -61 -29 -18 -17 -10 -18 -4 -12 0 -76 -7 -19 -15 -19 -16 -11 -21 -7 -60 -2 -17 -4 -22 -12 -17 -17 -9 -22 -59 -259 -8 -21 -10 -16 -44 -50 -6 -17 -10 -53 -15 -29 -20 -19 -71 -48 -12 -13 -8 -15 -5 -32 4 -19 10 -19 28 -36 7 -18 2 -21 -6 -24 -12 -18 -19 -15 -14 -6 -52 -12 -25 -1 -19 5 -100 36 -34 2 -32 -9 -87 -47 -18 -4 -25 1 -25 8 -140 85 -32 15 -39 8 -73 0 -23 2 -34 11 -73 40 -40 9 -32 -1 -80 -22 -1249 -400 -32 -5 -28 1 -37 10 -74 37 -43 16 -667 142 -49 13 -37 20 -244 175 -129 53 -22 12 -21 16 -18 18 -20 29 -120 205 -14 31 -9 35 -78 410 -17 46 -28 38 -391 412 -1392 1298 -28 17 -38 12 -163 13
+650 1392 122 -10
+-8396 2647 104 -7
+1047 1369 328 27
+652 1391 41 -7 144 -15 61 -10 36 1
+786 1380 -16 4 -74 5 -3 -5
+934 1360 113 9
+724 1379 65 -5
+824 1370 13 0
+705 1382 17 -4 41 -4
+1058 1371 -137 -11
+1342 584 16 -31 27 -26 6 -7 1 -5 -4 8 -32 27 -18 29 3 9 5 2 -4 -6
+1208 713 4 1 2 -6 -3 -7 4 -9 -4 -12 3 -4 -3 -12 -4 15 6 8 -2 6 -4 1 1 4 -5 -1 4 7 -5 17 6 -8
+1416 1101 3 -3 -9 -22 1 -31 -8 -29 -3 7 4 37 -4 18 16 23
+779 1756 -4 -2 5 -28 -9 -43 -7 -1 -4 -16 -13 -18 -5 0 -19 -24 -12 -8 -21 3 -2 -16 -7 -20 -12 -1 -6 -17
+521 919 1 9 -7 32 8 11 29 26 5 28 6 13 22 8 -8 8 -16 3 -4 4 -2 11 4 7 10 5 -8 33 27 65 -1 6 -13 16 6 7 7 44 -7 11 0 5 8 10 -3 11 10 13 -9 20 12 16 18 8 3 16 -4 7 -11 5 -22 1 2 27
+879 1663 3 -16 8 -1 15 -25 -2 -7 -17 -21 -7 -41 3 -4 23 -10 3 -4 -12 -23 -1 -27 -32 -27 -25 -31 17 -51 -7 -37 1 -16 6 -17 11 -9 15 -27 2 -25 -9 -27 22 -49 15 -66 14 -21 30 -9 8 -8 -4 -66 13 -25 0 -38 13 -30 -13 -40 -4 -31 2 -35 5 -10 20 -13 5 -15 -2 -32 -17 -41 2 -45 11 -13 4 -10 -4 -21 2 -16 -8 -11 -3 -26
+1420 1397 7 -21 0 -8 -5 -7 -23 -12 -2 -4 6 -14 -9 -13 4 -24
+1451 1150 -7 -17 -11 -2 -5 -5 2 -16 -15 -29 1 -40 -12 -35 -27 -22 -11 -14
+1366 969 4 -28 -1 -11 -23 -34 -4 -26 -21 -7 -3 -11 5 -10 32 -11 3 -7 -2 -19 14 -12 -4 -18 -15 -12 14 -16 3 -14 1 -32 -20 -29 -2 -10 0 -25 7 -33 -13 -18 0 -8 4 -4
+1347 571 21 -31 19 -15
+1394 498 -14 0 -4 -11 3 -23 -3 -26 7 -8
+531 1796 15 -54
+528 1722 0 -9 10 -19 9 -7 5 -1 15 14 6 -3 4 -26 -16 -20 -3 -15 3 -8 6 -6 31 4 4 26 11 4 17 -17 -5 -29 3 -13 -31 -32 1 -5 22 -3 10 -7 1 -16 -8 -7 -10 -33 -33 -35 4 -54
+776 1063 -2 -16 -4 -8 0 -7 2 -1 -1 -8 12 -2 -2 -17 -3 -5 -1 -12 -18 2 -4 -23 -18 4 -3 -16 -17 3 5 30 18 -2 0 2 3 0 1 5 -18 1 5 38 18 -3 2 12 -12 1 0 1 2 19 9 -1 1 5 25 -2
+363 1025 16 12 25 58 0 9 3 7 6 7 2 7 -2 2 -1 17 11 42 -7 6 2 14 -6 2 8 23 6 13 5 2 -3 17 27 4 14 0 0 15 -31 -6 -2 9 -10 -2 -2 7 4 9 24 0 3 29 6 22 7 20 4 5 22 168 5 18 1 19 -5 76 5 24 0 21 3 13 0 16 -3 22 1 20 5 -1 8 -23 3 -14 4 -7 7 -6 16 1 3 8 0 10 -8 18 -8 36 -1 10 3 9 0 7 -11 12 0 4 6 -2 24 -14 40 -29 6 10 24 -9 50 -9 19 -1 -1 11 40 2 4 -4 6 0 6 1 7 5 29 -1 6 -6 3 -4 -2 -5 -15 -11 -1 -5 2 -6 5 -3 13 -2 4 2 1 7 12 -2 -1 -27 7 -1 15 -1 2 6 2 27 4 15 16 -4 5 -13 0 -32 2 -12 0 -8 3 -22 -1 -12 11 -8 4 -6 37 -5 15 -6 1 3 3 0 25 -12 21 -2 14 0 10 1 33 -1 4 -4 7 -2 8 -4 9 -10 11 -19 8 -7 72 -7 71 -13 27 -10 24 -14 9 -45 14 0 0 -4 11 0 13 -36 7 -28 45 -15 0 -10 -3 -19 48 5 5 -32 -4 -9 -24 -15 0 -3 6 -8 -7 -12 -3 -3 -1 -6 3 -9 -1 -23 9 -16 4 -18 13 -29 9 -13 5 -15 6 -11 5 -4 3 -11 0 -21 -3 -9 -8 -3 -5 0 0 -6 83 -3 9 1 -3 -89 0 -76 -5 -136 -3 -16 -16 -48 26 -4 18 -4 13 -1 1 -31 16 1 -2 -27 4 -25 -16 1 -2 -7 20 -3 1 -5 -2 -76 4 -17 12 -1 15 -7 1 -10 3 -7 -3 -8 1 -11 4 -8 -5 -30 -15 4 -38 6 -35 0 -3 1 -4 12 -14 -3 -8 16 2 13 -3 1 -9 -26 -9 -4 -12 0 -6 2 5 30 -4 3 1 40 7 17 3 3 -2 20 -28 4 -65 4 -20 5 4 -12 0 -9 -5 -13 -5 -5 -3 -5 3 -7 12 -20 27 -26 8 -11 4 -7 2 -9 -19 -8 0 -49 3 -11 -1 -5 -5 -3 -75 5 -12 -1 -5 -20 -9 -45 -36 0 -1 16 4 34 0 8 -3 9 -4 3 -6 0 -10 -4 -3 6 1 6 6 1 5 4 2 4 3 34 -33 1 -1 7 3 22 -3 8 -8 14 -22 2 -3 15 -1 22 1 8 -26 2 -38 -1 -3 2 -5 6 -19 1 6 -22 -12 -2 -7 -3 -6 -10 -25 -8 -19 -3 -3 1 -4 7 -1 14 -5 15 -5 -8 -3 -8 -2 -18 -10 -3 5 25 5 8 3 11 -2 8 2 16 0 16 -12 10 -4 6 2 29 -22 4 -5 -5 -4 -7 2 -23 -18 -12 -1 -28 -12 3 -5 3 -1 23 -17 14 -27 11 -5 9 -7 -12 -7 -18 0 -11 -8 -1 -8 -3 -7 0 -1 -23 -25 3 4 32 -15 1 -5 -1 -67 5 -10 0 -12 1 -1 6 -48 -2 -25 0 -52 3 -60 8 -3 8 0 9 5 16 5 2 7 -1 4 2 2 4 -8 11 -24 21 -3 12 0 12 6 39 -1 21 5 9 14 5 10 15 -1 9 -5 3 -3 18 -14 1 -5 5 1 6 3 7 12 18 4 13 -129 19 -2 2 1 6 3 8 -1 8 -10 11 -1 23 -3 11 -10 6 -4 2 -2 4 0 6
+@streets line
+name,ref,class,arcs
+Jalan Ahmad Yani,21,trunk,0;1
+Jalan Magelang,26,primary,2
+Jalan Affandi,,primary,3
+Jalan Magelang,,primary,4
+Jalan Laksda Adisucipto,,primary,5;6
+Jalan Parangtritis,,primary,7
+Jalan Gedong Kuning,,primary,8
+Jalan Kusumanegara,,primary,9
+Jalan P. Mangkubumi,,primary,10
+Jalan Bantul,,primary,11
+Jalan Letnan Jenderal Suprapto,,primary,12
+Jalan Haji Oemar Said Cokroaminoto,,primary,13
+Jalan Panembahan Senopati,,primary,14
+Jalan Panembahan Senopati,,primary,15
+Jalan Menteri Supeno,,primary,16
+Jalan Brigadir Jenderal Katamso,,primary,17
+Jalan Ngeksigondo,,primary,18
+Jalan Urip Sumoharjo,,primary,19
+Jalan Kyai Haji Ahmad Dahlan,,primary,20
+Jalan Kyai Mojo,,primary,21
+Jalan Yos Sudarso,,primary,22
+Jalan Wonosari,,primary,23
+Jalan Kapten Pierre Tendean,,primary,24
+Jalan Cik di Tiro,,primary,25
+Jalan Haji Oemar Said Cokroaminoto,,primary,26
+Jalan Jenderal Sudirman,,primary,27
+Jalan Margo Utomo,,primary,28
+Jalan Mataram,,primary,29
+Jalan Abu Bakar Ali,,primary,30
+Jalan Sultan Agung,,primary,31
+Jalan M. T. Haryono,,primary,32
+Jalan Sugeng Jeroni,,primary,33
+Jalan Tentara Pelajar,,primary,34
+Jalan Mayor Suryotomo,,primary,35
+Jalan Mayor Jenderal Sutoyo,,primary,36
+Jalan Jlagran Lor,,primary,37
+Jalan Wates,,primary,38
+Jalan Kusumanegara,,primary,39
+Jalan Bugisan,,primary,40
+Jalan Perintis Kemerdekaan,,primary,41
+Jalan Pasar Kembang,,primary,42
+Jalan Suroto,,primary,43
+Jalan Brigadir Jenderal Katamso,,primary,44
+Jalan Kolonel Sugiono,,primary,45
+Jalan Pembela Tanah Air,,primary,46
+Jalan R.E. Martadinata,,primary,47
+Jalan Tentara Rakyat Mataram,,primary,48
+Jalan Kolonel Sugiono,,primary,49
+Jalan Pangeran Mangkubumi,,primary,50
+Jalan Diponegoro,,primary,51
+Jalan R.E. Martadinata,,primary,52
+Jalan Kusumanegara,,primary,53
+Jalan Diponegoro,,primary,54
+Jalan Kleringan,,primary,55
+Jalan Jenderal Sudirman,,primary,56
+Jalan Jenderal Sudirman,,primary,57
+Jalan Kyai Mojo,,primary,58
+Jalan Abu Bakar Ali,,primary,59
+Jalan Bantul,099,primary,60
+Jalan Haji Oemar Said Cokroaminoto,,primary,61
+Jalan Sugeng Jeroni,,primary,62
+Jalan R.E. Martadinata,,primary,63
+Jalan Jenderal Sudirman,,primary,64
+Jalan Sultan Agung,,primary,65
+Jalan Pangeran Mangkubumi,,primary,66
+Jalan Kolonel Sugiono,,primary,67
+Jalan M. T. Haryono,,primary,68
+Jalan Mayor Jenderal Sutoyo,,primary,69
+Jalan R.E. Martadinata,,primary,70
+Jalan Haji Oemar Said Cokroaminoto,,primary,71
+Jalan Mataram,,primary,72
+Jalan Panembahan Senopati,,primary,73
+Jalan Janti,,primary,74
+Jalan Letnan Jenderal Suprapto,,primary,75
+Jalan AM Sangaji,,primary,76
+Jalan Letnan Jenderal Suprapto,,primary,77
+Jalan Re. Martadinata,,primary,78
+Jalan Re. Martadinata,,primary,79
+Jalan Imogiri Barat,,secondary,80
+Jalan Jambon,,secondary,81;82
+Jalan Veteran,,secondary,83
+Jalan Batikan,,secondary,84
+Jalan Kenari,,secondary,85
+Jalan Bugisan Selatan,,secondary,86
+Jalan Taman Siswa,,secondary,87
+Jalan K. Haji Wakhid Hasyim,,secondary,88
+Jalan Wirosaban,,secondary,89
+Jalan Ireda,,secondary,90
+Jalan Sisingamangaraja,,secondary,91
+Jalan Purbayan,,secondary,92
+Jalan Kragilan,,secondary,93
+Jalan Mayor Jenderal Donald Isaac Panjaitan,,secondary,94
+Jalan Glagahsari,,secondary,95
+Jalan Nyi Pembayun,,secondary,96
+Jalan Pramuka,,secondary,97
+Jalan Lowanu,,secondary,98
+Jalan Babaran,,secondary,99
+Jalan Patangpuluhan,,secondary,100
+Jalan Madumurti,,secondary,101
+Jalan Profesor Dokter Sardjito,,secondary,102
+Jalan Kusbini,,secondary,103
+Jalan Kebun Raya,,secondary,104
+Jalan Ipda Tut Harsono,,secondary,105
+Jalan Nitikan,,secondary,106
+Jalan Imogiri Timur,,secondary,107
+Jalan Kompol Bambang Suprapto,,secondary,108
+Jalan Karanglo,,secondary,109
+Jalan Ki Penjawi,,secondary,110
+Jalan Prapanca,,secondary,111
+Jalan Kemasan,,secondary,112
+Jalan Cornelis Simanjuntak,,secondary,113;114
+Jalan Wonocatur,,secondary,115
+Jalan Melati Wetan,,secondary,116
+Jalan Sorogenen,,secondary,117
+Jalan Profesor Doktor Herman Johannes,,secondary,118
+Jalan Hayam Wuruk,,secondary,119
+Jalan Lempuyangan,,secondary,120
+Jalan Lempuyangan,,secondary,121
+Jalan Jogokaryan,,secondary,122
+Jalan Cantel Baru,,secondary,123
+Jalan Gondosuli,,secondary,124
+Jalan Suryodiningratan,,secondary,125
+Jalan Minggiran,,secondary,126
+Jalan Malioboro,,secondary,127
+Jalan Mangkuyudan,,secondary,128
+Jalan Langensari,,secondary,129
+Jalan Wiratama,,secondary,130
+Jalan Professor Mukti Ali,,secondary,131
+Jalan Tirtodipuran,,secondary,132
+Jalan M. Djami'at Dhalar,,secondary,133
+Jalan Ganesha,,secondary,134
+Jalan Timoho,,secondary,135
+Jalan Mondorakan,,secondary,136
+Jalan Rejowinangun,,secondary,137
+Jalan Menukan,,secondary,138
+Jalan Aipda Karel Satsuit Tubun,,secondary,139
+Jalan Gambiran,,secondary,140
+Jalan Tunjung,,secondary,141
+Jalan Pakel,,secondary,142
+Jalan Bhayangkara,,secondary,143
+Jalan Dokter Sutomo,,secondary,144
+Jalan Tritunggal,,secondary,145;146
+Jalan Margo Mulyo,,secondary,147
+Jalan Prawirotaman,,secondary,148
+Jalan Mayor Jenderal Bambang Sugeng,,secondary,149
+Jalan Tegal Gendu,,secondary,150
+Jalan Letnan Jenderal Parman,,secondary,151
+Jalan Tegal Turi,,secondary,152
+Jalan Gajah Mada,,secondary,153
+Jalan Bung Tarjo,,secondary,154
+,,secondary,155
+Jalan Ahmad Jajuli,,secondary,156
+Jalan Pandeyan,,secondary,157
+Jalan Sukonandi,,secondary,158
+Jalan Munggur,,secondary,159
+Jalan Kemetiran Kidul,,secondary,160
+Jalan RW. Monginsidi,,secondary,161
+Jalan Mas Suharto,,secondary,162
+Jalan Dagen,,secondary,163
+Jalan Tentara Rakyat Mataram,,secondary,164
+Jalan Cendana,,secondary,165
+Jalan Alun Alun Utara,,secondary,166
+Jalan Sosrowijayan,,secondary,167
+Jalan Wongsodirjan,,secondary,168
+Jalan Haji Agus Salim,,secondary,169
+Jalan Dokter Wahidin,,secondary,170
+Jalan Gowongan Kidul,,secondary,171
+Jalan Gandekan Lor,,secondary,172
+Jalan Suryopranoto,,secondary,173
+Jalan Kyai Haji Ali Maksum,,secondary,174
+Jalan Mawar,,secondary,175
+Jalan Atmosukarto,,secondary,176
+Jalan Suryatmajan,,secondary,177
+Jalan Ibu Ruswo,,secondary,178
+Jalan Gambiran,,secondary,179
+Jalan Pakel Baru,,secondary,180
+Jalan Juminahan,,secondary,181
+Jalan Ngasem,,secondary,182
+Jalan Pajeksan,,secondary,183
+Jalan Ki Mangunsarkoro,,secondary,184
+Jalan Kadipaten Kidul,,secondary,185
+Jalan Nyai Ahmad Dahlan,,secondary,186
+Jalan Balirejo,,secondary,187
+Jalan Tukangan,,secondary,188
+,,secondary,189
+Jalan Widosari,,secondary,190
+Jalan Pringgokusuman,,secondary,191
+Jalan Soka,,secondary,192
+Jalan Suryonegaran,,secondary,193
+Jalan Imogiri Timur,,secondary,194
+Jalan Jogonegaran,,secondary,195
+Jalan Kauman,,secondary,196
+Jalan Bumijo Tengah,,secondary,197
+Jalan Balirejo,,secondary,198
+Jalan RW. Monginsidi,,secondary,199
+Jalan Nyoman Oka,,secondary,200
+Jalan Kahar Muzakir,,secondary,201
+Jalan Reksobayan,,secondary,202
+Jalan Singoranu Timur,,secondary,203
+Jalan Faridan Muridan Noto,,secondary,204
+Jalan Mojo,,secondary,205
+Jalan Dokter Sutomo,,secondary,206
+Jalan Emplasemen Lempuyangan,,secondary,207
+Jalan Timoho II,,secondary,208
+Jalan Ki Mangunsarkoro,,secondary,209
+Jalan Imogiri Timur,002,secondary,210
+Jalan Trimo,,secondary,211
+Jalan Timoho,,secondary,212
+Jalan Nyoman Oka,,secondary,213
+Jalan Jlagran,,secondary,214
+Jalan Kemetiran,,secondary,215
+Jalan Perwakilan,,secondary,216
+Jalan Balirejo,,secondary,217
+Jalan Dokter Wahidin Sudiro Husodo,,secondary,218
+Jalan Sukonandi I,,secondary,219
+Jalan Faridan Muridan Noto,,secondary,220
+Jalan Pangurakan,,secondary,221
+Jalan Wardani,,secondary,222
+Jalan Nyoman Oka,,secondary,223
+Jalan Kemetiran Lor,,secondary,224
+Jalan Polowijan,,secondary,225
+Jalan Gading,,secondary,226
+Jalan K. Haji Wakhid Hasyim,,secondary,227
+,,secondary,228
+Jalan Letnan Kolonel Subadri,,secondary,229
+Jalan Letnan Kolonel Subadri,,secondary,230
+Jalan Profesor Dokter Sardjito,,secondary,231
+Ring Road Selatan,,secondary,232
+,,secondary,233
+Jalan Veteran,,secondary,234
+,,secondary,235
+,,secondary,236
+@bridges line
+class,arcs
+trunk,237
+trunk,238
+primary,239
+primary,240
+primary,241
+primary,242
+primary,243
+primary,244
+primary,245
+primary,246
+primary,247
+primary,248
+primary,249
+secondary,250
+secondary,251
+secondary,252
+secondary,253
+secondary,254
+secondary,255
+secondary,256
+secondary,257
+secondary,258
+secondary,259
+secondary,260
+secondary,261
+secondary,262
+secondary,263
+secondary,264
+secondary,265
+secondary,266
+@lanes line
+name,arcs
+Jalan Langenastran Lor,267
+Jalan Langenastran Kidul,268
+Jalan Wijilan,269
+Jalan Abdul Hadi,270
+Jalan Pakaryan,271
+Jalan Kemitbumen,272
+Jalan Sidomukti,273
+Jalan Siliran Kidul,274
+Jalan Mangunegaran Kulon,275
+Jalan Gamelan Kidul,276
+Jalan Gamelan Lor,277
+Jalan Siliran Lor,278
+Jalan Magangan Kulon,279
+Jalan Magangan Kulon,280
+Jalan Magangan Kulon,281
+Jalan Nogosari,282
+Jalan Patehan Lor,283
+Jalan Basahan,284
+Jalan Basahan,285
+Jalan Basahan,286
+Jalan Nogosari Lor,287
+Jalan Nogosari Kidul,288
+Jalan Taqwa,289
+Jalan Patehan Kulon,290
+Jalan Nagan Tengah,291
+Jalan Danurejan,292
+Jalan Kapten Laut Samadikun,293
+Jalan Jagalan,294
+Jalan Bintaran Kulon,295
+Jalan Bintaran Kidul,296
+Jalan Taman,297
+Jalan Tilarso,298
+Jalan Mojar,299
+Jalan Sandiloto,300
+Jalan Polowijan,301
+Jalan Remujung,302
+Jalan Limaran,303
+Jalan Ketandan Kulon,304
+Jalan Kasatrian,305
+Jalan Kasatrian,306
+Jalan Kasatrian,307
+Jalan Ngadisuryan,308
+Jalan Manggunegaran Wetan,309
+Jalan Nagan Kulon,310
+Jalan Lembu Andini,311
+Jalan Maheso Danu,312
+Jalan Masjid Kuncen,313
+Jalan Pakuncen,314
+Jalan Saudagaran,315
+Jalan Sudagaran RT 42,316
+Jalan Profesor Dokter Ki Amri Yahya,317
+Jalan Bintaran Wetan,318
+Jalan Lebuh Andini,319
+Jalan Tegalmulyo II,320
+Jalan Langenarjan Lor,321
+Jalan Namburan Kidul,322
+Jalan Namburan Lor,323
+Jalan Nagan Lor,324
+Jalan Panembahan Mangkurat,325
+Jalan Mantrigawen Kidul,326
+Jalan Suryoputran,327
+Jalan Suryoputran,328
+Jalan Sawojajar,329
+Jalan Langenarjan Kidul,330
+Jalan Gamelan,331
+Jalan Langenarjan,332
+Jalan Mantrigawen Lor,333
+Jalan Patehan Wetan,334
+Jalan Patehan Tengah,335
+Jalan Beskalan,336
+Jalan Gadean,337
+Jalan Nagan Kidul,338
+Jalan Alun Alun Utara,339
+Jalan Alun Alun Utara,340
+Jalan Kadipaten Kulon,341
+Jalan Kadipaten Lor,342
+Jalan Sriwedani,343
+Jalan Sriwedani,344
+Jalan Sriwedani,345
+Jalan Pabringan,346
+Jalan Bumijo,347
+Jalan Magangan Wetan,348
+Jalan Panembahan,349
+Jalan Kenekan,350
+Gang Cempaka,351
+Jalan Langensuryo,352
+Jalan Pesindenan,353
+Kampung Sitisewu,354
+Kampung Sitisewu,355
+Kampung Sitisewu,356
+Gang RT 36,357
+Gang RT 36,358
+Gang RT 36,359
+Arjo Path I,360
+Jalan Lempuyangan Tengah,361
+Jalan Tegal Kemuning,362
+Jalan Ronodigdayan,363
+Jalan Ronodigdayan,364
+Jalan Ronodigdayan,365
+Gang Widuri,366
+Kampung Kauman Pakualaman,367
+Jalan Beji,368
+Jalan Tegal Panggung,369
+Jalan Jayaningprangan,370
+Jalan Jayeng Prawiran,371
+Jalan Masjid,372
+Jalan Ketandan Lor,373
+Jalan Ketandan Wetan,374
+Jalan Lobaningratan,375
+Jalan Surokarsan,376
+Jalan Menjangan,377
+Gang Wajar,378
+Jalan Dipokusuman,379
+Jalan Dipokusuman,380
+Jalan Dipokusuman,381
+Gang Nangka,382
+Gang Nangka,383
+Gang Nangka,384
+Gang Tujuh Belas,385
+Gang Masjid,386
+Gang Parangkusumo,387
+Gang 1 Sosrowijayan Wetan,388
+Terowongan Tamansari - Sumur Gemuling,389
+Jalan Kresno,390
+Jalan Pandu,391
+Jalan Kumendaman,392
+Jalan Musikanan,393
+Jalan Ndalem,394
+Jalan Punta Dewa,395
+Jalan Pujowinatan,396
+Jalan Nitidipuran,397
+Jalan Sastrodipuran,398
+Jalan Sastrodipuran Kidul,399
+Jalan Gading,400
+Jalan Basuki,401
+Jalan Basuki,402
+Jalan Basuki,403
+Gang Suparman,404
+Jalan Manuk Beri,405
+Jalan Manuk Beri,406
+Jalan Manuk Beri,407
+Jalan Manuk Beri,408
+Jalan Manuk Beri,409
+Jalan Manuk Beri,410
+Jalan Manuk Beri,411
+Jalan Bandes,412
+Jalan Balai,413
+Gang Menur,414
+Gang Sido Mulyo,415
+Gang Sido Mulyo,416
+Gang Sido Mulyo,417
+Gang Prono Citro,418
+Jalan Notowinatan,419
+Gang Kates,420
+Gang Kates,421
+Jalan Tegal Lempuyangan,422
+Jalan Tegal Lempuyangan,423
+Jalan Tegal Lempuyangan,424
+Kaliurang,425
+Jalan Harjono,426
+Jalan Harjowinatan,427
+Jalan Suandanan,428
+Jalan Patehan Kidul,429
+Jalan Margo Utomo,430
+Gang Tirto Sumarman,431
+Gang II Sosrowijayan Wetan,432
+Gang Kebon,433
+Gang Sosrokusuman,434
+Gang Sosromenduran,435
+Gang Muzakir,436
+Kampung Sanggrahan,437
+Gang Paiman,438
+Jalan Notoyudan,439
+Jalan Purwodingratan,440
+Gang Ratmakan Kelurahan Ngupasan,441
+Gang Ratmakan,442
+Gang Ratmakan,443
+Gang Asmorodono,444
+Jalan Abimanyu,445
+Gang Ps Ramadhan,446
+Gang Haji Abdul Aziz,447
+Gang Darussalam,448
+Gang Seroja,449
+Jalan Antareja,450
+Gang Monumen Syuhada,451
+Gang HM Sarbini,452
+Gang Pancasila,453
+Gang Garuda,454
+Gang Garuda,455
+Jalan Sidoluhur,456
+Jalan Kuncen Tegalsari,457
+Gang Daliyo,458
+Jalan Damai,459
+Jalan Cokrodipuran,460
+Jalan Teratai,461
+Gang Mulkemis,462
+Jalan Gampingan,463
+Jalan Permadi,464
+Jalan Ontoseno,465
+Jalan Ngadimulyo,466
+Jalan Singosaren,467
+Jalan Ngampilan,468
+Jalan Wajar,469
+Jalan Werkudara,470
+Gang Kuncara,471
+Gang Ceplokkeci I,472
+Gang Kemundung,473
+Gang Kenari,474
+Gang Soedirman,475
+Jalan Soponyono,476
+Jalan Manggunegara Kidul,477
+Jalan Rotowijayan,478
+Jalan Suryomentaraman Wetan,479
+Jalan Madyosuro,480
+Gang KH Zamhari,481
+Gang Abu Tohir,482
+Gang M Said,483
+Jalan Ketandan,484
+Gang Merdeka,485
+Gang Saidan,486
+Gang Saidan,487
+Jalan Merbabu,488
+Gang Ketimun,489
+Jalan Sanyoto,490
+Jalan Purwanggan,491
+Gang Apokat,492
+Jalan Sewandanan 2,493
+Gang Tegalsari,494
+Kampung Purwodiningratan,495
+Kampung Purwodiningratan,496
+Gang Slamet,497
+Gang Beringharjo,498
+Sosrokusuman,499
+Gang RB Nirbito,500
+Gang Manunggal,501
+Jalan Kos Sudagaran,502
+Jalan Margoyasan,503
+Jalan Margoyasan,504
+Jalan Margoyasan,505
+Jalan Wirogunan,506
+Kampoeng Sutodirjan,507
+Jalan Secodiningratan,508
+Jalan Hansip Karnowaluyo,509
+Jalan Kampung Ngadiwinatan,510
+Jalan Ngadiwinatan,511
+Gang Srikandi,512
+Gang Seta,513
+Gang Wajar 2,514
+Gang Sumantri,515
+Jalan Bausasran DN. III,516
+Sosrowijayan Wetan,517
+Gang Candra,518
+Jalan Bausasran,519
+Jalan Dipoyudan,520
+Jalan Kampung Notoyudan,521
+Jalan Pasar Senin,522
+Gang Agung Mas,523
+Kampung Tegal Panggung,524
+Sawo,525
+Sosrowijayan V,526
+Gang Sukro,527
+Gang Rukun,528
+Singonegoro II,529
+Gang Kelik,530
+Gang Suripto,531
+Gang Mawardi,532
+Jalan Notowinatan Gang Gunung Ketur,533
+Jalan Munir,534
+Gang Bhanu,535
+Gang R. Winasis,536
+Kampung Suryatmajan,537
+Gang Makmur,538
+Gang Makmur,539
+Gang Makmur,540
+Gang Karajin,541
+Gang Pahlawan,542
+@rail line
+kind,colour,lines[],arcs
+s,#43a2c5,P,543
+s,#43a2c5,P,544
+s,#43a2c5,P,545
+r,,,546
+r,,,547
+r,,,548
+r,,,549
+r,#43a2c5,,550
+r,#43a2c5,,551
+r,#6fbe44,,552
+r,orange,,553
+@water polygon
+arcs
+554
+555
+556
+@waterways line
+name,kind,arcs
+Kali Mbuntung,river,557
+Kali Winongo,river,558
+Sungai Code,river,559
+Sungai Gajahwong,river,560
+Sungai Gajahwong,river,561
+Sungai Gajahwong,river,562
+Sungai Gajahwong,river,563
+Sungai Gajahwong,river,564
+Winongo,river,565
+Winongo,river,566
+@monuments polygon
+name,wikidata,arcs
+Kraton Ngayogyakarta Hadiningrat,Q10778917,567
+@clip polygon
+arcs
+568
+@places
+
+@parks
+
+@stations
+name,kind,rank#,lon#,lat#
+Lempuyangan,r,1,110.37534,-7.79007
+Yogyakarta,sr,1,110.36346,-7.78924
+Jenar,s,3,110.00135,-7.80266
+Kedundang,s,3,110.09934,-7.87817
+Kutoarjo,s,3,109.90718,-7.72607
+Patukan,s,3,110.32533,-7.79072
+Rewulu,s,3,110.28427,-7.79614
+Sentolo,s,3,110.22026,-7.83323
+Wates,s,3,110.15763,-7.85949
+Wojo,s,3,110.04044,-7.86181

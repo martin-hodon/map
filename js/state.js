@@ -45,5 +45,5 @@ export const fmtPop = (n) => n >= 1e9 ? `${(n / 1e9).toFixed(2).replace(/\.?0+$/
 // the wiring that ran at the script's top level, in its order (main.js calls the modules' inits in section order)
 export function init() {
   $("hint").textContent = HOW;
-  try { if (PALETTES[localStorage.palette] !== undefined) $("palette").value = localStorage.palette; else if (dark()) $("palette").value = "dark muted"; } catch (e) { }
+  try { if (PALETTES[localStorage.palette]) $("palette").value = localStorage.palette; } catch (e) { }
 }

@@ -1,0 +1,330 @@
+# Luxor: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 32.54020 25.63765
+@arcs
+1901 398 70 41
+2138 552 232 173 311 264
+1971 439 75 46 57 37 35 30
+2103 2279 -9 2 -102 91 -23 24 -11 21 -7 24 -1 19 3 23
+681 748 164 133
+845 881 38 33 17 9 24 8 195 32 326 46 20 4 15 8 13 15 21 46 192 436
+2740 1764 -13 16 -69 124 -49 79 -16 15 -66 50 -25 32 -18 16 -167 108 -35 45 -57 45 -15 19 -8 26 0 21 5 20
+1581 362 61 32 60 47 63 31
+1765 472 10 11 8 17 11 44 0 18 1 15 -1 22 -33 123 -2 19 27 27 75 59 20 21 21 33 2 7 -3 13 -7 7 -39 15 -47 18
+2203 2252 -22 -22 -133 -141 -75 -95 -84 -69 -8 -11 -19 -43 -151 -342
+2235 923 15 15 2 10 -13 118 -10 125 3 96 -4 11 -14 17
+2469 1377 124 -76 109 -91 49 -47
+2343 1416 -9 -8 -119 -92 -1 -1
+2343 1416 10 -4 34 3 16 -1 14 -5
+2198 1099 -6 7 -44 27 -36 24 -5 7 0 15 7 26 12 17 38 41
+1904 1142 -57 -114 -41 -80 -1 -4 3 -3
+2070 807 24 0 62 56 79 60
+1881 848 28 -15 123 -29 38 3
+2051 1361 -42 -47 -16 -24 -25 -32 -11 -34
+2267 1430 1 -1 24 -15 29 -4 13 -2
+2469 1377 -2 6 -50 26
+2387 1415 -11 17 -6 2 -7 -1 -20 -17
+1993 1290 29 7 24 13 20 21 12 17 6 12 14 14
+2284 2335 -17 -12 -59 -59 -5 -12
+2203 1466 -19 -5 -7 -6 -57 -56 -2 -1
+2215 1316 -33 30
+1952 1215 -49 -61 1 -10 0 -2
+2103 2279 31 -18 47 -31
+2182 1346 -24 26 -16 10 -18 10 -4 7
+2164 1263 50 52
+2268 1429 -1 1 -13 11 -47 23 -4 2
+2198 1099 33 -30 8 -3
+2078 1348 -27 13
+2118 1398 -20 -24
+1706 1518 2 2 3 9
+1952 1215 2 -2
+1953 1216 -1 -1
+1953 1216 1 0 -1 0
+1272 402 64 91 82 146 86 195 -31 139 3 35
+1858 388 213 132 255 188 66 53
+1989 1142 4 -15 25 -118 2 -93 -27 -140 -82 -120 -89 -73 -16 -5 -11 -1
+1809 379 30 50 31 41
+1870 470 18 17 40 26 30 25 90 104 13 21
+1298 1710 19 47 75 79 8 2 39 -5 23 4 31 26 31 5 37 25 18 7 12 10 25 -4 26 9 14 13 10 25 13 11 26 9 36 20
+2414 1897 5 5 38 59 11 30 35 36 5 21 36 61
+1741 1993 1 2 0 1 1 2 -14 33 -18 31 -15 21 -17 14 -36 17 -32 20 -47 -3 -6 2 -12 26 -31 5 -40 20 -3 6 -3 30 -10 12 -8 0 -62 -12
+1254 1721 38 -13 26 -19 35 -17 141 -58 214 -94
+1743 1998 21 17 126 74 110 54 58 54 37 42 39 22
+2074 452 -28 33
+2173 1549 30 45 27 43 33 62 1 6
+1833 1412 -20 41 -21 25 -28 19 -56 23
+845 881 -140 132 -15 8 -18 3 -16 0 -23 -7 -9 11 -12 23
+2391 1756 83 91 5 7 -2 8
+2414 1897 -67 -105 -27 -26 -38 -30 -18 -31
+2235 923 76 -77 12 -9 3 -16 14 -6 52 -54
+2231 1483 36 32 23 40 -5 5 5 8 -5 4 19 35 -6 6 5 9 -14 6 -7 -9
+2235 923 -12 13 -8 20 -6 7 -37 37 -48 40 -17 21 -8 9
+2015 1230 8 32 23 32 96 88
+1794 562 12 -8 8 -25 15 -19 41 -40
+2408 1525 -90 -102 -2 -4 5 -9
+1862 1871 -28 16 -26 4 -11 6 -14 21 -13 39 -7 10
+2207 1464 18 12 6 7 -15 13 -5 9 2 6 17 12 5 8 1 42
+2481 1669 -24 6 -6 4 0 36 -3 6 -53 33 -4 2
+2296 1670 9 -6 8 2 78 80 4 8
+1879 971 27 43 49 66
+1389 2220 -56 -3 -20 -14 -22 -30
+1562 1928 25 4 79 21
+1445 1974 15 -9 -4 -12 68 -29
+2481 1669 -6 -27 5 -13 -7 -8 -19 -39
+2080 1180 -1 -1 -57 -28 -30 -8 -3 -1
+2282 1619 -14 0 -12 4 -16 -11 -4 -6 0 -32 0 -1
+1992 1143 -7 5 -81 -4
+1765 472 39 18 25 20
+2015 1230 1 -2 64 -48
+2177 1455 -18 14 -8 19 -4 23
+2419 1902 58 -40
+2079 1179 7 4 19 32 13 13 8 -6
+2104 1238 -4 -2 -3 -15 8 -6
+1955 1080 38 47
+1954 1213 12 -4 10 1 40 18
+1860 1359 -27 53
+1847 1028 59 -14
+1879 971 -24 -48
+2147 1511 26 38
+2115 1099 18 15 15 19
+2296 1670 -33 29
+1860 1359 21 -31
+1524 1924 10 -3 28 7
+2441 1571 -28 -20
+2413 1551 -1 -8 5 -10 -9 -8
+1763 1967 -21 28
+2203 1594 25 -18 8 -2
+2108 1086 5 -12 -6 -13
+2454 1582 -4 -9 -9 -2
+2115 1099 -10 -7 3 -6
+1742 1996 -1 -3
+1298 1710 -6 -2
+839 876 3 3
+2679 1867 -21 37 -49 79 -16 15 -37 28
+2556 2026 -29 22 -25 32 -18 16 -167 108 -11 15
+2256 2269 -31 25 -5 6
+2094 2139 -7 -8
+2232 1268 0 19 -4 11 -14 17
+2343 1416 -3 -2
+2343 1416 6 -2
+2300 1413 9 -1
+2348 1420 -5 -4
+2233 2289 -5 -5
+2214 1317 -32 29
+2140 1383 -10 6
+2211 1312 3 3
+2223 1456 -10 5
+1475 995 0 3
+2387 757 5 4
+2014 2156 4 3
+1713 1518 -4 2
+2306 851 3 -3
+2381 772 11 -11
+2397 748 4 4
+2015 466 31 19 17 11
+1504 1038 65 -24 12 -2 9 0 9 3 10 6 6 9 34 120 8 29 4 43 14 118 16 74 -2 14 0 12 22 51 12 23
+1685 1435 2 -24 -16 -79 -1 -19 -6 -34 -12 -102 -26 -97 -15 -48 -5 -8 -7 -5 -8 -3 -10 -1 -10 2 -66 24
+1833 1295 9 -8 14 -9
+1933 406 71 44 36 27 32 39 17 40 7 35 0 28 -37 264 0 22 8 151 4 33 33 109 12 22 110 113 131 100 402 268
+1817 1332 17 0 -29 -19 -66 -70 -20 -54 -39 14 6 46 -19 9 19 2 -16 10 1 7 16 -5 -17 11 1 3 19 -7 4 2 -16 5 8 0 0 9 -14 9 35 -14 11 5 -31 5 2 24 9 1 -9 1 2 14 20 -5 0 6 10 0 3 -8 53 7 11 -4 -14 -1 -1 -8 43 0 1 5
+1994 1159 -9 -9 -43 -1 -19 26 17 21 13 -10 7 8 11 -3 23 -32
+1040 1827 51 0 10 -23 -33 -10 -19 -20 -33 6 -10 21 34 26
+1166 2028 22 19 7 25 13 0 25 19 -1 13 43 -37 -8 -29 14 -20 -8 -12 -34 4 -16 16 -4 -24 -12 -1 -8 9 -19 1 -14 17
+1059 2093 4 21 20 19 49 2 14 19 18 -5 3 -16 -19 -32 -15 -8 -39 7 -3 -27 -18 -3 -5 -25 -7 -16 -7 -1 -14 7 15 16 -3 10 -32 14 -3 12 4 4 21 -11 28 8 -11 5
+2069 2181 13 0 -10 13 10 -4 -1 10 9 -5 6 5 -9 13 15 -5 -8 17 18 -9 -15 14 5 4 9 -6 27 24 30 -21 -6 -8 -30 16 11 -9 -17 -5 13 -10 -19 -3 7 -6 -14 -17 6 -5 -7 -6 -14 11 -7 -7 8 -8 -17 -9 11 -19 6 1 -6 -5 -37 20 13 19
+1831 1315 -26 -16 -23 -14 43 39 8 -4 -2 -5
+1353 414 54 93 37 52 25 30 33 29 11 38 69 165 40 122 9 -2 38 37 59 72 55 96 37 54 39 77 44 63 19 38 32 44 46 38 17 36 34 50 35 61 33 68 80 205 28 41 63 77 50 156 28 63 15 47 97 -85 -37 -58 -59 -78 -27 -47 -17 -41 -1 -20 -13 -46 -17 -33 -3 -15 2 -5 -16 -67 3 -1 -30 -44 -13 -6 -4 -6 -28 -78 -48 -77 -11 -9 3 -2 -19 -25 1 -2 -50 -79 -131 -174 -21 -48 -52 -63 -41 -56 2 -10 -25 -47 -11 -17 -10 2 -6 -8 6 -4 -25 -41 -1 -9 -33 -48 -10 -6 -5 -14 -5 1 11 -14 -2 -17 -18 -41 -26 -44 -1 -16 -14 -2 -24 -39 -8 -24 47 -59 6 -15 9 -48 -1 -15 -15 -45 -59 -72 -107 -83 -106 10 -90 15 23 25
+1627 672 -41 -62 -9 -24 5 -6 0 -5 -8 -4 -2 -7 -12 -6 -27 -56 -14 -52 2 -8 -5 -30 4 -12 9 0 44 28 59 46 17 16 20 24 12 23 -7 82 -21 36 -19 20 -7 -3
+1692 972 -52 -42 -21 -42 -5 -31 8 -1 40 44 33 67 1 3 -4 2
+2233 1832 37 92 -16 -20 -34 -54 -9 -34 4 -5 7 1 11 20
+2298 1488 -2 -14 9 -3 7 6 3 -2 -7 -10 -17 3 -6 4 2 12 7 6 4 -2
+2363 1596 23 -12 -9 -12 -21 12 7 12
+1375 380 80 56 149 292 51 84 106 211 169 272 130 189 142 239 56 76 42 114 11 57 71 147 48 88 13 9
+1878 392 199 123 220 163 97 74 294 251
+2388 1532 0 -4 3 -14 -6 -8 -8 -2 -4 7 -9 2 -21 -4 -5 -18 -37 -62 -11 7 -28 25 24 39 -11 9 7 6 33 -15 21 56 -5 1 -20 -52 -34 17 11 14 18 31 -3 2 -19 -31 -10 -15 2 3 -3 1 19 30 -5 3 4 9 -3 2 -1 2 21 35 -9 5 6 8 0 3 -12 5 7 11 7 -3 -2 -3 2 -1 5 10 -2 1 -2 -2 -6 3 10 16 -2 1 5 4 8 -4 7 6 6 1 5 -3 7 12 10 -12 13 -6 18 20 -4 3 11 15 1 0 5 4 7 -4 -5 -6 22 -15 3 5 2 -1 3 9 12 -8 -3 -29 -8 -24 -11 -7 7 -4 -46 -80 3 -6
+2311 1525 4 -2 4 9 -3 3 -5 -10
+2283 1527 3 -3 1 1 4 0 1 4 2 -1 2 -1 0 -5 4 0 2 3 4 -2 1 3 -19 9 -5 -8
+2290 1537 -1 -1 6 -3 11 -5 3 0 0 2 -4 2 -8 3 -2 0 -5 2
+2313 1537 -4 -6 3 -2 3 6 -2 2
+2321 1539 -3 -5 2 -1 2 1 -2 1 3 2 -2 2
+2316 1547 1 -4 5 6 2 -3 2 1 -2 3 1 2 2 0 1 5 -7 4 -8 2 0 -4 -6 3 -6 -9 10 -10 2 3 -3 3 6 -2
+1207 2001 -8 9 -19 1 -14 17 22 19 3 20 4 5 13 0 18 11 7 8 -5 11 4 2 18 -17 10 -5 15 -15 -5 -21 -3 -8 12 -9 2 -11 -8 -12 -34 4 -6 5 -3 10 -7 1 -4 -9 0 -15 -5 -2 -7 1
+1030 1597 28 19 32 -31 3 -1 -13 -15 -12 -10 23 -17 -2 -4 5 -6 -2 -2 -27 20 -4 -5 10 -11 -19 -27 -60 47 17 18 21 25
+1318 1978 -9 14 -3 14 9 13 17 6 17 -1 32 -5 5 -10 -28 -46 -40 15
+1016 1780 -10 21 34 26 30 1 21 -1 1 -2 9 -21 -3 -2 -30 -8 -4 -7 -15 -13 -24 0 -9 6
+1189 1661 -1 1 7 5 1 -1 11 8 47 -41 -11 -9 5 -5 -7 -5 -4 5 -7 -6 -3 3 -8 -7 -41 42 11 10
+1390 1832 6 4 21 -22 17 -15 -17 -23 -11 6 -1 -2 -7 7 -5 -4 -28 21 25 28
+1957 1217 12 41 7 8 13 -7 7 7 7 -7 3 3 4 -3 -16 -15 -1 -5 -8 -9 10 -6 -4 -4 -9 7 -9 -11 3 -2 -11 -2 -8 5
+1210 1792 -7 0 -6 8 5 30 5 3 15 1 12 -2 3 4 9 0 1 -2 -8 -2 -5 -3 1 -2 -3 -3 6 -6 -7 -7 -6 -16 -3 0 -8 2 -4 -5
+1372 2001 -6 -15 -25 13 1 1 -14 6 -2 -3 -3 2 -1 3 -3 1 6 11 5 2 42 -21
+1761 1914 27 -15 -17 -21 -25 18 15 18
+1451 2524 57 5 59 3 58 0 59 -3 58 -5 59 -8 57 -10 57 -13 56 -16 56 -17 54 -21 53 -23 52 -25 50 -27 49 -30 47 -31 45 -34 44 -36 42 -38 39 -39 37 -41 35 -43 33 -44 30 -46 28 -47 25 -48 22 -49 20 -51 17 -51 14 -51 12 -52 8 -53 6 -53 3 -53 0 -54 -3 -53 -6 -53 -8 -53 -12 -52 -14 -51 -17 -51 -20 -51 -22 -49 -25 -48 -28 -47 -30 -46 -33 -44 -35 -43 -37 -41 -39 -39 -42 -38 -44 -36 -45 -34 -47 -31 -49 -30 -50 -27 -52 -25 -53 -23 -54 -21 -56 -17 -56 -16 -57 -13 -57 -10 -59 -8 -58 -5 -59 -3 -58 0 -59 3 -58 5 -59 8 -57 10 -57 13 -56 16 -56 17 -54 21 -53 23 -52 25 -50 27 -49 30 -47 31 -45 34 -44 36 -42 38 -39 39 -37 41 -35 43 -33 44 -30 46 -28 47 -25 48 -22 49 -20 51 -17 51 -14 51 -12 52 -8 53 -8 80 -1 53 3 80 8 68 1040 929
+@streets line
+name,ref,class,arcs
+"Qena, Aswan Road",25,trunk,0
+"Qena, Aswan Road",25,trunk,1
+"Qena, Aswan Road",25,trunk,2
+"Qena, Luxor Desert Western Road",,primary,3
+"Cairo, Aswan Western Road",35,primary,4;5
+,,primary,6
+Al Gezira Street,,primary,7;8
+"Cairo, Aswan Western Road",35,primary,9
+Sayala Badran Street,,primary,10
+Suzan Mubarak Road,,primary,11
+Salah Salem Street,,primary,12
+Salah Salem Street,,primary,13
+Al Nozha Street,,primary,14
+Khaled Ibn Al Walid Street,,primary,15
+Ring Road,,primary,16
+Fayez Abou Al Naga Street,,primary,17
+Kornish Al Nile Street,,primary,18
+Luxor Bridge,,primary,19
+Airport Road,,primary,20
+Airport Road,,primary,21
+Maabad Al Karnak Street,,primary,22
+"Cairo, Aswan Western Road",35,primary,23
+Maabad Al Karnak Street,,primary,24
+Abou Al Goud Bridge,,primary,25
+Kornish Al Nile Street,,primary,26
+"Qena, Luxor Desert Western Road",,primary,27
+Thutmose Street,,primary,28
+East Al Sekat Al Hadid Street,,primary,29
+Airport Road,,primary,30
+Al Nozha Street,,primary,31
+Labib Habashy Street,,primary,32
+Maabad Al Karnak Street,,primary,33
+"Cairo, Aswan Western Road",35,primary,34
+Kornish Al Nile Street,,primary,35
+Kornish Al Nile Street,,primary,36
+Kornish Al Nile Street,,primary,37
+Al Dabaa Street,,secondary,38
+Al Qadaa Road,,secondary,39
+Television Street,,secondary,40
+Al Sheikh Ahmed Al Zahaby Street,,secondary,41;42
+Ezbet Al Ward Street,,secondary,43
+Hilton Street,,secondary,44
+Wadi Al Melouk Road,,secondary,45
+Tamthal Mamnoon Street,,secondary,46
+Masaken Al Zelzal Road,,secondary,47
+,,secondary,48
+Side Kornish Al Nile Street,,secondary,49
+Al Qarnh Road,,secondary,50
+,,secondary,51
+Al Doctor Ahmed Nazif Street,,secondary,52
+Hilton Street,,secondary,53
+Al Sawaqi Street,,secondary,54
+Abou Ali Bridge Road,,secondary,55
+Margerges Church Street,,secondary,56
+Maabad Luxor Street,,secondary,57
+Al Shorta Street,,secondary,58
+Al Doctor Ahmed Nazif Street,,secondary,59
+Wadi Al Melouk Road,,secondary,60
+Maabad Al Karnak Street,,secondary,61
+Al Doctor Ahmed Nazif Street,,secondary,62
+Al Doctor Ahmed Nazif Street,,secondary,63
+Al Madina Al Mnoura Street,,secondary,64
+Wadi Al Melouk Road,,secondary,65
+Maabad Hatshebsout Road,,secondary,66
+Maabad Hatshebsout Road,,secondary,67
+Al Doctor Ahmed Nazif Street,,secondary,68
+Al Mansheya Street,,secondary,69
+Al Sabteya Road,,secondary,70
+Salah Al Din Street,,secondary,71
+Ahmed Radwan Street,,secondary,72
+Saad Zaghloul Street,,secondary,73
+Al Sayed Youssef Street,,secondary,74
+Ezbet Gouda Road,,secondary,75
+Salah Salem Street,,secondary,76
+Ramsis Street,,secondary,77
+Al Madina Al Mnoura Street,,secondary,78
+Maabad Luxor Street,,secondary,79
+Al Qarnh Road,,secondary,80
+Al Mahdy Street,,secondary,81
+Al Madina Al Mnoura Street,,secondary,82
+Side Kornish Al Nile Street,,secondary,83
+Shl Street,,secondary,84
+Maabad Al Karnak Street,,secondary,85
+Al Qarnh Road,,secondary,86
+Maabad Hatshebsout Road,,secondary,87
+Al Doctor Ahmed Nazif Street,,secondary,88
+Al Doctor Ahmed Nazif Street,,secondary,89
+Wadi Al Melouk Road,,secondary,90
+Mubarak Road,,secondary,91
+Al Sakakeni Street,,secondary,92
+Al Doctor Ahmed Nazif Street,,secondary,93
+Shl Street,,secondary,94
+,,secondary,95
+Ezbet Al Ward Street,,secondary,96
+@bridges line
+class,arcs
+trunk,118
+trunk,119
+primary,97
+primary,98
+primary,99
+primary,100
+primary,101
+primary,102
+primary,103
+primary,104
+primary,105
+primary,106
+primary,107
+primary,108
+primary,109
+primary,110
+primary,111
+secondary,112
+secondary,113
+secondary,114
+secondary,115
+secondary,116
+secondary,117
+@lanes line
+name,arcs
+Teraa Gouda Road,120
+Teraa Gouda Road,121
+Rue Jean-François Champollion,122
+@rail line
+kind,colour,lines,arcs
+r,,,123
+@green polygon
+kind,arcs
+wood,124
+park,125
+park,126
+park,127
+park,128
+park,129
+@water polygon
+arcs
+130
+131;132;133;134
+135
+136
+@waterways line
+name,kind,arcs
+Nile,river,137
+Shanhūriyyah Canal,canal,138
+@monuments polygon
+name,wikidata,arcs
+Karnak Temple Complex,Q522862,139;140;141;142;143;144;145
+Valley of the Kings,Q133423,146
+Malkata,Q431422,147
+Deir el-Bahari,Q373909,148
+Valley of the Queens,Q260386,149
+Mortuary Temple of Ramesses III,Q656040,150
+Ramesseum,Q311581,151
+Luxor Temple,Q319841,152
+Deir el-Medina,Q750212,153
+mortuary temple of Hatshepsut,Q660692,154
+Mortuary Temple of Seti I,Q375642,155
+@clip polygon
+arcs
+156
+@places
+
+@parks
+
+@stations
+name,kind,rank#,lon#,lat#
+Luxor,r,3,32.64497,25.69654

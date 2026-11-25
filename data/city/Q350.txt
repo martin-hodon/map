@@ -1,0 +1,1647 @@
+# Cambridge: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 0.03930 52.13985
+@arcs
+1323 378 -54 37
+1269 415 -19 11
+749 1360 28 130
+777 1490 10 68
+2588 1864 -275 75
+587 1502 1 0
+636 1505 61 -4 80 -11
+1269 415 14 7 14 0 8 -6 -2 -10 -19 -11 -15 0 -8 4 -2 6
+1269 395 -11 -4
+1658 1154 4 -52 32 -55 1 -10 -33 -39 -26 -38 -13 -36 -19 -32 -65 -75
+1064 1665 5 -2 53 -23 298 -154
+2648 1429 -112 20
+1917 1014 15 -24 135 -211 18 -22 20 -15
+1863 1591 20 11 16 18 15 14 32 19 177 99 68 49
+1628 504 1 0
+2472 1441 15 -108 -4 -27 -36 -50 -31 -23 -24 -10
+1975 1376 3 -1 88 13 4 1 3 0 19 5 34 17 106 61 21 4 25 -2
+1297 422 19 11 15 16 18 46 14 24
+2184 687 46 -45 24 -17 117 -80
+1422 1414 -77 12 -24 4 -62 1 -64 11 -43 1 -62 11
+1729 803 338 -24
+1117 1174 112 -22
+1229 1152 42 -9 39 -3 111 -7
+1450 1404 -12 -11 -10 -39 8 -16 5 -38 14 -37 20 -47
+1467 638 1 13 0 59 9 36 62 71
+1439 1493 -2 -2 2 2 5 4 35 16 38 4 161 -24 26 -4 6 2
+1628 504 -53 40 -35 34 -71 57 -2 3
+2192 791 73 147
+2226 1850 -12 -28 -23 -21
+1363 519 11 15 19 14 5 4 39 36 32 47
+1846 1583 -105 -50 -31 -42
+1473 1168 118 -17 67 3
+2449 1450 -55 3 -116 21
+1945 1480 1 -43 19 -55 10 -6
+2265 938 1 1 0 1 35 96
+1761 1189 75 -82
+1759 1497 136 30
+1845 1099 2 -1 42 -48 28 -36
+2334 1125 11 54 18 25
+1761 1189 40 29 36 35
+2306 1049 28 76
+1978 1375 -39 -37 -41 -29
+2067 779 120 10 5 2
+1761 1189 -12 -10 -37 -11 -57 -5
+1675 1478 -49 -11 -56 -21
+1090 1454 -47 3 -53 11
+1729 803 -50 1 -50 6
+1898 1309 -61 -56
+937 1472 -61 0 -35 5
+2187 789 -10 -13 -46 -36
+1539 817 90 -7
+1945 1480 -1 10 -21 23 -7 14
+2130 726 54 -39
+1440 1433 -25 19 17 18 1 2
+1421 1133 37 31 15 4
+1741 1493 -17 -3 -49 -12
+1475 1216 13 -25 -15 -23
+1515 1418 -65 -14
+1900 1546 -8 13 -28 21
+2477 1452 59 -3
+1515 1418 20 16 35 12
+990 1468 -53 4
+1432 1470 25 -27
+795 1487 46 -10
+1759 1497 -18 -4
+1440 1433 -18 -19
+1450 1404 -28 10
+1457 1443 -17 -10
+2377 1214 -14 -10
+1658 1154 -3 9
+1845 1099 -9 8
+1439 1475 -1 3 1 -1 0 -2 -6 -3
+2107 734 -2 8
+2120 737 11 3
+1905 1542 -7 -3 1 4 1 3
+1914 1534 2 -7
+1426 1481 -2 2 -4 3
+1904 1530 -9 -3
+1398 552 -5 -4
+1864 1580 -15 6
+2130 726 -7 3
+1678 1493 -4 -5 1 4 3 1
+1900 1546 5 -4 -6 1
+1849 1586 14 5
+2306 1049 0 -4
+1846 1583 3 3
+2301 1036 -1 3
+1426 1481 0 1 6 11
+1426 1482 -2 1
+2306 1045 -3 0 3 0
+2303 1039 -3 0
+2847 614 1 0
+2254 625 -56 -74
+2123 1752 -183 120 -78 24 -37 2 -42 -4
+1738 1890 -42 -11 -83 -38
+1449 1785 8 -143
+1457 1642 -20 -83 -4 -54 11 -8
+2377 1214 18 -4 68 -29 75 -22 51 -20 109 -56 57 -38 23 -12
+2192 791 234 18 190 57 28 16
+1345 1426 -22 -171 -4 -43 -9 -72
+1229 1152 -7 -29 6 -55 -14 -20
+1211 1045 -5 -6
+1600 1821 209 -126 90 -75
+2488 650 11 19 11 72 51 29 53 79 5 13 -3 4
+2644 882 -73 13 -35 3 -106 17 -164 25
+2847 614 -33 -4 -40 13 -63 1 -42 3 -16 1 -16 2 -2 0 -15 2 -27 2 -3 1 -34 5
+1741 1533 -40 28 -101 58 -38 9 -105 14
+2266 939 -154 24 -180 27
+2123 1356 83 -22 10 -8 18 -33 18 -15 73 -47 32 -10
+1898 605 -9 -12 -16 -9 -78 -16 -88 -32 -21 -1 -20 4 -30 23
+2141 1586 11 7 1 4 -19 16 15 10 27 31 11 36 -23 28 -41 34
+2007 1186 64 -21 69 -17 38 -1 43 -2 80 -15
+2778 1033 -53 -57 -27 -13 -32 -53 -3 -15 -11 -9 -8 -4
+2112 963 66 184
+2536 1449 74 87 21 18
+2141 1586 -30 -9 -20 -11 -27 -7 -13 -2 -17 5 -33 -8 -38 -16 -40 4 -9 -8
+2644 882 60 -10 136 -8
+1724 1490 5 -31 32 -43 -5 -51
+1837 1253 170 -67
+1695 1037 20 -4 174 17
+2303 1039 18 -1 159 -50
+1413 682 -33 6 -30 -2 -12 -9 -8 -1 -84 10
+1319 1212 125 0 31 4
+1899 1620 56 -42 46 -24
+1455 1263 -132 -8
+2430 915 50 73
+2794 1041 53 28 20 27
+1526 529 51 24 39 14 1 3
+1439 1475 29 -15 15 -19 32 -23
+1847 1098 56 -2 51 -8
+1854 1365 96 7
+1756 1365 26 -6 72 6
+1613 1841 -7 -3
+1468 651 -46 21 -9 10
+1246 686 -3 1
+1413 682 55 28
+1492 514 -29 -12 -26 -6
+1404 493 -18 -1 -37 3
+2070 1389 14 -21 19 -8
+1617 570 7 3 7 -4 -5 -4 -10 2
+1492 514 34 15
+1437 496 -33 -3
+2301 1130 33 -5
+1752 1359 -1 4 5 2
+1631 569 5 -7
+1960 1370 -10 2
+2652 886 -8 -4
+2117 1356 -14 4
+1432 1497 7 -4
+2362 1220 0 -4 -2 2 -3 3
+2357 1221 5 -1 -2 -2
+2118 1356 -1 2 6 -2
+2123 1356 -5 0 -1 0
+1432 1493 0 4
+2003 1187 4 -1
+2007 1186 -4 1
+2069 1388 4 1
+2066 1388 3 0
+2146 1350 27 -7
+1858 581 -26 -5
+2031 1178 11 -4
+1727 1472 1 -6
+1717 1033 3 1
+1246 686 -3 1
+2246 1475 7 1 3 0
+1788 799 3 0
+1794 799 5 -1
+1824 796 8 0
+1525 591 -2 2
+1416 569 8 7
+1533 1159 5 0
+1575 1153 12 -2
+1593 1151 5 0
+1946 1444 0 -7 12 -35
+1912 1021 5 -7
+2563 1870 -12 4
+771 1491 6 -1
+1269 415 7 3
+1299 404 -8 -5
+1969 1294 1 13 -3 19 -2 3 -6 4 -14 2 -9 5
+1981 1195 15 34 4 21 1 12
+1997 1281 -4 12
+2001 1262 -1 8 -2 9
+2001 1262 6 0
+2025 1227 5 26 -5 19 -17 48 -19 29
+2025 1272 45 8 19 0 6 1 7 5
+1802 1207 38 -28 6 -4 22 -10
+1893 1202 27 -10
+1910 1223 -21 -26
+1914 1208 -14 -18 -37 -29 -52 -26
+1901 1213 27 -10
+1847 1153 62 -8
+1662 1102 52 5
+1827 1117 -77 -8 -35 -2
+1872 1134 -5 0
+1872 1134 4 15
+1917 1131 -14 1 -31 2
+1650 1309 -1 1 -2 15 -7 22
+1907 1175 18 -5
+1960 1423 3 1 9 1 18 -2 10 0 9 1 13 4 13 4 9 4 6 4 14 12
+1990 1423 0 -3 10 -28
+1974 1389 26 3 57 19
+1978 1378 -2 3 -13 37 -2 3
+1941 1416 2 1
+1943 1417 5 2 13 2
+1952 1402 -9 15
+1709 1247 52 -58
+1650 1309 10 -8 43 -47
+1703 1254 3 -3 3 -4 -2 2 -4 5
+1710 1246 26 13 25 27
+1774 1200 -41 28 -13 12
+1837 1253 -53 24 -23 9
+1759 1344 -7 -13 -18 -23 -9 -9
+1757 1354 -3 5
+1759 1359 -2 -5
+1757 1354 2 -10
+1601 1358 28 15 7 2 7 1 23 -3 38 -7 31 -5 7 0
+1742 1361 10 3
+1751 1360 -9 1
+1640 1347 6 2 10 1 20 0 17 1 25 -2 10 1 23 5 3 3
+1660 1301 22 14
+1725 1299 -19 5 -3 0
+1703 1304 -16 -13 -12 -7
+1750 1329 3 -1 13 3 27 -7 7 11
+1759 1344 34 -7 6 0
+1873 1366 2 -18
+1875 1348 5 1
+1875 1348 0 -2
+1854 1365 3 -17
+1845 1280 15 14 4 1 0 2 10 10 1 3 8 5
+1838 1321 35 -10 2 -1
+1833 1314 37 -11
+1828 1306 36 -9
+1824 1303 10 -2 23 -10
+1819 1298 9 8 7 11
+1836 1319 9 19
+1863 1295 12 -5
+1747 1325 20 -6 21 -9 17 -6
+1792 1323 15 -4
+1786 1315 7 9
+1786 1315 -25 -29
+1759 1346 40 2
+1894 1317 -6 -4
+1900 1419 -16 0 -14 2
+1801 1360 3 26
+1845 1390 9 0 22 2
+1845 1390 11 -25
+1878 1391 11 -24
+1883 1381 -7 -2 1 -3 -10 -2 -1 3
+1954 1334 6 7 6 2 61 16 26 8
+2058 1370 -4 4 -3 0 -6 0 -41 -8
+2001 1373 9 -18
+2034 1331 -5 6 -9 5 -6 4 -4 9
+2034 1331 -19 -5 6 -11 -10 -2
+1963 1334 32 6
+2001 1330 -24 -3 -4 -1 -6 0
+1973 1326 2 -8
+1969 1310 42 1
+2020 1315 7 0 3 -7
+2030 1308 -4 -1
+2030 1308 7 2
+1993 1293 2 9
+1970 1303 25 -1
+1942 1297 1 12 -6 20
+1863 1278 30 -11
+1881 1268 -13 5 3 2
+1936 1283 20 -2
+1956 1281 3 14
+1956 1281 4 -1
+1946 1297 -5 -14
+1922 1288 -1 0 -4 -6
+1944 1290 -8 1 -2 -5
+1877 1291 43 -10
+1996 1230 23 -3
+2041 1275 -10 22
+1909 1145 6 10 3 1
+1951 1207 -33 -48 0 -3
+1918 1156 2 -14 -1 -5
+1920 1146 29 1 32 48
+1949 1208 8 13 4 2
+1961 1223 4 7
+1961 1223 3 -1
+1923 1218 5 5 12 18
+1956 1236 -12 -19 -6 -5
+1932 1230 17 -5
+1894 1229 6 5 11 14
+1894 1253 32 -10
+1926 1243 -6 -10 -10 -10
+1894 1253 -16 -17
+1927 1309 2 -5
+1802 1207 2 1
+1804 1208 -2 5 2 2
+1813 1209 -3 -2 -6 1
+1656 1350 -1 3 -1 22
+1543 1401 -28 17
+1601 1358 -1 1 -30 25 -27 17
+1590 1431 8 -7 30 -20
+1597 1404 -6 -6
+1597 1404 13 11
+1580 1411 20 -8 6 -6
+1606 1397 1 -6 4 -8 12 -13
+1573 1357 9 -2 3 -2
+1574 1350 7 1 4 2
+1585 1353 13 7
+1571 1358 3 0
+1584 1371 -7 -7 -3 -6
+1574 1358 0 -8
+1615 1343 -26 -10 -11 -1
+1577 1328 -18 3 -18 0 -2 -16 -4 -4 1 -7
+1624 1333 4 1 13 11
+1650 1309 -12 4 -3 2 -9 11 0 3 -5 7 -20 22
+1579 1294 -12 0
+1591 1295 -12 -1
+1590 1299 -10 -1 -1 -4
+1594 1288 -2 -1 -12 -5 -15 -3
+1590 1305 1 -10 3 -7
+1602 1305 3 -1
+1605 1304 16 2 21 5
+1605 1304 2 -3
+1565 1279 2 15 3 11
+1646 1265 0 2 -15 8 -23 18
+1610 1296 3 0 6 -5
+1608 1293 -14 -5
+1603 1252 -4 3 -4 9 -5 5 -5 9 -5 4
+1575 1241 16 5 8 4 10 6 17 4
+1626 1260 58 14
+1655 1163 -7 16 -12 16 -44 31 -7 5 -10 10 -4 7 -5 19 -1 12
+1534 1233 7 -11 11 -8
+1535 1235 -5 10
+1542 1222 8 1
+1551 1224 34 7
+1571 1167 -4 -1
+1690 1165 -28 39 -23 29 -4 14 -9 13
+1649 1220 -32 -13
+1617 1182 23 8
+1684 1350 6 19
+1728 1350 0 2 4 10
+1425 1464 9 -5 -5 -7 -3 -1
+1462 1441 12 7
+1470 1437 -9 -11 0 -3 17 -12
+1461 1426 -18 9
+1490 1429 -13 -10
+1595 1485 -10 3 -28 3 -17 -9
+1626 1467 -21 14 -9 3
+1585 1488 8 19
+1569 1490 16 18
+1494 1516 0 -2 17 -9 63 -10
+1571 1446 -12 9 -27 15 -23 22
+1525 1466 -22 21
+1532 1470 -7 -4
+1543 1455 -18 11
+1503 1487 16 17
+1587 1452 -11 9 -32 17 -18 17 -3 2 -8 1
+1559 1455 16 7
+1505 1488 -32 23
+1485 1504 9 10
+1599 1506 8 19
+1607 1525 -3 3 1 5 3 6 4 2 2 -2 0 -6 -4 -6 -3 -2
+1622 1502 9 24
+1642 1499 3 5 -2 4 5 15
+1680 1493 6 16
+1740 1499 1 1 -2 3 6 4 10 15 12 0
+1827 1511 -6 15 -1 15 -3 3 -14 9
+1790 1503 -2 6 3 35 -16 5
+1767 1504 -2 5 4 28 -7 7
+1768 1502 2 -3
+1863 1532 18 3
+1863 1532 -4 10 1 4 27 14
+1869 1520 -6 12
+1753 1495 0 -24
+1753 1481 -25 -1
+1753 1471 9 -2
+1774 1500 2 -3 -1 -9
+1775 1488 75 6
+1788 1461 86 -6
+1819 1492 -1 -13 -9 -36 3 -1
+1795 1452 7 -6 3 -1 5 0
+1846 1515 4 -8 1 -5 -12 -66 0 -4 2 -1
+1850 1494 91 -6
+1847 1476 92 -7
+1878 1473 -8 -36 2 -1
+1872 1436 3 0 11 2 4 -1 10 -18
+1897 1424 -15 0
+1888 1438 3 3
+1895 1428 13 2 7 3 7 6 3 9
+1943 1461 5 -2 2 -1
+1950 1458 -4 -1
+2027 1504 -2 -3 -24 -17 -9 -9 -33 -14 -9 -3
+1430 1079 -42 -8 -6 1
+1321 1241 -110 12
+1314 1176 24 -1
+1338 1179 0 -4
+1338 1175 10 0
+1348 1175 0 -13
+1348 1175 2 6
+1418 1106 28 2
+1262 1145 3 13
+1265 1158 -2 2 0 5 1 1 3 1 2 0 1 -3 -2 -4 -3 -2
+1421 1133 -3 -30 12 -24
+1386 1104 2 -4
+1419 1118 8 -1 3 -2 20 1
+1313 1223 -2 -7 -8 -2 -5 -7 -2 0 -25 2
+1313 1223 -4 1 -7 3 -10 0 -4 2 -7 -1
+1320 1222 -7 1
+1405 1106 -1 5 3 23
+1349 1098 -2 -10 6 -8
+1449 1212 -1 -18
+1442 1167 -3 -15 1 -1
+1451 1192 -7 -23
+1623 1052 -10 -13 -1 -5
+1341 1138 1 6 4 3 0 6 2 3
+1384 1102 -2 8
+1367 1137 -8 -37 -2 -1 -64 -2
+1418 1103 -3 -2 -33 -29
+1180 1198 7 0 23 -2
+1418 1107 -35 -3
+1381 1136 2 34
+1392 1105 -2 5 4 25
+1424 1092 14 1 6 -17
+1316 1192 -60 7 -2 -2 -4 -15
+1303 1140 -8 -23
+1393 1125 27 -1
+1251 1331 -12 -33
+1193 1339 139 -18
+1202 1441 -10 -13 -8 -16
+1218 1401 -25 -62
+1238 1434 -18 -30
+1218 1401 82 -19 39 -2
+1316 1371 -1 -5
+1318 1381 -2 -10
+1316 1371 16 -1
+1293 1384 -4 -13
+1448 1194 -60 2
+1488 1193 -14 -2 -22 0 -4 3
+2002 1465 -34 -15 -16 -4 -2 -3 3 -10
+1970 1440 -3 0
+1970 1440 0 2
+1975 1453 6 -11 -3 -1 -8 -1
+1745 1122 5 -13
+1705 1146 35 7 12 3 30 11
+1750 1138 -10 15
+1766 1161 12 -14
+1697 1131 10 1
+1795 1152 -39 -13 -46 -6
+1703 1153 -5 13
+1718 1107 -15 45
+1673 1103 -8 54 0 7
+1665 1157 36 2
+1667 1141 36 2
+1682 1142 2 -17
+1694 1142 -1 5
+1719 1134 2 -7
+1714 1123 13 2 2 -3 2 -1 14 1 0 2 -1 2
+1716 1114 103 11
+1752 1104 20 1
+1770 1111 2 -6
+1772 1105 20 2
+1790 1135 -19 -4
+1808 1138 -18 -3
+1790 1135 3 -6
+1698 1130 -9 -1
+1846 1175 -54 -20
+1691 1599 -26 -17
+1714 1553 54 28
+1759 1587 38 -28
+1448 1601 27 -3 3 0 3 -1 57 -8 5 1 3 -1 24 -4
+1543 1590 4 14 0 1 -3 2 -26 3 -30 4 -3 -1 -3 -2 -4 -13
+1530 1516 3 11 16 3 1 1 17 49 17 33 4 10
+1570 1585 16 -3 10 -3
+1596 1579 7 5
+1596 1579 9 -4
+1603 1584 -2 5
+1603 1584 8 -4
+1611 1580 -6 -5
+1605 1575 15 -9
+1611 1580 7 0
+1601 1577 -5 -4 -6 -8 -21 -55
+1562 1564 -21 7 -2 -1
+1539 1570 -3 -4 -11 -34 1 -3 7 -3
+1441 1579 8 0 10 -2 2 -1 -2 -5
+1456 1571 3 0
+1459 1571 4 0 -1 -3
+1436 1556 18 -1 28 -4
+1481 1547 1 4
+1482 1551 2 5
+1496 1516 19 54
+1515 1570 6 -1
+1518 1570 3 7
+1502 1533 -44 4
+1355 1561 9 -4 23 -9
+1387 1548 9 7
+1434 1519 -17 0 -40 21 10 8
+1419 1538 -3 -33
+1389 1549 19 -8
+1417 1512 -6 -5 -1 0
+1407 1525 -25 -19
+1386 1535 -24 -19
+1352 1536 14 10
+1361 1532 6 5
+1351 1536 -11 -8
+1348 1533 -6 3 -2 3 -4 2
+1271 1143 -1 -3
+1306 1467 -46 13 -16 3 -14 5 -43 12
+1282 1430 24 37 8 14 -4 3 -94 29
+1302 1461 7 -2 4 -4 0 -5 -3 -3 -6 -2 -11 1
+1313 1455 9 1 11 -3
+1311 1448 9 -3 9 1
+1307 1446 4 -5 -1 -2 -3 -1 -3 0 -3 2 1 5
+1413 1490 -11 -9
+1806 1180 -13 13
+1861 1243 -16 -19
+1778 1171 49 17
+1919 1192 17 -7
+1801 1146 13 7 5 0 3 -2
+1799 1149 24 12 5 -4 -4 -2
+1805 1142 46 24
+1819 1125 22 8 -7 7
+1853 1117 4 0
+1867 1134 -2 0 -8 -17
+1857 1117 12 -2 1 3
+1911 1117 -29 4
+1633 1188 8 -10
+1487 1221 -12 -5
+1499 1226 -12 -5
+1487 1221 7 3 5 2
+1570 1251 -40 -6 -13 -6 -10 -9 -8 -4
+1571 1315 -2 1
+1570 1305 1 10
+1571 1315 0 1
+1573 1316 -2 -1
+2032 1334 12 3
+1239 1298 89 -12
+1459 1164 -17 3 2 2 -21 1
+1574 1350 5 -11 0 -4 -6 -19 -2 -2
+1500 1279 -7 -1
+1577 1329 12 -1 7 -11
+1741 1317 37 -11
+1762 1090 -6 1 -11 -1 -3 -1 -2 1 -12 -1 -11 2 -18 -1 -11 1
+1751 1075 -68 -6
+1850 1507 15 -1 40 7
+1773 1459 0 7
+1498 1303 -7 0
+1491 1303 -35 -2
+1606 1238 1 1
+1530 1364 -6 0
+1821 1094 -10 -1 -6 -3 -1 -2 4 -5 2 -5 -2 -3 -4 -4
+1645 1332 -19 -3
+1777 1448 10 8 1 3
+1755 1522 -10 0 -8 3
+1689 1091 -6 -2 -2 -4 4 -4 5 -3 5 -10 8 -8 4 -5 11 -5 6 1 8 1
+1725 1089 0 -5 -5 -11 11 -11 1 -4 0 -6
+1762 1090 3 -5 1 -3 -2 -2 0 -3 7 -10 -1 -6 -4 -4
+1832 1071 -7 12 -2 9 -2 2
+1473 1441 3 -2 7 1
+1602 1245 16 5
+1601 1254 -30 -6
+1621 1306 6 -8 3 -2
+1630 1296 -6 -1 0 -2
+1630 1296 14 4
+1623 1292 2 -2 9 2
+1631 1297 -1 0
+1631 1297 3 -5
+1634 1292 14 -11
+1669 1287 2 1
+1799 1337 2 2 -3 19 -1 1 -2 1
+1505 1114 -40 12 -42 8
+1519 1504 8 7 3 5
+1606 1397 6 3 13 2 10 5
+1677 1032 -105 40
+1821 1531 4 0
+1825 1531 9 2
+1825 1531 3 -6
+1834 1533 2 0
+1834 1533 2 -6
+2021 1285 -24 -4
+1565 1387 7 10 6 12 2 2 -8 3
+1889 1367 3 -17
+1660 1475 -24 19 6 5
+2008 1320 -33 -2
+1943 1372 1 1 9 1
+1981 1371 -1 -1
+1987 1374 -6 -3
+1981 1370 0 1
+1993 1293 -24 1 -23 3 -25 3 -27 6
+1845 1338 43 -25 5 -3 5 -1
+1682 1315 23 35
+2027 1359 -7 11
+1609 1285 -3 -1 6 -6
+1584 1372 21 11 6 0
+1680 1147 2 -5
+1410 1507 -47 23 -12 6
+1623 1333 -13 -3 4 -7
+1924 1168 13 -3
+1799 1337 46 1 -1 1
+1839 1114 -7 -3
+1839 1114 2 0 7 2 0 1 -2 0 -6 -2 -1 -1
+1908 1192 -5 1
+1534 1404 -2 -1
+1575 1241 -22 -5 -18 -1 -1 -2
+1497 1321 13 6 31 -3
+1811 1360 -2 18 2 2 14 2 1 1
+1832 1362 -7 20
+1804 1386 31 5 10 -1
+1598 1424 -18 -13
+1836 1384 11 2
+1836 1384 0 2
+1836 1383 0 1
+1888 1148 3 8 46 57
+1912 1191 5 -2
+1883 1270 -5 -5
+1382 1334 -8 -5 -3 -10
+1382 1334 -2 1
+1435 1340 -35 2 -18 -8
+1383 1333 -1 1
+1476 1425 -12 5
+1607 1301 3 -5 -2 -3
+1658 1303 -14 -3
+1587 1314 3 -11 13 1
+1600 1319 1 -2 2 -11 0 -2
+1603 1304 2 0
+1588 1314 11 4 2 -1 1 -12 -10 0 -2 0 -2 9
+1570 1305 19 1
+1571 1314 3 -1 9 0 5 1
+1662 1268 16 -13 13 -9
+1805 1304 16 19 6 9
+1749 1328 25 -8 32 -14
+1784 1277 21 27
+1805 1304 45 -19
+1770 1297 -36 11
+1845 1280 -34 14 4 5
+1806 1267 23 20
+1799 1349 8 0
+1817 1331 3 6
+1538 1271 0 1 6 1 21 1
+1513 1247 4 1
+1544 1247 -5 14 -1 10
+1694 1142 11 -36
+1494 1496 12 12
+1577 1378 15 7
+1592 1385 -1 0
+1592 1385 1 0
+1593 1385 3 2
+1593 1385 1 -1 3 2 -1 1
+1596 1387 -1 1 5 2
+1457 1443 5 -2
+1462 1441 24 -11 8 -2 5 1
+1921 1371 -3 10 -3 0
+1562 1404 5 -1 5 1
+1572 1414 15 17 3 0
+1588 1394 -7 -8 -9 -4
+1606 1397 -15 1 -3 -4
+1593 1392 -5 2
+1622 1228 18 4
+1678 1371 4 13
+1189 1304 -9 2 6 17
+1433 1194 -1 -15 -2 -2 -3 -1 -22 2 -11 -1
+1408 1541 2 -2 -2 -1 11 -5
+1599 1318 7 3 20 5
+1534 1370 -7 2
+1761 1286 -34 11 -2 2
+1926 1391 -1 2
+1926 1391 14 2
+1933 1371 -7 20
+1940 1393 -1 3
+1940 1393 13 2
+1869 1387 2 -3 10 2
+1928 1359 7 1
+1966 1357 11 9 3 2 2 0
+1981 1370 1 -2
+1982 1368 7 -19
+1648 1281 21 6
+1655 1532 -4 -2
+1661 1535 -6 -3
+1655 1532 10 -6
+1665 1526 10 7
+1665 1526 6 -3
+1675 1533 0 2
+1678 1533 -1 -1 -2 1
+1675 1535 9 6
+1684 1541 -10 5 -8 -6 9 -5
+1695 1538 -4 1 -7 2
+1897 1119 2 4 -1 1 -24 2
+1788 1489 0 -30
+1534 1339 4 0
+1536 1331 1 2
+1820 1436 14 -7 7 2 12 1 12 -1
+1487 1276 -1 1
+1487 1276 1 0 -1 -1 -1 1 1 0
+1445 1404 -3 2 -18 6 -39 6 -19 2 -19 4 -2 0 -6 2 -14 2 -31 1
+1947 1371 -34 -2
+1944 1373 -21 0
+1612 1211 4 1
+1779 1207 -6 -1
+2155 1343 3 3 21 15 27 7 31 -3 23 -11 123 -115 33 -41 42 -74 21 -22 31 -21 74 -29 163 -51 92 -23
+2596 1910 -95 -93
+2370 1660 -29 -57 -31 -48 -152 -209
+2076 1236 79 107
+1888 980 -17 -26 -28 -56 -13 -51 -2 -43
+1853 576 -22 167
+2024 1164 -6 -14 -98 -130
+2024 1164 52 72
+1920 1020 -32 -40
+1854 568 -23 166 -1 100 6 35 18 50 18 35 42 59
+1914 1013 41 61
+1231 630 49 50 54 -13 -61 -52 -57 11 15 4
+1308 1013 22 -1 34 12 -40 -20 -11 -26 -30 -9 -18 -16 -4 -24 -36 -26 1 -55 -29 -12 -14 -19 6 -13 26 -15 0 -54 33 -12 0 -13 -42 27 1 54 -26 11 -4 17 24 28 22 7 -8 49 40 29 2 18 21 22 32 10 -2 31
+1543 1007 87 -18 -22 -36 -94 18 29 36
+1222 1069 -18 -28 -52 5 17 60 52 -7 1 -30
+1518 1113 -89 20 39 33 38 -7 12 -46
+980 1302 114 -8 -15 -37 -115 12 16 33
+1489 1334 2 -57 21 -30 -11 10 -20 -3 -3 -18 23 -7 -23 -9 -48 132 27 -8 7 13 33 -5 -8 -18
+1191 1342 -3 -18 -24 1 -3 -14 -79 6 16 45 51 -4 42 -16
+1444 1404 -15 -37 -42 -26 -48 14 5 52 49 -3 4 12 28 -5 19 -7
+1149 1360 8 20 -27 5 9 19 75 -8 -16 -41 -49 5
+1727 1467 27 -50 -60 11 -36 -6 -30 -17 -44 32 84 28 59 2
+1241 1460 -4 -17 43 -7 13 14 -12 -18 -136 14 -22 5 0 23 33 23 26 -15 17 1 56 -18 -5 -8 -9 3
+1217 1568 -40 -40 -63 25 44 46 59 -31
+1074 1602 20 -1 0 -15 19 -3 6 16 29 -7 -38 -39 -38 -1 -53 23 13 12 14 -5 28 20
+1835 690 -13 -1 25 -107 -97 -27 -33 60 -7 142 19 39 61 -5 -24 -53 64 -5 5 -43
+2535 797 -18 -20 31 -13 -38 -18 -7 -14 -71 15 15 57 19 8 26 -20 19 5 5 -11 19 11
+1737 805 13 57 67 -5 -22 -53 -58 1
+1922 802 -5 49 34 4 -3 9 33 10 24 -39 -44 -7 10 -22 -18 -4 -4 7 -27 -7
+1793 914 1 -9 41 1 -17 -38 -64 4 10 42 29 0
+2592 948 2 -28 -21 -1 -2 -7 11 -17 -136 18 45 71 50 -34 32 7 19 -9
+2415 1073 90 -45 -20 -19 14 19 -16 5 -5 -10 -29 12 -7 -9 -33 -7 -27 12 33 42
+2049 1043 9 30 88 -11 -11 -31 -86 12
+1832 1105 -4 -19 10 -14 24 6 13 -14 -140 -16 6 -11 -24 -2 -50 67 21 1 1 -8 54 5 -2 8 5 -8 86 5
+2520 1191 84 50 149 -52 8 14 -19 -6 -12 2 82 49 -19 -17 18 -8 -49 -38 -141 2 -60 -35 -46 15 5 24
+2516 1189 -2 -21 -86 30 74 57 -3 60 17 -1 -11 -6 6 -7 31 17 31 -22 -12 -10 31 -5 27 -21 -128 -67 18 -8 7 4
+1724 1239 38 44 70 -30 -58 -51 -50 37
+2728 1200 -122 42 129 67 45 -24 -18 -17 48 -19 -82 -49
+2268 1433 6 -40 -23 -13 13 -9 23 13 39 -15 10 5 31 -18 49 -12 38 0 8 -19 18 0 -22 -46 -66 -54 -67 63 -14 -4 -61 31 -24 -3 -21 32 0 34 30 47 -10 5 4 6 9 -4 27 24 -18 5 11 12 38 -3 -28 -37
+1947 1405 -142 -20 -3 -24 -36 2 -3 55 -33 48 35 -10 82 -43 51 -4 44 6 5 -10
+2540 1451 41 46 72 -19 -27 -43 -8 9 -1 -7 -77 14
+2258 1530 -135 -38 -15 9 29 50 199 51 -55 -82 -23 10
+2345 1603 92 14 54 -32 22 3 8 -22 -106 0 -115 -26 45 63
+1329 1014 18 10 32 9 3 12 7 2 -1 8 -5 -3 -2 3 4 3 5 -1 2 -8 30 5 79 22 28 18 21 31 25 20 4 9 -47 39 0 38 1 -34 9 -11 32 -19 9 -10 0 -8 -32 -28 -17 -29 -32 -19 -56 -17 -56 -11 -12 -16 -17 -3 -31 -14 -22 2 7 -17 -5 -15 -7 -2 -3 0 8 3 5 15 -8 19 24 -3
+1196 1149 0 -6 10 -5 -2 -6 -8 -1 -28 5 3 11 15 5 10 -3
+1499 1211 12 -10 0 -3 -11 2 5 -9 -3 -4 -11 3 5 9 -3 16 29 24 -31 38 -3 60 9 15 20 3 6 5 8 28 -6 5 5 -2 25 18 16 25 27 18 27 11 -1 -2 5 -2 -2 -2 13 4 -11 -2 -3 4 85 10 27 -3 35 -11 39 -28 25 -11 20 -4 58 -2 46 16 35 -2 18 3 25 9 15 11 17 26 -11 -5 -8 -13 2 9 0 -5 6 10 11 4 40 33 12 35 9 9 57 13 33 12 43 5 69 24 96 13 6 -4 -57 -11 -45 -3 -65 -23 -132 -29 -9 -11 -7 -27 -39 -32 -21 -30 -20 -15 -31 -11 -46 1 -31 -12 -24 -4 -48 2 -36 8 -59 36 -52 12 -46 -2 -63 -18 -24 -12 -23 -30 -21 -13 -2 -17 -9 -19 -26 -10 -6 -10 6 -64 14 -23 19 -16 -20 -11 3 -3 9 1 4 -6 -28 0 -2 -4
+1259 1371 5 -4 9 2 -5 -12 -18 6 -10 -2 1 12 10 1 2 -5 6 2
+895 1364 -9 -3 -20 3 12 19 14 -1 3 -18
+1741 622 21 2 17 -18 -28 -10 -7 6 5 -6 -12 3 -14 24 11 2 7 -3
+2593 1035 -12 -21 -23 -12 -22 22 -42 23 31 19 64 -22 4 -9
+2375 1117 92 -14 6 -4 -12 -4 59 -27 -35 -18 -56 24 -56 40 2 3
+2380 1166 26 2 8 -3 6 -6 -3 -9 11 0 14 -26 -25 -1 -19 3 -2 6 -4 -6 -20 6 1 26 7 8
+2253 1464 13 -6 -32 -27 -5 5 24 28
+2442 1885 -11 -26 -28 10 17 21 22 -5
+2369 1881 -37 12 22 25 37 -13 -22 -24
+1308 1016 21 -3 25 11 24 6 12 16 54 12 64 19 20 12 24 35 30 25 -10 14 -39 32 -1 35 -23 23 -11 20 -7 61 10 16 23 8 9 33 24 17 20 28 13 8 53 20 68 7 28 -4 29 -9 52 -33 37 -11 61 -2 38 14 51 1 35 12 17 13 23 33 34 25 18 42 56 12 29 11 42 6 66 22 106 16
+2652 1428 -3 3 -27 -51 -2 -37 12 -20 -46 -19 -25 -18 78 -7 31 12 6 -9 13 3 40 27 51 -27 -18 -17 50 -20 -19 -17 30 -15 -8 -8
+2427 1196 168 -60 24 19 19 -10 26 24 38 -10 20 -12 27 25 66 36
+2156 1346 53 73 19 -7 -20 -28 -3 -16 26 -2 25 -10 143 -136 46 25 25 -12 -43 -37
+1967 1373 14 0 8 -23 37 9 5 -7 28 9 19 -33 30 7 3 9 -19 13 5 5 59 -16
+1949 1424 18 -51
+1949 1424 21 4 39 -1 39 16 35 43 33 25 9 31 11 11 91 24 48 8 50 18 108 16
+2433 1619 58 -34 22 3 11 -27 207 -13 -22 -31 9 -3 -32 -46 -12 3 -22 -43
+1629 1460 -10 13 -34 15 7 19 -39 5 27 64 -10 10 17 4 9 17 -11 6 10 24 26 37 10 -1 2 4 15 -4 58 -27 72 37
+1574 1434 55 26
+1284 1765 75 -32 93 -26 4 -69 -20 2 -2 -9 8 -2 -8 -2 -6 -27 -11 -2 -5 -10 -22 6 -12 -15 43 -11 -5 -62 7 -10 16 -3 -4 -4 7 -3 25 14 22 -8 20 -25 16 -8 -9 -7 -1 -12 -22 -6 22 -16 40 24 19 -8
+1284 1765 87 50 74 -19 2 -11 36 -1 79 -17 26 62
+1588 1829 170 -103 -31 -17 41 -11 -3 -6 11 -2 2 -7
+1574 1434 -30 -35 38 -27 -12 -16 7 -19 -9 -31
+636 1506 69 -5 153 -27 119 -4 63 -13 54 -4 52 -9 54 -2 66 -11 60 -2 72 -11 -5 -14 -50 3 -10 -87 12 -4 149 4 2 -21 72 7
+1238 1742 46 23
+788 1558 57 10 71 36 11 -5 38 23 12 -7 25 18 13 -7 49 40 26 -12 34 36 74 38 40 14
+587 1502 0 23 126 14 4 6 71 13
+636 1506 -49 -4
+2488 650 105 -16 131 -11
+2840 593 8 22 -11 248 7 2 4 43 -7 33 35 0 2 19
+2815 1208 29 -14 -15 -13 39 -16 -32 -31 48 -16 -36 -53 57 -32 -50 -31 -16 -22 -5 -20 44 0
+2427 1196 -13 6 32 -64 27 -32
+2403 888 19 41 5 -1 50 67 -6 2 39 35 23 -12 29 -32 14 12 -6 3 6 5 6 -2 37 35 -91 30 -55 35
+2403 888 106 -15 -7 -15 18 -21 -12 -4 4 -4 9 -6 8 3 9 -4 22 8 9 -7 -50 -40 30 -21 -40 -22 -9 -69 -12 -21
+2724 623 18 -1 98 -29
+1866 943 83 17 -6 9 13 3 2 -3 17 4 7 -7 15 3 1 4 29 -5 6 3 8 -1 3 -9 28 -6 34 -4 3 4 46 -10 0 -23 32 4 4 12 9 2 28 -8 -6 -14 7 -2 5 -1 12 15 31 -4 -3 -7 11 -1 3 6 23 -1 -9 -20 101 -15
+1866 943 101 143
+1967 1086 26 35
+2256 1109 139 -18 -40 30 118 -15
+1993 1121 151 -20 4 9 17 -2 4 10 87 -9
+1993 1656 34 18 -6 5 8 4 7 -3 -5 5 10 6 13 7 9 -3 14 11 -6 4 4 2 18 -1 11 6 -2 6 8 -6 15 8 -8 6 19 11 -3 2 17 9 5 -3 28 20 -19 11 20 14 -17 6
+2167 1801 72 59 81 88 219 -60 22 31 42 -11 13 -19 27 -9
+2643 1880 -2 -18
+2641 1862 -46 12 -48 -68 -50 12 -14 -13 -49 18 -75 -71
+2359 1752 -48 -19 26 -31 14 -33 82 -50
+1949 1424 -7 29 4 36 -51 68 -30 23 22 10 11 15 7 0 1 10 8 4 5 -4 74 41
+1778 1683 5 -2 26 14 5 -3 11 6 22 -17 67 36 79 -61
+1588 1829 21 11
+1609 1840 104 49 23 1 30 -10 45 36
+1811 1916 356 -115
+1805 1222 87 83 72 56 3 12
+1580 1151 78 2 -3 10 34 2 -7 10 79 15 44 32
+1568 1306 2 -55 -48 -10 11 -14 -2 -29 49 -47
+1629 1460 51 10 58 -3 41 -14 48 -31 39 -9 53 0 30 11
+1308 1016 23 -3 48 17 8 15 96 23 38 16 59 67
+1118 1173 -6 17 -16 0 -5 -7 -13 6 -17 -2 -1 6 -35 15 -117 25 17 35 -132 22 4 24 -2 5 -30 5 -4 36 -68 11 3 26 -9 3 12 34 -89 13 26 59
+1118 1173 22 -20 25 -4 -3 -44 -21 -45 9 -16 58 -5 10 12 77 -18 -8 -6 21 -11
+1993 1121 163 225
+1805 1222 22 -8 -5 -5 5 -15 20 -9 -8 -6 19 -10 -32 -12 -4 3 -24 -11 37 -43 132 -20
+1866 943 -29 -74 -8 -58 3 -63 23 -180
+2488 650 -21 3 -55 -81 -12 -4 -24 -23 -4 1 -59 -51 -264 128 -194 -55
+1855 568 -29 -9 -8 5 -68 -20 0 -6 -124 -35 -343 -141
+1283 362 -47 55 14 10
+1200 629 152 -28 -17 -32 35 0 -40 -43 -23 -55 -57 -44
+1308 1016 5 -18 -5 -15 -25 -8 -13 -10 -14 -14 -2 -18 -41 -31 9 -47 -24 -8 -21 -28 2 -16 27 -14 -3 -52 17 -15 21 -2 -3 -7 7 -13 -5 -21 -28 -21 2 -19 -14 -10
+587 1502 0 23 126 14 4 6 128 23 61 28 10 8 11 -5 21 15 17 8 12 -7 25 18 13 -7 49 40 26 -12 14 19 23 18 71 37 3 -1 64 28 68 35 38 25 74 -19 2 -11 36 -1 79 -17 26 62 125 60 23 1 30 -10 45 36 353 -117 16 11 20 21 39 29 70 74 11 14 219 -60 20 30 44 -10 2 -6 11 -13 18 -9 9 0 -2 -18 -46 12 -48 -68 -50 12 -14 -13 -49 18 -74 -70 -49 -20 14 -14 12 -17 9 -16 5 -17 23 -11 25 -15 34 -24 58 -34 13 5 9 -2 11 -27 190 -13 17 0 -22 -31 9 -3 -32 -46 -12 3 -17 -37 -5 -6 -3 3 -18 -38 -9 -12 3 -23 -5 -8 0 -7 4 -10 8 -10 -35 -16 -2 2 -9 -5 -25 -18 34 -5 44 -2 31 12 6 -9 13 3 40 27 51 -27 -18 -17 50 -20 -19 -17 30 -15 -10 -7 31 -15 -15 -13 22 -10 17 -6 -32 -31 48 -16 -19 -21 3 -1 -20 -31 24 -12 33 -20 -22 -11 -25 -21 -3 1 -16 -22 -5 -20 44 0 -2 -19 -29 1 -6 -1 7 -33 -4 -43 -7 -2 11 -248 -8 -22 -97 27 -1 2 -89 6 -60 6 -126 19 -55 -81 -12 -4 -24 -23 -4 1 -23 -22 -36 -29 -264 128 -223 -64 -8 5 -68 -20 0 -6 -65 -20 -59 -15 -40 -16 -58 -26 -47 -17 -81 -35 -117 -47 -47 55 24 16 19 16 16 10 12 12 6 10 17 45 12 17 26 20 2 6 -35 0 17 32 -153 28 15 10 1 14 -3 5 12 10 16 11 4 10 1 11 -7 13 3 7 -21 2 -17 15 3 10 -1 10 4 11 -3 21 -26 13 -4 12 5 14 17 19 19 3 5 6 -4 9 2 19 -8 13 1 5 25 21 16 10 2 18 14 14 13 10 25 8 5 15 -6 13 1 5 -21 11 8 6 -77 18 -6 -4 -4 -8 -58 5 -9 16 21 45 -1 27 4 17 -16 1 -11 4 -24 24 -2 12 -16 0 -5 -7 -13 6 -6 1 -11 -3 -1 6 -35 15 -72 17 -45 8 17 35 -79 12 0 1 -53 9 5 14 -1 10 -2 5 -30 5 2 21 -6 9 0 6 -18 0 -8 3 -21 2 -21 6 0 20 3 6 -9 3 12 34 -32 5 0 2 -8 1 -49 5 3 11 11 20 1 6 4 1 3 5 4 16 -17 0 -27 -3 -5 -1
+@streets line
+name,ref,class,arcs
+,M11,motorway,0;1;2;3
+,A14,trunk,4
+Madingley Road,A1303,trunk,5;6
+Westfield Interchange,,trunk,7
+Cambridge Road,A10,trunk,8
+Trumpington Road,A1134,primary,9
+Huntingdon Road,A1307,primary,10
+Newmarket Road,A1303,primary,11
+Hills Road,A1307,primary,12
+Milton Road,A1309,primary,13
+Cambridge Road,A1301,primary,14
+Barnwell Road,A1134,primary,15
+Newmarket Road,A1134,primary,16
+,A1309,primary,17
+Babraham Road,A1307,primary,18
+Madingley Road,A1303,primary,19
+Long Road,A1134,primary,20
+Barton Road,A603,primary,21;22
+Queen's Road,A1134,primary,23
+High Street,A1309,primary,24
+Victoria Road,A1134,primary,25
+Shelford Road,A1301,primary,26
+Mowbray Road,A1134,primary,27
+Milton Road,A1309,primary,28
+Hauxton Road,A1309,primary,29
+Milton Road,A1134,primary,30
+The Fen Causeway,A1134,primary,31
+Newmarket Road,A1134,primary,32
+Elizabeth Way,A1134,primary,33
+Perne Road,A1134,primary,34
+Hills Road,A1307,primary,35
+Chesterton Road,A1303,primary,36
+Hills Road,A1307,primary,37
+Brooks Road,A1134,primary,38
+Gonville Place,A603,primary,39
+Perne Road,A1134,primary,40
+East Road,A603,primary,41
+Queen Edith's Way,A1134,primary,42
+Lensfield Road,A603,primary,43
+Chesterton Road,A1303,primary,44
+Madingley Road,A1303,primary,45
+Long Road,A1134,primary,46
+East Road,A603,primary,47
+Madingley Road,A1303,primary,48
+Fendon Road,A1307,primary,49
+Long Road,A1134,primary,50
+Elizabeth Way,A1134,primary,51
+Hills Road,A1307,primary,52
+Mount Pleasant,A1134,primary,53
+Newnham Road,A603,primary,54
+Chesterton Road,A1134,primary,55
+Newnham Road,A1134,primary,56
+Northampton Street,A1303,primary,57
+Elizabeth Way,A1134,primary,58
+Newmarket Road,A1303,primary,59
+Chesterton Lane,A1303,primary,60
+Madingley Road,A1303,primary,61
+Shelly Row,A1134,primary,62
+Madingley Road,A1303,primary,63
+,A1303,primary,64
+Lady Margaret Road,A1134,primary,65
+Madingley Road,A1134,primary,66
+Albion Row,A1134,primary,67
+Brooks Road,A1134,primary,68
+Trumpington Road,A603,primary,69
+Hills Road,A1307,primary,70
+Mount Pleasant,A1134,primary,71
+Hills Road,A1307,primary,72
+Fendon Road,A1307,primary,73
+Elizabeth Way,A1134,primary,74
+Elizabeth Way,A1134,primary,75
+Huntingdon Road,A1307,primary,76
+Chesterton Road,A1303,primary,77
+,,primary,78
+Elizabeth Way,A1134,primary,79
+Hills Road,A1307,primary,80
+,A1134,primary,81
+Elizabeth Way,A1134,primary,82
+Milton Road,A1309,primary,83
+Perne Road,A1134,primary,84
+Milton Road,A1134,primary,85
+Perne Road,A1134,primary,86
+,A1134,primary,87
+,A1307,primary,88
+Perne Road,A1134,primary,89
+Perne Road,A1134,primary,90
+Shelford Road,,secondary,91
+Granham's Road,,secondary,92
+Kings Hedges Road,,secondary,93;94
+Histon Road,B1049,secondary,95;96
+Coldhams Lane,,secondary,97
+Queen Edith's Way,,secondary,98
+Grange Road,,secondary,99
+Grantchester Road,,secondary,100;101
+Arbury Road,,secondary,102
+Lime Kiln Road,,secondary,103
+Cherry Hinton Road,,secondary,104
+Worts' Causeway,,secondary,105
+Gilbert Road,,secondary,106
+Cherry Hinton Road,,secondary,107
+Coldhams Lane,,secondary,108
+Addenbrooke's Road,,secondary,109
+Green End Road,,secondary,110
+Mill Road,,secondary,111
+High Street,,secondary,112
+Coleridge Road,,secondary,113
+Ditton Lane,B1047,secondary,114
+High Street,,secondary,115
+Fulbourn Road,,secondary,116
+Victoria Avenue,,secondary,117
+Mill Road,,secondary,118
+Brooklands Avenue,,secondary,119
+Birdwood Road,,secondary,120
+Grantchester Road,,secondary,121
+Sidgwick Avenue,,secondary,122
+Union Lane,,secondary,123
+West Road,,secondary,124
+Walpole Road,,secondary,125
+Teversham Drift,,secondary,126
+Addenbrooke's Road,,secondary,127
+Castle Street,,secondary,128
+Station Road,,secondary,129
+Newmarket Road,,secondary,130
+Maids Causeway,,secondary,131
+Kings Hedges Road,,secondary,132
+Maris Lane,,secondary,133
+Grantchester Road,,secondary,134
+Church Lane,,secondary,135
+Addenbrooke's Road,,secondary,136
+Addenbrooke's Road,,secondary,137
+Coldhams Lane,,secondary,138
+,,secondary,139
+Addenbrooke's Road,,secondary,140
+Addenbrooke's Road,,secondary,141
+Brookfields,,secondary,142
+Four Lamps Roundabout,,secondary,143
+Addenbrooke's Road,,secondary,144
+Newmarket Road,,secondary,145
+,,secondary,146
+Coldhams Lane,,secondary,147
+Histon Road,B1049,secondary,148
+Coldhams Lane,,secondary,149
+Coldhams Lane,,secondary,150
+Coldhams Lane,,secondary,151
+Coldhams Lane,,secondary,152
+Histon Road,B1049,secondary,153
+Mill Road,,secondary,154
+Mill Road,,secondary,155
+Coldhams Lane,,secondary,156
+Coldhams Lane,,secondary,157
+@bridges line
+class,arcs
+trunk,175
+trunk,176
+trunk,177
+trunk,178
+primary,164
+primary,165
+primary,166
+primary,167
+primary,168
+primary,169
+primary,170
+primary,171
+primary,172
+primary,173
+primary,174
+secondary,158
+secondary,159
+secondary,160
+secondary,161
+secondary,162
+secondary,163
+@lanes line
+name,arcs
+St Matthew's Street,179
+Gwydir Street,180
+Gwydir Street,181
+Gwydir Street,182
+Gwydir Street,183
+Sturton Street,184
+Sleaford Street,185
+Gresham Road,186
+Cross Street,187
+Covent Garden,188
+Glisson Road,189
+Mill Street,190
+Lyndewode Road,191
+Bateman Street,192
+Bateman Street,193
+Tenison Avenue,194
+Tenison Avenue,195
+Tenison Avenue,196
+Hobson Street,197
+Wilkin Street,198
+Riverside,199
+Priory Road,200
+Beche Road,201
+Abbey Road,202
+Walnut Tree Avenue,203
+Walnut Tree Avenue,204
+Walnut Tree Avenue,205
+Regent Street,206
+Saint Andrew's Street,207
+Saint Andrew's Street,208
+Park Terrace,209
+Regent Terrace,210
+Parkside,211
+Emmanuel Road,212
+Short Street,213
+Short Street,214
+Short Street,215
+Jesus Lane,216
+Jesus Lane,217
+Jesus Lane,218
+King Street,219
+Christ's Lane,220
+Drummer Street,221
+Emmanuel Street,222
+New Square,223
+New Square,224
+Christchurch Street,225
+Christchurch Street,226
+Christchurch Street,227
+James Street,228
+Adam and Eve Street,229
+Paradise Street,230
+Grafton Street,231
+John Street,232
+Brandon Place,233
+City Road,234
+City Road,235
+Dover Street,236
+Orchard Street,237
+Portland Place,238
+Jesus Terrace,239
+Clarendon Street,240
+Willow Walk,241
+Burleigh Place,242
+Cutter Ferry Lane,243
+Brunswick Walk,244
+Brunswick Cottages,245
+Parsonage Street,246
+Auckland Road,247
+Bailey Mews,248
+New Street,249
+Harvest Way,250
+Abbey Street,251
+York Street,252
+Abbey Walk,253
+Young Street,254
+Petworth Street,255
+St Matthew's Court,256
+Vicarage Terrace,257
+Fairsford Place,258
+Fairsford Place,259
+Fairsford Place,260
+Upper Gwydir Street,261
+Edward Street,262
+Staffordshire Street,263
+Bradmore Street,264
+Bradmore Lane,265
+Norfolk Terrace,266
+Norfolk Terrace,267
+Norfolk Terrace,268
+Blossom Street,269
+Flower Street,270
+Flower Street,271
+Broad Street,272
+Hooper Street,273
+York Terrace,274
+Tenison Road,275
+Tenison Road,276
+Tenison Road,277
+St Barnabas Road,278
+Ditchburn Place,279
+Ditchburn Place,280
+Ditchburn Place,281
+Emery Street,282
+Perowne Street,283
+Emery Road,284
+Guest Road,285
+Collier Road,286
+Mackenzie Road,287
+Willis Road,288
+Staffordshire Gardens,289
+Gresham Place,290
+Gresham Place,291
+Gresham Place,292
+Malcolm Street,293
+Magdalene Street,294
+Bridge Street,295
+Park Parade,296
+Portugal Street,297
+Portugal Street,298
+New Park Street,299
+Park Street,300
+All Saints' Passage,301
+All Saints' Passage,302
+All Saints' Passage,303
+St John's Street,304
+St John's Street,305
+St John's Street,306
+Green Street,307
+Trinity Lane,308
+Sussex Street,309
+Sidney Street,310
+St Edward's Passage,311
+St Edward's Passage,312
+St Edward's Passage,313
+Bene't Street,314
+Peas Hill,315
+Petty Cury,316
+Petty Cury,317
+Petty Cury,318
+King's Parade,319
+Corn Exchange Street,320
+Guildhall Place,321
+Wheeler Street,322
+Free School Lane,323
+Pembroke Street,324
+Downing Street,325
+Trumpington Street,326
+Granta Place,327
+Laundress Lane,328
+Little St Mary's Lane,329
+Little St Mary's Lane,330
+Crusoe Bridge,331
+Tennis Court Road,332
+Fitzwilliam Street,333
+Grove Lane,334
+Manor Street,335
+Belmont Place,336
+Mount Pleasant Walk,337
+Castle Row,338
+Pound Hill,339
+Haymarket Road,340
+Honey Hill,341
+Carlyle Road,342
+Carlyle Road,343
+Holland Street,344
+Fisher Street,345
+Searle Street,346
+Hertford Street,347
+Magrath Avenue,348
+Magrath Avenue,349
+Magrath Avenue,350
+St Luke's Street,351
+Alpha Road,352
+East Hertford Street,353
+Clare Street,354
+Arthur Street,355
+Victoria Park,356
+Victoria Park,357
+Primrose Street,358
+Green's Road,359
+Corona Road,360
+Springfield Road,361
+Chesterton Hall Crescent,362
+George Street,363
+Herbert Street,364
+Herbert Street,365
+Hawthorn Way,366
+Hawthorn Way,367
+Hawthorn Way,368
+Trafalgar Road,369
+Trafalgar Street,370
+Boathouse Court,371
+Ferry Path,372
+Hamilton Road,373
+Aylestone Road,374
+Kimberley Road,375
+Banhams Close,376
+De Freville Avenue,377
+Montague Road,378
+Humberstone Road,379
+Belvoir Road,380
+Manhattan Drive,381
+Pentlands Close,382
+Midsummer Meadows,383
+Acrefield Drive,384
+St Andrew's Road,385
+St Andrew's Road,386
+St Andrew's Road,387
+Grantchester Meadows,388
+Cranmer Road,389
+Champneys Walk,390
+Champneys Walk,391
+Champneys Walk,392
+Champneys Walk,393
+Champneys Walk,394
+Chedworth Street,395
+Barton Close,396
+Barton Close,397
+Grantchester Street,398
+West View,399
+Lammas Field,400
+Pinehurst,401
+Pinehurst,402
+Pinehurst,403
+Derby Street,404
+Millington Lane,405
+Ridley Hall Road,406
+Church Rate Walk,407
+Church Rate Walk,408
+Edwinstowe Close,409
+St Mark's Court,410
+The Cenacle,411
+Millington Road,412
+Eltisley Avenue,413
+Spens Avenue,414
+Merton Street,415
+Clare Road,416
+Hardwick Street,417
+Owlstone Road,418
+Selwyn Gardens,419
+King's Road,420
+Newnham Croft Street,421
+Sylvester Road,422
+Adams Road,423
+Bulstrode Gardens,424
+Wilberforce Road,425
+Wilberforce Road,426
+Clarkson Road,427
+Cockcroft Place,428
+Cockcroft Place,429
+Cockcroft Place,430
+Clarkson Close,431
+Newnham Walk,432
+Malting Lane,433
+Mariner's Way,434
+Capstan Close,435
+Capstan Close,436
+Capstan Close,437
+Francis Passage,438
+Union Road,439
+Bentinck Street,440
+George IV Street,441
+Coronation Street,442
+Coronation Street,443
+Panton Street,444
+Panton Street,445
+Brookside,446
+Saxon Street,447
+Pemberton Terrace,448
+Brookside Lane,449
+St Eligius Place,450
+Coronation Mews,451
+Russell Court,452
+Norwich Street,453
+Bateman Mews,454
+Bateman Mews,455
+Bateman Mews,456
+Russell Street,457
+Russell Street,458
+Russell Street,459
+Coronation Place,460
+St Paul's Road,461
+Courtney Way,462
+Gurney Way,463
+Ascham Road,464
+Akeman Street,465
+Darwin Drive,466
+Stretten Avenue,467
+Bateson Road,468
+Bateson Road,469
+Bateson Road,470
+Bateson Road,471
+Bateson Road,472
+Bateson Road,473
+Bateson Road,474
+Bateson Road,475
+Garden Walk,476
+Hale Avenue,477
+Harvey Goodwin Avenue,478
+Rackham Close,479
+Rackham Close,480
+Rackham Close,481
+Linden Close,482
+Linden Close,483
+Linden Close,484
+French's Road,485
+Harvey Goodwin Court,486
+Harvey Goodwin Gardens,487
+Bermuda Road,488
+Canterbury Street,489
+Canterbury Street,490
+Canterbury Street,491
+North Street,492
+Canterbury Close,493
+Benson Place,494
+Benson Street,495
+Priory Street,496
+St Stephen's Place,497
+St Stephen's Place,498
+Westfield Road,499
+St Christopher's Avenue,500
+Archway Court,501
+Churchill Road,502
+Storey's Way,503
+The Crescent,504
+Fuller Way,505
+Larmor Drive,506
+Benians Court,507
+Buckingham Road,508
+Drosier Road,509
+Mortimer Road,510
+Harvey Road,511
+Felton Street,512
+St Paul's Place,513
+St Paul's Walk,514
+Cambridge Place,515
+Highsett,516
+Highsett,517
+Highsett,518
+Highsett,519
+George Pateman Court,520
+St Peter's Terrace,521
+Silver Street,522
+Silver Street,523
+Silver Street,524
+Silver Street,525
+Senate House Hill,526
+Senate House Hill,527
+Senate House Hill,528
+Senate House Hill,529
+St Matthew's Gardens,530
+Herschel Road,531
+Summerfield,532
+Trinity Street,533
+King's College Bridge,534
+Rose Crescent,535
+Earl Street,536
+Lynch Walk,537
+Main Walk,538
+Sandy Lane,539
+The Taka,540
+Clare Bridge,541
+The Avenue,542
+The Avenue,543
+Wren Bridge,544
+Martyn Walk,545
+Hobsons Passage,546
+Fort St George Bridge,547
+Springfield Terrace,548
+West Walk,549
+Henslow Walk,550
+Middle Walk,551
+East Walk,552
+Bells Court,553
+Ridley's Walk,554
+Botolph Lane,555
+Lion Yard,556
+Lion Yard,557
+Lion Yard,558
+Grand Arcade,559
+Grand Arcade,560
+Grand Arcade,561
+Grand Arcade,562
+Grand Arcade,563
+Fair Street,564
+Driftway,565
+St. Luke's Street,566
+Lower Park Street,567
+Chaucer Road,568
+Chantry Close,569
+Chantry Close,570
+Chantry Close,571
+Chantry Close,572
+Chantry Close,573
+Milford Street,574
+Thompson's Lane,575
+Napier Street,576
+Albert Street,577
+Geldart Street,578
+Newmarket Road (shared-use path),579
+Newmarket Road (shared-use path),580
+Newmarket Road (shared-use path),581
+Newmarket Road (shared-use path),582
+Norfolk Street,583
+Burleigh Street,584
+Miltons Walk,585
+Simpers Walk,586
+Dead Man's Alley,587
+Round Church Street,588
+Pemberton Place,589
+Westfield Lane,590
+Market Passage,591
+Tenison Court,592
+Fitzroy Street,593
+Claremont,594
+Claremont,595
+Caius Terrace,596
+Cross Keys Yard,597
+Mill Lane,598
+Garret Hostel Lane,599
+Brunswick Gardens,600
+Brunswick Terrace,601
+North Terrace,602
+St John's Road,603
+Stanway Close,604
+Stanway Close,605
+Stanway Close,606
+Mawson Road,607
+Mawson Pace,608
+Palmers Walk,609
+Fellows' Walk,610
+Fellows' Walk,611
+Fellows' Walk,612
+Fellows' Walk,613
+Honey Hill Mews,614
+Guildhall Street,615
+Church Walk,616
+Market Hill,617
+Market Hill,618
+Market Hill,619
+Market Hill,620
+St Mary's Passage,621
+St Mary's Street,622
+Downing Place,623
+Eden Street,624
+Elm Street,625
+Melbourne Place,626
+Prospect Row,627
+Victoria Street,628
+Warkworth Street,629
+Warkworth Terrace,630
+Willow Place,631
+Eden Street Backway,632
+Kings Lane,633
+Mathematical Bridge,634
+Queens Lane,635
+St Eligius Street,636
+Hale Street,637
+Jordan's Yard,638
+Jordan's Yard,639
+Jordan's Yard,640
+Jordan's Yard,641
+Jordan's Yard,642
+Jordan's Yard,643
+Shelly Row,644
+St Peter's Street,645
+Evening Court,646
+Richmond Terrace,647
+Richmond Terrace,648
+Portugal Place,649
+Portugal Place,650
+Portugal Place,651
+Tennis Court Terrace,652
+The Chimney,653
+Hinsley Lane,654
+Wordsworth Grove,655
+Westland Terrace,656
+Market Street,657
+Bridge of Sighs,658
+Parker Street,659
+Kingsley Walk,660
+Kingsley Walk,661
+Kingsley Walk,662
+Kingsley Walk,663
+Kingsley Walk,664
+Midsummer Place,665
+Wellington Passage,666
+Occupation Road,667
+Occupation Road,668
+Occupation Road,669
+St Andrew's Arcade,670
+Lilywhite Drive,671
+Lilywhite Drive,672
+Lilywhite Drive,673
+Lilywhite Drive,674
+Lilywhite Drive,675
+Lilywhite Drive,676
+Lilywhite Drive,677
+Lilywhite Drive,678
+Lilywhite Drive,679
+Lilywhite Drive,680
+Eccleston Place,681
+Pretoria Road,682
+'The Screens',683
+Windy Passage,684
+Beaulands Close,685
+Xu Zhimo memorial garden,686
+Xu Zhimo memorial garden,687
+Madingley Road,688
+Newmarket Road,689
+Newmarket Road,690
+Tunwell's Court,691
+Gonville Place,692
+@rail line
+kind,colour,lines,arcs
+r,,,693
+r,,,694;695
+r,,,696
+r,,,697
+r,,,698
+r,,,699
+r,,,700
+r,,,701
+r,#ee4b95,,702
+r,#ee4b95,,703
+@green polygon
+kind,arcs
+park,704
+park,705
+park,706
+park,707
+park,708
+park,709
+park,710
+park,711
+park,712
+park,713
+park,714
+park,715
+park,716
+park,717
+park,718
+park,719
+park,720
+park,721
+park,722
+park,723
+park,724
+park,725
+park,726
+park,727
+park,728
+park,729
+park,730
+park,731
+park,732
+park,733
+park,734
+park,735
+@water polygon
+arcs
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+@waterways line
+name,kind,arcs
+River Cam,river,748
+@districts line
+level#,arcs
+1,749
+1,750
+1,751
+1,752
+1,753
+1,754
+1,755
+1,756
+1,757
+1,758
+1,759
+1,760
+1,761
+1,762
+1,763
+1,764
+1,765
+1,766
+1,767
+1,768
+1,769
+1,770
+1,771
+1,772
+1,773
+1,774
+1,775
+1,776
+1,777
+1,778
+1,779
+1,780
+1,781
+1,782
+1,783
+1,784
+1,785
+1,786
+1,787
+1,788
+1,789
+1,790
+1,791
+1,792
+1,793
+1,794
+1,795
+1,796
+1,797
+1,798
+1,799
+1,800
+1,801
+1,802
+1,803
+@clip polygon
+arcs
+804
+@places
+name,level#,lon#,lat#
+Abbey,1,0.16098,52.21189
+Arbury,1,0.11662,52.22537
+Castle,1,0.09877,52.21776
+Cherry Hinton,1,0.17292,52.18524
+Coleridge,1,0.15438,52.19044
+East Chesterton,1,0.15001,52.2229
+King's Hedges,1,0.13164,52.2298
+Market,1,0.12613,52.20662
+Newnham,1,0.09577,52.20571
+Petersfield,1,0.13652,52.20122
+Queen Edith's,1,0.1509,52.17703
+Romsey,1,0.15052,52.20027
+Trumpington,1,0.11529,52.18003
+West Chesterton,1,0.12543,52.2177
+@parks
+name,kind,ha#,lon#,lat#
+Coldham's Common,park,49,0.15904,52.20488
+Hobson's Park,park,43,0.12807,52.17221
+Stourbridge Common,park,19,0.14791,52.21654
+@stations
+name,kind,rank#,lon#,lat#
+Cambridge,r,1,0.13772,52.19411
+Cambridge South,r,3,0.13127,52.17403

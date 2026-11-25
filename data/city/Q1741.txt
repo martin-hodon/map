@@ -1062,6 +1062,832 @@ grid 5e-05 16.15490 48.07800
 4334 3479 1 -12 4 -2
 4373 3454 6 0 27 8 27 -7
 4458 3433 -25 22
+4048 2589 8 28 2 3
+4087 2722 -9 -33
+4026 2713 56 -7
+4073 2670 -20 3
+4063 2637 -3 1 -35 5
+4009 2594 32 -4 1 -1 1 -2
+4024 2573 18 10
+4048 2590 3 -1 37 -5 4 0 4 1
+4091 2584 -1 -5
+4279 2777 48 -47
+4354 2716 31 -17
+4272 2628 38 -23 19 -4
+4237 2596 11 -17
+4110 2633 19 -2 12 5
+4128 2745 22 10
+4150 2755 2 0 2 2
+4150 2755 1 1 3 1
+4154 2757 13 6
+4167 2763 3 0 1 2
+4167 2763 2 1 2 1
+4171 2765 2 0 2 1
+4171 2765 1 1 3 0
+4175 2766 37 17
+3984 2522 5 -23 3 -10
+3995 2488 10 -18
+4292 2802 9 -10
+4306 2786 3 0 8 -8
+4371 2727 -17 18 -25 22
+4394 2704 -14 14
+4395 2688 11 -5 20 -7
+4426 2675 14 -4 22 -4
+4524 2665 -19 1 -1 3 2 0
+3958 2590 48 7
+4237 2603 35 25
+4170 2416 8 -7
+3976 2486 19 2 44 8 3 1 2 2
+3979 2625 -11 27 -9 29
+4313 2645 26 -12 21 -10
+4343 2665 -30 -20 -4 0 -12 -4 -21 -9 -4 -4
+4343 2665 15 13
+4361 2680 20 12 2 2
+4343 2665 19 -11
+4365 2658 -20 9
+4362 2654 3 4
+4362 2654 9 -4
+4373 2653 -8 5
+4371 2650 15 -7
+4365 2658 5 6 10 8 4 8
+4480 2641 -17 5 -15 6 -29 5 -33 11
+4336 2634 -16 -9
+4339 2633 23 10 9 7
+4390 2667 -17 -14
+4377 2647 22 17
+4386 2654 -7 4
+4358 2680 -19 7
+4360 2678 5 -1
+4366 2676 1 0
+4369 2675 12 -2
+4367 2676 2 -1
+4382 2677 11 -3 14 0
+4404 2662 4 9 -1 9 1 2
+4384 2680 -6 4
+4360 2623 42 32 9 4 7 9
+4418 2668 -10 3
+4418 2668 15 18
+4228 2603 4 1 5 -1 2 -3 -1 -3 -5 -2 -5 1 -2 3 2 4
+4281 2528 4 1 13 17 9 6
+4328 2601 -14 -23 -2 -1 -7 -10
+4279 2554 0 2 20 21 15 27
+4279 2521 -2 0
+4279 2521 2 7 -2 -1 -2 -6
+4277 2521 -2 -2 13 -2 -9 4
+4250 2576 16 5
+4269 2585 13 15 14 13
+4271 2542 4 1 17 -5 25 -5
+4359 2573 8 -4 1 -4
+4243 2588 15 4 20 21 7 7
+4355 2567 16 -3 5 -3 5 0 5 4
+4304 2586 11 -3
+4262 2590 -4 2
+4266 2581 -4 9
+4282 2579 -12 5 -8 6
+4312 2564 -8 4 -24 9
+4298 2546 -19 8
+4361 2579 -12 -23
+4142 2545 58 34
+3939 2648 44 6 21 0
+4002 2522 5 -16
+4007 2506 4 1
+4007 2506 1 -3
+4012 2504 -4 -1
+4008 2503 4 -12
+3989 2498 8 1 -6 23
+4006 2657 2 30
+4025 2643 -5 0
+3990 2548 4 -20 6 0
+4019 2623 -4 -14
+4020 2625 5 18
+4049 2723 -15 -47
+4011 2542 8 -22
+4022 2506 -5 -1
+4021 2511 -2 9
+4026 2494 -4 15
+4078 2689 -55 7
+4011 2524 5 -16
+4011 2507 5 1
+4017 2505 -5 -1
+4016 2508 1 -3
+4017 2505 3 -12
+4044 2641 -14 -50
+4138 2661 -2 0 -17 1
+4138 2661 -3 4 -8 1 -1 1
+4169 2606 -28 30 3 1 3 13 -9 11
+4152 2719 3 -3
+4155 2716 -2 -3 8 -7 2 -3 3 2
+4155 2716 11 -11
+4166 2705 7 -6 12 -18
+4185 2681 0 -1 -47 -19
+4258 2739 -1 -1
+4257 2738 -22 -10 -5 -1 10 -10 28 14
+4261 2737 -4 1
+4147 2650 26 9 6 -9
+4127 2690 11 -1 23 -13
+4161 2676 -1 3 -2 2 -15 7
+4161 2676 6 -3
+4326 2673 -7 -7 -2 0 -12 4
+4285 2620 4 1 6 4
+4171 2625 -1 -1
+4171 2625 18 -3
+4189 2622 1 8 -8 9 -16 -5 5 -9
+4189 2622 -1 -2
+4170 2624 -12 -7
+4169 2606 2 -3 4 0
+4171 2597 4 2 0 4
+4175 2603 9 4
+4232 2604 -11 23 -25 36 -4 9
+4320 2649 -13 7 -7 -7 0 -1 4 -5
+4229 2665 -19 -22
+4275 2631 -40 26 -1 2 2 3
+4234 2636 -14 -6
+4230 2727 -19 19
+4233 2728 -16 16
+4273 2696 -21 9 -12 12
+4255 2706 -13 12
+4343 2665 -20 10 -47 19
+4338 2609 -18 9 -1 2 -2 0 -12 6
+4199 2658 -39 -15 -16 -6
+4321 2668 15 -7
+4313 2645 0 -3 -7 -7
+4300 2642 -1 2 -12 9
+4215 2648 11 -6 20 -15 13 -8
+4140 2691 -1 2 -10 2
+4138 2689 2 2
+4140 2691 23 12
+4143 2688 1 1 14 7
+4169 2658 -9 12
+4206 2819 8 -13
+4103 2767 -11 -7 -16 6 -3 0 -18 -18
+4064 2758 -25 9
+4022 2750 -1 -9
+4317 2778 -8 -5 -45 -20
+4329 2767 -2 0 -66 -30
+4301 2792 -145 -67 -6 -2
+4166 2721 47 22
+4217 2744 89 42
+4214 2765 -32 31
+4304 2715 -52 50
+4281 2460 -1 4 9 19
+4291 2473 0 2 2 5 3 2
+4292 2483 6 8 11 21
+4337 2593 -7 -33 -22 -46 1 -1
+4336 2594 1 -1
+4339 2599 -2 -6
+4203 2422 10 -8 14 -5
+4256 2404 -29 5
+4333 2397 -17 -2 -60 9
+4266 2346 -2 17 1 2
+4267 2341 2 -9
+4298 2338 -3 0 -49 -10
+4242 2342 20 1
+4288 2346 -17 -2
+4582 2741 5 0 2 1 32 35 8 4 17 12 10 12
+4518 2799 3 0 53 -10 60 -23 5 -2 3 -3
+4513 2466 -34 -24
+4554 2462 3 -7
+4562 2422 1 -17
+4606 2407 -118 -5 -22 8
+4648 2405 -36 2
+4574 2351 1 2 6 70 -4 28 -12 26 -31 25
+4539 2449 -8 21
+4545 2404 -1 18
+4585 2527 3 -3
+4593 2531 -5 -7
+4588 2524 -2 -3 0 -12 3 -13
+4607 2424 -12 45
+4608 2423 9 -35
+4699 2442 -10 0 4 -20
+4638 2452 -18 0
+4638 2452 -1 7
+4639 2438 -1 14
+4460 2431 -13 -9 -1 -2
+4557 2455 4 -18 1 -15 -18 0 -1 11 -4 16
+4478 2419 -29 19
+4549 2362 1 2 2 23 1 18
+4666 2402 -1 19
+4484 2404 -8 -10
+4615 2396 32 -2
+4455 2402 36 28 24 13 6 2
+4651 2438 -30 0
+4484 2391 8 11
+4494 2402 -1 18
+4504 2475 2 -3 8 -5 -1 -1
+4518 2462 3 -17 1 -30 3 -28 1 0 1 -11 -2 -2
+4620 2458 1 -36
+4489 2460 26 -17
+4526 2387 84 -3
+4355 2404 7 -9
+4292 2398 -3 -12
+4372 2417 0 14 3 3
+4402 2397 -58 -20
+4291 2370 18 26 9 10
+4249 2426 4 -1
+4262 2424 16 -5
+4278 2419 6 7
+4278 2419 2 -1
+4218 2387 3 -2 3 1 19 9 2 0
+4252 2392 2 -1 46 -7
+4300 2334 59 17
+4393 2407 -21 10
+4328 2405 -3 1 -5 0 -2 0
+4161 2400 22 -18 21 -14
+4115 2435 5 -2 35 0 37 25
+4184 2438 18 10
+4100 2429 -9 10 -8 1 -38 -15 -5 3
+4071 2435 11 -12
+4120 2393 -41 45
+4075 2421 27 -30
+4131 2433 24 -24
+4185 2508 75 -18
+4264 2498 -37 8
+4289 2483 -2 2 -5 2 -14 3 -6 0 -3 -1
+4412 2569 6 9 1 3 -1 7
+4397 2576 -11 -10
+4188 2511 -9 -13 -19 -22
+4359 2472 -7 -14
+4288 2517 21 -5
+4319 2562 11 -2
+4441 2487 -8 -8 -2 0 -3 -3
+4428 2475 16 -6
+4361 2439 13 26
+4144 2499 27 -14 22 -6
+4224 2472 24 -5
+4428 2476 -18 9
+4396 2609 -3 -4 23 -9
+4369 2454 -75 17 -3 2
+4275 2519 -4 1 -15 11 -15 13 3 1
+4231 2485 -7 -13 -16 3 -15 4 6 13
+4365 2511 0 1 20 17 8 14 19 9 33 15
+4501 2580 -72 -71
+4303 2501 69 -15 6 -1 2 0
+4421 2602 -11 -12 -16 -13
+4323 2464 -6 -12
+4325 2465 7 14
+4350 2513 -11 -20
+4296 2482 78 -17 11 3
+4385 2475 -8 -2 -5 0 -57 13 -15 4 -2 1
+4365 2511 21 -36
+4386 2475 -1 -3
+4389 2473 -3 2
+4157 2507 21 -10 77 -17
+4256 2480 29 -7
+4378 2586 20 17
+4362 2592 -5 -12
+4429 2509 -31 -30 -13 -4
+4394 2470 3 1 9 2 31 32
+4682 2471 3 -6
+4713 2471 -24 15
+4372 2633 35 -18 44 -14
+4451 2601 3 3
+4451 2601 32 -10
+4455 2605 -1 0
+4471 2580 -18 -17
+4472 2581 11 10
+4344 2844 30 -28 29 -23 6 -7 4 -1
+4340 2862 26 22
+4399 2836 -1 3 44 27
+4503 2831 2 2 25 63
+4389 2818 -4 15 -5 6 -23 14
+4383 2874 48 -33 20 -46 3 -8 0 -10
+4402 2753 2 1 5 6 4 9 0 16 9 37
+4413 2779 38 -1 16 -6
+4517 2810 -75 8
+4518 2784 -64 -2
+4394 2762 5 30 1 1 3 0
+4368 2795 -2 -1
+4420 2810 -35 -2 -15 -12
+4395 2800 22 1
+4357 2805 15 11 50 6 17 1
+4412 2821 -6 16
+4459 2862 -45 -23 -29 -6
+4371 2845 28 19
+4408 2857 -28 -18
+4433 2838 3 0 64 -13 6 4
+4550 2758 -40 -3
+4578 2757 -6 1 -14 0
+4495 2762 -3 5 0 2
+4510 2755 -9 -3 -9 2
+4466 2739 37 -10
+4439 2823 8 2 4 10
+4647 2832 -19 -26 -12 -14 -13 -14 -27 -23 -11 -17 -21 -25 0 -1 2 -2
+4496 2784 1 28
+4431 2798 19 -1 18 2 50 0
+4427 2742 34 -12
+4625 2802 -76 15 -29 2
+4526 2835 130 -30 32 -9
+4509 2688 0 2 -1 3 0 3 32 38 7 12 1 7 3 7 17 31 13 20
+4591 2782 -22 -24
+4517 2771 3 1 17 24 25 47
+4532 2789 -14 2
+4386 2721 -20 -12 -9 -10
+4470 2595 6 22 2 4 4 4 0 4
+4485 2671 4 -2 0 -2 -3 -16 -6 -10 0 -3
+4480 2638 -5 -6 0 -1 2 0 5 -2
+4482 2629 -2 9
+4501 2634 45 -16
+4533 2604 -32 11
+4523 2668 6 -28 -4 -15 -11 -16 -14 -15
+4483 2591 28 -8
+4515 2587 -25 12 -7 -6 0 -1
+4448 2610 0 3 3 3
+4437 2583 25 -11
+4445 2567 1 0 2 11
+4502 2646 44 14
+4690 2646 -50 3
+4697 2642 9 -7
+4660 2671 34 3
+4661 2683 -2 -21
+4787 2661 -57 -27
+4732 2667 44 -57
+4662 2604 55 -12 30 -6 26 5
+4445 2592 -24 10 -46 13 -15 7 0 1
+4490 2599 10 13 1 22
+4497 2614 2 2 0 15 2 3
+4501 2634 2 35
+4480 2622 14 -8 3 0
+4433 2507 -50 22 -60 17
+4330 2560 18 -4
+4349 2556 43 -12 1 -1 19 -10 32 -15
+4183 2817 4 1
+4187 2820 -3 1
+4187 2818 3 0
+4187 2818 3 2 -3 0
+4187 2818 0 2
+4187 2820 0 1
+4102 2771 98 31 28 8
+4655 2734 56 -5 14 1 3 -2
+4694 2752 6 -22
+4693 2719 2 12
+4678 2732 -1 -13
+4657 2716 -6 1
+4651 2717 1 11
+4651 2717 -1 -1 2 -2
+4686 2689 1 -4 15 -22 -1 -3
+4686 2698 0 -9
+4399 2608 7 8
+4478 2551 -33 16
+4444 2554 15 -8
+4459 2546 -3 -3
+4459 2546 4 -2
+4790 2613 -17 39 -26 26
+4333 2683 2 1
+4336 2685 3 2 4 15
+4357 2699 2 -19
+4420 2466 8 10
+4452 2498 -11 -11
+4497 2569 -52 23
+4401 2582 -8 5
+4365 2511 -5 0 -48 12
+4335 2582 22 -2 11 -3 6 -3 8 -4 4 -5 10 -6 13 -5 15 -11 32 -14
+4461 2559 18 18
+4424 2543 4 3 9 4 7 4 9 9
+4259 2558 7 5 10 10 18 21 16 11
+4318 2725 -14 -10
+4352 2746 -16 -10
+4395 2688 -12 6 2 5 11 6 4 1
+4287 2653 11 7 3 6 -1 2
+4305 2682 -8 -9
+4244 2659 10 -6 3 -1 13 15 0 2 -7 4 -19 -14
+4229 2665 16 10 19 12 26 22
+4263 2673 4 1 20 16
+4275 2519 -1 -1 -12 -23
+4380 2485 4 2 55 50
+4339 2493 -5 -11
+4309 2512 59 -13 4 0
+4424 2543 -47 -42 -5 -2
+4312 2523 -27 6
+4373 2519 16 -7
+4390 2511 11 -6
+4403 2505 15 -7
+4422 2496 19 -9
+4058 2620 5 17 2 6 8 3 3 7
+4076 2653 -1 8 -4 4 7 24 47 -6
+4076 2653 32 -4
+4422 2566 29 35
+4317 2533 37 -10 19 -4
+4151 2681 -16 -14 0 -2
+4203 2713 16 -5 21 9
+4164 2743 26 -25 7 -6
+4302 2697 11 -2 12 -9 14 -7 11 -8
+4308 2681 13 8
+4306 2705 -1 -4
+4308 2711 -2 -6
+4786 2552 -19 5 -56 18 -9 2 -28 0 -21 5 -19 6
+4747 2621 34 12
+4584 2494 -35 -18 -9 -4 -22 -5 -11 7 -3 1
+4651 2541 -26 -27 -2 -4 -12 -6 -23 -9
+4095 2812 31 -33
+4127 2778 9 -10
+4137 2767 27 -24
+4256 2651 0 -1 18 -11 5 -5
+4073 2766 -8 11
+4425 2879 29 -20 18 -11 3 1
+4552 2687 -4 13
+4651 2717 -56 -10 -65 -10 -3 0 -2 3
+4603 2835 -8 -16
+4590 2734 3 -2 6 -10 9 -25
+4621 2701 -4 10
+4590 2734 -7 6 -6 8 -5 2
+4613 2768 13 -9 3 -1
+3953 2605 49 6
+4182 2639 24 9
+4068 2458 2 -5 13 -8 8 -2 46 19
+4087 2462 11 -7 28 -13
+4058 2436 -18 15
+4061 2431 -2 2
+4230 2727 -57 -28
+4166 2705 44 23
+4539 2641 -11 1
+4539 2638 0 -1
+4539 2640 0 -2
+4546 2641 -7 0
+4547 2638 5 -1
+4553 2640 -5 1
+4444 2654 3 1 -3 6 -24 9
+4445 2663 -1 8
+4445 2663 0 -4
+4468 2659 -23 4
+4310 2632 10 -7 -1 -5
+4305 2635 -5 6 0 1
+4334 2660 9 -7 19 -10
+4343 2653 -8 -6 -8 -9
+4487 2692 4 1 14 -1 14 5 21 11 14 5 3 0 3 -1
+4208 2857 42 3
+4230 2811 -9 13 -10 21 -3 12
+4161 2843 -5 -16
+4748 2563 7 25
+4755 2598 2 -10
+4732 2569 8 17 4 21
+4742 2597 26 2
+4670 2647 -11 -16
+4666 2647 2 15
+4682 2588 -25 5
+4706 2635 -30 -58
+4692 2577 0 3 20 37 8 6
+4714 2527 -53 27
+4669 2544 -7 -7
+4672 2543 -8 -8
+4729 2618 -11 -26 -15 -14 -7 -9 -25 -26
+4675 2524 18 13
+4685 2558 34 -18
+4700 2504 40 34 1 0 11 -6
+4760 2552 7 5
+4722 2521 17 -7
+4671 2569 25 0 38 -21
+4706 2635 13 -10 1 -2 9 -5 3 5 7 4
+4711 2648 7 -6
+4680 2635 -14 5
+4683 2632 30 -14
+4128 2473 0 2 -2 0 0 -2 2 0
+4140 2463 1 4 -13 6
+4044 2499 0 3 -12 24 1 3
+4629 2551 22 32 22 40 24 19
+4711 2652 34 25 7 7
+4644 2679 27 7 19 3 51 -8 6 -3
+4717 2557 -26 -19
+4693 2537 4 1 22 18
+4083 2445 13 10 2 0
+4579 2734 -14 4 -18 8
+4068 2470 -21 27 -3 2
+4639 2641 3 0 25 -15
+4790 2613 -27 -5 -18 -1 -22 1 -29 7 -21 8
+4651 2541 6 7 19 29
+4735 2490 -13 8
+4559 2572 52 -16
+4721 2498 -3 1 -14 7
+4177 2519 -46 -27
+4199 2758 -14 13
+4197 2740 47 -46
+4523 2420 21 2
+4562 2422 41 1
+4605 2423 16 -1 29 -1
+4643 2663 -23 2 -12 -2
+4634 2606 5 1 5 2 48 34
+4693 2644 8 7
+4745 2689 -4 -8 -7 -7 -20 -15 -4 3
+4487 2654 12 -3 3 0
+4688 2451 1 -9
+4408 2422 -36 -5
+4372 2417 -10 -9 -12 -7
+4318 2725 29 -14 12 10 -23 15 -18 -11
+4519 2457 35 5
+4586 2508 22 4 6 3
+4588 2475 4 1 2 -5 1 1
+4593 2481 -4 15
+4600 2423 -18 70
+4610 2384 2 2 -6 21
+4643 2503 12 5
+4657 2509 20 9
+4637 2526 12 -7 7 -4
+4626 2577 18 -5
+4589 2583 -16 5
+4559 2572 4 1 11 17 1 3
+4579 2596 14 -4 2 -2
+4577 2566 24 33
+4567 2579 16 -5
+4256 2785 12 -13
+4271 2778 -10 10
+4270 2669 12 2 5 3
+4287 2653 -1 4 -2 3 -17 5
+4284 2660 3 6 5 5
+4098 2492 2 -3
+4118 2682 -20 -66
+4128 2713 -8 -30
+4124 2662 13 44
+3990 2640 13 -1
+3992 2539 7 1
+4000 2541 11 1
+4290 2688 12 9
+4302 2697 3 3 16 -1
+4276 2694 -3 2
+4575 2802 41 -10 18 -7
+4246 2368 -18 4 -13 7
+4540 2552 -7 3
+4262 2343 5 -2 4 3 -5 2 -4 -3
+4439 2564 -20 3 -22 9 -19 10 -39 13
+4239 2439 27 -8
+4280 2445 0 5 2 10 11 24
+4119 2477 2 -1 1 1
+4122 2477 1 0 -2 1
+4126 2475 -4 2
+4409 2615 12 8
+4589 2666 -3 -15 -3 -3 -5 -19 2 -7 -9 -13
+4569 2658 15 -9
+3995 2625 -5 15 -7 13 -2 18
+4319 2586 16 -3
+4230 2514 30 14
+4230 2514 -3 -8 -5 0 -1 1 2 3 7 4
+4551 2657 -10 -37 -35 -36
+4520 2585 10 12 3 1 17 17 2 3 6 23
+4558 2641 -5 0
+4558 2641 4 14
+4290 2709 14 6
+4252 2646 4 4
+4253 2645 -4 -3 -6 -1 -7 -5
+4460 2647 18 26
+4423 2656 -5 -8 -11 -11
+4418 2648 9 -4
+4384 2670 -4 2
+4304 2715 3 -3 48 -13 28 -5
+4350 2401 -7 -2
+4307 2552 5 6 0 6
+4307 2552 7 -3 5 13
+4313 2564 4 2
+4319 2562 -4 -1 -2 0
+4317 2566 3 10
+4319 2562 0 2 -2 2
+4366 2601 -6 -9
+4314 2578 6 -2 13 -1
+4087 2441 -3 0 0 1 7 -1 -1 0 -3 0
+4377 2647 -6 -6 -20 -14
+3981 2573 5 -25
+4507 2523 7 -6
+4546 2660 5 -3 4 -1 9 0 5 2 4 9
+4449 2620 7 9
+4441 2642 10 9
+4456 2639 7 7
+4429 2621 5 4
+4400 2637 -6 3
+4407 2637 -7 0
+4400 2637 -1 -1 3 -3
+4402 2633 44 -19 37 -13
+3974 2671 7 0 26 -1
+4475 2451 31 21
+4688 2796 -37 -24
+4436 2822 -10 -44
+4482 2845 -4 -3 -6 -11 -4 -32 -2 -39
+4406 2473 28 -13
+4434 2460 33 31
+4417 2732 29 31 8 14
+4492 2754 -45 10
+4343 2702 4 9
+4359 2721 12 6
+4147 2369 49 26
+4207 2404 -2 2 8 8
+4218 2500 -6 -11
+4217 2488 6 11
+4229 2665 15 -6
+4248 2579 7 -14
+4255 2565 9 -17 6 -5 9 -16
+4279 2671 -3 2 2 4 -5 2
+4191 2676 -6 4
+4185 2681 9 -5
+4191 2676 3 0
+4192 2672 -1 4
+4194 2676 16 -3 19 -8
+3953 2602 10 -32
+4485 2823 -3 -4 -1 -5
+4485 2823 -3 1
+4486 2828 -1 -5
+4318 2406 3 5 -2 2 -2 4 -51 14
+4439 2416 2 3 5 1 2 -1 30 0 45 1
+4378 2315 -18 34 -32 56
+4454 2710 9 25 16 22
+4245 2395 4 -1 3 -2
+4059 2527 2 -2
+4105 2567 66 -50 12 -9 2 0
+4088 2785 95 32
+4205 2821 -15 -1
+4190 2818 16 1
+4260 2834 -38 -11 -17 -2
+4206 2819 -1 2
+4206 2819 17 2
+4166 2634 -6 9
+4331 2507 2 3 8 1
+4244 2545 20 -16
+4451 2616 0 2 -2 2 -35 15 -7 2
+4441 2551 19 -10
+4256 2637 5 3
+4279 2554 -11 -9
+4156 2682 -1 2 4 2 -3 5 17 6
+4246 2627 8 5
+4416 2665 7 -2
+4281 2649 16 -8
+4692 2643 1 1 -3 2
+4637 2628 3 0 -2 -11 7 -4
+4647 2613 -1 -1
+4637 2727 15 1 2 6 -3 -1 -14 -6
+4495 2742 11 -2
+4475 2721 -2 -7
+4498 2711 3 -1
+4729 2721 -1 -2 -3 -1 -13 1 -3 1
+4593 2732 29 -5 15 0
+4654 2734 64 28
+4718 2644 24 12
+4698 2659 7 -7
+4714 2659 -7 -4
+4709 2720 2 9
+4295 2625 6 -1 9 5 0 3 -5 3 -11 -6 0 -3 1 -1
+4131 2492 -22 -19 -16 -9 -6 -2 -67 -16
+4213 2639 11 4
+4290 2709 -52 50
+4279 2717 -2 1 -12 11
+4520 2780 1 0
+4523 2782 -3 1
+4522 2780 1 2
+4525 2782 -2 0
+4195 2429 -21 17
+4518 2467 -1 -3 1 -2
+4628 2728 2 4 -13 13 -3 0 -3 3
+4212 2581 2 -2
+4227 2454 4 -2
+4229 2452 2 0
+4231 2452 12 8
+4243 2460 -6 -1
+4243 2460 17 2 19 -1
+4016 2678 -4 2 -1 6 -3 1
+4031 2733 -3 -10 -9 -45
+4469 2450 25 -19 12 -11
+4508 2420 3 -26 -9 -10
+4185 2598 3 -2
+4039 2533 -6 -4
+4148 2718 -7 1
+4151 2719 -6 5
+4148 2718 0 1
+4151 2719 -3 -1
+4150 2715 -2 3
+4152 2719 -1 0
+4155 2721 -1 1
+4156 2720 -1 1
+4502 2719 23 -3
+4526 2566 0 -2
+4001 2523 -2 17 1 1 0 8
+4214 2806 2 -2
+4320 2618 -14 -11
+3977 2735 3 -20 11 -44
+4752 2532 -7 -6 -3 -9 -21 -19
+4759 2537 -3 -2 -4 -3
+4752 2532 2 0 3 2
+4499 2626 -17 -1
+4632 2563 4 -1
+4353 2361 42 13 19 5
+4281 2718 -26 -12 -2 -3 -14 -15 -21 -18
+4193 2479 -8 -15
+4659 2510 -5 4
+4675 2492 4 -6
+4393 2688 -1 0 -3 -3
+4273 2726 65 30 1 1
+4329 2868 28 -15
+4340 2877 10 -6
+4015 2609 37 -5
+4061 2545 39 22 1 2
+4101 2569 -7 6 -5 3
+4026 2550 14 -19
+4142 2459 -5 3 3 1 5 -2
+4620 2703 -13 -5
+4345 2446 6 12
+4558 2758 -8 0
+4647 2792 -1 1
+4121 2437 8 -3 1 -1
+4467 2772 48 -6
+4216 2437 -41 -23
+4219 2435 -42 -22
+4147 2369 -6 20
+4217 2457 4 8
+4221 2465 -1 -2
+4221 2465 3 7
+4401 2632 -9 -9
+4225 2432 3 -2 5 -1
+4021 2737 0 4
+4288 2706 13 -6
+4216 2666 -11 -10 -2 -1
+4287 2653 -3 0 -10 -14
+4385 2668 -1 2
+4462 2667 27 -3
+4582 2554 2 3
+4584 2557 -2 1 2 3
+4643 2758 14 -14 1 -2 3 -3
+4570 2608 -24 -32
+4084 2555 -1 3 -10 7 -4 5
+4043 2587 1 -2 2 -2 3 0 1 1
+4049 2588 2 1
+4254 2593 -1 2 -15 3
+4118 2385 -2 4
+4168 2409 -3 3
+4290 2486 1 4 4 0 3 -1 0 -3 -2 -1 -5 0 -1 1
+4200 2579 17 10
+4226 2595 2 1
+4035 2750 -4 -17
+4317 2452 -6 -13
+4227 2567 -3 2
+4040 2428 30 25
+4205 2603 -3 -2
+4217 2589 9 6
+4095 2487 -2 2
+4187 2821 2 34
+4059 2433 -1 2 -2 0 2 1
+4338 2609 6 -1
+4340 2604 4 4
+4344 2608 4 6
+4344 2608 22 -7 10 0 3 1 4 5
+4348 2614 -2 0
+4351 2616 -3 2
+4348 2614 3 2
+4351 2616 5 5
+4356 2621 4 2
+4375 2614 -19 7
+4375 2614 0 1
+4383 2607 -8 4 0 3
+4383 2607 6 4
+4329 2601 7 -1
+4336 2600 4 4
+4336 2600 3 -1
+4591 2556 -7 1
+4588 2552 1 -1
+4591 2556 -2 -5
+4589 2551 1 0
+4594 2559 -3 -3
+4071 2521 -6 5
+4185 2611 -1 -4
+4188 2620 -3 -9
+4185 2611 2 0
+4190 2619 -3 -8
+4187 2611 0 -3
+4282 2812 1 -2 6 -7
+4106 2478 3 -1
+4103 2480 -2 2
+4044 2504 2 0
+4047 2504 -1 -1
+4358 2680 0 -2 3 1 -1 1 -2 0
+4348 2618 -22 10
+4475 2631 -7 -6 -14 5 -5 1 -7 -2 -6 -4
+4314 2549 9 -3
+4391 2622 -8 -9
+4385 2613 8 8
+4501 2710 17 -3
+4459 2711 -4 1
+4442 2818 -7 -1
+4184 2607 5 1 24 -2 12 -2 3 -1
+4040 2527 -2 2
+4168 2470 -3 -3
+4242 2689 11 -7
+4173 2411 -44 -21 -20 -5 -3 -3 -8 -1
+4171 2413 -32 -16
+4588 2495 -4 -1
+4603 2423 2 0
+4582 2623 5 24
+4735 2490 -11 -8
+4302 2671 -12 5 -3 -2 13 -6 2 3
+4305 2670 -3 1
+4387 2683 2 2
+4387 2683 -3 -3 8 -3 3 2 -8 4
+4393 2722 17 -18 13 -8 10 -5
+4371 2641 5 -5
+4254 2437 -2 -2
+4008 2687 -38 -5
+4651 2772 3 -3
+4624 2671 4 1
+4418 2418 4 -6
+4422 2412 6 1 5 -8 -12 -3 -4 7 5 3
+4721 2748 -25 -2
+4297 2336 3 -2
+4175 2649 7 -10
+4251 2379 -7 -22
+4433 2691 10 -5 1 -1
+3971 2681 3 -10
+4069 2567 -1 -1
 4213 3403 -15 -27 -12 -46 -18 -34 -96 -130 -3 -17 8 -27 10 -13 37 -29 44 -73 75 -62 6 -15 10 -82 18 -27 76 -65 37 -41 23 -18 47 -21 75 -8 34 -10 14 -11 26 -42 -2 -10 -24 -41 -20 -27 -14 -9 -39 -11 -37 -24 -43 -36 -39 -11 -20 -3 -96 20 -29 -4 -113 -60 -103 -23 -25 -11 -15 -20 2 -36 -6 -19 -19 -22 -25 -19 -24 -7 -107 -18 -88 -7 -28 -5 -24 -12 -85 -62 -28 -10 -28 -4 -69 1 -23 2 -197 56 -72 13 -177 6 -295 60 -157 23 -272 27 -64 18 -10 8 -26 34 -22 12 -26 7
 4909 3565 -15 -22 -21 -42 -37 -89 -14 -19 -26 -27 -30 -20 -184 -84 -17 -15 -16 -29 -13 -15 -84 -42 -30 -10 -33 -5 -183 -2 -107 11 -57 -5 -24 -9 -14 -14 -18 -42 -16 -10 -40 -17 -17 -15 -28 -122 -7 -12 -17 -12 -57 -19 -30 -24 -25 -57 -60 -111 -11 -64 -36 -63 7 -83 44 -129 -4 -19 -37 -67 16 -46 -6 -25 -14 -18 -60 -41 -43 -19 -15 -16 -9 -60 8 -38 4 -58 -13 -64 -48 -58 -12 -76 -40 -42 -90 -121 -61 -44 -21 -26 -9 -34 0 -65 -11 -158 -14 -25 -30 -32 -40 -53 -36 -64 -12 -38
 7072 2965 42 96 3 17 -5 17 -12 14 -16 11 -24 9 -41 4 -442 -26 -27 -4 -27 -11 -20 -17 -58 -122 -79 -102 -23 -18 -29 -9 -33 -1 -132 18 -68 15 -47 5 -65 -2 -42 -8 -60 -26 -18 -11 -14 -16 -19 -46 -52 -39 -224 -140 -33 -16 -30 -5 -32 3 -30 12 -77 68 -81 57 -108 58 -42 28 -24 10 -53 9 -174 3 -128 22 -142 13 -39 -4 -121 -25 -63 -13 -50 -8 -57 -1 -20 -6 -117 -55 -23 -1 -46 9 -23 -6 -7 -7 -4 -16 0 -30 -13 -62 8 -23 15 -18 111 -81 43 -22 27 -7 19 -1 39 4 20 -2
@@ -3242,1067 +4068,1895 @@ secondary,1046
 secondary,1047
 secondary,1048
 secondary,1049
+@lanes line
+name,arcs
+Reichsratsstraße,1061
+Reichsratsstraße,1062
+Liebiggasse,1063
+Felderstraße,1064
+Lichtenfelsgasse,1065
+Schmerlingplatz,1066
+Schmerlingplatz,1067
+Schmerlingplatz,1068
+Schmerlingplatz,1069
+Gonzagagasse,1070
+Gonzagagasse,1071
+Graben,1072
+Reitschulgasse,1073
+Josef-Meinrad-Platz,1074
+Kolingasse,1075
+Kolingasse,1076
+Kolingasse,1077
+Kolingasse,1078
+Kolingasse,1079
+Kolingasse,1080
+Kolingasse,1081
+Kolingasse,1082
+Kolingasse,1083
+Stiftgasse,1084
+Stiftgasse,1085
+Franz-Josefs-Kai,1086
+Franz-Josefs-Kai,1087
+Franz-Josefs-Kai,1088
+Franz-Josefs-Kai,1089
+Franz-Josefs-Kai,1090
+Franz-Josefs-Kai,1091
+Franz-Josefs-Kai,1092
+Trautsongasse,1093
+Kohlmarkt,1094
+Schleifmühlbrücke,1095
+Siebensterngasse,1096
+Buchfeldgasse,1097
+Brandstätte,1098
+Tuchlauben,1099
+Marc-Aurel-Straße,1100
+Marc-Aurel-Straße,1101
+Hoher Markt,1102
+Hoher Markt,1103
+Hoher Markt,1104
+Hoher Markt,1105
+Hoher Markt,1106
+Lichtensteg,1107
+Judengasse,1108
+Fleischmarkt,1109
+Bauernmarkt,1110
+Bauernmarkt,1111
+Bauernmarkt,1112
+Rotgasse,1113
+Fischhof,1114
+Sterngasse,1115
+Sterngasse,1116
+Sterngasse,1117
+Sterngasse,1118
+Theodor-Herzl-Stiege,1119
+Seitenstettengasse,1120
+Rabensteig,1121
+Salzgasse,1122
+Rotenturmstraße,1123
+Rotenturmstraße,1124
+Rotenturmstraße,1125
+Michaelerplatz,1126
+Tegetthoffstraße,1127
+Seilergasse,1128
+Spiegelgasse,1129
+Albertinaplatz,1130
+Albertinaplatz,1131
+Albertinaplatz,1132
+Bräunerstraße,1133
+Bräunerstraße,1134
+Führichgasse,1135
+Blumenstockgasse,1136
+Habsburgergasse,1137
+Ballgasse,1138
+Göttweihergasse,1139
+Stallburggasse,1140
+Stallburggasse,1141
+Stallburggasse,1142
+Plankengasse,1143
+Gluckgasse,1144
+Rauhensteingasse,1145
+Heldenplatz,1146
+Schmidgasse,1147
+Spittelberggasse,1148
+Spittelberggasse,1149
+Spittelberggasse,1150
+Spittelberggasse,1151
+Spittelberggasse,1152
+Schrankgasse,1153
+Friedrich-Schmidt-Platz,1154
+Friedrich-Schmidt-Platz,1155
+Faßziehergasse,1156
+Rathausstraße,1157
+Rathausstraße,1158
+Rathausstraße,1159
+Kirchberggasse,1160
+Kirchberggasse,1161
+Kirchberggasse,1162
+Kirchberggasse,1163
+Grillparzerstraße,1164
+Gutenberggasse,1165
+Gutenberggasse,1166
+Gutenberggasse,1167
+Gutenberggasse,1168
+Gutenberggasse,1169
+Bartensteingasse,1170
+Löwelstraße,1171
+Löwelstraße,1172
+Löwelstraße,1173
+Schottengasse,1174
+Schottengasse,1175
+Schottengasse,1176
+Schottengasse,1177
+Teinfaltstraße,1178
+Börseplatz,1179
+Börseplatz,1180
+Börseplatz,1181
+Schenkenstraße,1182
+Schreyvogelgasse,1183
+Schreyvogelgasse,1184
+Schreyvogelgasse,1185
+Jordangasse,1186
+Jungferngasse,1187
+Minoritenplatz,1188
+Minoritenplatz,1189
+Minoritenplatz,1190
+Minoritenplatz,1191
+Metastasiogasse,1192
+Ballhausplatz,1193
+Ballhausplatz,1194
+Ballhausplatz,1195
+Herrengasse,1196
+Kleeblattgasse,1197
+Strauchgasse,1198
+Naglergasse,1199
+Fahnengasse,1200
+Wipplingerstraße,1201
+Wipplingerstraße,1202
+Wipplingerstraße,1203
+Wipplingerstraße,1204
+Wipplingerstraße,1205
+Goldschmiedgasse,1206
+Bankgasse,1207
+Schultergasse,1208
+Kühfußgasse,1209
+Steindlgasse,1210
+Wallnerstraße,1211
+Mölker Bastei,1212
+Mölker Bastei,1213
+Mölker Bastei,1214
+Mölker Bastei,1215
+Rosengasse,1216
+Roßauer Gasse,1217
+Rooseveltplatz,1218
+Ferstelgasse,1219
+Garelligasse,1220
+Zelinkagasse,1221
+Eßlinggasse,1222
+Schottenring,1223
+Schottenring,1224
+Schottenring,1225
+Schlickplatz,1226
+Neutorgasse,1227
+Kärntner Straße,1228
+Kärntner Straße,1229
+Kärntner Straße,1230
+Kärntner Straße,1231
+Kärntner Straße,1232
+Kärntner Straße,1233
+Faulmanngasse,1234
+Schaurhofergasse,1235
+Paniglgasse,1236
+Neumanngasse,1237
+Neumanngasse,1238
+Floragasse,1239
+Mozartgasse,1240
+Mozartgasse,1241
+Weintraubengasse,1242
+Rotensterngasse,1243
+Ölzeltgasse,1244
+Gottfried-Keller-Gasse,1245
+Gottfried-Keller-Gasse,1246
+Strohgasse,1247
+Strohgasse,1248
+Reisnerstraße,1249
+Grimmelshausengasse,1250
+Grimmelshausengasse,1251
+Linke Bahngasse,1252
+Linke Bahngasse,1253
+Linke Bahngasse,1254
+Linke Bahngasse,1255
+Linke Bahngasse,1256
+Sebastianplatz,1257
+Krummgasse,1258
+Krummgasse,1259
+Krummgasse,1260
+Daffingerstraße,1261
+Am Modenapark,1262
+Lisztstraße,1263
+Metternichgasse,1264
+Engelsberggasse,1265
+Auenbruggergasse,1266
+Streichergasse,1267
+Traungasse,1268
+Posthorngasse,1269
+Veithgasse,1270
+Veithgasse,1271
+Salesianergasse,1272
+Salesianergasse,1273
+Tongasse,1274
+Lagergasse,1275
+Jaurèsgasse,1276
+Hoyosgasse,1277
+Apfelgasse,1278
+Maderstraße,1279
+Schwindgasse,1280
+Karlsgasse,1281
+Resselgasse,1282
+Resselgasse,1283
+Resselgasse,1284
+Resselgasse,1285
+Margaretenstraße,1286
+Frankenberggasse,1287
+Taubstummengasse,1288
+Technikerstraße,1289
+Olga-Wisinger-Florian-Platz,1290
+Schikanedergasse,1291
+Lehárgasse,1292
+Papagenogasse,1293
+Fillgradergasse,1294
+Bienengasse,1295
+Laimgrubengasse,1296
+Köstlergasse,1297
+Girardigasse,1298
+Opernring,1299
+Opernring,1300
+Opernring,1301
+Kumpfgasse,1302
+Franziskanerplatz,1303
+Eschenbachgasse,1304
+Dumbastraße,1305
+Philharmonikerstraße,1306
+Donnergasse,1307
+Beethovenplatz,1308
+Beethovenplatz,1309
+Canovagasse,1310
+Nibelungengasse,1311
+Nibelungengasse,1312
+Christinengasse,1313
+Domgasse,1314
+Bösendorferstraße,1315
+Hanuschgasse,1316
+Schillerplatz,1317
+Seilerstätte,1318
+Parkring,1319
+Mahlerstraße,1320
+Grünangergasse,1321
+Akademiestraße,1322
+Akademiestraße,1323
+Akademiestraße,1324
+Kärntner Ring,1325
+Kärntner Ring,1326
+Schwarzenbergstraße,1327
+Schwarzenbergstraße,1328
+Schwarzenbergstraße,1329
+Elisabethstraße,1330
+Elisabethstraße,1331
+Blutgasse,1332
+Liliengasse,1333
+Schubertring,1334
+Schubertring,1335
+Karl-Borromäus-Platz,1336
+Pfarrhofgasse,1337
+Wollzeile,1338
+Wollzeile,1339
+Wollzeile,1340
+Wollzeile,1341
+Stubenbastei,1342
+Stubenbastei,1343
+Franz-Hochedlinger-Gasse,1344
+Haasgasse,1345
+Miesbachgasse,1346
+Castellezgasse,1347
+Schreygasse,1348
+Leopoldsgasse,1349
+Große Schiffgasse,1350
+Krummbaumgasse,1351
+Große Pfarrgasse,1352
+Tandelmarktgasse,1353
+Floßgasse,1354
+Herminengasse,1355
+Herminengasse,1356
+Nickelgasse,1357
+Schiffamtsgasse,1358
+Raimundgasse,1359
+Malzgasse,1360
+Nestroygasse,1361
+Adambergergasse,1362
+Kleine Pfarrgasse,1363
+Schmelzgasse,1364
+Schmelzgasse,1365
+Karmeliterplatz,1366
+Karmeliterplatz,1367
+Negerlegasse,1368
+Schwarzingergasse,1369
+Zirkusgasse,1370
+Rotenkreuzgasse,1371
+Haidgasse,1372
+Hammer-Purgstall-Gasse,1373
+Blumauergasse,1374
+Novaragasse,1375
+Große Mohrengasse,1376
+Kleine Mohrengasse,1377
+Glockengasse,1378
+Hafnergasse,1379
+Salztorgasse,1380
+Postgasse,1381
+Postgasse,1382
+Postgasse,1383
+Postgasse,1384
+Rosenbursenstraße,1385
+Falkestraße,1386
+Biberstraße,1387
+Dr.-Karl-Lueger-Platz,1388
+Dr.-Karl-Lueger-Platz,1389
+Dr.-Ignaz-Seipel-Platz,1390
+Jakobergasse,1391
+An der Hülben,1392
+Wiesingerstraße,1393
+Kolonitzgasse,1394
+Kolonitzgasse,1395
+Dißlergasse,1396
+Pfefferhofgasse,1397
+Krieglergasse,1398
+Adamsgasse,1399
+Kegelgasse,1400
+Schulerstraße,1401
+Dominikanerbastei,1402
+Dominikanerbastei,1403
+Dominikanerbastei,1404
+Predigergasse,1405
+Johannesgasse,1406
+Himmelpfortgasse,1407
+Himmelpfortgasse,1408
+Jörg-Mauthe-Platz,1409
+Jörg-Mauthe-Platz,1410
+Jörg-Mauthe-Platz,1411
+Jörg-Mauthe-Platz,1412
+Jörg-Mauthe-Platz,1413
+Jörg-Mauthe-Platz,1414
+Türkenstraße,1415
+Lichtenauergasse,1416
+Körnergasse,1417
+Schwemmgasse,1418
+Robertgasse,1419
+Fruchtgasse,1420
+Fruchtgasse,1421
+Fruchtgasse,1422
+Löwengasse,1423
+Löwengasse,1424
+Strobelgasse,1425
+Liebenberggasse,1426
+Theodor-Herzl-Platz,1427
+Theodor-Herzl-Platz,1428
+Theodor-Herzl-Platz,1429
+Untere Weißgerberstraße,1430
+Fischerstiege,1431
+Fischerstiege,1432
+Vorlaufstraße,1433
+Kantgasse,1434
+Kantgasse,1435
+Zedlitzgasse,1436
+Nikolaigasse,1437
+Krugerstraße,1438
+Weihburggasse,1439
+Cobdengasse,1440
+Coburgbastei,1441
+Dorotheergasse,1442
+Heinrichsgasse,1443
+Heinrichsgasse,1444
+Morzinplatz,1445
+Kurrentgasse,1446
+Fütterergasse,1447
+Am Hof,1448
+Tiefer Graben,1449
+Färbergasse,1450
+Operngasse,1451
+Hegelgasse,1452
+Max-Weiler-Platz,1453
+Walfischgasse,1454
+Schellinggasse,1455
+Maysedergasse,1456
+Fichtegasse,1457
+Fichtegasse,1458
+Fichtegasse,1459
+Fichtegasse,1460
+Rathausplatz,1461
+Rathausplatz,1462
+Rathausplatz,1463
+Riemergasse,1464
+Annagasse,1465
+Oppolzergasse,1466
+Rockhgasse,1467
+Heßgasse,1468
+Salvatorgasse,1469
+Stoß im Himmel,1470
+Marienstiege,1471
+Marienstiege,1472
+Marxergasse,1473
+Custozzagasse,1474
+Beatrixgasse,1475
+Beatrixgasse,1476
+Wasagasse,1477
+Wasagasse,1478
+Wasagasse,1479
+Bognergasse,1480
+Günthergasse,1481
+Obere Augartenstraße,1482
+Fischergasse,1483
+Ferdinandstraße,1484
+Pillersdorfgasse,1485
+Tempelgasse,1486
+Ulrichgasse,1487
+Schrottgießergasse,1488
+Nepomukgasse,1489
+Josefsgasse,1490
+Landhausgasse,1491
+Theobaldgasse,1492
+Königsklostergasse,1493
+Capistrangasse,1494
+Capistrangasse,1495
+Helferstorferstraße,1496
+Schottenbastei,1497
+Georg-Coch-Platz,1498
+Georg-Coch-Platz,1499
+Georg-Coch-Platz,1500
+Georg-Coch-Platz,1501
+Georg-Coch-Platz,1502
+Georg-Coch-Platz,1503
+Griechengasse,1504
+Hafnersteig,1505
+Hafnersteig,1506
+Hafnersteig,1507
+Freisingergasse,1508
+Milchgasse,1509
+Landskrongasse,1510
+Wildpretmarkt,1511
+Praterstraße,1512
+Grünentorgasse,1513
+Hahngasse,1514
+Müllnergasse,1515
+Stammgasse,1516
+Stammgasse,1517
+Blattgasse,1518
+Blütengasse,1519
+Matthäusgasse,1520
+Matthäusgasse,1521
+Hansalgasse,1522
+Bechardgasse,1523
+Kollergasse,1524
+Czapkagasse,1525
+Seidlgasse,1526
+Seidlgasse,1527
+Seidlgasse,1528
+Weyrgasse,1529
+Uchatiusgasse,1530
+Salmgasse,1531
+Salmgasse,1532
+Siegelgasse,1533
+Geusaugasse,1534
+Kolonitzplatz,1535
+Kolonitzplatz,1536
+Lorbeergasse,1537
+Lorbeergasse,1538
+Rahlgasse,1539
+Rahlgasse,1540
+Breite Gasse,1541
+Untere Viaduktgasse,1542
+Untere Viaduktgasse,1543
+Obere Weißgerberstraße,1544
+Esteplatz,1545
+Esteplatz,1546
+Pfauengasse,1547
+Komödiengasse,1548
+Karl-Schweighofer-Gasse,1549
+Hetzgasse,1550
+Hetzgasse,1551
+Gärtnergasse,1552
+Rochusplatz,1553
+Landstraßer Hauptstraße,1554
+Landstraßer Hauptstraße,1555
+Babenbergerstraße,1556
+Peregringasse,1557
+Hohenstaufengasse,1558
+Neulinggasse,1559
+Neulinggasse,1560
+Neulinggasse,1561
+Radetzkystraße,1562
+Obere Viaduktgasse,1563
+Obere Viaduktgasse,1564
+Obere Viaduktgasse,1565
+Auwinkel,1566
+Charasgasse,1567
+Brucknerstraße,1568
+Mattiellistraße,1569
+Rudolfsplatz,1570
+Bayerngasse,1571
+Münzgasse,1572
+Anton-von-Webern-Platz,1573
+Anton-von-Webern-Platz,1574
+Rechte Bahngasse,1575
+Rechte Bahngasse,1576
+Sünnhof-Passage,1577
+Sünnhof-Passage,1578
+Baumannstraße,1579
+Grailichgasse,1580
+Henslerstraße,1581
+Vordere Zollamtsstraße,1582
+Stelzhamergasse,1583
+Gigergasse,1584
+Sparefrohgasse,1585
+Deutschmeisterplatz,1586
+Deutschmeisterplatz,1587
+Drahtgasse,1588
+Schulhof,1589
+Parisergasse,1590
+Typopassage,1591
+Universitätsring,1592
+Universitätsring,1593
+Universitätsring,1594
+Loidoldgasse,1595
+Zitterhofergasse,1596
+Zitterhofergasse,1597
+Schwertgasse,1598
+Passauer Platz,1599
+Hohe Brücke,1600
+Odeongasse,1601
+Schleifmühlgasse,1602
+Kleine Ungarbrücke,1603
+Mozartplatz,1604
+Singerstraße,1605
+Treitlstraße,1606
+Kärntnertorpassage,1607
+Rahlstiege,1608
+Rahlstiege,1609
+Rahlstiege,1610
+Essiggasse,1611
+Schallautzerstraße,1612
+Reischachstraße,1613
+Lenaugasse,1614
+Kärntner Durchgang,1615
+Goethegasse,1616
+Goethegasse,1617
+Stubenring,1618
+Stubenring,1619
+Stubenring,1620
+Stubenring,1621
+Concordiaplatz,1622
+Irisgasse,1623
+Haarhof,1624
+Laurenzerberg,1625
+Köllnerhofgasse,1626
+Grashofgasse,1627
+Desider-Friedmann-Platz,1628
+Salzgries,1629
+Kreuzherrengasse,1630
+Neuer Markt,1631
+Neuer Markt,1632
+Neuer Markt,1633
+Neuer Markt,1634
+Neuer Markt,1635
+Neuer Markt,1636
+Churhausgasse,1637
+Kupferschmiedgasse,1638
+Fillgraderstiege,1639
+Kramergasse,1640
+Mechitaristengasse,1641
+Stadtparksteg,1642
+Julius-Raab-Platz,1643
+Jesuitengasse,1644
+Wolfengasse,1645
+Drachengasse,1646
+Windhaaggasse,1647
+Lugeck,1648
+Lugeck,1649
+Lugeck,1650
+Bäckerstraße,1651
+Tulpengasse,1652
+Am Heumarkt,1653
+Afrikanergasse,1654
+Im Werd,1655
+Große Sperlgasse,1656
+Pestalozzigasse,1657
+Lothringerstraße,1658
+Hollandstraße,1659
+Kleine Sperlgasse,1660
+Gölsdorfgasse,1661
+Gölsdorfgasse,1662
+Mühlgasse,1663
+Mühlgasse,1664
+Robert-Stolz-Platz,1665
+Robert-Stolz-Platz,1666
+Heidenschuß,1667
+Josefsplatz,1668
+Augustinerstraße,1669
+Ledererhof,1670
+Freyung,1671
+Freyung,1672
+Freyung,1673
+Freyung,1674
+Freyung,1675
+Lange Gasse,1676
+Alexander-Poch-Platz,1677
+Alexander-Poch-Platz,1678
+Alexander-Poch-Platz,1679
+Karlsplatz,1680
+Zaunergasse,1681
+Argentinierstraße,1682
+Lilienbrunngasse,1683
+Rilkeplatz,1684
+Tonspurpassage,1685
+Burgring,1686
+Berggasse,1687
+Berggasse,1688
+Berggasse,1689
+Berggasse,1690
+Berggasse,1691
+Berggasse,1692
+Abraham-a-Sancta-Clara-Gasse,1693
+Alte Walfischgasse,1694
+Augustinerbastei,1695
+Sonnenfelsgasse,1696
+Gartenbaupromenade,1697
+Körblergasse,1698
+Lobkowitzplatz,1699
+Mölker Steig,1700
+Neubadgasse,1701
+Steyrerhof,1702
+Tuchlaubenhof,1703
+Armenierplatz,1704
+Zollgasse,1705
+Zollgasse,1706
+Czerninplatz,1707
+Lassingleithnerplatz,1708
+Schoellerhofgasse,1709
+Durchhaus Taborstraße 6,1710
+Vivariumstraße,1711
+Czerningasse,1712
+Czerningasse,1713
+Dianagasse,1714
+Radetzkyplatz,1715
+Radetzkyplatz,1716
+Waschhausgasse,1717
+Petersplatz,1718
+Mariahilfer Straße,1719
+Leopold-Figl-Gasse,1720
+Börsegasse,1721
+Börsegasse,1722
+Lancplatz,1723
+Lancplatz,1724
+Lancplatz,1725
+Lancplatz,1726
+Millöckergasse,1727
+Rudolf-Sallinger-Platz,1728
+Passage Jägerzeile,1729
+Schweizertor,1730
+Karlsplatz Westpassage,1731
+Karlsplatz Westpassage,1732
+Karlsplatz Westpassage,1733
+Karlsplatz Westpassage,1734
+Karlsplatz Westpassage,1735
+Landesgerichtsstraße,1736
+Landesgerichtsstraße,1737
+Marokkanergasse,1738
+Marokkanergasse,1739
+Löweltor,1740
+Burggasse,1741
+Schottenpassage,1742
+Schottenpassage,1743
+Schottenpassage,1744
+Schottenpassage,1745
+Schottenpassage,1746
+Schottenpassage,1747
+Schottenpassage,1748
+Schottenpassage,1749
+Durchhaus Taborstraße 10,1750
+Elfriede-Gerstl-Steg,1751
+Gardegasse,1752
+Rossauer Gasse,1753
+Trattnerhof,1754
+Wickenburggasse,1755
+Rasumofskygasse,1756
+Rasumofskygasse,1757
+Rasumofskygasse,1758
+Barbaragasse,1759
+Ditscheinergasse,1760
+Wohllebengasse,1761
+Renngasse,1762
+Gauermanngasse,1763
+Ida-Pfeiffer-Weg,1764
+Ida-Pfeiffer-Weg,1765
+Ruprechtsstiege,1766
+Werdertorgasse,1767
+Förstergasse,1768
+Zwerggasse,1769
+Doblhoffgasse,1770
+Bellariastraße,1771
+Dr.-Karl-Renner-Ring,1772
+Museumstraße,1773
+Johanna-Dohnal-Platz,1774
+Untere Donaustraße,1775
+Musikvereinsplatz,1776
+Johannes-von-Gott-Platz,1777
+Ernst-Renz-Gasse,1778
+Helene-Bauer-Platz,1779
+Karmelitergasse,1780
+Minerlgasse,1781
+Sopherlgasse,1782
+Preßgasse,1783
+Makartgasse,1784
+Makartgasse,1785
+Makartgasse,1786
+Schmeckender-Wurm-Hof,1787
+Bärenmühldurchgang,1788
+Frankhplatz,1789
+Am Gestade,1790
+Ferstelpassage,1791
+Seitzergasse,1792
+Jerusalem-Stiege,1793
+Schwedenplatz,1794
+Raiffeisen Passage,1795
+Raiffeisen Passage,1796
+Czernin-Passage,1797
+Fritz-Wotruba-Promenade,1798
+Hansenstraße,1799
+Leopold-Gratz-Platz,1800
+Leopold-Gratz-Platz,1801
+Michaeler Durchgang,1802
+Maria-Welser-Platz,1803
+Johanna-Bauer-Platz,1804
+Opernpassage,1805
+In der Burg,1806
+In der Burg,1807
+Garnisongasse,1808
+Karlsplatzpassage,1809
+Schlossergang,1810
+Windmühlgasse,1811
+Ochsentor,1812
+Michaelertor,1813
+Sternenpassage,1814
+Servitengasse,1815
+Ilse-Pisk-Stiege,1816
+Stephansplatz,1817
+Stephansplatz,1818
+Stephansplatz,1819
+Stephansplatz,1820
+Stephansplatz,1821
+Stephansplatz,1822
+Stephansplatz,1823
+Stephansplatz,1824
+Stephansplatz,1825
+Stephansplatz,1826
+Stephansplatz,1827
+Stephansplatz,1828
+Stephansplatz,1829
+Stock-im-Eisen-Platz,1830
+Stock-im-Eisen-Platz,1831
+Stock-im-Eisen-Platz,1832
+W3,1833
+W3,1834
+W3,1835
+W3,1836
+W3,1837
+Electric Avenue,1838
+Bruno-Kreisky-Gasse,1839
+Bruno-Kreisky-Gasse,1840
+Bruno-Kreisky-Gasse,1841
+Bruno-Kreisky-Gasse,1842
+Bruno-Kreisky-Gasse,1843
+Carl-Szokoll-Platz,1844
+Literaturpassage,1845
+Kabinettpassage,1846
+Streetartpassage,1847
+Streetartpassage,1848
+Salomon-Sulzer-Platz,1849
+Jasomirgottstraße,1850
+Schönlaterngasse,1851
+Marco-d’Aviano-Gasse,1852
+Zwettlhof,1853
+Zwettlhof,1854
+Durchhaus Taborstraße 8,1855
+Gredlerstraße,1856
+Jenny-Strasser-Platz,1857
+Schauflergasse,1858
+Brückenpassage,1859
+Geniehof,1860
+Wächtergasse,1861
+Reserlgasse,1862
+Mariedlgasse,1863
+Beatrixbrücke,1864
+Neulingbrücke,1865
+Gottfried-von-Einem-Platz,1866
+Erdbergstraße,1867
+Judenplatz,1868
+Judenplatz,1869
+Ruprechtsplatz,1870
+Ruprechtsplatz,1871
+Freda-Meissner-Blau-Promenade,1872
+Ertlgasse,1873
+FSInf-Weg,1874
+Florianigasse,1875
+Rosl-Berndt-Platz,1876
+Dampfschiffstraße,1877
+Schwarzenbergplatz,1878
+Schwarzenbergplatz,1879
+Hofenedergasse,1880
+Favoritenstraße,1881
+Petrarcagasse,1882
+Wiedner Hauptstraße,1883
+Wolfgang-Schmitz-Promenade,1884
+Schlösselgasse,1885
+Volksgartenstraße,1886
 @rail line
 kind,colour,lines[],arcs
-u,#319f49,U4,1061
-u,#9d6830,U6,1062
-u,#a862a4,U2,1063
-u,#a862a4,U2,1064
-u,#a862a4,U2,1065
-u,#e3000f,U1,1066
-u,#e3000f,U1,1067
-u,#e3000f,U1,1068
-u,#e3000f,U1,1069
-u,#e3000f,U1,1070
-u,#ef7c00,U3,1071
-u,#ef7c00,U3,1072
-u,#ef7c00,U3,1073
-u,#ef7c00,U3,1074
-u,#ef7c00,U3,1075
-u,#ef7c00,U3,1076
-u,#ef7c00,U3,1077
-u,#ef7c00,U3,1078
-u,#ef7c00,U3,1079
-u,#ef7c00,U3,1080
-u,#ef7c00,U3,1081
-u,#ef7c00,U3,1082
-u,#ef7c00,U3,1083
-u,#ef7c00,U3,1084
-u,#ef7c00,U3,1085
-u,#ef7c00,U3,1086
-u,#ef7c00,U3,1087
-u,#ef7c00,U3,1088
-u,#ef7c00,U3,1089
-u,#ef7c00,U3,1090
-u,#ef7c00,U3,1091
-u,#ef7c00,U3,1092
-u,#ef7c00,U3,1093
-u,#ef7c00,U3,1094
-u,#ef7c00,U3,1095
-s,,R81,1096
-s,,R95,1097
-s,,R95,1098
-s,,R95,1099
-s,,R95,1100
-s,,R95,1101
-s,,R95,1102
-s,,R81,1103
-s,,R81,1104
-s,,R95,1105
-s,#005395,WLB,1106
-s,#159dd9,S60,1107
-s,#159dd9,S60,1108
-s,#159dd9,S60,1109
-s,#159dd9,S60,1110
-s,#159dd9,S7,1111
-s,#159dd9,S50,1112
-s,#159dd9,S2,1113
-s,#159dd9,S2|S7,1114
-s,#159dd9,S3,1115
-s,#159dd9,S3|S4,1116
-s,#159dd9,S3|S4,1117
-s,#159dd9,R40|S40,1118
-s,#159dd9,S1,1119
-s,#159dd9,S7,1120
-s,#159dd9,S1,1121
-s,#159dd9,S4,1122
-s,#159dd9,R81|S80,1123
-s,#159dd9,S40,1124
-s,#159dd9,S2|S7,1125
-s,#159dd9,S2|S3|S4,1126
-s,#159dd9,S40,1127
-s,#159dd9,S60,1128
-s,#159dd9,S40,1129
-s,#159dd9,S40,1130
-s,#159dd9,S3|S4|R95,1131
-s,#159dd9,S3|S4|R95,1132
-s,#159dd9,R95|S60,1133
-s,#159dd9,R95|S60,1134
-s,#159dd9,R95|S60,1135
-s,#159dd9,S40,1136
-s,#159dd9,S1|S2|S7,1137
-s,#159dd9,S40,1138
-s,#159dd9,S1|S2|S3|S4|S7,1139
-s,#159dd9,S1|S2|S3|S4,1140
-s,#159dd9,S1|S2|S3|S4,1141
-s,#159dd9,S60,1142
-s,#159dd9,S7,1143
-s,#159dd9,S40,1144
-s,#159dd9,S40,1145
-s,#159dd9,S40,1146
-s,#159dd9,S1|S7,1147
-s,#159dd9,S50,1148
-s,#159dd9,S4,1149
-s,#159dd9,S40,1150
-s,#159dd9,S3|S4|S7,1151
-s,#159dd9,S40,1152
-s,#159dd9,S2|S3|S4|S7,1153
-s,#159dd9,S1|S3|S7,1154
-s,#159dd9,S1|R81,1155
-s,#159dd9,S3|S4,1156
-s,#159dd9,S7,1157
-s,#159dd9,R40|S40,1158
-s,#159dd9,S40,1159
-s,#159dd9,S60,1160
-s,#159dd9,S3|S4,1161
-s,#bdd542,S45,1162
-s,#bdd542,S45,1163
-s,#bdd542,S45,1164
-s,#bdd542,S45,1165
-r,,,1166
-r,,,1167
-r,,,1168
-r,,,1169
-r,,,1170
-r,,,1171
-r,,,1172
-r,,,1173
-r,,,1174
-r,,,1175
-r,,,1176
-r,,,1177
-r,,,1178
-r,,,1179
-r,,,1180
-r,,,1181
-r,,,1182
-r,,,1183
-r,,,1184
-r,,,1185
-r,,,1186
-r,,,1187
-r,,,1188
-r,,,1189
-r,,,1190
-r,,,1191
-r,,,1192
-r,,,1193
-r,,,1194
-r,,,1195
-r,,,1196
-r,,,1197
-r,,,1198
-r,,,1199
-r,,,1200
-r,,,1201
-r,,,1202
-r,,,1203
-r,,,1204
-r,,,1205
-r,,,1206
-r,,,1207
-r,,,1208
-r,,,1209
-r,,,1210
-r,,,1211
-r,,,1212
-r,,,1213
-r,,,1214
-r,,,1215
-r,,,1216
-r,,,1217
-r,,,1218
-r,,,1219
-r,,,1220
-r,,,1221
-r,,,1222
-r,,,1223
-r,,,1224
-r,,,1225
-r,,,1226
-r,,,1227
-r,,,1228
-r,,,1229
-r,,,1230
-r,,,1231
-r,,,1232
-r,,,1233
-r,,,1234
-r,,,1235
-r,,,1236
-r,,,1237
-r,#0050ff,,1238
-r,#00a7ff,,1239
-r,#00a7ff,,1240
-r,#3ea5f4,,1241
-r,#3ea5f4,,1242
-r,#3ea5f4,,1243
-r,#3ea5f4,,1244
-r,#3ea5f4,,1245
-r,#3ea5f4,,1246
-r,#becf07,,1247
-r,#becf07,,1248
-r,#becf07,,1249
-r,#becf07,,1250
-r,#fd8fb4,,1251
-r,#fd8fb4,,1252
-r,#fd8fb4,,1253
+u,#319f49,U4,1887
+u,#9d6830,U6,1888
+u,#a862a4,U2,1889
+u,#a862a4,U2,1890
+u,#a862a4,U2,1891
+u,#e3000f,U1,1892
+u,#e3000f,U1,1893
+u,#e3000f,U1,1894
+u,#e3000f,U1,1895
+u,#e3000f,U1,1896
+u,#ef7c00,U3,1897
+u,#ef7c00,U3,1898
+u,#ef7c00,U3,1899
+u,#ef7c00,U3,1900
+u,#ef7c00,U3,1901
+u,#ef7c00,U3,1902
+u,#ef7c00,U3,1903
+u,#ef7c00,U3,1904
+u,#ef7c00,U3,1905
+u,#ef7c00,U3,1906
+u,#ef7c00,U3,1907
+u,#ef7c00,U3,1908
+u,#ef7c00,U3,1909
+u,#ef7c00,U3,1910
+u,#ef7c00,U3,1911
+u,#ef7c00,U3,1912
+u,#ef7c00,U3,1913
+u,#ef7c00,U3,1914
+u,#ef7c00,U3,1915
+u,#ef7c00,U3,1916
+u,#ef7c00,U3,1917
+u,#ef7c00,U3,1918
+u,#ef7c00,U3,1919
+u,#ef7c00,U3,1920
+u,#ef7c00,U3,1921
+s,,R81,1922
+s,,R95,1923
+s,,R95,1924
+s,,R95,1925
+s,,R95,1926
+s,,R95,1927
+s,,R95,1928
+s,,R81,1929
+s,,R81,1930
+s,,R95,1931
+s,#005395,WLB,1932
+s,#159dd9,S60,1933
+s,#159dd9,S60,1934
+s,#159dd9,S60,1935
+s,#159dd9,S60,1936
+s,#159dd9,S7,1937
+s,#159dd9,S50,1938
+s,#159dd9,S2,1939
+s,#159dd9,S2|S7,1940
+s,#159dd9,S3,1941
+s,#159dd9,S3|S4,1942
+s,#159dd9,S3|S4,1943
+s,#159dd9,R40|S40,1944
+s,#159dd9,S1,1945
+s,#159dd9,S7,1946
+s,#159dd9,S1,1947
+s,#159dd9,S4,1948
+s,#159dd9,R81|S80,1949
+s,#159dd9,S40,1950
+s,#159dd9,S2|S7,1951
+s,#159dd9,S2|S3|S4,1952
+s,#159dd9,S40,1953
+s,#159dd9,S60,1954
+s,#159dd9,S40,1955
+s,#159dd9,S40,1956
+s,#159dd9,S3|S4|R95,1957
+s,#159dd9,S3|S4|R95,1958
+s,#159dd9,R95|S60,1959
+s,#159dd9,R95|S60,1960
+s,#159dd9,R95|S60,1961
+s,#159dd9,S40,1962
+s,#159dd9,S1|S2|S7,1963
+s,#159dd9,S40,1964
+s,#159dd9,S1|S2|S3|S4|S7,1965
+s,#159dd9,S1|S2|S3|S4,1966
+s,#159dd9,S1|S2|S3|S4,1967
+s,#159dd9,S60,1968
+s,#159dd9,S7,1969
+s,#159dd9,S40,1970
+s,#159dd9,S40,1971
+s,#159dd9,S40,1972
+s,#159dd9,S1|S7,1973
+s,#159dd9,S50,1974
+s,#159dd9,S4,1975
+s,#159dd9,S40,1976
+s,#159dd9,S3|S4|S7,1977
+s,#159dd9,S40,1978
+s,#159dd9,S2|S3|S4|S7,1979
+s,#159dd9,S1|S3|S7,1980
+s,#159dd9,S1|R81,1981
+s,#159dd9,S3|S4,1982
+s,#159dd9,S7,1983
+s,#159dd9,R40|S40,1984
+s,#159dd9,S40,1985
+s,#159dd9,S60,1986
+s,#159dd9,S3|S4,1987
+s,#bdd542,S45,1988
+s,#bdd542,S45,1989
+s,#bdd542,S45,1990
+s,#bdd542,S45,1991
+r,,,1992
+r,,,1993
+r,,,1994
+r,,,1995
+r,,,1996
+r,,,1997
+r,,,1998
+r,,,1999
+r,,,2000
+r,,,2001
+r,,,2002
+r,,,2003
+r,,,2004
+r,,,2005
+r,,,2006
+r,,,2007
+r,,,2008
+r,,,2009
+r,,,2010
+r,,,2011
+r,,,2012
+r,,,2013
+r,,,2014
+r,,,2015
+r,,,2016
+r,,,2017
+r,,,2018
+r,,,2019
+r,,,2020
+r,,,2021
+r,,,2022
+r,,,2023
+r,,,2024
+r,,,2025
+r,,,2026
+r,,,2027
+r,,,2028
+r,,,2029
+r,,,2030
+r,,,2031
+r,,,2032
+r,,,2033
+r,,,2034
+r,,,2035
+r,,,2036
+r,,,2037
+r,,,2038
+r,,,2039
+r,,,2040
+r,,,2041
+r,,,2042
+r,,,2043
+r,,,2044
+r,,,2045
+r,,,2046
+r,,,2047
+r,,,2048
+r,,,2049
+r,,,2050
+r,,,2051
+r,,,2052
+r,,,2053
+r,,,2054
+r,,,2055
+r,,,2056
+r,,,2057
+r,,,2058
+r,,,2059
+r,,,2060
+r,,,2061
+r,,,2062
+r,,,2063
+r,#0050ff,,2064
+r,#00a7ff,,2065
+r,#00a7ff,,2066
+r,#3ea5f4,,2067
+r,#3ea5f4,,2068
+r,#3ea5f4,,2069
+r,#3ea5f4,,2070
+r,#3ea5f4,,2071
+r,#3ea5f4,,2072
+r,#becf07,,2073
+r,#becf07,,2074
+r,#becf07,,2075
+r,#becf07,,2076
+r,#fd8fb4,,2077
+r,#fd8fb4,,2078
+r,#fd8fb4,,2079
 @green polygon
 kind,arcs
-wood,1254
-wood,1255
-wood,1256;1257;1258;1259;1260;1261;1262;1263;1264;1265;1266;1267;1268;1269;1270;1271;1272;1273;1274
-wood,1275
-wood,1276;1277;1278;1279;1280;1281;1282;1283;1284;1285;1286;1287;1288;1289;1290
-wood,1291
-wood,1292
-wood,1293
-wood,1294
-wood,1295
-wood,1296
-wood,1297
-wood,1298
-wood,1299
-wood,1300
-wood,1301
-wood,1302
-wood,1303
-wood,1304
-wood,1305
-wood,1306
-wood,1307
-wood,1308
-wood,1309
-wood,1310
-wood,1311
-wood,1312
-wood,1313
-wood,1314
-wood,1315
-wood,1316
-wood,1317
-wood,1318
-wood,1319
-wood,1320
-wood,1321;1322;1323;1324;1325;1326;1327;1328;1329;1330;1331;1332;1333;1334;1335;1336;1337;1338;1339;1340;1341;1342;1343;1344;1345;1346;1347;1348;1349
-wood,1350
-wood,1351
-wood,1352
-wood,1353
-wood,1354
-wood,1355
-wood,1356
-wood,1357
-park,1358
-park,1359
-park,1360
-park,1361
-park,1362
-park,1363
-park,1364
-park,1365
-park,1366
-park,1367
-park,1368
-park,1369
-park,1370
-park,1371
-park,1372
-park,1373
-park,1374
-park,1375
-park,1376
-park,1377
-park,1378
-park,1379
-park,1380
-park,1381
-park,1382
-park,1383
-park,1384
-park,1385
-park,1386
-park,1387
-park,1388
-park,1389
-park,1390
-park,1391
-park,1392
-park,1393
-park,1394
-park,1395
-park,1396
-park,1397
-park,1398
-park,1399
-park,1400
-park,1401
-park,1402
-park,1403
-park,1404
-park,1405
-park,1406
-park,1407
-park,1408
-park,1409
-park,1410
-park,1411
-park,1412
-park,1413
-park,1414
-park,1415
-park,1416
-park,1417
-park,1418
-park,1419
-park,1420
-park,1421
-park,1422
-park,1423
-park,1424
-park,1425
-park,1426
-park,1427
-park,1428
-park,1429
-park,1430
-park,1431
-park,1432
-park,1433
-park,1434
-park,1435
-park,1436
-park,1437
-park,1438
-park,1439
-park,1440
-park,1441
-park,1442
-park,1443
-park,1444
-park,1445
-park,1446
-park,1447
-park,1448
-park,1449
-park,1450
-park,1451
-park,1452
-park,1453
-park,1454
-park,1455
-park,1456
-park,1457
-park,1458
-park,1459
-park,1460
-park,1461
-park,1462
-park,1463
-park,1464
-park,1465
-park,1466
-park,1467
-park,1468
-park,1469
-park,1470
-park,1471
-park,1472
-park,1473
-park,1474
-park,1475
-park,1476
-park,1477
-park,1478
-park,1479
-park,1480
-park,1481
-park,1482
-park,1483
-park,1484
-park,1485
-park,1486
-park,1487
-park,1488
-park,1489
-park,1490;1491
-park,1492
-park,1493
-park,1494
-park,1495
-park,1496
-park,1497
-park,1498
-park,1499
-park,1500
-park,1501;1502
-park,1503
-park,1504
-park,1505
-park,1506
-park,1507
-park,1508
-park,1509
-park,1510
-park,1511
-park,1512
-park,1513
-park,1514
-park,1515
-park,1516
-park,1517
-park,1518
-park,1519
-park,1520
-park,1521
-park,1522
-park,1523
-park,1524
-park,1525
-park,1526
-park,1527
-park,1528
-park,1529
-park,1530
-park,1531
-park,1532
-park,1533
-park,1534
-park,1535
-park,1536
-park,1537
-park,1538
-park,1539;1540
-park,1541
-park,1542
-park,1543
-park,1544
-park,1545
-park,1546
+wood,2080
+wood,2081
+wood,2082;2083;2084;2085;2086;2087;2088;2089;2090;2091;2092;2093;2094;2095;2096;2097;2098;2099;2100
+wood,2101
+wood,2102;2103;2104;2105;2106;2107;2108;2109;2110;2111;2112;2113;2114;2115;2116
+wood,2117
+wood,2118
+wood,2119
+wood,2120
+wood,2121
+wood,2122
+wood,2123
+wood,2124
+wood,2125
+wood,2126
+wood,2127
+wood,2128
+wood,2129
+wood,2130
+wood,2131
+wood,2132
+wood,2133
+wood,2134
+wood,2135
+wood,2136
+wood,2137
+wood,2138
+wood,2139
+wood,2140
+wood,2141
+wood,2142
+wood,2143
+wood,2144
+wood,2145
+wood,2146
+wood,2147;2148;2149;2150;2151;2152;2153;2154;2155;2156;2157;2158;2159;2160;2161;2162;2163;2164;2165;2166;2167;2168;2169;2170;2171;2172;2173;2174;2175
+wood,2176
+wood,2177
+wood,2178
+wood,2179
+wood,2180
+wood,2181
+wood,2182
+wood,2183
+park,2184
+park,2185
+park,2186
+park,2187
+park,2188
+park,2189
+park,2190
+park,2191
+park,2192
+park,2193
+park,2194
+park,2195
+park,2196
+park,2197
+park,2198
+park,2199
+park,2200
+park,2201
+park,2202
+park,2203
+park,2204
+park,2205
+park,2206
+park,2207
+park,2208
+park,2209
+park,2210
+park,2211
+park,2212
+park,2213
+park,2214
+park,2215
+park,2216
+park,2217
+park,2218
+park,2219
+park,2220
+park,2221
+park,2222
+park,2223
+park,2224
+park,2225
+park,2226
+park,2227
+park,2228
+park,2229
+park,2230
+park,2231
+park,2232
+park,2233
+park,2234
+park,2235
+park,2236
+park,2237
+park,2238
+park,2239
+park,2240
+park,2241
+park,2242
+park,2243
+park,2244
+park,2245
+park,2246
+park,2247
+park,2248
+park,2249
+park,2250
+park,2251
+park,2252
+park,2253
+park,2254
+park,2255
+park,2256
+park,2257
+park,2258
+park,2259
+park,2260
+park,2261
+park,2262
+park,2263
+park,2264
+park,2265
+park,2266
+park,2267
+park,2268
+park,2269
+park,2270
+park,2271
+park,2272
+park,2273
+park,2274
+park,2275
+park,2276
+park,2277
+park,2278
+park,2279
+park,2280
+park,2281
+park,2282
+park,2283
+park,2284
+park,2285
+park,2286
+park,2287
+park,2288
+park,2289
+park,2290
+park,2291
+park,2292
+park,2293
+park,2294
+park,2295
+park,2296
+park,2297
+park,2298
+park,2299
+park,2300
+park,2301
+park,2302
+park,2303
+park,2304
+park,2305
+park,2306
+park,2307
+park,2308
+park,2309
+park,2310
+park,2311
+park,2312
+park,2313
+park,2314
+park,2315
+park,2316;2317
+park,2318
+park,2319
+park,2320
+park,2321
+park,2322
+park,2323
+park,2324
+park,2325
+park,2326
+park,2327;2328
+park,2329
+park,2330
+park,2331
+park,2332
+park,2333
+park,2334
+park,2335
+park,2336
+park,2337
+park,2338
+park,2339
+park,2340
+park,2341
+park,2342
+park,2343
+park,2344
+park,2345
+park,2346
+park,2347
+park,2348
+park,2349
+park,2350
+park,2351
+park,2352
+park,2353
+park,2354
+park,2355
+park,2356
+park,2357
+park,2358
+park,2359
+park,2360
+park,2361
+park,2362
+park,2363
+park,2364
+park,2365;2366
+park,2367
+park,2368
+park,2369
+park,2370
+park,2371
+park,2372
 @water polygon
 arcs
-1547
-1548
-1549
-1550
-1551
-1552
-1553
-1554
-1555
-1556
-1557
-1558
-1559
-1560
-1561
-1562
-1563
-1564
-1565
-1566
-1567
-1568
-1569
-1570;1571;1572;1573;1574;1575
-1576
-1577
-1578
-1579
-1580
-1581
-1582
-1583
-1584
-1585
-1586
-1587
-1588;1589
-1590;1591;1592
-1593
-1594
-1595;1596
-1597
-1598
-1599
-1600
-1601
-1602
-1603
-1604
-1605
-1606
-1607
-1608
-1609
-1610
-1611
-1612
-1613
-1614
-1615
-1616
-1617
-1618
-1619
-1620
-1621
-1622
-1623
-1624
-1625
-1626
-1627
-1628
-1629
-1630
-1631
-1632
-1633
-1634
-1635
-1636
-1637
-1638
-1639
-1640
-1641
-1642
-1643
-1644
-1645
-1646
-1647
-1648
+2373
+2374
+2375
+2376
+2377
+2378
+2379
+2380
+2381
+2382
+2383
+2384
+2385
+2386
+2387
+2388
+2389
+2390
+2391
+2392
+2393
+2394
+2395
+2396;2397;2398;2399;2400;2401
+2402
+2403
+2404
+2405
+2406
+2407
+2408
+2409
+2410
+2411
+2412
+2413
+2414;2415
+2416;2417;2418
+2419
+2420
+2421;2422
+2423
+2424
+2425
+2426
+2427
+2428
+2429
+2430
+2431
+2432
+2433
+2434
+2435
+2436
+2437
+2438
+2439
+2440
+2441
+2442
+2443
+2444
+2445
+2446
+2447
+2448
+2449
+2450
+2451
+2452
+2453
+2454
+2455
+2456
+2457
+2458
+2459
+2460
+2461
+2462
+2463
+2464
+2465
+2466
+2467
+2468
+2469
+2470
+2471
+2472
+2473
+2474
 @waterways line
 name,kind,arcs
-Donau,river,1649
-Donau,river,1650
-Donau,river,1651
-Donau,river,1652
-Donau,river,1653
-Donau,river,1654
-Donau,river,1655
-Donau,river,1656
-Donau,river,1657
-Donau,river,1658
-Donaukanal,river,1659
-Marchfeldkanal,canal,1660
-Marchfeldkanal,canal,1661
-Marchfeldkanal,canal,1662
-Marchfeldkanal,canal,1663
-Marchfeldkanal,canal,1664
-Marchfeldkanal,canal,1665
-Marchfeldkanal,canal,1666
-Neue Donau,river,1667
-Wien,river,1668
+Donau,river,2475
+Donau,river,2476
+Donau,river,2477
+Donau,river,2478
+Donau,river,2479
+Donau,river,2480
+Donau,river,2481
+Donau,river,2482
+Donau,river,2483
+Donau,river,2484
+Donaukanal,river,2485
+Marchfeldkanal,canal,2486
+Marchfeldkanal,canal,2487
+Marchfeldkanal,canal,2488
+Marchfeldkanal,canal,2489
+Marchfeldkanal,canal,2490
+Marchfeldkanal,canal,2491
+Marchfeldkanal,canal,2492
+Neue Donau,river,2493
+Wien,river,2494
 @airport polygon
 name,iata,arcs
-Vienna International Airport,VIE,1669
+Vienna International Airport,VIE,2495
 @monuments polygon
 name,wikidata,arcs
-Schönbrunn Palace,Q131330,1670;1671
-Belvedere,Q211818,1672
-Hofburg Palace,Q46242,1673;1674;1675;1676;1677;1678;1679;1680;1681;1682;1683;1684;1685;1686;1687
-Reichsbrücke,Q684821,1688
-Palais Schwarzenberg,Q651030,1689|1690
-St. Stephen's Cathedral,Q5943,1691
+Schönbrunn Palace,Q131330,2496;2497
+Belvedere,Q211818,2498
+Hofburg Palace,Q46242,2499;2500;2501;2502;2503;2504;2505;2506;2507;2508;2509;2510;2511;2512;2513
+Reichsbrücke,Q684821,2514
+Palais Schwarzenberg,Q651030,2515|2516
+St. Stephen's Cathedral,Q5943,2517
 @districts line
 level#,arcs
-1,1692
-1,1693
-1,1694
-1,1695
-1,1696
-1,1697
-1,1698
-1,1699
-1,1700
-1,1701
-1,1702
-1,1703
-1,1704
-1,1705
-1,1706
-1,1707
-1,1708
-1,1709
-1,1710
-1,1711
-1,1712
-1,1713
-1,1714
-1,1715
-1,1716
-1,1717
-1,1718
-1,1719
-1,1720
-1,1721
-1,1722
-1,1723
-1,1724
-1,1725
-1,1726
-1,1727
-1,1728
-1,1729
-1,1730
-1,1731
-1,1732
-1,1733
-1,1734
-1,1735
-1,1736
-1,1737
-1,1738
-1,1739
-1,1740
-1,1741
-1,1742
-1,1743
-1,1744
-1,1745
-1,1746
-1,1747
-1,1748
-1,1749
-1,1750
-1,1751
-1,1752
-1,1753
-1,1754
-1,1755
-1,1756
-1,1757
-1,1758
-1,1759
-1,1760
-1,1761
-1,1762
-1,1763
-1,1764
-1,1765
-1,1766
-1,1767
-1,1768
-1,1769
-1,1770
-1,1771
-1,1772
-1,1773
-1,1774
-1,1775
-1,1776
-1,1777
-1,1778
-1,1779
-1,1780
-1,1781
-1,1782
-1,1783
-1,1784
-1,1785
-1,1786
-1,1787
-1,1788
-1,1789
-1,1790
-1,1791
-1,1792
-1,1793
-1,1794
-1,1795
-1,1796
-1,1797
-1,1798
-1,1799
-1,1800
-1,1801
-1,1802
-1,1803
-1,1804
-1,1805
-1,1806
-1,1807
-1,1808
-1,1809
-1,1810
-1,1811
-1,1812
-1,1813
-1,1814
-1,1815
-1,1816
-1,1817
-1,1818
-1,1819
-1,1820
-1,1821
-1,1822
-1,1823
-1,1824
-1,1825
-1,1826
-1,1827
-1,1828
-1,1829
-1,1830
-1,1831
-1,1832
-1,1833
-1,1834
-1,1835
-1,1836
-1,1837
-1,1838
-1,1839
-1,1840
-1,1841
-1,1842
-1,1843
-1,1844
-1,1845
-1,1846
-1,1847
-1,1848
-1,1849
-1,1850
-1,1851
-1,1852
-1,1853
-1,1854
-1,1855
-1,1856
-1,1857
-1,1858
-1,1859
-1,1860
-1,1861
-1,1862
-1,1863
-1,1864
-1,1865
-1,1866
-1,1867
-1,1868
-1,1869
-1,1870
-1,1871
-1,1872
-1,1873
-1,1874
-1,1875
-1,1876
-1,1877
-1,1878
-1,1879
-1,1880
-1,1881
-1,1882
-1,1883
-1,1884
-1,1885
-1,1886
-1,1887
-1,1888
-1,1889
-1,1890
-1,1891
-1,1892
-1,1893
-1,1894
-1,1895
-1,1896
-1,1897
-1,1898
-1,1899
-1,1900
-1,1901
-1,1902
-1,1903
-1,1904
-1,1905
-1,1906
-1,1907
-1,1908
-1,1909
-1,1910
-1,1911
-1,1912
-1,1913
-1,1914
-1,1915
-1,1916
-1,1917
-1,1918
-1,1919
-1,1920
-1,1921
-1,1922
-1,1923
-1,1924
-1,1925
-1,1926
-1,1927
-1,1928
-1,1929
-1,1930
-1,1931
-1,1932
-1,1933
-1,1934
-1,1935
-1,1936
-1,1937
-1,1938
-1,1939
-1,1940
-1,1941
-1,1942
-1,1943
-1,1944
-1,1945
-1,1946
-1,1947
-1,1948
-1,1949
-1,1950
-1,1951
-1,1952
-1,1953
-1,1954
-1,1955
-1,1956
-1,1957
-1,1958
-1,1959
-1,1960
-1,1961
-1,1962
-1,1963
-1,1964
-1,1965
-1,1966
-1,1967
-1,1968
-1,1969
-1,1970
-1,1971
-1,1972
-1,1973
-1,1974
-1,1975
-1,1976
-1,1977
-1,1978
-1,1979
-1,1980
-1,1981
-1,1982
-1,1983
-1,1984
-1,1985
-1,1986
-1,1987
-1,1988
-1,1989
-1,1990
-1,1991
-1,1992
-1,1993
-1,1994
-1,1995
-1,1996
-1,1997
-1,1998
-1,1999
-1,2000
-1,2001
-1,2002
-1,2003
-1,2004
-1,2005
-1,2006
-1,2007
-1,2008
-1,2009
-1,2010
-1,2011
-1,2012
-1,2013
-1,2014
-1,2015
-1,2016
-1,2017
-1,2018
-1,2019
-1,2020
-1,2021
-1,2022
-1,2023
-1,2024
-1,2025
-1,2026
-1,2027
-1,2028
-1,2029
-1,2030
-1,2031
-1,2032
-1,2033
-1,2034
-1,2035
-1,2036
-1,2037
-1,2038
-1,2039
-1,2040
-1,2041
-1,2042
-1,2043
-1,2044
-1,2045
-1,2046
-1,2047
-1,2048
-1,2049
-1,2050
-1,2051
-1,2052
-1,2053
-1,2054
-1,2055
-1,2056
-1,2057
-1,2058
-1,2059
-1,2060
-1,2061
-1,2062
-1,2063
-1,2064
-1,2065
-1,2066
-1,2067
-1,2068
-1,2069
-1,2070
-1,2071
-1,2072
-1,2073
-1,2074
-1,2075
-1,2076
-1,2077
-1,2078
-1,2079
-1,2080
-1,2081
-1,2082
-1,2083
-1,2084
-1,2085
-1,2086
-1,2087
-1,2088
-1,2089
-1,2090
-1,2091
-1,2092
-1,2093
-1,2094
-1,2095
-1,2096
-1,2097
-1,2098
-1,2099
-1,2100
-1,2101
-1,2102
-1,2103
-1,2104
-1,2105
-1,2106
-1,2107
-1,2108
-1,2109
-1,2110
-1,2111
-1,2112
-1,2113
-1,2114
-1,2115
-1,2116
-1,2117
-1,2118
-1,2119
-1,2120
-1,2121
-1,2122
-1,2123
-1,2124
-1,2125
-1,2126
-1,2127
-1,2128
-1,2129
-1,2130
-1,2131
-1,2132
-1,2133
-1,2134
-1,2135
-1,2136
-1,2137
-1,2138
-1,2139
-1,2140
-1,2141
-1,2142
-1,2143
-1,2144
-1,2145
-1,2146
-1,2147
-1,2148
-1,2149
-1,2150
-1,2151
-1,2152
-1,2153
-1,2154
-1,2155
-1,2156
-1,2157
-1,2158
-1,2159
-1,2160
-1,2161
-1,2162
-1,2163
-1,2164
-1,2165
-1,2166
-1,2167
-1,2168
-1,2169
-1,2170
-1,2171
-1,2172
-1,2173
-1,2174
-1,2175
-1,2176
-1,2177
-1,2178
-1,2179
-1,2180
-1,2181
-1,2182
-1,2183
-1,2184
-1,2185
-1,2186
-1,2187
-1,2188
-1,2189
-1,2190
-1,2191
-1,2192
+1,2518
+1,2519
+1,2520
+1,2521
+1,2522
+1,2523
+1,2524
+1,2525
+1,2526
+1,2527
+1,2528
+1,2529
+1,2530
+1,2531
+1,2532
+1,2533
+1,2534
+1,2535
+1,2536
+1,2537
+1,2538
+1,2539
+1,2540
+1,2541
+1,2542
+1,2543
+1,2544
+1,2545
+1,2546
+1,2547
+1,2548
+1,2549
+1,2550
+1,2551
+1,2552
+1,2553
+1,2554
+1,2555
+1,2556
+1,2557
+1,2558
+1,2559
+1,2560
+1,2561
+1,2562
+1,2563
+1,2564
+1,2565
+1,2566
+1,2567
+1,2568
+1,2569
+1,2570
+1,2571
+1,2572
+1,2573
+1,2574
+1,2575
+1,2576
+1,2577
+1,2578
+1,2579
+1,2580
+1,2581
+1,2582
+1,2583
+1,2584
+1,2585
+1,2586
+1,2587
+1,2588
+1,2589
+1,2590
+1,2591
+1,2592
+1,2593
+1,2594
+1,2595
+1,2596
+1,2597
+1,2598
+1,2599
+1,2600
+1,2601
+1,2602
+1,2603
+1,2604
+1,2605
+1,2606
+1,2607
+1,2608
+1,2609
+1,2610
+1,2611
+1,2612
+1,2613
+1,2614
+1,2615
+1,2616
+1,2617
+1,2618
+1,2619
+1,2620
+1,2621
+1,2622
+1,2623
+1,2624
+1,2625
+1,2626
+1,2627
+1,2628
+1,2629
+1,2630
+1,2631
+1,2632
+1,2633
+1,2634
+1,2635
+1,2636
+1,2637
+1,2638
+1,2639
+1,2640
+1,2641
+1,2642
+1,2643
+1,2644
+1,2645
+1,2646
+1,2647
+1,2648
+1,2649
+1,2650
+1,2651
+1,2652
+1,2653
+1,2654
+1,2655
+1,2656
+1,2657
+1,2658
+1,2659
+1,2660
+1,2661
+1,2662
+1,2663
+1,2664
+1,2665
+1,2666
+1,2667
+1,2668
+1,2669
+1,2670
+1,2671
+1,2672
+1,2673
+1,2674
+1,2675
+1,2676
+1,2677
+1,2678
+1,2679
+1,2680
+1,2681
+1,2682
+1,2683
+1,2684
+1,2685
+1,2686
+1,2687
+1,2688
+1,2689
+1,2690
+1,2691
+1,2692
+1,2693
+1,2694
+1,2695
+1,2696
+1,2697
+1,2698
+1,2699
+1,2700
+1,2701
+1,2702
+1,2703
+1,2704
+1,2705
+1,2706
+1,2707
+1,2708
+1,2709
+1,2710
+1,2711
+1,2712
+1,2713
+1,2714
+1,2715
+1,2716
+1,2717
+1,2718
+1,2719
+1,2720
+1,2721
+1,2722
+1,2723
+1,2724
+1,2725
+1,2726
+1,2727
+1,2728
+1,2729
+1,2730
+1,2731
+1,2732
+1,2733
+1,2734
+1,2735
+1,2736
+1,2737
+1,2738
+1,2739
+1,2740
+1,2741
+1,2742
+1,2743
+1,2744
+1,2745
+1,2746
+1,2747
+1,2748
+1,2749
+1,2750
+1,2751
+1,2752
+1,2753
+1,2754
+1,2755
+1,2756
+1,2757
+1,2758
+1,2759
+1,2760
+1,2761
+1,2762
+1,2763
+1,2764
+1,2765
+1,2766
+1,2767
+1,2768
+1,2769
+1,2770
+1,2771
+1,2772
+1,2773
+1,2774
+1,2775
+1,2776
+1,2777
+1,2778
+1,2779
+1,2780
+1,2781
+1,2782
+1,2783
+1,2784
+1,2785
+1,2786
+1,2787
+1,2788
+1,2789
+1,2790
+1,2791
+1,2792
+1,2793
+1,2794
+1,2795
+1,2796
+1,2797
+1,2798
+1,2799
+1,2800
+1,2801
+1,2802
+1,2803
+1,2804
+1,2805
+1,2806
+1,2807
+1,2808
+1,2809
+1,2810
+1,2811
+1,2812
+1,2813
+1,2814
+1,2815
+1,2816
+1,2817
+1,2818
+1,2819
+1,2820
+1,2821
+1,2822
+1,2823
+1,2824
+1,2825
+1,2826
+1,2827
+1,2828
+1,2829
+1,2830
+1,2831
+1,2832
+1,2833
+1,2834
+1,2835
+1,2836
+1,2837
+1,2838
+1,2839
+1,2840
+1,2841
+1,2842
+1,2843
+1,2844
+1,2845
+1,2846
+1,2847
+1,2848
+1,2849
+1,2850
+1,2851
+1,2852
+1,2853
+1,2854
+1,2855
+1,2856
+1,2857
+1,2858
+1,2859
+1,2860
+1,2861
+1,2862
+1,2863
+1,2864
+1,2865
+1,2866
+1,2867
+1,2868
+1,2869
+1,2870
+1,2871
+1,2872
+1,2873
+1,2874
+1,2875
+1,2876
+1,2877
+1,2878
+1,2879
+1,2880
+1,2881
+1,2882
+1,2883
+1,2884
+1,2885
+1,2886
+1,2887
+1,2888
+1,2889
+1,2890
+1,2891
+1,2892
+1,2893
+1,2894
+1,2895
+1,2896
+1,2897
+1,2898
+1,2899
+1,2900
+1,2901
+1,2902
+1,2903
+1,2904
+1,2905
+1,2906
+1,2907
+1,2908
+1,2909
+1,2910
+1,2911
+1,2912
+1,2913
+1,2914
+1,2915
+1,2916
+1,2917
+1,2918
+1,2919
+1,2920
+1,2921
+1,2922
+1,2923
+1,2924
+1,2925
+1,2926
+1,2927
+1,2928
+1,2929
+1,2930
+1,2931
+1,2932
+1,2933
+1,2934
+1,2935
+1,2936
+1,2937
+1,2938
+1,2939
+1,2940
+1,2941
+1,2942
+1,2943
+1,2944
+1,2945
+1,2946
+1,2947
+1,2948
+1,2949
+1,2950
+1,2951
+1,2952
+1,2953
+1,2954
+1,2955
+1,2956
+1,2957
+1,2958
+1,2959
+1,2960
+1,2961
+1,2962
+1,2963
+1,2964
+1,2965
+1,2966
+1,2967
+1,2968
+1,2969
+1,2970
+1,2971
+1,2972
+1,2973
+1,2974
+1,2975
+1,2976
+1,2977
+1,2978
+1,2979
+1,2980
+1,2981
+1,2982
+1,2983
+1,2984
+1,2985
+1,2986
+1,2987
+1,2988
+1,2989
+1,2990
+1,2991
+1,2992
+1,2993
+1,2994
+1,2995
+1,2996
+1,2997
+1,2998
+1,2999
+1,3000
+1,3001
+1,3002
+1,3003
+1,3004
+1,3005
+1,3006
+1,3007
+1,3008
+1,3009
+1,3010
+1,3011
+1,3012
+1,3013
+1,3014
+1,3015
+1,3016
+1,3017
+1,3018
 @clip polygon
 arcs
-2193|2194
+3019|3020
 @places
 name,level#,lon#,lat#
 Alsergrund,1,16.35813,48.2212

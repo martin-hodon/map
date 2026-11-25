@@ -1,0 +1,717 @@
+# Malé: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 73.43660 4.15020
+@arcs
+2044 824 -8 -29 -23 -57 -50 -97 -22 -32 -36 -43 -30 -32 -25 -21 -13 -8
+1331 385 149 -3 119 20
+1837 505 -4 -3
+1631 407 -27 -3
+2091 971 -47 -147
+2068 1030 -1 -4 22 -30 2 -25
+1599 402 3 1 2 1
+1288 445 -3 16 5 12 12 19 5 23 8 27 5 8 5 2 126 46 16 -1 20 -11 16 -5 80 -23 27 -9 14 -15 5 -18 -4 -33 -4 -37
+1625 483 -318 32
+1602 403 -3 3 -6 6 -256 27 -24 2 -25 4
+2186 1403 -27 -92 -58 -176
+2188 1621 -1 1 -56 62 -3 5 52 50 11 3 25 -6 5 -5 -11 -44
+2003 1242 -1 4 59 210 3 1
+2107 1326 -4 -9 -8 -8 -20 -5 -15 6 -10 13 -2 14 5 15 11 10 13 3 38 -10
+1476 577 25 -7 72 -21 7 -2 26 -7
+2064 1457 74 -22 52 -16
+2067 1026 -8 7 -36 45 -34 44
+2138 1435 -23 -80 -8 -28 0 -1
+1985 1131 1 9 27 99
+1325 552 -9 -82 -3 -29
+2101 1135 -33 -105
+1794 751 0 -94 -6 -13
+1392 520 8 15 34 26 20 11 22 5
+1555 452 18 97
+1469 556 -22 -3 -55 -33
+2067 1227 8 77
+2023 1078 3 4 18 68
+1808 571 -20 73
+2044 1150 23 77
+1838 526 -21 19 -9 26
+1337 439 -6 -54
+2195 1438 -51 16
+2153 1494 -11 15 -1 31
+2159 1311 -52 16
+2141 1540 14 23 20 11
+2175 1574 13 47
+1599 406 5 41
+2144 1454 9 40
+2210 1687 -1 -2 -10 -34
+1782 668 -6 30
+1290 473 26 -3
+1800 774 -3 -3 -3 -4 0 -16
+2190 1419 5 19
+1604 447 17 -1
+1838 526 12 -13
+2186 1403 4 16
+1580 547 3 11
+1501 570 2 11
+2013 1239 -10 3
+1989 1122 -4 9
+1800 774 1 0
+1801 774 0 -3 -4 0
+2198 1649 -1 2 2 0
+2199 1651 -1 -2
+2188 1621 2 -1 -2 1
+2188 1621 1 2 -2 -1
+2210 1687 -1 -2
+2067 1225 -2 -5
+2065 1220 0 5
+2065 1225 2 2
+2067 1227 0 -2
+2190 1421 5 16
+1837 505 -4 -3
+1631 407 -20 -3
+1313 441 -1 -8
+1452 590 -119 -43 -18 -5
+1350 553 -13 -114
+1408 559 24 8
+1576 488 -16 -36
+1330 426 31 -3
+1517 388 7 69
+1449 461 18 -4
+1595 453 2 11
+1532 492 4 39
+1481 589 -16 0 -13 1
+1450 544 -3 9
+1437 537 -6 7
+1472 565 -17 3
+1466 455 14 1
+1465 450 94 -11 43 -3
+1497 553 -2 -19
+1492 512 -4 -15
+1494 409 -12 1
+1494 409 2 13
+1508 421 -1 -12 -1 -1 -1 0 -11 1
+1399 477 -22 -11
+1479 516 30 -9
+1536 458 -7 -68
+1447 446 0 5 10 49
+1531 406 -12 1
+1570 530 -22 9
+1344 551 -3 7
+1540 492 5 24 8 21
+1545 417 3 41
+1401 451 10 23
+1589 528 -4 -16
+1362 501 12 -22 8 -26
+1548 568 -3 -10
+1399 477 15 -4 9 -3
+1405 384 7 66
+1359 412 -30 2
+1494 496 -6 -42
+1554 512 -9 4 -34 -1
+1364 455 85 -10
+1388 556 -15 -47
+1444 486 -12 5
+1393 519 21 -14
+1437 527 20 -5
+1590 486 -3 -37
+1561 454 23 -8
+1569 525 6 -1 2 0 2 9
+1325 440 12 109
+1608 446 4 25 4 13
+1450 598 6 -25 -3 -19
+1613 484 2 20
+1302 492 53 -6
+1496 455 21 82
+1497 511 12 21
+1441 572 -9 -3
+1583 531 7 13
+1374 435 2 18
+1366 532 2 8 6 6 3 1 23 -12
+1387 471 2 37
+1453 483 8 -3
+1572 478 17 -2
+1415 449 20 48 2 6
+1622 458 -22 2 0 4
+1422 529 27 15 17 3
+1442 383 7 65
+1497 434 2 21
+1385 522 7 18
+1540 458 0 34
+1389 452 -3 -19
+1464 445 -17 3
+1380 458 -13 -4
+1529 393 -84 9
+1596 448 0 4 -38 18
+1567 516 -11 4 -8 5
+1409 468 -12 4
+1369 541 21 -7
+1512 456 -3 -23
+1416 478 -11 8
+1537 571 -2 -10
+1458 464 -33 11
+1569 414 -2 -18
+1572 450 -2 -24
+1322 527 40 -5 14 -4
+1419 392 24 -2
+1353 474 -36 4
+1480 454 1 32
+1366 504 -8 -6 -2 1
+1366 510 0 -4 0 -2
+1369 510 0 -6 -3 0
+1435 497 13 -3
+1415 549 -14 23
+1421 524 -7 1 -5 -17
+1431 518 -3 15
+1447 451 -15 -1
+1354 479 26 7 0 2 -5 14
+1556 459 -90 -7
+1601 516 -14 2
+1363 472 4 -18
+1535 454 25 -2
+1461 446 -7 -64
+1410 555 -24 -6
+1584 487 1 12
+1588 499 6 10
+1488 454 -7 -56
+1453 511 -33 10
+1527 536 -13 -42
+1472 483 -10 4
+1357 385 2 27 4 36 2 12
+1374 546 1 16
+1564 501 36 -4
+1525 529 -10 3 -52 6
+1545 491 -1 -33
+1601 423 -287 30
+1419 460 -12 5
+1548 491 15 53
+1391 520 -12 5
+1469 400 5 53
+1569 452 12 25
+1511 452 24 -3
+1433 453 -15 5
+1408 405 12 0
+1540 477 11 -1
+1550 483 3 -1 -2 -6
+1551 476 0 -2 8 -2
+1576 466 29 -2 4 20
+1433 416 -12 1
+1430 383 1 8
+1473 486 19 -1
+1469 556 -37 -106 0 -3
+1465 575 0 8
+1593 412 3 36
+1587 449 15 -2 2 0
+1488 574 -3 -19
+1610 518 5 15
+1615 504 2 -1 11 -1
+1383 512 -1 12
+1424 448 2 7 8 27 8 -3
+1443 481 9 -3
+1465 500 -8 -41
+1459 467 21 -4
+1520 494 -6 -38
+1575 413 2 25
+1581 413 3 35 1 1 2 0
+1365 566 2 -7
+1388 567 -1 -10
+1372 569 3 -7
+1416 585 2 -7
+1331 554 2 -7
+1392 569 -3 6
+1384 573 3 -6
+1402 580 2 -7
+1361 557 -2 7
+1380 564 -3 7
+1394 551 0 13 10 4
+1400 571 -3 7
+1408 574 6 -13
+1420 579 3 -15
+1455 598 -1 -8
+1421 576 -12 -5
+1443 567 -9 25
+1422 587 2 -7
+1442 595 3 -7
+1507 552 4 15
+1477 580 -14 4 -10 1
+1523 549 5 25
+1567 552 4 10
+1516 578 -3 -12
+1561 564 -3 -10
+1592 527 9 14
+1597 542 -8 -14
+1607 536 -8 -13
+1622 512 -3 -9
+1367 559 20 -2 1 -1
+1463 584 4 13
+1463 511 -9 2
+1444 513 -2 -11
+1423 539 -7 11
+1419 536 2 -6 1 -1
+1340 550 34 -4
+1380 529 -14 3
+1366 534 -43 5
+1360 511 1 -11
+1366 521 -3 -11
+1376 499 6 3 0 6
+1373 480 -20 -6
+1560 452 -4 -37
+1365 473 -7 25
+1540 547 3 11
+1529 535 5 13
+1534 532 2 6 9 -1 3 1 2 8
+1548 525 -21 11 -15 2
+1512 538 1 13
+1496 542 15 -1
+1552 503 11 -6
+1542 501 8 -2
+1446 542 2 -8 12 -4
+1347 413 9 86 3 24 2 24 0 10
+1353 562 3 -7
+1429 582 5 -21 5 -12
+1315 459 12 -1
+1379 493 -11 -2
+1379 493 11 1 2 6 1 1 16 -10
+1399 507 -1 -9
+1403 482 -15 6
+1393 486 6 11
+1436 462 -7 4
+1412 463 -5 -13
+1404 457 -11 5
+1398 432 3 19
+1399 439 -24 2
+1524 557 -14 4
+1571 537 57 -28
+1464 445 16 77 1 1 5 -1 1 1 3 12
+1479 516 -15 -1
+1470 522 -3 1 -7 -23
+1424 448 -6 -65
+1519 511 14 -9
+1526 507 -6 -13
+1615 504 -11 3 -3 -1 -34 12
+1590 486 13 36
+1600 514 15 -5
+1589 511 -9 -12
+1614 496 13 -1
+1429 518 -4 -14
+1356 499 -37 4
+1363 472 0 1 25 6
+1414 473 15 30
+1418 504 -19 -27
+1365 460 -49 6
+1525 549 -1 -12
+1572 543 -75 10
+1497 553 -28 3
+1504 386 1 10
+1470 472 11 -1
+1481 474 9 -1
+1516 466 -7 1 -1 4 -7 2
+1432 490 -9 3
+1612 471 12 -1
+1377 466 -12 -3
+1600 497 -2 -12
+1614 505 7 34
+1511 467 -3 -11
+1472 453 0 3
+1422 529 -4 -17 -3 -7
+1437 503 0 24 0 10
+1447 553 -4 14
+1379 467 11 -11
+1482 410 -24 3
+1337 544 12 -1
+1412 496 10 -6
+1298 387 28 -1
+1312 433 2 -1 15 -2 1 -1 -4 -43
+1326 386 0 -1
+1326 386 5 -1
+1599 485 -3 -21
+1433 416 4 31
+1611 464 -6 0
+1604 530 9 -4
+1525 419 -1 -13
+1527 437 0 -6
+1580 547 -3 -13
+1582 553 10 -3
+1580 460 -5 -11
+1399 477 -10 -25
+1859 715 -2 74 21 4 3 -78 -22 0
+1881 929 0 -122 -20 -3 -5 32 11 2 -10 0 -2 89 26 2
+1879 1062 3 -121 -24 -4 -5 123 26 2
+1903 931 -8 3 0 255 7 0 1 -258
+2113 1355 -13 -40 -19 -10 -21 6 -11 19 7 23 19 10 38 -8
+129 698 1 5 7 -2 1 5 1 -5 8 -2 2 4 1 -3 40 -11 -5 -4 0 -8 7 -2 22 -52 -16 -3 0 5 -24 6 -2 -4 0 5 -79 25 8 42 28 -1
+91 589 42 -10 -3 -9 4 -2 5 9 90 -33 26 -3 -1 -2 13 -4 5 5 5 -6 2 5 6 0 2 -7 3 7 5 2 2 -9 10 -3 1 3 -8 2 -1 7 7 9 -11 -4 -17 1 -19 -4 -39 8 -63 23 -2 5 5 8 15 -7 8 3 1 -11 20 -8 2 4 6 2 20 -6 7 2 -3 8 9 4 7 -11 30 6 1 -3 8 1 2 -4 10 1 10 7 -2 12 -4 1 -5 13 5 2 -1 3 -10 2 8 4 -3 12 3 2 -1 7 -11 -3 -4 10 8 3 -3 16 -19 -6 -4 9 7 3 5 -4 -1 7 4 2 -1 3 -7 -5 -14 12 11 5 7 -9 -6 9 -6 1 -15 10 -28 11 -19 -22 -3 1 12 23 3 -2 2 3 -10 5 -2 -3 4 -2 -13 -23 -4 1 10 29 -26 8 -1 -3 -8 2 1 4 -48 5 -15 4 23 55 21 34 40 45 34 29 67 41 53 20 61 17 40 6 37 2 35 16 48 14 48 4 30 -2 68 -12 53 -16 66 -35 76 -52 38 -39 42 -57 42 -7 25 -9 41 -14 38 -20 37 37 52 40 65 31 57 16 29 3 68 5 56 -7 16 107 12 47 4 47 14 58 6 46 92 283 11 25 16 0 1 -3 -7 -6 -2 -8 10 8 4 -1 -6 15 26 12 5 15 -2 33 -4 5 -10 4 25 62 44 98 37 71 24 64 32 57 39 47 50 41 25 15 39 19 55 20 117 28 50 2 60 -2 38 -6 31 -9 69 -32 28 -20 43 -40 19 -20 28 -42 21 -48 15 -62 1 -90 -8 -60 -23 -85 -54 -143 -64 -248 -61 -187 0 -51 -4 -27 -63 -209 -34 -85 -31 -64 -83 -135 -64 -84 -46 -38 -60 -36 -57 -26 -28 -8 -59 -6 -36 -36 -22 -16 -47 -24 -35 -13 -81 -20 -120 -12 -62 -15 -127 -3 -48 4 -72 20 -57 32 -47 -16 -27 -5 -37 -3 -57 4 -77 16 -60 25 -99 12 -395 72 -41 11 -51 23 -46 33 -22 23 -18 22 -28 50 -19 59 -10 62 -4 54
+1469 598 3 8 18 -4 -49 15 22 -8 -3 -9 -10 0 -32 -12 -6 21 2 4 23 4 -33 -3 6 -17 -10 -3 -4 19 -7 -2 0 2 -19 -7 1 -3 -22 -13 -4 -4 8 5 8 -20 -13 -5 -11 9 3 7 -31 -46 -8 -19 3 -7 -5 -9 0 -10 -7 -10 -5 0 -5 -21 8 -40 2 12 36 -4 -1 -12 -14 1 -1 -5 14 -2 -2 -21 -25 0 -11 21 0 -5 -5 -1 -3 17 -2 -33 6 -20 11 -4 28 -2 53 2 9 6 18 0 -1 -7 5 9 -25 2 0 8 97 -2 65 10 11 -5 76 21 0 2 -8 2 0 32 8 15 11 6 2 12 -3 -2 -4 2 -1 9 6 5 2 -4 6 36 7 4 -8 2 -9 19 -13 8 -26 9 8 -5 -2 -7 -24 8 2 8 12 -4 -11 5 -24 6 17 -6 -3 -7 -25 7 2 5 -18 5 -2 -5 -44 13 -20 12
+1571 926 -1 18 -9 -3 -14 18 -7 -7 -14 10 -2 -2 -3 -24 19 -20 20 -8 7 6 4 12
+2222 2031 1 4 -11 11 -8 -4 -7 -8 3 -3 22 0
+2229 1972 6 10 0 31 -7 5 -33 3 -7 -2 -12 -13 -43 -1 -2 -2 -48 -4 1 -7 32 -2 19 -11 20 5 35 0 3 -8 6 -1 2 -8 -5 -5 8 -3 25 13
+1024 399 2 14 -5 6 -6 2 4 28 -4 21 1 11 7 3 6 -6 11 -1 -12 3 -6 10 -7 -3 -3 8 7 7 13 -14 -20 23 -17 15 12 -12 -6 -8 -15 12 -23 9 -18 -4 -2 10 16 5 -17 -4 4 -18 -16 -19 -7 1 -2 -2 -1 -5 5 -2 0 -3 -7 -13 -4 1 -3 -10 2 -21 7 -8 9 -2 27 -16 2 -6 -3 -6 55 -11 9 0 5 5
+2018 1981 -1 3 6 1 1 3 -8 3 -2 7 -7 0 0 -5 -4 2 1 -7 -12 -1 1 -5 10 1 5 -15 1 10 9 3
+1770 832 -4 -53 5 2 3 50 -4 1
+1633 695 -2 -9 -9 2 -13 -4 -2 7 5 1 -6 -1 -12 -16 -2 -9 0 -7 4 -9 3 -4 -7 20 5 11 10 -13 13 -5 -7 -1 7 -2 -1 -9 -15 -2 27 1 20 16 2 11 -5 15 -7 6 -8 1
+2070 1015 -1 -12 -7 -6 -3 -10 7 -2 -2 -5 9 -4 8 26 7 -16 -2 -13 -38 -82 -46 -118 -30 -1 1 38 4 2 -3 16 -28 -1 0 -40 -9 0 0 -5 -14 0 -1 11 -5 2 0 106 20 2 0 46 -5 1 -1 -6 -14 0 0 316 -21 61 23 49 -17 9 -4 -1 -83 -252 1 -40 -9 -10 -10 -39 0 -26 -8 -53 -5 -23 -4 -2 6 3 2 13 10 0 1 -34 -19 0 0 -37 -6 0 2 24 -3 -30 -4 -5 6 -1 -2 -22 -2 -1 3 0 2 19 22 1 2 -3 4 -79 -14 -12 -1 -57 -2 -3 -12 0 -3 -3 10 -53 27 -98 -1 -9 5 0 9 -26 13 -3 1 -6 -5 -5 3 -4 7 1 53 32 3 16 37 41 64 106 42 94 56 182 -1 18 -10 17 79 244 64 252 36 102 25 62 15 53 2 53 -4 15 -24 23 -17 7 -6 1 -6 -4 0 -14 -24 4 -7 13 -7 2 -88 -23 -9 -13 8 9 21 -22 -16 -15 -31 29 6 2 0 3 -24 -15 -19 -29 -14 -46 -57 -110 -78 -193 13 -5 12 1 13 -5 17 0 16 54 19 14 8 25 6 3 38 -8 -52 -181 -5 2 -7 -29 -6 1 -9 -32 10 -3 -6 -21 3 -1 -2 -9 -3 1 -14 -52 12 -20 8 -5 89 -114
+398 514 427 -74 11 8 1 9 0 35 -6 28 -52 112 -20 33 -24 30 -33 23 -40 22 -41 8 -7 0 -12 -25 -1 -18 8 -26 -25 -127 -9 -18 -21 -9 -51 7 -65 24 -27 17 -17 17 -8 14 -5 -3 -9 13 15 37 16 15 37 18 36 8 13 13 -5 9 -22 -2 -51 -16 -38 -27 -4 -8 4 -5 -1 -5 -12 -37 3 -20 -2 -13 5 -11 5 -48 27 -8
+2204 1420 -156 47 3 9 156 -48 -3 -8
+2305 1730 -12 12 -12 0 -43 11 -56 19 -15 -2 -28 -17 -8 3 14 12 6 -1 20 10 15 1 41 -18 55 -13 14 5 10 11 -1 -33
+2097 1571 2 -8 -1 6 8 4 -4 -7 12 -4 -1 -4 -15 -1 -16 6 15 8
+1924 761 24 1 16 -6 -2 -106 -82 -104 -26 -21 -9 -1 -35 45 -20 74 4 9 0 114 18 13 -4 26 6 8 -7 0 0 6 7 7 2 22 -1 15 -8 0 0 25 6 0 1 8 6 0 -17 3 -1 67 14 0 -1 23 -20 1 9 75 12 21 -1 40 64 192 20 -2 18 -56 0 -316 20 5 0 -46 -20 -2 0 -106 5 -2 2 -32
+954 406 4 5 -2 6 -27 16 -9 2 -7 8 -3 10 4 21 4 -1 7 13 0 3 -5 2 1 5 2 -1 0 3 7 -1 16 19 -4 18 17 4 -16 -5 2 -10 18 4 23 -9 15 -12 6 8 -13 11 1 1 17 -15 20 -23 -13 14 -7 -7 3 -8 7 3 4 -8 2 -2 7 0 5 -3 -1 -1 -4 3 -6 -1 -6 6 -7 -3 -1 -11 1 0 3 -21 -4 -12 0 -16 6 -2 5 -6 0 -7 -2 -7 -5 -5 -9 0 -8 3 -48 9
+1295 364 -11 4 -4 7 -2 13 0 13 1 1 0 18 2 1 2 -17 5 1 -1 5 1 0 11 -21 25 0 2 21 -14 2 1 5 14 -1 1 12 -36 4 -1 -12 -1 0 -2 8 1 4 -7 28 4 10 -1 5 2 6 5 0 7 10 2 5 -2 5 4 4 1 5 -3 7 8 19 2 0 2 8 27 38 1 -2 -4 -5 11 -9 13 5 -8 20 -8 -5 26 17 -1 3 19 7 0 -2 7 2 1 -3 -2 -1 5 -15 10 3 -6 17 33 3 -1 -2 -22 -2 -2 -4 6 -21 32 12 10 0 3 9 -22 7 1 1 48 -15 -1 -1 -17 5 -3 -8 20 -12 44 -13 2 5 18 -5 -2 -5 25 -7 3 7 -17 5 0 1 24 -6 11 -5 -12 4 -2 -8 24 -8 2 7 -7 2 -1 3 3 -3 23 -6 13 -8 9 -19 8 -2 -4 -3 -3 -1 -6 -36 0 4 -2 0 -4 -1 -2 -4 -1 -6 2 -3 4 -2 3 2 -2 -12 -11 -6 -7 -11 -1 -4 -1 -19 2 -2 -1 -11 2 -2 6 0 0 -2 -30 -10 -46 -11 -5 4 -6 1 -65 -10 -97 2 0 -8 23 0 2 -2 -5 -9 1 7 -18 0 -9 -6 -53 -2 -28 2
+371 522 -3 10 -2 38 -4 6 -1 5 2 13 -3 20 3 12 9 25 1 5 -4 5 4 8 15 13 23 14 28 10 23 6 18 3 4 -1 4 -3 1 -6 -2 -5 -6 -5 -5 -3 -36 -8 -28 -11 -9 -7 -16 -15 -7 -13 -8 -24 9 -13 5 3 3 -5 -1 -1 6 -8 17 -17 10 -7 10 -4 7 -6 29 -8 36 -16 38 -5 3 -2 10 0 21 9 6 8 3 10 14 61 5 43 6 23 0 5 -5 8 -3 13 1 18 12 25 7 0 41 -8 40 -22 33 -23 24 -30 20 -33 36 -74 16 -38 6 -28 0 -35 -1 -9 -11 -8 -48 6 -299 55 -80 13 -24 6 -3 2
+1934 782 0 1 2 0 0 -1 1 0 0 5 9 0 0 40 28 1 0 -15 3 -1 -3 -3 -1 1 -1 -38 8 0 0 1 22 0 13 28 33 90 38 82 2 7 -1 11 -2 7 -4 4 -8 -26 -7 1 -2 3 2 5 -7 2 3 10 3 0 6 9 1 6 -2 3 -89 114 -5 5 -3 0 -12 20 0 1 1 0 2 6 -2 0 13 45 3 -1 2 9 -3 1 6 21 -10 3 9 32 6 -1 7 29 5 -2 52 181 -2 1 -12 1 -24 6 -6 -3 -3 -14 -5 -11 -8 -6 -6 -2 -5 -6 -3 -7 -8 -37 -2 -6 -3 -4 -7 -1 -10 1 -8 5 -5 0 -12 -1 -13 5 49 126 1 3 3 -1 8 22 8 16 9 27 14 29 43 81 4 18 10 28 11 19 8 10 8 7 16 8 0 -3 -6 -2 15 -17 2 2 14 -14 16 15 -21 22 -5 -10 -3 1 0 2 9 11 88 23 7 -2 7 -13 21 -5 3 1 1 3 -1 8 0 3 6 4 6 -1 17 -7 15 -13 9 -10 4 -15 -2 -53 -15 -53 -25 -62 -36 -102 -7 -33 -11 -33 1 -4 -2 -6 -2 -1 -3 -10 1 -1 -41 -164 -79 -244 6 -8 4 -9 1 -18 -56 -182 -23 -56 -19 -38 -29 -51 -35 -55 -37 -41 -2 -5 -1 -11 -7 -5 -3 0 -21 -14 -5 -2 -17 -11 -7 -1 -3 4 1 2 4 3 0 3 -1 3 -7 0 -6 3 -9 26 -5 0 -1 4 3 1 -2 2 1 2 -22 86 -5 12 -10 53 3 3 12 0 2 3 -1 28 3 13 -1 16 2 0 12 12 0 23 -2 4 -2 52 -2 0 0 3 -22 -1 -2 -19 -3 0 2 1 2 22 -6 1 1 3 3 2 3 30 -2 -24 6 0 -1 29 1 8 19 0 -1 12 0 22 -2 2 -6 0 -2 -2 -2 -13 -2 -2 -3 -2 -1 1 4 2 3 23 2 0 8 52 0 27 10 39 8 7 1 3 -1 40 37 111 24 79 9 15 7 24 5 21 5 3 16 -7 1 -2 -17 -34 -6 -15 4 -6 17 -55 0 -316 14 0 1 6 3 0 2 -1 0 -46 -20 -2 0 -106 5 -2 1 -11 11 0
+@streets line
+name,ref,class,arcs
+Midhili Magu,,primary,0
+Boduthakurufaanu Magu,,primary,1
+Sinamalé Bridge,,primary,2;3
+,,primary,4
+Midhili Magu,,primary,5
+Boduthakurufaanu Magu,,primary,6
+Boduthakurufaanu Magu,,secondary,7
+Majeedhee Magu,,secondary,8
+Ameenee Magu,,secondary,9
+Nirolhu Magu,,secondary,10
+,,secondary,11
+Fithuroanu Magu,,secondary,12
+Bageechaa Hingun,,secondary,13
+Ameeru Ahmed Magu,,secondary,14
+Kuredhimaa Hingun,,secondary,15
+Boashimaa Hingun,,secondary,16
+Hithigas Magu,,secondary,17
+Midhili Magu,,secondary,18
+Kanbaa Aisa Rani Hingun,,secondary,19
+Saimaa Higun,,secondary,20
+Airport Main Road,,secondary,21
+Orchid Magu,,secondary,22
+Sosun Magu,,secondary,23
+Fareedhee Magu,,secondary,24
+Reethigas Magu,,secondary,25
+Reethigas Magu,,secondary,26
+Airport Main Road,,secondary,27
+Reethigas Magu,,secondary,28
+Airport Main Road,,secondary,29
+Izzuddeen Magu,,secondary,30
+,,secondary,31
+Hithigas Magu,,secondary,32
+Huvandhumaa Higun,,secondary,33
+Hithigas Magu,,secondary,34
+Hithigas Magu,,secondary,35
+Moonlight Hingun,,secondary,36
+Hithigas Magu,,secondary,37
+,,secondary,38
+Airport Main Road,,secondary,39
+Thaajuddeen Hingun,,secondary,40
+Airport Main Road,,secondary,41
+,,secondary,42
+Hithigas Magu,,secondary,43
+Airport Main Road,,secondary,44
+Nirolhu Magu,,secondary,45
+Kurangi Goalhi,,secondary,46
+Jumhooree Hingun,,secondary,47
+Asurumaa Hingun,,secondary,48
+Boashimaa Hingun,,secondary,49
+,,secondary,50
+,,secondary,51
+,,secondary,52
+,,secondary,53
+,,secondary,54
+,,secondary,55
+,,secondary,56
+Reethigas Magu,,secondary,57
+Reethigas Magu,,secondary,58
+Reethigas Magu,,secondary,59
+Reethigas Magu,,secondary,60
+@bridges line
+class,arcs
+primary,62
+primary,63
+secondary,61
+@lanes line
+name,arcs
+Kanbaa Aisa Rani Hingun,64
+Haveeree Hingun,65
+Izzuddeen Magu,66
+Fiyaathoshi Magu,67
+Kaasinjee Magu,68
+Ujaalaa Hingun,69
+Koimalaa Hingun,70
+Madhoshi Goalhi,71
+Heena Goalhi,72
+Hadheebee Magu,73
+Kandi Dhon Maniku Goalhi,74
+Fareedhee Higun,75
+Narugis Goalho,76
+Dhambu Goalhi,77
+Halaveli Goalhi,78
+Lonuziyaaraiy Magu,79
+ޝަހީދު ކުޑަ އާދަމުގެ ކުޑަތުއްތު ހިނގުން,80
+Neeloafaru Hingun,81
+Miyuzikee Hingun,82
+Miyuzikee Hingun,83
+Miyuzikee Hingun,84
+Muiveyo Magu,85
+Neeloafaru Magu,86
+Dhonadharaadha Hingun,87
+Nikagas Magu,88
+Maanifaa Hingun,89
+Guleynooran Magu,90
+Gandhakoalhi Hingun,91
+Karankaa Magu,92
+Kashimaa Hingun,93
+Badifasgandudhoshu Magu,94
+Dhunburi Magu,95
+Javaahiru Magu,96
+Naadhee Goalhi,97
+Gulabee Magu,98
+Maafaithakurufaanu Magu,99
+Aazaadhee Hingun,100
+Faashanaa Kilege Magu,101
+Kalhuhuraa Magu,102
+Iskandharu Magu,103
+Shaariu Varudhee,104
+Kudhiraiymaa Goalhi,105
+Fandiyaaru Magu,106
+Dhidhi Goalhi,107
+Janavaree Magu,108
+Kinbigas Magu,109
+Kaani Goalhi,110
+Shaheed Ali Hingun,111
+Bodufungandu Magu,112
+Faamdheyri Magu,113
+Filigas Hingun,114
+Sabudheli Magu,115
+Alikilegefaanu Magu,116
+Daisy Magu,117
+ފުންކަފަ ގޯޅި,118
+Kasthoori Magu,119
+Riyaasee Hingun,120
+Carnation Magu,121
+Janbu Magu,122
+Kudhimaa Goalhi,123
+Dhillee Magu,124
+Dhilbahaaru Magu,125
+Burevi Magu,126
+Keneree Magu,127
+Aminarani Hingun,128
+Raadhafathi Hingun,129
+Iraaku Magu,130
+Shabnam Magu,131
+Koarukendi Hingun,132
+Jamaaludheen Hingun,133
+Javaahiru Hingun,134
+Falhumathee Magu,135
+Raiyvilaa Magu,136
+Violet Goalhi,137
+Saimaa Goalhi,138
+Kulhidhoshu Magu,139
+Ruhkendiya Hingun,140
+Maaveyo Goalhi,141
+Lotus Goalhi,142
+Kurikeela Magu,143
+Moonimaa Hingun,144
+Moonimaa Hingun,145
+Muniyaa Magu,146
+Hudhufalhu Hingun,147
+Bluekiya Magu,148
+Sabudheriyaa Magu,149
+Alhivilaa Magu,150
+Alhivilaa Magu,151
+Alhivilaa Magu,152
+Kudheenaa Goalhi,153
+Lainoofaru Magu,154
+Asurumaa Goalhi,155
+Bulbul Goalhi,156
+Joashee Hingun,157
+Miriyaas Magu,158
+Bodurasgefaanu Magu,159
+Hirundhu Magu,160
+Gulhazaaru Goalhi,161
+Dhoohimeri Magu,162
+Rah Dhebai Hingun,163
+Feeroazu Magu,164
+Gulfaam Hingun,165
+Turravaas Goalhi,166
+Rehendhi Hingun,167
+Shaheedhu Kudanevi Thutthu Manik Hingun,168
+Husnuheenaa Magu,169
+Dhanburuh Goalhi,170
+Hilaalee Hingun,171
+Rabee Ee Hingun,172
+Abadhah Ufaa Magu,173
+Lily Magu,174
+Nirolhu Magu,175
+Buruzu Magu,176
+Gul Alaa Goalhi,177
+Abadhah Fehi Magu,178
+Funa Goalhi,179
+Sitthimavaa Hingun,180
+Mushtharee Magu,181
+Huvafenee Goalhi,182
+Baamiyaa Goalhi,183
+Kuredhi Goalhi,184
+Muthee Goalhi,185
+Muthee Goalhi,186
+Muthee Goalhi,187
+Vaijehey Magu,188
+Thabureyzee Higun,189
+Hudhufalhu Goalhi,190
+Raiyvilaa Goalhi,191
+Chandhanee Magu,192
+Kolige Umaru Maniku Goalhi,193
+Raiyvilaa Hingun,194
+Hithigas Magu,195
+Ibrahimee Magu,196
+Galadhun Goalhi,197
+Violet Hingun,198
+Jahaamuguri Goalhi,199
+Dhevina Magu,200
+Gumree Goalhi,201
+Dhanburuh Magu,202
+Anoanaa Goalhi,203
+Banafsaa Magu,204
+Irudheymaa Hingun,205
+Janavaree Hingun,206
+Chanbeylee Hingun,207
+Varudhee Hingun,208
+Aabaadhee Hingun,209
+Faalan Dhoshu Hingun,210
+Asseyri Hingun,211
+Guraabuthundi Hingun,212
+Meeru Bahuru Hingun,213
+Dhandahelu Hingun,214
+Dhilshaadhu Hingun,215
+Nerumathee Hingun,216
+Shameemee Goalhi,217
+Lainoofaru Hingun,218
+އިތާ ގޯޅި,219
+ފިޔާތޮށި ހިނގުން,220
+Mohamed Ibrahim Didi Goalhi,221
+Haveeree Goalhi,222
+Aaburuzu Hingun,223
+Faaru Kendhi Hingun,224
+Kendhigas Hingun,225
+ޝަހީދު އާދާމް ނަސީރު ހިނގުން,226
+Ibrahim Hassan Didi Magu,227
+Shaeed Abdulla Zuhair Hingun,228
+Hiy Faseyha Goalhi,229
+Shaheed Mohamed Hussain Hingun,230
+Finihiyaa Goalhi,231
+Sandhubaraka Goalhi,232
+Seesun Magu,233
+Dheefram Goalhi,234
+Hiyalee Goalhi,235
+Chanbeylee Magu,236
+Mohamed Ismail Didi Goalhi,237
+Huvan'dhumaa Goalhi,238
+Athamaa Goalhi,239
+Bentheyo Goalhi,240
+Raiyfus Goalhi,241
+Gandhakoalhi Magu,242
+Kulhlhavah Goalhi,243
+Fulooniyaa Magu,244
+Nooree Goalhi,245
+ނެދުން ގޯޅި,246
+Ruvaagu Magu,247
+Dhakadhaa Magu,248
+Kalaafaanu Hingun,249
+Unigas Magu,250
+Nasreen Goalhi,251
+Hakuraa Goalhi,252
+Sikka Goalhi,253
+Hithaffinivaa Magu,254
+ޝަހީދު ހުސައިން މުހައްމަދު ހިނގުން,255
+Dharumavantha Magu,256
+Mialani Goalhi,257
+Samundhu Goalhi,258
+Dhilkushaa Goalhi,259
+Handhuvaree Hingun,260
+Bandharumathee Hingun,261
+Fenfiyaazu Goalhi,262
+Shaheed Ali Goalhi,263
+Yagoothu Goalhi,264
+Asaree Hingun,265
+Asaree Goalhi,266
+Alimas Magu,267
+Ablaghee Goalhi,268
+Ranauraa Goalhi,269
+Emboo Goalhi,270
+Binhima Goalhi,271
+Badifasganu Hingun,272
+Raiveri Hingun,273
+Shaheed Mohamed Ibrahim Hingun,274
+Roashanee Magu,275
+Rah Dhebai Magu,276
+Seeraazee Goalhi,277
+Bodufulhah Goalhi,278
+Vaidheri Hingun,279
+Handhuvaree Goalhi,280
+Handhuvarudhey Hingun,281
+Violet Magu,282
+Asrafee Magu,283
+Gulisthaanu Goalhi,284
+Thandiraiymaa Goalhi,285
+Abadhah Ufaa Hingun,286
+Zamaanee Goalhi,287
+Iramaa Magu,288
+Naseemee Hingun,289
+Kaaminee Magu,290
+Maaveyo Magu,291
+Muranga Magu,292
+Nooraanee Goalhi,293
+Medhuziyaarai Magu,294
+Medhuziyaaraiy Magu,295
+ތަރާނަ ގޯޅި,296
+Helebeli Goalhi,297
+Satharu Goalhi,298
+Saharaa Magu,299
+Dhilbahaaru Goalhi,300
+ދުނބުގަސް މަގު,301
+Muiveyo Goalhi,302
+Dheyliyaa Hingun,303
+Filigas Magu,304
+Niyandhuru Goalhi,305
+Mirihi Goalhi,306
+Champaa Magu,307
+Sayyid Kilegefaanu Magu,308
+Aaburuzu Higun,309
+Alamaa Goalhi,310
+Thabureyzee Hingun,311
+Fulooniya Goalhi,312
+Javaahiru Goalhi,313
+Boduthakurufaanu Magu,314
+Boduthakurufaanu Magu,315
+Boduthakurufaanu Magu,316
+Boduthakurufaanu Magu,317
+Lansimoo Goalhi,318
+Nikagas Hingun,319
+Barujoara Goalhi,320
+Finifenmaa Goalhi,321
+Amenee Goalhi,322
+Kahabu Goalhi,323
+Kurangi Goalhi,324
+Kurangi Goalhi,325
+Muiythoshi Goalhi,326
+Koaru Kendi Magu,327
+@green polygon
+kind,arcs
+park,328
+park,329
+park,330
+park,331
+park,332
+@sea polygon
+arcs
+333
+334;335;336;337;338;339;340;341;342;343;344
+@water polygon
+arcs
+345
+346
+347
+@airport polygon
+name,iata,arcs
+Velana International Airport,MLE,348
+@clip polygon
+arcs
+349|350|351|352
+@places
+
+@parks
+
+@stations
+

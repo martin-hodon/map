@@ -3517,13 +3517,14 @@ Gouw,lake,11,5.04817,52.32081
 @stations
 name,kind,rank#,lon#,lat#
 Amsterdam Amstel,ur,1,4.91756,52.34647
+Amsterdam Centraal,ur,1,4.90058,52.3789
+Amsterdam Sloterdijk,ur,1,4.83811,52.38903
 Amsterdam Zuid,ur,1,4.87134,52.33872
-Centraal Station,ur,1,4.90058,52.3789
-Station Sloterdijk,ur,1,4.83811,52.38903
 Amstelveenseweg,ur,2,4.85758,52.3384
 Amsterdam Bijlmer ArenA,ur,2,4.94293,52.31599
 Amsterdam Holendrecht,ur,2,4.96017,52.29799
 Amsterdam Lelylaan,ur,2,4.83403,52.35784
+Amsterdam RAI,ur,2,4.89023,52.33703
 Bullewijk,ur,2,4.95224,52.30661
 De Vlugtlaan,ur,2,4.83822,52.37961
 Duivendrecht,u,2,4.93653,52.32358
@@ -3533,7 +3534,6 @@ Isolatorweg,ur,2,4.85079,52.39517
 Jan van Galenstraat,ur,2,4.83529,52.37266
 Postjesweg,ur,2,4.83396,52.36429
 Spaklerweg,ur,2,4.92101,52.33996
-Station RAI,ur,2,4.89023,52.33703
 Strandvliet,ur,2,4.94136,52.31854
 Venserpolder,ur,2,4.94634,52.32677
 Amsterdam Muiderpoort,r,3,4.93125,52.36073

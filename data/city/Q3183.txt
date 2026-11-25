@@ -1,0 +1,957 @@
+# Perth: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 115.78980 -32.01480
+@arcs
+1139 1028 4 24
+1143 1052 2 10
+1283 1425 138 -62 8 -3 39 -9
+1208 1393 6 -26
+1214 1367 1 -10 -3 -20 -33 -69 -5 -18 1 -6 25 -76 0 -17 -5 -14 -21 -27 -11 -18 -9 -24 -9 -6
+1174 1110 -8 6 5 6 14 17 10 -2
+1214 1367 -11 1 -4 12 -12 21 -19 19 -41 24 -4 8
+1129 1054 3 0 -3 -1 -65 -17 -16 -7 -40 -35 -19 -35 -30 -35 -23 -17 -42 -15 -26 -28 -43 -14 -80 -10 -20 -8 -48 -31 -15 -5 -29 -3 -68 -11
+440 743 42 9
+482 752 2 1 27 12 28 13 24 7 2 -3
+1739 1267 0 9 0 2 0 18 -1 47
+1299 1126 -47 -2 -27 -8 -18 -16 -32 -43 -14 -6 -18 1
+1729 1153 -9 -21 -12 -25 -11 -25 -1 -1
+1772 1047 5 5 6 2 10 -3 28 -25 38 -24
+1697 1082 55 -18 25 -12
+1939 954 -37 23
+1821 1026 -32 7 -9 4 -8 10
+1859 1002 23 -12 20 -13
+1762 1233 0 -1 -1 -10 -7 -16 -8 -13
+1739 1267 0 -1 19 -22 4 -10 0 -1
+1729 1153 17 40
+1308 1141 -9 -15
+1433 1367 -4 -7
+1045 1428 -47 -38 -20 -17 -25 -21 -2 -1 -19 -16 -18 -16 -2 -1 -36 -32 -2 -2 0 -1 -141 -122 -3 -3 -98 -85 -2 -1 -1 -1 -41 -37 -18 -30
+1061 1370 52 -15 22 -7 124 -40 108 -35 18 -6 47 -16 42 -14 125 -41 78 -27
+570 1004 -6 -25 1 -185 -2 -9
+1780 1037 -9 -7 -31 -13 -20 -4 -27 1 -23 7 -185 64 -101 34 -3 0 -9 6
+1590 1305 -27 -48
+1563 1257 -2 -16 7 -5
+1174 1250 18 -1 36 -12 38 -12 246 -81
+994 1390 4 0
+1087 1466 -9 -9
+1078 1457 -32 -27 -1 -2
+1129 1053 0 1 -1 23 -9 23 0 9 15 47 7 9 40 25 20 5 18 0 34 -1 50 -16
+951 1351 -1 0
+1421 1363 -30 -48 -13 -21 16 -9 -9 -18
+1367 1273 -13 -26 -10 -22 -22 -50
+1074 1460 4 -3
+876 1286 72 -23 19 -7 44 -14 3 -1 39 -13 2 0 2 -1 34 -9
+1512 1144 185 -62
+1432 1251 9 29 29 45 12 20
+1240 1357 13 20 0 1 23 37 7 10 5 9
+1387 1158 23 45 10 22 12 26
+1708 1107 101 -33
+1175 1244 -55 -19 -20 -9 -9 2
+1033 1379 -9 2 -1 1 -25 8
+1673 1030 8 18 15 33
+1568 1236 37 -2 6 -2 2 -5
+1677 1169 50 -16
+1042 1431 4 -1
+1253 1194 13 31
+1613 1227 -14 -31
+1372 1125 15 33
+1322 1175 -14 -34
+1061 1370 -28 9
+1673 1030 -3 -9
+1303 1178 5 -2 -5 2
+1809 1074 1 -2
+1381 1119 1 2 2 -2
+1599 1196 -1 -2
+1808 1072 1 2
+1810 1072 -2 0
+1387 1158 0 -2
+1344 1225 -188 61 -9 3 -2 1 -192 62
+978 1373 37 -11 44 -15 39 -17 95 -28 20 -9
+1276 1415 87 -40 90 -41
+1684 1222 -33 -72 -10 -22 -26 -58
+1506 1106 46 -16 63 -20 66 -22
+1793 1126 7 1 45 -16 12 1 15 8 7 12 3 20 -11 33 -9 9
+1641 1128 -119 39 -43 14
+1213 1293 141 -46
+633 793 0 -17 -17 -44 -1 -62
+465 884 -22 0
+1598 1194 -10 -23 -36 -81
+511 765 5 -11 1 -101
+1507 1334 -49 -73
+1754 1206 -66 23 -60 4
+1485 1085 10 25 27 57
+1150 1392 37 -14 12 2
+1420 1225 39 -13 59 -18 2 -3
+1743 1147 25 -4 21 7 16 16 2 24
+1253 1353 37 -17 51 -23
+911 1318 1 0
+615 670 2 -24 24 -41 4 -16
+1606 1256 24 -1 31 -2 31 -10 9 -4
+1168 1420 -7 -9 -11 -29 -1 -2 0 -2 -14 -30
+627 1071 2 0
+1259 1308 -31 -71
+1156 1286 -9 0 -4 -3 -24 -54 1 -4
+465 884 1 0
+473 880 1 0
+474 880 0 -73
+1339 1338 -37 17 -49 23
+1834 1277 -95 -1
+482 752 14 -61
+1149 1380 66 -23
+1739 1278 -75 -1
+1015 1362 -21 -47 -7 -16
+1641 1128 67 -21
+1322 1175 21 -4 44 -15
+1339 1338 24 37
+582 568 37 -4 13 6 8 9
+1739 1296 -72 -2
+1038 1302 -44 13
+1055 1228 17 39 1 0 0 1 7 14
+1071 1399 2 -19 -14 -33
+1692 1243 10 12 37 11
+1339 1338 52 -23
+1436 1124 6 3 53 -17
+1807 1190 1 3 54 1
+1802 1296 -63 0
+1762 1234 -37 -2 -24 7
+1150 1392 -50 17
+561 563 -2 -2 -38 -28
+914 1319 48 -16
+1588 1171 63 -21
+1458 1261 -17 4 -27 14
+1808 1193 -2 40
+496 547 -1 1
+962 1303 -14 -40
+1520 1191 -1 -7 10 -5 11 -2 5 7 3 6
+987 1299 -2 -3 -18 -40
+474 880 27 4 34 0
+494 689 2 2
+495 647 1 -39
+495 606 1 2
+1449 1191 -39 12
+1720 1132 38 -9
+970 1323 -38 12
+1027 1278 -16 -36
+1806 1233 -44 -1
+985 1296 36 -12 6 -6
+1100 1409 -35 12
+517 604 0 -32
+484 753 -11 35
+517 642 0 -36 0 -2
+1027 1278 24 -4 22 -7
+1545 1184 43 -13
+561 1006 9 -2
+1459 1212 15 25
+1606 1256 -31 2
+517 572 42 -11
+1219 1195 -9 28
+1290 1336 12 19
+1783 1123 -13 -2 -12 2
+1065 1421 -20 7
+1470 1325 -17 9
+1236 1386 17 -9
+1236 1386 -8 0
+1341 1313 15 -7
+1729 1153 14 -6
+1575 1258 -12 -1
+517 642 0 11
+1783 1123 10 3
+1113 1355 -5 -9
+983 1296 1 1 3 -2
+987 1295 -2 -1 -2 2
+1108 1346 -4 -8
+542 884 11 0
+521 533 -7 -6
+1210 1223 -4 7
+1628 1248 2 7
+1834 1277 1 1
+1835 1278 2 -2 -3 1
+542 884 -7 0
+1067 1269 6 -1
+1072 1267 -5 2
+1376 1394 -3 -3 2 3
+1147 1289 -1 4 -1 -3
+1150 1382 3 -3
+1153 1379 -4 -1
+632 1073 -2 1
+630 1074 0 -2
+733 1161 -2 0
+1014 1241 -1 -2 -2 3
+729 1159 1 -1
+561 563 3 2 -1 -1 -2 -1
+517 572 -1 -3 1 3
+1022 1379 1 3
+1024 1381 -2 -2
+1080 1282 0 3 0 -3
+1027 1278 2 2
+517 606 0 -2
+987 1299 -2 -5
+984 1297 3 2
+970 1323 2 -1
+983 1292 0 4
+985 1294 -2 -2
+962 1303 2 0 0 -1
+1029 1280 -2 -2
+517 604 0 2
+1804 1297 0 -1 -2 0
+972 1322 -2 1
+1053 1228 2 1
+1802 1296 2 1 0 -1
+964 1303 0 -1 -2 1
+982 1297 2 0
+983 1296 -1 1
+1056 1228 1 -1
+1727 1153 2 0
+1056 1228 -1 0
+1055 1228 0 1
+1139 1028 4 24
+1143 1052 2 10
+1213 1371 1 -4
+1214 1367 1 -10 -1 -3
+1207 1328 -4 -8
+1195 1303 -3 -7
+1188 1203 9 -26
+1200 1151 -5 -14 -1 -2
+1190 1131 -5 -7
+1193 1137 2 0
+1214 1367 -2 0
+1206 1367 -3 1 -2 8
+1187 1401 -7 7
+1188 1275 -12 4
+1697 1248 1 2
+1738 1323 0 8
+1738 1339 0 4
+1831 1020 21 -13
+1939 954 -37 23
+1754 1248 1 -1
+1043 1426 -4 -2
+1575 1279 -5 -9
+1087 1466 -4 -4
+1379 1295 -1 -1 9 -5
+1387 1289 7 -4 -7 -14
+1433 1254 3 9
+1175 1244 -12 -4
+1459 1212 -16 -33 -4 -12
+1486 1255 6 10 0 3 3 1 21 34
+1518 1306 11 17
+1410 1203 -66 22
+1389 1238 -2 -4 -4 1
+1389 1238 2 3
+1391 1237 -2 1
+1406 1255 -5 1 -2 0 -8 -19
+1391 1237 15 -5 -2 -3
+1406 1255 5 8
+1416 1251 -10 4
+1420 1225 -66 22
+1391 1315 6 -3
+1446 1288 23 -9
+1479 1275 -3 0 -7 4
+1469 1279 10 -4
+1479 1275 13 -7
+1433 1320 11 18
+1397 1312 18 -9 2 0 28 -13
+1548 1190 -2 3 -6 3 -4 2 -7 3 -5 -2 -4 -8
+1721 1151 -69 -22
+1671 1194 124 -40
+1289 1217 30 67 0 2
+1320 1288 5 12 -2 11 5 8
+1303 1380 -60 27
+1291 1361 23 36
+1314 1350 23 37
+1123 1180 -1 -1 -1 1
+1123 1180 0 1
+1129 1169 -2 4 -1 0 1 0 -1 2 -1 0 1 1 -1 2 -1 -1 0 3 -1 0
+1354 1195 -12 -25
+1173 1280 16 36 3 6 1 8
+1486 1204 -9 -20 -3 -3 -10 -22
+1561 1227 -3 4 -2 2 -19 5 -20 6 -1 1 3 1 18 -6 11 -3 12 -1
+1607 1215 -42 14
+1464 1353 -1 0
+1445 1362 -1 0
+1515 1304 -45 21
+1470 1326 42 -19 4 -1
+1566 1282 -47 22
+1519 1261 20 33
+1746 1193 -65 22
+1378 1190 10 21
+1717 1242 -7 -6
+1717 1242 4 4
+1743 1232 -1 6 -12 0 -13 4
+1743 1225 -12 4 -1 3
+1704 1223 6 13
+1324 1418 -7 -12
+1305 1426 -4 -7 7 -3
+1317 1406 13 -6
+1171 1334 -11 -24
+1326 1369 126 -58
+1458 1308 -6 3
+1452 1311 7 -2
+1708 1278 0 -18 1 -4
+1695 1278 1 -18
+1596 1235 2 21
+1606 1256 2 21
+1303 1246 -7 3 3 8 1 0 6 -2
+1253 1295 5 -3
+1258 1309 9 14
+1271 1330 1 -1 -3 -5 -10 -16
+1250 1288 4 1 12 10 0 4
+1172 1217 -3 1
+1172 1214 0 3
+1172 1217 15 5
+1190 1225 -3 -1 0 -2
+1187 1222 2 -2 2 1
+1608 1277 12 0
+1620 1277 8 0 2 -1 0 -2 -2 -2 -1 0 -4 4 -3 1
+1294 1214 -8 -17 3 -5
+1544 1262 -2 5
+1304 1358 -2 0
+1304 1358 9 15
+1305 1357 -1 1
+1313 1373 -1 1 0 2 3 0 2 -1 -1 -2 -3 0
+1324 1370 -8 4
+1271 1249 10 22
+1346 1311 2 3
+1348 1314 -2 2 3 5
+1354 1319 -4 -5 -2 0
+1351 1235 6 -2 5 11
+1374 1217 -1 -2
+1384 1237 -1 -2
+1315 1376 9 14
+1324 1390 0 1
+1326 1390 -2 0
+1115 1197 16 5
+1132 1200 -16 -5
+1131 1202 14 6
+1131 1202 1 -2
+1146 1206 -14 -6
+1145 1208 24 8 1 0 0 -2 -24 -8
+1145 1208 1 -2
+1207 1228 -14 -5 -1 0 0 2 14 5
+1383 1200 12 -4 -5 -11
+1376 1188 -12 -26
+1378 1214 0 1
+1387 1234 1 2
+1376 1214 -12 -24
+1289 1242 -3 -8
+1387 1310 -11 4
+1374 1312 11 -5
+1708 1260 -30 0
+1304 1378 2 0
+1306 1378 -1 2
+1312 1375 -6 3
+1308 1416 -8 -12
+1678 1260 -1 1 0 16
+1715 1203 -3 -7
+1544 1317 -1 -1
+1290 1195 16 -5
+1326 1195 -11 4 -24 8
+1311 1234 -2 -4 1 -4 -6 -13
+1580 1100 2 5
+1707 1266 1 0
+1662 1146 -11 3
+1652 1151 10 -5
+1662 1146 52 -16
+1362 1264 27 -9
+1373 1260 -8 -17
+1366 1283 20 -7
+1385 1237 11 23
+1267 1323 2 1 8 -4 2 -4 24 -8 -6 -13
+1356 1146 8 16
+1335 1153 7 17
+1378 1139 -62 21
+1348 1110 9 -3
+1310 1117 2 -3 2 -2 8 -1 4 -1 3 -6
+1336 1283 3 -2 0 -2 -11 -24
+1343 1281 4 9 0 6 6 9
+1357 1252 9 -2
+1479 1181 -30 10
+1318 1206 -8 -19
+1303 1306 15 -3 6 -3
+1346 1291 20 -9
+1120 1272 16 -5
+1104 1214 9 -17
+1323 1309 -17 7 -1 2
+1325 1255 -5 -10
+1318 1246 -5 -11
+1375 1293 16 -8
+1560 1236 8 0
+1456 1328 0 1
+1368 1124 -3 2 -8 2
+1302 1122 8 -3
+1272 1232 5 13
+1344 1259 12 -3
+1344 1259 -4 -2 -2 -5
+1345 1232 -9 4 -1 -1 -2 -5
+1326 1148 5 -1 1 -1 4 0 1 -2 5 0 1 -1 3 -1 2 1 3 -3 2 0 3 -1
+1345 1221 2 0 1 2
+1432 1221 -10 -21
+1416 1213 5 -2
+1495 1200 -2 -5 -3 1 -1 -2 -2 0 -6 -12
+1412 1228 6 11
+1192 1331 0 2
+-171 681 68 30 19 13 25 27 29 54 19 22 224 162 32 27 39 43 66 105 28 31 176 121 59 53 26 19 22 9 42 9 64 22 69 12 83 5 74 -8 42 -9 131 -47 158 -69 118 -55 34 -9 26 3 122 44 74 36 20 14 12 18 34 104 1 40 4 16 14 31 22 32 12 13 17 10 53 19 29 14 117 85 178 122 89 37 88 31 84 21 35 1 59 -9
+2472 1938 -6 -6 -45 -12 -33 -3
+1698 1331 4 -4 17 1 33 2 58 9 126 7 68 -12 17 -6 19 -13 27 -22 62 -60 34 -35 29 -41 9 -20 3 -19 2 -172 6 -25 11 -23 17 -24 106 -109 37 -43 96 -100 23 -33 48 -84 26 -35 359 -280 150 -143 175 -173 111 -101
+2040 1315 1 -9 57 -52 25 -24 6 3
+1366 1258 -58 -107
+-66 745 23 36
+-851 -701 44 46 27 36 48 42 7 14 7 69 -6 13 -28 29 -17 69 43 341 20 71 27 78 18 31 48 70 17 35 9 34 7 74 7 28 74 181 15 23 19 20 23 17 27 12 113 32 85 2 26 6 20 9
+-895 -745 44 44
+4046 1188 3 98 -13 56 -8 13 -13 9 -15 6 -255 37 -148 31 -22 10 -206 135 -27 13 -379 74 -19 6 -27 16 -45 47 -82 64 -63 57 -28 22 -40 20 -59 20 -37 6
+1423 1269 29 -16
+4294 2443 -80 21 -41 7 -44 2 -43 -4 -126 -21 -23 -7 -197 -113 -24 -9 -25 -3 -208 -1 -141 -21 -67 -14 -98 -41 -50 -31 -210 -177 -130 -107 -25 -16 -38 -11 -41 -1 -20 3 -60 20 -40 9
+-2917 9657 3 -224 10 -42 22 -43 75 -108 24 -24 24 -19 36 -19 30 -11 121 -23 40 -13 44 -24 40 -37 22 -32 30 -56 17 -41 6 -46 -10 -77 -1 -51 41 -145 23 -56 17 -24 30 -28 186 -112 28 -25 28 -36 13 -31 10 -40 93 -391 57 -121 49 -138 44 -79 30 -33 39 -24 32 -11 157 -34 42 -19 32 -27 72 -99 30 -34 44 -40 30 -32 31 -43 18 -36 22 -66 2 -77 6 -38 6 -28 73 -181 47 -179 78 -235 27 -58 107 -180 18 -41 12 -50 11 -125 32 -100 85 -161 18 -23 11 -8 83 -43 19 -7 68 -12 18 -9 13 -14 8 -27 -4 -154 14 -160 8 -31 21 -33 155 -170 30 -45 17 -39 11 -49 29 -229 16 -241 16 -376 6 -49 11 -38 17 -36 162 -244 29 -53 35 -87 96 -278 9 -45 1 -48 -20 -279 0 -75 12 -114 16 -74 9 -28 15 -26 15 -19 45 -34 25 -12 29 -9 104 -21 29 -9 49 -24 33 -29 27 -37 18 -47 32 -237 23 -72 24 -40 27 -31 139 -128 18 -20 21 -30 52 -91 16 -21 21 -21 32 -24 30 -18 98 -42 9 -14 1 -31 11 -15 171 -72 5 -6 2 -13 -7 -21
+-1178 6928 -16 23 -88 213 -50 87 1 9
+1336 -2138 -21 42 -54 140 -25 75 -18 72 -19 102 -6 52 7 35 15 20 23 16 774 347 40 11 542 100 66 22 48 26 589 468 185 217 4 17 0 24 -1 10 -7 15 -117 107
+1336 -2138 27 -53
+1312 1164 -11 -19 -11 -10 -83 -2 -23 -6 -12 -9 -21 -41 -23 -131 3 -22 21 -54 26 -174 64 -104 50 -107 12 -39 5 -41 -1 -42 -9 -48 -18 -64 0 -39 7 -23 55 -125 10 -29 5 -42 -6 -82 5 -36 14 -33 38 -58 7 -20 4 -22 -2 -28 -9 -25 -77 -132 -15 -34 -23 -135 -56 -188 -28 -250 -25 -308 7 -297 11 -87 14 -67 30 -108 54 -146 21 -49 59 -122 9 -30 7 -50 5 -340 -8 -43 -49 -161 -13 -65 18 -530 -8 -99 -8 -44 -22 -74 -96 -217 -26 -70 -17 -81 -2 -32 3 -74 -1 -44 -13 -38 -51 -107 -91 -122 -47 -101 -34 -59 -135 -209 -35 -44 -32 -26 -29 -15 -94 -34 -27 -13 -85 -62 -41 -26 -27 -13 -100 -32 -97 -46 -88 -20 -40 -14 -149 -85 -113 -40 -395 -178 -11 -10 -6 -12 -9 -33 4 -17 131 -155 14 -20 11 -24 6 -21 3 -24 -5 -37 -9 -26 -47 -81 -9 -45 3 -33 39 -152 0 -42 -14 -175 1 -55 7 -56 19 -82 111 -369 122 -360 36 -93 11 -56 -3 -40 -18 -49 -20 -29 -68 -71 -21 -27 -16 -30 -9 -34 -3 -39 4 -109 -17 -75 -3 -27 9 -76 -8 -84 4 -30 19 -66 0 -43 -9 -37 -42 -103 -8 -46 2 -202 -4 -102 15 -101 -2 -69 -28 -120 -28 -207 -10 -36 -12 -24 -40 -63 -16 -35 -9 -41 -12 -87
+2365 1909 106 27 17 2 67 -4 62 -11 21 1 17 5 16 11 12 16 4 13 1 12 -9 55 -10 207 -4 30 -10 30 -10 18 -67 89 -10 28 -4 18 0 29 16 115 3 48 -5 66 -18 80 -12 96 -3 158 2 194 4 16 6 12 17 15 21 10 164 42 40 6 62 -2 385 -66 155 -5 44 2 37 13 29 23 13 25 4 23 0 85 -4 47 -17 55 -31 83 -26 95 -3 39 0 159 -26 214 -9 36 -52 128 -6 30 1 23 10 37 3 30 -16 77 1 27 6 25 8 22 17 22 87 75
+3361 -220 265 -240 36 -42 74 -104 28 -27 30 -22 195 -105 23 -18 11 -18 5 -17 0 -17 -15 -54 2 -18 12 -24 126 -161 24 -25 27 -23 115 -85 35 -31 32 -41 16 -24 12 -28 47 -238 0 -28 -19 -112 -2 -44 19 -162 35 -152 5 -56 -9 -40 -48 -88 -7 -19 -27 -143 1 -22 5 -18 64 -147 6 -25 1 -26 -7 -45 -28 -103 -8 -64 -62 -280 0 -329 -6 -35 -24 -86 -4 -29 7 -304
+4356 -4017 -3 78
+1423 1263 -36 17
+1458 1247 10 -2
+559 540 -7 14 13 10 11 -6 6 9 17 -3 9 -13 -37 -22 -16 -35 -28 15 32 31
+648 585 70 -20 -53 -15 -63 9 33 11 13 15
+617 653 2 85 19 31 9 -6 -18 -37 -4 -49 8 -33 26 -29 -14 -18 -28 56
+1668 1027 -168 55 -10 5 8 19 181 -58 -11 -21
+1163 1280 0 -36 -65 -24 -39 9 23 57 55 -18 8 17 18 -5
+1806 982 88 57 5 -8 16 1 2 15 -17 -5 30 16 20 -3 11 -16 -3 -13 -50 -53 -112 -46 -52 -12 -21 8 -7 14 8 17 82 28
+1832 1015 -84 -19 -44 15 93 17 35 -13
+1684 1227 -23 -50 -59 20 16 34 66 -4
+753 562 -3 -10 -13 1 -3 4 -4 -1 0 3 -5 -3 -14 -3 35 13 7 -4
+567 524 14 15 26 10 9 8 100 -11 31 -7 12 6 -5 25 3 2 -4 1 4 2 -7 -1 -4 7 -20 8 -5 11 -8 -8 -23 8 0 3 -9 2 1 3 -4 -4 -14 6 -25 24 -6 10 -8 33 0 25 4 24 13 33 13 13 60 51 16 10 46 10 52 5 48 14 15 25 44 17 26 16 13 13 28 44 22 12 26 39 15 7 48 11 24 2 21 -2 14 5 41 43 32 22 50 5 10 -6 6 1 16 31 28 -11 -6 -9 -5 -20 37 -12 5 10 6 -2 3 6 308 -102 58 -12 0 -5 7 0 1 4 6 5 56 16 8 13 19 12 27 47 8 39 -8 38 -22 66 -14 13 3 3 -6 12 -15 1 -26 -5 -10 -8 -26 -1 -11 5 16 9 38 1 4 7 10 4 16 -3 7 2 2 7 -21 53 -1 14 32 2 0 -23 92 -220 31 -61 -2 -21 -10 -16 -48 -40 16 -9 -4 -3 -16 10 -52 -34 -42 -19 -77 -17 -37 3 -66 28 -85 16 -84 7 -183 62 -99 20 -45 0 -53 -10 -16 -9 -19 -18 -13 -26 -9 -26 -7 -60 -10 -31 -35 -52 -49 -46 -19 -23 -11 -28 2 -32 15 -24 60 -59 14 -23 3 -24 -7 -60 -11 -26 -31 -39 -20 -15 -44 -22 -28 -10 -30 -5 -278 133 12 30
+1724 954 -6 -10 -1 -12 10 -13 12 -4 7 0 9 6 41 6 44 15 39 18 13 10 18 4 -2 5 39 34 13 17 -1 15 -9 10 -10 3 -24 -4 -16 -12 17 5 4 -6 -6 -9 -16 -1 -1 7 -4 1 -88 -57 -82 -28
+1344 1111 -5 9 -9 -5 -4 -11 3 -3 7 0 8 10
+1778 947 1 -6 -5 3 2 9 27 14 14 0 10 -6 -6 -14 -10 -4 -12 -1 -12 9 -9 -4
+1680 1029 23 -3 9 3 13 -9 5 11 11 0 2 10 9 -2 4 -6 -13 -10 -23 -5 -23 2 -17 9
+1166 1060 12 15 2 23 5 7 5 0 2 -4 -12 -29 -14 -12
+1738 1110 6 -4 -7 2 2 -5 -9 1 0 3 7 1 -4 10 -2 -4 -8 4 -6 -4 3 9 10 1 3 -5 10 -2 6 1 -2 -8 5 1 1 -1 -7 -3 -1 4 -7 2 0 -3
+1164 1147 -6 0 1 -8 -14 1 -8 -11 -2 -13 10 -28 -3 -4 -9 16 7 -1 -7 17 -5 -8 2 16 13 24 13 12 4 0 4 -6 0 -7
+1917 960 -64 -38
+1844 917 -70 -19 -56 2 -28 6
+1572 938 -281 78 -71 8
+443 884 0 34 -19 0 0 33 57 0 0 55 88 0 15 26 17 18 274 234 -2 1 210 183 78 -31 21 -11 8 -6 7 -9 9 -15 6 -14 30 73 338 -155 6 7 6 -3 12 -1 13 1 14 3 17 8 21 13 13 5 20 6 16 3 88 1 56 3 0 -23 92 -220 27 -51 5 -17 -3 -14 -10 -16 -8 -8 -40 -32 16 -9 -4 -3 -16 10 -52 -34 -42 -19 -40 -10 -37 -7 -37 3 -66 28 -85 16 -84 7 -183 62 -99 20 -45 0 -28 -3 -25 -7 -16 -9 -19 -18 -13 -26 -9 -26 -7 -60 -10 -31 -35 -52 -23 -23 -26 -23 -19 -23 -11 -28 2 -32 15 -24 18 -19 42 -40 14 -23 3 -24 -7 -60 -11 -26 -15 -21 -16 -18 -20 -15 -44 -22 -28 -10 -30 -5 -278 134 -2 -2 -21 9 -37 45 -1 150 -12 52 -42 -7 -9 38 43 8 -1 96 -30 0
+663 843 16 13 17 10 18 8 18 6 15 -37 80 10 42 15 4 4 5 9 8 9 6 4 32 10 8 4 24 16 18 20 19 29 -5 1 2 4 -9 6 6 10 20 14 7 -4 12 7 7 6 11 13 9 7 12 5 12 2 40 13 9 15 -10 29 -20 6 2 17 8 23 8 -2 4 4 1 3 -24 7 -2 2 12 31 4 6 -6 14 -3 0 -5 -3 -7 0 -6 5 -197 64 -10 0 -8 -5 -263 -226 -16 -17 -12 -20 -8 -21 -2 -22 1 -145 96 21
+@streets line
+name,ref,class,arcs
+Kwinana Freeway,2,motorway,0;1
+Graham Farmer Freeway,8,motorway,2
+Mitchell Freeway,2,motorway,3;4
+Mitchell Freeway,2,motorway,5
+Mitchell Freeway,2,motorway,6
+Mounts Bay Road,5,trunk,7
+Stirling Highway,5,trunk,8;9
+East Parade,66,trunk,10
+Birdiya Drive,5,trunk,11
+Plain Street,65,trunk,12
+Causeway,5,trunk,13
+Adelaide Terrace,,trunk,14
+Causeway,5,trunk,15
+Causeway,,trunk,16
+Causeway,5,trunk,17
+Plain Street,,trunk,18
+Plain Street,66,trunk,19
+Plain Street,,trunk,20
+William Street,5,trunk,21
+Newcastle Street,,primary,22
+Thomas Street,61,primary,23
+Wellington Street,65,primary,24
+Winthrop Avenue,61,primary,25
+Riverside Drive,5,primary,26
+Lord Street,51,primary,27;28
+St Georges Terrace,,primary,29
+Roberts Road,65,primary,30
+Loftus Street,61,primary,31;32
+Mounts Bay Road,,primary,33
+Hay Street,,primary,34
+William Street,53,primary,35
+William Street,53,primary,36
+Cambridge Street,,primary,37
+Kings Park Road,,primary,38
+Adelaide Terrace,,primary,39
+Beaufort Street,53,primary,40
+Fitzgerald Street,,primary,41
+Barrack Street,53,primary,42
+Hay Street,,primary,43
+Malcolm Street,,primary,44
+Wellington Street,65,primary,45
+Plain Street,65,primary,46
+Wittenoom Street,51,primary,47
+Wellington Street,65,primary,48
+Railway Parade,,primary,49
+Mill Street,,primary,50
+Hill Street,51,primary,51
+Barrack Street,5;53,primary,52
+William Street,5,primary,53
+Wellington Street,65,primary,54
+Plain Street,65,primary,55
+Mounts Bay Road,,primary,56
+Hay Street,,primary,57
+Barrack Square Exit,5,primary,58
+Hill Street,,primary,59
+Hay Street,,primary,60
+Hay Street,,primary,61
+Barrack Street,53,primary,62
+Hay Street,,secondary,63
+Murray Street,,secondary,64
+Aberdeen Street,,secondary,65
+Bennett Street,,secondary,66
+Terrace Road,,secondary,67
+Sailani Avenue,,secondary,68
+Hay Street,,secondary,69
+Murray Street,,secondary,70
+Hackett Drive,,secondary,71
+Monash Avenue,,secondary,72
+Hill Street,,secondary,73
+Fairway,,secondary,74
+Stirling Street,,secondary,75
+Wittenoom Street,,secondary,76
+Victoria Avenue,,secondary,77
+Roe Street,,secondary,78
+Murray Street,,secondary,79
+Waterloo Crescent,,secondary,80
+Roe Street,,secondary,81
+Barker Road,,secondary,82
+Hackett Drive,,secondary,83
+Royal Street,,secondary,84
+Sutherland Street,,secondary,85
+Onslow Road,,secondary,86
+Milligan Street,,secondary,87
+Harvest Terrace,,secondary,88
+Hampden Road,,secondary,89;90;91
+James Street,,secondary,92
+Brown Street,,secondary,93
+Broadway,,secondary,94
+Market Street,,secondary,95
+Brown Street,,secondary,96
+Outram Street,,secondary,97
+Hay Street,,secondary,98
+The Esplanade,5;53,secondary,99
+Lake Street,,secondary,100
+Hackett Drive,,secondary,101
+Kensington Street,,secondary,102
+Richardson Street,,secondary,103
+Havelock Street,,secondary,104
+Colin Street,,secondary,105
+Brook Street,,secondary,106
+James Street,,secondary,107
+Terrace Road,,secondary,108
+Nile Street,,secondary,109
+Kensington Street,,secondary,110
+Royal Street,,secondary,111
+Railway Street,,secondary,112
+The Avenue,,secondary,113
+Ord Street,,secondary,114
+Goderich Street,,secondary,115
+Roe Street,,secondary,116
+Trafalgar Road,,secondary,117
+Broadway,,secondary,118
+Ventnor Avenue,,secondary,119
+Victoria Square,,secondary,120
+Outram Street,,secondary,121
+Monash Avenue,,secondary,122
+Broadway,,secondary,123
+Broadway,,secondary,124
+Broadway,,secondary,125
+Hay Street,,secondary,126
+Nelson Crescent,,secondary,127
+Richardson Street,,secondary,128
+Colin Street,,secondary,129
+Royal Street,,secondary,130
+Ord Street,,secondary,131
+Railway Street,,secondary,132
+Fairway,,secondary,133
+Hampden Road,,secondary,134
+Fairway,,secondary,135
+Ord Street,,secondary,136
+Goderich Street,,secondary,137
+Aberdare Road,,secondary,138
+,,secondary,139
+Royal Street,,secondary,140
+Princess Road,,secondary,141
+Spring Street,,secondary,142
+Melbourne Street,,secondary,143
+Nelson Crescent,,secondary,144
+Railway Street,,secondary,145
+Aberdeen Street,,secondary,146
+James Street,,secondary,147
+James Street,,secondary,148
+Roe Street,,secondary,149
+Waterloo Crescent,,secondary,150
+Royal Street,,secondary,151
+Fairway,,secondary,152
+Nelson Crescent,,secondary,153
+Havelock Street,,secondary,154
+,,secondary,155
+,,secondary,156
+Havelock Street,,secondary,157
+Monash Avenue,,secondary,158
+The Avenue,,secondary,159
+Spring Street,,secondary,160
+Hill Street,,secondary,161
+Brown Street,,secondary,162
+Brown Street,,secondary,163
+Monash Avenue,,secondary,164
+Ord Street,,secondary,165
+Ord Street,,secondary,166
+Lake Street,,secondary,167
+Harvest Terrace,,secondary,168
+Market Street,,secondary,169
+Market Street,,secondary,170
+Onslow Road,,secondary,171;172
+Nicholson Road,,secondary,173
+Colin Street,,secondary,174
+Nicholson Road,,secondary,175
+The Avenue,,secondary,176
+Fairway,,secondary,177
+Outram Street,,secondary,178
+Outram Street,,secondary,179
+Havelock Street,,secondary,180
+Colin Street,,secondary,181
+Fairway,,secondary,182
+Outram Street,,secondary,183
+Outram Street,,secondary,184
+Richardson Street,,secondary,185
+Outram Street,,secondary,186
+Outram Street,,secondary,187
+Ord Street,,secondary,188
+Colin Street,,secondary,189
+Fairway,,secondary,190
+Kensington Street,,secondary,191
+Richardson Street,,secondary,192
+Havelock Street,,secondary,193
+Kensington Street,,secondary,194
+Ord Street,,secondary,195
+Ord Street,,secondary,196
+Ord Street,,secondary,197
+Havelock Street,,secondary,198
+Waterloo Crescent,65,secondary,199
+Havelock Street,,secondary,200
+Havelock Street,,secondary,201
+@bridges line
+class,arcs
+motorway,202
+motorway,203
+motorway,204
+motorway,205
+motorway,206
+motorway,207
+motorway,208
+motorway,209
+motorway,210
+motorway,211
+motorway,212
+motorway,213
+motorway,214
+trunk,217
+trunk,218
+trunk,219
+trunk,220
+trunk,221
+primary,222
+primary,223
+primary,224
+primary,225
+primary,226
+primary,227
+primary,228
+secondary,215
+secondary,216
+@lanes line
+name,arcs
+Pier Street,229
+Pier Street,230
+Pier Street,231
+Hay Street Mall,232
+Padbury Walk,233
+Padbury Walk,234
+Padbury Walk,235
+Padbury Walk,236
+Padbury Walk,237
+Padbury Walk,238
+Padbury Walk,239
+Murray Street Mall,240
+James Street,241
+James Street,242
+James Street,243
+James Street,244
+James Street,245
+Museum Street,246
+James Street Mall,247
+Victoria Square,248
+Forrest Avenue,249
+Bronte Street,250
+King Street,251
+King Street,252
+John Street,253
+Shenton Street,254
+Parker Street,255
+Jacob's Ladder,256
+Jacob's Ladder,257
+Jacob's Ladder,258
+Howard Street,259
+George Street,260
+Irwin Street,261
+Moore Street,262
+Moore Street,263
+Lindsay Street,264
+Money Street,265
+Aberdeen Street,266
+Aberdeen Street,267
+Aberdeen Street,268
+Nash Street,269
+Wickham Street,270
+London Court,271
+Eastbrook Terrace,272
+Eastbrook Terrace,273
+Eastbrook Terrace,274
+Regal Place,275
+Leahy Walk,276
+Davies Street,277
+Serich Lane,278
+Prizmic Lane,279
+Coolgardie Street,280
+Francis Street,281
+Francis Street,282
+Francis Street,283
+Glyde Street,284
+Boans Lane,285
+Clotilde Street,286
+Lime Street,287
+Munster Lane,288
+Milligan Street,289
+Milligan Street,290
+Milligan Street,291
+Old Milligan Street,292
+Mount Street Bridge,293
+Mount Street Bridge,294
+Mount Street Bridge,295
+Mount Street Bridge,296
+Mount Street Bridge,297
+City Farm Place,298
+City Farm Place,299
+Westralia Plaza,300
+McIver Station Underpass,301
+Moon Chow Promenade,302
+Moon Chow Promenade,303
+Moon Chow Promenade,304
+Moon Chow Promenade,305
+Megisti Promenade,306
+Shafto Lane,307
+Chung Wah Lane,308
+Chung Wah Lane,309
+Chung Wah Lane,310
+Moolap-Kanana Lane,311
+Carillon City West,312
+Carillon City West,313
+James A Del Piano Promenade,314
+James A Del Piano Promenade,315
+James A Del Piano Promenade,316
+Mount Street,317
+Mount Street,318
+Mount Street,319
+Mount Street,320
+Mount Street,321
+Mount Street,322
+Mount Street,323
+Mount Street,324
+St Martin's Arcade,325
+Sherwood Court,326
+Carillon City East,327
+Carillon City East,328
+Trinity Arcade,329
+His Majestys Lane,330
+William's Lane,331
+Arcade 189,332
+Saunders Street,333
+Saint Brigids Promenande,334
+Saint Brigids Promenande,335
+Saint Brigids Promenande,336
+Antonas Road,337
+Henry Street,338
+Wickham Place,339
+Pisconeri Street,340
+Main Square,341
+Brookfield Place,342
+160 Central,343
+Burt Way,344
+Little Saunders Street,345
+Goderich Street,346
+Goderich Street,347
+Goderich Street,348
+Globe Lane,349
+Railway Lane,350
+Railway Lane,351
+Forrest Place,352
+Telethon Avenue,353
+Duchess Way,354
+Enchantress Way,355
+Geoffrey Bolton Way,356
+Valdura Place,357
+Elizabeth Quay Bridge,358
+Queen Street,359
+Queen Street,360
+Mitchell Lane,361
+Hay Street,362
+Georges Lane,363
+Karak Walk,364
+Karak Walk,365
+Parliament Place,366
+Cliff Street,367
+Joondia Lane,368
+Wolf Lane,369
+Arcade 800,370
+Horsehoe Lane,371
+Wittenoom Street,372
+stairs,373
+Ophir Walk,374
+Zephyr Place,375
+Cloisters Arcade,376
+Raine Lane,377
+Bankwest Place,378
+Wesley Arcade,379
+The Landing,380
+Gledden Arcade,381
+Equus Arcade,382
+Bon Marche Arcade,383
+Hibernian Place,384
+Grand Lane,385
+Kwinana Freeway PSP,386
+@rail line
+kind,colour,lines,arcs
+s,,,387
+s,,,388
+s,,,389
+s,,,390
+s,,,391
+s,#000000,,392
+s,#002f6c,,393
+s,#002f6c,,394
+s,#008c95,,395
+s,#008c95,,396
+s,#910048,,397
+s,#949300,,398
+s,#949300,,399
+s,#ab72c2,,400
+s,#ab72c2,,401
+s,#cb6015,,402
+s,#d32737,,403
+s,#f2a900,,404
+s,#f2a900,,405
+r,,,406
+r,,,407
+@green polygon
+kind,arcs
+park,408
+park,409
+park,410
+park,411
+park,412
+park,413
+park,414
+park,415
+@water polygon
+arcs
+416
+417;418;419
+420
+421
+422
+423
+424
+@waterways line
+name,kind,arcs
+Swan River,river,425
+Swan River,river,426
+Swan River,river,427
+@clip polygon
+arcs
+428;429
+@places
+
+@parks
+
+@stations
+name,kind,rank#,lon#,lat#
+Claisebrook,s,1,115.87251,-31.9494
+Elizabeth Quay,s,1,115.85522,-31.95709
+McIver,s,1,115.8664,-31.95178
+Perth,usr,1,115.858,-31.95194
+Burswood,s,2,115.89995,-31.9599
+Canning Bridge,s,2,115.85613,-32.00974
+City West,s,2,115.84505,-31.94468
+Daglish,s,2,115.8134,-31.9518
+East Perth,s,2,115.87719,-31.9441
+Karrakatta,s,2,115.79619,-31.96843
+Leederville,s,2,115.84032,-31.93901
+Loch Street,s,2,115.79161,-31.97171
+Maylands,s,2,115.89172,-31.92831
+Mount Lawley,s,2,115.88087,-31.93477
+Perth Stadium,s,2,115.8929,-31.95028
+Shenton Park,s,2,115.80546,-31.95964
+Subiaco,s,2,115.824,-31.9447
+Victoria Park,s,2,115.90222,-31.97161
+West Leederville,s,2,115.8332,-31.94268
+Airport Central,s,3,115.97485,-31.94396
+Alkimos,s,3,115.69265,-31.61542
+Armadale,s,3,116.01296,-32.15369
+Ashfield,s,3,115.93609,-31.91281
+Aubin Grove,s,3,115.85795,-32.15494
+Ballajura,s,3,115.92212,-31.84941
+Bassendean,s,3,115.947,-31.90372
+Bayswater,s,3,115.91187,-31.9184
+Beckenham,s,3,115.95423,-32.02247
+Bull Creek,s,3,115.85411,-32.04709
+Butler,s,3,115.70033,-31.63569
+Cannington,s,3,115.94495,-32.01344
+Carlisle,s,3,115.91004,-31.97988
+Challis,s,3,116.01255,-32.12685
+Claremont,s,3,115.78145,-31.98073
+Clarkson,s,3,115.73808,-31.69067
+Cockburn Central,s,3,115.85836,-32.12533
+Cottesloe,s,3,115.76095,-31.99682
+Currambine,s,3,115.75056,-31.72494
+East Guildford,s,3,115.97999,-31.89645
+Edgewater,s,3,115.77874,-31.77214
+Eglinton,s,3,115.67254,-31.58367
+Ellenbrook,s,3,115.96339,-31.7816
+Fremantle,s,3,115.74522,-32.05202
+Glendalough,s,3,115.82319,-31.91513
+Gosnells,s,3,115.99968,-32.07128
+Grant Street,s,3,115.76474,-31.98704
+Greenwood,s,3,115.78324,-31.8186
+Guildford,s,3,115.96579,-31.89895
+High Wycombe,s,3,115.9922,-31.95463
+Joondalup,s,3,115.76746,-31.74512
+Kelmscott,s,3,116.01323,-32.11318
+Kenwick,s,3,115.96972,-32.03638
+Kwinana,s,3,115.84266,-32.23494
+Lakelands Station,s,3,115.77052,-32.47368
+Maddington,s,3,115.98294,-32.04937
+Meltham,s,3,115.90032,-31.92247
+Midland,s,3,116.00373,-31.89238
+Morley,s,3,115.92002,-31.89603
+Mosman Park,s,3,115.7574,-32.00695
+Murdoch,s,3,115.85047,-32.06643
+Nicholson Road,s,3,115.93468,-32.06159
+Noranda,s,3,115.91778,-31.87453
+North Fremantle,s,3,115.75185,-32.02952
+Oats Street,s,3,115.91633,-31.9879
+Queens Park,s,3,115.93788,-32.00658
+Ranford Road,s,3,115.89658,-32.07538
+Redcliffe,s,3,115.94971,-31.93359
+Rockingham,s,3,115.76128,-32.29015
+Seaforth,s,3,116.01113,-32.08475
+Sherwood,s,3,116.01043,-32.13787
+Showgrounds,s,3,115.78688,-31.97706
+Stirling,s,3,115.80509,-31.89456
+Success Hill,s,3,115.95587,-31.90019
+Swanbourne,s,3,115.77062,-31.98274
+Thornlie,s,3,115.95238,-32.04734
+Victoria Street,s,3,115.75494,-32.01205
+Warnbro,s,3,115.76792,-32.32653
+Warwick,s,3,115.7964,-31.84483
+Wellard,s,3,115.8171,-32.264
+Whiteman Park,s,3,115.96454,-31.8359
+Whitfords,s,3,115.78234,-31.79938
+Woodbridge,s,3,115.99287,-31.89152
+Yanchep,s,3,115.64383,-31.53187

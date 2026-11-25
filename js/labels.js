@@ -84,14 +84,19 @@ export function areaLabels(boxes) {
   }
 }
 // the cities' dots: the bigger, the larger
+// (a country's CAPITAL in a colour of its own -- blue, ringed, a little bigger -- drawn after the others, on top)
 export function cityDots(ids) {
-  ctx.fillStyle = dark() ? "#e8c46a" : "#b03a2e";
+  const dk = dark(), city = dk ? "#e8c46a" : "#b03a2e", cap = dk ? "#8ab4ff" : "#1d4fb8", ring = dk ? "#11131a" : "#ffffff", caps = [];
+  ctx.fillStyle = city;
   for (const i of ids) {
     const f = S.src.cities.features[i];
     if (!visible(f.geometry.coordinates)) continue;
     const [x, y] = S.proj(f.geometry.coordinates), r = 1 + Math.sqrt(f.properties.population / 1e6) * 0.75;   // (Tokyo's 6 px, a city of 1 million 1.75)
+    if (f.properties.capital === "country") { caps.push([x, y, r + 0.8]); continue; }
     ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
   }
+  ctx.fillStyle = cap; ctx.strokeStyle = ring; ctx.lineWidth = 1.2;
+  for (const [x, y, r] of caps) { ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); ctx.stroke(); }
 }
 // the cities' names: of those given, where one does not overlap another
 export function cityLabels(boxes, ids) {

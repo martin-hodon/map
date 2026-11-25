@@ -1,7 +1,7 @@
 // style.js -- colours and legends: the projections, the palettes, the states' shades, the geographical kinds, languages, density, the biogeographic colours, the legend, the panel's roll
 // (split out of index.html's one script, 2026-11-09: split.js in the session's scratchpad; the names are the script's own)
 import { S } from "./state.js";
-import { $, make } from "./state.js";
+import { $, make, dark } from "./state.js";
 import { neighbors, Map0, B0 } from "./geom.js";
 
 export const PROJ = {   // (the first is the default)
@@ -11,20 +11,36 @@ export const PROJ = {   // (the first is the default)
   "Equirectangular": () => d3.geoEquirectangular(), "Azimuthal equal-area": () => d3.geoAzimuthalEqualArea().clipAngle(179.9),
   "Winkel tripel": () => d3.geoWinkel3(), "Mollweide": () => d3.geoMollweide(),
 };
-// the countries' colours: each has a class (`color`, 0-6, no two neighbours the same -- build/write.py), and a
-// palette gives each class its colour. Light ones for the light scheme, dark ones for the dark; "none" is the plain land.
-export const PALETTES = {
-  "pastel": ["#f3d9c4", "#d6e6c3", "#cfdcec", "#f4e3a8", "#e6d3e8", "#c9e5e0", "#f0cfd2", "#e2dcc8"],
-  "light": ["#f7e8dc", "#e8f0dd", "#e3ebf4", "#f8f0d0", "#f0e6f1", "#e0f0ed", "#f6e3e5", "#eeeae0"],
-  "muted": ["#d9b99b", "#b5c9a0", "#a9bfd3", "#ddca8a", "#c8b3cc", "#a4cdc5", "#d6afb3", "#c6bfa8"],
-  "vivid": ["#f5a66a", "#9bcf6e", "#7cb0e6", "#f2d75c", "#c99be0", "#6fcfc0", "#f08c9a", "#c2b56f"],
-  "dark muted": ["#5a4634", "#3e4d32", "#33424f", "#5a5230", "#4b3a4f", "#2f4a45", "#553a3e", "#45423a"],
-  "dark vivid": ["#7d4a1e", "#3f5f1f", "#1f4a73", "#736318", "#5b2f6e", "#1a5f58", "#742c39", "#5b5320"],
-  "earth": ["#c9a97a", "#a3ad7c", "#9fb3a8", "#d1b98c", "#b39b84", "#8fa98f", "#c5a08e", "#b7b08f"],
-  "greys": ["#e8e8e8", "#d4d4d4", "#dedad4", "#cfd3d6", "#e0dcd8", "#d8dcd2", "#e3e0e6", "#cdcdcd"],
-  "none": null,
+// THE COLOURS, three ways (the select beside the map mode -- every map's, not the countries' alone): SOFT, light and
+// gentle with every hue its own; BOLD, stronger (a projector, a phone in the sun); EARTH, muted and warm, an atlas's. Each
+// colour drawn is a BASE colour (the lists below) put into the scheme's lightness and strength in HCL -- light on the light
+// scheme, dark on the dark, so the names over them read on both, and the bases' differences in lightness kept in part
+// (k) so neighbours still differ. (Was 8 palettes for the countries alone, 2026-11-24: most too faint or too loud.)
+export const SCHEMES = {
+  soft:  { light: { L: 86, k: 0.4, c: 0.6, cap: 24 }, dark: { L: 34, k: 0.4, c: 0.42, cap: 17 } },
+  bold:  { light: { L: 79, k: 0.55, c: 1.0, cap: 42 }, dark: { L: 40, k: 0.5, c: 0.7, cap: 30 } },
+  earth: { light: { L: 81, k: 0.45, c: 0.45, cap: 19, warm: 0.45 }, dark: { L: 33, k: 0.4, c: 0.36, cap: 14, warm: 0.45 } },
 };
-export const palette = () => PALETTES[$("palette").value];
+export const scheme = () => SCHEMES[$("palette").value] ? $("palette").value : "soft";
+const TONED = new Map();
+// a base colour in the scheme (seq: one of a SEQUENCE, density's -- its lightness kept as it is, on the dark scheme turned
+// round: the fewest people dim, the most bright)
+export function tone(hex, seq = false) {
+  const dk = dark(), key = scheme() + dk + hex + seq;
+  let out = TONED.get(key);
+  if (out === undefined) {
+    const s = SCHEMES[scheme()][dk ? "dark" : "light"], c = d3.hcl(hex);
+    let h = c.h;
+    if (s.warm && !isNaN(h)) h += Math.max(-40, Math.min(40, ((70 - h) % 360 + 540) % 360 - 180)) * s.warm;   // (earth: every hue a little toward ochre -- at most 18°, a blue still a blue)
+    const L = seq ? (dk ? 20 + (96 - c.l) * 0.6 : c.l) : s.L + (c.l - 80) * s.k;
+    out = d3.hcl(h, Math.min(s.cap * (seq ? 1.5 : 1), (c.c || 0) * s.c), L).formatHex(); TONED.set(key, out);
+  }
+  return out;
+}
+// the countries' colours: each has a class (`color`, 0-6, no two neighbours the same -- build/write.py), each class a hue
+const COUNTRY_BASE = ["#f5a66a", "#9bcf6e", "#7cb0e6", "#f2d75c", "#c99be0", "#6fcfc0", "#f08c9a", "#c2b56f"];
+export const PALETTES = { soft: "soft colours", bold: "bold colours", earth: "earth colours" };
+export const palette = () => COUNTRY_BASE.map((c) => tone(c));
 // the states on the political map: each in its country's colour made a little lighter or darker (no two neighbouring
 // states of one country alike), so countries differ by hue and the states within one only by shade
 export const SHADES = [0, -5, 5, -10, 10, -15];                        // (steps of Lab lightness; 0: the country's own colour)
@@ -49,14 +65,15 @@ export function shade(color, k) {                                      // (a col
   }
   return shadeCache.get(key);
 }
+export const geoColour = (kind) => tone(GEO[kind]);
 // the two maps: POLITICAL -- countries coloured, their borders and their states' -- and GEOGRAPHICAL -- the seas,
 // gulfs, mountains, deserts, plateaus, plains... coloured by their kind (the bigger under the smaller). The natural
 // lines -- coast, islands, lakes -- and everything else are on both.
-export const GEO = {
-  ocean: "#c4d9e9", sea: "#bcd3e5", gulf: "#b3cde1", bay: "#b3cde1", sound: "#b3cde1", channel: "#b3cde1", strait: "#b3cde1", fjord: "#b3cde1",
-  inlet: "#b3cde1", lagoon: "#aed0d8", estuary: "#b3cde1", reef: "#a9d3cf", lake: "#bcd3e5",
-  mountains: "#c9b199", foothills: "#d7c6b0", plateau: "#dbcaa5", desert: "#f0dba8", plain: "#dbe6c0", lowland: "#dbe6c0", basin: "#e0e4c6",
-  valley: "#cfdcb8", gorge: "#cfdcb8", delta: "#bfdac4", wetlands: "#bfdac4", tundra: "#e0e7dc", depression: "#e7d8be",
+export const GEO = {   // (the bases: as strong as the countries', the scheme makes them soft; water blues, the land by how it lies)
+  ocean: "#8fbfe6", sea: "#86b8e2", gulf: "#74aede", bay: "#74aede", sound: "#74aede", channel: "#74aede", strait: "#74aede", fjord: "#74aede",
+  inlet: "#74aede", lagoon: "#6cc4cf", estuary: "#74aede", reef: "#5fcfc0", lake: "#86b8e2",
+  mountains: "#c08a5a", foothills: "#d6ae80", plateau: "#d9b46a", desert: "#f2cf6e", plain: "#a9d27a", lowland: "#a9d27a", basin: "#c7d47a",
+  valley: "#8fcf8a", gorge: "#8fcf8a", delta: "#6fc9a0", wetlands: "#6fc9a0", tundra: "#b9cbc0", depression: "#e8a88a",
 };  // (not: a peninsula, an isthmus, an island, a continent, a coast, a region -- land of no one colour)
 export const geographical = () => $("mode").value === "geographical";
 export const mode = () => $("mode").value;
@@ -76,7 +93,7 @@ export function rankLanguages() {                                         // (th
   for (const f of Map0.countries) { const p = f.properties; if (p.language) people[p.language] = (people[p.language] || 0) + (p.population || 1e5); }
   const order = Object.keys(people).sort((a, b) => people[b] - people[a]);
   S.langColour = {};
-  order.forEach((l, i) => { S.langColour[l] = i < LANG_COLOURS.length ? LANG_COLOURS[i] : "#d8d8d8"; });
+  order.forEach((l, i) => { S.langColour[l] = i < LANG_COLOURS.length ? LANG_COLOURS[i] : "#d8d8d8"; });   // (the bases: tone() when drawn)
   return order;
 }
 export function legend() {
@@ -85,11 +102,11 @@ export function legend() {
   el.innerHTML = "";
   if (m === "language") {
     const order = rankLanguages();
-    for (const l of order.slice(0, LANG_COLOURS.length)) el.append(make("span", { innerHTML: `<i style="background:${S.langColour[l]}"></i>${l}` }));
-    el.append(make("span", { innerHTML: `<i style="background:#d8d8d8"></i>other` }));
+    for (const l of order.slice(0, LANG_COLOURS.length)) el.append(make("span", { innerHTML: `<i style="background:${tone(S.langColour[l])}"></i>${l}` }));
+    el.append(make("span", { innerHTML: `<i style="background:${tone("#d8d8d8")}"></i>other` }));
   } else if (m === "density") {
     let lo = 0;
-    for (const [lim, c] of DENSITY) { el.append(make("span", { innerHTML: `<i style="background:${c}"></i>${lim === Infinity ? lo + "+" : lo + "–" + lim}` })); lo = lim; }
+    for (const [lim, c] of DENSITY) { el.append(make("span", { innerHTML: `<i style="background:${tone(c, true)}"></i>${lim === Infinity ? lo + "+" : lo + "–" + lim}` })); lo = lim; }
     el.append(make("span", { textContent: "people per km²" }));
   } else if (m === "bio" && S.src && S.src.bio) {
     for (const f of B0[bioLayer()]) { const p = f.properties; el.append(make("span", { innerHTML: `<i style="background:${bioColour(p)}"></i>${p.name}` })); }
@@ -97,14 +114,14 @@ export function legend() {
     el.append(make("div", { textContent: "a dependency: paler, in its ruler's colour · a people or culture (no state): pale, its name grey · a blurred border: approximate (all before 1650) · dashed: to land no state held · ◆ events within a few years (the further back, the more)" }));
   }
 }
-export const bioColour = (p) => REALM_COLOURS[p.id] || p.color || "#d8d8d8";
+export const bioColour = (p) => tone(REALM_COLOURS[p.id] || p.color || "#d8d8d8");
 // the panel rolled up or down (up at every start: the buttons only)
 export const roll = (up) => { $("panel").classList.toggle("rolled", up); $("roll").textContent = up ? "▾" : "▴"; $("roll").setAttribute("aria-expanded", String(!up)); };
 
 // the wiring that ran at the script's top level, in its order (main.js calls the modules' inits in section order)
 export function init() {
   for (const k of Object.keys(PROJ)) $("proj").add(new Option(k, k));
-  for (const k of Object.keys(PALETTES)) $("palette").add(new Option(k === "none" ? "no country colours" : k + " colours", k));
+  for (const k of Object.keys(PALETTES)) $("palette").add(new Option(PALETTES[k], k));
   $("roll").onclick = () => roll(!$("panel").classList.contains("rolled"));
   // R rolls it too -- anywhere but in a field you type or choose in
   document.addEventListener("keydown", (ev) => {

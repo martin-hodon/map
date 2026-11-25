@@ -1,0 +1,246 @@
+# Valletta: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 14.48340 35.87510
+@arcs
+523 493 -14 7 -15 -1 -15 -12 -23 -7 -11 -9
+604 395 16 25 29 14 44 9 -2 17
+600 539 -26 -13 -26 -24 -20 -10 -5 1
+552 362 24 11 28 22
+507 372 6 1 10 2 23 6 8 20
+691 460 11 39
+669 535 -31 -18
+689 520 -7 14 -13 1
+638 517 -25 16
+689 520 16 -10 -3 -11
+600 539 13 -6
+523 493 2 0 3 -1
+525 493 -2 -3 0 3
+554 402 0 -1
+554 401 0 1
+523 493 -2 2
+513 373 10 2 23 6 8 20
+687 523 -3 7
+639 513 4 -2 48 -49
+588 533 15 -17 1 -1 1 1 9 -9
+644 476 23 -25 0 -2 -5 -4
+689 479 -39 41
+681 454 -63 67
+701 513 -57 -37 -94 -59
+580 519 -6 7
+652 442 -37 40 -30 33
+516 447 109 67 7 6
+562 514 6 -9 31 -32
+534 472 70 43
+566 405 2 0 1 -1 13 7 107 68
+642 440 -26 -13 -12 -6
+667 451 -16 -8
+642 440 26 6 21 14 2 0
+701 495 -14 3 -19 18 -8 11
+549 503 2 -2 10 -13 53 -56
+539 420 -22 24 -1 3
+506 435 13 6
+565 406 -7 -4 -3 1
+561 410 4 -4
+566 405 -1 1
+539 420 8 5
+678 523 7 -4 4 1
+613 533 -58 -37 -31 -14
+523 490 -5 -2
+505 453 -14 14 -5 8 1 4 9 3
+501 474 -10 -7
+507 489 60 -61 19 -21
+543 463 -26 26 0 3 1 0 17 6 2 2 0 3
+591 535 11 -9
+604 421 2 -7 -5 -16 0 -3
+508 417 65 39 86 54 19 13 7 7
+596 394 -4 6
+592 400 -3 2 11 11 5 2
+644 510 -4 -2
+643 511 37 24
+640 508 -12 8 -7 7
+671 528 -3 4
+603 516 8 6
+607 514 15 10
+600 423 -58 60 -3 5
+599 473 35 -37
+500 476 8 5 -3 7 2 1
+516 424 -7 7
+554 404 1 2 127 80
+689 479 2 -3 -6 -9
+613 518 6 -8
+685 467 -5 -6
+642 440 2 -5 -33 -17 -4 1
+550 364 5 0
+535 487 -5 6
+542 490 -4 7
+513 483 -5 -3 0 1
+518 487 -5 -3
+545 426 32 20
+668 532 -1 0 -28 -19 -19 12
+621 462 8 -8
+529 477 29 14
+498 460 29 19
+601 417 -8 -4 -12 -10 -5 5
+607 419 -4 -1
+591 456 16 9
+568 385 -4 2 2 3
+522 438 39 25
+576 472 64 41
+550 419 -3 6 -9 10 -39 42 6 4 -1 2 -8 -1
+572 384 2 4
+675 521 -3 3 -1 0 -3 3
+562 450 -8 9
+509 455 -8 -5 -2 -8 1 -2 9 -9
+519 421 -3 3
+553 403 -12 2 -7 0 -7 8 -2 1
+525 414 -6 7
+585 398 3 3 -2 2 17 15
+507 502 3 -1
+537 503 16 14 6 3 19 18 21 8 3 -1 33 -21 2 -1 3 0 5 2
+488 409 -1 -1
+488 409 -2 3 0 2 2 -1 0 -4
+516 447 -7 8
+693 443 2 0
+600 519 -12 -7
+614 507 30 -31
+506 406 0 -2 -14 1 -2 2 1 11
+506 406 -13 1 0 1 0 9
+513 404 -7 2
+626 422 -3 1 -11 -6
+565 406 -1 0
+509 455 25 17
+1032 405 -5 -3 -8 10 -14 4 -1 -5 -10 4 4 10 -12 1 -3 -7 -11 -1 1 8 -22 -3 1 14 -6 3 -2 6 -12 4 -21 -3 4 9 -9 3 -20 -16 -4 0 0 9 -10 3 -1 5 -33 16 -20 1 -15 -5 -2 -7 6 -8 21 -9 4 -12 19 -6 -9 -8 11 -1 0 -13 19 -15 4 -6 -4 -1 15 -12 0 -4 -5 -10 -6 -2 -26 8 -5 -3 -12 17 -9 3 -20 -20 -14 -8 -4 -11 7 -6 12 -3 2 -13 20 -18 11 -4 39 -28 -23 -22 -8 8 6 4 -10 5 -6 8 -47 7 -22 13 5 1 -16 3 -15 14 -14 8 -6 15 -8 4 4 5 -8 8 -21 7 -20 -7 3 -2 -4 1 -2 -7 19 -10 -1 -4 -4 5 -4 0 31 -23 2 3 7 -7 2 9 7 5 3 -5 -10 -11 11 -25 -4 -1 2 -5 4 1 28 -68 -4 -2 -10 -30 -5 -4 0 -3 4 0 -2 -9 -4 -7 -2 -24 -5 -3 -1 56 7 23 -4 12 -46 46 -5 10 2 2 -12 16 -37 14 -19 13 -9 -5 -1 -7 10 -22 -3 -2 48 -59 -9 -2 8 -16 4 -7 21 -11 -3 -3 -10 3 11 -25 8 -4 -5 -6 0 -21 -17 -16 -14 3 -3 -7 -8 4 5 26 -2 16 -47 70 -16 -8 -12 3 -3 5 -87 -38 -13 19 -14 -5 4 -6 -2 -12 -5 -7 -4 3 3 -4 -3 -4 -5 2 2 -6 -6 -5 -10 -7 -9 7 -5 0 -24 -19 -1 -10 6 -19 -42 14 -29 44 -7 3 -3 -6 -27 6 -1 12 3 10 47 -9 -3 5 16 4 6 5 14 -11 76 62 9 -5 0 5 16 2 8 13 4 1 -3 8 13 18 32 21 0 -4 -12 -7 -24 -27 -4 -7 2 -4 41 45 8 29 6 1 35 20 -1 3 20 9 11 13 14 27 30 13 51 10 4 41 15 24 -4 4 5 4 -5 5 3 0 2 10 9 6 3 6 -6 2 10 1 8 10 -9 11 -16 4 -38 0 -12 -7 -8 -22 -23 -10 -17 8 -8 13 -21 -2 -14 -5 -28 -25 -6 3 -10 -7 -3 -6 6 -2 -6 1 -1 -5 -8 0 -20 7 -5 -1 -19 -18 -34 -10 -9 -10 -35 -15 4 -4 -3 3 12 6 8 -4 -9 -9 -5 2 2 -4 -10 -1 -17 -8 0 -4 -3 2 -12 -7 -6 -13 -19 -20 -50 -9 -11 -29 -10 3 12 61 -6 8 -25 1 -38 -12 -12 2 -46 -22 -7 3 -8 21 2 4 47 10 -3 1 19 7 1 -3 27 11 14 1 66 -5 15 -4 -1 -11 4 -1 17 57 -6 10 -17 10 -40 7 -18 10 -15 13 -10 20 1 15 6 14 24 17 20 25 11 4 14 15 73 20 38 5 31 -14 30 -22 18 -5 2 -5 19 -1 35 -20 7 4 -3 -6 23 2 -3 3 9 5 -1 -6 14 6 9 -1 -3 2 13 9 -3 12 1 3 6 -1 -1 4 -24 8 -6 5 -21 4 1 4 -17 0 9 8 -10 2 -2 5 -11 -2 6 15 -13 11 -11 18 -34 7 -5 -3 -22 8 1 15 8 0 0 3 -10 -1 1 23 6 2 11 -4 4 6 -2 10 -21 4 -3 8 14 6 70 14 48 13 47 7 68 2 84 -8 44 -12 58 -21 53 -31 34 -27 46 -52 27 -51 8 -27 8 -56 -5 -50 -7 -24 -34 -76
+257 587 7 -20 10 -6 22 1 24 -3 25 -9 48 -27 40 -1 14 8 7 18 0 -7 12 18 9 6 23 7 -48 30 -71 4 -17 -3 -21 5 -28 -3 -20 -9 0 -4 -18 -5 -18 0
+704 528 0 1 -3 2 -1 -2 -12 -1 9 8 1 12 2 -2 13 9 6 -2 1 -13 -1 0 2 -1 -9 -11 -2 -8 -6 8
+600 473 14 8 14 -14 -14 -8 -14 14
+610 464 4 3 -3 4 -5 -3 4 -4
+616 468 4 2 -6 6 -3 -2 5 -6
+452 482 12 3 15 5 19 18 5 1 20 -7 8 0 1 5 6 -1 0 2 -6 0 3 6 10 7 6 -3 28 25 14 5 21 2 8 -13 17 -8 14 4 9 6 8 22 5 4 7 3 13 1 25 -1 16 -4 9 -7 -1 -6 -7 -8 -9 0 -1 -1 6 -2 -2 -1 -1 -5 -9 -6 1 -2 -2 -3 -1 -5 -3 0 -1 -1 6 -4 -2 -4 -3 0 4 -4 -7 -14 -2 -2 -2 1 0 -2 -4 -7 -3 -10 4 -3 -5 -12 0 -5 2 -1 0 -4 -3 -2 1 -4 -13 -1 -4 -2 -10 0 1 -2 -25 -5 -25 -9 -5 -4 -10 -15 0 -5 -4 -7 -3 -1 -8 -12 -2 1 -3 -3 -3 0 -5 -5 -3 2 -26 -11 -8 8 11 7 -9 5 -6 -3 -32 -6 -7 2 -2 2 -2 13 1 12 -3 2 -3 0 -8 8 -29 13 -13 39 2 9 9 8 -2 2
+@streets line
+name,ref,class,arcs
+Triq l-Assedju l-Kbir,,secondary,0
+Xatt il-Barriera,,secondary,1
+Triq Marsamxett,,secondary,2
+Xatt Lascaris,,secondary,3
+Triq Ġlormu Cassar,,secondary,4
+Triq il-Mediterran,,secondary,5
+Triq San Bastjan,,secondary,6
+Triq San Bastjan,,secondary,7
+Triq San Bastjan,,secondary,8
+Triq il-Mediterran,,secondary,9
+Triq San Bastjan,,secondary,10
+Triq l-Assedju l-Kbir,,secondary,11
+Triq l-Assedju l-Kbir,,secondary,12
+Triq Ġlormu Cassar,,secondary,13
+Triq Ġlormu Cassar,,secondary,14
+@bridges line
+class,arcs
+secondary,15
+secondary,16
+secondary,17
+@lanes line
+name,arcs
+Triq San Nikola,18
+Triq San Kristofru,19
+Triq San Kristofru,20
+Triq l-Isptar,21
+Triq San Duminku,22
+Triq il-Merkanti,23
+Triq l-Arċisqof,24
+Triq l-Arċisqof,25
+Triq il-Fran,26
+Triq tat-Teatru l-Antik,27
+Triq iż-Żekka,28
+Triq Sant' Ursola,29
+Triq il-Lvant,30
+Triq il-Lvant,31
+Triq il-Mediterran,32
+Triq it-Tramuntana,33
+Triq Santa Luċija,34
+Triq l-Ordinanza,35
+Triq il-Kavallier San Ġwann,36
+Triq Kastilja,37
+Triq Kastilja,38
+Triq Kastilja,39
+Triq il-Vitorja,40
+Misraħ Sant' Iermu,41
+Triq il-Punent,42
+Triq Marsamxett,43
+Triq il-Mitħna,44
+Triq l-Inġinieri,45
+Triq Melita,46
+Triq San Mark,47
+Triq San Mikiel,48
+Telgħet Liesse,49
+Triq ir-Repubblika,50
+Daħlet Ġnien is-Sultan,51
+Triq Ġnien is-Sultan,52
+Triq San Ġużepp,53
+Triq San Ġużepp,54
+Triq Sant' Anna,55
+Triq il-Fontana,56
+Triq San Karlu,57
+Triq il-Gendus,58
+Triq San Ġwann,59
+Triq it-Teatru l-Antik,60
+Triq Sant' Andrija,61
+Taraġ il-Papa Piju V,62
+Triq San Pawl,63
+Triq Francesco Laparelli,64
+Triq l-Ajkla,65
+Triq l-Ibjar,66
+Is-Sur ta' Santa Barbara,67
+Crucifix Hill,68
+Misraħ Mattia Preti,69
+Misraħ Mattia Preti,70
+Triq San Bjaġju,71
+Triq San Bjaġju,72
+Triq San Żakkarija,73
+Triq l-Għajn,74
+Triq Feliċ,75
+Triq San Patrizju,76
+Triq Mikiel Anton Vassalli,77
+Triq il-Batterija,78
+Triq il-Batterija,79
+Triq it-Teżorerija,80
+Lascaris War Rooms Access,81
+Triq id-Dejqa,82
+Triq id-Dejqa,83
+Triq Nofsinhar,84
+Lift tal-Barrakka,85
+Triq it-Turġien,86
+Triq il-Karrijiet,87
+Triq il-Papa Piju V,88
+Triq il-Papa Piju V,89
+Triq il-Papa Piju V,90
+Taraġ San Ġorġ Preca,91
+Triq Sant' Anton,92
+Triq il-Lanċa,93
+Triq il-Lanċa,94
+Vjal ir-Re Dwardu VII,95
+Vjal ir-Re Dwardu VII,96
+Triq il-Kavalier,97
+Xatt il-Barriera,98
+Triq l-Għajnuna,99
+Triq Kristofru,100
+Pjazza Tritoni,101
+Pjazza Tritoni,102
+Pjazza Tritoni,103
+Taraġ Nix Mangiari,104
+Misraħ Kastilja,105
+Triq iz-Zekka,106
+@sea polygon
+arcs
+107;108
+@monuments polygon
+name,wikidata,arcs
+Fort Saint Elmo,Q1438745,109
+Grandmaster's Palace,Q1368885,110;111;112
+@clip polygon
+arcs
+113
+@places
+
+@parks
+
+@stations
+

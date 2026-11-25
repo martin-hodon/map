@@ -2,7 +2,7 @@
 // each one's window): zoomed in close on such a city (CITY_KM a pixel or less, the middle of the map in its window), its
 // file is read -- only then, and only with the map at rest, as the roads' -- and drawn in the frame as the other line
 // layers are (its rows handed to the module and the painters, its fills and strokes ops of the frame): its parks and
-// woods, its water, its districts' borders, its main streets and their bridges, its S-Bahn, U-Bahn and main rail
+// woods, its water, its districts' borders, its main streets and their bridges, its old town's lanes, its S-Bahn, U-Bahn and main rail
 // coloured by line, its airport; on top, with the names, its stations and the names of its districts, streets, parks,
 // lakes and rivers. Within its window the map's own rivers, roads and railways (0.5 km of detail: a street's width
 // off and more) give way to the city's (clipped out); everywhere else the map is as it was. Inside a window the map
@@ -54,7 +54,7 @@ async function read(c) {
   while (S.moving || S.pinch || S.drag) await new Promise((ok) => setTimeout(ok, 150));   // (read with the map at rest: not into a pinch's frames)
   const T = parseLite(t), O = {}, L = {}, trees = {};
   for (const k in T.objects) { const o = T.objects[k]; O[k] = { kind: o.kind, n: o.n, rows: o.rows, geos: [o.g] }; attachRows(T, o.g, o.kind); L[k] = thingsOf(O, k); }
-  for (const k of ["streets", "bridges", "rail", "waterways", "districts", "green", "water", "monuments"]) if (L[k]?.length) trees[k] = tree(L[k]);
+  for (const k of ["streets", "lanes", "bridges", "rail", "waterways", "districts", "green", "sea", "water", "monuments"]) if (L[k]?.length) trees[k] = tree(L[k]);
   const pts = (name) => (T.tables[name] || []).map((p) => ({ ...p, at: [p.lon, p.lat] }));
   const clip = L.clip?.[0]?.geometry ?? null;                       // (the city's outline and its airport: GeoJSON, made once)
   const areas = new Set((L.monuments || []).map((f) => f.properties.wikidata));   // (the monuments drawn as areas: no icon of their own)
@@ -92,6 +92,7 @@ const screenBox = () => {
 };
 const ids = (c, k, boxes) => c.trees[k] ? query(c.trees[k], screenBox() ?? boxes) : (c.L[k] || []).map((_, i) => i);
 const secondaryShown = () => pxKm() < 0.07;
+const lanesShown = () => pxKm() < 0.03;                             // (the old town's lanes: at street zoom)
 // the clip that keeps the map's own lines out of the city -- its outline and its airport, the file's @clip, so the map's
 // roads and railways end where the city's begin (main thread, round the ops between it and the restore)
 export function clipOut(c) {
@@ -109,6 +110,7 @@ export function clipOut(c) {
 export function cityAreas(c, boxes, fillAll, stroke, fast) {
   const I = ink(), L = c.L, t = thick();
   const by = (k, f) => ids(c, k, boxes).filter((i) => f(L[k][i].properties));
+  if (L.sea) fillAll(L.sea, ids(c, "sea", boxes), css("--sea"));   // (the sea in the map's own sea colour: no band over the base map's)
   if (L.green) { fillAll(L.green, by("green", (p) => p.kind === "wood"), I.wood); fillAll(L.green, by("green", (p) => p.kind === "park"), I.park); }
   if (L.airport) fillAll(L.airport, [0], I.airport);
   if (L.waterways) stroke(L.waterways, ids(c, "waterways", boxes), I.waterway, 1.2 * t);   // (a moving frame too: a river gone while the map moves -- the user, 2026-11-22)
@@ -125,6 +127,10 @@ export function cityAreas(c, boxes, fillAll, stroke, fast) {
 // (a moving frame: no casings -- half the strokes, and the pinch keeps up)
 export function cityLines(c, boxes, stroke, fast) {
   const I = ink(), L = c.L, t = thick();
+  if (L.lanes && lanesShown()) {                                    // (the old town's lanes, thin, under the streets)
+    const F = L.lanes, all = ids(c, "lanes", boxes);
+    if (!fast) stroke(F, all, I.secondary[0], 0.7 * t + 1); stroke(F, all, I.secondary[1], 0.7 * t);
+  }
   if (L.streets) {
     const F = L.streets, all = ids(c, "streets", boxes);
     const shown = STREETS.filter((k) => k !== "secondary" || secondaryShown());
@@ -163,10 +169,10 @@ export function cityNames(c, placed, boxes) {
     const size = s.rank === 1 ? 12 : 11, font = s.rank === 1 ? "600" : "500", text = s.name;
     ctx.font = `${font} ${size}px system-ui, sans-serif`; ctx.textAlign = "left"; ctx.textBaseline = "middle";
     const w = ctx.measureText(text).width, dx = s.rank === 1 ? 7 : 5;
-    const x = place(placed, q[0] + dx + w / 2, q[1], w, size) ? q[0] + dx         // (right of it, or else left)
-      : place(placed, q[0] - dx - w / 2, q[1], w, size) ? q[0] - dx - w : null;
-    if (x === null) return;
-    ctx.lineWidth = 3; ctx.strokeStyle = I.halo; ctx.fillStyle = I.ink; ctx.strokeText(text, x, q[1]); ctx.fillText(text, x, q[1]);
+    const at = [[q[0] + dx, q[1]], [q[0] - dx - w, q[1]], [q[0] - w / 2, q[1] - size], [q[0] - w / 2, q[1] + size]]
+      .find(([x, y]) => place(placed, x + w / 2, y, w, size));          // (right of it, or else left, above, below)
+    if (!at) return;
+    ctx.lineWidth = 3; ctx.strokeStyle = I.halo; ctx.fillStyle = I.ink; ctx.strokeText(text, at[0], at[1]); ctx.fillText(text, at[0], at[1]);
   };
   const stations = c.stations;
   for (const s of stations) if (s.rank === 1 && km < 0.12) station(s);
@@ -186,6 +192,11 @@ export function cityNames(c, placed, boxes) {
   for (const p of c.places) if (p.level === 2 && km < 0.035 && visibleHere(p.at)) writeName(placed, p.name, p.at, 10, "italic 400", I.district2 === "#7d6f80" ? "#b5a8b8" : "#6f5a74");
   for (const s of stations) if (s.rank === 3 && km < 0.022) station(s);
   if (km < 0.025) streets(["secondary"]);
+  if (L.lanes && km < 0.012) {                                      // (the lanes' names, last: the Stradun, a calle)
+    ctx.font = "500 9px system-ui, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.lineWidth = 3; ctx.strokeStyle = I.halo; ctx.fillStyle = I.street;
+    nameAlong(placed, L.lanes, ids(c, "lanes", boxes), 0, { text: (p) => p.name, key: (p) => p.name, size: 9, gap: 300, offset: 0 });
+  }
   if (L.waterways && km < 0.08) {
     ctx.font = "italic 11px Georgia, serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
     ctx.lineWidth = 3; ctx.strokeStyle = I.halo; ctx.fillStyle = css("--water-label");

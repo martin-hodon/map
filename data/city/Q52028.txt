@@ -1,0 +1,1023 @@
+# Chiang Mai: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 98.92365 18.73860
+@arcs
+2114 512 -1 6
+2113 518 0 5 -11 74 -40 298 -10 59 -13 36 -60 109 -88 206 -19 33 -21 26 -38 30 -30 14 -41 10 -122 9 -40 3 -58 4 -91 15 -118 20 -46 1 -58 -5 -66 -9 -39 -9 -36 -13 -57 -30 -37 -28 -38 -38 -28 -39 -21 -44 -2 -2
+965 2072 8 -1 5 -4
+978 2067 14 -33 7 -6 11 -3 67 14
+734 1337 -1 -1
+733 1336 0 -1 -15 -26 -1 -10 54 -166 -2 -15 -55 -153
+1074 605 -15 -22
+984 2075 -6 -8
+1010 2025 0 -12 26 -65
+1036 1948 1 -2 38 -97 32 -69 38 -144 23 -62 41 -109
+1891 1305 7 5
+1074 605 -23 13
+1041 631 0 1 0 2 17 107 16 108
+885 1253 -2 1 -150 81
+1237 1309 -4 26 -10 83 -14 47
+1251 1198 -4 36 -10 75
+1256 1147 -2 28
+1074 849 3 20
+1256 1147 8 -4
+1251 1143 5 4
+1077 609 -1 -1 -2 -3
+1036 1948 1 -2
+535 1433 -16 5
+507 1442 -29 1 -4 8
+1631 981 -4 -51 3 -21 20 -47 26 -44 7 -35 -2 -22 4 -16 0 -7 -2 -23 -18 -24 -6 -11 -8 -57 -14 -57 5 -69 32 -111
+1742 1418 1 7
+1885 933 -5 -26 0 -74 -4 -21 1 -59 -3 -8 0 -27 0 -98 4 -43 16 -49 35 -77
+2070 896 -2 0
+2068 896 -6 -1
+1551 496 17 19 8 19 2 14 -31 46 -23 58 1 30 35 43 38 19 19 39 2 17 -1 13 -21 47 -7 18 -5 65 -8 36
+1608 377 1 -3 -6 -2 -36 -8 -13 1 -14 5 -21 19 -62 54 -1 0 -111 89 -117 41 -78 14
+1522 851 -3 -18 -14 -127 -5 -78 11 -36 40 -96 6 -18 -2 -4 -19 -6 -28 -3 -24 -13 -21 -1 -6 -8
+2113 523 9 2
+1631 981 224 -43 30 -5 183 -37
+733 1336 -148 77 -50 20
+1799 1240 -29 33 -65 -34 -15 -5 -72 -6 -35 10 -2 1 -42 11 -15 1 -39 -6 -42 -19 -40 5
+1537 1101 12 7 79 35 141 77 30 20 72 50
+1519 389 -1 -2
+2113 518 -284 -102 -24 -6 -55 -8
+1549 1108 -8 24 1 16 25 15 14 25 34 35 22 47 2 40 -3 39 -8 20 -8 38 0 20
+1580 1430 3 -15 -3 -40 10 -58 -6 -69 -3 -9
+1583 1238 -6 -14 -57 -43 -9 -31 -2 -27
+1168 1574 -10 0 -37 9
+1885 933 -1 183 -85 124
+1092 1149 12 -1 58 -3 42 -1 47 -1
+1264 1143 59 -2 70 -3 13 -1
+1104 1148 -6 -24 -5 -119 -4 -62 -3 -73 3 -6 6 -1 0 -1
+1375 855 5 3 2 5 5 67 0 1 3 53 4 53 4 84 -5 9 0 8
+1375 855 -8 -7 -61 2 -19 0 -128 3 -6 0 -44 2 -14 8
+1406 1137 3 28 7 14 18 84 -12 44 9 50 0 51
+1075 1006 -142 5 -104 12 -23 5
+1387 930 24 -3 42 -13 46 -4 64 -5 67 4
+806 1028 0 2 0 12 28 77 45 121
+1874 745 -9 4 -2 42 -7 25 -1 122
+1194 645 34 2 101 2 21 4 56 29
+887 1255 67 -36 51 -27 72 -39
+933 1011 9 72 1 79 11 55 0 2
+2102 597 9 0
+1178 999 212 -15
+1457 1122 1 29 54 117 11 43
+1603 980 -25 -1 -1 0 -28 8 -42 7 -103 -7 -2 -7
+1597 860 -34 -7 -41 -2 -40 2 -90 -4
+1685 738 6 2 28 -15 23 -20 14 -1 14 6 87 0 8 8 9 0
+1287 850 -1 -3 -35 -18 -106 -104 -2 -3
+1263 1130 11 -20 5 -20 5 -48 1 -38 8 -57
+1150 587 -37 7 -37 14
+1089 943 188 -1
+1228 573 0 14 -5 5 -7 18 -15 20 -7 15 -17 26 -5 24 -33 8
+1093 1005 37 0 6 11 5 3 36 -1 66 5
+1394 1037 26 -4 37 -10 47 17 38 7 8 7
+969 2013 -2 -1
+1328 683 -21 95 -17 48
+1233 1335 29 4 68 -10 57 6
+1603 372 5 5 89 20 45 7 8 -2
+1783 1408 -2 -27 3 -12 -8 -28 -10 -10 4 -10 -8 -18 0 -17 8 -13
+1162 1145 4 -55 12 -91
+1178 999 -13 -77 -6 -69
+806 1030 -4 -2 -20 -47 -1 -13
+1549 987 -27 -136
+592 1095 135 -42
+1863 791 -11 6 -20 24 -10 32 -19 18 -10 20
+1145 725 9 117
+1525 682 -43 50 -19 16 -23 21
+1286 847 4 -9 0 -12 -17 -36 -15 -53
+1032 635 9 -1
+1615 1014 -14 26 -22 24 -22 30 -8 14
+1166 1090 113 0
+1284 1042 41 1 29 -5 40 -1
+1519 833 -20 -37 -36 -48
+1011 1404 -2 3
+1143 722 -4 -19 -43 -65
+1504 1040 -24 30 -23 52
+1757 621 -1 11 4 38 -4 11 -14 19 0 5
+1293 947 22 -9 72 -7
+1058 741 22 -4 15 -6 30 -21 14 -7
+1509 1123 0 -1 9 -31 32 -37
+1550 1054 16 -14 6 -8 6 -36 0 -17
+1295 934 11 -84
+1334 1217 30 2 39 12
+1260 1240 17 -4 26 -19 17 -1
+1387 1335 65 -9
+1228 587 4 3 -6 36 2 21
+771 1133 63 -14
+1328 1202 -1 -21 -4 -14 0 -26
+1637 566 -59 -18
+1303 1217 -25 -18 -27 -1
+1457 1122 52 0
+1204 1144 2 44
+1507 994 4 28 -7 18
+1480 1070 38 21
+1431 1408 0 41
+1631 981 -2 10 -14 23
+1329 649 -3 22 2 12
+762 1043 40 -15
+1077 609 -1 2 18 25 2 2
+1455 442 1 1
+1603 980 28 1
+1518 1091 19 10
+1387 853 5 -4
+1092 1149 -15 4
+1757 621 14 -6
+879 1240 4 14
+1247 1234 13 6
+1154 842 -1 11
+1406 1137 7 -7
+1263 1130 -6 5
+1685 745 6 -5
+1334 1217 -11 -3
+1041 631 5 0 -2 -1
+1323 1214 -3 2
+1096 638 -2 -2
+1440 769 -2 2 2 -2
+954 1217 0 2
+1041 632 -1 -1
+1683 719 0 -4
+1672 392 2 -5
+1927 456 2 -5
+1484 419 -20 17
+1464 436 -7 7 -1 0
+1400 488 -4 3
+1288 552 -7 3
+1458 444 -1 -1
+2113 523 8 2
+1609 1231 -26 7 -2 1 -6 1
+1447 1228 -4 -2
+2113 518 -4 -2
+2109 516 -32 -11
+1949 459 -40 -14
+1853 425 -2 -1
+1620 1423 0 4
+1580 1430 1 -4
+1582 1241 -1 -2
+1583 1238 0 -2
+1885 965 0 3
+1411 1168 2 6
+1499 910 4 0
+1610 908 18 1
+1250 647 2 0
+1331 650 3 0
+1515 993 -2 0
+1503 852 -5 0
+1128 591 -15 3 -37 14
+1484 1033 3 1
+1628 381 69 16 28 4
+1141 712 -1 -2
+1401 1230 2 1
+1402 1333 2 0
+1328 1198 0 -2
+1607 557 -24 -7
+1510 1016 1 2
+1328 680 0 3
+1455 442 1 1
+1603 980 24 1
+1520 1092 17 9
+1041 631 5 0 -2 -1
+1440 769 -2 2
+1036 1948 1 -2
+1036 1948 1 -2
+1624 1427 -4 0 -40 3 -7 0
+1447 1446 -3 1
+1346 1463 -4 1
+1417 1062 -3 -1 -5 2 -7 -1
+1428 1078 1 -11 -1 -19
+1311 1123 -1 1 -2 5 0 5
+1357 1086 -1 14 1 9
+1327 1094 20 0 1 -7 21 -3 28 -4
+1354 1038 1 11 1 14 5 22
+1313 1073 16 -1
+1329 1073 12 1 24 -4 16 -4 15 -5
+1279 1092 48 2
+1226 943 0 14 3 21 9 31 10 28 8 37 0 16
+1164 913 14 -2 3 -1
+1133 1236 -26 17 -15 10
+1109 1184 -64 28
+1086 1194 7 18 -1 1 -15 6 -17 -5
+1284 1190 -8 -4 -6 -2 -17 -2
+1148 1260 41 -13 11 -4 12 0 7 -3 6 -3 10 -2 12 -1
+1305 865 19 9
+1267 870 2 1 30 -1 5 0
+1266 894 2 -16 -1 -8
+1253 879 -5 -3 -3 -11 -2 0 -1 -7
+1296 922 -16 -2 -27 1 -14 -3 -14 -6
+1216 996 -1 25
+1148 943 1 14 2 9 1 16
+1090 958 29 -2 30 1
+1170 1057 -75 1
+1044 1117 34 2 12 0
+1446 1067 -18 -19 -8 -15 -13 -30 -3 -16
+1404 1102 17 -1 1 -1 2 -8 5 -9 12 -10 22 -30 7 -6 9 -7
+1432 1030 1 3 -1 5 -2 4 -4 2 -11 2 -1 1
+1192 1198 -5 -14 -3 -12 0 -5 2 -3 -2 -19
+1252 1196 -11 -1 -49 3 -44 14 2 5
+1515 909 0 8 2 11 7 32 3 17 2 12
+1509 852 0 10 4 19 2 28
+1505 995 -3 -43 -6 -35 -2 -15 0 -9 2 -21 -1 -19
+1511 1016 -16 3 -14 12
+1528 991 2 9 6 18 -6 13 -4 13
+1431 936 0 -10 -2 -5
+1447 991 -5 -21 -1 -13 -2 -15
+1480 994 0 -16 -5 -8 -6 -14 -3 0 -2 -9 -4 -5 -2 1 -6 -3 -13 2 -3 -1
+1434 989 -1 10 1 7 -1 3 1 11 -1 10
+1449 1025 -2 -10 1 -11 -1 -9 0 -4
+1228 1102 -1 16 1 18
+1256 1122 -11 0 -2 -1 -16 2
+1257 1135 -1 -13 1 -8 -15 -1
+1209 1137 -1 -12 2 -6 5 -2 -1 -12
+1098 1116 8 2 13 0 0 -7 -3 -1 0 -12
+1145 1089 0 9 -15 -1 -14 1 -19 0
+1439 1123 7 -37 10 2 14 5
+1449 1077 0 -6 -3 -4
+1446 1086 3 -8
+1428 921 -4 -10 0 -3 2 -10 0 -12 1 -2 5 -2
+1420 850 6 21 0 3 17 22 7 19
+1390 874 12 1 6 -3 7 -1 11 3
+1400 832 -2 2 -11 4 -1 2 1 8
+1437 779 0 2 -13 14 -12 15 -6 9 -6 13
+1466 803 -4 5 -11 8 -5 2 -20 6 -12 2 -11 5 -3 1
+1429 789 7 9 3 8 1 5 -1 9
+1353 752 2 17 -2 14 8 9 1 7 2 2 3 10 -3 12 1 25
+1322 761 33 2
+1154 735 28 3 4 -1 13 -6 13 -4 4 0 42 10
+1356 1063 10 -4 9 -1 4 -2 0 -4 5 -5 -3 -10
+1290 963 13 1 20 -3 11 -1
+1088 911 27 -2 19 -5 20 2 9 0
+1098 891 -11 -1
+1301 892 -10 0 -10 3 -28 -2
+1215 943 2 -12 19 -48 14 1 0 -1 3 -4 3 -2 11 -7 6 -9 2 -4
+1343 987 11 43 0 8
+1328 856 -2 1 -2 2 0 15 1 5 10 16 1 6 1 7 -4 92 -4 24 1 19 -1 29 -2 22 -1 10 3 29
+1114 783 34 -1
+1230 810 -9 5 -4 4 -4 4 -2 1 -19 1 -12 2 -27 11
+1241 785 2 9 6 8 -1 7 2 4 5 9 10 -4 4 -1 1 0 2 24
+1216 777 -16 -6 -9 -3 -2 1
+1231 781 -15 -4
+1220 796 -4 -15 0 -4
+1273 790 -11 0 -3 -2 -7 -4 -16 1 -6 -2
+1125 1085 1 -7 -3 -8 -28 -2
+976 1009 -1 -26 2 -15 -4 -38
+931 935 42 -5
+1376 1132 -2 -22 -2 -2 1 -1 -1 -11 -2 -7 -1 -5
+1134 904 2 2 1 6 -4 4 0 6 1 3 31 -4
+1092 1149 34 72
+1277 1236 5 21 3 3 3 22 0 13 -4 10 -2 10 5 18
+1364 801 53 -13 2 1 5 6
+1384 884 -15 2 -12 4
+1335 895 -12 2 0 -1 -4 -1 -1 -2 -2 -1 -15 -2
+1133 1007 1 -4 -1 -20 1 -18 -1 -21
+1150 961 20 -6
+1426 896 -9 -2 -3 1 -12 6 -4 1 -6 0
+1458 852 1 13 6 22 -3 10 1 2 0 7 -3 7
+1463 879 4 3 11 17 3 13
+1394 767 18 -7 7 -4
+1321 712 9 3 6 3 35 17 2 2 4 5 17 25 6 11 3 4 2 9
+1325 823 -9 -2 -23 -1
+1364 823 -38 -11 -11 2 -3 0 0 -2
+1324 836 13 1 7 -1 1 -1 0 -9 19 2
+942 1136 72 -12
+942 1109 45 -12
+942 1103 8 -2 33 -18
+1150 1058 0 -9 2 -2 2 -4 0 -15 1 -1 6 -1 0 -8
+1397 1089 -5 1 -11 4 -9 2
+1328 1118 10 -2 9 -3 10 -4 6 -1 9 0
+1398 1107 -15 2 -9 1
+1241 1135 -1 -14
+1284 1190 5 -7 6 -12 2 -2 6 -3 5 0 15 1
+1128 1227 19 -8 3 -2
+1128 1227 -8 4 -29 21
+1460 961 -1 7 -17 2
+1429 989 2 -29 -2 -12
+1394 935 15 -1 12 2 14 0 1 5
+1493 964 -1 -14 -1 -18
+1498 931 -21 4 -3 -6 -5 -16
+1465 1025 5 -4 9 -12 3 -15
+1206 805 22 6
+1150 810 17 -2
+1184 820 -4 0 -6 -2 -3 -7 -4 -3
+1183 763 -16 16 -7 11 -11 -1
+1187 826 -3 -6
+1196 776 -6 6 -5 8
+1210 802 -1 -1 -22 -14
+1192 825 0 27
+1252 784 13 -7 5 -1
+1302 792 -16 -3
+1274 794 4 -2 3 -7 2 -1 21 3
+1311 756 -7 -1 -12 1 -9 -3 -1 -4 -10 -5 -4 -4
+1186 737 10 7 10 2
+1216 727 -1 5 -6 12 -16 15 -5 9
+1209 744 7 1 12 -2 5 0 4 -6 1 -5
+1302 755 -3 -16 5 -13
+1262 837 -1 -6 -6 -9
+1324 768 20 6 2 4 7 2
+1326 802 8 1 17 4 14 -1
+1315 738 -14 -3
+1258 737 10 3 9 -9 3 -7 5 -4
+1285 720 -7 -8 5 -14 0 -5
+1325 694 -2 1 -20 10 -5 4 -8 7 -5 4
+1415 871 -1 -3 -14 -15 -1 -4
+1348 1087 -1 -3 -19 0
+1261 894 2 10 -10 0 0 17
+1161 886 15 -3 4 0 14 9 13 11 18 9
+1177 860 4 12 1 11
+1353 879 4 11 2 16 2 3 1 1 7 3 9 2 4 6 4 -1
+1361 933 10 5 17 14
+1359 906 -5 -1 -1 -3 -2 0 -4 0 -5 2
+1329 885 8 -3 11 -2
+1284 1013 -31 1
+1253 993 0 31
+1244 1090 2 7 -4 2 -41 8 -9 1 -27 -4
+1284 1023 20 -1 1 -2 0 -4 11 -1 0 -2 15 0
+1333 971 -9 0 -7 2 -2 4 -11 3 -16 -1
+1362 985 0 15 -2 4
+1328 1118 -24 1 -21 -2 -11 -3
+1480 1070 -27 -13
+1433 1081 -5 -3 -5 0 -7 1 -13 0
+1110 1038 -16 1
+1300 900 10 0
+1313 905 13 2 11 1
+1418 987 0 -7 -1 -6 -4 -7 -5 -5 -1 -4 1 -7 2 -4 2 -13
+1382 797 2 7 3 6 3 8 -4 4 -4 2 4 16
+1096 1085 25 0 30 5 15 0
+1195 1245 0 11 49 4
+1436 941 -5 3 -4 5 -8 5 -2 4 -2 1 -7 3 -11 3
+1361 773 21 -3
+1380 747 -4 2 -1 10 1 3 6 8
+1382 770 3 26
+1382 770 12 -2
+1407 1192 -35 -2
+1410 1167 -6 46
+1257 1240 12 31 2 9 0 10 5 15 3 5
+1408 1186 -35 -2 -1 2
+1368 1186 -1 -13 28 1
+1323 1160 16 1 3 8
+1200 1214 -30 -4 -20 7
+1285 1230 -1 -8 -2 -2 -8 0 -19 2 -7 0
+1362 1185 0 16
+1209 1197 1 20 -1 11 3 15
+1372 1197 34 2
+1200 1243 0 -46
+1412 760 8 14
+1395 941 16 1
+1406 819 -5 -2 -2 -4 2 -1 -2 -5
+975 947 -10 1
+1105 917 -17 2
+1201 1107 0 20
+1184 956 16 0
+1199 943 1 13
+1200 956 4 0
+1135 1020 0 -6
+1243 1023 41 1
+1234 689 2 14 -3 28
+1372 1204 32 3
+1172 1164 -16 2 -47 20
+1329 1033 37 -5 27 -2
+1384 984 -1 6 -5 8 -6 14 -6 -1 -1 0 -2 8 3 9
+1372 1012 7 2
+1323 793 -8 0 -13 -2
+1315 738 3 3 3 10 3 17 -2 12 0 9 4 13 -2 28 1 19
+1216 797 4 -1 10 -13 1 -5 2 -4 22 -20 6 -4
+1141 1019 -47 3
+1353 986 -2 -15 0 -21 -17 2
+1211 1062 -31 -10 -9 -1
+1359 933 4 15
+1150 1049 -15 0 -9 -4 -15 -1 -3 -22
+1363 948 4 18 -3 2 4 7 3 3 1 7
+1389 959 -9 1 -16 -3 -12 0
+1175 980 -84 5
+1482 934 -1 13 -6 2
+1482 940 -10 -1 -8 1
+1194 1137 -1 -8 15 -3
+1240 1100 2 5 1 16
+1268 878 9 1 2 2 7 1 0 5 1 6
+1221 882 0 -4 -25 -3 0 -8 -4 -8
+1215 1021 -5 53 -2 16 0 16
+1254 1171 8 -11 3 -10 1 -7
+1390 1164 2 -15 -1 -11
+1319 1167 -5 17 -2 19 2 13
+1189 1222 0 25
+1413 1130 3 -5 2 -1 39 -2
+1292 1207 -2 -7 -6 -10
+1108 956 1 -13
+1250 814 -9 7
+1198 1011 17 0
+1475 949 2 6 11 7 15 6
+1091 974 18 -1
+1304 730 12 3
+1270 776 16 -6 5 -6 10 -8 1 -1
+1208 904 -1 3 0 8 -2 3 -8 1 -8 4
+1255 922 -2 21
+1219 1240 -6 -18
+1209 1222 12 -1 4 16
+1336 901 6 3 4 5 7 14 6 10
+1126 1221 8 19
+1355 1198 -1 -1 0 -13
+1179 1222 0 28
+1165 922 16 1 6 -2
+1197 894 6 -3 8 -1
+1162 896 8 1
+1183 884 2 8 -2 1 0 2 -8 3
+1469 1095 7 5 13 11
+1236 883 -1 -25
+1189 740 -7 9 -8 5
+1250 884 3 9 -4 10 4 1
+1190 1033 8 -1 0 -2 -1 -10
+984 993 1 16
+1213 1041 71 1
+1166 808 -1 -7 0 -6 -6 -5
+1184 820 1 -3 0 -9
+1304 726 -1 -2 -13 -8
+1355 1198 17 6
+1169 884 18 37 4 5 3 17
+1112 1118 1 5
+1098 891 5 0
+1183 1122 4 16
+1529 989 1 2
+1869 803 4 -218 10 -37 42 -99
+1867 895 2 -92
+1849 942 -24 4 5 53 54 0 0 -35 -31 0 -4 -22
+786 1071 -7 -16 25 -2 -9 -13 -20 15 -24 6 23 60 51 -18 -15 -37 -24 5
+564 1340 -5 10 8 9 48 -24 0 -5 -13 -23 -9 -3 -55 26 7 6 12 -4 7 8
+638 1328 -42 19 26 45 23 -13 -7 -51
+510 1439 75 -28 -29 -54 1 21 -23 15 -28 36 4 10
+1436 1518 23 5 0 -10 13 -1 -1 -6 8 -2 -5 -24 -29 -6 2 -10 -20 -2 -20 5 -3 7 -20 -8 -19 3 0 18 75 13 -4 18
+1080 863 3 76 2 2 -3 -76 5 -8 -7 6
+1090 1089 5 55 64 0 0 -3 -62 2 -3 -55 -4 1
+766 1134 -53 164 1 12 17 28 -15 -29 -1 -10 54 -174 -59 -160 56 156 0 13
+471 1311 26 0 5 -6 -11 -22 -20 28
+508 1404 1 7 -3 1 6 4 15 -18 -5 -6 2 -7 8 -3 7 5 14 -12 -2 -24 -16 -14 2 -2 -13 -4 -23 7 -7 -1 -6 17 -12 5 3 3 11 -6 11 2 3 18 13 1 -7 2 4 3 -2 4 5 13 -9 5
+1328 674 4 8 29 13 44 34 10 9 8 16 19 19 -18 -20 -8 -15 -35 -31 -23 -15 -25 -11 -4 -8 5 -25 -1 -44 -3 -12 -10 -29 -4 -3 -18 11 -10 -14 3 10 7 6 20 -11 11 30 4 56 -5 26
+1536 760 17 0 -1 -10 -24 -3 -1 10 9 3
+1263 1138 0 4 63 -3 0 -3 -63 2
+1489 448 19 7 47 6 28 11 9 9 9 24 -1 16 -37 68 -3 23 5 29 9 25 17 26 33 30 34 45 -1 27 -29 57 -18 28 -1 17 6 44 -1 21 -31 63 -38 37 -23 28 -11 33 4 29 4 12 13 15 39 28 11 16 17 82 -4 88 -21 87 -17 43 -7 4 -5 15 -25 32 -2 -1 -74 69 -23 35 1 23 7 20 37 43 10 21 2 19 -55 52 -35 16 -24 18 -53 138 -15 16 -51 43 -11 12 -5 11 4 2 2 -8 10 -11 40 -28 28 -28 19 -37 31 -88 9 -18 14 -11 72 -44 25 -33 0 -26 -10 -21 -36 -44 -7 -13 0 -19 9 -21 12 -16 51 -40 40 -43 19 -28 21 -38 7 -21 0 -16 20 -68 4 -87 -10 -69 -6 -13 -18 -22 -39 -27 -11 -23 -2 -27 5 -19 21 -33 48 -43 24 -41 4 -11 -4 -51 2 -34 20 -54 24 -43 3 -34 -18 -25 -44 -36 -27 -36 -10 -31 -3 -16 11 -36 35 -55 3 -24 -8 -22 -7 -8 -23 -11 -39 -16 -40 1 -29 -19 -8 7 22 16
+732 1338 -17 -29 -1 -10 54 -174 -57 -160
+1235 2102 11 -14 56 -45 14 -18 51 -132 22 -17 62 -35 30 -38 -3 -29 -9 -18 -33 -38 -8 -16 -2 -18 16 -34 96 -88 12 -18 22 -41 30 -104 3 -105 -11 -59 -9 -21 -12 -14 -29 -18 -14 -13 -10 -26 -1 -24 21 -43 50 -50 26 -41 6 -36 -4 -43 1 -17 7 -22 41 -82 1 -20 -11 -20 -65 -61 -16 -28 -8 -24 -1 -30 4 -13 42 -72 1 -19 -4 -13 -10 -11 -29 -14 -32 -8 -41 -4 -12 -6 -15 -13
+740 214 8 679 20 53 14 8 9 -3 37 -53 28 -61 13 -61 0 -110 40 0 -3 -162 -25 -37 7 -23 -3 -23 -23 6 -7 -17 9 -16 -7 -8 -6 -74 -13 -6 -3 -18 -23 -26 10 -2 2 -8 -62 -89 -27 8 -1 40 6 3
+1174 2082 1 -1
+1175 2081 40 -17
+1215 2064 35 -16 20 -25 9 -23
+1279 2000 6 1 9 -17 4 -11 -6 -2
+1261 1965 31 6
+1261 1965 -7 -20 14 -42 -1 -85 4 -34 -11 -49 -21 -35 32 -115 20 -29 5 -22 18 -22
+1314 1512 16 -11 26 -79 14 -8 10 3 11 -2 -1 -29 14 -58 -3 -22
+1401 1306 22 -1
+1458 1299 -35 6
+1459 1299 -1 0
+1517 1286 -58 13
+1517 1286 6 25
+1523 1311 3 10
+1550 1317 -24 4
+1550 1317 2 3
+1590 1317 -38 3
+1590 1317 16 1
+1606 1318 -4 79 -10 39 5 0
+1448 1726 -18 -26 0 -19 9 -21 12 -16 51 -40 40 -43 40 -66 15 -59
+1250 2087 35 -24 28 -28 19 -37 40 -106 86 -55 25 -33 0 -26 -10 -21 -25 -31
+1233 2110 2 -8 15 -15
+1174 2082 59 28
+1387 848 13 136
+1307 849 80 -1
+1307 849 -231 6
+1083 1004 -7 -149
+1083 1004 51 1 1 14 42 -2 1 -19 108 -7
+1286 991 114 -7
+1400 984 5 153
+1401 1306 -4 -41 15 -97 -7 -31
+1093 1150 52 111 88 -26 28 4 16 -3 11 51 47 -3 42 17 24 5
+1093 1150 -6 -84
+1087 1066 -88 -4 -56 33 -10 -85 150 -6
+1615 980 -23 45 -42 40 -19 25 -7 12 -5 27 8 34 7 9 42 32 11 13 17 69 2 32
+1400 984 104 10 76 -15 35 1
+1387 848 -1 -10 14 -8 10 -19 28 -33 1 -8 -25 -34 -32 -27 -24 -16 -30 -12 -16 5 -103 3 -70 22 -25 -44 -40 -56
+1074 611 -20 -27
+1054 584 -4 43 -6 3
+1076 855 -32 -225
+1074 611 531 -122
+1605 489 5 17 -3 21 -29 47 -10 31 4 45 27 42 59 55 9 29 -9 31 -39 79 2 71 -6 23
+740 211 1 369 6 32 0 11 -1 81 2 189 1 7 4 13 15 33 5 5 9 3 9 -3 37 -53 17 -31 11 -30 6 -25 7 -36 0 -110 40 0 -1 -117 -1 -1 -2 -49 -12 -18 -12 -14 5 -4 -1 -16 3 -3 -3 -23 -23 6 -7 -17 -1 -5 10 -11 -7 -8 2 -2 -3 -18 -2 1 0 -2 1 -1 -1 -13 -2 0 0 -6 1 -1 0 -19 0 -8 -3 0 1 -5 -7 -1 0 -5 -6 0 0 -12 -3 0 0 -6 -3 0 -20 -26 10 -2 1 -8 1 0 -62 -90 -27 9 0 15 3 4 0 3 -2 15 -2 3 6 0
+477 1444 3 -1 24 0 65 -19 313 -166 13 26 24 41 25 28 25 24 25 20 21 15 33 17 33 14 23 8 20 5 44 7 -65 167 -21 77 -14 62 -6 17 -35 74 -81 205 36 13 8 -18 42 17 8 -13 21 -5 14 -19 5 -3 11 3 17 7 55 30 70 33 2 -8 10 -11 40 -28 16 -14 12 -14 19 -37 31 -88 9 -18 14 -11 34 -18 20 -13 18 -13 10 -11 15 -22 1 -12 -1 -14 -10 -21 -36 -44 -7 -13 0 -19 9 -21 12 -16 51 -40 40 -43 21 -31 19 -35 7 -21 0 -16 8 -22 139 -10 20 -3 23 -7 13 -4 33 -18 29 -23 15 -16 10 -14 21 -36 24 17 0 -72 32 -80 27 -63 17 -33 39 -67 22 -60 10 -53 21 -162 31 -218 -29 -7 -266 -92 -25 -7 -93 -14 -143 -32 -21 4 -16 9 -17 18 -21 19 -138 114 -9 5 -291 53 -4 43 -19 9 -36 21 -10 4 -43 7 0 18 39 0 2 8 11 3 2 18 7 17 0 13 40 15 4 9 0 7 -9 19 0 9 -2 9 -3 0 4 44 4 1 5 45 -4 46 -33 1 -3 2 -2 5 -19 -1 -2 -3 0 -37 4 -2 5 -22 -20 4 -12 -37 -20 2 -8 38 -102 0 -47 69 -74 -3 28 82 -64 23 -135 39 -89 21 -4 71 -65 -19 30 76 -18 52 52 -11 -10 64 21 71 20 18 2 -8
+@streets line
+name,ref,class,arcs
+Super Highway,11,trunk,0;1
+Somphot Chiang Mai 700 Pi Road,ชม.3029,primary,2;3
+Khlong Chonlaprathan Road,121,primary,4;5
+Chiang Mai-Hang Dong Road,108,primary,6
+Chotana Road,107,primary,7
+Chotana Road,107,primary,8
+Chotana Road,107,primary,9
+Kaewnawarat Road,118,primary,10
+Mahidon Road,1141,primary,11;12
+Huaykaew Road,,primary,13
+Changpuak Road,,primary,14
+Changpuak Road,,primary,15
+Changpuak Road,,primary,16
+Mahidon Road,,primary,17
+Changpuak Road,,primary,18
+Changpuak Road,,primary,19
+,108,primary,20
+Chotana road,107,primary,21
+Huaykaew Road,1004,secondary,22;23
+Chiangmai-Lamphun Road,106,secondary,24
+Chiang Mai-Phrao Road,1001,secondary,25
+Lamphun Chiangmai New Road East,,secondary,26
+Charoen Muang Road,1006,secondary,27;28
+Charoenprated Road,,secondary,29
+Mahidon Road,1141,secondary,30
+Changklan Road,,secondary,31
+San Kamphaeng Sai Mai Road,1317,secondary,32
+Charoen Muang Road,,secondary,33
+Huaykaew Road,,secondary,34
+Rattanakosin Road,,secondary,35
+Kaewnawarat Road,,secondary,36
+Ko Klang Road,,secondary,37
+Mahidon Road,1141,secondary,38
+Charoenrat Road,106,secondary,39
+Wang Singh Kham Road,,secondary,40
+Wang Singh Kham Road,,secondary,41
+Nong Ho Road,1366,secondary,42
+Thung Hotel Road,,secondary,43
+Mani Noppharat Road,,secondary,44
+Mani Noppharat Road,,secondary,45
+Arak Road,,secondary,46
+Moon Muang Road,,secondary,47
+Chang Lo Road,1141,secondary,48
+Assadathorn Road,ชม.2025,secondary,49
+Suthep Road,1005,secondary,50
+Loi Kroh Road,,secondary,51
+Nimmanhaeminda Road,11,secondary,52
+Rotfai Road,,secondary,53
+Vieng Ping Road,,secondary,54
+Huaykaew Road,,secondary,55
+Sirimangkalajarn Road,,secondary,56
+,,secondary,57
+Rachadamnoen Road,,secondary,58
+Muang Samut Road,,secondary,59
+Thapae Road,,secondary,60
+Sridonchai Road,,secondary,61
+Rat Uthit Road,,secondary,62
+Wualai Road,,secondary,63
+Prapokkloa Road,,secondary,64
+Mahidon Road,1141,secondary,65
+Ratchamanka Road,,secondary,66
+Seepingmuang Road,,secondary,67
+Intrawarorot Road,,secondary,68
+Chang Moi Road,,secondary,69
+,,secondary,70
+Suriyawongse road,,secondary,71
+Muen Dam Pra Kot Road,,secondary,72
+Mahidon Road,1141,secondary,73
+Trat Wong Road,,secondary,74
+Singharat Road,,secondary,75
+Samlan Road,,secondary,76
+,,secondary,77
+Changklang Road,,secondary,78
+Suthep Road,,secondary,79
+San Na Lung Road,,secondary,80
+Thipphanet Road,,secondary,81
+Ragaeng Road,,secondary,82
+Nantaram Road,,secondary,83
+Airport Road,1141,secondary,84
+Charoenrajd Road,106,secondary,85
+Wiang Kaew Road,,secondary,86
+Ratchawithi Road,,secondary,87
+Pracha Sampan Road,,secondary,88
+Photharam Road,,secondary,89
+Wua Lai Road,,secondary,90
+Ratchawong Road,,secondary,91
+Rat Uthit Road Soi 6,,secondary,92
+Ratchamanka Road,,secondary,93
+Haiya Road,,secondary,94
+Wichayanon Road,,secondary,95
+Praisanee Road,,secondary,96
+Prapokkloa Road,,secondary,97
+Rattanakosin Road,,secondary,98
+Sanamkila Road,,secondary,99
+Srimongkol Road,,secondary,100
+,,secondary,101
+2 Chiangrai Road,,secondary,102
+Sanamkila Road,,secondary,103
+,,secondary,104
+Changpuak Road Lane 2,,secondary,105
+Wichayanon Road,,secondary,106
+,,secondary,107
+Changmoi Tudmai Road,,secondary,108
+Taiwang Road,,secondary,109
+Assadathorn Road,ชม.2025,secondary,110
+Charoenrat Road,106,secondary,111
+Suriyawong,,secondary,112
+Suthep Road,,secondary,113
+Wua Lai Road,108,secondary,114
+Pa Daet Road South,,secondary,115
+Nawarat Bridge,,secondary,116
+Nakornping Bridge,,secondary,117
+Sridornchai road,,secondary,118
+Huaykaew Road,,secondary,119
+,,secondary,120
+Nimmanhaeminda Road,11,secondary,121
+Sanamkila Road,,secondary,122
+Thipphanet Road,,secondary,123
+Wichayanon Road,,secondary,124
+Prapokkloa Road,,secondary,125
+Raj Uthia Road,,secondary,126
+Rattanakosin Road,,secondary,127
+Airport Road,1141,secondary,128
+Sanamkila Road,,secondary,129
+Wua Lai Road,108,secondary,130
+Mae Kha Bridge,,secondary,131
+Sirimangkhalachan Road,,secondary,132
+Sanam Bin Road,1141,secondary,133
+@bridges line
+class,arcs
+trunk,178
+trunk,179
+trunk,180
+primary,176
+primary,177
+secondary,134
+secondary,135
+secondary,136
+secondary,137
+secondary,138
+secondary,139
+secondary,140
+secondary,141
+secondary,142
+secondary,143
+secondary,144
+secondary,145
+secondary,146
+secondary,147
+secondary,148
+secondary,149
+secondary,150
+secondary,151
+secondary,152
+secondary,153
+secondary,154
+secondary,155
+secondary,156
+secondary,157
+secondary,158
+secondary,159
+secondary,160
+secondary,161
+secondary,162
+secondary,163
+secondary,164
+secondary,165
+secondary,166
+secondary,167
+secondary,168
+secondary,169
+secondary,170
+secondary,171
+secondary,172
+secondary,173
+secondary,174
+secondary,175
+@lanes line
+name,arcs
+Chaiyapoom Road Soi 2,181
+Chang Moi Kao Road Soi 3,182
+Sri Poom Road Soi 3,183
+Moonmuang Road Soi 7/1,184
+Moonmuang Road Soi 7,185
+Ratvithi Road Soi 2,186
+Moonmuang Road Soi 6,187
+Moonmuang Road Soi 6,188
+Prapokklao Road Soi 13,189
+Jhaban Road,190
+Samlan Road Soi 5,191
+Charoensuk Road,192
+Soemsuk Road,193
+Mengrai Ratsami Road,194
+Changpuak Road Lane 1,195
+Chang Phuak Soi 4,196
+Phra Pokklao Road Soi 1,197
+Prapokklao Road Soi 2,198
+Prapokklao Road Soi 2/1,199
+Bumrung Buri Road Soi 4,200
+Prapokklao Road Soi 7,201
+Rachadamnoen Road Soi 7,202
+Ratchamanaka 8,203
+Arak Road Soi 7,204
+Sinharat Road Soi 2,205
+Boonruangrit Soi 2,206
+Chang Moi Kao Road,207
+Sittiwong Road,208
+Chiang Moi Kao Road Soi 1,209
+Maneenopparat Soi 2,210
+Changpuak Road Lane 2,211
+Thapae Road Lane 1,212
+Loi Kroh Road Lane4,213
+Khampangdin Road,214
+Sittiwong,215
+Kuangmane Road,216
+Thapae Road Soi 4,217
+Thapae Road Soi 4,218
+Thapae Road Soi 3,219
+Chang Moi Road Soi 3,220
+Chang Moi Road Soi 2,221
+Sripoom Road Soi 6,222
+Sri Poom Lane 5,223
+Sripoom Road Soi 4,224
+Sripoom Road Soi 7,225
+Arrak Road Soi 1,226
+Arrug Road Soi 2,227
+Ratchawong Road Soi 3,228
+ถนนราชวงศ์ ซอย 3,229
+ถนนราชวงศ์ ซอย 3,230
+Loi Kroh Road Soi 1,231
+Loi Kroh Road Lane 2,232
+Kotchasarn Road Soi 5,233
+Ragaeng Road,234
+Ragaeng Road,235
+Ragaeng Road,236
+Ragaeng Road Lane 2A,237
+Ratchaingsean road 2,238
+Ratchiangsaen road soi 2,239
+Nantaram Road,240
+Ratvithi Road Lane 1,241
+Prapokklao Road Soi 8,242
+Samlan Road Soi 6,243
+ถนนอารักษ์ ซอย 8,244
+Prapokklao Road Soi 4,245
+Ratchamanka Road Soi 6,246
+Rachadamnoen Road Soi 5,247
+Ratchaphakhinai Road,248
+หมู่บ้านระมิงค์นิเวศน์,249
+Wualai Road Soi 2,250
+Wualai Road Soi 1,251
+Wualai Road Soi 4,252
+Wualai Road Soi 4,253
+Wualai Road Soi 4,254
+Wualai Road Soi 4,255
+Arak Road Soi 3,256
+Soi Tantawan,257
+สิโรรส ซอย 3,258
+Sripoom Road Soi 1,259
+Samlan Road Soi 3,260
+Huaykaew Road,261
+Kutao Road,262
+Ratchiangsean road soi 2a,263
+Moonmuang Road Soi 1,264
+Prapokklao Road Soi 3,265
+Ratchamanka 9,266
+Samlan Soi 2,267
+Kotchasarn Road Soi 4,268
+Loi Kroh Road Lane 3,269
+Loi Kroh Road Soi 3A,270
+Kamphaeng Din 3,271
+Suriyawongse Road Soi 5,272
+Suriyawongse road lane1,273
+Ratchiangsaen soi 1b,274
+Ratchiangsaen soi 1a,275
+Sirimangkalajarn Road Soi 7,276
+Sirimangkalajarn Road Soi 11,277
+Sirimangkalajarn Road Soi 13,278
+Intrawarorot Road Soi 3,279
+Moonmuang Road Soi 8,280
+Moonmuang Road Soi 9,281
+Moonmuang Road Soi 9,282
+Sri Poom Road Soi 5,283
+Sanamkila Road Soi 2,284
+Chang Phuak Soi 2,285
+Santiruk Road,286
+Thapae Road Soi 4a,287
+Thapae Road Soi 5,288
+Kotchasarn Road Lane3,289
+ถนน ท่าแพ ซอย 1ก,290
+Kamphangdin Road Lane 2,291
+Thapae Road Soi 2,292
+Watthanatham Wat Si Suphan Road,293
+Wualai Road Soi 2c,294
+Thipanat Road Soi 2,295
+Wualai Road Soi 6,296
+Wualai Road Soi 2a,297
+Wualai Road Soi 2a,298
+Soi Samran,299
+Wualai Road Soi 2b,300
+Nantaram Road 3,301
+Nan Tha Ram Road,302
+Nantaram Road 1,303
+Nantaram Road 5,304
+Wualai Road Soi 5a,305
+Wualai Road Soi 5,306
+Nan Tha Ram 4 Road,307
+Suriyawongse Road Soi 3,308
+Wua Lai Road Soi 1/1,309
+Ratchiangsan road soi 2b,310
+Ratchiangsan soi 1c,311
+Suriyawong Road Soi 3,312
+Nantaram Road Soi 5,313
+Nantaram Road Soi 5,314
+Nantaram Road Soi 5,315
+Sridornchai Road Lane 1,316
+Moon Muang Road soi 7,317
+Prapokklao Road Soi 4/2,318
+Samlan Road Soi 7,319
+Bumrungburi Road Soi 1,320
+Moonmuang Road Soi 2,321
+Ratchamanka Road Soi 2,322
+Ratchamanka Road Soi 3/1,323
+Mitrpranee Road,324
+Prapokklao Road Soi 11,325
+Rachadamnoen Road Soi 6,326
+Singharat Road Soi 4,327
+Prapokklao Road Soi 12,328
+Prapokklao Road Soi 9,329
+Rachadamnoen Road Soi 3,330
+Ratchaphakhinai Road Soi 1,331
+Taiwang Road,332
+Chaiyaphum Road Soi 1,333
+Arak Road Soi 4,334
+Prapokklao Road Soi 5,335
+Prapokklao Road Soi 5,336
+Thapae Road Soi 6,337
+Ragaeng Road Soi 1,338
+Singharat Road Soi 3,339
+Soi Phongsuan,340
+Kotchasarn Soi 1,341
+Ratchiangsean soi 2a,342
+Ratchiangsean soi 2a,343
+Ratchiangsean soi 2a,344
+Ratchiangsean soi 2a,345
+Unaree Lane 2,346
+ชุมชนหมู่บ้านอุ่นอารี,347
+Kutao Road Soi 3,348
+Unaree Lane 1,349
+Unaree Lane 8,350
+Sanamkila Road Soi 1,351
+Chang Phuak Soi 3,352
+Chang Phuak Soi 3,353
+Unaree Lane 6,354
+Chang Phuak Soi 4c,355
+Unaree Lane 3,356
+Chang Phuak Soi 4d,357
+Ragaeng Road Soi 3,358
+Kotchasarn Soi 2,359
+Ragang Road Lane 3,360
+Sirorot Soi 1,361
+Soi Chan Thon Wirot,362
+Singharat Road Soi 4 Kor,363
+Bootsarakum Road,364
+Bootsarakum Road,365
+Bootsarakum Road,366
+Intrawarorot Road,367
+Intrawarorot Road,368
+ถนนนันทาราม ซอย 6,369
+Unaree Lane 4,370
+Maneenopparat Soi 3,371
+Moon Muang Road Soi 5,372
+Rachadamnoen Road Soi 1,373
+Moonmuang Road Soi 4,374
+Suriyawongse Road Soi 2,375
+Ratchiangsean road 1,376
+Wualai Road Soi 3,377
+Arak Road Soi 5,378
+Rachadamnoen Road Soi 4,379
+Sinharat Road Soi 1,380
+Ratchamanka Road Soi 4,381
+Arak Road Soi 4a,382
+Rachadamnoen Road Soi 2,383
+Moonmuang Road Soi 3,384
+Samlan Road Soi 1,385
+Kampaeng Din Lane 1ข,386
+Kampaeng Din Road 1 Kho,387
+Sripoom Road Soi 8,388
+Sripoom Road Soi 5,389
+Prapokklao Road Soi 4/1,390
+Bumrung Buri Road Soi 2,391
+Khang Ruan Jum Road,392
+Mani Noppharat Soi 1,393
+Sanamkila Road Lane1,394
+Sanamkila Road Soi 3,395
+Chang Phuak Soi 4 Jaan,396
+Wichayanon Road,397
+Chang Phuak Road Soi 1,398
+Ratchamanka 11,399
+Thanon Wua Lai Soi 1a,400
+Rachadamnoen Road Soi 8,401
+Kampangdin Road Lane 1,402
+Arak Road Soi 6,403
+Suriyawongse Road Soi 4,404
+Nantaram Road 2,405
+Ratchamanka Soi 7/1,406
+Ratchamanka Road Soi 5,407
+Chang Phuak Road Soi 4b,408
+ถนน ช้างเผือก ซอย4ก,409
+Ratchamanka Road Soi 3,410
+Hassadhisawee Road,411
+Unaree Lane 7,412
+Chang Phuak Soi 4 Ching,413
+Samlan Road Soi 4,414
+สามล้าน,415
+Sam Lan Road Soi 5g,416
+Ratchamanka Soi 7ค,417
+Ratchawong Road Soi 4,418
+Bumrung Buri Road Soi 3,419
+Wua Lai Road Soi 7,420
+Phra Pokklao Road Soi 4,421
+ถนนอินทวโรรส 2,422
+ซอย บ้านอาจารย์เชื้อ กุศลวงศ์,423
+Ratchawithi Road,424
+Thipanet Road Soi 2,425
+Thipanet Road Soi 2,426
+Nantaram road soi 5,427
+Unaree Lane 5,428
+Ratchamanka Road Soi 7,429
+Arak Road Soi 1,430
+Soi 8,431
+Sri Poom Road Soi 9,432
+Thapae Road Soi 1,433
+@rail line
+kind,colour,lines,arcs
+r,,,434
+r,,,435
+@green polygon
+kind,arcs
+park,436
+park,437
+park,438
+park,439
+park,440
+park,441
+@water polygon
+arcs
+442
+443
+444
+445
+446
+447
+448
+449
+450
+@waterways line
+name,kind,arcs
+Khlong Chonlaprathan,canal,451
+Ping River,river,452
+@airport polygon
+name,iata,arcs
+Chiang Mai International Airport,CNX,453
+@districts line
+level#,arcs
+1,454
+1,455
+1,456
+1,457
+1,458
+1,459
+1,460
+1,461
+1,462
+1,463
+1,464
+1,465
+1,466
+1,467
+1,468
+1,469
+1,470
+1,471
+1,472
+1,473
+1,474
+1,475
+1,476
+1,477
+1,478
+1,479
+1,480
+1,481
+1,482
+1,483
+1,484
+1,485
+1,486
+1,487
+1,488
+1,489
+1,490
+1,491
+1,492
+1,493
+1,494
+@clip polygon
+arcs
+495|496
+@places
+name,level#,lon#,lat#
+Pa Tan Subdistrict,1,98.99593,18.81393
+ตำบลพระสิงห์,1,98.98188,18.7849
+ตำบลศรีภูมิ,1,98.98723,18.79431
+ตำบลช้างม่อย,1,98.99763,18.79963
+ตำบลหายยา,1,98.98627,18.777
+Chang Khlan Subdistrict,1,98.99889,18.78252
+@parks
+
+@stations
+name,kind,rank#,lon#,lat#
+Chiang Mai,r,1,99.01682,18.78352

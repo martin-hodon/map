@@ -1,0 +1,1773 @@
+# Las Vegas: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 -115.27120 36.03960
+@arcs
+1812 400 0 225
+1812 625 1 367 0 31 0 164 1 90 0 187 0 36 0 42 0 61 0 17 1 111 0 3 0 64 4 31 8 33 24 49 21 29 90 103 178 195 16 16 28 30 21 37 10 35 1 39 -1 79 14 62 33 71 29 45 43 47 59 46 25 15 88 49 25 25 16 30
+2216 2395 -11 -3 -4 -38 -13 -38 -21 -34 -19 -22 8 -6
+1305 569 93 9 44 0 34 -4 44 -9 134 -40
+1654 525 157 -45 38 -4 120 1
+3817 1163 -16 25 -9 20 -10 42 -14 325 -7 51 -14 37 -18 30 -60 71 -23 39 -15 48 -11 65
+3620 1916 -3 22 -15 112 -8 340 -4 33 -7 21 -18 32 -22 23 -32 24 -28 14 -28 10 -52 10 -50 5 -239 6 -144 -1 -34 3 -30 7 -29 11 -188 88 -78 19 -66 23 -38 3 -26 -3 -62 -16 0 -1
+2684 3206 -36 -79
+2648 3127 -29 -61 -45 -57 -18 -36 -7 -33 -4 -67 2 -9
+806 2682 65 5 68 0
+939 2687 186 -2 177 -9 57 -3 45 5 120 41 48 11 2 0 39 3 36 -2 90 -17 35 -4 143 0 167 16 48 -3 77 -13 3 -1 144 -21 32 3 31 10 0 1
+2585 391 -33 25 -33 19 -32 14 -53 16
+2434 465 -71 14 -58 5 -115 -1 -206 -2 -15 -4
+2434 465 17 40 86 211 22 61 -1 57 -7 32
+2451 505 -12 0 -18 -15 -21 -7
+1687 529 -17 2 -16 -6
+2609 2593 -193 -296 -13 -13 -10 -21 -45 -69 -10 -16 -63 -95 -2 -3 -237 -361 -1 -2 -44 -66 -17 -41 -9 -39 -1 -71 -3 -114 0 -2 1 -157 1 -145 0 -151 4 -188 6 -111 1 -3 0 -132 0 -38 1 -84
+478 2087 89 2 179 -2
+746 2087 171 4 346 6 164 -1 182 -1 351 -4
+1962 2677 -25 45 -26 31 -69 77 -290 318
+3985 1602 -236 210
+3749 1812 -111 98 -18 6
+3617 1938 -14 3 -206 183 2 -2
+3194 936 212 -2 192 -14 30 -1
+552 2303 3 -63
+555 2240 9 -186 -2 -255 0 -299 -1 -206
+2343 1493 69 9 84 -2 169 -2 377 2 362 11 4 0 176 1 230 -6 134 -1 16 0
+2684 1226 179 0 190 -20 793 7
+1302 2676 2 -302 -7 -19 -25 -26 -8 -14 -5 -71 -1 -585 4 -288 2 -25
+1814 1500 -41 -4 -19 1 -74 17 -30 6 -26 1 -188 -1 -176 -1 -332 -19 -366 0
+2273 2080 53 -2 442 14 570 2 31 7 25 18 5 3 10 8 17 4
+3854 2389 -32 0
+3822 2389 -1 0 -720 -3
+1265 1257 -2 -177 0 -1 1 -489
+1301 3045 -2 -72 3 -297
+2677 1672 -12 -171 9 -138 10 -137 1 -145 -1 -96
+3056 2401 12 15 33 18 4 7 3 28 2 87 -9 132 4 146 -2 144
+2209 2710 0 269 1 276
+2290 634 311 7 132 2 260 -3
+2757 3023 -16 33 7 135
+3276 641 -283 -1
+2497 994 37 -1 54 -8 96 0 124 0 35 -11 38 -29 19 -8 16 -3 133 -4 116 5
+2683 2387 -1 -32 -9 -19 7 -19 6 -480
+2680 2317 10 4 5 14 -4 15 -9 5
+1057 2391 -329 2 -132 -1
+2379 1383 4 -17 95 -303 8 -24 5 -17 6 -25 0 -3 7 -23 25 -64 9 -31 13 -10
+2528 1227 -54 5 -250 -5 -257 0 -2 0 -3 0
+1693 933 42 -5 60 -2 83 -1 32 3 53 3
+2186 1801 -31 5 -47 27 -11 3 -116 2 -52 8 -84 -12 -48 -23 -20 -6 -86 4
+2648 3127 -81 -3 -394 -2
+1974 459 52 0 64 10 64 -3 61 4 42 -4 34 -10 48 -25 26 -4 28 5 17 8 16 14
+917 2091 8 -386
+562 1500 -77 0
+3086 2386 78 -63 163 -145 67 -59
+2400 483 -23 2 -31 8 -31 0 -10 -9
+2190 483 -5 9 -23 2 -74 -3 -52 7 -62 -1
+3408 1511 -4 51 -6 19 -16 23 -118 96 -20 26 -13 35 -1 44
+946 2419 -4 -49 -8 -14 -20 -22 -6 -18 9 -225
+3056 2401 -4 0 -3 -4 -5 -13 4 -309
+1619 1777 1 51 -11 267
+2186 1801 14 -2 89 1 71 -5 99 0 76 9
+1962 2677 -4 -2 9 -30 4 -29 -5 -251
+2325 1664 5 219 -2 90
+1964 1500 2 0 377 -7
+2504 1104 -1 139 -15 18 -36 15 -14 11 -21 65 -2 16
+3103 2978 -2 89
+2609 2593 3 0 30 46 41 67 33 54 25 71 1 2 1 18
+2486 1039 10 5 6 15 2 45
+2416 2386 145 -3 156 3
+926 1472 -3 -243
+918 938 -3 -25 7 -91
+1367 1226 -100 1 -188 -12
+1235 933 -289 -15
+943 2648 5 -113 -2 -116
+2840 3123 1 0 125 0
+3040 1481 4 -223
+1965 2313 -5 -222
+1507 2389 266 -2
+1678 3160 -29 5 -19 7
+2486 2826 -242 -1
+2036 1719 -74 2 -72 8 -75 5
+3027 1805 -232 0
+3047 956 0 -170 2 -15
+3051 614 2 -86
+1960 2091 218 -8
+1962 1227 -210 -2
+2119 3122 -118 3 -82 28
+2609 2593 161 -69 23 -10
+918 952 6 108 -1 53
+2841 3123 -2 3 -29 1 -20 5 -27 13 -60 2 -10 -4 -16 -13 -13 -3 -1 0 -2 0 3 0
+2352 2383 1 3 3 21 40 63 4 21 20 34 2 1
+1275 2390 182 -1
+1488 1226 138 -1 44 2
+2664 3127 6 -3 111 0 9 8
+2149 2384 42 2 54 0 6 -1 66 1
+3050 1729 -6 -135
+3406 1490 4 -130
+2400 2491 -11 -7 -62 -94 -5 -2 -5 -2
+3416 1802 154 -1
+1576 1812 98 -5 17 2
+1678 3160 147 -3
+3048 2075 4 -115
+3044 1594 -6 -84 2 -29
+3409 1343 -5 -114
+1827 1498 61 5 78 -3
+3426 2134 140 0
+3760 2232 4 -113
+3782 2094 139 1
+2621 2833 -37 3 -39 -7 -59 -3
+1422 1808 -135 0
+2275 2083 -74 2 -23 -2
+725 1794 -132 3
+899 1791 -133 3
+2743 2851 -1 107
+3403 1061 2 -106
+3939 2095 29 0
+3052 1937 1 -105
+3053 1832 -3 -103
+887 915 -63 -1
+1239 1807 -127 -7
+722 1204 -115 0
+926 1522 -1 101
+2770 3050 -23 -17 -5 -16 0 -59
+1075 1798 -124 -6
+3566 2134 24 -2 12 -4 34 -26 12 -6 24 0
+2149 2384 -15 3 -78 -1
+3405 915 0 -100
+943 2724 4 91
+2006 631 120 1
+3405 770 1 -44
+3049 771 1 -96
+2496 2642 -54 -84
+2528 1227 114 0
+966 1208 113 7
+1624 1521 -3 89
+1347 935 -86 1 -26 -3
+3819 2418 -2 34
+857 1205 64 -1 45 4
+1264 1346 1 -89
+1602 934 -108 1
+3403 1180 0 -86
+3601 1800 101 0
+3045 1178 -1 80
+1919 3153 -30 6 -64 -2
+2621 2833 12 -2 90 1
+2940 2385 104 -1
+764 1204 93 1
+2528 2688 -2 1 2 -1 77 -33
+2326 2078 2 -66
+2770 3050 52 55
+1494 935 -81 0
+3050 675 1 -61
+2350 1475 18 -59
+2685 1783 -4 -60
+2117 2826 -73 0
+3047 1047 0 -58
+2652 1804 38 -2 31 2
+1134 2391 -77 0
+2244 2825 -67 1
+3086 2386 0 3 -6 3 -47 19
+1347 935 66 0
+1838 2387 -65 0
+2171 632 65 2
+923 1177 0 52
+2496 2642 3 1 14 22 15 23
+1965 2313 1 52
+1694 1228 50 -7 8 4
+3782 2094 -63 1
+2416 2386 -13 0 -50 0
+3330 1803 62 -1
+3404 1229 -1 -49
+3198 1804 61 0
+926 1472 0 50
+2007 2827 -62 1
+887 915 28 0 31 3
+2325 1560 13 -47
+3765 2081 0 -49
+923 1167 0 -54
+3816 2358 -12 -25 -14 -17
+1920 2828 -58 1
+3749 1812 9 7 6 11 0 19
+3027 1805 57 -1
+3405 815 0 -45
+3115 1804 55 0
+2236 634 54 0
+2858 3137 -18 -14 -18 -18
+899 1791 27 -2 25 3
+3046 1090 1 -43
+1367 1226 53 0
+939 2687 4 -39
+925 1705 0 -42
+2680 1714 -3 -42
+1420 1226 18 -1 32 1
+1651 934 -49 0
+3405 955 0 -40
+2685 1783 3 22 -2 18
+1513 1810 -50 -1
+3766 1972 -2 -25 1 -15
+2807 2508 44 -18
+2177 2826 -60 0
+1507 2389 -50 0
+1287 1808 -22 1 -26 -2
+925 1663 0 -40
+2784 2386 50 0
+2858 3137 20 17
+1619 1777 1 -40
+2338 1513 5 -20 7 -18
+2860 2385 48 0
+3765 2081 2 15 -3 23
+2328 2012 0 -39
+2173 3122 -54 0
+2721 1804 48 0
+3672 2096 47 -1
+3702 1800 26 1 21 11
+1621 1647 0 -37
+2171 632 -18 2 -27 -2
+3766 2009 0 -37
+3773 2296 -13 -35
+2323 1614 1 -37
+1621 1647 -1 36
+1989 2386 -44 0
+2535 1804 44 0
+3765 1932 0 -36
+3045 1125 1 -35
+722 1204 42 0
+2900 2468 38 -16
+1177 2391 -43 0
+1275 2390 -42 0
+725 1794 41 0
+1422 1808 20 -2 21 3
+2642 1227 42 -1
+2323 1614 2 19 -1 14
+3259 1804 42 -1
+1693 933 -42 1
+3403 1061 0 33
+1620 1716 0 -33
+2612 1804 40 0
+1838 2387 38 -1
+3822 2389 -3 29
+2717 2386 38 0
+1112 1800 -37 -2
+2044 2826 -37 1
+2041 2386 -37 0
+1922 2386 -46 0
+3760 2261 -2 -11 2 -18
+3816 2358 5 31
+2612 1804 -33 0
+3045 1178 1 -27
+1545 1811 -32 -1
+3045 1125 1 26
+2368 1416 11 -33
+1233 2390 -31 0
+2908 2385 32 0
+3764 1875 0 -26
+3570 1801 16 -2 15 1
+1576 1812 -31 -1
+3084 1804 31 0
+593 1797 -31 2
+3790 2316 -11 -9 -6 -11
+2006 631 -30 1 -3 0
+3047 989 0 -33
+3301 1803 29 0
+2755 2386 29 0
+3052 1937 0 23
+3165 935 29 1
+3765 2032 1 -23
+941 2714 -2 -27
+3170 1804 28 0
+2769 1804 26 1
+3765 1896 -1 -21
+2834 2386 26 -1
+1620 1716 0 21
+3404 1511 2 -21
+1945 2828 -25 0
+3392 1802 24 0
+2993 2428 22 -9
+1694 1228 -24 -1
+1945 2386 -23 0
+2938 2452 27 -11
+2324 1577 1 -17
+2431 2542 -9 -16
+2624 2647 -5 3 -14 5
+2415 1368 -32 -2
+3409 1343 1 17
+2624 2647 18 -8
+2325 1664 -1 -17
+2742 2833 -19 -1
+3939 2095 -18 0
+1488 1226 -18 0
+918 952 0 -14
+2686 1837 0 -14
+2858 2487 22 -10
+2807 2508 -14 6
+2056 2386 -15 0
+2004 2386 -15 0
+943 2724 -2 -10
+923 1177 0 -10
+2680 1714 1 9
+2431 2542 10 14
+1202 2390 -10 0
+2851 2490 7 -3
+2893 2471 7 -3
+2900 2468 -7 3
+3015 2419 6 -3
+2970 2438 -5 3
+2965 2441 5 -3
+3021 2416 -6 3
+2989 2430 4 -2
+2993 2428 -4 2
+1842 2830 -4 0
+2442 2558 -1 -2
+1967 1227 -2 0
+1974 629 2 0 -2 0
+1976 632 -3 0
+2674 1363 368 -9 368 6 506 0
+746 2055 -2 -704 -1 -345
+2741 2831 364 0 385 -6
+1341 2544 -21 -5 -40 -1 -27 -9 -173 -1 -48 7 -345 1
+2685 1081 181 -2 179 -10 360 9 348 -10
+1814 1542 7 -5 7 -6 8 -32 -1 -12 -10 -23 -11 0
+1814 1277 9 -4 3 -1 8 -18 1 -25 -4 -23 -7 -19 -11 0
+1813 992 9 -3 23 -48 0 -24 -10 -29 6 -8 11 -3 20 9 21 0 9 3 8 12 0 27
+1822 989 2 21 -11 13
+1823 1273 3 10 -1 181
+1821 1537 6 8 0 69 -2 6 -10 0 -1 0
+3179 2538 279 -8 12 0 13 7
+3511 2523 23 7 230 2
+1658 2833 -84 -2 -618 -8
+2251 2385 5 32 8 18 54 81 2 45 36 57 69 52 16 8
+555 2240 -29 0
+2478 1063 -15 -13 -7 -19 -11 -21 -27 -28 -10 -13 -2 -8 5 -28 20 -34 12 -13 8 -3 48 -1 10 3 5 4 1 7 -17 56 6 19
+2497 997 -13 4 -3 12 0 5 10 4
+2642 2639 182 -78 52 -22 11 -2 223 2 69 -1
+2091 2238 -483 2 -71 2
+1620 498 -1 -51
+2209 2979 -2 0 -361 1 -169 -2
+1262 1371 -338 -20 -180 0
+3485 2678 161 0
+1797 1168 1 -133 -4 -37 -5 -18 -17 -26 -4 -17 7 -33 19 -42 -2 -31 5 -47
+797 1059 127 1 339 19
+2665 2975 257 1 204 1
+1427 2085 15 -279 -2 -72
+2916 2780 -14 -7 -67 -1 -12 -6 -9 -10 -3 -10 0 -66 14 -39 -1 -28 -5 -15 -49 -74
+766 1719 -177 4 -141 0
+1669 1663 -411 -4
+2154 466 1 -104
+1754 412 0 19 -12 57 0 17 6 19 44 74 4 27
+2141 1654 0 3 4 -301
+1608 2240 1 85 -6 13 -21 20 -6 15 -4 160
+3226 2168 2 -294
+1846 2980 1 242
+1677 2978 -350 -6
+1641 1392 14 -10 61 -11 127 -2 16 3 43 19 48 -1 11 -6
+2325 1633 135 -1 75 18 118 1
+730 2354 16 -267
+1627 1117 1 212 5 15 22 38
+2035 1717 39 -9 12 -12 19 -32 18 -9 18 -1 102 -3 58 -18 24 0
+3764 1947 231 0
+3588 1234 -1 107 14 63 -14 41 -2 48
+3585 1535 1 264
+2420 2525 276 -118 -3 1
+3596 887 1 17
+3126 2977 151 -3
+2665 2975 -15 3 -162 0 -103 -1 -21 -1
+2527 2599 -47 -69 -77 -119 -3 -10 3 -15
+1245 1733 -293 -15
+3950 1463 1 -5
+1691 637 105 -12
+1812 625 54 -1 108 5
+2573 942 8 8 8 3 168 0 35 -5 24 -8 24 -5
+2577 2766 44 67 85 129
+2500 2754 -12 0 -51 -1 -19 7
+2393 2745 -8 6 -154 -1
+2708 2431 -228 99
+2502 1733 -5 -216
+1936 2531 -261 3
+3598 920 -7 212
+1440 1734 -4 -214
+3459 2713 -4 -166
+2922 2976 -1 -185 -5 -11
+2831 2689 243 -2
+2191 2386 -4 89 4 20 16 39 0 49
+1604 1080 -240 0
+762 2632 0 -138
+1518 2242 -230 1
+1166 2972 161 0
+1572 2550 2 180
+2422 2526 -43 19 -15 3 -114 -14 -21 2
+2881 945 -9 -6 -32 -4
+2816 940 4 9 -1 14 -4 9 -9 4 2 9
+1233 641 -56 -3
+2496 1500 -4 -13 -9 -10 -52 -16 -14 -13 -3 -12 1 -68
+2163 1368 -176 3 -26 15
+2418 982 14 -13 13 -4 30 -55 23 -3
+3428 788 -27 3 -174 -3
+2245 2386 -4 -37 17 -37 0 -10 -34 -69
+2340 2220 2 31 10 132
+1799 1419 -2 -160
+2163 1368 192 0
+2224 2233 -90 -136
+2770 2524 -62 -93 -15 -23 -8 -12 -2 -9
+2322 2388 5 -10 -13 -125 -2 -14 4 -5
+1590 643 -181 0
+3047 786 180 2
+1624 680 1 145
+1669 1663 21 -7 93 -48 12 -4 19 -1
+1838 2830 -180 3
+1714 1735 101 -4
+3764 1830 12 -5 15 -20 7 -4 112 -1
+2600 533 3 -128
+2178 2751 -153 0
+2463 1050 -11 2 -7 -8 1 -10 10 -3
+1641 1392 -1 1 -14 33 -2 95
+2385 2977 2 -3 25 -7 68 1 8 10
+3403 2404 11 27 39 44 6 16 1 19
+1601 1373 -117 -1 -28 3
+909 1717 -143 2
+1438 1360 1 -116
+3484 786 -56 2
+2154 621 1 -113
+1069 2244 -138 0
+1424 1735 -138 -2
+3458 2845 0 5
+1240 2243 -133 0
+2069 2534 -133 -3
+890 2244 -133 -2
+2600 533 1 108
+1982 1870 -61 -93
+1815 1620 -13 -7 -7 -9 -5 -26 -25 -45
+3970 1800 33 0
+1436 1491 1 -100
+1609 2095 -1 100
+3458 2845 1 -93
+1626 914 0 93
+1741 1080 -115 0
+1993 1887 50 68 6 12
+2581 2746 102 -40
+2207 2612 5 97
+3327 2178 -11 -8 -11 -2 -79 0
+2317 2976 -110 3
+1626 914 -1 -89
+1680 1514 -2 -13 7 -8 31 -3 27 -12 14 1
+2146 1295 1 -84
+1963 1082 -87 1 -12 -2
+2171 2533 -102 1
+2745 2441 48 73
+762 2494 -3 -66 -4 -8 -10 -6
+2529 907 27 6 7 4 6 7 4 18
+1797 706 -1 -81
+3433 2679 -99 2
+2607 3190 21 27
+757 2242 -95 -1
+1797 784 0 -78
+2560 2650 45 68
+2127 1152 -94 2
+2140 2238 -18 2 -31 -2
+1651 2533 -79 0
+1574 2756 0 75
+2339 431 -6 -10 3 -57
+2607 3190 -35 -46 -5 -20
+474 1796 -29 1
+1620 498 2 72
+2090 2031 -41 -64
+1381 643 -86 0
+3230 1805 -2 69
+2824 2561 4 9 0 22 -9 6
+2619 2650 2 11 -10 34
+2180 2253 19 5 63 -3
+1962 1721 -4 9 -6 4 -36 1 -19 6
+1757 1479 6 -13 26 -16
+2742 3017 -36 -55
+2439 2688 -2 65
+662 2241 -80 0
+2368 2151 -36 -56
+1796 1247 -1 -31 7 -19 -1 -11
+2145 1356 1 -61
+2487 2767 0 10 0 3 -1 46
+1627 1065 -1 -58
+2009 1083 6 8 -1 47
+2569 2752 -15 3 -54 -1
+3074 2687 69 -2
+1640 1393 13 18 0 9 -8 6 -19 0
+3404 2309 0 -56
+1667 1737 -47 3 -21 -2
+2314 2253 -52 2
+1424 1735 16 -1 51 2
+1654 640 -29 5 -35 -2
+2793 2514 31 47
+1494 2543 49 -10 14 0
+2025 2751 -73 1
+538 1797 -64 -1
+2120 2076 -30 -45
+1295 643 -27 1 -35 -3
+3391 2226 -46 -34
+1494 2543 -62 0
+1623 620 -1 -50
+3910 1800 60 0
+3948 1505 2 -42
+1608 2240 0 -45
+1419 1374 -55 -2
+1324 1080 -61 0
+3234 2683 55 -1
+3591 1151 -2 44
+3234 2683 -53 1
+2178 2751 53 -1
+1599 1738 -53 -1
+1601 1373 25 1 7 5 8 13
+3433 2679 28 -3 24 2
+2147 1211 0 -43
+3585 1535 0 -42
+1871 1700 -22 -38
+3401 2373 1 -43
+2745 2689 51 0
+1624 659 -1 -39
+1240 2243 48 0
+3459 2713 0 39
+3588 1234 1 -39
+1952 2752 -41 1
+2256 2417 24 2 4 6 -1 7
+1714 1735 -47 2
+2364 2976 -47 0
+3334 2681 -45 1
+728 2393 2 -39
+1627 1100 -1 -20 1 -15
+909 1717 43 1
+1364 1372 -43 -1
+1245 1733 41 0
+931 2244 -41 0
+746 2087 0 -32
+1324 1080 40 0
+2559 2738 18 28
+1765 1533 -9 -20 -2 -16
+1321 1371 -39 0
+1890 1729 -19 -29
+1438 1360 -1 31
+1107 2243 -38 1
+3143 2685 38 -1
+2708 2431 27 5 10 5
+2504 1790 -2 -30
+1691 637 -37 3
+2604 395 -1 10
+1864 1081 -36 -3
+2207 2612 0 -29
+1546 1737 -34 -1
+2340 2220 -1 -19 9 -7
+2683 2706 30 -14
+2207 2534 -36 -1
+2474 2681 -14 1 -19 -4
+2528 2688 17 30
+2502 1760 0 -27
+2713 2692 13 -4 19 1
+1998 1079 -35 3
+1436 1520 0 -29
+2364 2166 -26 12
+1796 1247 1 12
+797 1059 -31 0
+1849 1662 -13 -22
+1741 1080 28 -2
+1574 2756 -2 -26
+1381 643 28 0
+2499 2671 -25 10
+2127 1152 7 -1 8 4 5 6 0 7
+1799 1419 0 16 -3 6
+3404 2309 -2 21
+725 1058 -23 0
+1419 2544 -27 0
+2439 2688 2 -10
+1675 2534 -24 -1
+1624 680 0 -21
+1921 1777 -11 -19
+3391 2226 6 4 7 13
+562 1799 -24 -2
+1439 1244 -1 -19
+2549 2632 11 18
+3591 1151 0 -19
+1993 1887 -11 -17
+1626 1080 -22 0
+1512 1736 -21 0
+2368 2151 2 8 -6 7
+2497 1517 -1 -17
+1572 2550 0 -17
+1627 1117 0 -17
+2537 2614 -10 -15
+1518 2242 19 0
+2021 1152 -7 -7 0 -7
+745 2414 -12 -8
+2488 2754 -1 13
+2153 634 1 -13
+2342 2251 15 0
+2581 2746 -12 6
+2549 2632 -8 -9
+1427 2096 0 -11
+3404 2243 0 10
+1789 1450 7 -9
+2033 1154 -12 -2
+2541 2623 -4 -9
+1960 2091 1 -10
+1998 1079 11 4
+2437 2753 2 7
+1363 2544 -9 0
+1800 1180 1 6
+2487 2777 -3 -1 3 4
+1427 2096 0 3 0 -3
+1375 2544 3 0
+1378 2544 -3 0
+1389 2544 3 0
+1363 2544 3 0
+1366 2544 -3 0
+1341 2544 4 0
+1392 2544 -3 0
+1345 2544 -4 0
+1350 2544 4 0
+1910 928 -1 3 1 -3
+1354 2544 -4 0
+1419 2544 3 -1
+1422 2543 -3 1
+1432 2543 -3 0
+1429 2543 3 0
+2567 3124 0 -2 0 1 0 1
+2342 2251 -1 0 -1 0 2 0
+1640 1393 1 -1
+1812 426 0 14
+1812 472 0 20
+1812 511 0 14
+1814 1601 0 2 0 2
+1814 1611 0 9 0 4
+1814 1642 1 22
+1815 1724 0 7 0 3 0 6
+1999 2084 15 16
+2143 2240 13 14
+2194 2303 5 8
+2215 2381 1 14
+2227 2528 2 8 1 2
+2278 2632 5 8
+2291 2652 7 8
+2320 2684 14 15
+2341 2705 3 2
+2344 2707 2 2
+2374 2730 7 6
+2399 2748 13 8
+2433 2768 8 5
+2481 2795 9 5
+2520 2823 8 9
+2207 2392 -2 0 -1 -11
+2202 2361 -1 -7 -13 -38
+2188 2316 -21 -34 -6 -7
+1350 573 16 2
+1802 483 5 -2
+1809 481 2 -1 4 0
+3792 1208 -3 12
+3774 1438 -3 80
+3768 1575 -1 10
+3753 1647 -4 12
+3651 1794 -5 9
+3646 1803 -1 3
+3621 1911 -1 5
+3620 1916 -3 22 0 1
+3602 2050 0 10
+3600 2125 0 10
+3597 2241 0 8
+3594 2378 0 12
+3503 2527 -16 8
+3464 2543 -9 4 -1 0
+3318 2563 -10 0
+3194 2566 -8 0
+3114 2568 -15 0
+3015 2567 -8 0
+2970 2567 -8 1
+2924 2573 -18 4 -29 11 -188 88 -78 19 -66 23 -38 3
+2507 2721 -13 -1
+2444 2708 -12 -3
+2651 3133 -3 -6
+2648 3127 -3 -7
+933 2687 6 0
+939 2687 11 0
+1927 2711 30 3
+2201 2711 8 -1 3 -1 2 0
+2319 2694 11 -2
+2438 464 -4 1
+2434 465 -8 2
+2434 465 1 2
+1974 487 0 -18
+3499 2033 -5 5
+1302 2676 0 -6
+1814 1500 -15 -2
+1760 1497 -6 0 -6 1
+1733 1502 -27 6
+1302 2685 0 -9
+2669 1563 0 -5
+2491 639 22 0
+2511 994 15 -1
+2526 915 3 -8 1 -5
+1763 927 12 0
+1795 926 23 0
+1821 926 4 0
+1843 926 10 0
+1977 1839 -48 7 -59 -8
+1825 1825 -28 -14 -3 -1
+3244 1726 -3 8
+1896 1728 -6 1 -36 2
+2067 2087 48 -2
+2115 2085 13 0
+1841 1226 -50 -1
+3047 1670 0 -6
+1835 1498 7 1
+652 1204 -7 0
+3765 2071 0 -6
+3768 1360 15 0
+1826 1367 -1 7
+2468 1054 -5 -4
+2513 902 -3 10
+1797 1080 1 -5
+1747 464 -4 18
+1742 492 0 13 1 4
+1748 523 0 1 12 20
+1641 1392 14 -10 5 -1
+1792 1370 19 -1
+1811 1369 27 0
+1654 1380 1 2
+2566 2978 -14 0
+1789 626 7 -1
+1812 625 16 0
+2573 942 5 5
+2780 950 10 -2
+2809 942 7 -2 1 0
+2191 2389 0 6
+1575 1080 -106 0
+1574 2723 0 7
+2816 940 3 6
+2448 959 27 -48
+2244 2341 12 -25
+1799 1374 -1 -7
+1641 1392 -1 1 -3 6
+1682 1496 3 -3 31 -3 27 -12 9 1
+2572 935 1 7
+1796 631 0 -6
+1621 528 0 20
+1640 1393 3 4
+1640 1390 1 2
+1573 2740 -1 -10
+1640 1393 1 -1
+2412 2773 -7 190 -1 2
+2724 2544 -59 -92 -43 -66
+2459 2539 8 -4 2 -1 1 -3
+2711 2430 21 -9
+2794 2640 9 -1 3 2 9 11 -2 2 -1 12 -5 11 -7 3 -4 1
+2520 2632 15 23
+2582 2733 56 85 7 7 0 6
+2455 2794 -69 -2 -14 -2 -162 -1
+2668 2723 18 27
+2701 2554 44 69 1 134
+2641 2734 4 6 2 2 19 7 24 1 15 -5
+2627 2740 47 -20
+2676 2719 10 -4
+2745 2752 -9 0 -4 -2 -26 -41
+2601 2760 9 -3 5 0 7 2
+2658 2727 8 12 0 3 -4 6
+2673 2749 2 9
+2748 2534 47 72
+2794 2632 1 22 -8 11 -1 7 2 3 3 3 5 3
+2796 2689 1 68
+2738 2659 54 0
+2384 2451 5 -2
+2389 2449 -4 4
+2534 2386 -19 9 -126 54
+2679 2564 29 47 36 59
+2621 2791 31 -14
+2694 2726 18 -7
+2719 2730 4 -1 22 0
+2745 2723 52 0
+2701 2554 -60 -94 -46 -69
+2657 2663 85 -37 28 0
+2794 2632 1 -1 10 -5 6 0 12 3 37 0
+2724 2544 15 24
+2740 2567 29 45 1 77
+2771 2689 0 68
+2644 2798 6 9 2 2 4 1 0 6
+2474 2473 -10 -14 -6 -11 -15 -22 -4 -8 -10 -15 -7 -9
+2565 2612 -15 -23
+2748 2534 -90 -137 -2 -3 0 -7
+2807 2581 15 -7
+2828 2587 3 0 7 -2
+2608 2813 52 -22
+2661 2798 28 -4
+2455 2794 6 9 -6 165
+2480 2619 13 -5
+2778 2491 47 -20
+2412 2773 -25 -1
+2450 2572 24 -10
+2495 2553 48 -21 2 2 18 -9
+2563 2524 1 0
+2565 2524 0 -1
+2657 2483 91 -38
+2588 2513 23 -10
+2618 2470 -46 -69
+2679 2564 -30 -47
+2505 2639 -2 -1 -9 2
+2505 2639 0 2 -8 3
+2505 2639 104 -46
+2714 2755 17 -7
+2602 2738 2 2 9 4 4 3 7 16 5 5 7 3 5 0 5 2 10 8 2 3 6 25 -1 2 -7 -1
+2808 2757 -62 0
+2345 2546 1 6 9 18 26 39 15 16 15 15
+2524 2678 -6 2 0 1
+2430 2632 -11 3 -8 5 -15 14
+2618 2601 2 1
+2620 2602 1 1 16 -7
+2620 2602 17 -7 0 1
+2637 2596 2 -1
+2489 2585 -122 -186
+2663 2630 17 29 1 2
+2484 2727 -85 -23 -5 -1 -5 0
+2542 2443 114 -49
+2436 2549 23 -10
+2423 2591 -15 7
+2459 2519 -4 -8
+2562 2816 0 15
+2565 2612 16 24
+2763 2468 23 -10
+2600 2711 -4 -4 0 -2
+2577 2548 -14 -23
+2659 2676 -1 -1
+2669 2693 -1 -2
+2677 2705 0 1
+2601 2709 -3 -4
+2502 2628 8 11
+2571 2621 2 -1
+2663 848 -101 -3 -32 5 -60 27 -9 7 -11 17
+2482 832 -38 67
+2684 918 -15 -67
+1360 577 50 100 16 46 17 66 66 298 14 48 41 103 42 86 121 194 850 1300 20 52 4 59
+1443 789 42 22 21 2 14 -1 363 -88 25 -14 23 -30 16 -14 72 -27 18 -3 208 2 580 -140 36 -10 43 -17
+2665 3210 -48 -67 -15 -41 -3 -24 2 -149
+1345 550 15 27
+2514 1008 72 8 14 0 1 -6 3 8 37 -9 0 7 41 0 1 -11 -4 -15 -64 -1 -94 10 -7 9
+1094 1219 2 69 -13 8 14 9 48 -13 115 6 0 -70 -166 -9
+2603 1385 -18 -1 0 11 -59 -1 0 10 81 -1 2 13 13 -3 -4 -9 24 0 5 -40 15 1 1 -12 -14 -1 1 -18 -13 -1 -7 8 6 53 -31 2 -2 -11
+802 1462 1 33 101 0 -1 -33 -101 0
+2147 2047 -12 -13 -29 14 18 28 56 -2 8 7 79 -5 -40 -61 -54 23 0 8 -26 1
+651 2215 -1 24 36 1 -4 -36 12 0 3 -37 -43 1 -3 41 14 -2 -1 8 -13 0
+1620 2596 -43 13 6 113 78 4 95 -23 89 4 0 -46 -95 1 -85 -102 -6 3 -18 -18 -16 0 -7 15 -40 -1 0 28 30 -3 12 12
+1665 2831 134 -2 -1 -75 -133 2 0 75
+1305 2909 2 39 20 1 8 21 11 -1 1 -24 7 0 8 26 42 0 2 -63 -101 1
+3056 529 -1 108 149 4 4 -38 -152 -74
+3090 713 -37 1 -3 72 61 0 1 -14 19 -13 -19 -18 0 -22 -22 0 0 -6
+3223 1320 -1 -93 -41 0 1 74 20 0 1 19 20 0
+3051 2168 84 -1 -1 -26 -32 0 0 -16 -51 1 0 42
+3292 2786 -9 41 172 -5 0 -71 -146 4 -17 31
+2704 2923 36 -6 1 -35 -66 -1 0 21 11 0 18 28 0 -7
+2919 2935 -173 0 0 40 173 0 0 -40
+1795 476 -1 -34 -11 5 -13 10 -9 13 -2 17 36 -11
+1837 501 9 -16 -23 1 0 23 14 -8
+1349 853 72 1 12 -6 7 -18 -11 -75 -13 -1 -1 10 -66 0 -18 28 -8 -3 -10 2 -9 -5 -2 54 28 0 19 13
+1925 867 19 -7 -12 -6 -5 1 6 4 -4 5 -6 -3 0 -5 -15 0 -5 5 3 4 5 -5 6 1 8 6
+1509 1132 4 -3 -12 -43 -9 -2 -2 47 19 1
+746 1260 0 7 175 21 -1 -7 -174 -21
+927 1287 156 9 8 -8 -164 -9 0 8
+568 1802 0 51 42 -1 -1 -53 -41 3
+734 2234 3 -63 -5 -3 -35 0 -3 36 -12 0 4 36 44 -1 4 -5
+1711 2796 -15 -9 12 -2 -2 -9 -15 1 -3 8 13 6 -8 8 2 11 8 3 7 -2 1 -15
+1421 2940 2 -18 -13 -1 -3 17 14 2
+1806 3165 -99 3 9 27 126 26 -2 -31 -11 -12 -23 -13
+2361 465 47 -6 6 -5 -23 -11 -29 -1 -17 3 -5 5 -1 9 22 6
+1945 729 -4 -10 3 -6 -7 -2 -15 11 12 1 2 11 9 -5
+2974 863 0 -18 -11 -4 -2 -5 0 28 13 -1
+1955 1436 -9 1 -9 7 -12 14 4 4 -5 1 0 7 5 10 20 5 2 5 7 2 -3 -56
+2416 1479 66 5 6 1 -4 -5 -57 -2 -16 -7 0 5 5 3
+2162 1720 11 -3 12 9 4 -1 2 -2 1 -8 4 -2 -1 -8 12 3 5 -2 -2 -6 -5 -5 1 -8 9 -4 5 8 6 5 3 1 3 -3 4 -9 7 -2 8 12 -1 10 5 4 -3 20 6 15 6 6 -5 6 0 3 4 1 14 0 3 4 12 -3 6 7 -4 11 5 -3 5 4 4 -4 -9 -17 -17 3 -6 -3 -15 -1 4 -8 -12 -20 4 -22 -6 -3 1 -10 -6 -12 7 1 2 -3 -16 -3 -10 18 -13 -13 -8 2 -4 3 -1 2 7 16 -16 -2 0 9 -3 1 -4 11 -15 -9 -10 4 -2 -11 10 -4 -10 -5 3 6 -5 6 0 5 4 3
+3359 2601 22 -4 8 -5 -7 -4 -18 1 -9 7 4 5
+3363 2636 24 -11 7 -11 -26 6 -9 9 0 5 4 2
+1975 818 -1 26 14 7 35 1 0 7 -7 0 -1 24 -41 0 0 42 20 -1 6 41 -34 0 -1 29 28 0 0 9 9 1 0 20 12 0 0 15 -14 0 0 12 -28 0 0 26 38 7 4 33 42 -1 4 -5 36 3 14 -13 51 0 -1 15 -11 7 1 77 7 21 252 1 21 -18 -34 -1 0 -10 -8 0 -2 -7 17 -13 3 -13 -22 -30 18 -7 -18 -26 0 -12 -29 -5 -1 -18 7 -5 3 -59 13 -7 3 -20 21 -6 5 -28 21 -39 36 -38 10 4 2 12 23 -3 0 -13 41 -13 11 -36 13 0 -5 52 -15 24 0 15 27 -2 3 9 -9 3 18 12 3 -4 9 2 6 -16 2 23 177 -2 4 -32 29 0 0 -5 7 0 1 5 26 -3 -2 -74 27 0 0 60 62 0 0 -39 -8 0 0 -53 121 -3 0 -127 -16 -13 -23 0 -270 6 -122 -4 -24 7 -63 0 -15 -6 -47 5 -15 -11 -71 -1 -354 1 -47 16 -2 125 16 -4 0 14 15 17 -11 10 -22 0
+2329 2169 -2 0 -6 -8 -4 -1 -5 2 -5 -4 2 -5 -4 -6 2 -1 -3 0 -4 -2 0 -2 -2 1 -6 0 -1 -2 -3 -1 0 -3 -8 2 -18 0 1 9 15 -1 0 13 14 7 0 4 3 -1 0 -2 3 -1 2 4 9 0 1 7 -20 2 0 7 11 -1 0 -2 12 -1 0 -2 21 0 0 -6 -5 -6
+4001 1737 -6 -71 -11 -70 -15 -70 -19 -70 -23 -68 -27 -67 -32 -67 -35 -65 -40 -63 -43 -62 -46 -60 -51 -58 -53 -56 -57 -54 -61 -51 -63 -49 -66 -47 -69 -43 -71 -41 -74 -38 -76 -35 -78 -32 -80 -29 -81 -25 -83 -23 -85 -19 -85 -15 -86 -12 -87 -9 -87 -5 -87 -2 -87 2 -87 5 -87 9 -86 12 -85 15 -85 19 -83 23 -81 25 -80 29 -78 32 -76 35 -74 38 -71 41 -69 43 -66 47 -63 49 -61 51 -57 54 -53 56 -51 58 -46 60 -43 62 -40 63 -35 65 -32 67 -27 67 -23 68 -19 70 -15 70 -11 70 -6 71 -3 71 3 71 6 71 11 70 15 70 19 70 23 68 27 67 32 67 35 65 40 63 43 62 46 60 51 58 53 56 57 54 61 51 63 49 66 47 69 43 71 41 74 38 76 35 78 32 80 29 81 25 83 23 85 19 85 15 86 12 87 9 87 5 87 2 87 -2 87 -5 87 -9 86 -12 85 -15 85 -19 83 -23 81 -25 80 -29 78 -32 76 -35 74 -38 71 -41 69 -43 66 -47 63 -49 61 -51 57 -54 53 -56 51 -58 46 -60 43 -62 40 -63 35 -65 32 -67 27 -67 23 -68 19 -70 15 -70 11 -70 6 -71 3 -71 -3 -71
+@streets line
+name,ref,class,arcs
+Las Vegas Freeway,I 15,motorway,0;1
+Las Vegas Freeway,I 15,motorway,2
+Bruce Woodbury Beltway,CC 215,motorway,3;4
+Purple Heart Highway,I 11;US 93;US 95,motorway,5;6
+Las Vegas Freeway,I 15;US 93,motorway,7;8
+Purple Heart Highway,I 11;US 95,motorway,9;10
+Bruce Woodbury Beltway,I 215,motorway,11;12
+Airport Connector,,motorway,13
+Airport Connector,,motorway,14
+,CC 215,motorway,15
+South Las Vegas Boulevard,,primary,16
+West Sahara Avenue,,primary,17;18
+North Rancho Drive,SR 599,primary,19
+Boulder Highway,SR 582,primary,20;21
+Boulder Highway,SR 582,primary,22
+East Russell Road,,primary,23
+South Rainbow Boulevard,SR 595,primary,24;25
+East Flamingo Road,SR 592,primary,26
+East Tropicana Avenue,SR 593,primary,27
+South Decatur Boulevard,,primary,28
+West Flamingo Road,SR 592,primary,29
+East Sahara Avenue,,primary,30
+East Charleston Boulevard,SR 159,primary,31;32
+South Decatur Boulevard,,primary,33
+North Decatur Boulevard,,primary,34
+South Maryland Parkway,,primary,35
+North Eastern Avenue,,primary,36
+North Martin Luther King Junior Boulevard,,primary,37
+East Sunset Road,SR 562,primary,38
+5th Street,,primary,39
+East Sunset Road,SR 562,primary,40
+East Russell Road,,primary,41
+South Maryland Parkway,,primary,42
+South Maryland Parkway,,primary,43
+West Charleston Boulevard,,primary,44
+Paradise Road,,primary,45
+East Tropicana Avenue,,primary,46
+West Russell Road,,primary,47
+Wilbur Clark D.I. Road,,primary,48
+West Lake Mead Boulevard,,primary,49
+George Crockett Road,,primary,50
+South Jones Boulevard,,primary,51
+West Flamingo Road,,primary,52
+Fremont Street,SR 582,primary,53
+Hidden Well Road,,primary,54
+Hidden Well Road,,primary,55
+Pecos–McLeod Interconnect,,primary,56
+South Jones Boulevard,SR 596,primary,57
+South Eastern Avenue,,primary,58
+South Valley View Boulevard,,primary,59
+East Desert Inn Road,,primary,60
+South Rancho Drive,,primary,61
+Paradise Road,,primary,62
+East Flamingo Road,,primary,63
+University Center Drive,,primary,64
+Civic Center Drive,,primary,65
+North Las Vegas Boulevard,,primary,66
+Paradise Road,,primary,67
+East Charleston Boulevard,,primary,68
+South Jones Boulevard,,primary,69
+South Jones Boulevard,,primary,70
+West Tropicana Avenue,,primary,71
+West Russell Road,,primary,72
+South Jones Boulevard,SR 596,primary,73
+East Lake Mead Boulevard,,primary,74
+South Eastern Avenue,,primary,75
+South Rancho Drive,,primary,76
+West Charleston Boulevard,,primary,77
+West Lake Mead Boulevard,,primary,78
+West Washington Avenue,,primary,79
+Spring Mountain Road,,primary,80
+East Desert Inn Road,,primary,81
+South Eastern Avenue,,primary,82
+South Eastern Avenue,,primary,83
+West Sahara Avenue,SR 589,primary,84
+West Tropicana Avenue,SR 593,primary,85
+West Lake Mead Boulevard,,primary,86
+Fremont Street,,primary,87
+South Jones Boulevard,,primary,88
+East Lake Mead Boulevard North,,primary,89
+South Main Street,,primary,90
+West Charleston Boulevard,,primary,91
+West Tropicana Avenue,,primary,92
+East Lake Mead Boulevard South,,primary,93
+West Charleston Boulevard,SR 159,primary,94
+South Eastern Avenue,,primary,95
+South Pecos Road,,primary,96
+South Commerce Street,,primary,97
+East Desert Inn Road,,primary,98
+West Desert Inn Road,,primary,99
+West Lake Mead Boulevard,,primary,100
+South Eastern Avenue,,primary,101
+South Eastern Avenue,,primary,102
+South Pecos Road,,primary,103
+West Flamingo Road,,primary,104
+East Sahara Avenue,,primary,105
+South Lamb Boulevard,,primary,106
+East Sahara Avenue,,primary,107
+West Washington Avenue,,primary,108
+West Desert Inn Road,,primary,109
+West Sahara Avenue,,primary,110
+West Desert Inn Road,,primary,111
+West Desert Inn Road,,primary,112
+North Las Vegas Boulevard,,primary,113
+South Pecos Road,,primary,114
+East Sahara Avenue,,primary,115
+South Eastern Avenue,,primary,116
+South Eastern Avenue,,primary,117
+West Russell Road,,primary,118
+West Desert Inn Road,,primary,119
+West Tropicana Avenue,,primary,120
+South Jones Boulevard,,primary,121
+North Las Vegas Boulevard,,primary,122
+West Desert Inn Road,,primary,123
+East Sahara Avenue,,primary,124
+West Charleston Boulevard,,primary,125
+South Pecos Road,,primary,126
+North Jones Boulevard,,primary,127
+East Sunset Road,SR 562,primary,128
+South Pecos Road,,primary,129
+South Eastern Avenue,,primary,130
+South Main Street,,primary,131
+East Tropicana Avenue,,primary,132
+West Tropicana Avenue,,primary,133
+South Valley View Boulevard,,primary,134
+West Russell Road,,primary,135
+North Lamb Boulevard,,primary,136
+West Tropicana Avenue,,primary,137
+South Decatur Boulevard,,primary,138
+West Russell Road,,primary,139
+South Pecos Road,,primary,140
+East Desert Inn Road,,primary,141
+South Eastern Avenue,,primary,142
+West Lake Mead Boulevard,,primary,143
+East Washington Avenue,,primary,144
+East Charleston Boulevard,,primary,145
+West Tropicana Avenue,,primary,146
+Stewart Avenue,,primary,147
+Paradise Road,,primary,148
+North Las Vegas Boulevard,,primary,149
+West Russell Road,,primary,150
+South Eastern Avenue,,primary,151
+Paradise Road,,primary,152
+South Maryland Parkway,,primary,153
+West Washington Avenue,,primary,154
+South Eastern Avenue,,primary,155
+East Desert Inn Road,,primary,156
+West Charleston Boulevard,,primary,157
+West Washington Avenue,,primary,158
+Fremont Street,,primary,159
+West Russell Road,,primary,160
+West Charleston Boulevard,,primary,161
+East Sunset Road,SR 562,primary,162
+South Jones Boulevard,,primary,163
+North Main Street,,primary,164
+South Rancho Drive,,primary,165
+West Tropicana Avenue,,primary,166
+East Sahara Avenue,,primary,167
+East Charleston Boulevard,,primary,168
+East Desert Inn Road,,primary,169
+South Pecos Road,,primary,170
+East Desert Inn Road,,primary,171
+South Jones Boulevard,,primary,172
+West Washington Avenue,,primary,173
+West Russell Road,,primary,174
+Paradise Road,,primary,175
+South Lamb Boulevard,,primary,176
+South Jones Boulevard,,primary,177
+South Lamb Boulevard,,primary,178
+West Washington Avenue,,primary,179
+South Lamb Boulevard,,primary,180
+East Desert Inn Road,,primary,181
+South Pecos Road,,primary,182
+East Desert Inn Road,,primary,183
+East Sunset Road,SR 562,primary,184
+North Las Vegas Boulevard,,primary,185
+West Desert Inn Road,,primary,186
+South Eastern Avenue,,primary,187
+West Tropicana Avenue,,primary,188
+South Jones Boulevard,SR 596,primary,189
+South Jones Boulevard,,primary,190
+South Maryland Parkway,,primary,191
+West Tropicana Avenue,,primary,192
+West Russell Road,,primary,193
+South Pecos Road,,primary,194
+South Maryland Parkway,,primary,195
+West Desert Inn Road,,primary,196
+South Lamb Boulevard,,primary,197
+Fremont Street,,primary,198
+West Washington Avenue,,primary,199
+West Charleston Boulevard,,primary,200
+West Desert Inn Road,,primary,201
+South Jones Boulevard,,primary,202
+East Charleston Boulevard,,primary,203
+North Las Vegas Boulevard,,primary,204
+South Valley View Boulevard,,primary,205
+Paradise Road,,primary,206
+East Charleston Boulevard,,primary,207
+South Lamb Boulevard,,primary,208
+Paradise Road,,primary,209
+West Lake Mead Boulevard,,primary,210
+East Desert Inn Road,,primary,211
+East Sahara Avenue,,primary,212
+East Desert Inn Road,,primary,213
+South Valley View Boulevard,,primary,214
+East Sunset Road,SR 562,primary,215
+South Lamb Boulevard,,primary,216
+South Lamb Boulevard,,primary,217
+Paradise Road,,primary,218
+South Valley View Boulevard,,primary,219
+West Charleston Boulevard,,primary,220
+East Desert Inn Road,,primary,221
+South Lamb Boulevard,,primary,222
+South Eastern Avenue,,primary,223
+West Tropicana Avenue,,primary,224
+Fremont Street,,primary,225
+West Charleston Boulevard,,primary,226
+West Charleston Boulevard,,primary,227
+West Desert Inn Road,,primary,228
+West Desert Inn Road,,primary,229
+East Tropicana Avenue,,primary,230
+Paradise Road,,primary,231
+East Desert Inn Road,,primary,232
+West Russell Road,,primary,233
+South Pecos Road,,primary,234
+South Valley View Boulevard,,primary,235
+East Desert Inn Road,,primary,236
+West Charleston Boulevard,,primary,237
+North Lamb Boulevard,,primary,238
+East Charleston Boulevard,,primary,239
+West Desert Inn Road,,primary,240
+West Washington Avenue,,primary,241
+West Charleston Boulevard,,primary,242
+West Charleston Boulevard,,primary,243
+South Lamb Boulevard,,primary,244
+South Lamb Boulevard,,primary,245
+East Desert Inn Road,,primary,246
+South Eastern Avenue,,primary,247
+West Desert Inn Road,,primary,248
+South Eastern Avenue,,primary,249
+Paradise Road,,primary,250
+West Charleston Boulevard,,primary,251
+East Charleston Boulevard,,primary,252
+South Lamb Boulevard,,primary,253
+East Desert Inn Road,,primary,254
+West Desert Inn Road,,primary,255
+East Desert Inn Road,,primary,256
+West Desert Inn Road,,primary,257
+South Lamb Boulevard,,primary,258
+East Sunset Road,SR 562,primary,259
+South Eastern Avenue,,primary,260
+East Desert Inn Road,,primary,261
+East Charleston Boulevard,,primary,262
+South Eastern Avenue,,primary,263
+East Russell Road,,primary,264
+South Lamb Boulevard,,primary,265
+North Jones Boulevard,SR 596,primary,266
+East Desert Inn Road,,primary,267
+East Desert Inn Road,,primary,268
+South Lamb Boulevard,,primary,269
+East Charleston Boulevard,,primary,270
+South Valley View Boulevard,,primary,271
+South Pecos Road,,primary,272
+West Washington Avenue,,primary,273
+East Desert Inn Road,,primary,274
+Fremont Street,,primary,275
+West Tropicana Avenue,,primary,276
+West Charleston Boulevard,,primary,277
+Fremont Street,,primary,278
+Paradise Road,,primary,279
+South Main Street,,primary,280
+Stewart Avenue,,primary,281
+East Harmon Avenue,,primary,282
+South Pecos Road,,primary,283
+Stewart Avenue,,primary,284
+Paradise Road,,primary,285
+East Washington Avenue,,primary,286
+East Sahara Avenue,,primary,287
+West Tropicana Avenue,,primary,288
+South Jones Boulevard,,primary,289
+South Maryland Parkway,,primary,290
+Fremont Street,,primary,291
+Fremont Street,,primary,292
+West Charleston Boulevard,,primary,293
+West Charleston Boulevard,,primary,294
+North Jones Boulevard,,primary,295
+South Jones Boulevard,,primary,296
+South Maryland Parkway,,primary,297
+South Main Street,,primary,298
+West Charleston Boulevard,,primary,299
+Fremont Street,,primary,300
+Fremont Street,,primary,301
+Fremont Street,,primary,302
+Fremont Street,,primary,303
+Fremont Street,,primary,304
+Fremont Street,,primary,305
+Fremont Street,,primary,306
+Fremont Street,,primary,307
+Fremont Street,,primary,308
+West Washington Avenue,,primary,309
+South Main Street,,primary,310
+East Tropicana Avenue,SR 593,primary,311
+West Sunset Road,SR 562,primary,312
+West Sunset Road,SR 562,primary,313
+East Harmon Avenue,,secondary,314
+South Torrey Pines Drive,,secondary,315
+East Washington Avenue,,secondary,316
+Alta Drive,,secondary,317
+East Hacienda Avenue,,secondary,318
+Frank Sinatra Drive,,secondary,319
+Frank Sinatra Drive,,secondary,320
+Frank Sinatra Drive,,secondary,321
+Frank Sinatra Drive,,secondary,322
+Frank Sinatra Drive,,secondary,323
+Frank Sinatra Drive,,secondary,324
+Stewart Avenue,,secondary,325
+Stewart Avenue,,secondary,326
+West Washington Avenue,,secondary,327
+Grand Central Parkway,,secondary,328
+West Oakey Boulevard,,secondary,329
+Wayne Newton Boulevard,,secondary,330
+Wayne Newton Boulevard,,secondary,331
+Stewart Avenue,,secondary,332
+West Oakey Boulevard,,secondary,333
+South Valley View Boulevard,,secondary,334
+Vegas Drive,,secondary,335
+West Harmon Avenue,,secondary,336
+East Bonanza Road,,secondary,337
+Dean Martin Drive,,secondary,338
+West Hacienda Avenue,,secondary,339
+East Owens Avenue,,secondary,340
+Arville Street,,secondary,341
+North Maryland Parkway,,secondary,342
+Spring Mountain Road,,secondary,343
+West Twain Avenue,,secondary,344
+Gilespie Street,,secondary,345
+Dean Martin Drive,,secondary,346
+Koval Lane,,secondary,347
+South Valley View Boulevard,,secondary,348
+McLeod Drive,,secondary,349
+Simmons Street,,secondary,350
+Vegas Drive,,secondary,351
+West Harmon Avenue,,secondary,352
+East Twain Avenue,,secondary,353
+South Torrey Pines Drive,,secondary,354
+South Valley View Boulevard,,secondary,355
+Sands Avenue,,secondary,356
+Vegas Valley Drive,,secondary,357
+South Sandhill Road,,secondary,358
+South Sandhill Road,,secondary,359
+East Bonneville Avenue,,secondary,360
+South Sandhill Road,,secondary,361
+East Owens Avenue,,secondary,362
+West Owens Avenue,,secondary,363
+South Casino Center Boulevard,,secondary,364
+Spring Mountain Road,,secondary,365
+Mountain Vista Street,,secondary,366
+West Sunset Road,,secondary,367
+West Sunset Road,,secondary,368
+Terminal 3 - Zero Level,,secondary,369
+North Main Street,,secondary,370
+West Bonanza Road,SR 579,secondary,371
+West Bonanza Road,SR 579,secondary,372
+Clark Avenue,,secondary,373
+University Center Drive,,secondary,374
+Alta Drive,,secondary,375
+South Sandhill Road,,secondary,376
+Arville Street,,secondary,377
+North Pecos Road,,secondary,378
+North Bruce Street,,secondary,379
+East Bonanza Road,,secondary,380
+South Martin Luther King Junior Boulevard,,secondary,381
+West Hacienda Avenue,,secondary,382
+South Torrey Pines Drive,,secondary,383
+West Oakey Boulevard,,secondary,384
+Vegas Drive,,secondary,385
+South Valley View Boulevard,,secondary,386
+West Bonneville Avenue,,secondary,387
+Landing Strip Avenue,,secondary,388
+Landing Strip Avenue,,secondary,389
+West Sunset Road,,secondary,390
+University Center Drive,,secondary,391
+East Harmon Avenue,,secondary,392
+Terminal 1 Arrivals,,secondary,393
+East Patrick Lane,,secondary,394
+Industrial Road,,secondary,395
+South Main Street,,secondary,396
+Dean Martin Drive,,secondary,397
+East Harmon Avenue,,secondary,398
+Industrial Road,,secondary,399
+South Maryland Parkway,,secondary,400
+South Commerce Street,,secondary,401
+West Sunset Road,,secondary,402
+East Patrick Lane,,secondary,403
+South Valley View Boulevard,,secondary,404
+West Twain Avenue,,secondary,405
+West Washington Avenue,,secondary,406
+Spring Mountain Road,,secondary,407
+East Desert Inn Road,,secondary,408
+Paradise Road,,secondary,409
+West Bonanza Road,SR 579,secondary,410
+Terminal 1 Departures,,secondary,411
+South Valley View Boulevard,,secondary,412
+Harrison Avenue,,secondary,413
+North Pecos Road,,secondary,414
+West Harmon Avenue,,secondary,415
+Spring Mountain Road,,secondary,416
+Arville Street,,secondary,417
+East Patrick Lane,,secondary,418
+Gilespie Street,,secondary,419
+West Oakey Boulevard,,secondary,420
+Spring Mountain Road,,secondary,421
+North Pecos Road,,secondary,422
+West Oakey Boulevard,,secondary,423
+Alta Drive,,secondary,424
+West Oakey Boulevard,,secondary,425
+Paradise Road,,secondary,426
+Sammy Davis Junior Drive,,secondary,427
+Dean Martin Drive,,secondary,428
+East Desert Inn Road,,secondary,429
+Arville Street,,secondary,430
+South Valley View Boulevard,,secondary,431
+North Pecos Road,,secondary,432
+South Valley View Boulevard,,secondary,433
+West Hacienda Avenue,,secondary,434
+Sammy Davis Junior Drive,,secondary,435
+East Bonanza Road,SR 579,secondary,436
+South Martin Luther King Junior Boulevard,,secondary,437
+East Saint Louis Avenue,,secondary,438
+West Owens Avenue,,secondary,439
+South Valley View Boulevard,,secondary,440
+Hotel Rio Drive,,secondary,441
+Koval Lane,,secondary,442
+West Mandalay Bay Road,,secondary,443
+Alta Drive,,secondary,444
+South 13th Street,,secondary,445
+South Torrey Pines Drive,,secondary,446
+Flight Path Avenue,,secondary,447
+Dean Martin Drive,,secondary,448
+East Bonanza Road,,secondary,449
+Losee Road,,secondary,450
+West Oakey Boulevard,,secondary,451
+Dean Martin Drive,,secondary,452
+North Casino Center Boulevard,,secondary,453
+East Reno Avenue,,secondary,454
+West Oakey Boulevard,,secondary,455
+Alta Drive,,secondary,456
+North Valley View Boulevard,,secondary,457
+Bermuda Road,,secondary,458
+Losee Road,,secondary,459
+West Desert Inn Road,,secondary,460
+South Valley View Boulevard,,secondary,461
+Sammy Davis Junior Drive,,secondary,462
+West Sunset Road,,secondary,463
+McLeod Drive,,secondary,464
+North Rue 13,,secondary,465
+North 4th Street,,secondary,466
+West Wyoming Avenue,,secondary,467
+Mel Tormé Way,,secondary,468
+Dean Martin Drive,,secondary,469
+North Main Street,,secondary,470
+North City Parkway,,secondary,471
+West Oakey Boulevard,,secondary,472
+Paradise Road,,secondary,473
+Joey Bishop Drive,,secondary,474
+Koval Lane,,secondary,475
+D Street,,secondary,476
+South Valley View Boulevard,,secondary,477
+Giles Street,,secondary,478
+West Bonanza Road,SR 579,secondary,479
+East Bonanza Road,,secondary,480
+West Harmon Avenue,,secondary,481
+Palm Street,,secondary,482
+Spring Mountain Road,,secondary,483
+West Wyoming Avenue,,secondary,484
+Spring Mountain Road,,secondary,485
+West Sunset Road,,secondary,486
+North 13th Street,,secondary,487
+Alta Drive,,secondary,488
+West Bonanza Road,SR 579,secondary,489
+West Desert Inn Road,,secondary,490
+Sammy Davis Junior Drive,,secondary,491
+West Sunset Road,,secondary,492
+East Saint Louis Avenue,,secondary,493
+Alta Drive,,secondary,494
+South Valley View Boulevard,,secondary,495
+East Desert Inn Road,,secondary,496
+Mountain Vista Street,,secondary,497
+South Valley View Boulevard,,secondary,498
+West Harmon Avenue,,secondary,499
+West Hacienda Avenue,,secondary,500
+East Bonanza Road,,secondary,501
+South Sandhill Road,,secondary,502
+East Bonanza Road,,secondary,503
+West Bonanza Road,SR 579,secondary,504
+Spring Mountain Road,,secondary,505
+West Harmon Avenue,,secondary,506
+East Bonanza Road,,secondary,507
+Koval Lane,,secondary,508
+South Sandhill Road,,secondary,509
+Sammy Davis Junior Drive,,secondary,510
+Palm Street,,secondary,511
+East Bonanza Road,,secondary,512
+South Valley View Boulevard,,secondary,513
+West Oakey Boulevard,,secondary,514
+North Pecos Road,,secondary,515
+South Sandhill Road,,secondary,516
+West Bonanza Road,SR 579,secondary,517
+Iron Horse Court,,secondary,518
+Spring Mountain Road,,secondary,519
+West Owens Avenue,,secondary,520
+East Bonanza Road,,secondary,521
+South Torrey Pines Drive,,secondary,522
+South Valley View Boulevard,,secondary,523
+Spring Mountain Road,,secondary,524
+West Harmon Avenue,,secondary,525
+Spring Mountain Road,,secondary,526
+West Oakey Boulevard,,secondary,527
+South Torrey Pines Drive,,secondary,528
+West Hacienda Avenue,,secondary,529
+North Main Street,,secondary,530
+Dean Martin Drive,,secondary,531
+West Harmon Avenue,,secondary,532
+Sammy Davis Junior Drive,,secondary,533
+Arville Street,,secondary,534
+West Oakey Boulevard,,secondary,535
+East Bonanza Road,,secondary,536
+South Rue 13,,secondary,537
+University Center Drive,,secondary,538
+West Sunset Road,,secondary,539
+Paradise Road,,secondary,540
+West Mandalay Bay Road,,secondary,541
+South Martin Luther King Junior Boulevard,,secondary,542
+Spring Mountain Road,,secondary,543
+South Main Street,,secondary,544
+East Bonanza Road,,secondary,545
+Alta Drive,,secondary,546
+West Ogden Avenue,,secondary,547
+North Main Street,,secondary,548
+University Center Drive,,secondary,549
+East Bonanza Road,,secondary,550
+East Mandalay Bay Road,,secondary,551
+Arville Street,,secondary,552
+East Saint Louis Avenue,,secondary,553
+Joey Bishop Drive,,secondary,554
+West Hacienda Avenue,,secondary,555
+Sammy Davis Junior Drive,,secondary,556
+West Hacienda Avenue,,secondary,557
+North Valley View Boulevard,,secondary,558
+West Sunset Road,,secondary,559
+West Ogden Avenue,,secondary,560
+East Reno Avenue,,secondary,561
+Dean Martin Drive,,secondary,562
+Palm Street,,secondary,563
+West Hacienda Avenue,,secondary,564
+Alta Drive,,secondary,565
+North City Parkway,,secondary,566
+Alta Drive,,secondary,567
+South Valley View Boulevard,,secondary,568
+Sammy Davis Junior Drive,,secondary,569
+East Saint Louis Avenue,,secondary,570
+West Desert Inn Road,,secondary,571
+Arville Street,,secondary,572
+North Casino Center Boulevard,,secondary,573
+South Sandhill Road,,secondary,574
+Sammy Davis Junior Drive,,secondary,575
+West Hacienda Avenue,,secondary,576
+Spring Mountain Road,,secondary,577
+Paradise Road,,secondary,578
+University Center Drive,,secondary,579
+South Valley View Boulevard,,secondary,580
+South Valley View Boulevard,,secondary,581
+South Casino Center Boulevard,,secondary,582
+West Oakey Boulevard,,secondary,583
+Giles Street,,secondary,584
+South Torrey Pines Drive,,secondary,585
+D Street,,secondary,586
+Gilespie Street,,secondary,587
+East Wyoming Avenue,,secondary,588
+East Bonanza Road,SR 579,secondary,589
+North Casino Center Boulevard,,secondary,590
+Arville Street,,secondary,591
+Palm Street,,secondary,592
+Dean Martin Drive,,secondary,593
+East Reno Avenue,,secondary,594
+South Casino Center Boulevard,,secondary,595
+South Rancho Drive,,secondary,596
+East Mandalay Bay Road,,secondary,597
+North City Parkway,,secondary,598
+Alta Drive,,secondary,599
+Joey Bishop Drive,,secondary,600
+D Street Connector,,secondary,601
+Arville Street,,secondary,602
+Alta Drive,,secondary,603
+Alta Drive,,secondary,604
+Alta Drive,,secondary,605
+Alta Drive,,secondary,606
+Alta Drive,,secondary,607
+Alta Drive,,secondary,608
+Alta Drive,,secondary,609
+Alta Drive,,secondary,610
+Alta Drive,,secondary,611
+Frank Sinatra Drive,,secondary,612
+Alta Drive,,secondary,613
+Alta Drive,,secondary,614
+Alta Drive,,secondary,615
+Alta Drive,,secondary,616
+Alta Drive,,secondary,617
+Losee Road,,secondary,618
+West Wyoming Avenue,,secondary,619
+West Harmon Avenue,,secondary,620
+@bridges line
+class,arcs
+motorway,621
+motorway,622
+motorway,623
+motorway,624
+motorway,625
+motorway,626
+motorway,627
+motorway,628
+motorway,629
+motorway,630
+motorway,631
+motorway,632
+motorway,633
+motorway,634
+motorway,635
+motorway,636
+motorway,637
+motorway,638
+motorway,639
+motorway,640
+motorway,641
+motorway,642
+motorway,643
+motorway,644
+motorway,645
+motorway,646
+motorway,647
+motorway,648
+motorway,649
+motorway,650
+motorway,651
+motorway,652
+motorway,653
+motorway,654
+motorway,655
+motorway,656
+motorway,657
+motorway,658
+motorway,659
+motorway,660
+motorway,661
+motorway,662
+motorway,663
+motorway,664
+motorway,665
+motorway,666
+motorway,667
+motorway,668
+motorway,669
+motorway,670
+motorway,671
+motorway,672
+motorway,673
+motorway,674
+motorway,675
+motorway,676
+motorway,677
+motorway,678
+motorway,679
+motorway,680
+primary,681
+primary,682
+primary,683
+primary,684
+primary,685
+primary,686
+primary,687
+primary,688
+primary,689
+primary,690
+primary,691
+primary,692
+primary,693
+primary,694
+primary,695
+primary,696
+primary,697
+primary,698
+primary,699
+primary,700
+primary,701
+primary,702
+primary,703
+primary,704
+primary,705
+primary,706
+secondary,707
+secondary,708
+secondary,709
+secondary,710
+secondary,711
+secondary,712
+secondary,713
+secondary,714
+secondary,715
+secondary,716
+secondary,717
+secondary,718
+secondary,719
+secondary,720
+secondary,721
+secondary,722
+secondary,723
+secondary,724
+secondary,725
+secondary,726
+secondary,727
+secondary,728
+secondary,729
+secondary,730
+secondary,731
+secondary,732
+secondary,733
+secondary,734
+secondary,735
+secondary,736
+secondary,737
+secondary,738
+secondary,739
+secondary,740
+@lanes line
+name,arcs
+G Street,741
+South 10th Street,742
+Clark Avenue,743
+Clark Avenue,744
+12th Street,745
+North 1st Street,746
+North 1st Street,747
+West McWilliams Avenue,748
+North 4th Street,749
+North 9th Street,750
+Bell Drive,751
+Bonanza Way,752
+Bonanza Way,753
+Encanto Drive,754
+Verdy Lane,755
+Tiffany Lane,756
+Tiffany Lane,757
+North 11th Street,758
+North 11th Street,759
+North 11th Street,760
+Linden Avenue,761
+Hoover Avenue,762
+Hoover Avenue,763
+Hoover Avenue,764
+North 8th Street,765
+Palm Lane,766
+East Wilson Avenue,767
+East Wilson Avenue,768
+East Wilson Avenue,769
+South 9th Street,770
+East Mesquite Avenue,771
+East Mesquite Avenue,772
+North 10th Street,773
+North 10th Street,774
+North 10th Street,775
+Melrose Drive,776
+South 3rd Street,777
+South 3rd Street,778
+South 11th Street,779
+Marlin Avenue,780
+Marlin Avenue,781
+Sycamore Lane,782
+Sycamore Lane,783
+E Street,784
+East Carson Avenue,785
+East Carson Avenue,786
+West Wilson Avenue,787
+Lewis Avenue,788
+Lewis Avenue,789
+Lewis Avenue,790
+Lewis Avenue,791
+Lewis Avenue,792
+Stanley W. Cooper Place,793
+South 8th Street,794
+South 8th Street,795
+Fremont Street,796
+Fremont Street,797
+Fremont Street,798
+East McWilliams Avenue,799
+Biltmore Drive,800
+Harris Avenue,801
+Promenade Place,802
+Sky Walk,803
+West Carson Avenue,804
+Jackie Gaughan Parkway,805
+Jackie Gaughan Parkway,806
+Jackie Gaughan Parkway,807
+Jackie Gaughan Parkway,808
+South 1st Street,809
+North 6th Street,810
+West Mesquite Avenue,811
+Garces Avenue,812
+Goodman Way,813
+Symphony Park Avenue,814
+Irwin Molasky Street,815
+A Street,816
+North 3rd Street,817
+East Bridger Avenue,818
+North Casino Center Boulevard,819
+Scenic Byway Trail,820
+Scenic Byway Trail,821
+Scenic Byway Trail,822
+Scenic Byway Trail,823
+Cultural Corridor Trail,824
+Main Street Alley,825
+Fremont Street Alley,826
+@rail line
+kind,colour,lines[],arcs
+s,blue,Blue,827
+s,green,Green,828
+s,red,Red,829
+r,,,830
+r,,,831
+r,,,832
+r,,,833
+@green polygon
+kind,arcs
+park,834
+park,835
+park,836
+park,837
+park,838
+park,839
+park,840
+park,841
+park,842
+park,843
+park,844
+park,845
+park,846
+park,847
+park,848
+park,849
+@water polygon
+arcs
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+@airport polygon
+name,iata,arcs
+Harry Reid International Airport,LAS,870
+@monuments polygon
+name,wikidata,arcs
+"The STRAT Hotel, Casino & SkyPod",Q845846,871
+@clip polygon
+arcs
+872
+@places
+
+@parks
+name,kind,ha#,lon#,lat#
+Las Vegas Springs Preserve,park,67,-115.18848,36.17271
+Charlie Frias Park,park,30,-115.21345,36.10247
+Freedom Park,park,29,-115.10276,36.17905
+Sunset Park,park,28,-115.11585,36.06943
+Lorenzi Park,park,25,-115.1846,36.17924
+@stations
+name,kind,rank#,lon#,lat#
+C Gates,s,3,-115.14706,36.08132
+D Gates - Blue Line,s,3,-115.13804,36.08203
+D Gates - Red Line,s,3,-115.13768,36.0822
+Terminal 1,s,3,-115.1486,36.08447
+Terminal 3 - Red Line,s,3,-115.137,36.08546

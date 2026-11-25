@@ -1,0 +1,1256 @@
+# Cuzco: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 -72.04270 -13.58030
+@arcs
+1573 1988 28 -5 43 -23 41 13 37 -12 7 5 4 9 16 3 18 -13 19 2 48 -20 39 -25 27 -24 24 -11 61 -21
+2073 780 -26 6 -5 4
+2042 790 -1 -1
+1014 1280 7 3 2 5 4 47 -5 13 -17 15 -3 30 -25 70 -12 2 -32 -9 -13 0 -15 1 -47 3 -37 -7 -31 2 -32 -12 -33 10 -3 1 -22 7 -9 0 -6 -6 -6 -17 -5 -2 -5 5 2 15 -3 6 -35 2 -17 10 -95 65 -18 5 -14 -2 -27 -13 -50 -47 -8 -1 -7 3
+1446 1453 -37 111 -9 71 -11 97 -13 17 -1 6 6 1 30 -24 21 -5 16 -12 51 7 8 4 4 25 36 31 7 10 46 117 -1 15 -29 56 -1 6 4 2
+1714 1274 3 4 -1 3
+1716 1281 -7 -1 -19 -15 -7 2 -12 13 -7 5 -42 -8 -25 29 -13 22 -14 2 -25 -17 -8 0 -28 20 -9 17 -14 -1 -10 8 -18 4 -8 18 -8 -2 -17 -13 -32 1 -22 27 -33 1 -8 4 -3 5 0 10 13 28 11 8 12 0 56 -21 21 14 6 12
+1000 1121 -12 14 -17 0 -11 -3 -24 3 -19 -2 -4 2 -2 6 4 6 35 11 20 21 6 6 0 8 -11 25 -19 30 -2 7 4 3 23 -6 5 4 4 16 6 6 10 3 18 -1
+1715 1122 2 0 66 -20 122 -38 34 -6 62 -7 23 -3 1 0 3 -1
+2028 1047 17 -2 130 -36 4 -2
+1746 941 -2 -22 -3 -30 3 -7 8 -6 193 -47
+1507 965 136 -13 103 -11
+1269 1029 -2 0 -36 9 -10 11 -13 4 -108 37
+1100 1090 -26 8 -11 -5 -2 -8 11 -33 -6 -6 -6 1 -26 32 -18 23 -2 2
+1248 892 114 83 25 19
+1267 1029 0 -2 -2 -12 -12 -48 -12 -31 -3 -27 9 -17 1 0
+1594 1232 25 -4 6 4 4 13 30 20 26 -10 29 19
+1630 1149 8 -3 77 -24
+1437 1046 39 -65 2 -7
+1417 1056 9 -27 -2 -16 -16 -14 -21 -5
+1945 829 64 -8 11 3
+1630 1149 0 3 10 63
+1640 1215 -44 10 -2 7
+1478 974 3 -6 9 -3 15 0 2 0
+2046 818 1 3 -1 -3 -4 -28
+2020 824 26 -6
+1000 1121 14 -17
+1425 1061 12 -15
+1417 1056 1 6
+1594 1232 -3 0
+1247 892 1 -1 0 1
+993 411 -1 9 15 4 -2 10 5 17 0 17 23 33 4 17 22 41 7 2 4 -10 5 -3 9 2 7 15 15 2 6 5 9 25 -2 4
+1119 601 -17 -11 -5 -11 -17 -2 -12 6 -6 -1 -28 -19 -4 0 -1 3
+1068 583 2 10 38 33 24 14 17 16 16 23 25 28 10 4 11 -7 4 2 -6 28 6 16 -6 13 17 27 10 35 19 38 -1 8 -7 15 1 5
+1758 946 65 -6 249 -25 70 -8
+1957 1147 -28 8 -99 23 -98 20 -92 17
+1425 1061 -2 5 -5 3 -18 10 -105 33 -181 47
+1507 1188 -9 3 -85 15 0 -1 0 1
+1630 1152 -123 36
+2024 1048 -11 39 -26 27 -14 20 -14 11 -2 2
+1418 1069 -12 36 -4 16 -9 37
+2072 915 -29 99
+1016 1102 72 43
+1377 1217 2 -8 12 -49 2 -2
+2043 1014 -3 3 -11 18 -4 13
+1413 1206 -24 4 -1 0 -9 -1
+1088 1145 3 10 9 0 6 -2 8 6
+1389 1210 -1 3 0 -3
+1393 1158 -2 2
+1959 1145 -2 2
+2013 698 25 56 15 24 -16 5 4 6
+2041 789 1 1
+548 1799 15 -18 -2 -7 -14 -12 1 -6 5 -3 28 -8 19 24 11 -5 13 0
+624 1764 -6 -9 -2 -9 6 -21 10 -17 31 -14 10 3 9 12 5 0 19 -21 2 -16 15 -15 -16 -34 2 -27 3 -6 9 -6 1 -8 -12 -18 -4 -24 7 -13 23 -12 8 -17 -1 -4 -7 0 -10 -11 6 -20 -6 -1 -1 -3
+1215 706 1 -12 4 -9 24 -15 17 -1 3 -2 1 -11 -6 -7 -8 -22 7 -20 7 -6 6 -17 -1 -30 4 -12 13 -17 2 -8 -7 -4 -4 -11 5 -27 -1 -15 2 -25 6 -27 -5 -21 6 -1 8 -9 7 -15
+971 1135 13 -24 5 -17 -15 -21 0 -10 -7 -11 0 -4 0 -1 0 5
+967 1052 -1 13 -7 14 4 10 -15 16
+948 1105 -1 -14 -12 -18 1 -7 8 -12 -1 -19 -1 -4 -2 0 3 4
+943 1035 -5 11 -24 6 -18 -11
+896 1041 -1 10 0 6 -7 1
+895 1051 -16 1 -12 -2 -13 9 -24 -1 -5 -4 0 -9 -7 -7 2 -24 -7 -17 -4 -1 -8 3 -15 -4 -16 -28 -12 0 -6 -20 -11 -15 -4 1 -4 16 -8 5
+725 954 1 -10 -2 -8 3 -12 -4 -20 5 -11 -2 -3
+715 921 -3 -1 -3 -14 -7 -11 -2 -14 3 -8 -3 -3
+700 870 -3 1 -8 43 -7 5 -12 0 -12 -9 -12 -3 -13 -15 -8 7 -6 -1 -7 -11 -5 -22 -25 -7 -11 -48 2 -55 -13 -39
+1983 1191 -9 12
+1974 1203 21 -8 3 1
+1989 1211 -1 0 1 0 6 -4 3 0
+1989 1211 1 9 11 -4 8 3 13 -1 6 3
+2022 1218 -9 11 -7 3 -11 14 -4 9 1 8 -7 -1 -6 3 -9 12
+1970 1277 6 8 0 11 -15 9 -1 6 5 12 -1 2 1 2 0 -4
+1965 1323 7 -9 6 4 30 -2 6 16 0 20 -3 19 9 39 -7 17 -22 35 -19 3 -13 -8 -12 16 -8 4 -4 9 -12 9 -14 -6 -9 -1 -8 16 -15 14 -2 10 -7 36
+1875 1528 22 -5 17 6 6 6 4 23 11 23 0 9 5 8 8 6 0 8 12 23 0 21 -1 17 3 2
+677 1479 11 20 -23 17 -12 7 -27 8 -10 8 -6 26 5 18
+615 1583 -15 -7 -11 -11 -5 -2 -6 5 4 16 -5 9 -1 12 -4 5 3 7 -2 4 -33 -13 -24 10 -1 7 19 9 7 7 11 18 -1 7
+551 1666 -2 1 -4 -6 -10 -6 -9 -3 -13 5 -9 -1 -11 8 -3 -6 -14 -7 -2 1 -7 16
+2184 1142 -15 16 4 5 9 -4
+2182 1159 0 5 -7 10 4 12 -2 15 -12 8 12 11 1 6 14 23 0 1 0 1 0 -2
+2192 1249 -8 -3 -6 3 -5 -3 -8 1 -23 9
+2142 1256 18 4 7 9 -24 11 10 31 -7 17 -1 10 16 20 8 21 7 9 32 10
+2201 1440 -24 8 -6 4 2 15 17 18
+2185 1505 -9 17 -6 26
+2170 1548 2 0
+1159 1381 5 3 64 -47 12 0 4 -7 7 -2 7 2 9 7 0 8 7 6 -4 26 2 3 -1 1 -1 -4
+1270 1377 -18 -10 -22 9 -52 36 -12 15 -15 12 -6 20
+1145 1459 4 1 14 -14 7 1 7 20 -5 32 5 2 7 -3 10 1 32 27 5 6 1 15 13 12 0 14 5 11 4 3 6 -8 8 -21 11 -7 6 -13 12 -3 3 -5 -5 -4 -31 1 -4 -10
+2139 1569 -15 9 -16 7 -2 0 2 0
+2108 1585 8 -29
+2116 1556 -35 17 -8 21 -9 -9 -7 14 -16 10 -9 1
+2032 1610 10 15 -4 10 -8 7 -21 5 -13 -1 -5 -6 -2 -14 -13 -7 -7 35 -9 2
+1962 1675 -2 97 -21 55 -2 38 -12 17 -1 5
+2058 1371 48 -14 24 -26 15 7 34 -8 22 3 15 -3
+1490 965 2 -11 18 -29 9 -12 9 -7 124 -46 51 -13 20 -14 28 -1 8 -16 17 -15 48 -52
+905 1457 3 -8 17 -1 -1 -7 -14 -7 18 -17 0 -2
+928 1415 1 -9 9 -1 8 5 4 -3 3 -17 8 -12 3 -21
+964 1357 8 -11 8 -4 2 -6 10 -12 1 -4 -3 -7
+990 1313 10 3 6 10 -1 9 -6 9 -1 12 -8 8 10 8 2 21
+2172 986 -88 16 -5 4 -8 16 -23 12 -3 11
+947 1519 4 -17 -6 -23 11 -2 29 15 13 -7 2 -4 -7 -8 -1 -7 5 -9 13 -2 -6 -9 2 -6 6 -5 13 0 6 -3 -13 -19 -1 -11 27 -3 18 6 21 14 8 -2 2 -7
+1538 1118 86 -37 32 -13 21 -8 98 -41 12 2 6 4 3 19 0 3 -1 3 -1 -2
+2130 1483 -7 20 -22 10 -15 22 3 5 18 1 24 -9 10 2 4 10 -6 15 0 10
+2124 1578 7 19 26 -9
+1247 886 -10 -6 -36 -85 -39 -57 -38 -46
+1260 1579 8 -13 7 -2 30 5 15 28 -2 22
+1318 1619 11 -4 14 17 29 11 5 -1 12 -9 11 2
+1406 1105 -38 40 -42 49 -22 26 -27 32
+2040 1017 -4 -3 -56 -5 -26 -12 -25 -6 -23 -4 -25 -8 -29 4 0 -1
+1662 1024 -19 4 -15 3 -18 -3 -58 -31 -42 -1 -9 6
+991 980 2 -4 12 6 12 -18 -3 -63 1 -14 3 -3
+1018 884 7 15 18 -4
+1714 1274 7 -6 14 -19 15 -6 25 5 20 23 22 6 -1 -14 -6 -4
+1663 927 -23 3 -128 13
+1137 1007 -6 -5 -13 -21 21 -40 -11 -4 -5 -4 -10 -45 0 -1 0 -2 0 3
+1717 1122 13 64 2 12
+1385 926 -10 -7 -20 -2 -21 -9 -40 -11 -40 -26
+1044 1399 20 -12 24 -23 60 -50
+1483 1111 0 -99 0 -10 -7 -21
+2175 1009 9 72 -3 22 3 39
+1929 1155 0 -5 41 -36 26 -42 5 -21
+1368 1145 24 14 89 -12 6 3
+1228 936 -115 -48
+1363 1448 -88 51 -5 1 -10 -4
+1737 1004 17 -3 62 -14 11 -4 25 -1 0 1
+1108 1219 -6 -19 -18 -12 -17 -2 -43 33
+1237 1300 -78 81
+1265 1015 74 -16 5 -10 18 -14
+1737 1004 -7 2 -68 18
+722 1454 -8 38
+705 1477 -2 1 -1 14
+702 1492 -10 -12 -15 -1
+677 1479 -26 1 -13 -4 -17 5 -5 -7
+1659 994 65 4 6 8
+1468 969 -29 -4 -60 -22
+1006 1062 0 -16 6 -8 -2 -18 -19 -40
+1896 1199 2 -4 -10 -7 -35 6 -18 1 -5 -17
+1591 1232 -83 22 -2 1 2 -1
+920 1456 11 66 6 2 10 -5
+1269 1029 26 83
+1744 919 -81 8
+1810 1259 -7 -5 -7 -12 16 -20 16 -3 14 8
+1483 1111 -65 10 -16 0
+1006 1062 1 3 16 -18 12 -6
+1035 1041 1 4 -6 13 4 21
+1101 1294 6 5 11 -7 5 1 7 14 8 -7 5 0 8 9 -3 5
+1108 1219 -7 50 0 25
+2058 1371 -23 32 -22 24
+1842 1227 4 -2 7 -31
+1349 1279 25 -39 3 -23
+1939 1058 -10 -67
+1295 1112 12 39 -1 -1 1 1
+1624 1081 5 12 3 35 6 18
+1783 1102 2 -33 9 -21 2 -1
+1538 1118 -60 10
+1505 965 -1 30 -3 7 -12 9 -6 1
+1796 1044 22 -40 -2 -17
+1100 1155 4 9 8 -3 3 3 -1 10 -5 18 -7 8
+1498 1191 7 25 3 38
+2014 1352 12 7 11 -5 12 3 7 5 2 9
+1176 1039 -13 -16 -26 -16
+985 1211 -1 -3 7 -17 -11 -13 -6 -2 -4 3
+1088 1364 5 46
+1754 1001 0 -26 -4 -24
+1656 1068 -13 -40
+1662 1024 4 16 11 20
+1709 1101 -28 -30
+1024 1219 -18 -5 -21 -3
+1823 940 4 43
+1649 989 -6 -37
+1507 1188 -6 -14 -15 -21 1 -3
+2020 1184 -37 7
+1237 1300 25 -25
+2020 1184 -9 -32
+1643 1028 -3 -14 0 -19
+1203 1045 -25 -1 -2 -5
+1317 1176 -10 -25
+1643 952 -3 -22
+1326 1194 -9 -18
+1379 943 6 -17
+1993 1156 -5 -17
+2011 1152 -18 4
+1677 1060 4 11
+1649 989 10 5
+1478 974 -10 -5
+1709 1101 3 9
+1203 1045 5 8
+1007 1065 -1 -3
+1260 1496 -2 2 1 -2 1 0
+1659 994 1 1 0 2 -1 -3
+1730 1186 -2 0 2 0
+1987 1139 1 0
+1277 1252 -2 0 2 0
+1988 1139 -1 0
+2023 1048 1 0 1 0 3 -1
+2043 796 -1 -3
+1211 740 2 5
+1255 863 -1 6
+1808 989 8 -2 11 -4 13 -1
+1294 1108 1 4
+1295 1112 2 6
+1817 990 -1 -3
+1827 981 0 2
+1478 1128 -63 8
+1415 1135 63 -8
+1512 1123 -8 -51
+1326 1101 2 -3 29 -9 6 -3 2 -2 9 -2 26 -7 4 -4 6 -12 17 -36
+1549 1241 2 0 38 -11 2 -7 2 -1 32 -6 13 -4
+1267 1025 87 -19 24 -2
+1366 1145 -11 -9
+1356 1134 11 10
+1102 1288 -1 6
+1102 1288 1 -7 9 -14 1 -3 -5 -14 8 -19
+1105 1281 -2 2 -1 5
+1116 1231 3 -4
+1124 1230 -3 -1 -5 2
+1296 1119 -78 36 -5 4
+1181 1097 -6 -16
+1213 1159 -17 -16 -3 -15 -8 -22
+1390 1097 -73 79
+1350 1137 33 -37 7 -3
+1409 1100 -11 -4 -8 1
+1351 1281 9 -9
+1293 1264 2 1
+1293 1264 -17 23 -2 0 -12 -12 19 -19 12 8
+1213 1244 13 6 1 -2
+1227 1248 -9 -5 3 -8
+1238 1228 -11 20
+1317 1176 -42 45
+1238 1228 16 -27
+1300 1131 -37 20
+1229 1078 -2 -6 0 -2 7 -3 6 12 -7 2 -4 -3
+1366 1253 -21 -10
+1271 1169 -13 7 -18 13
+1230 1130 21 51
+1291 1235 -1 -1
+1211 1171 28 -18
+1177 1143 2 5 21 29
+1268 1247 -10 14
+1259 1261 10 7
+1228 1246 21 11
+1145 1316 1 1 3 -1 6 -5 17 -11 9 -8
+1375 1217 -14 -5
+1316 1227 7 -11 10 -11 1 0 8 3
+1400 1289 1 1 62 11
+1451 1310 -35 -6
+1433 1118 0 1
+1483 1111 26 -3
+1509 1109 -26 3
+1454 1116 15 81
+1433 1119 7 36
+1414 1206 -1 -46 4 -40
+1478 1222 21 76
+1473 1248 33 -8
+1089 1254 -23 -10
+1491 1217 3 12 19 66
+1479 1276 60 -16
+1475 1263 11 39
+1482 1289 40 -10 14 -4
+1515 1253 7 26
+1263 1001 -1 0 -20 -4 -22 -5 -11 -4 -7 -4
+1024 1219 -14 15
+1192 1013 -3 13 -2 4 -2 3 -9 6
+1122 1037 13 -2 29 -8 2 -1 7 -32 -1 -3 -4 -5
+1209 1097 -16 -40
+1199 1072 -112 43 -6 12
+1229 1078 -39 15
+1238 1095 -18 6
+1284 1079 -36 14
+1179 1062 12 29 -1 2 4 10
+1244 1110 45 -18
+1154 1070 19 48
+1175 1141 2 2
+1139 1131 -19 -49
+1225 1116 -32 12
+1064 1115 8 -17
+1073 1098 -5 15 1 3 2 3
+1055 1146 -12 -6 -18 0 -22 -3 -10 -7
+1288 1207 15 12
+1141 1094 6 16
+1116 1040 -2 2 1 2 14 35
+1183 1194 55 34
+1146 1171 -33 52
+1149 1220 20 -35
+1178 1240 -10 16
+1169 1234 22 -36
+1087 1152 -4 2 -3 0 -21 -13
+1053 1149 13 8
+1050 1153 -3 1 -8 -3 -16 0 -6 -4 -17 -2 -2 -1 -8 -5
+1043 1108 22 15 44 28 1 2
+1016 1240 30 -29 15 -11 6 -7
+1078 1202 -5 -1 -6 -8 -3 -6
+1400 1289 0 11
+1425 1317 22 16
+1563 1327 5 7 2 8 2 2 3 1 7 -5 10 2 10 0 1 -1 0 -8 7 -12 5 -4 8 -4 2 0 24 10 2 2 1 8 4 7 5 0 6 -3 4 -8 1 -2 2 0 17 8 5 3 0 4 -3 2 -2 1
+1322 1282 18 10
+1277 1252 4 4
+1295 1265 6 3 8 -10
+1330 1269 21 12
+1400 1289 4 -1 -3 -1 -2 -13 1 -5
+1360 1272 40 17
+1385 1283 0 -14
+1383 1281 -16 15 0 2 -9 7
+1309 1258 1 -1 20 12
+1336 1259 19 10
+1297 1365 37 -12 21 -20 12 -13 -2 -3 10 -10 5 -5 8 -4 12 2
+1375 1314 5 -4 2 -1 9 -1 2 10
+1258 1322 17 8
+1396 1322 -9 2 -33 17
+1330 1269 -8 13
+1361 1212 -31 57
+1275 1180 13 27
+1345 1242 -29 -15
+1275 1221 -17 18
+1275 1221 -21 -20
+1254 1201 -14 -12
+1240 1189 -27 -30
+1258 1239 -1 4 -8 13
+1254 1201 21 -21
+1240 1189 -6 5 -15 22
+1204 1257 9 -13
+1195 1272 -76 -45
+1242 1269 -14 25
+1484 1147 26 -4 119 -50
+1484 1164 -3 -15
+1483 1195 2 -19 -1 -12
+1485 1148 1 1 -3 4 1 11
+1463 1301 3 -1 10 3 6 0 44 -11
+1358 1305 -7 -6 -11 -7
+1310 1307 -11 19
+1322 1282 -8 16
+1307 1300 3 -4 4 2 -4 9 -5 -3 2 -4
+1289 1321 13 -24
+1446 1376 -2 -4 1 -7 0 -8 -2 -2 -2 -3 -5 -3 -3 -7 -31 -20
+1377 1329 -10 -9
+1390 1298 1 10
+1280 1293 -3 7 -3 0 -15 15 -1 7 -3 6 2 7
+1390 1131 -1 4 -9 17
+1316 1227 -23 35
+1290 1291 17 9
+1312 1303 16 8
+1297 1358 52 -79
+1319 1325 9 10
+1238 1228 20 11
+1258 1239 1 2 8 5
+1268 1247 7 5
+1275 1180 -4 -11 -27 -59 -11 -29
+1307 1151 47 -44
+1087 1132 4 -3 1 -1 -11 -32
+1162 1069 18 47
+1175 1081 -6 -16
+1261 1095 -8 -20
+1240 1079 40 -12
+1285 1065 6 -2
+1271 1040 22 -7
+1264 1210 11 -9
+1249 1256 9 5 -6 10 -10 -2
+1337 1238 16 -29
+1380 1081 13 -17 16 -23 7 -16 0 -8 -2 -6
+1305 1070 38 -8
+1352 1083 -3 -34 0 -4 2 -3 13 -3 9 1 0 3
+1350 1058 9 -3
+1360 1083 -1 -28
+1359 1055 3 0 9 6
+1286 1025 7 8 2 3 14 48
+1330 1026 3 17 8 8 4 19
+1331 1036 7 -2 23 0 3 5
+1340 1028 20 1 19 2
+1364 1045 29 19 11 7
+1295 1036 31 -8 4 -2 12 -4
+1341 1051 23 -6 45 -11 2 0 8 6
+1322 1282 -23 -11 2 -3
+1257 1305 -6 -5 -26 28
+1350 1137 -19 -34
+1360 1272 4 -1 107 -8 35 -8
+1126 1149 -4 -10 -20 -51
+1282 1356 12 7
+1352 1281 -5 6 -5 2
+1326 1194 16 14 6 1 4 0
+1265 1312 -2 -2 -6 -5
+1299 1326 -22 40 -4 11 1 3 -2 0
+1283 1354 -11 -5
+1291 1341 -6 -3 -1 -4 -9 -4
+1328 1335 11 13
+1107 1278 7 -9 5 -4 2 -2 28 -43
+1301 1193 -10 -27
+1291 1166 -14 -38
+1334 1109 -34 8
+1383 1098 7 -1
+1383 1098 -11 4 -10 3 -20 4 -7 0
+1489 1141 12 -76
+1524 1120 1 5 3 10
+1358 1305 12 8
+1517 1327 4 0 12 -10 2 -1 5 2 10 12 12 11 3 6 2 14 1 2 2 1 5 -2 11 -6 6 -2 21 1 6 2 7 6
+1134 1325 6 14 -2 6 -3 2
+1092 1394 3 -1 13 -10 6 -4 4 -3
+1165 1334 30 10
+1159 1381 -12 12 -10 14 -11 8
+1580 1258 -35 9
+1129 1283 2 9 -1 6
+1162 1229 -11 18
+1204 1257 -42 -28
+1347 1021 -1 -4 10 -2 20 -3 2 0 0 1
+1370 1022 13 -15
+1264 1094 3 7
+1139 1131 -33 13
+1505 1216 22 -4 16 0
+1351 1078 -24 5 -2 -6
+1517 1214 0 19 1 5
+1528 1235 -1 -3 0 -20
+1209 1105 6 14
+1289 1092 62 -24
+1203 1107 6 15
+1187 1113 -20 8 -28 10
+1216 1174 -10 -7
+1351 1281 5 3 12 -9
+1213 1159 -26 37
+1466 1300 6 -37
+1482 1200 1 -5
+1472 1263 3 -28 7 -35
+1181 1097 -78 29
+1237 1300 -42 -28
+1207 1153 -16 -6 -5 0 -7 1
+1191 1124 10 -4
+1220 1101 -33 12
+1229 1127 -9 -26
+1463 1063 1 16 -14 2
+1439 1027 -3 8
+1327 1275 12 6 -5 8
+1183 1194 -14 -9
+1241 1270 -22 -6
+1130 1298 -4 5 -3 12 -1 1
+1151 1247 -21 34 -1 2
+1200 1204 -22 36
+1528 1135 10 26
+1258 1306 -7 9 -10 7 -11 10
+1337 1326 17 15
+1358 1305 -30 30
+1337 1326 -4 -4 -9 -5
+1351 1299 2 -2
+1340 1349 14 -7
+1387 1324 -1 -7
+1398 1320 -8 -3 -9 1 -11 -6
+1380 1310 4 7
+1101 1294 -1 9 -3 12 -7 18 -3 5 -2 3 -11 16 -6 11
+1219 1264 -15 -7
+1208 1280 11 -16
+1237 1300 8 6
+1110 1203 16 -39 5 -2
+1110 1402 -12 -12
+1120 1395 -12 -12
+1101 1299 -34 4 0 -2 5 -2 1 -2 0 -2 -2 -1
+1113 1197 12 9
+1290 1234 -15 -13
+1275 1180 32 -29
+1362 1240 -4 10
+1536 1275 0 15
+1526 1292 8 -3 4 1 9 4 7 6
+1387 1270 -6 -26
+1195 1272 -14 20
+1195 1272 9 -15
+1181 1292 15 11 9 8 13 10
+1181 1292 -17 -9 -10 -3 -9 0 -16 3 -24 -2 -4 -2
+1106 1277 9 4 14 1 15 -3 10 1 10 2 17 9
+1162 1229 -13 -9
+1169 1185 -38 -23
+1119 1227 -11 -8
+1249 1257 -7 12
+1226 1250 -7 14
+1225 1328 -7 -7
+1277 1315 13 -24
+1290 1291 0 -2 -5 -6 -3 -3
+1355 1269 5 3
+1189 1298 -10 8 -2 3 -6 1 -13 9
+1109 1192 -1 -2 -1 -4 -9 -18
+1069 1179 25 -4 5 -4
+1094 1185 -5 -5 -3 -10
+1362 1156 0 2 11 3 16 6
+1506 1240 31 -6
+1204 1171 -8 -28
+1194 1103 9 21
+1181 1097 9 -4
+1221 1168 -5 6 -18 28
+1440 1050 7 4
+1447 1054 19 11 8 2 9 0
+1447 1054 0 -5
+1127 1157 -2 -4
+1125 1152 1 -3
+1469 1027 -1 38
+1447 1049 6 -10 16 -12
+1135 1347 -13 6 -13 8 -2 4 0 3 2 2 6 1 11 -1 13 0 2 2 0 2 -3 2
+1135 1347 -10 -15
+1134 1325 -1 -3 -4 -3 -8 -3 -21 -13
+1122 1316 -9 12 -16 15 0 1
+1097 1344 6 7
+1314 1360 5 16
+1185 1033 -17 -5
+1187 1051 -2 -6
+993 1281 3 -2 4 -1 11 -2 7 -4 -1 -1 -2 0 -8 2 -11 0 -1 -1 10 -1 4 -2 3 -3 7 -2 7 -3 5 -2 11 -5 20 -14 2 -2
+1378 1004 8 4 4 4 6 9 5 12 0 3 -36 48
+1342 1022 14 -1 14 1 6 2 3 3 0 4 -6 9
+1379 1031 19 -5
+1378 1013 6 6 3 4 2 5
+1390 1012 8 -4 0 -2
+1411 1034 -5 -12
+1406 1022 -3 -7 -5 -7
+1392 1084 -7 11 -1 3 0 1
+1539 1260 39 -10
+1101 1292 -14 0 -6 -2
+1090 1279 -17 12 -2 3 -8 3 -2 2 -9 3 -6 5 0 -2
+1063 1297 -2 -3 0 -4 6 -24 3 -4 8 -7 3 -4
+1081 1251 2 -11 0 -10 -2 -7 -5 -9 -5 -2 -3 -1 -9 4
+1034 1238 11 14 0 1 6 5
+1067 1233 -1 11 -5 6 -13 11 -4 5 -6 -3 -2 1
+1051 1258 9 5 7 3 13 3 3 1 4 3 14 1
+1068 1227 2 -6 9 -18 8 -6 8 -3
+1067 1233 6 -3 3 -4 12 -6 1 1 13 -4 5 1
+1068 1227 -1 0 -28 19 -8 6 -11 1 -8 7 -7 3 -9 -1 -2 1
+1069 1195 2 -1 3 1 6 3 2 2
+1043 1185 4 1 2 1 5 7 10 11
+1049 1187 -14 11
+1034 1180 4 4 5 1 1 -2 25 -4 9 1 7 1 15 7 3 4 2 4 2 6 0 16
+1017 1159 -11 -2 -2 1 -2 2
+1101 1160 -13 3 -13 1 -50 -2 -8 -3
+1102 1162 -17 3 -13 0 -46 -2 -7 -1 -2 -3
+1034 1180 -8 -8 -8 -4 -16 -8 -21 -6
+1065 1131 -15 22
+1100 1152 2 3
+1066 1157 12 -5
+1165 1334 -15 13 -4 9 -20 5 -1 2
+1125 1363 14 0 7 -1 2 5 -7 5
+1138 1376 -14 0 -20 -2 -2 -1 -2 -4 -1 -6 -4 -5
+1138 1376 -7 9 -6 3
+1127 1377 -4 5
+1226 1099 -18 -46
+1292 1102 20 -6 -2 -6 -2 1 -8 3 -3 -1 -2 -4
+1277 1291 -26 29 -8 5 -9 11
+1173 1118 5 13 -4 8 1 2
+1350 1140 11 11
+1554 1300 -6 -3 -11 -2 -3 1 -22 11 -3 6 -11 6 -10 9 -9 4 -20 7
+1314 1249 10 -18
+1564 1262 -4 -17
+1555 1264 -6 -19
+1299 1326 -22 -11 -12 -3
+1321 1106 -29 9 -115 28
+1300 1272 2 -4
+1545 1267 -2 -8
+1539 1260 -4 -12
+1441 1337 -3 11
+1709 1101 -208 73
+1304 1220 12 7
+1183 1194 -21 35
+1360 1357 8 -5 11 -5 5 0 9 1 15 -1 3 0 3 2 5 3 13 4 3 2 3 4 0 2 1 10
+1400 1269 -18 -52
+1341 1176 -7 -6 22 -24
+1572 1251 -3 -12
+1286 1284 -10 7
+1276 1291 -4 -4
+1272 1287 -11 -11
+1272 1287 -15 18
+1293 1262 8 5
+1262 1275 -9 -5
+1478 1247 0 6
+1411 1018 -5 4
+1278 1252 6 4
+1554 1300 14 10 2 1 15 -5
+1360 1189 -8 20
+1375 1157 1 -3
+1557 1239 -1 -22 2 -3 7 -6 -8 -31
+1352 1209 9 3
+1547 1258 -3 -12
+1410 1278 60 -4
+1298 1144 6 -2
+1427 1117 13 -62 12 -18 47 -37 3 -7 3 -56 12 -20 12 -9 146 -53 34 -6 89 -3 79 -38 66 -2 128 -29
+1069 705 -36 -42 6 -26 24 -2 -47 -60 -18 -6 -43 2 -34 18 -37 -2 -19 -9 -4 10 -14 4 -20 -21 -11 0 -21 71 3 85 11 24 1 50 15 29 70 64 25 4 24 -5 -10 -25 8 -8 15 15 7 -13 -37 -42 31 -43 2 -59 38 -28 25 -2 21 22 15 29 12 -24 15 11 8 -2 -1 -19 -24 0
+599 1263 47 7 20 -12 19 6 26 -18 22 4 26 -21 1 -16 14 -2 10 13 14 -9 -25 -30 3 -8 -33 -13 -16 -15 -37 -3 -14 -11 9 -24 -3 -22 -27 -36 -54 -17 -5 16 14 36 2 54 23 22 -6 23 11 24 19 6 3 11 -42 23 -19 -10 -2 22
+896 1271 8 -36 -7 -1 -1 -24 31 -32 13 -1 -22 -26 3 16 -11 5 -5 27 -11 9 -10 -5 -6 6 -33 0 -9 22 60 40
+1040 1580 28 1 -11 8 4 4 15 -8 16 -35 14 -7 14 17 1 -28 -8 -12 8 -8 -11 7 -29 -44 -9 -2 -36 32 -16 40 -9 -1 7 9 -8 8 4 12 -6 7 20 26 12 -26
+462 1624 9 6 8 -5 0 13 13 1 0 25 34 -12 24 15 4 -15 -13 -11 -29 -5 3 -12 -10 7 -13 -29 36 -19 4 -8 -11 4 3 -8 20 -2 -21 1 -7 15 -11 -3 -27 13 -20 1 12 8 -13 3 -2 -8 -3 13 -11 2 14 32 14 -13 -7 -9
+976 1618 -12 47 6 4 10 -7 -2 11 10 5 15 -9 5 6 47 -31 20 -39 16 10 9 -5 7 -32 14 -11 -3 -5 -19 14 -3 17 -6 -5 8 -20 8 2 9 -13 -14 5 -7 -5 -49 68 -47 6 -7 -9 19 -25 -2 -17 -32 38
+1225 688 64 -7 40 9 11 -37 71 -14 -23 -24 2 -19 20 -11 16 -30 -1 -21 54 -55 7 -38 -21 -61 -78 10 -33 -6 2 50 -7 28 32 5 14 11 -6 16 -28 1 -30 -8 -13 41 -30 35 6 25 -8 38 4 23 -13 11 2 11 -6 6 -32 1 -16 10
+1712 478 -6 25 -51 77 28 26 46 85 17 -142 23 -24 -10 -16 -24 9 -22 -5 15 -24 -3 -15 -10 -13 -44 -21 -63 37 0 20 16 7 21 -17 48 -23 19 14
+1323 720 -4 11 -15 2 -19 17 -3 20 16 7 9 -14 55 -4 15 -47 -65 0 11 8
+1767 941 299 -30 74 -8 -5 -12 -169 17 -200 21 1 12
+1962 1278 12 -36 7 20 20 -2 -4 -14 5 14 7 0 -2 -24 9 -6 7 -18 20 -2 -6 -10 6 -5 -15 -16 -19 13 -25 -1 -6 -21 -15 7 18 14 -4 6 -18 -10 -8 8 21 17 -1 14 -24 -14 -9 -19 -18 11 -60 102 -22 22 -10 30 45 -19 18 9 13 -23 25 -22 1 -11 25 -17 7 3
+1299 1549 17 36 30 -8 8 -38 -35 -32 -36 16 5 23 11 3
+1466 1529 -31 10 -20 17 -3 34 -17 41 9 17 61 -87 44 -20 -28 -32 -15 20
+1066 637 -24 3 -6 22 25 31 17 10 7 -5 31 12 9 -22 -58 -63 -1 12
+1783 1075 9 -26 -34 9 -6 -14 -17 7 -8 33 3 10 53 -19
+1339 1436 24 10 30 -15 -8 -18 11 -34 -27 16 -38 4 -3 12 11 25
+1124 1421 -40 55 16 24 33 -36 -3 -7 12 -19 8 4 29 -29 32 -11 32 -21 26 2 -12 -22 -20 -7 -45 25 15 -22 -23 12 -60 52
+1498 1410 12 16 -18 -6 -6 -10 -15 0 17 10 16 26 -25 18 -5 22 40 67 13 -26 33 -23 4 15 10 -8 23 2 -43 -109 -21 -22 1 6 -36 22
+1342 1588 -12 2 -5 24 22 18 31 8 10 -9 -2 -10 -36 -21 -4 -21 -14 6 10 3
+2095 816 -43 -24 -28 0 -99 21 -31 13 -45 8 -28 14 -61 7 -49 25 -9 0 -22 -16 -4 -2 -13 1 -4 3 -12 19 -12 7 -113 34 111 -33 14 -7 11 -18 8 -4 15 1 14 13 7 3 8 1 50 -26 60 -7 31 -14 52 -8 33 -14 89 -17 27 -1 46 25 -3 -4
+1603 1858 -7 -13 -14 6 3 9 18 -2
+1389 1935 -9 -2 -5 4 -9 -8 -11 6 14 8 20 -8
+1528 924 105 -31 14 -8 16 -21 18 1 17 14 13 2 50 -25 58 -7 32 -15 57 -9 28 -13 90 -17 33 1 18 13 19 9
+1293 523 4 8 -6 9 -13 7 -6 22 2 16 -4 5 6 5 -5 6 1 7 -9 3 -9 13 -1 5 16 28 0 5 -4 8 -24 6 -19 13 -7 42 -11 35 1 14 19 39 29 46 49 28 55 16 33 -1 51 9 40 17 24 -5
+2474 870 -10 -30 -25 -22 -260 27 -49 -3 1 10 -111 11 -2 -23 -15 -2 -9 5 -1 -6 -29 5 -4 -14 -18 4 4 37 -200 20 -1 7 5 42 5 4 719 -72
+1243 1381 -30 23 -25 1 -9 7 -12 14 -12 9 -5 6 -6 18 2 1 3 0 10 -13 5 -2 6 2 5 10 3 10 -1 15 -5 12 2 6 12 -2 8 0 5 3 32 29 1 16 3 4 22 14 24 -20 1 -6 7 -4 7 -2 2 -3 -4 -2 -27 1 -5 -2 -3 -4 -3 -26 4 -5 5 7 7 1 55 -33 8 -12 1 -5 -1 -7 1 0 -2 -7 -9 -24 0 -5 3 -9 -16 5 -12 8 -23 7 -5 4 -3 6 -7 0 -2 -2 4 -8 0 -11 5 -10 2 -13 -13 -2 -15 0
+1432 1058 -27 50
+1405 1108 -3 12
+1402 1120 -1 2
+1401 1122 -8 36
+1393 1158 -14 52
+1379 1210 107 -16 33 -11
+1519 1183 113 -34
+1632 1149 285 -86 76 -11
+1993 1052 42 -2
+2035 1050 -1 -13 15 -35
+2049 1002 23 -96 11 -26 -12 -68 -19 -10 -10 2 -15 -10 -60 12 -115 30 -49 23 -17 4 -25 -5
+1761 858 -53 24 -7 0 -20 -17 -15 -1 -7 4 -14 22 -37 17 -26 5
+1582 912 -73 17
+1479 978 0 -9 11 -7 19 -33
+1432 1058 47 -80
+2474 870 -7 -25 -7 -10 -13 -14 -6 -3 -4 0 -27 4 -209 19 -22 4 -31 -5 -18 2 1 10 -15 1 -30 -52 -24 -37 -26 -37 -28 -35 -29 -33 -32 -32 -33 -31 -34 -29 -36 -27 -37 -26 -38 -24 -39 -22 -41 -20 -41 -18 -43 -16 -43 -13 -66 -17 -44 -9 -45 -7 -68 -5 -68 -1 -68 4 -67 9 -44 9 -44 10 -65 20 -43 16 -41 18 -41 20 -39 22 -38 24 -37 26 -36 27 -34 29 -33 31 -32 32 -29 33 -28 35 -26 37 -24 37 -23 39 -20 39 -19 41 -16 41 -14 42 -12 43 -10 44 -8 43 -5 44 -4 45 -1 44 1 44 4 45 5 44 8 43 10 44 12 43 14 42 16 41 19 41 20 39 23 39 24 37 26 37 28 35 29 33 32 32 33 31 34 29 36 27 37 26 38 24 39 22 41 20 41 18 43 16 43 13 44 12 44 10 44 8 45 5 46 3 45 1 45 -1 46 -3 45 -5 44 -8 44 -10 44 -12 43 -13 43 -16 41 -18 41 -20 39 -22 38 -24 37 -26 36 -27 51 -44 32 -31 31 -33 28 -35 27 -35 26 -37 23 -38 21 -39 20 -41 17 -41 15 -41 13 -43 16 -65 8 -43 5 -44 4 -45 1 -44 -1 -44 -4 -45 -5 -44 -8 -43 -10 -44 -12 -43 -14 -42 -24 -57 334 -34
+@streets line
+name,ref,class,arcs
+Carretera Cusco- Pisac,PE-28G,trunk,0
+Vía de Evitamiento,,trunk,1;2
+Carretera Longitudinal de la Sierra Sur,PE-3S,trunk,3
+,PE-28G,trunk,4
+Circunvalación,PE-28G,trunk,5
+Circunvalación,PE-28G,trunk,6
+Avenida Antonio Lorena,PE-3S,trunk,7
+Avenida de la Cultura,,trunk,8
+Prolongación Avenida de la Cultura,,trunk,9
+Avenida Velasco Astete,,trunk,10
+Avenida 28 de Julio,,trunk,11
+Avenida Antonio Lorena,PE-3S,trunk,12
+Avenida Antonio Lorena,PE-3S,trunk,13
+Avenida Agustín Gamarra,PE-3S,trunk,14
+Prolongación Avenida Grau,PE-3S,trunk,15
+Avenida Argentina,PE-28G,trunk,16
+Avenida de la Cultura,PE-28G,trunk,17
+Avenida Alameda Patchacutec,PE-3S,trunk,18
+Avenida Marcial Agustín Gamarra,PE-3S,trunk,19
+Avenida Velasco Astete,,trunk,20
+Avenida Universitaria,PE-28G,trunk,21
+Avenida Collasuyo,PE-28G,trunk,22
+,PE-3S,trunk,23
+,,trunk,24
+Avenida Velasco Astete,,trunk,25
+,PE-3S,trunk,26
+,PE-3S,trunk,27
+Avenida Agustín Gamarra,PE-3S,trunk,28
+Avenida Argentina,,trunk,29
+,PE-3S,trunk,30
+,CU-117,primary,31
+,CU-117,primary,32
+,CU-117,primary,33
+Vía Expresa,PE-3S,primary,34
+Avenida Collasuyo,,primary,35
+Avenida del Ejército,,primary,36
+Avenida de la Cultura,,primary,37
+Avenida de la Cultura,,primary,38
+Avenida Manantiales,,primary,39
+Avenida Tullumayo,,primary,40
+Calle República del Perú,,primary,41
+Calle Precursores,,primary,42
+Avenida Tullumayo,,primary,43
+,,primary,44
+Arcopunco,,primary,45
+Calle Mariscal Gamarra,,primary,46
+,,primary,47
+,,primary,48
+,,primary,49
+,CU-707,secondary,50;51
+,PE-28J,secondary,52
+,PE-28J,secondary,53
+Carretera Comunidad Chocco,CU-1310,secondary,54
+,CU-698,secondary,55
+,CU-698,secondary,56
+,CU-698,secondary,57
+,CU-698,secondary,58
+,CU-698,secondary,59
+,CU-698,secondary,60
+,CU-698,secondary,61
+,CU-698,secondary,62
+,CU-698,secondary,63
+,CU-1110,secondary,64
+,CU-1110,secondary,65
+,CU-1110,secondary,66
+,CU-1110,secondary,67
+,CU-1110,secondary,68
+,CU-1110,secondary,69
+,CU-1110,secondary,70
+,CU-1110,secondary,71
+,,secondary,72
+,,secondary,73
+,,secondary,74
+,CU-1105,secondary,75
+,CU-1105,secondary,76
+,CU-1105,secondary,77
+,CU-1105,secondary,78
+,CU-1105,secondary,79;80
+,CU-1105,secondary,81
+Don Bosco,,secondary,82
+Don Bosco,,secondary,83
+Don Bosco,,secondary,84
+,CU-1109,secondary,85
+,CU-1109,secondary,86
+,CU-1109,secondary,87
+,CU-1109,secondary,88
+,CU-1109,secondary,89
+,,secondary,90
+Avenida Luis Vallejo Santoni,,secondary,91
+,,secondary,92
+,,secondary,93
+,,secondary,94
+,,secondary,95
+Avenida Cusco,,secondary,96
+Avenida Humberto Vidal Unda,,secondary,97
+Avenida Huayruropata,,secondary,98
+,CU-1106,secondary,99
+,CU-1106,secondary,100
+avenida Apurimac,,secondary,101
+,,secondary,102
+,,secondary,103
+Avenida El Sol,,secondary,104
+Prolongación Avenida Túpac Amaru,,secondary,105
+Avenida Túpac Amaru,,secondary,106
+,,secondary,107
+,,secondary,108
+Avenida Antisuyo,,secondary,109
+Avenida Jorge Chávez,,secondary,110
+,,secondary,111
+Victor Raúl Haya T.,,secondary,112
+Avenida Malecon Huancaro,,secondary,113
+De La Raza,,secondary,114
+Avenida Infancia,,secondary,115
+Calle Intiraymi,CU-1105,secondary,116
+Calle Camino Real,,secondary,117
+Avenida Garcilaso,,secondary,118
+Avenida Emiliano Huamantica,,secondary,119
+Sacsayhuamán,,secondary,120
+Avenida Túpac Amaru,,secondary,121
+Avenida Túpac Amaru,,secondary,122
+Saphi,,secondary,123
+Avenida Carlos Ugarte,,secondary,124
+Avenida Túpac Amaru,PE-28G,secondary,125
+,,secondary,126
+,,secondary,127
+,,secondary,128
+,,secondary,129
+,,secondary,130
+Avenida Sucre,,secondary,131
+18 de Mayo,,secondary,132
+Avenida Antisuyo,,secondary,133
+Avenida Qollasuyu,,secondary,134
+Avenida José Carlos Mariátegui,,secondary,135
+Avenida Grau,,secondary,136
+Avenida Jorge Chavez,,secondary,137
+Tipon,,secondary,138
+Avenida Pachacútec,,secondary,139
+Chicago,,secondary,140
+Chicago,,secondary,141
+Avenida Apurímac,,secondary,142
+Calle Umanchata,,secondary,143
+,,secondary,144
+Drigentes,,secondary,145
+Avenida Tullumayo,,secondary,146
+Avenida Rafael Aguilar Páez,,secondary,147
+Avenida Grau,,secondary,148
+Avenida Juan Anselmo Álvarez,,secondary,149
+Diagonal Angamos,,secondary,150
+Avenida Manco Cápac,,secondary,151
+Avenida La Paz,,secondary,152
+,,secondary,153
+Calle Ayahuaico,,secondary,154
+Puputi,,secondary,155
+,,secondary,156
+Avenida Micaela Bastidas,,secondary,157
+Avenida Los Cipreses,,secondary,158
+Avenida Vidal Unda,,secondary,159
+Avenida Qosqo,PE-28G,secondary,160
+Jirón Calca,PE-28G,secondary,161
+Jirón Espinar,PE-28G,secondary,162
+Avenida Hipólito Unanue,PE-28G,secondary,163
+Calle Los Incas,,secondary,164
+Avenida República de Brasil,,secondary,165
+Jirón Los Sauces,,secondary,166
+Avenida Ramón Zavaleta,,secondary,167
+Calle Rumi Wasi,,secondary,168
+Plateros,,secondary,169
+Calle Intiq K'awarina,,secondary,170
+Jirón Calca,,secondary,171
+Avenida Túpac Amaru,,secondary,172
+K'uychipunku,,secondary,173
+Jirón La Unión,,secondary,174
+Puente Rosario,,secondary,175
+Paseo De La Zarzuela,,secondary,176
+Calle Intiq Samanan,,secondary,177
+Calle Hatun Plaza,,secondary,178
+Avenida Hipólito Unanue,PE-28G,secondary,179
+,,secondary,180
+Avenida Sucre,,secondary,181
+Avenida Hipólito Unanue,PE-28G,secondary,182
+Calle Rocopata,,secondary,183
+,,secondary,184
+Don Bosco,,secondary,185
+,,secondary,186
+Victor Raúl Haya de la Torre.,,secondary,187
+Avenida Collasuyo,,secondary,188
+Mantas,,secondary,189
+Avenida Collasuyo,,secondary,190
+@bridges line
+class,arcs
+trunk,191
+trunk,192
+primary,193
+primary,194
+secondary,195
+secondary,196
+secondary,197
+secondary,198
+secondary,199
+@lanes line
+name,arcs
+Avenida Manco Cápac,200
+Avenida Manco Cápac,201
+24 de Junio,202
+Avenida José Olaya,203
+Avenida Germán Alatrista Bustamante,204
+Calle Teodosio Serrudo,205
+Avenida Garcilaso,206
+Avenida Garcilaso,207
+Calle Apurímac,208
+Calle Apurímac,209
+Calle Apurímac,210
+Calle Apurímac,211
+Calle Apurímac,212
+Tres Cruces de Oro,213
+Calle Tambopata,214
+Calle Tambopata,215
+Avenida Pardo,216
+Avenida Pardo,217
+Avenida Pardo,218
+Siete Ventanas,219
+Hauqaypata,220
+Hauqaypata,221
+Plaza San Francisco,222
+Plaza San Francisco,223
+Plaza San Francisco,224
+San Andrés,225
+Mesón de la Estrella,226
+Pavitos,227
+Plaza Belén,228
+Cabra Kancha,229
+Teqte,230
+Pera,231
+Almagro,232
+Trinitarias,233
+Calle General Buendía,234
+Espinar,235
+Calle del Medio,236
+Calle Garcilaso,237
+Cuesta de Santa Ana,238
+Calle Abracitos,239
+Pampa del Castillo,240
+Lucrepata,241
+Lucrepata,242
+Avenida Pachacútec,243
+Avenida Pachacútec,244
+Avenida Pachacútec,245
+Huayna Ccapac,246
+Manco Inka,247
+Avenida Huáscar,248
+Pumacahua,249
+Jirón Retiro,250
+Calle Atahuallpa,251
+Calle Atahuallpa,252
+Jirón Cahuide,253
+Yuraqpunku,254
+Tupac Yupanqui,255
+Jirón Condorcanqui,256
+Avenida Libertad,257
+Avenida Túpac Amaru,258
+Avenida Túpac Amaru,259
+Jirón 28 de julio,260
+Calle Coquimbo,261
+Calle Inca,262
+Giraldo Ruiz Caro,263
+Calle Jerusalén,264
+Calle Jerusalén,265
+Calle Santisimo,266
+Jirón 21 de Mayo,267
+Calle Los Angeles,268
+Calle Los Angeles,269
+Sacristanniyoc,270
+Calle Bellavista,271
+Calle RVDO Padre Juan Antonio Manya Ambur,272
+Calle RVDO Padre Juan Antonio Manya Ambur,273
+Calle Ayacucho,274
+Calle Ayacucho,275
+Villa del Sol,276
+Calle Huayracalle,277
+Santa Clara,278
+Qheswa,279
+Avenida Baja,280
+Ceniza,281
+Unión,282
+Calle Junin,283
+9 de Diciembre,284
+28 de Julio,285
+Avenida Virgen Natividad,286
+Calle Augusto B. Leguia,287
+Calle Cahuide,288
+T'otoraphaqcha,289
+T'otoraphaqcha,290
+Avenida Wiracocha,291
+Hatunrumiyoc,292
+Santa Catalina Angosta,293
+Santa Catalina Angosta,294
+Ruinas,295
+Pumapaccha,296
+Chihuampata,297
+Asnoq Chutun,298
+Carmen Bajo,299
+Santa Catalina Ancha,300
+Santa Monica,301
+Tandapata,302
+Kurkurpata,303
+Kiskapata,304
+Kiskapata,305
+Herrajes,306
+San Agustín,307
+Ayacucho,308
+Maruri,309
+Calle San Bernardo,310
+Calle Q'era,311
+Calle Cruz Verde,312
+Calle Nueva,313
+Calle Heladeros,314
+Matará,315
+Concebidayoc,316
+Tordo,317
+Nueva Alta,318
+Santa Teresa,319
+Avenida Tomasa Tito Condemayta,320
+Tacna,321
+Tacna,322
+Tacna,323
+Prolongación Lucrepata,324
+Cuesta de San Blas,325
+Palacio,326
+Palacio,327
+Plazoleta de Nazarenas,328
+Purgatorio,329
+Camino Qhapaq Ñan al Antisuyo,330
+Pasnapakana,331
+Calle del medio,332
+Resbalosa,333
+Pumaqchupan,334
+Loreto,335
+Córdoba del Tucumán,336
+Siete Culebras,337
+Choqechaka,338
+Atocusaycuchi,339
+Calle Marqués,340
+Calle Mantas,341
+Calle Mantas,342
+Belén,343
+Avenida Centenario,344
+Calle Pucutupampa,345
+San Jose,346
+Calle Patacalle,347
+Calle 8 de Marzo Belén Pampa,348
+Calle Manuel Callo,349
+Pasaje Clorinda Matto de Turner,350
+Francisco Romaña,351
+Pasaje Hurtado Alvarez,352
+Plaza Kusipata,353
+Romeritos,354
+Avenida Paz Soldán,355
+Avenida Bolognesi,356
+Jirón Lima,357
+Pasaje Ramón Castilla,358
+Pasaje Ramón Castilla,359
+Pasaje Ramón Castilla,360
+Calle Fortunato Herrera,361
+Jirón Arequipa,362
+Avenida Torre Tagle,363
+Calle Bernardo Alcedo,364
+Jirón Jose Olaya,365
+Avenida Abelardo Ugarte,366
+Avenida Alfonso Ugarte,367
+Calle Triunfo,368
+Teqsicocha,369
+San Miguel,370
+Calle Recoleta,371
+Almudena,372
+Siete Borreguitos,373
+Warankallki,374
+Mut'uchaka,375
+Balcón Turístico,376
+Pumacurco,377
+Concepción,378
+Ese,379
+Atoqsaycuchi,380
+Avenida Alta,381
+Carmen Quicllo,382
+Lechugal,383
+Regional,384
+Regional,385
+Avenida Regional,386
+Pasaje Retiro,387
+Pasaje Diego Cristobal Tupac Amaru,388
+Calle Plazoleta,389
+Avenida Angel Qqaqqa,390
+Carmenqa,391
+Calle Conquista,392
+Calle Conquista,393
+Saphi,394
+Jirón Julio C. Tello,395
+Pasaje Concepción,396
+San Vicente,397
+Nueva Baja,398
+Calle Sacsayhuaman,399
+Calle Huayna Picchu,400
+Belenpampa,401
+Malambo,402
+César A. Vallejo,403
+Jirón Los Cadetes,404
+Policarpio Caballero,405
+Calle Juan Espinoza Medrano,406
+Jirón Cusco,407
+Luis Uzategui,408
+Calle Perú,409
+Avenida Jorge Ochoa,410
+Calle Göhering,411
+Alabado,412
+Calle Ccascaparo,413
+Avenida Puente de Retiro,414
+Avenida Puente de Retiro,415
+Avenida Retiro,416
+Calle 7 Mascarones,417
+Siete Cuartones,418
+Monjaspata,419
+Pasaje Santiago,420
+Calle Manzanapata,421
+Calle Prolongación Pera,422
+Pasaje Zavaleta,423
+Calle Las Malvinas,424
+Inka Roq'a,425
+San Pedro,426
+San Juan de Dios,427
+Fierro,428
+Fierro,429
+Desamparados,430
+Avenida Diego Cristóbal Túpac Amaru,431
+Calle Coricalle,432
+Siete Angelitos,433
+Carmen Alto,434
+Qanchipata,435
+Tocuyeros,436
+Siete Diablitos,437
+Saqrachayoq,438
+Suytu Qhatu,439
+Uspha,440
+Calle Ayahuayco,441
+Educandas,442
+Teatro,443
+Tigre,444
+Umanchata,445
+Jirón Virreynal,446
+Jirón Republica,447
+Calle 9 de Diciembre,448
+Bayoneta,449
+Calle Almagro,450
+Calle Matara,451
+Pampa de la Alianza,452
+Pasaje Tetecaca,453
+Jirón Lucrepata,454
+Jirón Pantaq Calle,455
+Meloq,456
+Arones,457
+Tambo de Montero,458
+Avenida Arcopata,459
+Avenida Arcopata,460
+Vitoque,461
+Calle Hospital,462
+Prolongación Nueva Alta,463
+Plaza Regocijo,464
+Calle Granada,465
+Amargura,466
+Calle Ataúd,467
+Cuesta del Almirante,468
+Mira Calcetas,469
+Quillichapata,470
+Calle Mariano Melgar,471
+Calle Cesar Vallejo,472
+Pasaje Aguilar,473
+Calle Pantipata,474
+Jirón Abel Landeo,475
+Calle Cascaparo Chico,476
+Calle Santísimo,477
+Calle Plaza Santiago,478
+Calle Túpac Amaru,479
+Avenida Confraternidad,480
+Avenida Confraternidad,481
+Avenida Confraternidad,482
+Puente Almudena,483
+Hospitál,484
+Primavera,485
+Calle linea ferrea,486
+Los Libertadores,487
+Pasaje San Sebastian,488
+Prolongación Conquista,489
+Jerusalen,490
+Pasaje Michipata,491
+Calle Cristo Blanco,492
+Pasaje Santa Rosa,493
+Pasaje Abancay,494
+Avenida José Antonio de Sucre,495
+Avenida Uzategui Arce,496
+Avenida Unión,497
+Jirón Salcedo,498
+21 de Mayo,499
+Jirón Kenqo,500
+Jirón Sucre,501
+Jirón Paititi,502
+Pasaje Mariano de los Santos,503
+Calle Narciso Arestegui,504
+Calle Zorritos,505
+Calle Sol Naciente,506
+Calle Vista Alegre,507
+Calle Velasco Alvarado,508
+Pasaje Cuesta Chachacomo,509
+Calle Lizardo Montero,510
+Calle Prol. Arcopata,511
+Pasaje San Martín,512
+Pasaje Cuesta Calvario,513
+Avenida Simón Bolivar,514
+Calle Jose Olaya,515
+Calle Cuesta Picchu,516
+Calle General Ollanta,517
+Avenida Ricardo Palma,518
+Avenida Prolongación Ejército,519
+Avenida Prolongación Ejército,520
+Avenida Prolongación Ejército,521
+Avenida Tulipanes,522
+Calle Argentina,523
+Calle Precursores,524
+Calle Cordova,525
+Bajada de los Conquistadores,526
+Jirón Chanapata,527
+Calle Emancipación,528
+Pasaje Colonial,529
+Jirón Inca,530
+Calle Rocopata,531
+Pasaje Esmeralda,532
+Calle Suecia,533
+Lanlacuyoc,534
+Pasaje Chasqui,535
+Avenida Teteccacca,536
+Calle Arequipa,537
+Calle Agustín Gamarra,538
+Calle José María Arguedas,539
+Huaynapata,540
+Avenida del Ejército,541
+Portal de Belén,542
+Jirón Juan de Dios Aguirre,543
+Calle Baltazar,544
+pjse huamananripa,545
+Avenida Micaela Bastidas,546
+Calle Afigidos,547
+Chaparro,548
+Ernesto Gunther,549
+Q'olla Calle,550
+Pasaje Grace,551
+Jirón José Carlos Mariátegui,552
+Portal de Carnes,553
+Portal de Harinas,554
+Portal de Panes,555
+Calle Procuradores,556
+Portal de Carrizos,557
+Espaderos,558
+Pasaje Santo Domingo,559
+Pasaje Juan Salvo,560
+Portal de la Companía,561
+Prolongación Jirón Lucrepata,562
+Ahuacpinta,563
+Ahuacpinta,564
+Avenida Salaverry,565
+Zetas,566
+Calle Zuriaga,567
+Pasaje Kantu,568
+Pasaje Ollanta,569
+@rail line
+kind,colour,lines,arcs
+r,,,570
+@green polygon
+kind,arcs
+wood,571
+wood,572
+wood,573
+wood,574
+wood,575
+wood,576
+wood,577
+wood,578
+wood,579
+wood,580
+wood,581
+wood,582
+wood,583
+park,584
+park,585
+park,586
+park,587
+park,588
+park,589
+@water polygon
+arcs
+590
+591
+592
+@waterways line
+name,kind,arcs
+Huatanay,river,593
+Río Huancaro,river,594
+@airport polygon
+name,iata,arcs
+Alejandro Velasco Astete International Airport,CUZ,595
+@monuments polygon
+name,wikidata,arcs
+Saqsaywaman,Q828336,596
+@districts line
+level#,arcs
+1,597
+1,598
+1,599
+1,600
+1,601
+1,602
+1,603
+1,604
+1,605
+1,606
+1,607
+1,608
+1,609
+1,610
+1,611
+@clip polygon
+arcs
+612
+@places
+name,level#,lon#,lat#
+Wanchaq,1,-71.95813,-13.53012
+@parks
+
+@stations
+name,kind,rank#,lon#,lat#
+Wanchaq,r,3,-71.97116,-13.52544

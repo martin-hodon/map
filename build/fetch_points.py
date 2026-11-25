@@ -26,7 +26,7 @@ FAMOUS = [("castle", "Q23413", 15), ("palace", "Q16560", 15), ("palace", "Q75187
           ("religious", "Q32815", 25), ("religious", "Q44539", 20), ("religious", "Q44613", 20), ("castle", "Q57821", 20),
           ("archaeological", "Q839954", 20), ("archaeological", "Q15661340", 20), ("tomb", "Q381885", 20),
           ("tomb", "Q162875", 20), ("tomb", "Q12516", 20), ("monument", "Q4989906", 25), ("monument", "Q179700", 25),
-          ("tower", "Q12518", 30), ("bridge", "Q12280", 12), ("dam", "Q12323", 10), ("national park", "Q46169", 25), ("waterfall", "Q34038", 20)]
+          ("tower", "Q12518", 30), ("bridge", "Q12280", 12), ("dam", "Q12323", 10), ("national park", "Q46169", 15), ("waterfall", "Q34038", 20)]
 
 
 def overpass(q, out):

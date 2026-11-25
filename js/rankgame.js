@@ -31,7 +31,7 @@ export async function startRank() {
   await loadMeasures(); await riversReady(GR.list);                 // (rivers let go meanwhile: their lines read again first)
   const all = rows(GR), L = LISTS[GR.list], wsel = $("g-rwithin"), noun = L.noun || GR.within;
   const where = wsel.hidden || L.within === "water" || L.within === "land" ? "" : wsel.selectedOptions[0]?.textContent || "";
-  Object.assign(game, { where: { kind: "world", name: "the world" }, ranked: all, rk: { ...GR, noun, where }, pair: null, asked: new Set(), done: new Set(), missed: [],
+  Object.assign(game, { where: { kind: "world", name: "the world" }, ranked: all, rk: { ...GR, noun, where }, pair: null, asked: new Set(), done: new Set(), lastK: null, missed: [],
                         over: false, t0: performance.now(), t1: null });
   $("g-title").textContent = `${$("g-style").selectedOptions[0].textContent} · ${noun} by ${GR.by}${where ? ` · ${where}` : ""}`;
   $("g-list").innerHTML = ""; say(""); $("g-flag").innerHTML = ""; $("g-give").hidden = true;
@@ -98,7 +98,7 @@ export function rankGuess(text) {
   $("g-name").value = "";
   if (k >= game.top) return say(`${r.name} is #${k + 1} (${val(r)}): not in the top ${game.top}.`, true);
   if (game.done.has(k)) return say(`${r.name} is named already.`, true);
-  game.done.add(k); slot(k, false); say(`✓ ${r.name}: #${k + 1}, ${val(r)}`);
+  game.done.add(k); game.lastK = k; slot(k, false); say(`✓ ${r.name}: #${k + 1}, ${val(r)}`);
   if (game.done.size === game.top) finish(`All ${game.top} named, in ${clock()}.`);
   rankScore(); draw();
 }
@@ -131,6 +131,7 @@ export function drawRank() {
   if (game.style === "higher") { for (const r of game.pair || []) shape(r, css("--game-fill"), hi); return; }
   for (const k of game.done) shape(game.ranked[k], css("--ok-fill"), "#2e9d4a");
   for (const k of game.missed) shape(game.ranked[k], css("--miss-fill"), "#7a5cc2");
+  if (game.done.has(game.lastK)) shape(game.ranked[game.lastK], css("--last-fill"), css("--last"));   // (the LATEST named: in a colour of its own)
 }
 export function rankNames(boxes) { for (const r of shownRows()) if (visible(at(r))) writeName(boxes, r.name, at(r), 12, 600, css("--ink")); }
 

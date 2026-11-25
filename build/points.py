@@ -45,6 +45,7 @@ RAW = os.path.join(ROOT, "raw")
 MIN_POP = 100_000
 ALSO_CITIES = {"Q3370", "Q4656", "Q27001", "Q26175", "Q145002", "Q26393", "Q200133", "Q1915327", "Q384544", "Q183111", "Q13375", "node/240088844",
                "Q167895", "Q206957", "Q210470", "Q210296", "Q188731", "Q182299", "Q207467", "Q190847"}   # (2026-11-09: Kalamata, Serres, Katerini, Xanthi, Rhodes, Chania, Trikala, Alexandroupolis -- Greek cities of 45-62,000 wanted on the map)   # (under the floor, wanted all the same, by Wikidata item -- or by OSM node, where the node names none: Zadar, Pula, Martin, Trnava, Trenčín, Poprad, Chalcis, Nizwa, Karlovy Vary, Jihlava, Pisa, Fulda)
+MONUMENT_NAMES = {"Q3491338": "Bohemian Switzerland National Park"}   # (the English name wanted, over Wikidata's label: České Švýcarsko)
 CITY_NAMES = {"Q200133": "Chalcis", "Q466027": "Yanbu"}   # (the English name wanted, over OSM's and Wikidata's: Chalkida; OSM's `Yanbu`` with a stray backtick)
 MIN_POP_BY = {"Europe": 70_000}   # ...or this many in these continents (by the city's state's continent, else its country's)
 MIN_VISITORS = 100_000
@@ -52,6 +53,15 @@ POP_STEP = 5_000
 URBAN_FACTOR = 3        # a place's urban population counts when it is at most this many times its municipal one
 URBAN_FACTOR_BIG = (200_000, 6)   # ...or this many, for a place of so many people or more (Paris: 2.0 million in the city, 11 in its urban area)
 URBAN_FACTOR_BIG_NOT = {"CN", "TW"}   # ...but not in these countries (a county-level city's "urban" is nearly its whole county; Taoyuan's, Taipei's)
+# CHINA'S CITIES (2026-11-25): OSM's and Wikidata's count for a prefecture-level city is its whole prefecture -- its
+# counties and their villages too (Zhoukou 9.0 million, its city 1.6) -- and a county-level city's is its county. So
+# a city of these countries shows the larger of Wikipedia's urban figure and its municipal districts' together
+# (Wikidata: its P150 parts whose class is "Municipal district", each by its latest count), never more than the
+# whole -- the larger of that total and every district's -- (Guangzhou's urban area, 27 million, runs on into Foshan:
+# its 19); one with neither keeps the total (a county-level city: its seat and townships). The province-level
+# municipalities (Beijing, Shanghai, Tianjin, Chongqing) are not cut: their districts reach far into the country.
+CITY_PROPER_BY_DISTRICTS = {"CN"}
+CITY_PROPER_NOT = {"Q956", "Q8686", "Q11736", "Q11725"}
 CITY_POPULATION = {"Q239": 1_250_000}   # (the population wanted, over OSM's, Wikidata's and Wikipedia's: Brussels -- OSM's node is the City of Brussels, a municipality of 200,000; its article gives the Region's 1.25 million and no urban figure)
 ALSO_MONUMENTS = {"Q857763": ("Caminito del Rey", "landform", -4.773, 36.916, 25, "relation/4678863")}   # (wanted all the same, though of no kind KINDS knows and with no count, by Wikidata item: its name, kind, lon, lat, Wikipedias, OSM -- a walkway in a gorge)
 MIN_HERITAGE_WIKIPEDIAS = 10   # a World Heritage Site's item is kept when this many Wikipedias write about it (not each part)
@@ -202,6 +212,29 @@ def wd_classes(qids):
             have.setdefault(q, [])
         json.dump(have, open(path, "w"), ensure_ascii=False)
     return {q: have.get(q, []) for q in qids}
+
+
+def wd_districts(qids):
+    """{qid: the population of its municipal districts together (each its latest P1082), or None} -- cached in
+    raw/wd_districts.json as {qid: {district: [pop, date]}}"""
+    path = os.path.join(RAW, "wd_districts.json")
+    have = json.load(open(path)) if os.path.exists(path) else {}
+    need = sorted({q for q in qids if q and re.match(r"^Q\d+$", q) and q not in have})
+    for i in range(0, len(need), 200):
+        vals = " ".join("wd:" + q for q in need[i:i + 200])
+        for b in sparql(f"""SELECT ?item ?d ?pop ?date WHERE {{ VALUES ?item {{ {vals} }} ?item wdt:P150 ?d . ?d wdt:P31 ?c .
+                            ?c rdfs:label "Municipal district"@en . ?d p:P1082 ?st . ?st ps:P1082 ?pop .
+                            FILTER NOT EXISTS {{ ?st wikibase:rank wikibase:DeprecatedRank }} OPTIONAL {{ ?st pq:P585 ?date }} }}"""):
+            q, d = b["item"]["value"].rsplit("/", 1)[-1], b["d"]["value"].rsplit("/", 1)[-1]
+            date, pop = b.get("date", {}).get("value", "")[:10], int(float(b["pop"]["value"]))
+            cur = have.setdefault(q, {}).get(d)
+            if cur is None or (date or "0") > (cur[1] or "0") or (date == cur[1] and pop > cur[0]):
+                have[q][d] = [pop, date or None]
+        for q in need[i:i + 200]:
+            have.setdefault(q, {})
+        json.dump(have, open(path, "w"))
+        print(f"  wikidata districts {min(i + 200, len(need))}/{len(need)}", flush=True)
+    return {q: sum(v[0] for v in have.get(q, {}).values()) or None for q in qids}
 
 
 def wp_urban(qids):
@@ -405,10 +438,18 @@ def cities(where):
         r["_floor"] = 0 if r["wikidata"] in ALSO_CITIES or r["osm"] in ALSO_CITIES else MIN_POP_BY.get(cont.get(g) or cont.get(c), MIN_POP)
     seen = {k: r for k, r in seen.items() if r["population"] >= r["_floor"] / URBAN_FACTOR or r["capital"] == "country"}
     urban = wp_urban([r["wikidata"] for r in seen.values()])
+    dsum = wd_districts([r["wikidata"] for r in seen.values() if r["_cc"] in CITY_PROPER_BY_DISTRICTS])
     for r in seen.values():                                    # the urban population where Wikipedia gives one that is
         u = urban.get(r["wikidata"])                           # bigger (and not absurdly: a district's article can carry
         m = r["population_municipal"]                          # the whole city's)
-        big = m >= URBAN_FACTOR_BIG[0] and r.pop("_cc", None) not in URBAN_FACTOR_BIG_NOT
+        cc = r.pop("_cc", None)
+        if cc in CITY_PROPER_BY_DISTRICTS and r["wikidata"] not in CITY_PROPER_NOT:
+            d = dsum.get(r["wikidata"]) or 0
+            proper, whole = max(u or 0, d), max(m, d)    # (the whole: OSM's tag can be an old count -- Guangzhou's 14 million)
+            if proper:
+                r["population"], r["population_source"], r["population_year"] = min(proper, whole), "city-proper", None
+            continue
+        big = m >= URBAN_FACTOR_BIG[0] and cc not in URBAN_FACTOR_BIG_NOT
         if u and m < u <= (URBAN_FACTOR_BIG[1] if big else URBAN_FACTOR) * m:
             r["population"], r["population_source"], r["population_year"] = u, "wikipedia-urban", None
         if r["wikidata"] in CITY_POPULATION:
@@ -545,6 +586,8 @@ def monuments(where):
     for q, (name, kind, lon, lat, n, osm) in ALSO_MONUMENTS.items():
         if q not in have and q not in fame:
             feats.append((lon, lat, {"name": name, "kind": kind, "wikipedias": n, "wikidata": q, "osm": osm}))
+    for _, _, p in feats:
+        p["name"] = MONUMENT_NAMES.get(p["wikidata"], p["name"])
     langs = {}
     for r in famous:
         langs[r["item"]] = max(langs.get(r["item"], 0), r["n"])

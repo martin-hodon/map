@@ -1,0 +1,428 @@
+# Antigua Guatemala: a city detail map (build/citymaps.py; OSM, ODbL)
+grid 5e-05 -90.78990 14.50430
+@arcs
+740 1149 -33 -30 -17 -39 -31 -16 -9 -11 -8 -47 -14 -29 -3 -13 2 -52 13 -36 -6 -30 8 -20 12 -8 75 -25 10 -12 0 -13
+739 768 -21 -39
+1490 1080 35 4 22 -4 20 1 53 21 13 -3 22 -14 14 3 9 6 14 -1 22 -21 31 6 8 7 2 37 6 10 10 4 12 -1 18 -10 15 -21 10 -2 8 7 3 29 -6 10 -26 13 -8 18 10 27 6 8 11 0 15 -8 6 -3
+1840 1229 -17 11
+1823 1240 -15 5 -6 -2 -7 -7 -46 -80 -32 -30 -21 -15 -15 -7 -30 -2 -31 9 -15 -1 -39 -17 -14 -4 -5 -9
+1471 1078 -31 1 -61 10 -66 6 -28 -14
+988 1303 12 -25 8 -29 15 -18
+1133 1060 110 2 30 14 5 1 4 2 3 2
+1273 1076 -27 6 -112 -2
+1050 1224 1 -95
+1038 1059 2 0 93 1
+1134 1080 -93 0
+1040 1059 1 21 1 34 6 11 3 4
+1264 1121 -58 -2
+1050 1224 21 -13 20 -17 1 -1
+1208 1173 -52 -2
+1092 1193 27 -23 15 -5
+1278 1077 -14 44
+1206 1132 2 41
+1023 1231 27 -7
+1156 1171 -22 -6
+1206 1119 0 13
+1570 1577 -1 3 2 -3 7 -11
+1578 1566 8 44 5 9 -1 20
+1200 609 3 -7 21 -16 9 -14 28 -86 31 -72 6 -28
+1494 1539 -22 -22 -4 -16 -7 -6 -3 -19 -10 -13 -2 -9 -8 -6 -31 -44 3 -14 -7 -17 13 -23 1 -12 -3 -9 -20 -25 -3 1
+1416 1350 -10 0 -7 6 -11 4 -5 8 1 13 -2 4 -16 -1 -17 -7 -15 16 -24 2 -9 -2 -15 -10 -20 -27 -24 -22 -5 -8 -6 -28 2 -18 -3 -10 -9 -10 -16 -6 -4 0 0 -2 4 2
+1205 1254 2 -4 7 -1 22 6 9 8 8 15 5 2 -4 -3
+1253 1278 1 -1 3 -3 -9 -28 -23 -21 -15 -7 -2 -4
+1038 999 -18 -24 -68 -63 -44 -49 -5 -4 -20 -2 -15 -14 -4 -11 -1 -44 0 -15 -3 -40 -33 -80 -17 -74
+838 452 35 15 42 12 24 15
+1839 1206 -11 -10 -3 -12 3 -2 19 5
+1620 1111 2 2 68 5 6 -7
+1808 1245 0 9 14 4 7 -11 -6 -7
+863 788 93 -2 133 -7 53 24 -4 20
+939 494 27 17 132 72 83 29 19 -3
+1091 1194 2 20 -6 17 -12 9 -22 5 -4 7 3 8 17 8 7 7 9 18 -4 40 13 15 1 16 -2 13 -13 36
+1134 1041 0 -41 0 -112 18 -39
+966 1036 -9 -40 -22 -47 -22 -4 -68 -1
+1199 827 -5 57 -2 118
+845 944 -9 -171
+1209 782 -1 -83 -9 -76
+1127 855 -6 25 -8 4 0 116
+1155 1041 1 130
+1350 867 -72 -9 -21 -5 -37 2
+1134 1165 0 -85 -1 -20 1 -19
+1038 1059 0 -21 -1 -37 1 -2
+863 773 -27 0 -71 1 -26 -6
+1134 1000 20 1 38 1 13 1 49 2 1 0
+1075 1412 5 1
+1227 888 24 -2 23 4 63 1
+1494 1539 32 4 10 -2 3 14 20 3 7 9 1 9 3 1 1 0
+1038 999 75 1 21 0
+987 1130 -10 -93
+1134 1041 -96 -3
+1232 915 18 26 4 64
+1216 828 4 27 7 33 5 27
+1255 1005 12 28 5 30 10 16
+1205 1042 1 77
+1135 838 17 11 39 36 3 -1
+1038 1038 -41 -1 -20 0
+1205 1042 -50 -1 -21 0
+1048 1125 -26 4 -35 1
+1164 825 35 2 17 1
+1216 828 -7 -44 0 -2
+1208 1214 0 -41
+1154 1001 1 40
+998 1002 39 -1
+1205 1003 0 39
+997 1037 1 -35
+1274 890 4 -32
+1138 823 26 2
+1337 891 9 -9 4 -15
+1138 823 -3 15
+1202 617 -3 6
+1202 617 -3 -1 0 -1 1 -1
+1200 614 2 1 0 2
+1200 609 2 6
+1199 615 1 -6
+1199 616 -2 -1
+1197 615 2 0
+1620 1111 2 2
+1209 784 0 -2
+812 587 0 -3
+1808 1252 0 2 3 1
+1060 780 4 0
+1148 601 4 1
+1150 852 1 -2
+1194 890 0 1
+754 772 -4 -1
+1253 1005 1 0 1 0
+1254 1003 0 2
+1209 784 0 -2
+1209 784 0 -2
+1279 1078 2 1
+1181 914 2 -17
+1072 999 0 40
+1154 1001 1 -48 1 -39
+944 967 45 0
+992 1244 -6 -38 -5 -64 1 -2 4 -1 1 -2 0 -7
+1192 982 -58 -1
+1221 963 -46 -2 -41 -1
+1040 1100 94 0
+1092 1193 0 -153
+1289 1127 -25 -6
+1306 1130 -5 0 -12 -3
+1289 1127 6 -1 11 4
+1349 1141 -43 -11
+983 1172 69 -2
+959 1002 6 0 33 0
+1177 896 17 3
+1023 1231 -31 13 -13 7
+1176 1131 -1 -89
+1155 944 69 2
+1014 1240 -4 -69 2 -42
+1092 1148 -41 1
+1155 1160 -21 0
+1194 914 -18 -1
+987 841 32 2
+1215 1003 13 -80 1 -4 3 -4
+1226 1062 0 -58
+1230 903 15 -1 7 -15
+1276 906 -1 -16
+1285 900 0 -10
+1286 905 -1 -5
+1298 900 -13 0
+1286 910 0 -5
+1296 905 -10 0
+1276 879 11 1 19 -2
+1304 890 2 -12 1 -1 4 -14
+978 1052 60 -1
+1208 1182 3 1
+1211 1183 -3 0
+1211 1183 76 0
+992 1295 -5 -1
+1085 779 16 34 5 5 1 4 3 3 11 9 4 5 3 8 -1 8
+1113 1000 1 41
+1197 844 -28 -2 -1 0
+1245 987 -13 -2
+1258 1143 6 4 3 7 -3 93 2 2 7 2 1 12 2 1 6 0 1 1 7 11 3 11 -5 16 1 7 1 5 5 11 4 4
+1246 1064 0 18
+1225 1119 0 12
+1091 1345 21 -4 33 -1 18 1 20 3 7 1 1 0
+1253 1104 15 6
+991 1002 -2 -27 1 -19 3 -7
+997 1018 41 0
+983 1172 -32 2 -4 2 -1 2 16 19 2 1 21 -2 66 -4
+1072 1191 -9 6
+1052 1170 63 -4
+1134 960 -134 -5
+1134 1130 -83 -1
+1225 1131 -1 1 -18 0
+1114 1041 -1 93
+1206 1132 -49 -1 -4 -1 -19 0
+1072 1039 0 138 0 14
+1063 1192 1 13 2 10
+1038 1018 96 2
+1134 981 -21 -1
+1134 1100 72 2
+1134 1020 41 1
+1175 1015 -20 0
+1092 1040 0 -41
+1046 1316 37 5
+983 1271 19 1
+1175 1042 0 -27 0 -54 1 -48 1 -35 3 -4
+1052 1070 0 10
+1064 1090 0 -10
+1040 1027 14 0
+1268 1110 4 2 15 4
+1184 1172 0 6 1 2 6 6 5 3 4 1 8 0
+1061 1070 0 10
+1264 1121 -6 22 0 28
+1051 1192 21 -1 25 -3
+1253 854 5 -27
+1134 953 21 0
+1134 933 13 0
+953 986 11 -5
+1134 924 12 0
+1219 1003 0 13
+1156 1171 0 4
+1176 855 3 -29
+1010 1177 10 0
+1134 1145 7 0
+1164 825 -4 31
+1225 1082 1 -20
+1012 1051 0 -14
+1185 945 1 -8 7 1
+1169 826 -1 9
+1149 836 -5 -1 1 -11
+1236 837 -5 18
+1226 1043 -21 -1
+1231 1172 56 1
+1366 462 33 1 -5 31 -23 6 3 13 63 20 -2 9 39 -12 10 -11 62 -6 28 7 -112 -72 -127 -52 0 17 28 20 3 29
+1725 678 -83 -99 -56 4 -42 31 2 7 -40 21 -118 32 -15 -20 -57 4 -5 37 20 34 9 2 1 21 18 10 41 -1 2 12 13 8 11 -12 6 -48 11 -12 9 7 7 34 -5 10 59 9 26 55 -95 17 -68 -2 -20 -7 0 22 74 11 31 11 5 11 3 -20 21 -6 25 16 -3 -10 8 -2 22 12 4 11 -9 10 2 16 16 -6 24 3 28 11 61 48 46 6 5 8 47 -14 42 -27 -4 -15 8 -28 -32 22 -14 -4 24 8 -1 10 -43 19 17 -38 -12 -9 10 -10 -5 -7 63 -16 -25 -74 5 24 -25 3 -2 -33 -23 7 -1 32 -23 6 0 10 -36 17 -5 -8 -39 8 0 5 -67 -30 6 -11 53 5 11 -29 20 -1 4 -27 17 -4 17 31 29 -20 30 -44 -21 -35 -57 19 -13 -34 51 -14
+1624 781 -1 -6 23 -8 15 9 -32 36 -15 7 -44 -10 54 -28
+1303 945 -5 -9 -7 1 -6 30 -29 26 37 9 4 34 -14 11 -1 26 25 18 26 -34 20 -8 5 4 -1 32 25 -3 -6 -11 16 -4 18 11 -4 -22 15 -9 -5 -15 25 -19 0 25 17 22 21 9 12 -12 15 3 -4 18 31 -5 0 5 24 -9 -4 11 66 21 36 -17 32 10 6 -2 20 -20 30 4 -33 -10 -15 21 -17 -1 8 -87 -74 -25 -64 6 -65 -26 -12 -1 0 15 -9 0 -1 -11 -32 3 -12 16 -4 -5 -61 32 -18 39 -21 0 0 -24 32 -19 -8 -34 22 -2 -33 -19 -23 1
+979 1165 -1 -31 -18 2 -8 -14 -18 0 0 -13 8 0 -1 -28 17 -3 5 -11 -24 2 -1 8 -63 3 6 32 37 -1 4 28 22 35 19 -12 16 3
+1342 1302 6 8 -9 6 10 18 24 4 0 10 -12 12 30 28 13 1 17 24 -37 5 4 19 13 13 -12 6 -16 -7 -7 8 -16 -15 -1 -13 15 -11 -20 -28 10 -8 -23 -14 3 -19 -25 -9 5 -9 -19 -25 -6 3 18 30 -5 3 -41 -38 2 19 34 35 -6 5 -30 -34 19 34 -4 3 -34 -36 9 -7 -8 -33 40 -2 7 -6 -8 -17 -8 0 -2 -14 -44 -37 35 1 1 -12 -44 -1 -2 7 -11 -3 -3 6 -26 -31 -13 -2 -3 7 -14 -10 -30 -4 -9 10 7 9 -6 5 22 17 6 15 -4 6 12 3 -10 3 -22 -12 -33 21 24 8 7 -8 3 12 22 7 34 -9 5 14 24 14 6 17 -4 17 -8 1 2 17 9 20 13 -2 21 17 -17 10 12 6 0 21 42 19 -1 -27 23 5 12 -16 -9 -7 9 -16 30 10 -4 10 -28 13 -30 38 23 2 -15 27 37 34 35 -10 7 4 4 -11 7 1 -3 12 7 5 17 -9 6 17 -14 5 13 24 -7 4 15 17 -7 11 21 29 11 -5 4 8 -19 8 -52 -30 -3 10 22 28 4 21 9 5 -8 11 12 63 36 14 38 -20 -14 1 -27 -15 -6 -18 7 -7 -15 -37 10 -25 9 -3 13 26 -6 5 16 24 21 4 -6 -22 24 16 43 9 11 -9 -7 -14 -28 -14 0 -11 12 -9 -24 5 -3 -10 25 -14 13 5 1 16 10 4 -6 -5 0 -28 -14 -11 9 -11 -2 -6 -29 11 0 -9 -15 -4 7 -7 16 7 10 -13 -55 -4 9 -6 -15 -6 39 -8 6 -9 -10 -8 -19 13 -7 -8 0 -19 -33 12 -12 -24 0 -23 14 -2 14 38 11 -6 -8 -22 5 -5 -51 -101 -4 -34 -31 -40 -33 -13 -23 1 -6 -20 -24 -7 -3 15 9 23 18 2 10 20 8 -3
+1521 1086 36 3 56 22 38 -10 47 9 2 -10 17 4 -2 5 13 9 -3 13 20 18 -10 9 7 7 19 -11 9 15 -22 10 8 14 6 -3 36 56 13 8 13 -3 6 21 16 -77 -29 10 -8 -30 44 -47 1 -27 -6 -3 6 -46 -32 31 -18 31 -16 13 -27 7 -9 -14 -2 -37 -8 -5 -28 -3 -27 22 -35 -10 -32 17 -63 -21 -36 3
+1427 1268 67 96 37 15 87 58 31 41 -3 23 -23 34 4 73 36 -37 -13 -21 21 -48 -3 -12 9 -6 9 9 -5 25 15 15 58 -83 -48 -91 -48 -61 -7 -30 7 -20 -3 -16 -126 -73 -85 -13 -7 10 46 10 24 16 34 43 57 12 12 13 0 18 -29 8 -55 -17 -29 -24 -28 -3 -13 -12 -1 -21 -3 13 17 33 -14 28 -28 -5
+938 1077 1 -14 23 -2 4 -7 -4 -32 -33 4 0 10 -15 0 1 41 23 0
+845 1267 2 -17 -22 -82 9 -26 6 -52 -13 -17 1 -5 -7 -12 0 -14 -8 -21 4 -17 -11 -29 -25 -42 -15 -7 -3 -5 -7 -38 -1 -28 9 -39 -9 -30 -5 -8 1 -10 -22 -46
+954 678 -77 -69 -42 -18 -26 -6
+1839 1235 -20 15 -11 1 -11 -7 -50 -86 -29 -28 -28 -20 -58 -1 -13 8 -98 -21 -18 5 -17 -1 -26 -7 -10 4 -24 0 -13 4 -14 -5 -35 -3 -53 10 -6 -2 -24 -20
+463 1208 65 68 159 -110 68 -22 62 59 31 69 23 -5 16 -11 39 -6 53 1 17 99 49 1 77 154 87 -16 178 146 23 114 52 -25 47 -27 60 -41 42 -34 39 -37 36 -40 33 -42 39 -60 25 -48 22 -49 23 -67 12 -52 11 -70 3 -53 0 -54 -6 -58 -23 10 -21 -74 17 -58 -16 -44 -14 -33 -24 -48 -18 -31 -41 -59 -46 -55 -51 -50 -57 -45 -60 -40 -65 -33 -67 -27 -70 -21 -71 -14 -73 -7 -72 0 -73 7 -71 14 -36 10 -49 16 -59 274 -251 164 -91 252 -48 3 -27 25 4 47 5 35 8 35 10 41 65 -78
+@streets line
+name,ref,class,arcs
+Libramiento Ruta Nacional 14,RN-14-A-02,primary,0;1
+Carretera Antigua - San Lucas Sacatepéquez,RN-10B;RN-10,primary,2
+Carretera a Antigua Guatemala,RN-10A;RN-10,primary,3;4
+Carretera a Antigua Guatemala,RN-10,primary,5
+Calle Real de Jocotenango,RN-14,primary,6
+4a Calle Oriente,RN-10,primary,7
+3a Calle Oriente,RN-10,primary,8
+Avenida del Desengaño,RN-14,primary,9
+4a Calle Poniente,RN-10,primary,10
+3a Calle Poniente,RN-10,primary,11
+Alameda Santa Lucía,RN-14,primary,12
+Calle de la Pila del Rubio,,primary,13
+Calle Ancha de los Herreros,,primary,14
+Calle de las Ánimas,,primary,15
+Calle del Manchén,,primary,16
+Calle de los Duelos,,primary,17
+Calle de la Nobleza,,primary,18
+Calle Ancha de los Herreros,RN-14,primary,19
+Calle Cuesta del Chucho,,primary,20
+1a Avenida Norte,,primary,21
+,RD SAC-10,secondary,22
+,RD SAC-10,secondary,23
+Carretera Antigua Guatemala - Santa María de Jesús,RD SAC-01,secondary,24
+,RD SAC-10,secondary,25
+,RD SAC-10,secondary,26
+,RD SAC-10,secondary,27
+,RD SAC-10,secondary,28
+Carretera a Ciudad Vieja,RN-14,secondary,29
+4a Calle,RN-10,secondary,30
+,,secondary,31
+,RD SAC-18,secondary,32
+,RD SAC-18,secondary,33
+Calle del Reformador,,secondary,34
+Calle Real,RN-10,secondary,35
+Calle del Manchén,,secondary,36
+4a Avenida Sur,,secondary,37
+Calle San Bartholomé Becerra,SAC-16,secondary,38
+Calle de los Pasos,,secondary,39
+Calle Real,,secondary,40
+Carretera Antigua Guatemala - Santa María de Jesús,RN-10,secondary,41
+5a Avenida Sur,,secondary,42
+3a Avenida Norte,,secondary,43
+Calle del Agua,,secondary,44
+4a Avenida Norte,,secondary,45
+Alameda Santa Lucía,RN-14,secondary,46
+Calle de Tetuán,RD SAC-19,secondary,47
+7a Calle Oriente,,secondary,48
+Calle Ricardo Arjona,,secondary,49
+Calle Real,,secondary,50
+5a Calle,RD SAC-10,secondary,51
+7a Calle Poniente,,secondary,52
+Calle de los Recoletos,,secondary,53
+5a Calle Poniente,,secondary,54
+Calle de Chipilapa,RN-10,secondary,55
+Calle del Hermano Pedro,RN-10,secondary,56
+Calle de Chipilapa,RN-10,secondary,57
+1a Avenida Norte,,secondary,58
+Calle del Rastro,,secondary,59
+5a Calle Poniente,SAC-16,secondary,60
+5a Calle Oriente,,secondary,61
+1a Calle Poniente,,secondary,62
+Callejón del Calvario,,secondary,63
+Carretera Antigua Guatemala - Santa María de Jesús,RN-10,secondary,64
+1a Avenida Norte,,secondary,65
+3a Avenida Sur,,secondary,66
+Calle del Espíritu Santo,SAC-16,secondary,67
+1a Avenida Sur,,secondary,68
+6a Calle,SAC-16,secondary,69
+Plazuela Santa Ana,,secondary,70
+Calle del Rastro,,secondary,71
+El Corozal,,secondary,72
+,,secondary,73
+Carretera Antigua Guatemala - Santa María de Jesús,RD SAC-01,secondary,74
+,RD SAC-01,secondary,75
+,RD SAC-01,secondary,76
+Carretera Antigua Guatemala - Santa María de Jesús,RD SAC-01,secondary,77
+Carretera Antigua Guatemala - Santa María de Jesús,RD SAC-01,secondary,78
+Calle Real,,secondary,79
+Calle Real,,secondary,80
+,RD SAC-18,secondary,81
+Carretera Antigua Guatemala - Santa María de Jesús,RD SAC-01,secondary,82
+@bridges line
+class,arcs
+primary,94
+secondary,83
+secondary,84
+secondary,85
+secondary,86
+secondary,87
+secondary,88
+secondary,89
+secondary,90
+secondary,91
+secondary,92
+secondary,93
+@lanes line
+name,arcs
+Callejón el Coyolar,95
+7a Avenida Sur,96
+3a Avenida Sur,97
+Callejón del Burrito,98
+2a Avenida del Chajón,99
+8a Calle Oriente,100
+9a Calle Oriente,101
+2a Calle Poniente,102
+6a Avenida Norte,103
+Calle de las Beatas Indias,104
+Calle de las Beatas Indias,105
+Calle de las Beatas Indias,106
+Calle de las Beatas Indias,107
+Calle de los Nazarenos,108
+Calle del Espíritu Santo,109
+Callejón de los Remedios,110
+Calle del Portal,111
+2a Avenida Norte,112
+Calle de Belén,113
+1a Avenida,114
+Callejón de Camposeco,115
+Callejón de las Ánimas,116
+Callejón de la Quinta,117
+3a Avenida,118
+Calle del Hermano Pedro,119
+Calle del Hermano Pedro,120
+Calle del Hermano Pedro,121
+Callejón Bernabé,122
+Callejón Bernabé,123
+Callejón Bernabé,124
+Callejón Bernabé,125
+Callejón Bernabé,126
+Callejón Bernabé,127
+Plazuela Santa Ana,128
+Detrás de la Iglesia,129
+4a Calle A Poniente,130
+1a Calle,131
+1a Calle,132
+1a Calle,133
+Callejón la Azotea,134
+5a Avenida Sur,135
+5a Avenida Sur,136
+Calle de los Llanos,137
+Lotificación San Francisco,138
+Avenida de los Dolores del Cerro,139
+Callejón del Sol,140
+Callejón de Santa Rosa,141
+Calle Cruz Enrique España Menchú,142
+2a Calle,143
+Calle San Luquitas,144
+Calle de la Sangre de Cristo,145
+Calle del Chajón,146
+Callejón San Sabastián,147
+Callejón de Lemus,148
+9a Calle Poniente,149
+1a Calle Poniente,150
+Calle Platerías,151
+5a Avenida Norte,152
+1a Calle Oriente,153
+7a Avenida Norte,154
+Callejón de San Sabastián,155
+6a Calle Poniente,156
+8a Calle Poniente,157
+2a Calle Oriente,158
+6a Calle Oriente,159
+6a Calle Oriente,160
+6a Avenida Sur,161
+Calle de la Cruz,162
+Callejón San Antón,163
+2a Avenida Sur,164
+3er Callejón Cofiño,165
+"1er Callejón, Cofiño",166
+Pasaje Matheu,167
+Barrio Santo Domingo 1,168
+Colonia Candelaria,169
+2o Callejón Cofiño,170
+Calle de los Duelos,171
+Calle del Desengaño,172
+Callejón La Ermita,173
+9a Calle A Oriente,174
+9a Calle B Oriente,175
+Pasaje Rubio,176
+9a Calle C Oriente,177
+Callejón Lopez,178
+3a Avenida Norte,179
+Callejón del Calvario,180
+Pasaje de el Chajón,181
+Pasaje Dolores,182
+Callejón Bougambilia,183
+Callejón de La Concepción,184
+Callejón Landívar,185
+Plaza de la Escuela de Cristo,186
+Callejón de la Moreira,187
+Pasaje de Rosito,188
+Callejón Santa Isabel,189
+5a Calle Oriente,190
+Calle del Virrey,191
+@green polygon
+kind,arcs
+wood,192
+wood,193;194
+wood,195
+wood,196
+wood,197
+wood,198
+wood,199
+park,200
+@waterways line
+name,kind,arcs
+Río Guacalate,river,201
+Río Pensativo,river,202
+Río Pensativo,river,203
+@clip polygon
+arcs
+204
+@places
+
+@parks
+
+@stations
+

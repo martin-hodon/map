@@ -10,8 +10,8 @@ applied, so any projection can draw it. `index.html` shows it in nine projection
 | 2 | national borders | `full/world.topo.json` · `countries`, `country_borders` | countries and dependencies as polygons, which reuse the coast, with `population` (Wikidata's latest, by ISO 3166-1 code, two significant digits), `area_km2`, `density`, `language` (`language_code`), `color` (0-6, no two neighbours alike), `label` (a point well inside: where its name is written) and `continent` (the continent area of layer 7 its label lies in, else the nearest); the land borders as lines (`a`, `b`, `disputed`) |
 | 3 | subnational | `full/world.topo.json` · `regions`, `region_borders` | states / provinces (ISO 3166-2; England has no such division in Overture: its nine regions, `STATE_PARTS` in `build/config.py`, put together from its counties, under codes of our own, `GB-ENG-LD`, and found as one, England, in the search) of the federations, of the countries whose divisions are big enough to see (8,500 km² on average -- Denmark's and Greece's are about the smallest -- two or more), of every country the size of North Macedonia (25,700 km²) or bigger whose divisions are 2,000 km² or more on average (Romania's 42 counties, Ireland's 26, Albania's 12; not Azerbaijan's 80 districts, Latvia's 42, Taiwan's 22, North Macedonia's 71 municipalities, Uganda's 135 districts), and of those of 40 million people or more (`build/config.py`; `build/topology.py` picks them), with `population` (by ISO 3166-2 code), `area_km2`, `density`, `language`, `label`, `continent` (its own: Russia's European oblasts are in Europe) |
 | 4 | rivers | `full/rivers.topo.json` · `rivers` | each river that is 50 m wide somewhere, from its source down to its end, as one line (or more at forks), 50 km or longer, big or known to Wikipedia: name (English), Wikidata id, width (median and max), `river` (its id), `river_km`, `wikipedias` |
-| 5 | monuments | `data/monuments.csv` | castles, palaces, cathedrals, temples, ruins, monuments, bridges, dams, national parks, waterfalls… with 100,000+ visitors a year, or well known (written about in enough Wikipedias -- 15+ for a castle, 12+ a bridge, 10+ a dam or a World Heritage Site, 40+ a church: `build/fetch_points.py` FAMOUS; not a name that is only a number, the Valley of the Kings' KV1 to KV63, nor a city's own item -- Wikidata's Athens is an archaeological site too -- nor a place twice: "Pompeii" and "archaeological excavations of Pompeii" are one, the village "Devín" goes for "Devín Castle"), one a line under a header: `name`, `lon`, `lat`, `kind`, `level` (1: 2 million visitors a year or more, 2: 500,000, 3: fewer -- one without a count by its Wikipedias: 80+, 40+, fewer), `visitors`, `visitors_year`, `country`, `region`, `name_local`, `wikidata`, `osm` |
-| 6 | cities | `data/cities.csv` | cities of 100,000+ people (70,000+ in Europe: by the state's continent, so European Russia and Istanbul too), every capital and a few wanted all the same (`ALSO_CITIES` in `build/points.py`), one a line under a header: `name`, `lon`, `lat`, `population` (the urban one where Wikipedia gives it -- at most 3 times the city's own, 6 for a city of 200,000+ outside China and Taiwan; Brussels the Region's, `CITY_POPULATION` -- two significant digits), `place` (city, town), `capital` (country, state), `country`, `region` (state), `name_local`, `wikidata`, `osm` -- without the districts of a bigger city (Istanbul's, Tokyo's wards, New York's boroughs, China's urban districts) |
+| 5 | monuments | `data/monuments.csv` | castles, palaces, cathedrals, temples, ruins, monuments, bridges, dams, national parks, waterfalls… with 100,000+ visitors a year, or well known (written about in enough Wikipedias -- 15+ for a castle, 12+ a bridge, 10+ a dam or a World Heritage Site, 15+ a national park (2026-11-23: was 25, which left out Slovak Karst, the Fatras, Black Forest), 40+ a church: `build/fetch_points.py` FAMOUS; not a name that is only a number, the Valley of the Kings' KV1 to KV63, nor a city's own item -- Wikidata's Athens is an archaeological site too -- nor a place twice: "Pompeii" and "archaeological excavations of Pompeii" are one, the village "Devín" goes for "Devín Castle"), one a line under a header: `name`, `lon`, `lat`, `kind`, `level` (1: 2 million visitors a year or more, 2: 500,000, 3: fewer -- one without a count by its Wikipedias: 80+, 40+, fewer), `visitors`, `visitors_year`, `country`, `region`, `name_local`, `wikidata`, `osm` |
+| 6 | cities | `data/cities.csv` | cities of 100,000+ people (70,000+ in Europe: by the state's continent, so European Russia and Istanbul too), every capital and a few wanted all the same (`ALSO_CITIES` in `build/points.py`), one a line under a header: `name`, `lon`, `lat`, `population` (the urban one where Wikipedia gives it -- at most 3 times the city's own, 6 for a city of 200,000+ outside China and Taiwan; in China the city proper, the larger of that urban figure and its municipal districts' together, never more than its prefecture -- OSM's and Wikidata's count for a prefecture-level city is the whole prefecture, Zhoukou's 9 million for a city of 1.6: `CITY_PROPER_BY_DISTRICTS`; Brussels the Region's, `CITY_POPULATION` -- two significant digits). `build/popcheck.py` checks the populations against one another: a country's states together against it, a state's or a country's cities together against it, `place` (city, town), `capital` (country, state), `country`, `region` (state), `name_local`, `wikidata`, `osm` -- without the districts of a bigger city (Istanbul's, Tokyo's wards, New York's boroughs, China's urban districts) |
 | 7 | areas | `full/world.topo.json` · `areas` | the named parts of the world without borders of their own: oceans, seas, gulfs, bays, straits, sounds, fjords; mountain ranges, plateaus, deserts, plains, basins, peninsulas, island groups, continents — made of the map's own coast and lines across (below); a single island is a named row of `islands` (layer 1) |
 | 8 | natural points | `data/natural_points.csv` | peaks (with elevation), capes, waterfalls, passes, depressions, the poles, one a line under a header: `name`, `lon`, `lat`, `kind`, `elevation_m`, `rank` (Natural Earth's: shown from what zoom), `name_en`, `wikidata` |
 | 9 | airports | `data/airports.csv` | airports with scheduled flights to 3+ airports abroad (large ones: 2+), one a line under a header: `name`, `lon`, `lat`, `iata`, `icao`, `city`, `level` (1: 20 million passengers a year or more, 2: 5 million, 3: fewer or no count), `passengers`, `passengers_year`, `country`, `region` |
@@ -41,7 +41,7 @@ R-tree), from the coarsest of the layer's three copies still about as fine as a 
 while the map moves from one about as fine as a few pixels, and without labels, once a frame at where it has got to (whole
 again once the movement pauses -- a pinch once its fingers are lifted; a pinch is drawn anew only at steps of √2 in zoom, the picture
 last drawn scaled with the fingers in between); it zooms to 300x (100 m a pixel). Points come by zoom, in tiers (`TIERS`): at the whole globe only
-the cities of 10 million (a capital counts three times its people), from 2.5x those of 3 million, 5x 1 million, 8x
+the cities of 10 million (a capital counts three times its people, and is drawn in blue, ringed -- the others' dots red, gold in the dark), from 2.5x those of 3 million, 5x 1 million, 8x
 300,000, 14x all; the monuments of level 1 (by their visitors) from 5x (2 from 9x, 3 from 15x), the highest-ranked
 peaks and capes from 4x, the airports of level 1 (by their passengers) from 4x (2 from 7x, 3 from 11x), the day's 15
 best-known events from 4x (60 from 6x, 250 from 10x, all from 18x). The main lines come so too, in three tiers
@@ -54,7 +54,10 @@ political line), LANGUAGES (each country and state by its first official languag
 POPULATION DENSITY (`density`, people per km², from `population` and `area_km2`, the polygons' area on the sphere);
 the natural lines and the other layers are on all (`#mode=geographical` links to one). Countries are coloured by a class (`color`, 0-6:
 no two neighbours the same, neighbours sharing a border or within 1° -- `build/write.py props` recomputes it, with the populations) with
-a palette to pick (pastel, light, muted, vivid, dark, earth, greys, none; kept in the browser). With layer 3 on, each state is
+one of THREE COLOUR SCHEMES -- soft (the default), bold, earth; kept in the browser -- which colour every map, not the
+countries' alone: the history's states, the geographical kinds, the languages, the density, the realms, biomes and
+ecoregions (`tone()` in `js/style.js`: each base colour put into the scheme's lightness and chroma in HCL, light on the
+light page and dark on the dark, so names read over all; density keeps its steps of lightness, turned round on the dark). With layer 3 on, each state is
 filled in a shade of its country's colour (Lab lightness steps of 5, no two neighbouring states of one country alike, by
 the shared arcs), so countries differ by hue and the states within one only by lightness. On the political, language and
 density maps the countries' names are written at their `label` in spaced capitals (the bigger first, more the closer in)
@@ -82,9 +85,11 @@ the globe round it, its outline (or the continent's) in red. Then the game, and 
 circles' size (a few, by where: 250 km to 2,000 for the world, 100 to 1,000 a continent, 25 to 200 a country) or how
 many rounds. A start hides the choices: the question, the score and the box to type in are left (Again, New game).
 While its panel is open the map shows no names but those of the cities named or found, and no points, roads or
-railways.
-- **Their people:** name cities (English or local name, accents and case aside, and w as v, y as i, k as c: Cracow
-  is Kraków; of several of one name, the biggest there); their people add up, as a share of all the people there (a continent's: each country's, shared out by its
+railways. The LATEST guess is in a colour of its own (amber: `--last`) -- the city last named ringed and filled, the
+place last clicked, the unit or ranked thing last named -- the others as before (green right, violet missed).
+- **Their people:** name cities (English or local name, accents, case, punctuation and spaces aside, w as v, y and j as i, k
+  as c, ou as u, no h, a doubled consonant as one, "City" optional -- Cracow is Kraków, Ho Chi Min, Talin, Kualalumpur find theirs;
+  the same in every game where a name is typed, and the search's second try, as you type too -- of several of one name, the biggest there); their people add up, as a share of all the people there (a continent's: each country's, shared out by its
   states' -- so the cities of Russia's European oblasts count for Europe).
 - **Outside every circle / inside a circle:** each city named gets a circle (so many km across, 500 for the world,
   300 a continent, 100 a country to start with: above); the next must lie outside every circle -- or inside one.
@@ -516,6 +521,19 @@ the shortest way up to 50 km to where they reach the sea, the coast or a lake (o
 name): a river renamed for its last stretch (the Liri as the Garigliano), an estuary's channels (the Xi's), a mouth
 beyond a lagoon (`ONWARD_KM`).
 
+Two rivers of ONE NAME whose lines meet, not two Wikidata items, are made one first (`merge_same` in
+`build/riverlevels.py`: OSM's Ganges and its Hooghly arm to Kolkata, the Konda, the Luhit -- 6 pairs; found, chosen and
+measured as one). Drawn in THREE WIDTHS by level (`lvl`, `build/riverlevels.py`, run after rivernet.py): **1** a river longer than 2,000 km
+flowing into the sea itself (35: the Nile, the Amazon, the Danube, the Volga, the Ganges, the Murray ...); **2** one longer
+than 500 km flowing into the sea, or into a river of level 1 -- of those only its 5 longest (the Danube's Tisza, Prut,
+Sava, Drava, Olt; the Mississippi's Missouri, Arkansas, Ohio, White, Des Moines) -- 343; **3** the rest, 5,503. Levels 1
+and 2 at every zoom, the rest by length as before. A river's length is Wikidata's (P2043, the preferred statement, else
+the longest; the whole course -- the Nile's 6,650 km, drawn from where it is 50 m wide, 2,863 km; the Fraser's 2,657 km
+corrected to 1,375), else its lines' drawn. Where it ends: the downstream end of each of its lines -- on the coast, or
+within 160 km of it on no longer river (a line stopping short at a delta: the Nile at Cairo, the Rhine at the Waal, the
+Euphrates at the Shatt al-Arab), the sea; on another river's line, that river. (The St. Lawrence, mapped only below Lake
+Ontario's outflow and not to its estuary, is not level 1; the Brahmaputra, without a Wikidata item on its lines, is 3.)
+
 ## The main lines (layers 10-12)
 
 `build/transport.py` takes OSM's ways (their tags: Limits, below) and joins the ways of one road number end to end --
@@ -567,13 +585,13 @@ Where the clock changes the border is drawn dark, between zones of one time (Ger
 in. The offsets are written in the zones, the biggest first. A click lists the zone (its offset, daylight saving, the
 time there now -- the browser's clock and rules) and its offset with all its zones; each is found by name.
 
-`build/parks.py` gives the national parks and protected areas of layer 5 (424 rows) their outlines: the row's own OSM
+`build/parks.py` gives the national parks and protected areas of layer 5 (1,063 rows) their outlines: the row's own OSM
 object (`osm`) or the relation tagged with its Wikidata item (a boundary=national_park / protected_area first), the
 shapes as QLever's OSM planet assembles them (`geo:asWKT`), 15 a request, each kept in `raw/parks/` (a failed request
 tried again after 10, 20, 40… s). Kept when a polygon (a trail is not), within 25 km of the row's point, 1 km² or more;
-simplified to 0.25 km (`build/lite.py` DETAIL: its own detail). 378 of 424 have one (315 of the 344 national parks):
-28 no OSM object, 6 no shape, 2 no area, 3 too far, 7 too small -- those stay points. `data/parks.txt` 0.33 MB (0.11
-gzipped), small 0.04 (0.02), xsmall 0.01 (0.003); read once the map is at 3x (`js/parks.js`), with the monuments on. A park more than
+simplified to 0.25 km (`build/lite.py` DETAIL: its own detail). 919 of 1,063 have one (856 of the 983 national parks):
+113 no OSM object, 6 no shape, 4 no area, 11 too far, 10 too small -- those stay points. `data/parks.txt` 0.69 MB (0.23
+gzipped), small 0.09 (0.03), xsmall 0.01 (0.006); read once the map is at 3x (`js/parks.js`), with the monuments on. A park more than
 4 px across is filled green and outlined; from 30 px its tree icon goes and its name stays (written at its point when
 its level would not show it yet). A click inside lists the park's area.
 
@@ -583,33 +601,320 @@ Zoomed in on a city that has one (closer than 80 m a pixel, `CITY_KM` in `js/cit
 4 m a pixel, `CITY_MAX_KM`, where elsewhere it stops at `MAX_ZOOM`), the map draws the city's own detail map within
 the city's boundary, and its own rivers, roads and railways outside it only. `build/citymaps.py` makes them from
 OpenStreetMap; a city is ONE entry in its `CITIES` list, by its Wikidata id, which `admin_level`s are its districts
-(`levels`; "6|8" two of OSM's as one, "place=suburb" a place boundary on no admin_level), and as needed `boundary` (the
-Wikidata id of the boundary to take instead), `drop` (districts left out of the outline) or `keep` (only these in it), `strip` (a regex cut from the
+(`levels`; "6|8" two of OSM's as one, "place=suburb" a place boundary on no admin_level, "ward=ward" an electoral ward,
+boundary=political: Manchester's), and as needed `boundary` (the
+Wikidata id of the boundary to take instead; "Qa|Qb" several as one, their union: Mumbai's two districts, New York's
+Manhattan and Brooklyn; "r<id>" an OSM relation with no wikidata tag, Buenos Aires, Monaco), `radius` (km: the
+outline cut to a circle that far round the city's point -- a province-sized city or a county cut to its town: Kyoto's
+mountains, Los Angeles County, the Gold Coast's hinterland), `names` ("en", "fr": the tags' name:en or name:fr
+taken for every name that has one, where the local script would be unreadable or the city is known by them: Cairo,
+Mumbai, Casablanca), `drop` (districts left out of the outline) or `keep` (only these in it), `strip` (a regex cut from the
 districts' names, or a list of [regex, replacement] pairs: "Paris 18e Arrondissement" -> "18e arr.", "XI. kerület" -> "XI"),
+`skip` (districts left out: a former one OSM still bounds, Turin's "Mirafiori Sud"), `airport` ([iata, lon, lat] when the
+busiest within 50 km is not the city's: Rotterdam's RTM, not Schiphol), `place` ([name, lon, lat] for a city not in
+data/cities.csv: Venice, Dubrovnik; for one in it, only its point moved -- the middle of `radius` and of the lanes:
+the Strip for Las Vegas, Angkor for Siem Reap), `core` ([lon, lat, km], where the old town's lanes are taken from), `airport: null`
+(no airport, where the nearest would stretch the window: Lucerne, Valletta),
 `tertiary` (a country whose main streets OSM tags tertiary -- Denmark, Sweden -- drawn as secondary) and `pbf` (the Geofabrik extract it is read from). Each entry's comment says why its outline is the
 one it is. Europe first, by international arrivals, then the world (the order: the comment over `CITIES`):
 
 | wikidata | city | outline | districts | airport | file | gzipped |
 |---|---|---|---|---|---|---|
-| Q84 | London | Greater London, 1,570 km² | 6\|8 (32 boroughs, the City) | LHR | 417 KB | 144 KB (x2.8) |
-| Q90 | Paris | the commune, 105 km² | 9 (arrondissements) | CDG | 126 KB | 47 KB |
-| Q406 | Istanbul | the province but Çatalca, Silivri, Şile, Arnavutköy | 6 (35 ilçe) | IST | 420 KB | 144 KB (x2.4) |
-| Q220 | Rome | the comune, 1,290 km² | 10 (15 municipi) | FCO | 278 KB | 99 KB |
-| Q1492 | Barcelona | the municipality, 101 km² | 9 (districtes), 10 (barris) | BCN | 112 KB | 43 KB |
+| Q84 | London | Greater London, 1,570 km² | 6\|8 (32 boroughs, the City) | LHR | 421 KB | 146 KB (x3.4) |
+| Q90 | Paris | the commune, 105 km² | 9 (arrondissements) | CDG | 163 KB | 62 KB |
+| Q406 | Istanbul | the province but Çatalca, Silivri, Şile, Arnavutköy | 6 (35 ilçe) | IST | 428 KB | 146 KB (x2.8) |
+| Q220 | Rome | the comune, 1,290 km² | 10 (15 municipi) | FCO | 368 KB | 130 KB |
+| Q1492 | Barcelona | the municipality, 101 km² | 9 (districtes), 10 (barris) | BCN | 165 KB | 59 KB |
 | Q727 | Amsterdam | the gemeente (Q9899), 219 km² | place=suburb (stadsdelen) | AMS | 148 KB | 56 KB |
-| Q1085 | Prague | the capital city, 496 km² | 5 (obvody Praha 1-10) | PRG | 155 KB | 59 KB |
+| Q1085 | Prague | the capital city, 496 km² | 5 (obvody Praha 1-10) | PRG | 185 KB | 70 KB |
 | Q2807 | Madrid | the municipality, 604 km² | 9 (21 distritos) | MAD | 160 KB | 57 KB |
 | Q1741 | Vienna | the city and state, 415 km² | 9 (23 Bezirke) | VIE | 176 KB | 65 KB |
-| Q490 | Milan | the comune, 182 km² | 10 (9 municipi) | MXP | 111 KB | 41 KB |
+| Q490 | Milan | the comune, 182 km² | 10 (9 municipi) | MXP | 152 KB | 55 KB |
 | Q1524 | Athens | Attica (Q758056) but East and West Attica and the islands, 412 km² | 6 (regional units), 7 (~40 demoi) | ATH | 127 KB | 47 KB |
 | Q597 | Lisbon | the municipality, 100 km² | 8 (24 freguesias) | LIS | 61 KB | 23 KB |
 | Q1761 | Dublin | County Dublin (Q173500), 922 km² | 7 (4 councils) | DUB | 215 KB | 78 KB |
 | Q1781 | Budapest | the capital, 525 km² | 9 (23 kerület, by number) | BUD | 137 KB | 54 KB |
-| Q6487 | Antalya | the province's 5 urban ilçe (Q40249, `keep`), ~1,900 km² | 6 | AYT | 152 KB | 55 KB |
+| Q6487 | Antalya | the province's 5 urban ilçe (Q40249, `keep`), ~1,900 km² | 6 | AYT | 152 KB | 56 KB |
 | Q1748 | Copenhagen | the Capital Region's (Q26073) inner 10 kommuner, ~330 km² | 7 (kommuner) | CPH | 152 KB | 56 KB |
 | Q239 | Brussels | the Capital Region (Q240), 162 km² | 8 (19 communes, French names) | BRU | 97 KB | 35 KB |
-| Q64 | Berlin | the Land, 890 km² | 9 (Bezirke), 10 (Ortsteile) | BER | 307 KB | 112 KB |
-| Q1726 | Munich | the city, 310 km² | 9 (Stadtbezirke) | MUC | 116 KB | 44 KB |
+| Q1754 | Stockholm | the municipality (Q506250), 188 km² | 9 (stadsdelsområden), 10 (stadsdelar) | ARN | 121 KB | 45 KB |
+| Q270 | Warsaw | the city, 517 km² | 9 (18 dzielnice) | WAW | 132 KB | 52 KB |
+| Q31487 | Krakow | the city, 327 km² | 9 (18 dzielnice) | KRK | 95 KB | 37 KB |
+| Q2634 | Naples | the comune, 119 km² | 10 (10 municipalità) | NAP | 68 KB | 25 KB |
+| Q8717 | Seville | the municipality, 141 km² | 9 (11 distritos) | SVQ | 53 KB | 20 KB |
+| Q649 | Moscow | the federal city but New Moscow (Novomoskovsky, Troitsky) and Zelenograd, ~1,100 km² | 5 (9 okrugs), 8 (raions) | SVO | 461 KB | 139 KB (x1.5) |
+| Q656 | Saint Petersburg | the federal city but Kurortny and Kronshtadtsky, ~1,250 km² | 5 (16 raions), 8 (municipal okrugs) | LED | 416 KB | 145 KB |
+| Q36433 | Porto | the district's (Q322792) 5 core municipalities (`keep`), ~420 km² | 7 (concelhos), 8 (freguesias) | OPO | 227 KB | 75 KB |
+| Q8818 | Valencia | the municipality, 135 km² | 9 (19 districtes) | VLC | 74 KB | 28 KB |
+| Q1055 | Hamburg | the city state but Neuwerk, 747 km² | 9 (7 Bezirke), 10 (Stadtteile) | HAM | 283 KB | 103 KB |
+| Q1794 | Frankfurt | the city, 248 km² | 9 (16 Ortsbezirke), 10 (Stadtteile) | FRA | 96 KB | 36 KB |
+| Q33959 | Nice | the commune, 72 km² | 10 (the few quartiers OSM bounds) | NCE | 40 KB | 15 KB |
+| Q8810 | Granada | the municipality, 88 km² | 9 (8 distritos) | -- | 74 KB | 26 KB |
+| Q116450968 | Malaga | the municipality (Q8851), 395 km² | 9 (11 distritos) | AGP | 121 KB | 42 KB |
+| Q456 | Lyon | the commune, 48 km² | 9 (9 arrondissements) | LYS | 55 KB | 21 KB |
+| Q23482 | Marseille | the commune, 240 km² (the calanques' massif, the Frioul islands) | 9 (16 arrondissements) | MRS | 140 KB | 47 KB |
+| Q585 | Oslo | the kommune, 454 km² (Nordmarka) | 9 (15 bydeler, Sentrum, Marka) | OSL | 208 KB | 74 KB |
+| Q1757 | Helsinki | the city, 214 km² of land and 500 of sea | 10 (59 kaupunginosat) | HEL | 193 KB | 68 KB |
+| Q365 | Cologne | the city, 405 km² | 9 (Stadtbezirke), 10 (Stadtteile) | -- | 132 KB | 50 KB |
+| Q1899 | Kyiv | the city, 839 km² | 10 (10 raions) | -- | 204 KB | 74 KB |
+| Q3711 | Belgrade | the city proper (OSM's settlement), ~360 km² | 9 (10 urban opštine) | BEG | 96 KB | 34 KB |
+| Q472 | Sofia | the city (OSM's settlement) | 6 (raioni), 9 (ж.к., кв.) | SOF | 191 KB | 71 KB |
+| Q19660 | Bucharest | the municipality, 228 km² | 9 (6 sectors) | OTP | 74 KB | 27 KB |
+| Q1773 | Riga | the city, 307 km² | 9 (apkaimes) | RIX | 107 KB | 40 KB |
+| Q216 | Vilnius | the city (admin_level 8), ~400 km² | 10 (seniūnijos) | VNO | 160 KB | 60 KB |
+| Q1435 | Zagreb | the city, 641 km² | 9 (17 gradske četvrti) | ZAG | 186 KB | 67 KB |
+| Q495 | Turin | the comune, 130 km² | 10 (circoscrizioni) | TRN | 78 KB | 29 KB |
+| Q2656 | Palermo | the comune, 159 km² (Mondello, the sea) | 10 (8 circoscrizioni) | PMO | 56 KB | 21 KB |
+| Q17151 | Thessaloniki | the Dimos (Q6627746), 19 km²: the city proper | 9 (Koinotites) | SKG | 29 KB | 11 KB |
+| Q1449 | Genoa | the comune, 240 km², 30 km of coast | 10 (9 municipi) | GOA | 222 KB | 74 KB |
+| Q34370 | Rotterdam | the gemeente (Q2680952), out to the Maasvlakte | place=suburb (gebieden), place=quarter (wijken) | RTM | 127 KB | 48 KB |
+| Q36600 | The Hague | the gemeente | place=suburb (8 stadsdelen), place=quarter (wijken) | RTM | 66 KB | 25 KB |
+| Q8692 | Bilbao | the udalerria, 41 km² | 9 (8 distritos), 10 (barrios) | BIO | 52 KB | 20 KB |
+| Q1731 | Dresden | the city, 328 km² | 9 (Stadtbezirke, Ortschaften) | DRS | 123 KB | 46 KB |
+| Q4093 | Glasgow | the council area (Q55934339), 175 km² | place=suburb (only Kingston) | GLA | 72 KB | 27 KB |
+| Q19689 | Tirana | the 11 njësi bashkiake of the Bashkia (`keep`) | 9 (njësi) | TIA | 29 KB | 12 KB |
+| Q36036 | Lviv | the city, 182 km² | 10 (6 raions) | LWO | 70 KB | 25 KB |
+| Q18125 | Manchester | the metropolitan borough (Q21525592), 116 km² | ward=ward (32 wards) | MAN | 83 KB | 32 KB |
+| Q2256 | Birmingham | the metropolitan borough (Q20986424), 268 km² | ward=ward (wards) | BHX | 135 KB | 49 KB |
+| Q641 | Venice | the comune (the lagoon, its islands, Mestre), 415 km²; the lagoon as water, no vaporetto | 10 (6 municipalità) | VCE | 334 KB | 107 KB |
+| Q2044 | Florence | the comune, 102 km² | 10 (5 quartieri) | FLR | 103 KB | 35 KB |
+| Q23436 | Edinburgh | the City of Edinburgh council area, 264 km² | 10 (community council areas) | EDI | 104 KB | 38 KB |
+| Q34713 | Salzburg | the Statutarstadt, 66 km² | 10 (Stadtteile) | SZG | 51 KB | 19 KB |
+| Q12994 | Bruges | the municipality (out to Zeebrugge), 138 km² | 9 (deelgemeenten) | none | 85 KB | 32 KB |
+| Q72 | Zurich | the city, 88 km² | 9 (12 Kreise) | ZRH | 84 KB | 31 KB |
+| Q71 | Geneva | the city, 16 km² | 10 (quartiers) | GVA | 21 KB | 8 KB |
+| Q1891 | Bologna | the comune, 141 km² | 10 (6 quartieri) | BLQ | 80 KB | 29 KB |
+| Q2028 | Verona | the comune, 199 km² | 10 (8 circoscrizioni) | VRN | 86 KB | 31 KB |
+| Q13375 | Pisa | the comune (out to Marina di Pisa), 185 km² | none in OSM | PSA | 70 KB | 26 KB |
+| Q1722 | Dubrovnik | the city, 143 km² | 9 (gradski kotari) | DBV | 63 KB | 24 KB |
+| Q1770 | Tallinn | the city, 159 km² | 9 (8 linnaosad), 10 (asumid) | TLL | 76 KB | 30 KB |
+| Q1735 | Innsbruck | the city, 105 km² | 9 (Stadtteile) | INN | 63 KB | 24 KB |
+| Q4191 | Lucerne | the city, 37 km² | none in OSM | none | 45 KB | 18 KB |
+| Q1764 | Reykjavik | the city (Kjalarnes with it), 273 km² | 9 (hverfi) | KEF | 118 KB | 43 KB |
+| Q437 | Ljubljana | the city municipality (Q3434113), 275 km² | place=suburb (17 četrtne skupnosti) | LJU | 145 KB | 52 KB |
+| Q1663 | Split | the city, 80 km² | 9 (gradski kotari) | SPU | 45 KB | 17 KB |
+| Q1780 | Bratislava | the city, 367 km² | 9 (17 mestské časti) | BTS | 110 KB | 42 KB |
+| Q24826 | Liverpool | the metropolitan borough (Q21665571), 112 km² | none (its wards barely mapped) | LPL | 59 KB | 22 KB |
+| Q1479 | Bordeaux | the commune, 49 km² | 10 (quartiers) | BOD | 65 KB | 25 KB |
+| Q6602 | Strasbourg | the commune, 78 km² | 10 (quartiers) | SXB | 98 KB | 36 KB |
+| Q8826 | Palma | the municipality, 208 km² | 9 (districtes) | PMI | 102 KB | 37 KB |
+| Q23800 | Valletta | the local council, 0.8 km² (the walled town) | none | none | 8 KB | 3 KB |
+| Q1842 | Luxembourg | the commune, 51 km² | 9 (24 quartiers) | LUX | 64 KB | 24 KB |
+| Q64 | Berlin | the Land, 890 km² | 9 (Bezirke), 10 (Ortsteile) | BER | 321 KB | 117 KB |
+| Q1726 | Munich | the city, 310 km² | 9 (Stadtbezirke) | MUC | 144 KB | 53 KB |
+| Q160544 | Heraklion | the municipal unit (the town, 109 km²), its 4 communities | 10 (9 names) | -- | 60 KB | 21 KB |
+| Q188731 | Rhodes | the municipal unit of Rhodes (the town and its old town, 20 km²) | none | RHO | 29 KB | 11 KB |
+| Q3949542 | Santorini (Fira) | the municipality of Thira (the island, Thirasia with it, 90 km²: Fira, Oia) | none | JTR | 33 KB | 12 KB |
+| Q25444 | Funchal | the município (76 km²), its 10 freguesias | 8 (9 names) | FNC | 69 KB | 23 KB |
+| Q11974 | Las Palmas | the municipality (101 km²), its distritos | 9 (13 names) | LPA | 62 KB | 22 KB |
+| Q14328 | Santa Cruz de Tenerife | the municipality (150 km², Anaga with it) | 9 (5 names) | TFN | 65 KB | 23 KB |
+| Q235 | Monaco | the principality's commune (2 km²: its level-2 relation takes in the sea), its quartiers | 10 (9 names) | -- | 17 KB | 6 KB |
+| Q12892 | Antwerp | the city (204 km²), its 9 districten | 9 (10 names) | ANR | 122 KB | 45 KB |
+| Q1296 | Ghent | the city (156 km²), its deelgemeenten | 9 (14 names) | -- | 113 KB | 41 KB |
+| Q70 | Bern | the city (52 km²), its Stadtteile | 9 (6 names) | BRN | 68 KB | 25 KB |
+| Q78 | Basel | the city (24 km²), its Wohnviertel | 9 (19 names) | -- | 46 KB | 17 KB |
+| Q1792 | Gdansk | the city (262 km²), its dzielnice | 9 (35 names) | GDN | 106 KB | 41 KB |
+| Q23154 | Bristol | the unitary authority 9 km round the centre (its relation runs down the Severn estuary to Steep Holm), its wards | 'ward=ward' (33 names) | -- | 93 KB | 34 KB |
+| Q39121 | Leeds | the metropolitan district (552 km², Otley and Wetherby with it), its wards | 'ward=ward' (1 names) | LBA | 147 KB | 54 KB |
+| Q22889 | Bath | its boundary=place (the unparished city, 29 km²: no council of its own under B&NES) | none | -- | 38 KB | 14 KB |
+| Q34217 | Oxford | the city (46 km²), its wards | none | -- | 37 KB | 14 KB |
+| Q350 | Cambridge | the city (41 km²), its wards | 'ward=ward' (14 names) | -- | 39 KB | 15 KB |
+| Q42462 | York | the unitary authority (272 km²), its wards | none | -- | 83 KB | 31 KB |
+| Q803 | Utrecht | the gemeente (99 km²), its wijken (place=suburb) | 'place=suburb' (10 names) | -- | 129 KB | 46 KB |
+| Q9832 | Eindhoven | the gemeente (89 km²), its stadsdelen (place=suburb) | 'place=suburb' (7 names) | EIN | 88 KB | 31 KB |
+| Q25287 | Gothenburg | the municipality (Göteborgs Stad, 450 km² with its archipelago) | 9, 10 (100 names) | GOT | 219 KB | 79 KB |
+| Q2211 | Malmö | the municipality (158 km²) | 9, 10 (141 names) | -- | 90 KB | 33 KB |
+| Q36647 | Cork | the city (187 km² since 2019), its electoral divisions | 9 (79 names) | ORK | 132 KB | 49 KB |
+| Q10686 | Belfast | the city district (133 km²) | none | BHD | 82 KB | 30 KB |
+| Q10690 | Cardiff | the county (140 km²), its communities | 10 (36 names) | -- | 102 KB | 37 KB |
+| Q26793 | Bergen | the municipality (465 km²), its 8 bydeler | 9 (8 names) | BGO | 252 KB | 87 KB |
+| Q25319 | Aarhus | the municipality (468 km²) | none | -- | 145 KB | 53 KB |
+| Q3856 | Nicosia | both halves -- the municipality (Δήμος Λευκωσίας) and the north's Lefkoşa Türk Belediyesi, the walled city whole across the Green Line | 9 (32 names) | -- | 80 KB | 30 KB |
+| Q1863 | Andorra la Vella | the parish and Escaldes-Engordany, one town along the Valira | none | -- | 32 KB | 11 KB |
+| Q11194 | Sarajevo | the city (Grad Sarajevo, 141 km²), its 4 općine | 7 (4 names) | SJJ | 81 KB | 30 KB |
+| Q23564 | Podgorica | the town (admin_level 8, not the 1,400 km² capital municipality) | none | TGD | 27 KB | 10 KB |
+| Q171080 | Kotor | the opština 3 km round the old town (its own level-8 relation is but the walled town; the opština 335 km² of the bay's mountains) -- Dobrota, Škaljari, the fortress above | none | -- | 10 KB | 4 KB |
+| Q384 | Skopje | the City of Skopje (Град Скопје, 571 km²), its 10 municipalities | 7 (10 names) | SKP | 150 KB | 52 KB |
+| Q21197 | Chișinău | the city (admin_level 8, not the 563 km² municipiu) | none | RMO | 44 KB | 17 KB |
+| Q2280 | Minsk | the city (409 km²), its 9 raions | 9 (9 names) | -- | 115 KB | 40 KB |
+| Q14960 | Brno | the city (230 km²), its 29 městské části | 10 (4 names) | -- | 98 KB | 37 KB |
+| Q188082 | Český Krumlov | the town (22 km²), its parts | none | -- | 27 KB | 10 KB |
+| Q2079 | Leipzig | the city (297 km²), its 10 Stadtbezirke | 9 (10 names) | -- | 120 KB | 44 KB |
+| Q2090 | Nuremberg | the city (186 km²) | 10 (10 names) | NUE | 123 KB | 44 KB |
+| Q1022 | Stuttgart | the city (207 km²), its 23 Stadtbezirke | 9 (23 names) | STR | 136 KB | 49 KB |
+| Q1718 | Dusseldorf | the city (217 km²), its 50 Stadtteile (the 10 Stadtbezirke are only numbered) | 10 (50 names) | DUS | 128 KB | 46 KB |
+| Q1799 | Wrocław | the city (293 km²), its 48 osiedla | 9 (48 names) | WRO | 132 KB | 50 KB |
+| Q268 | Poznan | the city (262 km²), its 42 osiedla | 9 (42 names) | POZ | 114 KB | 44 KB |
+| Q7880 | Toulouse | the commune (118 km²) | 10 (20 names) | TLS | 113 KB | 39 KB |
+| Q6441 | Montpellier | the commune (57 km²) | 10 (7 names) | MPL | 90 KB | 32 KB |
+| Q648 | Lille | the commune (35 km², Lomme and Hellemmes with it) | 10 (10 names) | LIL | 68 KB | 25 KB |
+| Q12191 | Nantes | the commune (65 km²) | 10 (11 names) | NTE | 101 KB | 35 KB |
+| Q6397 | Avignon | the commune (65 km², its walled town and the Rhône islands) | none | -- | 55 KB | 20 KB |
+| Q807 | Lausanne | the commune (41 km², its northern woods with it) | none | -- | 61 KB | 23 KB |
+| Q8646 | Hong Kong | Hong Kong Island and Kowloon (the New Territories and Lantau left out), their districts | 6 (9 names) | -- | 118 KB | 40 KB |
+| Q14773 | Macau | the SAR (Macau, Taipa, Cotai, Coloane: 33 km²), its parishes | 6 (8 names) | -- | 87 KB | 31 KB |
+| Q612 | Dubai | the city (its relation of no admin_level), its communities | 10 (133 names) | DXB | 195 KB | 72 KB |
+| Q1519 | Abu Dhabi | the city (admin_level 5) | none | -- | 90 KB | 31 KB |
+| Q3861 | Doha | the municipality | 10 (54 names) | DOH | 69 KB | 25 KB |
+| Q5806 | Mecca | the governorate | 10 (95 names) | -- | 101 KB | 37 KB |
+| Q1861 | Bangkok | the city (1,569 km²), its 50 khet | 6 (50 names) | -- | 378 KB | 137 KB |
+| Q182565 | Phuket | the province 11 km round the island's middle -- Phuket Town, Patong, Karon, Kata, Chalong -- its districts | 6 (2 names) | -- | 69 KB | 26 KB |
+| Q170919 | Pattaya | the city (Bang Lamung's coast, 22 km²) | none | -- | 23 KB | 8 KB |
+| Q52028 | Chiang Mai | the city municipality (40 km², the moated old town at its heart) | 8 (6 names) | CNX | 27 KB | 10 KB |
+| Q334 | Singapore | the island state (735 km²), its 55 planning areas | 6 (55 names) | SIN | 238 KB | 86 KB |
+| Q1865 | Kuala Lumpur | the federal territory (243 km²) | none | -- | 94 KB | 34 KB |
+| Q61092 | George Town | the city (Penang Island, 306 km²) | 8 (12 names) | PEN | 97 KB | 35 KB |
+| Q35765 | Osaka | the city (225 km²), its 24 wards | 8 (24 names) | -- | 141 KB | 53 KB |
+| Q34600 | Kyoto | the city 9 km round its middle (828 km² whole, its northern mountains) -- Arashiyama to Fushimi Inari -- its 11 wards | 8 (6 names) | -- | 101 KB | 38 KB |
+| Q169134 | Nara | the city 6 km round the park (277 km² whole, mountains east) | none | -- | 54 KB | 21 KB |
+| Q1490 | Tokyo | the 23 special wards (627 km²; the Metropolis's Tama towns, mountains and islands left out) | 7 (23 names) | HND | 326 KB | 119 KB |
+| Q8684 | Seoul | the city (605 km²), its 25 gu | 6 (25 names) | GMP | 261 KB | 92 KB |
+| Q16520 | Busan | the city 14 km round its middle (its relation out to far islets), its 16 gu and gun | 6 (11 names) | PUS | 142 KB | 51 KB |
+| Q42142 | Jeju | Jeju City 12 km round the town (978 km² whole: the island's northern half, its islets) | 8 (18 names) | CJU | 101 KB | 34 KB |
+| Q1867 | Taipei | the city (272 km²), its 12 districts | none | TPE | 134 KB | 47 KB |
+| Q1854 | Ho Chi Minh City | the city 9 km round District 1 (the city since 2025 is 6,800 km², Bình Dương and Vũng Tàu with it), its phường | 6 (50 names) | SGN | 108 KB | 39 KB |
+| Q1858 | Hanoi | the city 8 km round Hoàn Kiếm (of its 3,359 km²), its phường | 6 (33 names) | -- | 88 KB | 33 KB |
+| Q25282 | Da Nang | the city 7 km round its centre (of a province since 2025), its phường | 6 (5 names) | DAD | 37 KB | 13 KB |
+| Q36160 | Hoi An | its three phường (Hội An, Hội An Đông, Hội An Tây: the old town and round it) | none | -- | 22 KB | 8 KB |
+| Q8686 | Shanghai | the city 10 km round People's Square (of its 6,340 km²), its districts | 6 (7 names) | -- | 116 KB | 43 KB |
+| Q956 | Beijing | the city 12 km round the Forbidden City (of its 16,410 km²: the Fifth Ring Road's), its districts | 6 (2 names) | -- | 142 KB | 54 KB |
+| Q16572 | Guangzhou | the city 10 km round its centre (of 7,434 km²), its districts | 6 (3 names) | -- | 122 KB | 45 KB |
+| Q15174 | Shenzhen | the city 12 km round Futian (of 1,997 km²), its districts | 6 (2 names) | -- | 149 KB | 55 KB |
+| Q5826 | Xi'an | the city 8 km round the Bell Tower (the walled city and round it), its districts | 6 (3 names) | -- | 54 KB | 21 KB |
+| Q30002 | Chengdu | the city 9 km round Tianfu Square, its districts | 6 (3 names) | -- | 105 KB | 40 KB |
+| Q4970 | Hangzhou | the city 8 km round West Lake's east shore, its districts | 6 (1 names) | -- | 82 KB | 32 KB |
+| Q189633 | Guilin | the city 7 km round its centre (the Li River's karst hills), its districts | 6 (3 names) | -- | 49 KB | 19 KB |
+| Q1461 | Manila | the city and Makati, its business district | 9 (5 names) | -- | 34 KB | 13 KB |
+| Q1850 | Phnom Penh | the capital (679 km²), its 14 khan | 6 (14 names) | -- | 74 KB | 28 KB |
+| Q11711 | Siem Reap | the municipality 7 km round the town and Angkor Wat (its relation out over the Tonlé Sap) | none | -- | 23 KB | 9 KB |
+| Q3037 | Kathmandu | the metropolitan city (50 km²; its 32 numbered wards not drawn) | none | KTM | 45 KB | 17 KB |
+| Q35381 | Colombo | the municipal council (37 km²) | 9 (38 names) | -- | 45 KB | 17 KB |
+| Q9347 | Malé | the city (Malé island, Hulhulé's airport and Hulhumalé, Villimalé) | none | MLE | 20 KB | 8 KB |
+| Q33935 | Tel Aviv | the city (Tel Aviv-Yafo, 52 km²) | none | -- | 35 KB | 15 KB |
+| Q1218 | Jerusalem | the municipality (126 km²) | none | -- | 54 KB | 22 KB |
+| Q3805 | Amman | the governorate 8 km round the citadel (no relation for the Greater Amman Municipality) | none | -- | 44 KB | 16 KB |
+| Q3692 | Riyadh | the governorate 12 km round the centre (Al Bathaa, Masmak) | 10 (73 names) | -- | 77 KB | 30 KB |
+| Q374365 | Jeddah | the governorate 10 km round the centre | 10 (43 names) | -- | 42 KB | 16 KB |
+| Q35484 | Medina | the governorate 6 km round the Prophet's Mosque | 10 (42 names) | -- | 26 KB | 10 KB |
+| Q3826 | Muscat | the governorate 10 km round Muttrah and Ruwi | 10 (8 names) | -- | 20 KB | 7 KB |
+| Q994 | Tbilisi | the city (504 km²), its districts | none | -- | 141 KB | 51 KB |
+| Q1953 | Yerevan | the city (223 km²), its 12 districts | none | -- | 40 KB | 15 KB |
+| Q9248 | Baku | the city (its relation of no wikidata, "r<id>") 9 km round the centre (of 2,140 km², Absheron's) | none | -- | 32 KB | 12 KB |
+| Q269 | Tashkent | the city (335 km²), its 12 tumani | 6 (14 names) | TAS | 109 KB | 40 KB |
+| Q5753 | Samarkand | the city (120 km²) | none | SKD | 28 KB | 11 KB |
+| Q3820 | Beirut | the governorate (the city, 20 km²), its 12 quarters | 7 (12 names) | -- | 29 KB | 12 KB |
+| Q190165 | Luang Prabang | its district 4 km round the old town (the peninsula between the Mekong and the Nam Khan) | none | LPQ | 10 KB | 4 KB |
+| Q26600 | Fukuoka | the city (343 km²), its 7 wards | 8 (7 names) | FUK | 144 KB | 52 KB |
+| Q181966 | Naha | the city (Okinawa's capital, 41 km²) | none | OKA | 34 KB | 12 KB |
+| Q37951 | Sapporo | the city (1,121 km², its mountains with it), its 10 wards | 8 (10 names) | -- | 132 KB | 50 KB |
+| Q34664 | Hiroshima | the city (907 km²), its 8 wards | 8 (8 names) | -- | 210 KB | 73 KB |
+| Q11506 | Denpasar | the city and the Kuta kecamatan south of it (the beach, Legian, the airport), their kecamatan | 6 (4 names) | DPS | 76 KB | 27 KB |
+| Q3274172 | Ubud | its kecamatan (the town, its rice terraces and villages) | none | -- | 18 KB | 7 KB |
+| Q3630 | Jakarta | the capital region (664 km²; the Thousand Islands left out, far), its 5 kota | 5 (4 names) | HLP | 139 KB | 50 KB |
+| Q7568 | Yogyakarta | the city (32 km², the kraton at its heart) | none | -- | 29 KB | 11 KB |
+| Q1353 | Delhi | the Municipal Corporation's city and New Delhi | none | -- | 151 KB | 57 KB |
+| Q66485 | Jaipur | the Municipal Corporation | none | -- | 30 KB | 11 KB |
+| Q1156 | Mumbai | the City and the Suburban districts (603 km²), the corporation's zones | 9 (6 names) | BOM | 129 KB | 47 KB |
+| Q60 | New York | Manhattan and Brooklyn (239 km²; the other three boroughs left out, residential) | 10 (13 names) | -- | 144 KB | 52 KB |
+| Q61 | Washington | the District (177 km²) | 9 (8 names) | DCA | 92 KB | 31 KB |
+| Q23768 | Las Vegas | Clark County 8 km round the middle of the Strip (the Strip lies in unincorporated Paradise, not the | none | LAS | 46 KB | 14 KB |
+| Q18094 | Honolulu | the census place (boundary=place: the city-county takes in all of Oahu), Waikiki its core | 10 (14 names) | HNL | 48 KB | 19 KB |
+| Q100 | Boston | the city (232 km² with its harbour), its neighborhoods | none | BOS | 96 KB | 34 KB |
+| Q34404 | New Orleans | the parish-city 8 km round the French Quarter (the rest marsh and lake) | none | -- | 37 KB | 14 KB |
+| Q1297 | Chicago | the city 10 km round the Loop (606 km² whole: its South and West sides residential) | 10 (27 names) | -- | 91 KB | 32 KB |
+| Q8652 | Miami | the city and Miami Beach over Biscayne Bay (South Beach, Art Deco) | none | MIA | 52 KB | 18 KB |
+| Q49233 | Orlando | Orange County 14 km round International Drive -- downtown, Universal, Walt Disney World's parks (in Bay Lake, not the city) | 8 (5 names) | -- | 159 KB | 60 KB |
+| Q65 | Los Angeles | the county 14 km round Mid-Wilshire -- downtown, Hollywood, Beverly Hills, Santa Monica, LAX (the city alone 1300 km², without the last three) | 8 (7 names) | LAX | 114 KB | 38 KB |
+| Q62 | San Francisco | the city-county 8 km round Twin Peaks (its relation takes in the bay, the sea, the Farallones) | none | -- | 54 KB | 20 KB |
+| Q16552 | San Diego | the city 9 km round downtown (964 km² whole), Balboa Park, Old Town, Mission Bay | none | SAN | 62 KB | 22 KB |
+| Q5083 | Seattle | the city (217 km² of land) | none | -- | 82 KB | 28 KB |
+| Q1345 | Philadelphia | the city-county (370 km²), PHL in its south-west | 10 (36 names) | PHL | 144 KB | 52 KB |
+| Q172 | Toronto | the city 10 km round downtown (630 km² whole) | 9 (10 names) | YTZ | 84 KB | 31 KB |
+| Q340 | Montreal | the city (365 km² of its island), its arrondissements | 10 (19 names) | -- | 105 KB | 38 KB |
+| Q2145 | Quebec | the city (485 km²), its arrondissements | 9 (6 names) | YQB | 102 KB | 38 KB |
+| Q24639 | Vancouver | the city (115 km²: Stanley Park, Gastown, Granville Island) | 9 (22 names) | -- | 54 KB | 19 KB |
+| Q1489 | Mexico City | the capital 10 km round the Zócalo (1485 km² whole, mostly mountain and sprawl), its alcaldías | 6 (7 names) | MEX | 94 KB | 34 KB |
+| Q8969 | Cancún | the city and its Hotel Zone strip | none | CUN | 79 KB | 28 KB |
+| Q989988 | Playa del Carmen | the town, Fifth Avenue its core | 10 (19 names) | -- | 43 KB | 15 KB |
+| Q131429 | Oaxaca City | the municipality of Oaxaca de Juárez, the colonial centre | none | -- | 44 KB | 16 KB |
+| Q1563 | Havana | the province 9 km round the centre, its municipios | 6 (7 names) | -- | 44 KB | 17 KB |
+| Q3306 | Panama City | the district 8 km round the centre (2000 km² whole, forest), its corregimientos | 8 (11 names) | -- | 39 KB | 15 KB |
+| Q3070 | San José | the canton (45 km²), its distritos | 8 (11 names) | -- | 42 KB | 16 KB |
+| Q2467 | Nassau | New Providence (207 km², the island the city covers), Paradise Island, cut 14 km round the city (its relation reaches out over far cays) | none | NAS | 47 KB | 18 KB |
+| Q34820 | Santo Domingo | the Distrito Nacional (104 km²) | none | -- | 28 KB | 11 KB |
+| Q1568095 | Punta Cana | Higüey municipality 11 km round Bávaro -- the resort coast from Cap Cana to Arena Gorda | none | PUJ | 19 KB | 7 KB |
+| Q41211 | San Juan | the municipio (199 km² with its lagoons), Old San Juan the core | 9 (18 names) | SJU | 44 KB | 17 KB |
+| Q2868 | Lima | the province 9 km round San Isidro -- the Centro Histórico, Miraflores, Barranco -- its districts | 8 (17 names) | -- | 57 KB | 21 KB |
+| Q5582862 | Cuzco | the province 5 km round the Plaza de Armas -- Sacsayhuamán above it, CUZ -- its districts | 8 (1 names) | CUZ | 33 KB | 13 KB |
+| Q1486 | Buenos Aires | the city (203 km²: its level-8 relation, the level-4 one runs out into the Río de la Plata), its 48 barrios | 10 (3 names) | AEP | 66 KB | 24 KB |
+| Q8678 | Rio de Janeiro | the city 10 km round the Centro (1200 km² whole) -- Copacabana, Ipanema, Corcovado, Sugarloaf | none | SDU | 90 KB | 33 KB |
+| Q174 | São Paulo | the city 10 km round the Sé (1521 km² whole) | none | CGH | 122 KB | 43 KB |
+| Q2887 | Santiago | the Provincia de Santiago 9 km round the Plaza de Armas, its comunas (Santiago, Providencia, Las Condes...) | 8 (15 names) | -- | 77 KB | 28 KB |
+| Q2841 | Bogota | the capital 10 km round Chapinero's south (its district 1600 km² out to the páramo of Sumapaz), its localidades | 8 (15 names) | -- | 76 KB | 27 KB |
+| Q48278 | Medellín | the municipality 8 km round the centre (380 km² whole, its rural corregimientos), its comunas | 9 (19 names) | EOH | 58 KB | 21 KB |
+| Q657461 | Cartagena | the district 6 km round the walled city -- Getsemaní, Bocagrande, San Felipe -- (600 km² whole, its islands) | none | CTG | 30 KB | 11 KB |
+| Q2900 | Quito | the canton 9 km round the Centro Histórico (4200 km² whole), its parroquias | 9 (20 names) | -- | 60 KB | 23 KB |
+| Q1335 | Montevideo | the city (the department's level-8 urban part), its municipios | 10 (32 names) | -- | 62 KB | 23 KB |
+| Q85 | Cairo | the Cairo and Giza governorates 12 km round the Nile -- downtown, Islamic Cairo, Giza's pyramids -- names in English | none | -- | 161 KB | 56 KB |
+| Q130514 | Luxor | the governorate 6 km round the Nile -- Karnak and Luxor temples, the west bank to the Valley of the Kings | none | -- | 12 KB | 5 KB |
+| Q187284 | Hurghada | the Red Sea governorate 10 km round the town (its relation the whole coast) | none | HRG | 16 KB | 6 KB |
+| Q644 | Sharm El Sheikh | South Sinai 10 km round Naama Bay -- Old Sharm to the airport | none | SSH | 12 KB | 4 KB |
+| Q101625 | Marrakesh | the commune (230 km²), its arrondissements | 10 (5 names) | RAK | 36 KB | 13 KB |
+| Q7903 | Casablanca | the commune, its arrondissements | 9 (8 names) | -- | 47 KB | 17 KB |
+| Q80985 | Fez | the commune, its arrondissements | 10 (6 names) | -- | 31 KB | 11 KB |
+| Q126148 | Tangier | the commune | none | -- | 39 KB | 15 KB |
+| Q3551 | Rabat | the commune | 10 (5 names) | -- | 39 KB | 15 KB |
+| Q170525 | Agadir | the commune, the bay's beach and the kasbah hill | none | -- | 32 KB | 11 KB |
+| Q3572 | Tunis | the governorate (346 km²: the city, La Marsa, Carthage, Sidi Bou Said, the lake), its délégations | none | TUN | 71 KB | 27 KB |
+| Q3561 | Algiers | the wilaya 9 km round the centre, its communes | 8 (27 names) | -- | 78 KB | 29 KB |
+| Q5465 | Cape Town | the metro 10 km round the City Bowl -- the V&A Waterfront, Table Mountain, Sea Point, Camps Bay, Kirstenbosch -- (2450 km² whole) | 10 (16 names) | -- | 57 KB | 22 KB |
+| Q34647 | Johannesburg | the metro 10 km round Braamfontein -- the CBD, Maboneng, Melville, Rosebank, Sandton's edge | 10 (36 names) | -- | 70 KB | 27 KB |
+| Q5468 | Durban | eThekwini 8 km round the centre -- the Golden Mile, the harbour, Berea | 10 (12 names) | -- | 53 KB | 20 KB |
+| Q3870 | Nairobi | the county 9 km round the CBD -- Westlands, Kilimani, the National Park's edge -- (696 km² whole) | 9 (10 names) | -- | 63 KB | 23 KB |
+| Q2222874 | Zanzibar City | the Mjini district (16 km²), Stone Town its core | none | -- | 7 KB | 2 KB |
+| Q3929 | Port Louis | the district (42 km²: the harbour, the Caudan Waterfront, the Citadel) | 9 (7 names) | -- | 32 KB | 13 KB |
+| Q3761 | Accra | the city, its neighbourhoods | none | ACC | 28 KB | 11 KB |
+| Q8673 | Lagos | the state 10 km round Lagos Island -- Ikoyi, Victoria Island, Lekki's start, the mainland to Yaba -- its LGAs | 6 (6 names) | -- | 38 KB | 14 KB |
+| Q3718 | Dakar | the département (the Cap-Vert peninsula's tip, 79 km²), its communes d'arrondissement | 8 (19 names) | -- | 31 KB | 12 KB |
+| Q3624 | Addis Ababa | the chartered city (527 km²), its sub-cities | 6 (10 names) | ADD | 71 KB | 26 KB |
+| Q3859 | Kigali | the city 8 km round the centre (730 km² whole) | none | -- | 27 KB | 9 KB |
+| Q3935 | Windhoek | the municipality 7 km round the centre (5000 km² whole, its farmland), its suburbs | none | -- | 31 KB | 11 KB |
+| Q214681 | Panaji | Tiswadi and Bardez talukas 10 km round Panaji -- the capital, Old Goa's churches, the beaches of Candolim and Calangute | none | -- | 88 KB | 32 KB |
+| Q5764 | Bukhara | the city (Buxoro shahri), the old town's lanes and madrasas | none | -- | 20 KB | 7 KB |
+| Q1930 | Ottawa | the city 8 km round Parliament Hill (2790 km² whole) | 9 (8 names) | -- | 57 KB | 21 KB |
+| Q274120 | Niagara Falls | the Ontario city, the falls and Clifton Hill | none | -- | 40 KB | 16 KB |
+| Q277408 | Tulum | the town, the ruins on the cliff | none | -- | 15 KB | 6 KB |
+| Q3130 | Sydney | Greater Sydney (boundary=place, 12000 km²) 10 km round the harbour -- the CBD, the Opera House, Bondi, Manly, Taronga -- its LGAs | 6 (36 names) | SYD | 153 KB | 55 KB |
+| Q3141 | Melbourne | Greater Melbourne (boundary=place) 9 km round the CBD -- Fitzroy, St Kilda, the Bay -- its LGAs | 6 (5 names) | -- | 115 KB | 41 KB |
+| Q34932 | Brisbane | the City of Brisbane 9 km round the CBD (1340 km² whole), South Bank | none | -- | 103 KB | 36 KB |
+| Q3183 | Perth | the City of Perth (20 km²: the CBD, Northbridge, Kings Park, the river front) | none | -- | 26 KB | 10 KB |
+| Q140075 | Gold Coast | the city 10 km round Surfers Paradise (its 1300 km² out into the hinterland) | 9 (26 names) | -- | 95 KB | 34 KB |
+| Q189133 | Cairns | the region 6 km round the Esplanade (its 1700 km² of rainforest), CNS | 9 (15 names) | CNS | 36 KB | 13 KB |
+| Q37100 | Auckland | the region 9 km round the CBD (its 5000 km² out over the gulf's islands) | 8 (5 names) | -- | 94 KB | 33 KB |
+| Q23661 | Wellington | Wellington City (290 km²), its suburbs | none | WLG | 81 KB | 29 KB |
+| Q79990 | Christchurch | the city (boundary=place), its suburbs | 8 (5 names) | -- | 78 KB | 29 KB |
+| Q613684 | Queenstown | the Queenstown-Lakes district 7 km round the town, Lake Wakatipu | none | ZQN | 18 KB | 7 KB |
+| Q35493 | Almaty | the city 10 km round the centre (its 680 km² up into the Tian Shan) | none | -- | 60 KB | 21 KB |
+| Q23430 | Ulaanbaatar | the capital 9 km round Sükhbaatar Square (its 4700 km² of steppe) | none | -- | 29 KB | 10 KB |
+| Q1555 | Guatemala City | the municipio 8 km round the Zona 1 centre, La Aurora's GUA | 8 (18 names) | GUA | 57 KB | 21 KB |
+| Q212773 | Antigua Guatemala | the municipio 4 km round the Parque Central (its volcano slopes cut) | none | -- | 13 KB | 5 KB |
+| Q36947 | Salvador | the município 10 km round the Pelourinho (its 690 km² north to the airport cut) | none | -- | 74 KB | 27 KB |
+| Q48344 | Recife | the município (218 km²), Recife Antigo, Boa Viagem | none | REC | 94 KB | 34 KB |
+| Q43463 | Fortaleza | the município (314 km²), the beach front | none | FOR | 74 KB | 28 KB |
+| Q132997 | Florianópolis | the município 9 km round the centre (the island's south and north beaches cut) | 9 (7 names) | -- | 55 KB | 21 KB |
+| Q202316 | Foz do Iguaçu | the município (620 km²: the town, the park, the falls), IGU | none | IGU | 54 KB | 21 KB |
+| Q1491 | La Paz | the municipio 7 km round the Plaza Murillo (its 470 km² down the Zongo valley cut) | 9 (5 names) | -- | 56 KB | 20 KB |
+| Q637555 | Montego Bay | Saint James parish 5 km round the town, the Hip Strip | none | MBJ | 18 KB | 7 KB |
+| Q2248586 | Krabi | Mueang Krabi district 9 km round between the town and Ao Nang's beach (Railay at the edge) | none | -- | 29 KB | 11 KB |
+| Q13025347 | Ko Samui | the island's city municipality (230 km²), Chaweng, Lamai | none | USM | 48 KB | 18 KB |
+| Q203370 | Ayutthaya | its amphoe 5 km round the island (the old capital's temples, Wat Chaiwatthanaram over the river) | 8 (17 names) | -- | 50 KB | 17 KB |
+| Q131620 | Natal | the município (167 km²), Ponta Negra, the Forte dos Reis Magos | 9 (6 names) | -- | 68 KB | 25 KB |
+| Q36167 | Huế | the city (5000 km² since 2025) 6 km round the Citadel, the Perfume River, the tombs south cut | none | -- | 34 KB | 13 KB |
+| Q138640987 | Nha Trang | its four wards (since the 2025 reform: Nha Trang, Bắc, Nam, Tây), the beach front | none | -- | 43 KB | 16 KB |
+| r19272141 | Hạ Long | the Hạ Long ward round Bãi Cháy, the bay's first islands | none | -- | 11 KB | 4 KB |
+| Q1800 | Kochi | its taluk 7 km round Ernakulam -- Fort Kochi, Mattancherry over the water | none | -- | 25 KB | 10 KB |
+| Q1352 | Chennai | the corporation 10 km round George Town (Marina Beach, Mylapore) | 9 (7 names) | -- | 78 KB | 29 KB |
+| Q10086 | Mysuru | its taluk 6 km round the palace, Chamundi Hill | none | -- | 29 KB | 10 KB |
 
 - **The city** is its boundary relation's area and nothing round it: everything is cut to that outline but the city's
   airport (the busiest by passengers of `data/airports.csv` within 50 km, `AIRPORT_KM`: CDG not Orly, MXP not Linate),
@@ -626,29 +931,41 @@ one it is. Europe first, by international arrivals, then the world (the order: t
   carried onto the line it meets. Each line is then simplified between its junctions, which stay where they are, so
   the streets meet; a street is one line over its bridges (OSM's bridge ways are not cut out of it), and `@bridges`
   are its stretches on one, drawn over it cased dark.
+- **The old town's lanes** (`@lanes line`, `name`): the named pedestrian, living_street, residential, unclassified,
+  footway and steps ways within `CORE_KM` (1.5 km) of the city's middle, or the spec's `core` ([lon, lat, km]: Venice
+  2.4 km round Rialto for its calli, Rome 2.4 km to take in the Vatican); not a sidewalk's or crossing's footway, nor a
+  square's area. Each street's ways are merged into lines by name, simplified to 3 m, cut to the outline, and
+  drawn thin and white under the streets from street zoom (under 30 m a pixel), named below 12 m. They come from the
+  pbf (part `lanes`) for a city read from one, else from Overpass; when Overpass is busy the city is built without
+  them and asked again on the next build. This fills the centres the main classes leave empty: Florence between the
+  Duomo and the Uffizi, the Stradun, Bruges inside its ring.
 - **What is in it**: streets (OSM motorway, trunk, primary, secondary; `name`, `ref`, `class`); commuter lines (`s`:
-  S-Bahn, RER and Transilien, Overground and the Elizabeth line, Cercanías, Rodalies, the FL and S lines, Esko, Marmaray
-  ... -- `COMMUTER_NET` on a route's network, operator or name, `COMMUTER_REF` on its ref), metros (`u`) and main
-  railways (`r`: the route relations' ways, and `usage=main/branch` tracks without `service`), with the
-  route's `colour` and `lines`; green (parks, gardens, meadows, grass, cemeteries, allotments 5 ha+; woods and heath
-  10 ha+; merged); water (lakes, rivers' and canals' own areas, 0.5 ha+); the named rivers and canals as lines; the
-  monuments of `data/monuments.csv` in the city that OSM maps as an area (by their `wikidata`: a closed way with an
-  area's tag or a multipolygon, not a site relation) of 60 m across or more (the square root of its area; up to
-  300 ha) -- filled and outlined, named, without their icon; a gate, a column, a church stays a point; the districts'
-  outlines (`level` 1 and 2; a district over half within the outline, not a neighbour's sliver) and their names at a
-  label point inside; the airport (`aeroway=aerodrome` with its IATA
-  code) as an outline; stations (`railway=station/halt`, a node or a station's area; not a car train's or goods'
-  station) within 600 m of one name one point -- one name in the other ("Hbf" or not), or the same name without the
+  S-Bahn, RER and Transilien, Overground and the Elizabeth line, Cercanías, Rodalies, the FL and S lines, Esko,
+  Marmaray, the AKN, the МЦК, the Circumvesuviana, Cumana and Circumflegrea, the Metro do Porto, HSL's trains, BG:Voz,
+  Turin's SFM, Euskotren ... -- `COMMUTER_NET` on a route's network, operator or name, `COMMUTER_REF` on its ref),
+  metros (`u`) and main railways (`r`: the route relations' ways -- `rail`, `subway`, `light_rail`, `narrow_gauge`
+  (the Circumvesuviana), not `tram`, nor a street's `railway=razed` or `abandoned` (Dresden's old tram streets) -- and
+  `usage=main/branch` tracks without `service`), with the route's `colour` and `lines`; green (parks,
+  gardens, meadows, grass, cemeteries, allotments 5 ha+; woods and heath 10 ha+; merged); water (lakes, rivers' and
+  canals' own areas, 0.5 ha+); the named rivers and canals as lines; the monuments of `data/monuments.csv` in the city
+  that OSM maps as an area (by their `wikidata`: a closed way with an area's tag or a multipolygon, not a site relation)
+  of 60 m across or more (the square root of its area; up to 300 ha) -- filled and outlined, named, without their icon;
+  a gate, a column, a church stays a point; the districts' outlines (`level` 1 and 2; a district over half within the
+  outline, not a neighbour's sliver; the outline's parts 40 km+ from the city's point left out: Hamburg's Neuwerk) and
+  their names at a label point inside; the airport (`aeroway=aerodrome` with its IATA code) as an outline; stations
+  (`railway=station/halt`, a node or a station's area; not a car train's or goods' station: "Товарный", "Kravas",
+  "Preču") within 600 m of one name one point -- one name in the other ("Hbf" or not), or the same name without the
   town's and the words for a station ("Paris Austerlitz", "Gare d'Austerlitz"), or one's such words all in the other's
-  ("Wien Hauptbahnhof", "Südtiroler Platz – Hauptbahnhof") -- named as the one the most trains stop at (Saint-Lazare,
-  not its RER station next door); `kind` the lines there: `u`, `s`, `r`; `rank` 1 the city's busiest (its train
-  routes, commuter lines' too, counted at the nearest station of each stop: at least 6 and a quarter of the busiest's,
-  among the 10 busiest in the city; a long-distance route -- `service=long_distance/high_speed/international` -- counts
-  three, so an InterCity terminus outranks a commuter line's halts: Dublin Heuston) or a DB category 1-2 or a Hauptbahnhof, 2 at least 3 and a tenth, or two kinds of
-  line, 3 the rest; a station is kept only with a line of the map within
-  80 m, out of the city only an U- or S-Bahn's); the names of parks of 15 ha+ and lakes of 10 ha+.
+  ("Wien Hauptbahnhof", "Südtiroler Platz – Hauptbahnhof"), or an interchange's halves by number ("Piața Victoriei 1"
+  and "2": "Piața Victoriei") -- named as the one the most trains stop at (Saint-Lazare, not its RER station next door);
+  `kind` the lines there: `u`, `s`, `r`; `rank` 1 the city's busiest (its train routes, commuter lines' too, counted at
+  the nearest station of each stop: at least 6 and a quarter of the busiest's, among the 10 busiest in the city; a
+  long-distance route -- `service=long_distance/high_speed/international` -- counts three, so an InterCity terminus
+  outranks a commuter line's halts: Dublin Heuston) or a DB category 1-2 or a Hauptbahnhof, 2 at least 3 and a tenth, or
+  two kinds of line, 3 the rest; a station is kept only with a line of the map within 80 m, out of the city only an U-
+  or S-Bahn's); the names of parks of 15 ha+ and lakes of 10 ha+.
 - **The format** is the light text format (`build/lite.py`, Light files above): a `grid`, `@arcs`, then `@streets line`,
-  `@bridges line`, `@rail line`, `@green polygon`, `@water polygon`, `@waterways line`, `@airport polygon`,
+  `@bridges line`, `@lanes line`, `@rail line`, `@green polygon`, `@sea polygon`, `@water polygon`, `@waterways line`, `@airport polygon`,
   `@monuments polygon`, `@districts line`, `@clip polygon` (an object without rows left out: an empty one breaks the
   page's trees), and the tables `@places`, `@parks`, `@stations` (CSV with
   `lon`, `lat`). Simplified to 10 m (streets, rail), 12 m (water), 15 m (districts), 25 m (green), 20 m (airport), 5 m
@@ -663,21 +980,27 @@ one it is. Europe first, by international arrivals, then the world (the order: t
   monuments and the airport show in a city map whatever their switches say; the city map itself does not follow the
   layer switches (rivers, roads, rails).
 - **The sea**: a coastal city's sea is the outline's box cut by OSM's coastlines (the land on a coastline's left),
-  each face the side most of its coastline's segments say, drawn as water within 1.5 km of the outline (`SEA_KM`,
-  less than `PAD_KM`, the data's margin): the map's own land is coarser (Istanbul's Bosporus and Marmara shore,
+  each face the side most of its coastline's segments say, kept within 1.5 km of the outline (`SEA_KM`, less than
+  `PAD_KM`, the data's margin) as `@sea`, drawn in the map's own sea colour (`--sea`, so it does not show as a band
+  over the base map's sea; the lakes, rivers and docks on it keep the city's water colour): the map's own land is coarser (Istanbul's Bosporus and Marmara shore,
   Barcelona's port, Ostia). The districts' borders and their names' label points are cut by that sea too (no
-  border out in the Saronic Gulf off Piraeus).
+  border out in the Saronic Gulf off Piraeus). A sea over 60% of the outline is taken for a coast read the wrong way
+  round and left out, unless the city's point is on land (Helsinki's outline is mostly sea, out to Ulkosaaret).
 - **Sizes**: a city's file is kept to 150 KB gzipped (`BUDGET_KB`): over it, it is built again coarser -- the
   simplify tolerances times f, the smallest areas times f² (`COARSER`: 1.25 to 4; the first step guessed from the
-  size, the step taken kept in `raw/city/<wikidata>_coarser.json` for the next build). London (x2.4) and Istanbul (x2.4)
-  needed it; the rest are 41-112 KB at x1. Green is the largest part.
+  size, the step taken kept in `raw/city/<wikidata>_coarser.json` for the next build). London (x3.4) and Istanbul (x2.8)
+  needed it; the rest are 3-145 KB at x1. Green is the largest part.
 - **Where the data comes from**: a city with a `pbf` is read from Geofabrik's extract (`build/citypbf.py`, pyosmium,
   four passes: the relations; the boundary's ways and nodes for its box; the nodes and ways with their places --
   `flex_mem` under 400 MB, a node index on disk above it), downloaded once to `raw/city/pbf/` and deleted when no
   other city needs it. Overpass (three servers in turn, retries with back-off, big boxes asked in tiles) is for the
   others. Both write the same raw parts (`raw/city/<wikidata>_*.json.gz`: boundary, districts, lines, areas, routes,
   stops, airport, monuments). An extract takes 1-4 minutes (England's, 1.7 GB: about 25); built again from the raw
-  parts, a city takes under a minute (London a few, with its coarser builds).
+  parts, a city takes under a minute (London a few, with its coarser builds). One city's failure (no boundary that
+  closes: Agra's district, 38 of its 53 ways without their nodes in the raw part) is printed as `<wikidata>: FAILED -- ...` and the others
+  are still built; `index.csv` lists the files there are. Outside Europe every city is read from a pbf (Overpass was
+  down through the build); a pbf's raw parts kept, a change of `radius`, `place` or `airport` is built again without
+  it, a change of `boundary` needs the parts deleted and the extract back.
 
 ## How the detail was chosen
 
@@ -756,6 +1079,7 @@ build/capped.sh .venv/bin/python build/areas.py      # stage 6: areas on the top
 build/capped.sh .venv/bin/python build/areas.py islands   # stage 6b: + every other landmass Wikidata knows as an island (~10k; never leave it out)
 build/capped.sh .venv/bin/python build/write.py      # stage 3: full/world.topo.json (with the areas)
 build/capped.sh .venv/bin/python build/rivernet.py   # stage 4b: the rivers as one network (full/rivers.topo.json), their mouths into the coast
+.venv/bin/python build/riverlevels.py                # stage 4c: each river's level 1-3 (its width drawn); Wikidata's lengths cached in raw/wd_river_length.json
 build/capped.sh .venv/bin/python build/points.py     # stage 5: data/cities.csv, monuments.csv, airports.csv
 build/capped.sh .venv/bin/python build/transport.py  # stage 7: the main lines as tracked (full/transport.tracked.topo.json) (~16 min, 1.9 GB)
 build/capped.sh .venv/bin/python build/roadnet.py   # stage 7b: one network of single lines, ranked (full/transport.topo.json)
