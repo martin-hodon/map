@@ -7,7 +7,7 @@
 // area: Wikidata's (data/measures.json: build/measures.py) -- the map traces only a river's wide part and a sea without
 // holes for its islands. Its rows are the search's (one a country, a river of many lines, England whole).
 // THE MAP COLOURED BY IT: while the list is open (and "colour the map" ticked) the map shows the list -- what it ranks
-// in seven shades by its place (a seventh of the rows a shade, the first the darkest), with everything else of its kind
+// in seven shades by its NUMBER (the darkest from the top's, each shade's bounds a factor lower -- see cutsOf), with everything else of its kind
 // plain (the country colours left out): countries and states filled, seas and gulfs, ranges, deserts and islands
 // filled, rivers drawn over in their shade, cities as dots (by their people) and peaks as triangles. Each row's bar is in its
 // shade, and a key under the choices gives each shade's numbers. On a phone a row chosen hides the list but not its
@@ -21,6 +21,7 @@ import { flagCode, flagSvg } from "./flags.js";
 import { select, fly } from "./select.js";
 import { collect } from "./search.js";
 import { draw } from "./view.js";
+import { scheme } from "./style.js";
 
 S.measures = null;
 const WATER = { "oceans and seas": ["ocean", "sea"], "gulfs and bays": ["gulf", "bay", "inlet", "fjord", "sound", "lagoon", "estuary"], "straits and channels": ["strait", "channel"] };
@@ -119,11 +120,45 @@ function within(R, sel) {
   if (![...sel.options].some((o) => o.value === R.within)) R.within = sel.options[0]?.value ?? "";
   sel.value = R.within;
 }
-// the shades, palest to darkest (on the dark scheme from dim to bright: the darkest there is the land)
-const RAMP = ["#fbecb4", "#f8d08a", "#f3ab66", "#e8824f", "#d45a4a", "#ad3a50", "#74234f"];
-const RAMP_DARK = ["#3f3d33", "#5b4c33", "#7c5a35", "#9f6638", "#c06a40", "#dc6552", "#f2707a"];
-export const rampColour = (k) => (dark() ? RAMP_DARK : RAMP)[k];
-const shadeOf = (k, n) => 6 - Math.min(6, Math.floor(7 * k / n));     // (k: the place in the list, from 0)
+// THE SHADES, the lowest to the top (2026-11-26: one ramp per colour scheme, style.js -- soft, bold, earth -- each from its
+// own palest to its strongest, a step in lightness and turning hue apart so neighbours read as two; on the dark scheme
+// from dim to bright). In HCL: the hue from h0 to h1, the lightness from L0 to L1, the chroma from c0 to c1
+const RAMPS = {
+  soft:  { light: { h0: 95, h1: -45, L0: 95, L1: 32, c0: 30, c1: 55 }, dark: { h0: 95, h1: -45, L0: 24, L1: 82, c0: 18, c1: 52 } },
+  bold:  { light: { h0: 100, h1: -60, L0: 93, L1: 28, c0: 55, c1: 75 }, dark: { h0: 100, h1: -60, L0: 26, L1: 85, c0: 30, c1: 75 } },
+  earth: { light: { h0: 95, h1: 15, L0: 92, L1: 28, c0: 22, c1: 40 }, dark: { h0: 95, h1: 15, L0: 24, L1: 80, c0: 16, c1: 40 } },
+};
+const RAMPED = new Map();
+export const rampColour = (k) => {
+  const key = scheme() + dark() + k;
+  if (!RAMPED.has(key)) {
+    const r = RAMPS[scheme()][dark() ? "dark" : "light"], t = k / 6;
+    RAMPED.set(key, d3.hcl(r.h0 + (r.h1 - r.h0) * t, r.c0 + (r.c1 - r.c0) * t, r.L0 + (r.L1 - r.L0) * t).formatHex());
+  }
+  return RAMPED.get(key);
+};
+// THE SHADES BY VALUE (2026-11-26; till then a seventh of the rows a shade: the rivers' first shade ran from 560 to 6,600 km).
+// Each shade's lower bound a factor below the one above it, from the top's: the factor such that the six steps reach the
+// value nine-tenths down the list, but never more than ×2.5 (a shade's values within that of each other) -- about halving
+// for the rivers (3,000+, 1,500, 750...), ×2.5 for countries' people, ×1.5 for peaks -- each bound a round number (1, 1.5, 2, 2.5, 3, 4, 5, 6, 7.5 times a power of ten) where the steps are
+// wide, two figures where narrow. cuts: the bounds, highest first; a value under the last is the palest
+const NICE = [1, 1.5, 2, 2.5, 3, 4, 5, 6, 7.5, 10];
+const nice = (x) => { const k = 10 ** Math.floor(Math.log10(x)); return NICE.map((n) => n * k).reduce((a, b) => Math.abs(Math.log(b / x)) < Math.abs(Math.log(a / x)) ? b : a); };
+export function cutsOf(vs) {
+  const pos = vs.filter((v) => v > 0).sort((a, b) => b - a);
+  if (!pos.length) return [];
+  const top = pos[0], low = pos[Math.floor(0.9 * (pos.length - 1))];
+  if (!(top > low)) return [];                                        // (all alike: one shade, the darkest)
+  const f = Math.min(2.5, Math.max(1.02, (top / low) ** (1 / 6))), cuts = [];   // (at most ×2.5 a step: a shade no wider than that -- the bottom one takes what is left)
+  for (let i = 1; i <= 6; i++) {
+    const c = f >= 1.6 ? nice(top / f ** i) : +(top / f ** i).toPrecision(2);
+    if (!cuts.length || c < cuts.at(-1)) cuts.push(c);
+  }
+  return cuts;
+}
+export const shadeBy = (v, cuts) => { let s = 6; for (const c of cuts) { if (v >= c) return s; s--; } return cuts.length ? s : 6; };
+let cuts = [];
+const shadeOf = (k) => shadeBy(shown[k].v, cuts);                    // (k: the place in the list, from 0)
 // what the map draws for the list shown (view.js), or null: { layer, mask, unit (countries, states: the country colours
 // left out), lines (rivers), by: [ids of each shade], dots: [{ at, shade, r }] the last first }
 let painted = null;
@@ -138,10 +173,10 @@ function paintOf() {
   const e0 = shown[0].e, n = shown.length;
   if (e0.cat === "point") {
     const top = shown[0].v;
-    return { peaks: R.list === "peaks", dots: shown.map((r, k) => ({ at: r.e.feats[0].geometry.coordinates, shade: shadeOf(k, n), r: R.list === "cities" ? 2 + 7 * Math.sqrt(r.v / top) : 2.5 + 0.6 * shadeOf(k, n) })).reverse() };
+    return { peaks: R.list === "peaks", dots: shown.map((r, k) => ({ at: r.e.feats[0].geometry.coordinates, shade: shadeOf(k), r: R.list === "cities" ? 2 + 7 * Math.sqrt(r.v / top) : 2.5 + 0.6 * shadeOf(k) })).reverse() };
   }
   const by = Array.from({ length: 7 }, () => []);
-  shown.forEach((r, k) => by[shadeOf(k, n)].push(...r.e.ids));
+  shown.forEach((r, k) => by[shadeOf(k)].push(...r.e.ids));
   const P = { layer: e0.layer, by };
   if (e0.layer === "countries" || e0.layer === "regions") P.unit = true;
   else if (e0.layer === "rivers") P.lines = true;
@@ -155,10 +190,11 @@ function key() {
   if (k.hidden) return;
   const short = (v) => R.by === "population" ? fmtPop(v) : L.by[R.by](v).replace(/ (km²|km|m|\/km²)$/, "");
   for (let s = 0; s < 7; s++) {
-    const rows = shown.filter((_, j) => shadeOf(j, n) === s); if (!rows.length) continue;
-    const lo = rows.at(-1).v, hi = rows[0].v;
+    const rows = shown.filter((_, j) => shadeOf(j) === s); if (!rows.length) continue;
+    const lo = rows.at(-1).v, hi = rows[0].v, c = 6 - s, from = cuts[c], to = cuts[c - 1];   // (its bounds: the key reads 3,000+, 1,500–3,000, … under 75)
+    const label = !cuts.length ? (lo === hi ? short(lo) : `${short(lo)}–${short(hi)}`) : from == null ? `<${short(to)}` : to == null ? `${short(from)}+` : `${short(from)}–${short(to)}`;
     k.append(make("span", { innerHTML: `<i style="background:${rampColour(s)}"></i>`, title: `${fmt(rows.length)} ${L.noun || "of them"}: ${L.by[R.by](lo)} – ${L.by[R.by](hi)}` }));
-    k.lastChild.append(lo === hi ? short(lo) : `${short(lo)}–${short(hi)}`);
+    k.lastChild.append(label);
   }
 }
 // a new scope flown to: a continent, a country, a state
@@ -173,7 +209,7 @@ let shown = [], limit = 100;
 export function render() {
   const L = LISTS[R.list];
   choices(R, PANEL); save();
-  shown = rows(); limit = 100;
+  shown = rows(); limit = 100; cuts = cutsOf(shown.map((r) => r.v));
   const sum = shown.reduce((s, r) => s + r.v, 0), add = R.by === "population" || (R.list !== "water" && R.list !== "land" && R.by === "area");
   $("rk-sum").textContent = `${fmt(shown.length)} ${L.noun || R.within}` + (add && shown.length ? ` · ${L.by[R.by](sum)} in all` : "")
     + (R.list === "rivers" ? " · the whole river's length (Wikidata)" : R.list === "water" || R.list === "land" ? " · area (Wikidata)" : "");
@@ -186,7 +222,7 @@ function fill() {
   shown.slice(0, limit).forEach((r, k) => {
     const li = document.createElement("li");
     const share = R.by === "population" && sum ? ` · ${(100 * r.v / sum).toFixed(r.v / sum >= .1 ? 0 : 1)}%` : "";
-    li.innerHTML = `<span class="n">${k + 1}</span><span class="nm">${flagSvg(flagCode(r.e), 11, { cls: "fl", outline: false })}</span><span class="v"></span><i style="width:${(100 * r.v / top).toFixed(1)}%${R.paint ? `;background:${rampColour(shadeOf(k, shown.length))};opacity:1` : ""}"></i>`;
+    li.innerHTML = `<span class="n">${k + 1}</span><span class="nm">${flagSvg(flagCode(r.e), 11, { cls: "fl", outline: false })}</span><span class="v"></span><i style="width:${(100 * r.v / top).toFixed(1)}%${R.paint ? `;background:${rampColour(shadeOf(k))};opacity:1` : ""}"></i>`;
     li.querySelector(".nm").append(r.name, make("small", { textContent: r.sub ? " " + r.sub : "" }));
     li.querySelector(".v").textContent = L.by[R.by](r.v); li.title = L.by[R.by](r.v) + share;
     li.onclick = () => { for (const x of ol.children) x.classList.remove("on"); li.classList.add("on"); $("q").value = r.e.name; select(r.e); if (matchMedia("(max-width: 700px)").matches) openRanks(false, true); };
@@ -212,3 +248,5 @@ export function init() {
   $("rk-within").onchange = () => { R.within = $("rk-within").value; render(); flyWithin(); };
   $("rk-paint").onchange = () => { R.paint = $("rk-paint").checked; render(); };
 }
+// (another colour scheme chosen: the list's bars and the key in its ramp too -- the map is redrawn by ui.js)
+$("palette").addEventListener("change", () => { if (R.open || kept) { key(); fill(); } });

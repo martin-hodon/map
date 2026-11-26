@@ -18,7 +18,15 @@ export const RANKED = new Set(["higher", "top"]);
 const GR = { list: "countries", by: "population", within: "" };      // (the game's choices: kept apart from the panel's)
 try { Object.assign(GR, JSON.parse(localStorage.rankgame || "{}")); } catch (e) { }
 const IDS = { list: "g-rlist", by: "g-rby", within: "g-rwithin" };
-export function rankSetup() { choices(GR, IDS); try { localStorage.rankgame = JSON.stringify(GR); } catch (e) { } }
+export function rankSetup() { choices(GR, IDS); try { localStorage.rankgame = JSON.stringify(GR); } catch (e) { } roundsMax(); }
+// the count asked for goes up to the chosen list's length ("top": every one of it), not a fixed 1000
+async function roundsMax() {
+  await loadMeasures(); await riversReady(GR.list);
+  const n = rows(GR).length, inp = $("g-rounds");
+  if (!n) return;
+  inp.max = n;
+  if (+inp.value > n) inp.value = n;
+}
 export const rankWhere = () => flyWithin(GR);
 const MORE = { population: "more people", area: "the larger area", density: "more people per km²" };
 const question = () => GR.by === "length" ? "Which is longer?" : GR.by === "height" ? "Which is higher?" : `Which has ${MORE[GR.by]}?`;

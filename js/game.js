@@ -12,12 +12,13 @@ import { clearSel, fly } from "./select.js";
 import { idOf, game, bareGame, pickedStyle } from "./groups.js";
 import { RANKED, startRank, rankGuess, rankGiveUp, rankScore, drawRank, rankNames, rankSetup, rankWhere, init as rankInit } from "./rankgame.js";
 
-export const SHAPES = new Set(["which", "flag", "all", "chain", "route"]);          // (the games of countries, or of a country's states)
+export const SHAPES = new Set(["which", "flag", "capital", "all", "chain", "route"]);          // (the games of countries, or of a country's states)
 // (a name as typed, forgiving how a foreigner spells it: no accents, case, punctuation or spaces ("Guinea-Bissau",
 //  "N'Djamena", "Kualalumpur"); w as v, y and j as i, k as c ("Cracow" for Kraków, "Kioto" for Kyoto, "Rijeka" as "Rieka");
 //  no h ("Ho Chi Min"); a doubled consonant as one ("Talin" for Tallinn -- not a vowel: Shaanxi is not Shanxi) -- 2026-11-23)
 const words = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, " ").trim();
-export const nameKey = fuzzyKey;                                       // (the forgiving key: search.js)
+export const nameKey = fuzzyKey;
+const ASK = new Set(["which", "flag", "capital"]);                       // (the games that ask about one unit at a time)                                       // (the forgiving key: search.js)
 S.gameData = null;                                                // (cities by name, each one's continent; built once)
 export function gameIndex() {
   if (S.gameData) return S.gameData;
@@ -95,7 +96,7 @@ export function flyWhere() {
 }
 export function resetGame() {                                              // (nothing played: the map shows only where)
   clearInterval(game.clock);
-  Object.assign(game, { named: [], finds: [], ask: null, lastU: null, units: null, over: false, start: null, goal: null, way: null, rk: null, pair: null, missed: [] });
+  Object.assign(game, { named: [], finds: [], ask: null, lastU: null, units: null, over: false, start: null, goal: null, way: null, rk: null, pair: null, missed: [], got: null });
   $("g-flag").innerHTML = ""; $("g-stage").innerHTML = "";
 }
 export function previewGame() {
@@ -111,8 +112,10 @@ export function openGame(open) {
 }
 export function gameStyle() {                                              // (what the chosen game asks for)
   const s = pickedStyle();
-  $("g-kmbox").hidden = s !== "outside" && s !== "inside"; $("g-roundsbox").hidden = s !== "place" && s !== "which" && s !== "flag";
+  $("g-kmbox").hidden = s !== "outside" && s !== "inside"; $("g-roundsbox").hidden = s !== "place" && !ASK.has(s);
   if (RANKED.has(s)) $("g-roundsbox").hidden = false;
+  $("g-allbox").hidden = s !== "top"; $("g-rounds").disabled = s === "top" && $("g-all").checked;   // ("top": all of the list)
+  if (!RANKED.has(s)) $("g-rounds").max = 1000;
   $("g-roundsof").textContent = s === "place" ? "cities to find" : s === "higher" ? "pairs" : s === "top" ? "the first so many" : "to name";
   const ranked = RANKED.has(s), wasRanked = !$("g-rank").hidden;       // (the rankings' games: the list's choices, not where)
   $("g-rank").hidden = !ranked; $("g-scope").hidden = ranked;
@@ -128,7 +131,7 @@ export function startGame() {
   const d = gameIndex(), C = S.src.cities.features;
   resetGame();
   Object.assign(game, { style: pickedStyle(), bare: $("g-style").value.endsWith(":bare"), where: gameRegion(whereValue()), km: +$("g-km").value || KM0[game.scope],
-                        rounds: Math.max(1, Math.min(1000, +$("g-rounds").value || 10)) });   // (up to 1000: a top 500 of cities -- 2026-11-22)
+                        rounds: pickedStyle() === "top" && $("g-all").checked ? Infinity : Math.max(1, Math.min(RANKED.has(pickedStyle()) ? Infinity : 1000, +$("g-rounds").value || 10)) });   // (a ranking's game: up to its list's length -- startRank, rankgame.js roundsMax; the others up to 1000)
   $("g-setup").hidden = true; $("g-play").hidden = false;
   $("g-title").textContent = `${$("g-style").selectedOptions[0].textContent.split(":")[0]} · ${game.where.kind === "world" ? "the world" : game.where.name}` +
     (game.style === "outside" || game.style === "inside" ? ` · circles ${fmt(game.km)} km` : "");
@@ -252,9 +255,11 @@ export function startUnits() {
   Object.assign(game, { units: U, done: new Set(), order: [], missed: [], lastU: null, way: null, over: false, start: null, goal: null, t0: performance.now(), t1: null });
   $("g-list").innerHTML = ""; say(""); $("g-name").hidden = false; $("g-name").value = ""; $("g-name").placeholder = `a ${U.word}, then Enter`;
   const fail = (t) => { game.over = true; $("g-ask").textContent = t; unitScore(); draw(); };
-  if (game.style === "which" || game.style === "flag") {
-    game.pool = d3.shuffle(game.style === "flag" ? all.filter((i) => S.flagLib?.has(U.units[i].iso)) : all); game.rounds = Math.min(game.rounds, game.pool.length);
-    if (!game.pool.length) return fail(`No flags of the ${U.words} of ${into()} yet.`);
+  if (ASK.has(game.style)) {
+    if (game.style === "capital") game.caps = capitals(U, w);
+    game.pool = d3.shuffle(game.style === "flag" ? all.filter((i) => S.flagLib?.has(U.units[i].iso)) : game.style === "capital" ? all.filter((i) => game.caps.has(i)) : all);
+    game.rounds = Math.min(game.rounds, game.pool.length);
+    if (!game.pool.length) return fail(game.style === "flag" ? `No flags of the ${U.words} of ${into()} yet.` : `No capitals of the ${U.words} of ${into()} on the map.`);
   }
   else if (game.style === "all") { $("g-ask").textContent = `Name every ${U.word} of ${into()}: ${n}.`; game.clock = setInterval(unitScore, 1000); }
   else if (game.style === "chain") {
@@ -269,9 +274,9 @@ export function startUnits() {
     [game.start, game.goal] = pair; game.order = [game.start]; game.done = new Set([game.start]);
     $("g-ask").replaceChildren("From ", bold(U.units[game.start].name), " to ", bold(U.units[game.goal].name), `: name ${U.words} across the borders, each next to one named.`);
   }
-  $("g-give").textContent = { which: "Show", flag: "Show", all: "Give up", chain: "End", route: "Show a way" }[game.style]; $("g-give").hidden = false;
+  $("g-give").textContent = { which: "Show", flag: "Show", capital: "Show", all: "Give up", chain: "End", route: "Show a way" }[game.style]; $("g-give").hidden = false;
   unitScore(); $("g-name").focus();
-  if (game.style === "which") return nextUnit();
+  if (game.style === "which" || game.style === "capital") return nextUnit();
   if (game.style === "flag") { if (!game.bare) flyWhere(); return nextUnit(); }
   const show = game.style === "chain" ? [game.start, ...U.units[game.start].nb] : game.style === "route" ? [game.start, game.goal] : null;
   if (show) { const g = collect(show.map((u) => unitFeat(u))); fly({ cat: "area", geom: g, at: d3.geoCentroid(g) }); }
@@ -286,6 +291,12 @@ export function nextUnit() {                                               // ("
     $("g-ask").textContent = `Whose flag is this? Name the ${U.word}.`;
     if (game.bare) $("g-stage").innerHTML = flagSvg(U.units[game.ask].iso, 600); else $("g-flag").innerHTML = flagSvg(U.units[game.ask].iso, 110);
     return draw();
+  }
+  if (game.style === "capital") {
+    const n = game.caps.get(game.ask).length, name = U.units[game.ask].name;
+    game.got = new Set();
+    $("g-ask").replaceChildren(n > 1 ? `The ${n} capitals of ` : "The capital of ", bold(name), n > 1 ? "? Name each." : "?");
+    return fly({ cat: "area", geom: unitFeat(game.ask), at: U.units[game.ask].label });
   }
   $("g-ask").textContent = `Which ${U.word} is this?`;
   if (game.bare) {                                                  // (no flight: nothing to fly over, and it would show the way)
@@ -303,11 +314,12 @@ export function finish(text) { game.over = true; game.t1 = performance.now(); cl
 export function unitGuess(text) {                                          // a name typed: right, or why not
   const U = game.units;
   if (!U || game.over || !nameKey(text)) return;
+  if (game.style === "capital") return capitalGuess(text);
   const u = U.byKey.get(unitKey(text));
   if (u == null) return say(`No ${U.word} “${text}” in ${into()}.`, true);
   const n = U.units[u].name;
   $("g-name").value = "";
-  if (game.style === "which" || game.style === "flag") {
+  if (ASK.has(game.style)) {
     const a = game.ask, ok = u === a;
     game.finds.push({ u: a, ok }); game.lastU = a;
     say(ok ? `✓ ${n}` : `✗ That is ${U.units[a].name}, not ${n}.`, !ok); gameLi(U.units[a].name, ok ? "✓" : `✗ ${n}`);
@@ -335,11 +347,43 @@ export function unitGuess(text) {                                          // a 
   }
   unitScore(); drawGameOver();
 }
+// "capital": a unit's capital asked -- a country's (data/cities.csv capital "country": Bolivia's two, South Africa's
+// three, each to be named), or, in a country, a state's ("state", in that state) -- of those with one on the map
+function capitals(U, w) {
+  const C = S.src.cities.features, states = U.layer === "regions", of = new Map(U.units.map((u, i) => [u.iso, i])), caps = new Map();
+  C.forEach((f, i) => { const p = f.properties;
+    const u = states ? p.capital === "state" && of.get(p.region) : p.capital === "country" && of.get(p.country);
+    if (u === false || u === undefined) return;
+    if (!caps.has(u)) caps.set(u, []); caps.get(u).push(i); });
+  // (a city-state's capital is the country's: Berlin, Vienna -- a state with none of its own takes the country's in it)
+  if (states) C.forEach((f, i) => { const p = f.properties, u = of.get(p.region); if (p.capital === "country" && u !== undefined && !caps.has(u)) caps.set(u, [i]); });
+  return caps;
+}
+const capNames = (u) => game.caps.get(u).map((i) => S.src.cities.features[i].properties.name).join(", ");
+const capitalsOf = (u) => { const n = game.caps.get(u).length, name = game.units.units[u].name; return n > 1 ? `The capitals of ${name}: ${capNames(u)}` : `The capital of ${name} is ${capNames(u)}`; };
+function capitalGuess(text) {                                              // a city typed: one of the capitals asked, or not
+  const a = game.ask; if (a == null) return;
+  const caps = game.caps.get(a), hits = (gameIndex().byName.get(nameKey(text)) || []).filter((i) => caps.includes(i));
+  $("g-name").value = "";
+  if (hits.length) {
+    const i = hits.find((j) => !game.got.has(j)) ?? hits[0], name = S.src.cities.features[i].properties.name;
+    if (game.got.has(i)) return say(`${name} is named already.`, true);
+    game.got.add(i);
+    if (game.got.size < caps.length) { say(`✓ ${name} -- ${caps.length - game.got.size} more`); return draw(); }
+    game.finds.push({ u: a, ok: true }); game.lastU = a;
+    say(`✓ ${capNames(a)}`); gameLi(game.units.units[a].name, `✓ ${capNames(a)}`);
+  } else {
+    game.finds.push({ u: a, ok: false }); game.lastU = a;
+    say(`✗ ${capitalsOf(a)}, not ${text}.`, true); gameLi(game.units.units[a].name, `✗ ${capNames(a)}`);
+  }
+  unitScore(); return nextUnit();
+}
 export function giveUp() {                                                 // (Show / Give up / End / Show a way)
   if (RANKED.has(game.style)) return rankGiveUp();
   const U = game.units;
   if (!U || game.over) return;
-  if (game.style === "which" || game.style === "flag") { const a = game.ask; game.finds.push({ u: a, ok: false }); say(`That is ${U.units[a].name}.`); gameLi(U.units[a].name, "shown"); unitScore(); return nextUnit(); }
+  if (game.style === "capital") { const a = game.ask; game.finds.push({ u: a, ok: false }); say(`${capitalsOf(a)}.`); gameLi(U.units[a].name, `shown: ${capNames(a)}`); unitScore(); return nextUnit(); }
+  if (ASK.has(game.style)) { const a = game.ask; game.finds.push({ u: a, ok: false }); say(`That is ${U.units[a].name}.`); gameLi(U.units[a].name, "shown"); unitScore(); return nextUnit(); }
   if (game.style === "all") { game.missed = U.units.map((_, i) => i).filter((i) => !game.done.has(i));
     finish(`${game.done.size} of ${U.units.length} named, in ${clock()}; the ${game.missed.length} not named are shown.`); }
   else if (game.style === "chain") { const last = game.order.at(-1), left = [...U.units[last].nb].filter((b) => !game.order.includes(b));
@@ -352,7 +396,7 @@ export function giveUp() {                                                 // (S
 export function unitScore() {
   const U = game.units;
   if (!U) return;
-  $("g-score").textContent = game.style === "which" || game.style === "flag" ? `${game.finds.length} of ${game.rounds} · ${game.finds.filter((f) => f.ok).length} right`
+  $("g-score").textContent = ASK.has(game.style) ? `${game.finds.length} of ${game.rounds} · ${game.finds.filter((f) => f.ok).length} right`
     : game.style === "all" ? `${game.done.size} of ${U.units.length} · ${clock()}`
     : game.style === "chain" ? `a chain of ${Math.max(0, game.order.length - 1)}`
     : `${Math.max(0, game.order.length - 1 - (game.done.has(game.goal) ? 1 : 0))} named`;
@@ -372,9 +416,9 @@ export function drawUnits() {
     if (line) { ctx.strokeStyle = hi; ctx.lineWidth = line; ctx.stroke(); }
   };
   const ok = css("--ok-fill"), miss = css("--miss-fill"), cur = css("--game-fill"), last = css("--last-fill");
-  if (game.style === "which" || game.style === "flag") {
+  if (ASK.has(game.style)) {
     paint(game.finds.filter((f) => f.ok).map((f) => f.u), ok); paint(game.finds.filter((f) => !f.ok).map((f) => f.u), miss);
-    if (game.ask != null && game.style === "which") paint([game.ask], cur, 2);   // (the flag game: the map does not give it away)
+    if (game.ask != null && game.style !== "flag") paint([game.ask], cur, 2);   // (the flag game: the map does not give it away)
   } else if (game.style === "all") { paint([...game.done], ok); paint(game.missed, miss); }
   else if (game.style === "chain") {
     paint(game.order.slice(0, -1), ok); paint(game.order.slice(-1), game.order.length > 1 ? last : cur, 2);
@@ -389,8 +433,15 @@ export function drawUnits() {
 export function gameUnitNames(boxes) {                                     // (the names of those named, shown or given -- never the one asked)
   const U = game.units;
   if (!U) return;
-  const ids = game.style === "which" || game.style === "flag" ? game.finds.map((f) => f.u) : game.style === "all" ? [...game.done, ...game.missed]
+  const ids = ASK.has(game.style) ? game.finds.map((f) => f.u) : game.style === "all" ? [...game.done, ...game.missed]
     : game.style === "chain" ? game.order.slice().reverse() : game.start == null ? [] : [game.start, game.goal, ...game.done, ...(game.way || [])];
+  if (game.style === "capital") {                                  // (the capitals named or shown, where they are: a dot and the name)
+    const C = S.src.cities.features, at = [...ids.flatMap((u) => game.caps.get(u)), ...(game.got || [])];
+    for (const i of new Set(at)) { const c = C[i].geometry.coordinates; if (!visible(c)) continue;
+      const [x, y] = S.proj(c); ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fillStyle = css("--ink"); ctx.fill();
+      writeName(boxes, C[i].properties.name, c, 11, 600, css("--ink")); }
+    return;
+  }
   for (const u of new Set(ids)) { const c = U.units[u].label; if (visible(c)) writeName(boxes, U.units[u].name, c, 11, 600, css("--ink")); }
 }
 // the game on the map: its region's outline, the circles, the cities named or found (their names: drawMap)
@@ -439,6 +490,7 @@ export function init() {
   $("game-btn").onclick = () => { if (S.src && S.src.cities) openGame(true); };
   $("game-close").onclick = () => openGame(false);
   $("g-style").onchange = gameStyle;
+  $("g-all").onchange = () => { $("g-rounds").disabled = $("g-all").checked; };
   for (const b of $("g-scope").children) b.onclick = () => {
     game.scope = b.dataset.k; for (const o of $("g-scope").children) o.classList.toggle("on", o === b);
     gameWhere(); gameKm(); previewGame();

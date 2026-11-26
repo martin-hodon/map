@@ -27,7 +27,8 @@ LVL1_KM, LVL2_KM, TOP = 2000, 500, 5
 SEA_KM = 160          # (a river's line may stop short of the coast: the Nile at Cairo, its delta's branches named apart; the
                       #  Rhine where it parts into the Waal; the Euphrates into the Shatt al-Arab -- an end this near the coast,
                       #  on no river longer than itself, is its mouth in the sea)
-FIX_KM = {"Q269710": 1375}   # (Wikidata's own slips: the Fraser's 2,657 km)
+FIX_KM = {"Q269710": 1375}
+SAME = {("r198716", "r199385")}   # (one river under two names: OSM's upper Congo, "Congo" / Lwalaba (the Lualaba), without an item, and its "River Congo")   # (Wikidata's own slips: the Fraser's 2,657 km)
 GRID = 0.0025                                                           # (the topology's grid, degrees)
 UNIT_KM = {"Q828224": 1, "Q11573": 0.001, "Q253276": 1.609344, "Q93318": 1.852}   # (km, m, mile, nautical mile)
 
@@ -77,7 +78,7 @@ def merge_same(by, arcs):
     name, wd = (lambda r: by[r][0]["properties"].get("name")), (lambda r: by[r][0]["properties"].get("wikidata"))
     rank = lambda r: (wd(r) is not None, by[r][0]["properties"].get("river_km") or 0)
     pairs = {tuple(sorted((r, o))) for r, fs in by.items() if name(r) for f in fs for a in f["arcs"] for q in (arcs[a][0], arcs[a][-1])
-             for o in on[q] if o != r and name(o) == name(r) and not (wd(o) and wd(r))}
+             for o in on[q] if o != r and name(o) == name(r) and not (wd(o) and wd(r))} | {p for p in SAME if all(r in by for r in p)}
     head = {}
     find = lambda r: r if r not in head else find(head[r])
     for a, b in sorted(pairs):

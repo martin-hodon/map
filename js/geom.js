@@ -9,7 +9,8 @@ import { W, setProj, attachRows, traceRows, traceArcsOf } from "./wasm.js";
 
 export function setup() {
   S.dpr = window.devicePixelRatio || 1; S.W = canvas.clientWidth || innerWidth; S.H = canvas.clientHeight || innerHeight;   // (its size as laid out: the picture never stretched)
-  if (canvas.width !== S.W * S.dpr || canvas.height !== S.H * S.dpr) { canvas.width = S.W * S.dpr; canvas.height = S.H * S.dpr; }
+  const cw = Math.round(S.W * S.dpr), ch = Math.round(S.H * S.dpr);   // (a whole number: a phone's ratio is 2.625 or so, and a size set anew clears the canvas -- every pinch step blanked it to the page's blue till its frame came, 2026-11-26)
+  if (canvas.width !== cw || canvas.height !== ch) { canvas.width = cw; canvas.height = ch; }
   ctx.setTransform(S.dpr, 0, 0, S.dpr, 0, 0);
   S.proj = PROJ[$("proj").value]().rotate(tilt(S.rotate)).precision(0.5);
   S.proj.fitExtent([[10, 10], [S.W - 10, S.H - 10]], { type: "Sphere" });

@@ -81,7 +81,7 @@ export function renderGroups() {
 // "people": name cities -- their people add up, as a share of all the people there. "outside" / "inside": each city
 // named gets a circle (so many km across); the next must lie outside every circle / inside one. "place": the game names
 // a city, a click says where it is -- a circle round the city out to the click, so many km off (0 is best).
-// The countries' games (UNITS, below): "which", "flag", "all", "chain", "route".
+// The countries' games (UNITS, below): "which", "flag", "capital", "all", "chain", "route".
 // While the game panel is open the map has no names but the cities named, and no points but theirs; a start begins
 // it all afresh.
 export const game = { open: false, scope: "world", style: "people", where: null, km: 500, named: [], finds: [], ask: null, pool: [], rounds: 10,

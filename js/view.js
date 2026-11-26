@@ -251,7 +251,7 @@ export function drawMap(fast) {
   }
   if (on("cities") && S.src.cities) {
     const ids = query(points.cities, boxes);
-    const near = ids.filter((i) => shown("cities", i) && S.src.cities.features[i].properties.wikidata !== C?.id);   // (in its own city map a city's name would sit on its middle's square: its districts' and stations' names say where)
+    const near = ids.filter((i) => shown("cities", i) && (!C || S.src.cities.features[i].properties.wikidata !== C.id));   // (!C first: a city without an item -- Fulda -- has no wikidata, and undefined !== undefined hid it everywhere off a city map, 2026-11-26)   // (in its own city map a city's name would sit on its middle's square: its districts' and stations' names say where)
     cityDots(near); if (names) cityLabels(placed, near);
   }
   if (names && on("rivers") && L.rivers.length && !C) riverLabels(placed, L.rivers, v("rivers"), lv);   // (a city's: its own waterways')

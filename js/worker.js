@@ -15,7 +15,8 @@ function replay(n) {
 }
 function paint(m) {
   const t0 = performance.now();
-  if (canvas.width !== m.W * m.dpr || canvas.height !== m.H * m.dpr) { canvas.width = m.W * m.dpr; canvas.height = m.H * m.dpr; }
+  const cw = Math.round(m.W * m.dpr), ch = Math.round(m.H * m.dpr);
+  if (canvas.width !== cw || canvas.height !== ch) { canvas.width = cw; canvas.height = ch; }
   ctx.setTransform(m.dpr, 0, 0, m.dpr, 0, 0); ctx.clearRect(0, 0, m.W, m.H); ctx.lineJoin = "miter";
   const key = m.proj.join(","); if (key !== projKey) { W.proj_set(...m.proj); projKey = key; }
   for (const op of m.ops) {
