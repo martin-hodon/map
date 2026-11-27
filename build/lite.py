@@ -35,6 +35,8 @@ index.html reads it into typed arrays (parseLite; the map loads only these, neve
 """
 import os, sys, csv, io, json, heapq, collections
 import numpy as np
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import wdnames
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 FILES = ["world", "rivers", "transport", "roads", "bio", "history", "timezones", "parks"]
@@ -155,7 +157,7 @@ def write_object(name, o):
     kind = "polygon" if any(g["type"] in ("Polygon", "MultiPolygon") for g in geoms) else "line"
     rows = []
     for g in geoms:
-        r = dict(g.get("properties") or {})
+        r = wdnames.drop_unread(dict(g.get("properties") or {}))   # (no local name in the Arabic, Indian or Thai scripts)
         if name in UNNAMED:
             r.pop("name", None)
         if "id" in g:

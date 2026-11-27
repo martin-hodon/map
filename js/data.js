@@ -28,7 +28,26 @@ import { PARK_ZOOM } from "./parks.js";
 // of theirs, their layer switched on, a link)
 export const fetched = {};
 export const fetchText = (f) => fetched[f] ??= fetch("data/" + f).then((r) => r.ok ? r.text() : null).catch(() => null);
-export const getData = async (f, base) => { const t = await fetchText(f); delete fetched[f]; return t == null ? null : f.endsWith(".csv") ? pointsOf(d3.csvParse(t)) : parseLite(t, base); };
+export const getData = async (f, base) => { const t = await fetchText(f); delete fetched[f]; return t == null ? null : f === "cities.csv" ? pointsOf(citiesRows(t)) : f.endsWith(".csv") ? pointsOf(d3.csvParse(t)) : parseLite(t, base); };
+// data/cities.csv, grouped (build/citiescsv.py, 2026-11-27): "# " comments, the header, "[CZ] Czechia" a country, "[US-CA]
+// California" a state (GB, US, DE, IN, CN: its rows' `region` empty), then its cities -- the counts short, 1.4M, 65k, 4.2k.
+// Read back to the rows as they were, `country` and `region` filled, the biggest first (the labels' order: labels.js).
+export function citiesRows(t) {
+  const out = [], long = (v) => { const m = { M: 1e6, k: 1e3 }[v.slice(-1)]; return m ? String(Math.round(parseFloat(v) * m)) : v; };
+  let cols = null, country = "", state = "";
+  for (const line of t.split("\n")) {
+    if (!line || line[0] === "#") continue;
+    if (!cols) { cols = d3.csvParseRows(line)[0]; continue; }
+    if (line[0] === "[") { const code = line.slice(1, line.indexOf("]")); if (code.includes("-")) state = code; else { country = code; state = ""; } continue; }
+    const v = d3.csvParseRows(line)[0], r = {};
+    cols.forEach((k, i) => { r[k] = v[i] ?? ""; });
+    r.country = country; if (state) r.region = state; r.population = long(r.population);
+    out.push(r);
+  }
+  out.sort((a, b) => b.population - a.population);   // (stable: of one count, the file's order)
+  out.columns = [...cols.slice(0, cols.indexOf("region")), "country", ...cols.slice(cols.indexOf("region"))];
+  return out;
+}
 export const POINT_FILES = { cities: "cities.csv", monuments: "monuments.csv", nature: "natural_points.csv", airports: "airports.csv", events: "events.csv" };
 S.redrawing = false;
 export const redraw = () => { if (S.redrawing) return; S.redrawing = true;                // (a layer come: drawn once, not while the map is moved)

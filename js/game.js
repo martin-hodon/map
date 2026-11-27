@@ -16,7 +16,7 @@ export const SHAPES = new Set(["which", "flag", "capital", "all", "chain", "rout
 // (a name as typed, forgiving how a foreigner spells it: no accents, case, punctuation or spaces ("Guinea-Bissau",
 //  "N'Djamena", "Kualalumpur"); w as v, y and j as i, k as c ("Cracow" for Kraków, "Kioto" for Kyoto, "Rijeka" as "Rieka");
 //  no h ("Ho Chi Min"); a doubled consonant as one ("Talin" for Tallinn -- not a vowel: Shaanxi is not Shanxi) -- 2026-11-23)
-const words = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+export const words = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, " ").trim();
 export const nameKey = fuzzyKey;
 const ASK = new Set(["which", "flag", "capital"]);                       // (the games that ask about one unit at a time)                                       // (the forgiving key: search.js)
 S.gameData = null;                                                // (cities by name, each one's continent; built once)
@@ -155,10 +155,19 @@ export function startGame() {
 export const say = (text, no = false) => { $("g-msg").textContent = text; $("g-msg").className = no ? "no" : ""; };
 export const kmApart = (i, j) => d3.geoDistance(S.src.cities.features[i].geometry.coordinates, S.src.cities.features[j].geometry.coordinates) * R_KM;
 export const cityText = (i) => { const p = S.src.cities.features[i].properties; return `${p.name} (${gameIndex().names.get(p.country) || p.country})`; };
+// OF SEVERAL CITIES OF ONE NAME (2026-11-27): those spelled exactly as typed, if any, alone ("Nanning", not Nanjing), then the
+// one nearest where the map is centred -- the game's map is where the player looks (outside a game, the search ranks
+// them by their people: search.js)
+export function sameName(is, text) {
+  const C = S.src.cities.features, t = words(text), c = [-S.rotate[0], -S.rotate[1]];
+  const exact = (i) => { const p = C[i].properties; return [p.name, p.name_local, p.name?.replace(/ City$/, "")].some((n) => n && words(n) === t) ? 0 : 1; };
+  const r = is.map((i) => [exact(i), d3.geoDistance(C[i].geometry.coordinates, c), i]), only = r.some((x) => !x[0]) ? r.filter((x) => !x[0]) : r;
+  return only.sort((a, b) => a[1] - b[1]).map((x) => x[2]);   // (any spelled exactly: only those -- "Nanning" named already is not Nanjing, the same key)
+}
 export function guess(text) {                                              // a city named: taken, or why not
   const d = gameIndex(), k = d.key(text);
   if (!k || !game.where) return;
-  const all = d.byName.get(k) || [], here = all.filter(game.where.has), fresh = here.filter((i) => !game.named.includes(i));
+  const all = sameName(d.byName.get(k) || [], text), here = all.filter(game.where.has), fresh = here.filter((i) => !game.named.includes(i));
   if (!all.length) return say(`No city “${text}” (of 100,000 people or more -- 70,000 in Europe -- or a capital).`, true);
   if (!here.length) return say(`${cityText(all[0])} is not in ${game.where.name}.`, true);
   if (!fresh.length) return say(`${cityText(here[0])} is named already.`, true);
@@ -168,7 +177,7 @@ export function guess(text) {                                              // a 
   if (!ok.length) { const [km, j] = near(fresh[0]);
     return say(game.style === "outside" ? `${cityText(fresh[0])} is in the circle of ${S.src.cities.features[j].properties.name} (${fmt(km)} km from it).`
                                         : `${cityText(fresh[0])} is in no circle: the nearest is ${S.src.cities.features[j].properties.name}'s, ${fmt(km)} km away.`, true); }
-  const i = ok[0], p = S.src.cities.features[i].properties;                // (of several of that name, the biggest)
+  const i = ok[0], p = S.src.cities.features[i].properties;                // (of several of that name: sameName's first)
   game.named.push(i); $("g-name").value = "";
   say(`✓ ${cityText(i)} · ${fmtPop(p.population)}`);
   const li = document.createElement("li"); li.append(p.name + " ", make("span", { textContent: fmtPop(p.population) }));
@@ -233,12 +242,14 @@ export function gameUnits(w) {
   G.forEach((g, k) => { if (owner[k] !== k) return; const p = g.properties;
     of.set(k, units.length);
     units.push({ k, iso: p.iso, name: p.name, label: p.label || d3.geoCentroid(F[k]), area: p.area_km2 || 0, nb: new Set(),
-                 keys: [p.name, p.name_local, ...(states ? [] : String(ALSO[p.iso] || "").split(" / "))].filter(Boolean).map(unitKey) }); });
+                 names: [p.name, p.name_local, ...(states ? [] : String(ALSO[p.iso] || "").split(" / "))].filter(Boolean) }); });
+  for (const u of units) u.keys = u.names.map(unitKey);
   const link = (a, b) => { const x = of.get(owner[a]), y = of.get(owner[b]); if (x != null && y != null && x !== y) { units[x].nb.add(y); units[y].nb.add(x); } };
   const across = (p) => !states && /^X/.test(p.iso) && p.iso !== "XK";
   G.forEach((g, a) => { for (const b of nb[a]) link(a, b); if (across(g.properties)) for (const b of nb[a]) for (const c of nb[a]) link(b, c); });
-  const byKey = new Map(); units.forEach((u, i) => { for (const k of u.keys) if (!byKey.has(k)) byKey.set(k, i); });
-  return { layer, word: states ? "state" : "country", words: states ? "states" : "countries", units, byKey };
+  const byKey = new Map(), byName = new Map();   // (a name typed as it is spelled first, then by its forgiving key: two keys alike, the exact one wins)
+  units.forEach((u, i) => { for (const k of u.keys) if (!byKey.has(k)) byKey.set(k, i); for (const n of u.names) if (!byName.has(words(n))) byName.set(words(n), i); });
+  return { layer, word: states ? "state" : "country", words: states ? "states" : "countries", units, byKey, byName };
 }
 export const unitFeat = (u) => Map0[game.units.layer][game.units.units[u].k];
 export function reach(from) {                                              // every unit reachable across borders: [its steps from `from`, the one before]
@@ -315,7 +326,7 @@ export function unitGuess(text) {                                          // a 
   const U = game.units;
   if (!U || game.over || !nameKey(text)) return;
   if (game.style === "capital") return capitalGuess(text);
-  const u = U.byKey.get(unitKey(text));
+  const u = U.byName.get(words(text)) ?? U.byKey.get(unitKey(text));
   if (u == null) return say(`No ${U.word} “${text}” in ${into()}.`, true);
   const n = U.units[u].name;
   $("g-name").value = "";
@@ -363,7 +374,7 @@ const capNames = (u) => game.caps.get(u).map((i) => S.src.cities.features[i].pro
 const capitalsOf = (u) => { const n = game.caps.get(u).length, name = game.units.units[u].name; return n > 1 ? `The capitals of ${name}: ${capNames(u)}` : `The capital of ${name} is ${capNames(u)}`; };
 function capitalGuess(text) {                                              // a city typed: one of the capitals asked, or not
   const a = game.ask; if (a == null) return;
-  const caps = game.caps.get(a), hits = (gameIndex().byName.get(nameKey(text)) || []).filter((i) => caps.includes(i));
+  const caps = game.caps.get(a), hits = sameName(gameIndex().byName.get(nameKey(text)) || [], text).filter((i) => caps.includes(i));
   $("g-name").value = "";
   if (hits.length) {
     const i = hits.find((j) => !game.got.has(j)) ?? hits[0], name = S.src.cities.features[i].properties.name;

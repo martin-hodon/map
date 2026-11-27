@@ -30,6 +30,10 @@ export function entriesAt(layer, ids) {
   for (const i of ids) for (const e of PIECES.get(layer + "|" + i) ?? []) out.add(e);
   return [...out].sort((a, b) => a.at0 - b.at0);
 }
+// THE WEIGHTS, of names found alike (two Victorias, three Santiagos): a place by its people -- a state by a tenth of
+// them, so a city of its name comes first (Istanbul, São Paulo) and Australia's Victoria before Texas's; an area (an
+// island, a gulf) by its rank, among the cities: Cape Verde's Santiago between Chile's and the Philippines' (2026-11-27)
+const stateWeight = (people) => Math.max(1e5, (people || 0) / 10);
 export function buildIndex() {
   const L = Map0, add = addToIndex;
   const countryName = Object.fromEntries(L.countries.map((f) => [f.properties.iso, f.properties.name]));
@@ -42,13 +46,13 @@ export function buildIndex() {
   L.regions.forEach((f, i) => {
     const p = f.properties;
     if (!f.has()) return;
-    add({ cat: "region", name: p.name, alt: p.name_local, kind: `state · ${countryName[p.country] || p.country}`, feats: [f], ids: [i], layer: "regions", mask: "land", weight: 1e5, info: [p.iso, p.population ? `${fmtPop(p.population)} people` : null, p.density != null ? `${Math.round(p.density)}/km²` : null, p.language] });   // (below a city of the same name: Istanbul)
+    add({ cat: "region", name: p.name, alt: p.name_local, kind: `state · ${countryName[p.country] || p.country}`, feats: [f], ids: [i], layer: "regions", mask: "land", weight: stateWeight(p.population), info: [p.iso, p.population ? `${fmtPop(p.population)} people` : null, p.density != null ? `${Math.round(p.density)}/km²` : null, p.language] });   // (below a city of the same name: Istanbul)
   });
   // a state drawn in parts (England, its nine regions): found as a whole too
   const regionAt = new Map(L.regions.map((f, i) => [f, i]));
   for (const [name, F] of d3.group(L.regions.filter((f) => f.properties.part_of && f.has()), (f) => f.properties.part_of)) {
     const p = F[0].properties, people = d3.sum(F, (f) => f.properties.population || 0);
-    add({ cat: "region", name, kind: `state · ${countryName[p.country] || p.country}`, feats: F, ids: F.map((f) => regionAt.get(f)), layer: "regions", mask: "land", weight: 1e5, flag: p.part_iso, info: [p.part_iso, people ? `${fmtPop(people)} people` : null, p.language] });
+    add({ cat: "region", name, kind: `state · ${countryName[p.country] || p.country}`, feats: F, ids: F.map((f) => regionAt.get(f)), layer: "regions", mask: "land", weight: stateWeight(people), flag: p.part_iso, info: [p.part_iso, people ? `${fmtPop(people)} people` : null, p.language] });
   }
   // a lake: its pieces (OSM's separate features) together, by Wikidata item or name
   const lakes = new Map();
@@ -73,14 +77,14 @@ export function indexAreas(L) {                                            // th
   L.areas.forEach((f, i) => {
     const p = f.properties;
     if (!f.has()) return;
-    add({ cat: "area", name: p.name, alt: p.name_en || p.name_local, kind: p.kind, feats: [f], ids: [i], layer: "areas", mask: p.mask, at: p.label, weight: 1e9 / (1 + (p.rank ?? 9)) });
+    add({ cat: "area", name: p.name, alt: p.name_en || p.name_local, kind: p.kind, feats: [f], ids: [i], layer: "areas", mask: p.mask, at: p.label, weight: 1e7 / (1 + (p.rank ?? 9)) });
     if (p.wikidata) { if (!byWd.has(p.wikidata)) byWd.set(p.wikidata, []); byWd.get(p.wikidata).push(i); }
   });
   for (const ids of byWd.values()) {
     const fs = ids.map((i) => L.areas[i]), names = new Set(fs.map((f) => f.properties.name));
     if (fs.length < 2 || names.size < 2 || !fs[0].properties.name_en) continue;
     const p = fs[0].properties;
-    add({ cat: "area", name: p.name_en, kind: p.kind, feats: fs, ids, layer: "areas", mask: p.mask, weight: 2e9 / (1 + (p.rank ?? 9)) });
+    add({ cat: "area", name: p.name_en, kind: p.kind, feats: fs, ids, layer: "areas", mask: p.mask, weight: 2e7 / (1 + (p.rank ?? 9)) });
   }
 }
 // the main lines: a road by its number or name -- its lines of that number that meet end to end (Germany's A1 and
@@ -136,15 +140,14 @@ export function search(q) {
   const out = [], hits = [];
   for (const e of pool) {
     let s = 9;
-    for (const k of e.keys) {
+    e.keys.forEach((k, j) => {                                       // (its own name spelled as typed first, then another of its names: 0.5)
       const i = k.indexOf(n);
-      if (i < 0) continue;
-      s = Math.min(s, k === n ? 0 : i === 0 ? 1 : /[\s\-'(]/.test(k[i - 1]) ? 2 : 3);
-    }
+      if (i >= 0) s = Math.min(s, k === n ? (j === 0 && norm(e.name) === k ? 0 : 0.5) : i === 0 ? 1 : /[\s\-'(]/.test(k[i - 1]) ? 2 : 3);
+    });
     if (s === 9 && loose) for (const k of e.fkeys) { const i = k.indexOf(f); if (i >= 0) s = Math.min(s, k === f ? 4 : i === 0 ? 5 : 6); }
     if (s < 9) { out.push([s, -e.weight, e]); hits.push(e); }
   }
   S.narrow = { n, f, loose, size: index.length, hits };
-  out.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  out.sort((a, b) => a[0] - b[0] || a[1] - b[1]);                 // (an exact name first; of several alike -- two Valencias -- the most people)
   return out.slice(0, 30).map((r) => r[2]);
 }

@@ -1212,12 +1212,12 @@ def city_row(qid, spec=None):
     """the city's row of data/cities.csv -- or the spec's `place`, [name, lon, lat], for one not in it (Venice: the
     list's cities are those of 500,000 people or more, or so tagged); for one in it, `place` moves only its centre
     (the window's middle: Las Vegas's Strip, not downtown)"""
-    with open(os.path.join(ROOT, "data", "cities.csv"), encoding="utf-8") as f:
-        for r in csv.DictReader(f):
-            if r["wikidata"] == qid:
-                if spec and spec.get("place"):
-                    r = dict(r, lon=str(spec["place"][1]), lat=str(spec["place"][2]))
-                return r
+    import citiescsv                                       # (grouped by country: citiescsv.py)
+    for r in citiescsv.read():
+        if r["wikidata"] == qid:
+            if spec and spec.get("place"):
+                r = dict(r, lon=str(spec["place"][1]), lat=str(spec["place"][2]))
+            return r
     if spec and spec.get("place"):
         name, lon, lat = spec["place"]
         return {"name": name, "lon": str(lon), "lat": str(lat), "wikidata": qid}

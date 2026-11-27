@@ -102,7 +102,7 @@ export function plateLabels(placed) {
 function plateEntry(f) {
   const { code, name, km2, label } = f.properties, n = new Set(P.bounds.filter((b) => b.properties.a === code || b.properties.b === code).map((b) => b.properties.a === code ? b.properties.b : b.properties.a));
   const edge = { type: "MultiLineString", coordinates: P.bounds.filter((b) => b.properties.a === code || b.properties.b === code).map((b) => b.geometry.coordinates) };
-  return { cat: "plate", layer: "plates", name, kind: "tectonic plate", feats: [f], edge, at: label, weight: km2,
+  return { cat: "plate", layer: "plates", name, kind: "tectonic plate", feats: [f], edge, at: label, weight: km2 / 100,   // (below the ocean of its name: search.js THE WEIGHTS)
            info: [`${fmt(km2)} km²`, `borders ${n.size} plates: ${[...n].map(plateName).map((s) => s.replace(/ Plate$/, "")).join(", ")}`] };
 }
 // a boundary: all its runs (Bird's identifier) as one, what happens at the run clicked said first

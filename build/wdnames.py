@@ -160,6 +160,28 @@ def local_labels(items):
     return [next((got[l].get(q) for l in langs.get(cc or "", []) if q and got[l].get(q)), None) for q, cc in items]
 
 
+UNREAD = re.compile("[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF"   # Arabic (and Persian, Urdu)
+                    "\u0900-\u0DFF"                                                          # the Indian scripts (Devanagari ... Sinhala)
+                    "\u0E00-\u0E7F]")                                                        # Thai
+LOCAL_KEYS = ("name_local", "names_local")
+
+
+def readable(v):
+    """a local name as kept (2026-11-27): none in the Arabic, Indian or Thai scripts -- a list (a river's) without those;
+    None if nothing is left"""
+    if isinstance(v, list):
+        return [x for x in v if not (isinstance(x, str) and UNREAD.search(x))] or None
+    return None if isinstance(v, str) and UNREAD.search(v) else v
+
+
+def drop_unread(props):
+    """props (a dict, changed in place): its local names readable()"""
+    for k in LOCAL_KEYS:
+        if k in props:
+            props[k] = readable(props[k])
+    return props
+
+
 def local_name(tags, country):
     """an OSM feature's name in its country's official language: its name:<lang> for one of them -- the one that its
     own `name` is, or holds, if several (Geneva is "Genève", not "Genf") -- else its `name`"""

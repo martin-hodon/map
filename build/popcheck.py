@@ -12,6 +12,8 @@ prefecture, a state's count from another decade, a city's urban area spilling ov
 Exits 1 when anything is off and lists the worst first (--all: every one, not the first 25 of each).
 """
 import collections, csv, json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import citiescsv
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 STATES_TOL = 0.10      # a country's states together within 10% of its count
@@ -25,7 +27,7 @@ def main():
     T = json.load(open(os.path.join(ROOT, "full/world.topo.json")))["objects"]
     countries = {g["properties"]["iso"]: g["properties"] for g in T["countries"]["geometries"] if g["properties"].get("iso")}
     regions = {g["properties"]["iso"]: g["properties"] for g in T["regions"]["geometries"] if g["properties"].get("iso")}
-    cities = list(csv.DictReader(open(os.path.join(ROOT, "data/cities.csv"), encoding="utf-8")))
+    cities = citiescsv.read()
     bad = 0
 
     def report(title, rows):

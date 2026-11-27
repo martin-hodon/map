@@ -19,6 +19,7 @@ import os, sys, json, collections
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fetch_points import sparql
+import wdnames
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RIVERS, WORLD = os.path.join(ROOT, "full/rivers.topo.json"), os.path.join(ROOT, "full/world.topo.json")
@@ -159,6 +160,9 @@ def main():
     for rid, fs in by.items():
         for f in fs:
             f["properties"]["lvl"] = lvl[rid]
+    for o in topo["objects"].values():   # (no local name in the Arabic, Indian or Thai scripts)
+        for g in o.get("geometries", []):
+            wdnames.drop_unread(g.get("properties") or {})
     json.dump(topo, open(RIVERS, "w"), ensure_ascii=False, separators=(",", ":"))
     n = collections.Counter(lvl.values())
     name = lambda r: by[r][0]["properties"].get("name") or r

@@ -7,7 +7,7 @@
 import { S, $, ctx, css, fmt, make } from "./state.js";
 import { game } from "./groups.js";
 import { rows, choices, LISTS, loadMeasures, flyWithin, riversReady } from "./ranks.js";
-import { say, gameLi, finish, unitKey, ALSO, nameKey, clock } from "./game.js";
+import { say, gameLi, finish, unitKey, ALSO, nameKey, clock, words } from "./game.js";
 import { fly } from "./select.js";
 import { collect } from "./search.js";
 import { draw } from "./view.js";
@@ -49,11 +49,16 @@ export async function startRank() {
     rankScore(); return nextPair();
   }
   game.top = Math.min(game.rounds, all.length);
-  game.keys = new Map();                                            // (each name, local name and other name -> the first row of it)
+  // (each name, local name and other name -> its rows, the highest first; spelled exactly as typed -> game.exact, looked
+  //  in before the forgiving keys: two cities of one name both in the top are named one after the other, the higher first)
+  game.keys = new Map(); game.exact = new Map();
+  const put = (m, key, k) => { if (!key) return; const a = m.get(key); if (!a) m.set(key, [k]); else if (a.at(-1) !== k) a.push(k); };
   all.forEach((r, k) => {
     const also = r.e.cat === "country" ? String(ALSO[r.e.feats[0].properties.iso] || "").split(" / ") : [];
-    for (const n of [r.name, ...String(r.e.alt || "").split(" / "), ...also]) for (const key of n ? [unitKey(n), unitKey(n.replace(BARE, " "))] : [])
-      if (key && !game.keys.has(key)) game.keys.set(key, k);
+    for (const n of [r.name, ...String(r.e.alt || "").split(" / "), ...also]) if (n) {
+      put(game.exact, words(n), k);
+      for (const key of [unitKey(n), unitKey(n.replace(BARE, " "))]) put(game.keys, key, k);
+    }
   });
   for (let k = 0; k < game.top; k++) $("g-list").append(make("li", { className: "gap", textContent: "?" }));
   $("g-list").start = 1;
@@ -100,7 +105,8 @@ function slot(k, missed) {
 }
 export function rankGuess(text) {
   if (game.style !== "top" || game.over || !nameKey(text)) return;
-  const k = game.keys.get(unitKey(text));
+  const ks = game.exact.get(words(text)) || game.keys.get(unitKey(text));
+  const k = ks && (ks.find((j) => j < game.top && !game.done.has(j)) ?? ks.find((j) => j < game.top) ?? ks[0]);
   if (k == null) return say(`No “${text}” among the ${fmt(game.ranked.length)} ${game.rk.noun} ranked here.`, true);
   const r = game.ranked[k];
   $("g-name").value = "";

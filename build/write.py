@@ -526,6 +526,7 @@ def main():
     places(objects, qarcs)
     languages(objects, items)
     populations(objects, items)
+    drop_unread(objects)
     out = {"type": "Topology",
            "bbox": [-180, -90, 180, 90],
            "transform": {"scale": [config.QUANT_DEG, config.QUANT_DEG], "translate": [-180, -90]},
@@ -683,6 +684,14 @@ def populations(objects, items):
     log(n, "countries and states with a population")
 
 
+def drop_unread(objects):
+    """no local name in the Arabic, Indian or Thai scripts (wdnames.readable)"""
+    for o in objects.values():
+        for g in o.get("geometries", []):
+            if g.get("properties"):
+                wdnames.drop_unread(g["properties"])
+
+
 def props_only():
     """`write.py props`: only the countries' and states' colour classes, areas, languages and populations of
     full/world.topo.json, in place"""
@@ -694,6 +703,7 @@ def props_only():
     places(out["objects"], out["arcs"])
     languages(out["objects"], items)
     populations(out["objects"], items)
+    drop_unread(out["objects"])
     json.dump(out, open(path, "w"), separators=(",", ":"))
 
 

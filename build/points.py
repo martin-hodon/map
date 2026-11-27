@@ -9,9 +9,10 @@ The population shown is the URBAN one where the English Wikipedia article's info
 Larnaca is a town of 52,000 in a built-up area of 130,000), else the municipal count. Districts of a big city that
 OSM maps as cities of their own (Istanbul's, Tokyo's wards, New York's boroughs) are left out: see districts(); and so
 is any place Wikidata knows as a part of a city -- a suburb, a ward, a city district, a township: see city_parts().
-A city is a point, so the file is a table (CITY_COLUMNS, a header line, one city a line): its place and its
-properties, no more -- the population shown and nothing of where it came from. So are the monuments, the airports and
-the natural points (build/areas.py): write_points.
+A city is a point, so the file is a table: its place and its properties, no more -- the population shown and nothing
+of where it came from --, grouped by country (and in GB, US, DE, IN, CN by state), the counts short (1.4M, 65k):
+build/citiescsv.py writes and reads it. The monuments, the airports and the natural points (build/areas.py) are plain
+tables: write_points.
 
 MONUMENTS (layer 5): OSM knows no visitor numbers; Wikidata does (P1174, visitors per year). Every item with one, a
 place (P625) and a latest yearly count of 100,000 or more, whose kind (P31, read up through its classes, P279) is a
@@ -38,7 +39,7 @@ import numpy as np, requests, shapely
 from shapely import STRtree
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import config, wdnames
+import config, wdnames, citiescsv
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RAW = os.path.join(ROOT, "raw")
@@ -46,9 +47,9 @@ MIN_POP = 100_000
 ALSO_CITIES = {"Q3370", "Q4656", "Q27001", "Q26175", "Q145002", "Q26393", "Q200133", "Q1915327", "Q384544", "Q183111", "Q13375", "node/240088844",
                "Q167895", "Q206957", "Q210470", "Q210296", "Q188731", "Q182299", "Q207467", "Q190847",
                "node/688986898", "node/626639326", "node/29215168", "node/252217933",
-               "Q4190"}   # (2026-11-26: Zamora, Ávila, Segovia, Mérida -- Spanish provincial and regional capitals of 50-60,000, by OSM node: Zamora's and Ávila's items there are their towns'; Passau, 54,000)   # (2026-11-09: Kalamata, Serres, Katerini, Xanthi, Rhodes, Chania, Trikala, Alexandroupolis -- Greek cities of 45-62,000 wanted on the map)   # (under the floor, wanted all the same, by Wikidata item -- or by OSM node, where the node names none: Zadar, Pula, Martin, Trnava, Trenčín, Poprad, Chalcis, Nizwa, Karlovy Vary, Jihlava, Pisa, Fulda)
+               "Q4190", "Q4045", "Q33581", "Q2751", "Q155993", "Q483522", "Q178582", "Q82500", "Q29303", "Q6454", "Q157032", "Q9125", "Q7024", "Q133315", "Q183551", "Q179815", "Q209055", "Q776662", "Q204720", "Q549761", "Q180918", "Q5420", "Q3617", "Q4686", "Q205905", "Q27168", "Q190235", "Q27119", "Q27116", "Q102158", "Q194452", "Q230628", "Q235571"}   # (2026-11-27: Erdenet, 87,000, Darkhan, 75,000 -- Mongolia; Karakol, Kyrgyzstan, 84,000; Narva, 53,000; Randers, Horsens, Kolding, Vejle, 59-63,000; Lancaster, 46,000; Varaždin, 36,000; Karlovac, 42,000; Slavonski Brod, 45,000; Paphos; Canterbury, 43,000; Durham, 42,000; Hereford, 59,000; Warwick, 31,000; Torquay, 65,000; Paignton, 50,000; Calais, 67,000; Prilep, 63,000; Lugano, 67,000; Limerick, 58,000; Waterford, 60,000; Sloviansk, 40,000 by OSM now, 106,000 before the war; Siena, 54,000; Kladno, 67,000; Villach, Wels, St. Pölten -- Lower Austria's capital --, 60,000 each) (2026-11-26: Fujairah, OSM's 94,000 -- an emirate's capital; Zamora, Ávila, Segovia, Mérida -- Spanish provincial and regional capitals of 50-60,000, by OSM node: Zamora's and Ávila's items there are their towns'; Passau, 54,000)   # (2026-11-09: Kalamata, Serres, Katerini, Xanthi, Rhodes, Chania, Trikala, Alexandroupolis -- Greek cities of 45-62,000 wanted on the map)   # (under the floor, wanted all the same, by Wikidata item -- or by OSM node, where the node names none: Zadar, Pula, Martin, Trnava, Trenčín, Poprad, Chalcis, Nizwa, Karlovy Vary, Jihlava, Pisa, Fulda)
 MONUMENT_NAMES = {"Q3491338": "Bohemian Switzerland National Park"}   # (the English name wanted, over Wikidata's label: České Švýcarsko)
-CITY_NAMES = {"Q31026": "Yaren", "Q107658630": "Zamora", "Q55695431": "Ávila", "Q83069": "Sakarya", "Q200133": "Chalcis", "Q466027": "Yanbu"}   # (the English name wanted, over OSM's and Wikidata's: Chalkida; OSM's `Yanbu`` with a stray backtick)
+CITY_NAMES = {"Q31026": "Yaren", "Q135617761": "Kolar", "Q956371": "Mirzapur", "Q16121944": "Jebrat El Sheikh", "Q740687": "Guéckédou", "Q16251875": "Mardin", "Q107658630": "Zamora", "Q55695431": "Ávila", "Q83069": "Sakarya", "Q200133": "Chalcis", "Q466027": "Yanbu"}   # (the English name wanted, over OSM's and Wikidata's: Chalkida; OSM's `Yanbu`` with a stray backtick)
 MIN_POP_BY = {"Europe": 70_000}   # ...or this many in these continents (by the city's state's continent, else its country's)
 MIN_VISITORS = 100_000
 POP_STEP = 5_000
@@ -85,7 +86,8 @@ PROPER_UNDER = 0.95
 METRO_NOT = {"Q26590", "Q738353", "Q328846"}
 # OSM places that are no towns, without a Wikidata item (hidden till 2026-11-26 by a filter's slip, view.js): a node named
 # CAPITAL RIFT on Bouvet Island, Chinese development zones, Indian villages with a district's count
-NOT_CITIES = {"node/14205452481", "node/6951193885", "node/6558055831", "node/7880514500", "node/13523413013", "node/367674569"}
+NOT_CITIES = {"node/14205452481", "node/6951193885", "node/6558055831", "node/7880514500", "node/13523413013", "node/367674569",
+              "node/10154769796", "node/5724142117", "node/132021012", "node/132021927", "node/4476611340", "node/26487735", "node/2155586788", "node/52245055"}   # (2026-11-27: Wexford, its county's 160,000 for a town of 21,000; one place twice: a second Tenth of Ramadan, Guéckédou, Takoradi and Sekondi beside Sekondi-Takoradi, Süleymanpaşa on Tekirdağ, the Mardin node carrying the province's item on Artuklu, Kemaman district on Chukai)
 # GREATER AREAS (2026-11-26): where a city's figure is its whole conurbation's, the municipalities that conurbation
 # is made of are not cities of their own on the map (Guarulhos, Osasco by São Paulo; Quezon City by Manila). By the
 # city's Wikidata item: (its English Wikipedia article on the area, the sections of it that list the members -- None:
@@ -142,7 +144,48 @@ GREATER_ROUND = {"Q1490": (50, {"Q164234", "Q209779", "Q134635", "Q38283", "Q170
                  "Q90": (30, set()), "Q239": (10, set()), "Q1754": (20, set()), "Q649": (40, set()),
                  "Q40269": (40, set()), "Q172": (40, set()), "Q1348": (46, set(), 14_112_536), "Q1156": (42, set()),
                  "Q1461": (42, set(), 26_700_000), "Q62": (46, set()),
-                 "Q23768": (25, set()), "Q16554": (25, set()), "Q5083": (45, {"Q199797", "Q392599"}), "Q24639": (40, set())}
+                 "Q23768": (25, set()), "Q16554": (25, set()), "Q5083": (45, {"Q199797", "Q392599"}), "Q24639": (40, set()),
+                 # (2026-11-26, the worldwide pass: every city of a million whose figure is its urban area or metro, and the
+                 #  places of its country around it that figure covers; a state's capital, a famous or a big city of its own
+                 #  kept, its count off the area's -- Kobe, Kyoto's Nara, Giza, Newark, Delft, Bonn, Shah Alam)
+                 "Q35765": (30, {"Q193428", "Q48320", "Q169134"}), "Q11751": (30, {"Q45798", "Q201117"}), "Q55741": (23, {"Q55740"}),
+                 "Q85": (30, {"Q81788"}), "Q3110": (17, {"Q723246"}), "Q4361": (27, set()), "Q60": (45, {"Q25395"}),
+                 "Q10389": (30, set()), "Q33935": (11, set()), "Q34370": (14, {"Q690"}), "Q171617": (26, set()), "Q727": (16, {"Q9920"}),
+                 "Q3718": (20, set()), "Q365": (20, {"Q586"}), "Q597": (17, set()), "Q1718": (10, set()), "Q490": (16, set()),
+                 "Q9022": (20, set()), "Q34261": (13, set()), "Q35381": (19, {"node/3275779630"}), "Q1070": (27, {"Q11910"}),
+                 "Q11462": (25, set()), "Q43463": (26, set()), "Q12439": (31, set()), "Q83189": (26, set()), "Q26600": (17, set()),
+                 "Q12829733": (19, set()), "Q6106": (26, {"Q234053"}), "Q41819": (18, set()), "Q160320": (18, set()), "Q5217": (21, set()),
+                 "Q3572": (12, set()), "Q3894": (20, set()), "Q5972": (21, set()), "Q16552": (22, set()), "Q11445": (20, set()),
+                 "Q61092": (10, set()), "Q1022": (14, set()), "Q1794": (10, set()), "Q80484": (10, set()), "Q16553": (14, set()),
+                 "Q131620": (15, set()), "Q2090": (8, set()), "Q12892": (6, set()), "Q23337": (19, set()), "Q3854": (8, set()),
+                 "Q8717": (16, set()), "Q648": (13, set()), "Q1865": (40, {"Q500033", "Q182378"}), "Q36529": (12, set()),
+                 "Q7903": (21, set()), "Q656": (27, set()),
+                 # (and the cities of 400,000 to a million so: one or a few suburbs each -- Villeurbanne, Frederiksberg,
+                 #  Metairie, Sparks; twin cities of their own kept: Valparaíso and Viña del Mar, La Paz and El Alto, Ottawa and
+                 #  Gatineau, Athens and Piraeus, Khartoum's Omdurman, La Serena and Coquimbo, Kitchener and Waterloo)
+                 "Q16555": (18, set()), "Q3897": (20, set()), "Q1352": (25, set()), "Q3787": (16, set()), "Q1781": (17, set()),
+                 "Q191642": (17, set()), "Q18013": (23, set()), "Q3926": (11, set()), "Q456": (5, set()), "Q6346": (24, set()),
+                 "Q8818": (10, set()), "Q28441": (16, set()), "Q1761": (11, set()), "Q36433": (3, set()), "Q1748": (4, set()),
+                 "Q11506": (6, set()), "Q42763": (7, set()), "Q167436": (12, set()), "Q204271": (7, set()), "Q41087": (14, set()),
+                 "Q170762": (7, set()), "Q1479": (6, set()), "Q34404": (10, set()), "Q40435": (13, set()), "Q273014": (14, set()),
+                 "Q79848": (9, set()), "Q243766": (18, set()), "Q208669": (8, set()), "Q51111": (4, set()), "Q137271": (9, set()),
+                 "Q1880": (6, set()), "Q187805": (13, set()), "Q49225": (6, set()), "Q35775": (16, set()), "Q217432": (19, set()),
+                 "Q1335": (24, set()), "Q376749": (20, set()),
+                 # (cities by their own count, their contiguous neighbours added: Metro Cebu, Gran Mendoza, Barranquilla's
+                 #  Soledad, Barquisimeto's Cabudare, Kathmandu's Gokarneshwar (Lalitpur, Patan, kept); a place that is a part
+                 #  of the city itself dropped: Ciudad Guayana's San Félix and Puerto Ordaz, Al Ahsa's Hofuf, Havana's Guanabacoa)
+                 "node/259009337": (12, set(), "sum"), "Q44237": (13, set(), "sum"), "Q62823": (10, set(), "sum"),
+                 "Q4709": (11, set(), "sum"), "Q3037": (7, {"Q6647"}, "sum"),
+                 "Q507080": (10, set(), "own"), "Q4702167": (4, set(), "own"), "Q1563": (7, set(), "own"),
+                 # (...and where the city's figure is its own: "sum" adds the suburbs' counts to it -- Gran Santo Domingo, the
+                 #  Aburrá valley, Soacha, Abidjan's Anyama; "own": they are inside it already -- Algiers's communes, Sutton Coldfield)
+                 "Q34820": (17, set(), "sum"), "Q48278": (12, set(), "sum"), "Q333928": (16, set(), "sum"), "Q54880": (15, set(), "sum"),
+                 "Q2841": (17, set(), "sum"), "Q1515": (21, set(), "sum"), "Q3761": (16, set(), "sum"),
+                 "Q2256": (14, set(), 1_600_000),   # (2026-11-27: its own 1.04 million with West Bromwich, Solihull and Dudley as the map had them; Sutton Coldfield is in it already)
+                 "Q3561": (16, set(), "own"),
+                 "Q10686": (14, set(), "sum"), "Q4093": (14, set(), "sum"),
+                 "Q134902": (5, set(), "sum"), "Q18125": (10, set(), "sum"), "Q24826": (4, set(), "sum"), "Q1425428": (3, set(), "sum"),
+                 "Q3882": (16, set())}   # (2026-11-27: Belfast with Lisburn, 12 km off; Glasgow with Paisley and East Kilbride; Stoke-on-Trent with Newcastle-under-Lyme; Manama, its urban figure, without Hamad Town, Riffa and A'ali)
 STATE = re.compile(r"^(state|province) of |^region$|^first-level administrative", re.I)
 # (the country and state wanted, over the map's faces', which are simplified: a city by a border can fall on the
 #  wrong side -- Mexicali in California, Villa del Rosario in Venezuela -- or in the neighbour's state: 2026-11-26,
@@ -151,7 +194,7 @@ CITY_PLACE = {"Q199440": ("MX", "MX-BCN"), "Q923525": ("CO", "CO-NSA"), "Q14773"
 # SPAIN'S MUNICIPALITIES (2026-11-26): OSM's count for a Spanish place is its main settlement's (the núcleo: Toledo
 # 60,505, Tarragona 69,000), Wikidata's the municipality's (87,000; 144,000) -- of the same year. Here the larger.
 MUNICIPAL_BY_WIKIDATA = {"ES"}
-CITY_POPULATION = {"Q239": 1_250_000}   # (the population wanted, over OSM's, Wikidata's and Wikipedia's: Brussels -- OSM's node is the City of Brussels, a municipality of 200,000; its article gives the Region's 1.25 million and no urban figure)
+CITY_POPULATION = {"Q239": 1_250_000, "Q2088506": 104_083, "Q205905": 87_246, "Q662291": 118_632}   # (2026-11-27: Rundu, Namibia -- its 2023 census, Wikidata; OSM has 2011's 63,431; Lancaster with Morecambe, 52,660 + 34,586, both 2021 by Wikidata; Nkayi, Congo -- its 2023 count, Wikidata; OSM has 2007's 71,620) (the population wanted, over OSM's, Wikidata's and Wikipedia's: Brussels -- OSM's node is the City of Brussels, a municipality of 200,000; its article gives the Region's 1.25 million and no urban figure)
 ALSO_MONUMENTS = {"Q857763": ("Caminito del Rey", "landform", -4.773, 36.916, 25, "relation/4678863")}   # (wanted all the same, though of no kind KINDS knows and with no count, by Wikidata item: its name, kind, lon, lat, Wikipedias, OSM -- a walkway in a gorge)
 MIN_HERITAGE_WIKIPEDIAS = 10   # a World Heritage Site's item is kept when this many Wikipedias write about it (not each part)
 CATALOGUE = re.compile(r"[A-Z]{1,4} ?\d+[A-Za-z]?")     # a name that is only a number in a list: the Valley of the
@@ -195,11 +238,11 @@ STRONG = {"castle", "palace", "religious", "archaeological", "tomb", "monument",
 
 
 def num(s):
-    """a population tag as a number: '1234567', '1 234 567', '1,234,567', '1.234.567', '~120000 (2011)' -> int | None"""
+    """a population tag as a number: '1234567', '1 234 567', '1,234,567', '1.234.567', '122’937', '~120000 (2011)' -> int | None"""
     if s is None:
         return None
     s = str(s).strip().lstrip("~≈ca. ")
-    m = re.match(r"^\d{1,3}(?:[ ,.'  ]\d{3})+(?!\d)|^\d+", s)
+    m = re.match(r"^\d{1,3}(?:[ ,.'’  ]\d{3})+(?!\d)|^\d+", s)   # (’: Swiss -- Winterthur's '122’937' was read as 122)
     if not m:
         return None
     return int(re.sub(r"\D", "", m.group(0)))
@@ -263,7 +306,6 @@ class Where:
         return out_c, out_r
 
 
-CITY_COLUMNS = ["name", "lon", "lat", "population", "place", "capital", "country", "region", "name_local", "wikidata", "osm"]
 MONUMENT_COLUMNS = ["name", "lon", "lat", "kind", "level", "visitors", "visitors_year", "country", "region", "name_local", "wikidata", "osm"]
 AIRPORT_COLUMNS = ["name", "lon", "lat", "iata", "icao", "city", "level", "passengers", "passengers_year", "country", "region"]
 
@@ -489,16 +531,23 @@ def greater(rows):
         print(f'{r["name"]}: {title} {r["population"]:,}; {len(gone)} of its places dropped ({", ".join(o["name"] for o in gone)})'
               + (f'; kept: {", ".join(o["name"] for o in keep)}' if keep else ""), flush=True)
     for r in rows:
-        if r["wikidata"] not in GREATER_ROUND:
+        g = r["wikidata"] if r["wikidata"] in GREATER_ROUND else r["osm"]   # (by its OSM node, a city without an item: Cebu City)
+        if g not in GREATER_ROUND:
             continue
-        reach, kept, *pop = GREATER_ROUND[r["wikidata"]]
-        if pop:                                        # (the area's figure, where the city's own is less: Kolkata's)
-            r["population"] = pop[0]
+        reach, kept, *pop = GREATER_ROUND[g]
+        how = pop[0] if pop else "area"
+        if isinstance(how, int):                       # (the area's figure, where the city's own is less: Kolkata's)
+            r["population"] = how
+        if id(r) in drop:
+            continue
         near = [o for o in rows if o is not r and o["country"] == r["country"] and km(r, o) < reach and id(o) not in drop]
-        keep = [o for o in near if o["wikidata"] in kept]
+        keep = [o for o in near if o["wikidata"] in kept or o["osm"] in kept]
         gone = [o for o in near if o not in keep]
         drop |= {id(o) for o in gone}
-        r["population"] -= sum(o["population_municipal"] for o in keep)
+        if how == "sum":                               # (the city's own count, its suburbs' added: Medellín's Bello, Itagüí)
+            r["population"] += sum(o["population_municipal"] for o in gone)
+        elif how != "own":                             # (own: the dropped are inside the city's own count -- Birmingham's Sutton Coldfield)
+            r["population"] -= sum(o["population_municipal"] for o in keep)
         r["population_source"], r["population_year"] = "greater", None
         print(f'{r["name"]}: {r["population"]:,}; {len(gone)} places within {reach} km dropped ({", ".join(o["name"] for o in gone[:12])}...); kept: {", ".join(o["name"] for o in keep)}', flush=True)
     return sorted([r for r in rows if id(r) not in drop], key=lambda r: -r["population"])
@@ -817,8 +866,8 @@ def cities(where):
     by = collections.Counter(r["population_source"] for r in rows)
     for r in rows:
         r["population"] = round_pop(r["population"])
-    path = os.path.join(ROOT, "data/cities.csv")
-    write_points(rows, CITY_COLUMNS, path)
+    path = citiescsv.PATH
+    citiescsv.write([wdnames.drop_unread(dict(r)) for r in rows], path, coord=lambda v: round(v, COORD_DECIMALS) + 0.0)   # (grouped by country, and state: citiescsv.py)
     # (where each figure came from -- osm, wikidata, wikipedia-urban, wikipedia-metro, city-proper, set -- and the
     #  municipal count it replaced: build/popcheck.py --spill reads it)
     json.dump({r["osm"] or r["wikidata"]: [r["population_source"], r["population_municipal"]] for r in rows}, open(os.path.join(RAW, "city_sources.json"), "w"))
@@ -846,7 +895,7 @@ def twice(out, why):
     fold = lambda s: unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower().strip()
     words = lambda s: frozenset(re.findall(r"[a-z0-9]+", fold(s)))
     xy = lambda r: (r["lon"] * np.cos(np.radians(r["lat"])), r["lat"])
-    cities = list(csv.DictReader(open(os.path.join(ROOT, "data/cities.csv"), encoding="utf-8")))
+    cities = citiescsv.read()
     ct = cKDTree([xy({"lon": float(c["lon"]), "lat": float(c["lat"])}) for c in cities])
     drop, gone = set(), []
     for i, r in enumerate(out):
@@ -963,7 +1012,7 @@ def monuments(where):
         r["level"] = level(r["visitors"], MONUMENT_LEVELS) if r.get("visitors") else level(r.get("wikipedias"), FAME_LEVELS)
     out.sort(key=lambda r: (r["level"], -(r.get("visitors") or 0), -(r.get("wikipedias") or 0)))
     path = os.path.join(ROOT, "data/monuments.csv")
-    write_points(out, MONUMENT_COLUMNS, path)
+    write_points([wdnames.drop_unread(dict(r)) for r in out], MONUMENT_COLUMNS, path)
     print(f"{path}: {len(out)} monuments ({dict(collections.Counter(r['kind'] for r in out).most_common())};",
           f"by level {dict(sorted(collections.Counter(r['level'] for r in out).items()))}); left out: {dict(why)}", flush=True)
 
